@@ -1,4 +1,6 @@
-public class PreguntaTest
+using System;
+
+public partial class PreguntaTest
 {
     public PreguntaTest()
     {

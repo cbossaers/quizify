@@ -1,7 +1,9 @@
-public class Pregunta
+using System;
+
+public partial class Pregunta
 {
     public Pregunta()
-    { 
-    
+    {
+        
     }
 }
