@@ -32,5 +32,9 @@ public partial class PreguntaTest
         get;
         set;
     }
+    public int correcta {
+        get;
+        set;
+    }
     
 }
