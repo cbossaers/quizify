@@ -1,3 +1,5 @@
+CREATE TYPE "INTEGER[]" as TABLE(value INTEGER)
+
 CREATE TABLE pregunta (
     id INTEGER NOT NULL,
     ver INTEGER NOT NULL,
@@ -33,7 +35,10 @@ CREATE TABLE pregunta_test (
 
 CREATE TABLE pregunta_desarrollo (
     id INTEGER NOT NULL,
-    ver INTEGER NOT NULL
+    ver INTEGER NOT NULL,
+    PRIMARY KEY (id, ver),
+    FOREIGN KEY (id) REFERENCES pregunta(id),
+    FOREIGN KEY (ver) REFERENCES pregunta(ver)
 )
 
 CREATE TABLE examen (
@@ -47,10 +52,11 @@ CREATE TABLE examen (
     fecha_fin DATETIME NOT NULL,
     intentos INTEGER NOT NULL,
     CT VARCHAR(32),
-    --preguntas,
+    preguntas "INTEGER[]" NOT NULL,
     volver_atras INTEGER NOT NULL,
     errores_restan INTEGER NOT NULL,
     mostrar_resultados INTEGER NOT NULL,
+    FOREIGN KEY (autor) REFERENCES profesor(correo)
 )
 
 CREATE TABLE entidad (
@@ -63,6 +69,7 @@ CREATE TABLE alumno (
     contraseña VARCHAR(32) NOT NULL,
     nombre VARCHAR(128) NOT NULL,
     apellidos VARCHAR(256) NOT NULL
+    FOREIGN key (correo) REFERENCES entidad(correo)
 )
 
 CREATE TABLE profesor (
@@ -70,19 +77,26 @@ CREATE TABLE profesor (
     contraseña VARCHAR(32) NOT NULL,
     nombre VARCHAR(128) NOT NULL,
     apellidos VARCHAR(256) NOT NULL,
-    --almacenamiento REAL NOT NULL
+    almacenamiento FLOAT NOT NULL,
+    quizes INTEGER NOT NULL,
+    FOREIGN key (correo) REFERENCES entidad(correo)
 )
 
 CREATE TABLE institucion (
     correo VARCHAR(256) PRIMARY KEY,
     contraseña VARCHAR(32) NOT NULL,
-    nombre VARCHAR(128) NOT NULL
+    nombre VARCHAR(128) NOT NULL,
+    quizes INTEGER NOT NULL,
+    FOREIGN key (correo) REFERENCES entidad(correo)
 )
 
 CREATE TABLE notas_examenes (
     alumno VARCHAR(256) NOT NULL,
     examen INTEGER NOT NULL,
     --respuestas
-    nota REAL NOT NULL
+    nota FLOAT NOT NULL,
+    PRIMARY KEY (alumno, id),
+    FOREIGN KEY (alumno) REFERENCES alumno(correo),
+    FOREIGN KEY (id) REFERENCES examen(id)
 )
 
