@@ -1,0 +1,81 @@
+CREATE TABLE pregunta (
+    id INTEGER NOT NULL,
+    ver INTEGER NOT NULL,
+    enunciado VARCHAR(512) NOT NULL,
+    tipo VARCHAR(16) NOT null
+)
+
+CREATE TABLE pregunta_vf (
+    id INTEGER NOT NULL,
+    ver INTEGER NOT NULL,
+    opc_a VARCHAR(256) NOT NULL,
+    opc_b VARCHAR(256) NOT NULL,
+    correcta INTEGER NOT null
+)
+
+CREATE TABLE pregunta_test (
+    id INTEGER NOT NULL,
+    ver INTEGER NOT NULL,
+    opc_a VARCHAR(256) NOT NULL,
+    opc_b VARCHAR(256) NOT NULL,
+    opc_c varchar(256) NOT null,
+    opc_d varchar(256),
+    opc_e varchar(256),
+    correcta INTEGER NOT null
+)
+
+CREATE TABLE pregunta_desarrollo (
+    id INTEGER NOT NULL,
+    ver INTEGER NOT NULL
+)
+
+CREATE TABLE examen (
+    id INTEGER PRIMARY KEY,
+    titulo VARCHAR(256) NOT NULL,
+    descripcion VARCHAR(512) NOT NULL,
+    autor VARCHAR(256) NOT NULL,
+    curso VARCHAR(32) NOT NULL,
+    tiempo INTEGER,
+    fecha_ini DATETIME NOT NULL,
+    fecha_fin DATETIME NOT NULL,
+    intentos INTEGER NOT NULL,
+    CT VARCHAR(32),
+    --preguntas,
+    volver_atras INTEGER NOT NULL,
+    errores_restan INTEGER NOT NULL,
+    mostrar_resultados INTEGER NOT NULL,
+)
+
+CREATE TABLE entidad (
+    correo VARCHAR(256) PRIMARY KEY,
+    tipo VARCHAR(16) NOT NULL
+)
+
+CREATE TABLE alumno (
+    correo VARCHAR(256) PRIMARY KEY,
+    contraseña VARCHAR(32) NOT NULL,
+    nombre VARCHAR(128) NOT NULL,
+    apellidos VARCHAR(256) NOT NULL
+)
+
+CREATE TABLE profesor (
+    correo VARCHAR(256) PRIMARY KEY,
+    contraseña VARCHAR(32) NOT NULL,
+    nombre VARCHAR(128) NOT NULL,
+    apellidos VARCHAR(256) NOT NULL,
+    --almacenamiento REAL NOT NULL
+)
+
+CREATE TABLE institucion (
+    correo VARCHAR(256) PRIMARY KEY,
+    contraseña VARCHAR(32) NOT NULL,
+    nombre VARCHAR(128) NOT NULL
+)
+
+CREATE TABLE notas_examenes (
+    alumno VARCHAR(256) NOT NULL,
+    examen INTEGER NOT NULL,
+    --respuestas
+    nota REAL NOT NULL
+)
+
