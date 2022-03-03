@@ -2,7 +2,8 @@ CREATE TABLE pregunta (
     id INTEGER NOT NULL,
     ver INTEGER NOT NULL,
     enunciado VARCHAR(512) NOT NULL,
-    tipo VARCHAR(16) NOT null
+    tipo VARCHAR(16) NOT NULL,
+    PRIMARY KEY (id, ver)
 )
 
 CREATE TABLE pregunta_vf (
@@ -10,7 +11,10 @@ CREATE TABLE pregunta_vf (
     ver INTEGER NOT NULL,
     opc_a VARCHAR(256) NOT NULL,
     opc_b VARCHAR(256) NOT NULL,
-    correcta INTEGER NOT null
+    correcta INTEGER NOT null,
+    PRIMARY KEY (id, ver),
+    FOREIGN KEY (id) REFERENCES pregunta(id),
+    FOREIGN KEY (ver) REFERENCES pregunta(ver)
 )
 
 CREATE TABLE pregunta_test (
@@ -18,10 +22,13 @@ CREATE TABLE pregunta_test (
     ver INTEGER NOT NULL,
     opc_a VARCHAR(256) NOT NULL,
     opc_b VARCHAR(256) NOT NULL,
-    opc_c varchar(256) NOT null,
+    opc_c varchar(256) NOT NULL,
     opc_d varchar(256),
     opc_e varchar(256),
-    correcta INTEGER NOT null
+    correcta INTEGER NOT NULL,
+    PRIMARY KEY (id, ver),
+    FOREIGN KEY (id) REFERENCES pregunta(id),
+    FOREIGN KEY (ver) REFERENCES pregunta(ver)
 )
 
 CREATE TABLE pregunta_desarrollo (
