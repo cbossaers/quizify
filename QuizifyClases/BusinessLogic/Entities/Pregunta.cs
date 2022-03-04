@@ -2,10 +2,10 @@ using System;
 
 public partial class Pregunta
 {
-    public Pregunta(int Id, int ver, string Enunciado, string Tipo)
+    public Pregunta(int Id, string Enunciado, string Tipo)
     {
         ID = Id;
-        version = ver;
+        version = 1;
         enunciado = Enunciado;
         tipo = Tipo;
     }

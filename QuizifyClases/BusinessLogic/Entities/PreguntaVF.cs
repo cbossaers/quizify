@@ -2,7 +2,7 @@ using System;
 
 public partial class PreguntaVF : Pregunta
 {
-    public PreguntaVF(int Id, int ver, string Enunciado, string Tipo, int OpCorrecta):base(Id, ver, Enunciado, Tipo)
+    public PreguntaVF(int Id, string Enunciado, string Tipo, int OpCorrecta):base(Id, Enunciado, Tipo)
     {
         correcta = OpCorrecta;
     }

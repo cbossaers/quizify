@@ -2,8 +2,8 @@ using System;
 
 public partial class PreguntaTest : Pregunta
 {
-    public PreguntaTest(int Id, int ver, string Enunciado, string Tipo, int OpCorrecta, string opA, string opB,
-        string opC, string opD = null, string opE = null): base(Id, ver, Enunciado, Tipo)
+    public PreguntaTest(int Id, string Enunciado, string Tipo, int OpCorrecta, string opA, string opB,
+        string opC, string opD = null, string opE = null): base(Id, Enunciado, Tipo)
     {
         opc_a = opA;
         opc_b = opB;
