@@ -1,12 +1,12 @@
 using System;
 
-public partial class PreguntaTest
+public partial class PreguntaVF
 {
-    /*public int ID
+    public int ID
     {
         get;
         set;
-    }*/
+    }
     public int correctaVF
     {
         get;

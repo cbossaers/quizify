@@ -1,0 +1,56 @@
+using System;
+
+public partial class Examen
+{   public string nombre {
+        get;
+        set;
+    }
+    public string titulo {
+        get;
+        set;
+    }
+    public string descripcion {
+        get;
+        set;
+    }
+    public string autor {
+        get;
+        set;
+    }
+    public string curso {
+        get;
+        set;
+    }
+    public DateTime fecha_ini {
+        get;
+        set;
+    }
+    public DateTime fecha_fin {
+        get;
+        set;
+    }
+    public int intentos {
+        get;
+        set;
+    }
+    public string CT {
+        get;
+        set;
+    }
+    public int volver_atras {
+        get;
+        set;
+    }
+    public int errores_restan {
+        get;
+        set;
+    }
+    public int mostrar_resultados {
+        get;
+        set;
+    }
+    public int[] preguntas {
+        get;
+        set;
+    }
+}
