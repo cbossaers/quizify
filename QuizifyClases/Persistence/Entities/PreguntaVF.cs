@@ -1,13 +1,18 @@
 using System;
 
-public partial class PreguntaTest
+public partial class PreguntaVF
 {
-    /*public int ID
+    public string opc_a
     {
         get;
         set;
-    }*/
-    public int correctaVF
+    }
+    public string opc_b
+    {
+        get;
+        set;
+    }
+    public int correcta
     {
         get;
         set;

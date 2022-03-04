@@ -2,37 +2,32 @@
 
 public partial class PreguntaTest
 {
-    public int ID
+    private string opc_a
     {
         get;
         set;
     }
-    public string op_a
+    private string opc_b
     {
         get;
         set;
     }
-    public string op_b
+    private string opc_c
     {
         get;
         set;
     }
-    public string op_c
+    private string opc_d
     {
         get;
         set;
     }
-    public string op_d
+    private string opc_e
     {
         get;
         set;
     }
-    public string op_e
-    {
-        get;
-        set;
-    }
-    public int correcta {
+    private int correcta {
         get;
         set;
     }
