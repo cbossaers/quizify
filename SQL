@@ -40,8 +40,6 @@ CREATE TABLE pregunta (
 CREATE TABLE pregunta_vf (
     id INTEGER NOT NULL,
     ver INTEGER NOT NULL,
-    opc_a VARCHAR(256) NOT NULL,
-    opc_b VARCHAR(256) NOT NULL,
     correcta INTEGER NOT null,
     PRIMARY KEY (id, ver),
     FOREIGN KEY (id, ver) REFERENCES pregunta(id, ver)
