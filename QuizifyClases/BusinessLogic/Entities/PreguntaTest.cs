@@ -1,28 +1,35 @@
 using System;
 
-public partial class PreguntaTest
+public partial class PreguntaTest : Pregunta
 {
-    public PreguntaTest(string opA, string opB, string opC, int OpCorrecta)
+    public PreguntaTest(int Id, int ver, string Enunciado, string Tipo, int OpCorrecta, string opA, string opB,
+        string opC, string opD = null, string opE = null): base(Id, ver, Enunciado, Tipo)
     {
-        op_a = opA;
-        op_b = opB;
-        op_c = opC;
-        //correcta = OpCorrecta;
+        opc_a = opA;
+        opc_b = opB;
+        opc_c = opC;
+        opc_d = opD;
+        opc_e = opE;
+        correcta = OpCorrecta;
     }
     public void setPreguntaA(string A)
     {
-        op_a = A;
+        opc_a = A;
     }
     public void setPreguntaB(string B)
     {
-        op_b = B;
+        opc_b = B;
     }
     public void setPreguntaC(string C)
     {
-        op_c = C;
+        opc_c = C;
     }
     public void setPreguntaD(string D)
     {
-        op_d = D;
+        opc_d = D;
+    }
+    public void setPreguntaE(string E)
+    {
+        opc_e = E;
     }
 }

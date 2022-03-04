@@ -2,17 +2,22 @@ using System;
 
 public partial class Pregunta
 {
-    public int ID
+    private int ID
     {
         get;
         set;
     }
-    public string enunciado
+    private int version
     {
         get;
         set;
     }
-    public string tipo
+    private string enunciado
+    {
+        get;
+        set;
+    }
+    private string tipo
     {
         get;
         set;
