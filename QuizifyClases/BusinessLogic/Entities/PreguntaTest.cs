@@ -12,6 +12,30 @@ public partial class PreguntaTest : Pregunta
         opc_e = opE;
         correcta = OpCorrecta;
     }
+    public string getPreguntaA()
+    {
+        return opc_a;
+    }
+    public string getPreguntaB()
+    {
+        return opc_b;
+    }
+    public string getPreguntaC()
+    {
+        return opc_c;
+    }
+    public string getPreguntaD()
+    {
+        return opc_d;
+    }
+    public string getPreguntaE()
+    {
+        return opc_e;
+    }
+    public int getCorrecta()
+    {
+        return correcta;
+    }
     public void setPreguntaA(string A)
     {
         opc_a = A;
@@ -31,5 +55,9 @@ public partial class PreguntaTest : Pregunta
     public void setPreguntaE(string E)
     {
         opc_e = E;
+    }
+    public void setCorrecta(int OpCorrecta)
+    {
+        correcta = OpCorrecta;
     }
 }
