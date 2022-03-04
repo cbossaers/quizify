@@ -8,7 +8,7 @@ CREATE TABLE alumno (
     contraseña VARCHAR(32) NOT NULL,
     nombre VARCHAR(128) NOT NULL,
     apellidos VARCHAR(256) NOT NULL
-    FOREIGN key (correo) REFERENCES entidad(correo)
+    FOREIGN KEY (correo) REFERENCES entidad(correo)
 )
 
 CREATE TABLE profesor (
@@ -18,7 +18,7 @@ CREATE TABLE profesor (
     apellidos VARCHAR(256) NOT NULL,
     almacenamiento FLOAT NOT NULL,
     quizes INTEGER NOT NULL,
-    FOREIGN key (correo) REFERENCES entidad(correo)
+    FOREIGN KEY (correo) REFERENCES entidad(correo)
 )
 
 CREATE TABLE institucion (
@@ -26,7 +26,7 @@ CREATE TABLE institucion (
     contraseña VARCHAR(32) NOT NULL,
     nombre VARCHAR(128) NOT NULL,
     quizes INTEGER NOT NULL,
-    FOREIGN key (correo) REFERENCES entidad(correo)
+    FOREIGN KEY (correo) REFERENCES entidad(correo)
 )
 
 CREATE TABLE pregunta (
