@@ -1,7 +1,12 @@
 using System;
 
 public partial class Examen
-{   public string nombre {
+{   
+    public int ID {
+        get;
+        set;
+    }
+    public string nombre {
         get;
         set;
     }
