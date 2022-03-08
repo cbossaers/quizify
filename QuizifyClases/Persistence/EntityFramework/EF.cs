@@ -4,7 +4,7 @@ using System.Data;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
-public class Tutorial2
+public class EF
 {
     public static void Main()
     {
