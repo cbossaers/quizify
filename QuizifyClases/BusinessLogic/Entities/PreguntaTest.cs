@@ -1,16 +1,16 @@
 using System;
+using System.Collections.Generic;
 
 public partial class PreguntaTest : Pregunta
 {
-    public PreguntaTest(int Id, string Enunciado, string Tipo, int OpCorrecta, string opA, string opB,
-        string opC, string opD = null, string opE = null): base(Id, Enunciado, Tipo)
+    public PreguntaTest(int Id, string Enunciado, string Tipo, List<string> lista): base(Id, Enunciado, Tipo)
     {
-        opc_a = opA;
-        opc_b = opB;
-        opc_c = opC;
-        opc_d = opD;
-        opc_e = opE;
-        correcta = OpCorrecta;
+        opc_a = lista[1];
+        opc_b = lista[2];
+        opc_c = lista[3];
+        if(lista.Count > 4)  opc_d = lista[4]; else opc_d = null; opc_e = null;
+        if(lista.Count > 5)  opc_e = lista[5]; else opc_e = null;
+        correcta = Int32.Parse(lista[0]);
     }
     public string getPreguntaA()
     {

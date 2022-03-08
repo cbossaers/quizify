@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public partial class Examen
 {
@@ -25,11 +26,10 @@ public partial class Examen
         return true;
     }
 
-    public dynamic crear_pregunta(string enunciado, string tipo) {
+    public dynamic crear_pregunta(string enunciado, string tipo, List<string> opciones = null) {
         switch(tipo){
-            case("VF"): return true; //return new PreguntaVF(3, enunciado, tipo);
-            case("Test"): return true;
-            case("Desarrollo"): return true;
+            case("VF"): return new PreguntaVF(8, enunciado, tipo, Int32.Parse(opciones[0]));
+            case("Test"): return new PreguntaTest(9, enunciado, tipo,  opciones);
             default: return true;
         }
     }
