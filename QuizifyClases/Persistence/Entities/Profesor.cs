@@ -18,7 +18,7 @@ public partial class Profesor
         get;
         set;
     }
-    public string quizes {
+    public string bonos {
         get;
         set;
     }
