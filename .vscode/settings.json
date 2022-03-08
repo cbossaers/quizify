@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "88.17.118.109",
+            "port": 7890,
+            "driver": "MariaDB",
+            "name": "Test1",
+            "database": "wpdb",
+            "username": "wpuser",
+            "password": "password"
+        }
+    ]
+}

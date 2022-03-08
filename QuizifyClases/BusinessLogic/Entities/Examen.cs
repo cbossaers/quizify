@@ -25,7 +25,11 @@ public partial class Examen
         return true;
     }
 
-    public Pregunta crear_pregunta(string enunciado, string tipo) {
-        
+    public dynamic crear_pregunta(string enunciado, string tipo) {
+        switch(tipo){
+            case("VF"): return new PreguntaVF(3, enunciado, tipo, )
+            case("Test"): return true;
+            case("Desarrollo"): return true;
+        }
     }
 }
