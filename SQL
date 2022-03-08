@@ -1,15 +1,15 @@
 CREATE TABLE entidad (
     correo VARCHAR(256) PRIMARY KEY,
     tipo VARCHAR(16) NOT NULL
-)
+);
 
 CREATE TABLE alumno (
     correo VARCHAR(256) PRIMARY KEY,
     contraseña VARCHAR(32) NOT NULL,
     nombre VARCHAR(128) NOT NULL,
-    apellidos VARCHAR(256) NOT NULL
+    apellidos VARCHAR(256) NOT NULL,
     FOREIGN KEY (correo) REFERENCES entidad(correo)
-)
+);
 
 CREATE TABLE profesor (
     correo VARCHAR(256) PRIMARY KEY,
@@ -19,7 +19,7 @@ CREATE TABLE profesor (
     almacenamiento FLOAT NOT NULL,
     quizes INTEGER NOT NULL,
     FOREIGN KEY (correo) REFERENCES entidad(correo)
-)
+);
 
 CREATE TABLE institucion (
     correo VARCHAR(256) PRIMARY KEY,
@@ -27,7 +27,7 @@ CREATE TABLE institucion (
     nombre VARCHAR(128) NOT NULL,
     quizes INTEGER NOT NULL,
     FOREIGN KEY (correo) REFERENCES entidad(correo)
-)
+);
 
 CREATE TABLE pregunta (
     id INTEGER NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE pregunta (
     enunciado VARCHAR(512) NOT NULL,
     tipo VARCHAR(16) NOT NULL,
     PRIMARY KEY (id, ver)
-)
+);
 
 CREATE TABLE pregunta_vf (
     id INTEGER NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE pregunta_vf (
     correcta INTEGER NOT null,
     PRIMARY KEY (id, ver),
     FOREIGN KEY (id, ver) REFERENCES pregunta(id, ver)
-)
+);
 
 CREATE TABLE pregunta_test (
     id INTEGER NOT NULL,
@@ -56,14 +56,14 @@ CREATE TABLE pregunta_test (
     correcta INTEGER NOT NULL,
     PRIMARY KEY (id, ver),
     FOREIGN KEY (id, ver) REFERENCES pregunta(id, ver)
-)
+);
 
 CREATE TABLE pregunta_desarrollo (
     id INTEGER NOT NULL,
     ver INTEGER NOT NULL,
     PRIMARY KEY (id, ver),
     FOREIGN KEY (id, ver) REFERENCES pregunta(id, ver)
-)
+);
 
 CREATE TABLE examen (
     id INTEGER PRIMARY KEY,
@@ -79,8 +79,8 @@ CREATE TABLE examen (
     volver_atras INTEGER NOT NULL,
     errores_restan INTEGER NOT NULL,
     mostrar_resultados INTEGER NOT NULL,
-    FOREIGN KEY (autor) REFERENCES profesor(correo),
-)
+    FOREIGN KEY (autor) REFERENCES profesor(correo)
+);
 
 CREATE TABLE lista_preguntas (
     id_examen INTEGER NOT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE lista_preguntas (
     PRIMARY KEY (id_examen, id_pregunta),
     FOREIGN KEY (id_examen) REFERENCES examen(id),
     FOREIGN KEY (id_pregunta, ver_pregunta) REFERENCES pregunta(id, ver)
-)
+);
 
 CREATE TABLE notas_examenes (
     alumno VARCHAR(256) NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE notas_examenes (
     PRIMARY KEY (alumno, examen),
     FOREIGN KEY (alumno) REFERENCES alumno(correo),
     FOREIGN KEY (examen) REFERENCES examen(id)
-)
+);
 
 CREATE TABLE respuestas_examenes (
     examen INTEGER NOT NULL,
@@ -111,4 +111,4 @@ CREATE TABLE respuestas_examenes (
     FOREIGN KEY (examen) REFERENCES examen(id),
     FOREIGN KEY (alumno) REFERENCES alumno(correo),
     FOREIGN KEY (pregunta, ver_pregunta) REFERENCES pregunta(id, ver)
-)
+);
