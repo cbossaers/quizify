@@ -1,5 +1,6 @@
 using System;
 
+namespace Quizify.Entities
 public partial class Profesor
 {
     public string contraseña {
