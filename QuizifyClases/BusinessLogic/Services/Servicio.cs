@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using Quizify.Entities;
+using Quizify.Persistence;
 
 namespace Quizify.Services
 {
     public class Servicio : IServicio
     {
+        private readonly DAL dal;
+        public Servicio(DAL dal)
+        {
+            this.dal = dal;
+        }
         public void addPreguntaVF(PreguntaVF preguntaFV)
         {
             if (true)
@@ -27,7 +33,7 @@ namespace Quizify.Services
         {
             if (true)
             {
-                //no existe el mismo Id
+                dal.addEntidad(alumno.correo, alumno.contraseña, alumno.tipo, alumno.nombre, alumno.apellidos);
             }
             else throw new ServicioException("El alumno con correo " + alumno.getCorreo() + " ya existe");
         }
