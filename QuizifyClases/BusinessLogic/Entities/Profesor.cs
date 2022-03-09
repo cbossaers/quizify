@@ -1,5 +1,5 @@
 using System;
-
+namespace Quizify.Entities { 
 public partial class Profesor :Entidad
 {
     public Profesor(string correo, string contraseña, string nombre, string apellidos, double almacenamiento, int quizes, string tipo) : base(correo, tipo) 
@@ -51,5 +51,6 @@ public partial class Profesor :Entidad
     public void setQuizes(int quizes)
     {
         this.quizes = quizes;
+    }
     }
 }

@@ -1,12 +1,14 @@
 using System;
 
-public partial class Institucion
+namespace Quizify.Entities
 {
-    public string nombre
+    public partial class Institucion
     {
-        get;
-        set;
-    }
+        public string nombre
+        {
+            get;
+            set;
+        }
 
     public string contraseña
     {
@@ -19,4 +21,5 @@ public partial class Institucion
         set;
     }
 
+    }
 }
