@@ -39,5 +39,9 @@ namespace Quizify.Entities
                 default: return true;
             }
         }
+        public int getId()
+        {
+            return ID;
+        }
     }
 }
