@@ -10,7 +10,7 @@ namespace Quizify.Entities
             set;
         }
 
-        public string contraseña
+        public string contraseÃ±a
         {
             get;
             set;
