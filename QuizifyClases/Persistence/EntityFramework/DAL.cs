@@ -2,6 +2,7 @@
 using System.Data;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 
 namespace Quizify.Persistence {
 
@@ -90,10 +91,50 @@ public class DAL {
                 tipo = rdr.GetString("tipo");
         }
 
-        string consulta = "SELECT * from PSWC." + tipo + "WHERE correo='" + correo + "';";
+        string consulta = "SELECT * from PSWC." + tipo + "WHERE correo='" + correo + "';"; 
+
+        MySqlCommand cmd2 = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr2 = cmd.ExecuteReader();
 
         conn.Close();
 
-        return consulta;
+        return consulta; //pendiente de arreglar, no se qué devuelve
+    }
+
+    public dynamic getPregunta(int id, int ver) {
+        conn.Open();
+
+        string tipo = "SELECT * FROM PSWC.entidad WHERE id= '" + id + "' and ver= '" + ver + "';";
+        string enunciado = "";
+        List<string> respuestas = new List<string>();
+        int correcta = 0;
+
+        MySqlCommand cmd = new MySqlCommand(tipo, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+
+        while (rdr.Read()) {
+                tipo = rdr.GetString("tipo");
+                enunciado = rdr.GetString("enunciado");
+        }
+
+        string consulta = "SELECT * from PSWC." + tipo + "WHERE id= '" + id + "' and ver= '" + ver + "';";
+
+        MySqlCommand cmd2 = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr2 = cmd.ExecuteReader();
+
+        while (rdr2.Read()) {
+                enunciado = rdr2.GetString("enunciado");
+                if(tipo.Equals("Test")) {
+                    respuestas.Add(rdr2.GetString("opc_a"));
+                    respuestas.Add(rdr2.GetString("opc_b"));
+                    respuestas.Add(rdr2.GetString("opc_c"));
+                    respuestas.Add(rdr2.GetString("opc_d"));
+                    respuestas.Add(rdr2.GetString("opc_e"));
+                    correcta = rdr2.GetInt32("correcta");
+
+                } else if(tipo.Equals("VF")) { correcta = rdr2.GetInt32("correcta"); }
+        }
+        
+        return true;
     }
 }}
