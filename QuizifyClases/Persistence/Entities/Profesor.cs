@@ -14,11 +14,12 @@ public partial class Profesor
         get;
         set;
     }
-    public string almacenamiento {
+    public double almacenamiento {
         get;
         set;
     }
-    public string bonos {
+    public int quizes
+    {
         get;
         set;
     }

@@ -3,7 +3,7 @@ using System;
 public partial class Alumno : Entidad
 {
     
-    public Alumno(string correo, string nombre, string apellidos, string contraseña, string tipo) : base(correo, tipo)
+    public Alumno(string correo, string contraseña, string nombre, string apellidos, string tipo= "alumno") : base(correo, tipo)
     {
         this.nombre = nombre;   
         this.apellidos = apellidos;
@@ -22,14 +22,7 @@ public partial class Alumno : Entidad
     {
         return contraseña;
     }
-    public int getNota_media()
-    {
-        return nota_media;
-    }
-    public int getNota_CT()
-    {
-        return nota_CT;
-    }
+    
     public void setNombre(string nombre)
     {
         this.nombre = nombre;
@@ -42,12 +35,5 @@ public partial class Alumno : Entidad
     {
         this.contraseña = contraseña;
     }
-    public void setNota_media(int nota_media)
-    {
-        this.nota_media = nota_media;
-    }
-    public void setNota_CT(int nota_CT)
-    {
-        this.nota_CT = nota_CT;
-    }
+    
 }

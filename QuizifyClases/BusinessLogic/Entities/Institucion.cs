@@ -2,11 +2,11 @@ using System;
 
 public partial class Institucion : Entidad
 {
-    public Institucion(string correo, string nombre, string contraseña, string bonos, string tipo) : base(correo, tipo)
+    public Institucion(string correo, string contraseña, string nombre, int quizes, string tipo) : base(correo, tipo)
     {
         this.nombre = nombre;
         this.contraseña = contraseña;
-        this.bonos = bonos;
+        this.quizes = quizes;
     }
     public string getNombre()
     {
@@ -18,9 +18,9 @@ public partial class Institucion : Entidad
         return contraseña;
     }
     
-    public string getBonos()
+    public int getQuizes()
     {
-        return bonos;
+        return quizes;
     }
     public void setNombre(string nombre)
     {
@@ -32,8 +32,8 @@ public partial class Institucion : Entidad
         this.contraseña = contraseña;
     }
     
-    public void setBonos(string bonos)
+    public void setQuizes(int quizes)
     {
-        this.bonos = bonos;
+        this.quizes = quizes;
     }
 }

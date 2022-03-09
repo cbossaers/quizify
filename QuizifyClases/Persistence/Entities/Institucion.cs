@@ -13,7 +13,7 @@ public partial class Institucion
         get;
         set;
     }
-    public string bonos
+    public int quizes
     {
         get;
         set;

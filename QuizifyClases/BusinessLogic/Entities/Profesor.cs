@@ -2,13 +2,13 @@ using System;
 
 public partial class Profesor :Entidad
 {
-    public Profesor(string correo, string nombre, string apellidos, string contraseña, string almacenamiento, string bonos, string tipo) : base(correo, tipo) 
+    public Profesor(string correo, string contraseña, string nombre, string apellidos, double almacenamiento, int quizes, string tipo) : base(correo, tipo) 
     {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.contraseña = contraseña;
         this.almacenamiento = almacenamiento;
-        this.bonos = bonos;
+        this.quizes = quizes;
         
     }
     public string getNombre()
@@ -23,13 +23,13 @@ public partial class Profesor :Entidad
     {
         return contraseña;
     }
-    public string getAlmacenamiento()
+    public double getAlmacenamiento()
     {
         return almacenamiento;
     }
-    public string getBonos()
+    public int getQuizes()
     {
-        return bonos;
+        return quizes;
     }
     public void setNombre(string nombre)
     {
@@ -42,13 +42,14 @@ public partial class Profesor :Entidad
     public void setContraseña(string contraseña)
     {
         this.contraseña = contraseña;
+
     }
-    public void setAlmacenaminento(string almacenamiento)
+    public void setAlmacenaminento(double almacenamiento)
     {
         this.almacenamiento = almacenamiento;
     }
-    public void setBonos(string bonos)
+    public void setQuizes(int quizes)
     {
-        this.bonos = bonos;
+        this.quizes = quizes;
     }
 }
