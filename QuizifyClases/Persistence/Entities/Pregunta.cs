@@ -1,25 +1,28 @@
 using System;
 
-public partial class Pregunta
+namespace Quizify.Entities
 {
-    private int ID
+    public partial class Pregunta
     {
-        get;
-        set;
-    }
-    private int version
-    {
-        get;
-        set;
-    }
-    private string enunciado
-    {
-        get;
-        set;
-    }
-    private string tipo
-    {
-        get;
-        set;
+        private int ID
+        {
+            get;
+            set;
+        }
+        private int version
+        {
+            get;
+            set;
+        }
+        private string enunciado
+        {
+            get;
+            set;
+        }
+        private string tipo
+        {
+            get;
+            set;
+        }
     }
 }
