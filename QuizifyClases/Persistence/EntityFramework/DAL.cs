@@ -6,9 +6,9 @@ using MySql.Data.MySqlClient;
 namespace Quizify.Persistence {
 
 public class DAL {
-    string connStr = "server=88.17.214.52;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
+    static string connStr = "server=88.17.214.52;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
+    MySqlConnection conn = new MySqlConnection(connStr);
     public void addEntidad(string correo, string contraseña, string tipo, string nombre, string apellidos) {
-        MySqlConnection conn = new MySqlConnection(connStr);
         conn.Open();
 
         string entidad = "INSERT into PSWC.entidad(correo,tipo) values(" + correo + "," + tipo + ");";
@@ -42,7 +42,6 @@ public class DAL {
     }
 
     public void modificarContraseña(string correo, string contraseña){
-        MySqlConnection conn = new MySqlConnection(connStr);
         conn.Open();
 
         string tipo = "SELECT tipo FROM PSWC.entidad WHERE correo = " + correo + ";";
@@ -57,7 +56,6 @@ public class DAL {
     }
 
     public void eliminarEntidad(string correo){
-        MySqlConnection conn = new MySqlConnection(connStr);
         conn.Open();
 
         string tipo = "SELECT tipo FROM PSWC.entidad WHERE correo= '" + correo + "';";
@@ -78,5 +76,24 @@ public class DAL {
         MySqlDataReader rdr3 = cmd.ExecuteReader();
 
         conn.Close();
+    }
+
+    public dynamic getEntidad(string correo) {
+        conn.Open();
+
+        string tipo = "SELECT tipo FROM PSWC.entidad WHERE correo= '" + correo + "';";
+
+        MySqlCommand cmd = new MySqlCommand(tipo, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+
+        while (rdr.Read()) {
+                tipo = rdr.GetString("tipo");
+        }
+
+        string consulta = "SELECT * from PSWC." + tipo + "WHERE correo='" + correo + "';";
+
+        conn.Close();
+
+        return consulta;
     }
 }}
