@@ -1,5 +1,7 @@
 ﻿using System;
-
+using Quizify.Entities;
+using Quizify.Persistence;
+using Quizify.Services;
 namespace AppTest
 {
     class Program
