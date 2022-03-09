@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.1.32210.238
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{67C8A30E-B9D9-439F-B023-91BC1532194B}"
 EndProject
@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizifyClases", "QuizifyCla
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaz", "Interfaz", "{F7E87E52-13C4-4E15-8F87-F6A0669EDDB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizifyIU", "QuizifyIU\QuizifyIU.csproj", "{FD9C29CF-7ECE-4608-8B81-4F97D63A36B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizifyIU", "QuizifyIU\QuizifyIU.csproj", "{FD9C29CF-7ECE-4608-8B81-4F97D63A36B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{19C9A6F8-E3E3-46C0-B0E2-C9DDD3E4CA77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTest", "AppTest\AppTest.csproj", "{731512EF-B669-45D9-9A02-FEA95D12BA15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,18 @@ Global
 		{FD9C29CF-7ECE-4608-8B81-4F97D63A36B2}.Release|x64.Build.0 = Release|Any CPU
 		{FD9C29CF-7ECE-4608-8B81-4F97D63A36B2}.Release|x86.ActiveCfg = Release|Any CPU
 		{FD9C29CF-7ECE-4608-8B81-4F97D63A36B2}.Release|x86.Build.0 = Release|Any CPU
+		{731512EF-B669-45D9-9A02-FEA95D12BA15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{731512EF-B669-45D9-9A02-FEA95D12BA15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{731512EF-B669-45D9-9A02-FEA95D12BA15}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{731512EF-B669-45D9-9A02-FEA95D12BA15}.Debug|x64.Build.0 = Debug|Any CPU
+		{731512EF-B669-45D9-9A02-FEA95D12BA15}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{731512EF-B669-45D9-9A02-FEA95D12BA15}.Debug|x86.Build.0 = Debug|Any CPU
+		{731512EF-B669-45D9-9A02-FEA95D12BA15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{731512EF-B669-45D9-9A02-FEA95D12BA15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{731512EF-B669-45D9-9A02-FEA95D12BA15}.Release|x64.ActiveCfg = Release|Any CPU
+		{731512EF-B669-45D9-9A02-FEA95D12BA15}.Release|x64.Build.0 = Release|Any CPU
+		{731512EF-B669-45D9-9A02-FEA95D12BA15}.Release|x86.ActiveCfg = Release|Any CPU
+		{731512EF-B669-45D9-9A02-FEA95D12BA15}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +68,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E0388E61-2655-491C-BE8C-B03965BC99BA} = {67C8A30E-B9D9-439F-B023-91BC1532194B}
 		{FD9C29CF-7ECE-4608-8B81-4F97D63A36B2} = {F7E87E52-13C4-4E15-8F87-F6A0669EDDB5}
+		{731512EF-B669-45D9-9A02-FEA95D12BA15} = {19C9A6F8-E3E3-46C0-B0E2-C9DDD3E4CA77}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C6FB1E6B-8E28-44D5-A638-9B1AEAE13F12}
