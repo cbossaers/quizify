@@ -3,11 +3,11 @@ namespace Quizify.Entities
 {
     public partial class Profesor : Entidad
     {
-        public Profesor(string correo, string nombre, string apellidos, string contraseña, string almacenamiento, string bonos, string tipo) : base(correo, tipo)
+        public Profesor(string correo, string nombre, string apellidos, string contraseÃ±a, string almacenamiento, string bonos, string tipo) : base(correo, tipo)
         {
             this.nombre = nombre;
             this.apellidos = apellidos;
-            this.contraseña = contraseña;
+            this.contraseÃ±a = contraseÃ±a;
             this.almacenamiento = almacenamiento;
             this.bonos = bonos;
 
@@ -20,9 +20,9 @@ namespace Quizify.Entities
         {
             return apellidos;
         }
-        public string getContraseña()
+        public string getContraseÃ±a()
         {
-            return contraseña;
+            return contraseÃ±a;
         }
         public string getAlmacenamiento()
         {
@@ -40,9 +40,9 @@ namespace Quizify.Entities
         {
             this.apellidos = apellidos;
         }
-        public void setContraseña(string contraseña)
+        public void setContraseÃ±a(string contraseÃ±a)
         {
-            this.contraseña = contraseña;
+            this.contraseÃ±a = contraseÃ±a;
         }
         public void setAlmacenaminento(string almacenamiento)
         {

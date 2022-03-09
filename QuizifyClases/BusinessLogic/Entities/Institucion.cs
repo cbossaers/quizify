@@ -4,10 +4,10 @@ namespace Quizify.Entities
 {
     public partial class Institucion : Entidad
     {
-        public Institucion(string correo, string nombre, string contraseña, string bonos, string tipo) : base(correo, tipo)
+        public Institucion(string correo, string nombre, string contraseÃ±a, string bonos, string tipo) : base(correo, tipo)
         {
             this.nombre = nombre;
-            this.contraseña = contraseña;
+            this.contraseÃ±a = contraseÃ±a;
             this.bonos = bonos;
         }
         public string getNombre()
@@ -15,9 +15,9 @@ namespace Quizify.Entities
             return nombre;
         }
 
-        public string getContraseña()
+        public string getContraseÃ±a()
         {
-            return contraseña;
+            return contraseÃ±a;
         }
 
         public string getBonos()
@@ -29,9 +29,9 @@ namespace Quizify.Entities
             this.nombre = nombre;
         }
 
-        public void setContraseña(string contraseña)
+        public void setContraseÃ±a(string contraseÃ±a)
         {
-            this.contraseña = contraseña;
+            this.contraseÃ±a = contraseÃ±a;
         }
 
         public void setBonos(string bonos)
