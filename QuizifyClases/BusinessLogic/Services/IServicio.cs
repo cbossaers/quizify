@@ -7,19 +7,23 @@ namespace Quizify.Services
 {
     public interface IServicio
     {
-        void addPreguntaVF(PreguntaVF preguntaVF);
-        void addPreguntaTest(PreguntaTest preguntaTest);
-        void addAlumno(Alumno alumno);
-        void addProfesor(Profesor profesor);
-        void addInstitucion(Institucion institucion);
-        void addExamen(Examen examen);
+        public void addPreguntaVF(PreguntaVF preguntaVF);
+        public void addPreguntaTest(PreguntaTest preguntaTest);
+        public void addAlumno(Alumno alumno);
+        public void addProfesor(Profesor profesor);
+        public void addInstitucion(Institucion institucion);
+        public void addExamen(Examen examen);
 
-        PreguntaVF getPreguntaVFById(int Id, int version);
-        PreguntaTest getPreguntaTestById(int Id, int version);
-        Alumno getAlumnoById(string correo);
-        Profesor getProfesorById(string correo);
-        Institucion GetInstitucionById(string correo);
-        Examen GetExamenById(int Id);
+        public PreguntaVF getPreguntaVFById(int Id, int version);
+        public PreguntaTest getPreguntaTestById(int Id, int version);
+        public Alumno getAlumnoById(string correo);
+        public Profesor getProfesorById(string correo);
+        public Institucion GetInstitucionById(string correo);
+        public Examen GetExamenById(int Id);
+
+        public ICollection<dynamic> GetPreguntas();
+        public ICollection<dynamic> GetEntidades();
+        public ICollection<dynamic> GetExamenes();
 
     }
 }

@@ -10,16 +10,16 @@ namespace Quizify.Entities
             set;
         }
 
-        public string contraseña
-        {
-            get;
-            set;
-        }
-        public string bonos
-        {
-            get;
-            set;
-        }
+    public string contraseña
+    {
+        get;
+        set;
+    }
+    public int quizes
+    {
+        get;
+        set;
+    }
 
     }
 }
