@@ -8,7 +8,8 @@ namespace AppTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            DAL dal = new DAL();
+            dal.eliminarEntidad("pepe@pepe.com");
         }
     }
 }

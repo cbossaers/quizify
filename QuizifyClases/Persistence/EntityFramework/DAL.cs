@@ -67,14 +67,19 @@ public class DAL {
         while (rdr.Read()) {
                 tipo = rdr.GetString("tipo");
         }
+        conn.Close();
 
-        string consulta_entidad = "DELETE from PSWC.entidad WHERE correo='" + correo + "';";
-        string consulta_clase = "DELETE from PSWC." + tipo + "WHERE correo='" + correo + "';";
+        conn.Open();
         
-        MySqlCommand cmd2 = new MySqlCommand(consulta_entidad, conn);
+        string consulta_clase = "DELETE from PSWC." + tipo + " WHERE correo='" + correo + "';";
         MySqlCommand cmd3 = new MySqlCommand(consulta_clase, conn);
-        MySqlDataReader rdr2 = cmd.ExecuteReader();
-        MySqlDataReader rdr3 = cmd.ExecuteReader();
+        MySqlDataReader rdr3 = cmd3.ExecuteReader();
+
+        conn.Close();
+        conn.Open();
+        string consulta_entidad = "DELETE from PSWC.entidad WHERE correo='" + correo + "';";
+        MySqlCommand cmd2 = new MySqlCommand(consulta_entidad, conn);
+        MySqlDataReader rdr2 = cmd2.ExecuteReader();
 
         conn.Close();
     }
