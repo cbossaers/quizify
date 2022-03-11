@@ -9,7 +9,9 @@ namespace AppTest
         static void Main(string[] args)
         {
             DAL dal = new DAL();
-            dal.eliminarEntidad("pepe@pepe.com");
+            //dal.eliminarEntidad("correo");
+            //dal.addEntidad("peper@pepe.com", "contraseña", "alumno", "pepito", "lopez");
+            Console.WriteLine(dal.getEntidad("pepe2@pepe.com").nombre);
         }
     }
 }
