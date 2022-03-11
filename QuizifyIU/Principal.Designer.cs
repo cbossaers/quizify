@@ -49,7 +49,7 @@
             // 
             // emailField
             // 
-            this.emailField.Location = new System.Drawing.Point(387, 134);
+            this.emailField.Location = new System.Drawing.Point(441, 136);
             this.emailField.Name = "emailField";
             this.emailField.Size = new System.Drawing.Size(100, 23);
             this.emailField.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             // contraField
             // 
-            this.contraField.Location = new System.Drawing.Point(387, 235);
+            this.contraField.Location = new System.Drawing.Point(441, 219);
             this.contraField.Name = "contraField";
             this.contraField.Size = new System.Drawing.Size(100, 23);
             this.contraField.TabIndex = 4;
@@ -123,6 +123,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Principal";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Principal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -14,5 +14,91 @@ namespace QuizifyIU
         {
             InitializeComponent();
         }
+
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AbrirFormCrearPregunta(object formCrearPregunta)
+        {
+            if (this.panelContenedor.Controls.Count > 0)
+                this.panelContenedor.Controls.RemoveAt(0);
+            Form fCP = formCrearPregunta as Form;
+            fCP.TopLevel = false;
+            fCP.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(fCP);
+            this.panelContenedor.Tag = fCP;
+            fCP.Show();
+        }
+        private void AbrirFormCrearQuiz(object formCrearQuiz)
+        {
+            if (this.panelContenedor.Controls.Count > 0)
+                this.panelContenedor.Controls.RemoveAt(0);
+            Form fCQ = formCrearQuiz as Form;
+            fCQ.TopLevel = false;
+            fCQ.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(fCQ);
+            this.panelContenedor.Tag = fCQ;
+            fCQ.Show();
+        }
+        private void AbrirFormMisPreguntas(object formMisPreguntas)
+        {
+            if (this.panelContenedor.Controls.Count > 0)
+                this.panelContenedor.Controls.RemoveAt(0);
+            Form fMP = formMisPreguntas as Form;
+            fMP.TopLevel = false;
+            fMP.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(fMP);
+            this.panelContenedor.Tag = fMP;
+            fMP.Show();
+        }
+        private void AbrirFormMisExamenes(object formMisExamenes)
+        {
+            if (this.panelContenedor.Controls.Count > 0)
+                this.panelContenedor.Controls.RemoveAt(0);
+            Form fME = formMisExamenes as Form;
+            fME.TopLevel = false;
+            fME.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(fME);
+            this.panelContenedor.Tag = fME;
+            fME.Show();
+        }
+        private void AbrirFormHacerExamen(object formHacerExamen)
+        {
+            if (this.panelContenedor.Controls.Count > 0)
+                this.panelContenedor.Controls.RemoveAt(0);
+            Form fHE = formHacerExamen as Form;
+            fHE.TopLevel = false;
+            fHE.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(fHE);
+            this.panelContenedor.Tag = fHE;
+            fHE.Show();
+        }
+
+        private void bCrearPregunta_Click(object sender, EventArgs e)
+        {
+            AbrirFormCrearPregunta(new CrearPregunta());
+        }
+
+        private void bCrearQuiz_Click(object sender, EventArgs e)
+        {
+            AbrirFormCrearQuiz(new CrearQuiz());
+        }
+
+        private void bMisPreguntas_Click(object sender, EventArgs e)
+        {
+            AbrirFormMisPreguntas(new MisPreguntas());
+        }
+
+        private void bMisExamenes_Click(object sender, EventArgs e)
+        {
+            AbrirFormMisExamenes(new MisExamenes());
+        }
+
+        private void bHacerExamen_Click(object sender, EventArgs e)
+        {
+            AbrirFormHacerExamen(new HacerExamen());
+        }
     }
 }

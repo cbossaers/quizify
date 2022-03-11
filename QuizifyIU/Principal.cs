@@ -24,7 +24,8 @@ namespace QuizifyIU
 
         private void biniciarS_Click(object sender, EventArgs e)
         {
-            
+            Portal formportal = new Portal();
+            formportal.Show();
         }
 
         private void bregistrarse_Click(object sender, EventArgs e)
@@ -38,6 +39,9 @@ namespace QuizifyIU
             formr.ShowDialog();
         }
 
+        private void Principal_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
