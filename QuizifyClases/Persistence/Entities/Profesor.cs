@@ -1,5 +1,6 @@
 using System;
 
+namespace Quizify.Entities{
 public partial class Profesor
 {
     public string contraseña {
@@ -14,13 +15,14 @@ public partial class Profesor
         get;
         set;
     }
-    public string almacenamiento {
+    public double almacenamiento {
         get;
         set;
     }
-    public string quizes {
+    public int quizes
+    {
         get;
         set;
     }
     
-}
+}}

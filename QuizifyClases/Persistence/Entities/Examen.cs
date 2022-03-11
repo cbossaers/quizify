@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 
+namespace Quizify.Entities{
 public partial class Examen
 {   
     public int ID {
@@ -54,8 +56,9 @@ public partial class Examen
         get;
         set;
     }
-    public int[] preguntas {
+    public List<int> preguntas {
         get;
         set;
     }
+}
 }

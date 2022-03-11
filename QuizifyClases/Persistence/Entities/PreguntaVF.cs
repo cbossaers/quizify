@@ -1,20 +1,23 @@
 using System;
 
-public partial class PreguntaVF
+namespace Quizify.Entities
 {
-    public string opc_a
+    public partial class PreguntaVF
     {
-        get;
-        set;
-    }
-    public string opc_b
-    {
-        get;
-        set;
-    }
-    public int correcta
-    {
-        get;
-        set;
+        public string opc_a
+        {
+            get;
+            set;
+        }
+        public string opc_b
+        {
+            get;
+            set;
+        }
+        public int correcta
+        {
+            get;
+            set;
+        }
     }
 }

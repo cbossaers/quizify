@@ -1,63 +1,66 @@
 using System;
+using System.Collections.Generic;
 
-public partial class PreguntaTest : Pregunta
+namespace Quizify.Entities
 {
-    public PreguntaTest(int Id, int ver, string Enunciado, string Tipo, int OpCorrecta, string opA, string opB,
-        string opC, string opD = null, string opE = null): base(Id, ver, Enunciado, Tipo)
+    public partial class PreguntaTest : Pregunta
     {
-        opc_a = opA;
-        opc_b = opB;
-        opc_c = opC;
-        opc_d = opD;
-        opc_e = opE;
-        correcta = OpCorrecta;
-    }
-    public string getPreguntaA()
-    {
-        return opc_a;
-    }
-    public string getPreguntaB()
-    {
-        return opc_b;
-    }
-    public string getPreguntaC()
-    {
-        return opc_c;
-    }
-    public string getPreguntaD()
-    {
-        return opc_d;
-    }
-    public string getPreguntaE()
-    {
-        return opc_e;
-    }
-    public int getCorrecta()
-    {
-        return correcta;
-    }
-    public void setPreguntaA(string A)
-    {
-        opc_a = A;
-    }
-    public void setPreguntaB(string B)
-    {
-        opc_b = B;
-    }
-    public void setPreguntaC(string C)
-    {
-        opc_c = C;
-    }
-    public void setPreguntaD(string D)
-    {
-        opc_d = D;
-    }
-    public void setPreguntaE(string E)
-    {
-        opc_e = E;
-    }
-    public void setCorrecta(int OpCorrecta)
-    {
-        correcta = OpCorrecta;
+        public PreguntaTest(int Id, string Enunciado, string Tipo, List<string> lista) : base(Id, Enunciado, Tipo)
+        {
+            opc_a = lista[1];
+            opc_b = lista[2];
+            opc_c = lista[3];
+            if (lista.Count > 4) opc_d = lista[4]; else opc_d = null; opc_e = null;
+            if (lista.Count > 5) opc_e = lista[5]; else opc_e = null;
+            correcta = Int32.Parse(lista[0]);
+        }
+        public string GetPreguntaA()
+        {
+            return opc_a;
+        }
+        public string GetPreguntaB()
+        {
+            return opc_b;
+        }
+        public string GetPreguntaC()
+        {
+            return opc_c;
+        }
+        public string GetPreguntaD()
+        {
+            return opc_d;
+        }
+        public string GetPreguntaE()
+        {
+            return opc_e;
+        }
+        public int GetCorrecta()
+        {
+            return correcta;
+        }
+        public void SetPreguntaA(string A)
+        {
+            opc_a = A;
+        }
+        public void SetPreguntaB(string B)
+        {
+            opc_b = B;
+        }
+        public void SetPreguntaC(string C)
+        {
+            opc_c = C;
+        }
+        public void SetPreguntaD(string D)
+        {
+            opc_d = D;
+        }
+        public void SetPreguntaE(string E)
+        {
+            opc_e = E;
+        }
+        public void SetCorrecta(int OpCorrecta)
+        {
+            correcta = OpCorrecta;
+        }
     }
 }

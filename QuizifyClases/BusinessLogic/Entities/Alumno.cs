@@ -1,9 +1,55 @@
 using System;
-
-public partial class Alumno
+namespace Quizify.Entities { 
+public partial class Alumno : Entidad
 {
-    public Alumno()
+    
+    public Alumno(string correo, string contraseña, string nombre, string apellidos, string tipo= "alumno") : base(correo, tipo)
     {
-        
+        this.nombre = nombre;   
+        this.apellidos = apellidos;
+        this.contraseña = contraseña;
+
+    }
+    public string GetNombre()
+    {
+        return nombre;
+    }
+    public string Getapellidos()
+    {
+        return apellidos;
+    }
+    public string GetContraseña()
+    {
+        return contraseña;
+    }
+    public int GetNota_media()
+    {
+        return nota_media;
+    }
+    public int GetNota_CT()
+    {
+        return nota_CT;
+    }
+    public void SetNombre(string nombre)
+    {
+        this.nombre = nombre;
+    }
+    public void SetApellidos(string apellidos)
+    {
+        this.apellidos = apellidos;
+    }
+    public void SetContraseña(string contraseña)
+    {
+        this.contraseña = contraseña;
+    }
+    public void SetNota_media(int nota_media)
+    {
+        this.nota_media = nota_media;
+    }
+    public void SetNota_CT(int nota_CT)
+    {
+        this.nota_CT = nota_CT;
+    }
+
     }
 }

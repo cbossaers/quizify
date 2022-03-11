@@ -1,13 +1,18 @@
 using System;
 
-public partial class Entidad
+namespace Quizify.Entities
 {
-    public string correo {
-        get;
-        set;
-    }
-    public string tipo {
-        get;
-        set;
+    public partial class Entidad
+    {
+        public string correo
+        {
+            get;
+            set;
+        }
+        public string tipo
+        {
+            get;
+            set;
+        }
     }
 }
