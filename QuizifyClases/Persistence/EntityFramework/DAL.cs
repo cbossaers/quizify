@@ -43,7 +43,7 @@ public class DAL {
         conn.Close();
     }
 
-    public void addPregunta(int id, string enunciado, string tipo, List<string> lista) {
+    public void AddPregunta(int id, string enunciado, string tipo, List<string> lista) {
         string pregunta = "INSERT into PSWC.pregunta(correo,tipo) values('" + correo + "','" + tipo + "');";
         string consulta = "";
         
@@ -75,8 +75,8 @@ public class DAL {
         conn.Close();
     }
 
-    public void modificarContraseña(string correo, string contraseña){
-        string tipo = getTipoEntidad(correo);
+    public void ModificarContraseña(string correo, string contraseña){
+        string tipo = GetTipoEntidad(correo);
 
         conn.Open();
 
@@ -130,8 +130,8 @@ public class DAL {
         return 0;
     }
 
-    public dynamic getPregunta(int id, int ver) {
-        string tipo = getTipoPregunta(id,ver);
+    public dynamic GetPregunta(int id, int ver) {
+        string tipo = GetTipoPregunta(id,ver);
         List<string> lista = null;
 
         conn.Open();
