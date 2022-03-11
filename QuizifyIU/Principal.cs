@@ -36,6 +36,7 @@ namespace QuizifyIU
         {
             registrarse formr = new registrarse();
             formr.ShowDialog();
+
         }
 
 
