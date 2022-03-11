@@ -43,24 +43,21 @@ public class DAL {
         conn.Close();
     }
 
-    public void AddPregunta(int id, string enunciado, string tipo, List<string> lista) {
-        string pregunta = "INSERT into PSWC.pregunta(correo,tipo) values('" + correo + "','" + tipo + "');";
+    public async void AddPregunta(string enunciado, string tipo, List<string> lista) {
+        int id = UltimoIdPregunta() + 1;
+        
+        string pregunta = "INSERT into PSWC.pregunta(id,ver) values(" + id + ",1,'" + enunciado +"','" + tipo + "');";
         string consulta = "";
         
         switch(tipo){
-            case("alumno"): 
-                consulta = "INSERT into PSWC.alumno(correo,contraseña,nombre,apellidos) values('" 
-                    + correo + "','" + contraseña + "','" + nombre + "','" + apellidos + "');";
+            case("Test"): 
+                consulta = "INSERT into PSWC.pregunta_test(id,ver,opc_a,opc_b,opc_c,opc_d,opc_e,correcta) values(" + id + ",1,'" + "','" 
+                    + lista[1] + "','" + lista[2] + "','" + lista[3] + "','" + lista[4] + "','" + lista[5] + "','" + lista[0] + "';";
                 break;
 
-            case("profesor"): 
-                consulta = "INSERT into PSWC.profesor(correo,contraseña,nombre,apellidos,almacenamiento,quizes) values('" 
-                    + correo + "','" + contraseña + "','" + nombre + "','" + apellidos + "',100,20);";
-                break;
-
-            case("institucion"): 
-                consulta = "INSERT into PSWC.institucion(correo,contraseña,nombre,quizes) values('" 
-                    + correo + "','" + contraseña + "','" + nombre + "',0);";
+            case("VF"): 
+                consulta = "INSERT into PSWC.pregunta_test(id,ver,correcta) values(" + id + ",1,'" + "','" 
+                    + lista[0] + "';";
                 break;
         }
         
@@ -73,6 +70,43 @@ public class DAL {
         MySqlCommand cmd2 = new MySqlCommand(consulta, conn);
         MySqlDataReader rdr2 = cmd2.ExecuteReader();
         conn.Close();
+    }
+
+
+    public int UltimoIdPregunta(){
+        conn.Open();
+        string consulta = "SELECT id FROM PSWC.pregunta;";
+        int id = 0; int aux = 0;
+
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+
+        foreach (DataRow row in data.Rows) { 
+            aux = int.Parse(row["ver"].ToString());
+            if(aux > id) { id = aux; }
+        }
+        conn.Close();
+        return id;
+    }
+    public int UltimaVersionPregunta(int id) {
+        string tipo = GetTipoPregunta(id);
+
+        conn.Open();
+
+        string consulta = "SELECT ver FROM PSWC.pregunta WHERE id= " + id + ";";
+        int version = 0; int aux = 0;
+
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+
+        foreach (DataRow row in data.Rows) { 
+            aux = int.Parse(row["ver"].ToString());
+            if(aux > version) { version = aux; }
+        }
+        conn.Close();
+        return version;
     }
 
     public void ModificarContraseña(string correo, string contraseña){
@@ -90,7 +124,7 @@ public class DAL {
     public void EliminarEntidad(string correo){
         conn.Open();
 
-        string consulta_entidad = "DELETE from PSWC.entidad WHERE correo='" + correo + "';";
+        string consulta_entidad = "DELETE FROM PSWC.entidad WHERE correo='" + correo + "';";
         MySqlCommand cmd = new MySqlCommand(consulta_entidad, conn);
         MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -131,12 +165,12 @@ public class DAL {
     }
 
     public dynamic GetPregunta(int id, int ver) {
-        string tipo = GetTipoPregunta(id,ver);
+        string tipo = GetTipoPregunta(id);
         List<string> lista = null;
 
         conn.Open();
 
-        string consulta = "SELECT * from PSWC." + tipo + " WHERE id= '" + id + "' AND ver= '" + ver + "';"; 
+        string consulta = "SELECT * from PSWC." + tipo + " WHERE id= " + id + " AND ver= " + ver + ";"; 
 
         MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
         DataTable data = new DataTable();
@@ -176,10 +210,10 @@ public class DAL {
 
         return tipo;
     }
-    public string GetTipoPregunta(int id, int ver) {
+    public string GetTipoPregunta(int id) {
         conn.Open();
 
-        string tipo = "SELECT tipo FROM PSWC.pregunta WHERE id= '" + id + "' AND ver= '" + ver + "';";
+        string tipo = "SELECT tipo FROM PSWC.pregunta WHERE id= " + id + ";";
 
         MySqlCommand cmd = new MySqlCommand(tipo, conn);
         MySqlDataReader rdr = cmd.ExecuteReader();
