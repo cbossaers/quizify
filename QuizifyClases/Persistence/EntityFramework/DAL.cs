@@ -43,6 +43,38 @@ public class DAL {
         conn.Close();
     }
 
+    public void addPregunta(int id, string enunciado, string tipo, List<string> lista) {
+        string pregunta = "INSERT into PSWC.pregunta(correo,tipo) values('" + correo + "','" + tipo + "');";
+        string consulta = "";
+        
+        switch(tipo){
+            case("alumno"): 
+                consulta = "INSERT into PSWC.alumno(correo,contraseña,nombre,apellidos) values('" 
+                    + correo + "','" + contraseña + "','" + nombre + "','" + apellidos + "');";
+                break;
+
+            case("profesor"): 
+                consulta = "INSERT into PSWC.profesor(correo,contraseña,nombre,apellidos,almacenamiento,quizes) values('" 
+                    + correo + "','" + contraseña + "','" + nombre + "','" + apellidos + "',100,20);";
+                break;
+
+            case("institucion"): 
+                consulta = "INSERT into PSWC.institucion(correo,contraseña,nombre,quizes) values('" 
+                    + correo + "','" + contraseña + "','" + nombre + "',0);";
+                break;
+        }
+        
+        conn.Open();
+        MySqlCommand cmd = new MySqlCommand(entidad, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+        conn.Close();
+
+        conn.Open();
+        MySqlCommand cmd2 = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr2 = cmd2.ExecuteReader();
+        conn.Close();
+    }
+
     public void modificarContraseña(string correo, string contraseña){
         string tipo = getTipoEntidad(correo);
 
@@ -82,7 +114,6 @@ public class DAL {
             Console.WriteLine(row["nombre"]); 
         }*/
         switch(tipo){
-            
                 case("alumno"): 
                     return new Alumno(data.Rows[0]["correo"].ToString(), data.Rows[0]["contraseña"].ToString(), 
                         data.Rows[0]["nombre"].ToString(), data.Rows[0]["apellidos"].ToString(), "alumno");
@@ -100,40 +131,33 @@ public class DAL {
     }
 
     public dynamic getPregunta(int id, int ver) {
+        string tipo = getTipoPregunta(id,ver);
+        List<string> lista = null;
+
         conn.Open();
 
-        string tipo = "SELECT * FROM PSWC.entidad WHERE id= '" + id + "' and ver= '" + ver + "';";
-        string enunciado = "";
-        List<string> respuestas = new List<string>();
-        int correcta = 0;
+        string consulta = "SELECT * from PSWC." + tipo + " WHERE id= '" + id + "' AND ver= '" + ver + "';"; 
 
-        MySqlCommand cmd = new MySqlCommand(tipo, conn);
-        MySqlDataReader rdr = cmd.ExecuteReader();
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
 
-        while (rdr.Read()) {
-                tipo = rdr.GetString("tipo");
-                enunciado = rdr.GetString("enunciado");
-        }
+        switch(tipo){
+                case("Test"): 
+                    lista.Add(data.Rows[0]["correcta"].ToString());
+                    lista.Add(data.Rows[0]["opc_a"].ToString());
+                    lista.Add(data.Rows[0]["opc_b"].ToString());
+                    lista.Add(data.Rows[0]["opc_c"].ToString());
+                    if(data.Rows[0]["opc_d"].ToString() == null) { lista.Add(data.Rows[0]["opc_d"].ToString()); }
+                    if(data.Rows[0]["opc_e"].ToString() == null) { lista.Add(data.Rows[0]["opc_e"].ToString()); }
 
-        string consulta = "SELECT * from PSWC." + tipo + "WHERE id= '" + id + "' and ver= '" + ver + "';";
+                    return new PreguntaTest(int.Parse(data.Rows[0]["id"].ToString()), data.Rows[0]["enunciado"].ToString(), tipo, lista);
+                case("VF"):
+                    return new PreguntaVF(int.Parse(data.Rows[0]["id"].ToString()), data.Rows[0]["enunciado"].ToString(), tipo, int.Parse(data.Rows[0]["correcta"].ToString()));
+            }  
 
-        MySqlCommand cmd2 = new MySqlCommand(consulta, conn);
-        MySqlDataReader rdr2 = cmd.ExecuteReader();
-
-        while (rdr2.Read()) {
-                enunciado = rdr2.GetString("enunciado");
-                if(tipo.Equals("Test")) {
-                    respuestas.Add(rdr2.GetString("opc_a"));
-                    respuestas.Add(rdr2.GetString("opc_b"));
-                    respuestas.Add(rdr2.GetString("opc_c"));
-                    respuestas.Add(rdr2.GetString("opc_d"));
-                    respuestas.Add(rdr2.GetString("opc_e"));
-                    correcta = rdr2.GetInt32("correcta");
-
-                } else if(tipo.Equals("VF")) { correcta = rdr2.GetInt32("correcta"); }
-        }
-        
-        return true;
+        conn.Close();
+        return 0;
     }
 
     public string getTipoEntidad(string correo) {
