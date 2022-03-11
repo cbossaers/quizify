@@ -10,43 +10,43 @@ public partial class Alumno : Entidad
         this.contraseña = contraseña;
 
     }
-    public string getNombre()
+    public string GetNombre()
     {
         return nombre;
     }
-    public string getapellidos()
+    public string Getapellidos()
     {
         return apellidos;
     }
-    public string getContraseña()
+    public string GetContraseña()
     {
         return contraseña;
     }
-    public int getNota_media()
+    public int GetNota_media()
     {
         return nota_media;
     }
-    public int getNota_CT()
+    public int GetNota_CT()
     {
         return nota_CT;
     }
-    public void setNombre(string nombre)
+    public void SetNombre(string nombre)
     {
         this.nombre = nombre;
     }
-    public void setApellidos(string apellidos)
+    public void SetApellidos(string apellidos)
     {
         this.apellidos = apellidos;
     }
-    public void setContraseña(string contraseña)
+    public void SetContraseña(string contraseña)
     {
         this.contraseña = contraseña;
     }
-    public void setNota_media(int nota_media)
+    public void SetNota_media(int nota_media)
     {
         this.nota_media = nota_media;
     }
-    public void setNota_CT(int nota_CT)
+    public void SetNota_CT(int nota_CT)
     {
         this.nota_CT = nota_CT;
     }

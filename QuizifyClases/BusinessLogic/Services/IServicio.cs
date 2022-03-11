@@ -7,17 +7,17 @@ namespace Quizify.Services
 {
     public interface IServicio
     {
-        public void addPreguntaVF(PreguntaVF preguntaVF);
-        public void addPreguntaTest(PreguntaTest preguntaTest);
-        public void addAlumno(Alumno alumno);
-        public void addProfesor(Profesor profesor);
-        public void addInstitucion(Institucion institucion);
-        public void addExamen(Examen examen);
+        public void AddPreguntaVF(PreguntaVF preguntaVF);
+        public void AddPreguntaTest(PreguntaTest preguntaTest);
+        public void AddAlumno(Alumno alumno);
+        public void AddProfesor(Profesor profesor);
+        public void AddInstitucion(Institucion institucion);
+        public void AddExamen(Examen examen);
 
-        public PreguntaVF getPreguntaVFById(int Id, int version);
-        public PreguntaTest getPreguntaTestById(int Id, int version);
-        public Alumno getAlumnoById(string correo);
-        public Profesor getProfesorById(string correo);
+        public PreguntaVF GetPreguntaVFById(int Id, int version);
+        public PreguntaTest GetPreguntaTestById(int Id, int version);
+        public Alumno GetAlumnoById(string correo);
+        public Profesor GetProfesorById(string correo);
         public Institucion GetInstitucionById(string correo);
         public Examen GetExamenById(int Id);
 

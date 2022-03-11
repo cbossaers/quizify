@@ -20,17 +20,17 @@ namespace Quizify.Entities
             //??
         }
 
-        public Boolean anadir_pregunta(Pregunta pregunta)
+        public Boolean Anadir_pregunta(Pregunta pregunta)
         {
             return true;
         }
 
-        public Boolean eliminar_pregunta(Pregunta pregunta)
+        public Boolean Eliminar_pregunta(Pregunta pregunta)
         {
             return true;
         }
 
-        public dynamic crear_pregunta(string enunciado, string tipo, List<string> opciones = null)
+        public dynamic Crear_pregunta(string enunciado, string tipo, List<string> opciones = null)
         {
             switch (tipo)
             {
@@ -39,7 +39,7 @@ namespace Quizify.Entities
                 default: return true;
             }
         }
-        public int getId()
+        public int GetId()
         {
             return ID;
         }

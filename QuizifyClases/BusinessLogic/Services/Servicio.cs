@@ -13,55 +13,55 @@ namespace Quizify.Services
         {
             this.dal = dal;
         }
-        public void addPreguntaVF(PreguntaVF preguntaFV)
+        public void AddPreguntaVF(PreguntaVF preguntaFV)
         {
             if (true)
             {
                 //no existe el mismo Id
             }
-            else throw new ServicioException("La pregunta con Id " + preguntaFV.getId() + " ya existe");
+            else throw new ServicioException("La pregunta con Id " + preguntaFV.GetId() + " ya existe");
         }
-        public void addPreguntaTest(PreguntaTest preguntaTest)
+        public void AddPreguntaTest(PreguntaTest preguntaTest)
         {
             if (true)
             {
                 //no existe el mismo Id
             }
-            else throw new ServicioException("La pregunta con Id " + preguntaTest.getId() + " ya existe");
+            else throw new ServicioException("La pregunta con Id " + preguntaTest.GetId() + " ya existe");
         }
-        public void addAlumno(Alumno alumno)
+        public void AddAlumno(Alumno alumno)
         {
             if (true)
             {
-                dal.addEntidad(alumno.correo, alumno.contraseña, alumno.tipo, alumno.nombre, alumno.apellidos);
+                dal.AddEntidad(alumno.correo, alumno.contraseña, alumno.tipo, alumno.nombre, alumno.apellidos);
             }
-            else throw new ServicioException("El alumno con correo " + alumno.getCorreo() + " ya existe");
+            else throw new ServicioException("El alumno con correo " + alumno.GetCorreo() + " ya existe");
         }
-        public void addProfesor(Profesor profesor)
-        {
-            if (true)
-            {
-                //no existe el mismo Id
-            }
-            else throw new ServicioException("El profesor con correo " + profesor.getCorreo() + " ya existe");
-        }
-        public void addInstitucion(Institucion institucion)
+        public void AddProfesor(Profesor profesor)
         {
             if (true)
             {
                 //no existe el mismo Id
             }
-            else throw new ServicioException("La institución con correo " + institucion.getCorreo() + " ya existe");
+            else throw new ServicioException("El profesor con correo " + profesor.GetCorreo() + " ya existe");
         }
-        public void addExamen(Examen examen)
+        public void AddInstitucion(Institucion institucion)
         {
             if (true)
             {
                 //no existe el mismo Id
             }
-            else throw new ServicioException("El examen con Id " + examen.getId() + " ya existe");
+            else throw new ServicioException("La institución con correo " + institucion.GetCorreo() + " ya existe");
         }
-        public PreguntaVF getPreguntaVFById(int Id, int version)
+        public void AddExamen(Examen examen)
+        {
+            if (true)
+            {
+                //no existe el mismo Id
+            }
+            else throw new ServicioException("El examen con Id " + examen.GetId() + " ya existe");
+        }
+        public PreguntaVF GetPreguntaVFById(int Id, int version)
         {
             if (true)
             {
@@ -70,7 +70,7 @@ namespace Quizify.Services
             else throw new ServicioException("La pregunta con Id " + Id + " no existe");
             return null;
         }
-        public PreguntaTest getPreguntaTestById(int Id, int version)
+        public PreguntaTest GetPreguntaTestById(int Id, int version)
         {
             if (true)
             {
@@ -79,7 +79,7 @@ namespace Quizify.Services
             else throw new ServicioException("La pregunta con Id " + Id + " no existe");
             return null;
         }
-        public Alumno getAlumnoById(string correo)
+        public Alumno GetAlumnoById(string correo)
         {
             if (true)
             {
@@ -88,7 +88,7 @@ namespace Quizify.Services
             else throw new ServicioException("El alumno con correo " + correo + " no existe");
             return null;
         }
-        public Profesor getProfesorById(string correo)
+        public Profesor GetProfesorById(string correo)
         {
             if (true)
             {

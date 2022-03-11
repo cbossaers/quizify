@@ -9,19 +9,19 @@ namespace Quizify.Entities
             this.correo = correo;
             this.tipo = tipo;
         }
-        public string getCorreo()
+        public string GetCorreo()
         {
             return correo;
         }
-        public string getTipo()
+        public string GetTipo()
         {
             return tipo;
         }
-        public void setCorreo(string correo)
+        public void SetCorreo(string correo)
         {
             this.correo = correo;
         }
-        public void setTipo(string tipo)
+        public void SetTipo(string tipo)
         {
             this.tipo = tipo;
         }

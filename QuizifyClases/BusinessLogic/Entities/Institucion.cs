@@ -8,31 +8,31 @@ public partial class Institucion : Entidad
         this.contraseña = contraseña;
         this.quizes = quizes;
     }
-    public string getNombre()
+    public string GetNombre()
     {
         return nombre;
     }
     
-    public string getContraseña()
+    public string GetContraseña()
     {
         return contraseña;
     }
     
-    public int getQuizes()
+    public int GetQuizes()
     {
         return quizes;
     }
-    public void setNombre(string nombre)
+    public void SetNombre(string nombre)
     {
         this.nombre = nombre;
     }
     
-    public void setContraseña(string contraseña)
+    public void SetContraseña(string contraseña)
     {
         this.contraseña = contraseña;
     }
     
-    public void setQuizes(int quizes)
+    public void SetQuizes(int quizes)
     {
         this.quizes = quizes;
     }

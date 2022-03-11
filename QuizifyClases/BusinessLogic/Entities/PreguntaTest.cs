@@ -14,51 +14,51 @@ namespace Quizify.Entities
             if (lista.Count > 5) opc_e = lista[5]; else opc_e = null;
             correcta = Int32.Parse(lista[0]);
         }
-        public string getPreguntaA()
+        public string GetPreguntaA()
         {
             return opc_a;
         }
-        public string getPreguntaB()
+        public string GetPreguntaB()
         {
             return opc_b;
         }
-        public string getPreguntaC()
+        public string GetPreguntaC()
         {
             return opc_c;
         }
-        public string getPreguntaD()
+        public string GetPreguntaD()
         {
             return opc_d;
         }
-        public string getPreguntaE()
+        public string GetPreguntaE()
         {
             return opc_e;
         }
-        public int getCorrecta()
+        public int GetCorrecta()
         {
             return correcta;
         }
-        public void setPreguntaA(string A)
+        public void SetPreguntaA(string A)
         {
             opc_a = A;
         }
-        public void setPreguntaB(string B)
+        public void SetPreguntaB(string B)
         {
             opc_b = B;
         }
-        public void setPreguntaC(string C)
+        public void SetPreguntaC(string C)
         {
             opc_c = C;
         }
-        public void setPreguntaD(string D)
+        public void SetPreguntaD(string D)
         {
             opc_d = D;
         }
-        public void setPreguntaE(string E)
+        public void SetPreguntaE(string E)
         {
             opc_e = E;
         }
-        public void setCorrecta(int OpCorrecta)
+        public void SetCorrecta(int OpCorrecta)
         {
             correcta = OpCorrecta;
         }

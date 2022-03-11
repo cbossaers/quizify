@@ -11,31 +11,31 @@ namespace Quizify.Entities
             enunciado = Enunciado;
             tipo = Tipo;
         }
-        public int getId()
+        public int GetId()
         {
             return ID;
         }
-        public int getVersion()
+        public int GetVersion()
         {
             return version;
         }
-        public string getEnunciado()
+        public string GetEnunciado()
         {
             return enunciado;
         }
-        public string getTipo()
+        public string GetTipo()
         {
             return tipo;
         }
-        public void setVersion(int ver)
+        public void SetVersion(int ver)
         {
             version = ver;
         }
-        public void setEnunciado(string Enunciado)
+        public void SetEnunciado(string Enunciado)
         {
             enunciado = Enunciado;
         }
-        public void setTipo(string Tipo)
+        public void SetTipo(string Tipo)
         {
             tipo = Tipo;
         }

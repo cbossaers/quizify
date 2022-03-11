@@ -8,11 +8,11 @@ namespace Quizify.Entities
         {
             correcta = OpCorrecta;
         }
-        public int getCorrecta()
+        public int GetCorrecta()
         {
             return correcta;
         }
-        public void setCorrecta(int OpCorrecta)
+        public void SetCorrecta(int OpCorrecta)
         {
             correcta = OpCorrecta;
         }

@@ -11,44 +11,44 @@ public partial class Profesor :Entidad
         this.quizes = quizes;
         
     }
-    public string getNombre()
+    public string GetNombre()
     {
         return nombre;
     }
-    public string getapellidos()
+    public string Getapellidos()
     {
         return apellidos;
     }
-    public string getContraseña()
+    public string GetContraseña()
     {
         return contraseña;
     }
-    public double getAlmacenamiento()
+    public double GetAlmacenamiento()
     {
         return almacenamiento;
     }
-    public int getQuizes()
+    public int GetQuizes()
     {
         return quizes;
     }
-    public void setNombre(string nombre)
+    public void SetNombre(string nombre)
     {
         this.nombre = nombre;
     }
-    public void setApellidos(string apellidos)
+    public void SetApellidos(string apellidos)
     {
         this.apellidos = apellidos;
     }
-    public void setContraseña(string contraseña)
+    public void SetContraseña(string contraseña)
     {
         this.contraseña = contraseña;
 
     }
-    public void setAlmacenaminento(double almacenamiento)
+    public void SetAlmacenaminento(double almacenamiento)
     {
         this.almacenamiento = almacenamiento;
     }
-    public void setQuizes(int quizes)
+    public void SetQuizes(int quizes)
     {
         this.quizes = quizes;
     }

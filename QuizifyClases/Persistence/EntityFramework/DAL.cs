@@ -11,7 +11,7 @@ namespace Quizify.Persistence {
 public class DAL {
     static string connStr = "server=88.17.214.52;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
     MySqlConnection conn = new MySqlConnection(connStr);
-    public void addEntidad(string correo, string contraseña, string tipo, string nombre, string apellidos=null) {
+    public void AddEntidad(string correo, string contraseña, string tipo, string nombre, string apellidos=null) {
         string entidad = "INSERT into PSWC.entidad(correo,tipo) values('" + correo + "','" + tipo + "');";
         string consulta = "";
         
@@ -43,8 +43,8 @@ public class DAL {
         conn.Close();
     }
 
-    public void modificarContraseña(string correo, string contraseña){
-        string tipo = getTipoEntidad(correo);
+    public void ModificarContraseña(string correo, string contraseña){
+        string tipo = GetTipoEntidad(correo);
 
         conn.Open();
 
@@ -55,7 +55,7 @@ public class DAL {
         conn.Close();
     }
 
-    public void eliminarEntidad(string correo){
+    public void EliminarEntidad(string correo){
         conn.Open();
 
         string consulta_entidad = "DELETE from PSWC.entidad WHERE correo='" + correo + "';";
@@ -65,8 +65,8 @@ public class DAL {
         conn.Close();
     }
 
-    public dynamic getEntidad(string correo) {
-        string tipo = getTipoEntidad(correo);
+    public dynamic GetEntidad(string correo) {
+        string tipo = GetTipoEntidad(correo);
 
         conn.Open();
 
@@ -99,7 +99,7 @@ public class DAL {
         return 0;
     }
 
-    public dynamic getPregunta(int id, int ver) {
+    public dynamic GetPregunta(int id, int ver) {
         conn.Open();
 
         string tipo = "SELECT * FROM PSWC.entidad WHERE id= '" + id + "' and ver= '" + ver + "';";
@@ -136,7 +136,7 @@ public class DAL {
         return true;
     }
 
-    public string getTipoEntidad(string correo) {
+    public string GetTipoEntidad(string correo) {
         conn.Open();
 
         string tipo = "SELECT tipo FROM PSWC.entidad WHERE correo= '" + correo + "';";
@@ -152,7 +152,7 @@ public class DAL {
 
         return tipo;
     }
-    public string getTipoPregunta(int id, int ver) {
+    public string GetTipoPregunta(int id, int ver) {
         conn.Open();
 
         string tipo = "SELECT tipo FROM PSWC.pregunta WHERE id= '" + id + "' AND ver= '" + ver + "';";
