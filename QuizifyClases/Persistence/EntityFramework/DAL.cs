@@ -47,7 +47,7 @@ public class DAL {
         conn.Close();
     }
 
-    public void AddPregunta(dynamic pregunta/*string enunciado, string tipo, List<string> lista*/) {
+    public void AddPregunta(dynamic pregunta) {
         int id = UltimoIdPregunta() + 1;
 
         string consulta_pregunta = "";
