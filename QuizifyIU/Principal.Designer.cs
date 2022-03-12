@@ -122,6 +122,7 @@
             this.Controls.Add(this.emailField);
             this.Controls.Add(this.label1);
             this.Name = "Principal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Principal_Load);
             this.ResumeLayout(false);

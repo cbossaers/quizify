@@ -142,6 +142,7 @@
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.MenuVertical);
             this.Name = "Portal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Portal";
             this.MenuVertical.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -55,7 +55,7 @@ namespace Quizify.Services
         }
         public void AddExamen(Examen examen)
         {
-            if ()
+            if (true)
             {
                 //no existe el mismo Id
             }
