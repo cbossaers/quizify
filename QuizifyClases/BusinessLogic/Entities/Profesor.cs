@@ -2,14 +2,14 @@ using System;
 namespace Quizify.Entities { 
 public partial class Profesor :Entidad
 {
-    public Profesor(string correo, string contraseña, string nombre, string apellidos, double almacenamiento, int quizes, string tipo) : base(correo, tipo) 
+    public Profesor(string correo, string contraseña, string nombre, string apellidos, float almacenamiento = 100,
+        int quizes = 20) : base(correo) 
     {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.contraseña = contraseña;
         this.almacenamiento = almacenamiento;
         this.quizes = quizes;
-        
     }
     public string GetNombre()
     {

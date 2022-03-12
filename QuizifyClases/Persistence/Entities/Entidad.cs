@@ -9,10 +9,5 @@ namespace Quizify.Entities
             get;
             set;
         }
-        public string tipo
-        {
-            get;
-            set;
-        }
     }
 }

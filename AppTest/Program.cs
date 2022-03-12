@@ -2,16 +2,15 @@
 using Quizify.Entities;
 using Quizify.Persistence;
 using Quizify.Services;
+using System.Collections.Generic;
 namespace AppTest
 {
     class Program
     {
+        DAL dal = new DAL();
         static void Main(string[] args)
         {
-            DAL dal = new DAL();
-            //dal.eliminarEntidad("correo");
-            //dal.addEntidad("peper@pepe.com", "contraseña", "alumno", "pepito", "lopez");
-            Console.WriteLine(dal.GetEntidad("pepe2@pepe.com").nombre);
+            
         }
     }
 }

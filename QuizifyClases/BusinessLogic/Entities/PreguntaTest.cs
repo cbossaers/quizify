@@ -5,32 +5,32 @@ namespace Quizify.Entities
 {
     public partial class PreguntaTest : Pregunta
     {
-        public PreguntaTest(int Id, string Enunciado, string Tipo, List<string> lista) : base(Id, Enunciado, Tipo)
+        public PreguntaTest(int Id, string Enunciado, List<dynamic> lista, int version = 1) : base(Id, Enunciado, version)
         {
             opc_a = lista[1];
             opc_b = lista[2];
             opc_c = lista[3];
             if (lista.Count > 4) opc_d = lista[4]; else opc_d = null; opc_e = null;
             if (lista.Count > 5) opc_e = lista[5]; else opc_e = null;
-            correcta = Int32.Parse(lista[0]);
+            correcta = lista[0];
         }
-        public string GetPreguntaA()
+        public string GetOpcA()
         {
             return opc_a;
         }
-        public string GetPreguntaB()
+        public string GetOpcB()
         {
             return opc_b;
         }
-        public string GetPreguntaC()
+        public string GetOpcC()
         {
             return opc_c;
         }
-        public string GetPreguntaD()
+        public string GetOpcD()
         {
             return opc_d;
         }
-        public string GetPreguntaE()
+        public string GetOpcE()
         {
             return opc_e;
         }
@@ -38,23 +38,23 @@ namespace Quizify.Entities
         {
             return correcta;
         }
-        public void SetPreguntaA(string A)
+        public void SetOpcA(string A)
         {
             opc_a = A;
         }
-        public void SetPreguntaB(string B)
+        public void SetOpcB(string B)
         {
             opc_b = B;
         }
-        public void SetPreguntaC(string C)
+        public void SetOpcC(string C)
         {
             opc_c = C;
         }
-        public void SetPreguntaD(string D)
+        public void SetOpcD(string D)
         {
             opc_d = D;
         }
-        public void SetPreguntaE(string E)
+        public void SetOpcE(string E)
         {
             opc_e = E;
         }

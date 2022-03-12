@@ -33,7 +33,7 @@ namespace Quizify.Services
         {
             if (true)
             {
-                dal.AddEntidad(alumno.correo, alumno.contraseña, alumno.tipo, alumno.nombre, alumno.apellidos);
+                dal.AddEntidad(alumno);
             }
             else throw new ServicioException("El alumno con correo " + alumno.GetCorreo() + " ya existe");
         }

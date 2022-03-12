@@ -4,12 +4,11 @@ namespace Quizify.Entities
 {
     public partial class Pregunta
     {
-        public Pregunta(int Id, string Enunciado, string Tipo)
+        public Pregunta(int Id, string Enunciado, int ver)
         {
             ID = Id;
-            version = 1;
+            version = ver;
             enunciado = Enunciado;
-            tipo = Tipo;
         }
         public int GetId()
         {
@@ -23,10 +22,6 @@ namespace Quizify.Entities
         {
             return enunciado;
         }
-        public string GetTipo()
-        {
-            return tipo;
-        }
         public void SetVersion(int ver)
         {
             version = ver;
@@ -34,10 +29,6 @@ namespace Quizify.Entities
         public void SetEnunciado(string Enunciado)
         {
             enunciado = Enunciado;
-        }
-        public void SetTipo(string Tipo)
-        {
-            tipo = Tipo;
         }
     }
 }

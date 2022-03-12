@@ -3,12 +3,11 @@ namespace Quizify.Entities {
 public partial class Alumno : Entidad
 {
     
-    public Alumno(string correo, string contraseña, string nombre, string apellidos, string tipo= "alumno") : base(correo, tipo)
+    public Alumno(string correo, string contraseña, string nombre, string apellidos) : base(correo)
     {
         this.nombre = nombre;   
         this.apellidos = apellidos;
         this.contraseña = contraseña;
-
     }
     public string GetNombre()
     {
