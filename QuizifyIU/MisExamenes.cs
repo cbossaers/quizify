@@ -17,6 +17,32 @@ namespace QuizifyIU
         {
             InitializeComponent();
             this.servicio = servicio;
+            BindingList<object> bindingList = new BindingList<object>();
+            for (int i = 0; i < 2; i++)
+            {
+                bindingList.Add(new
+                {
+                    examen = "hola",
+                    asignatura = "PSW",
+                    tiempo = "12",
+                    inicio = "1",
+                    fin = "3"
+                });
+            }
+            BindingList<object> bindingList2 = new BindingList<object>();
+            for (int i = 0; i < 5; i++)
+            {
+                bindingList2.Add(new
+                {
+                    examen = "suuu",
+                    asignatura = "PdadSW",
+                    tiempo = "12dd",
+                    inicio = "1342",
+                    fin = "2342343"
+                });
+            }
+            tablaExamenDisponible.DataSource = bindingList;
+            tablaExamenResuelto.DataSource = bindingList2;
         }
     }
 }

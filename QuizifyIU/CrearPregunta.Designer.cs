@@ -49,8 +49,12 @@
             this.correctaC = new System.Windows.Forms.RadioButton();
             this.correctaD = new System.Windows.Forms.RadioButton();
             this.correctaE = new System.Windows.Forms.RadioButton();
-            this.correcta = new System.Windows.Forms.Panel();
-            this.correcta.SuspendLayout();
+            this.correctaTest = new System.Windows.Forms.Panel();
+            this.correctaVF = new System.Windows.Forms.Panel();
+            this.verdadero = new System.Windows.Forms.RadioButton();
+            this.falso = new System.Windows.Forms.RadioButton();
+            this.correctaTest.SuspendLayout();
+            this.correctaVF.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -257,25 +261,60 @@
             this.correctaE.UseVisualStyleBackColor = true;
             this.correctaE.Visible = false;
             // 
-            // correcta
+            // correctaTest
             // 
-            this.correcta.Controls.Add(this.correctaE);
-            this.correcta.Controls.Add(this.correctaA);
-            this.correcta.Controls.Add(this.correctaD);
-            this.correcta.Controls.Add(this.correctaB);
-            this.correcta.Controls.Add(this.correctaC);
-            this.correcta.Location = new System.Drawing.Point(549, 183);
-            this.correcta.Name = "correcta";
-            this.correcta.Size = new System.Drawing.Size(67, 245);
-            this.correcta.TabIndex = 26;
-            this.correcta.Visible = false;
+            this.correctaTest.Controls.Add(this.correctaE);
+            this.correctaTest.Controls.Add(this.correctaA);
+            this.correctaTest.Controls.Add(this.correctaD);
+            this.correctaTest.Controls.Add(this.correctaB);
+            this.correctaTest.Controls.Add(this.correctaC);
+            this.correctaTest.Location = new System.Drawing.Point(549, 183);
+            this.correctaTest.Name = "correctaTest";
+            this.correctaTest.Size = new System.Drawing.Size(67, 245);
+            this.correctaTest.TabIndex = 26;
+            this.correctaTest.Visible = false;
+            // 
+            // correctaVF
+            // 
+            this.correctaVF.Controls.Add(this.falso);
+            this.correctaVF.Controls.Add(this.verdadero);
+            this.correctaVF.Location = new System.Drawing.Point(140, 198);
+            this.correctaVF.Name = "correctaVF";
+            this.correctaVF.Size = new System.Drawing.Size(355, 100);
+            this.correctaVF.TabIndex = 29;
+            this.correctaVF.Visible = false;
+            // 
+            // verdadero
+            // 
+            this.verdadero.AutoSize = true;
+            this.verdadero.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.verdadero.Location = new System.Drawing.Point(57, 33);
+            this.verdadero.Name = "verdadero";
+            this.verdadero.Size = new System.Drawing.Size(121, 32);
+            this.verdadero.TabIndex = 0;
+            this.verdadero.TabStop = true;
+            this.verdadero.Text = "Verdadero";
+            this.verdadero.UseVisualStyleBackColor = true;
+            // 
+            // falso
+            // 
+            this.falso.AutoSize = true;
+            this.falso.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.falso.Location = new System.Drawing.Point(211, 34);
+            this.falso.Name = "falso";
+            this.falso.Size = new System.Drawing.Size(74, 32);
+            this.falso.TabIndex = 1;
+            this.falso.TabStop = true;
+            this.falso.Text = "Falso";
+            this.falso.UseVisualStyleBackColor = true;
             // 
             // CrearPregunta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 450);
-            this.Controls.Add(this.correcta);
+            this.Controls.Add(this.correctaVF);
+            this.Controls.Add(this.correctaTest);
             this.Controls.Add(this.botonBorrar);
             this.Controls.Add(this.botonAdd);
             this.Controls.Add(this.letraE);
@@ -296,8 +335,10 @@
             this.Name = "CrearPregunta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrearPregunta";
-            this.correcta.ResumeLayout(false);
-            this.correcta.PerformLayout();
+            this.correctaTest.ResumeLayout(false);
+            this.correctaTest.PerformLayout();
+            this.correctaVF.ResumeLayout(false);
+            this.correctaVF.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,6 +367,9 @@
         private System.Windows.Forms.RadioButton correctaC;
         private System.Windows.Forms.RadioButton correctaD;
         private System.Windows.Forms.RadioButton correctaE;
-        private System.Windows.Forms.Panel correcta;
+        private System.Windows.Forms.Panel correctaTest;
+        private System.Windows.Forms.Panel correctaVF;
+        private System.Windows.Forms.RadioButton falso;
+        private System.Windows.Forms.RadioButton verdadero;
     }
 }

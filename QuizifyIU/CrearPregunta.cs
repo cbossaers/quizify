@@ -26,14 +26,14 @@ namespace QuizifyIU
                 letraA.Visible = true; letraB.Visible = true; letraC.Visible = true;
                 opcA.Visible = true; opcB.Visible = true; opcC.Visible = true;
                 botonAdd.Visible = true; botonBorrar.Visible = true;
-                correcta.Visible = true;
+                correctaTest.Visible = true; correctaVF.Visible = false;
             }
             else
             {
                 letraA.Visible = false; letraB.Visible = false; letraC.Visible = false; letraD.Visible = false; letraE.Visible = false;
                 opcA.Visible = false; opcB.Visible = false; opcC.Visible = false; opcD.Visible = false; opcE.Visible = false;
                 botonAdd.Visible = false; botonBorrar.Visible = false;
-                correcta.Visible = false;
+                correctaTest.Visible = false; correctaVF.Visible = true;
             }
         }
 
