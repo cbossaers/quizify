@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Quizify.Services;
 
 namespace QuizifyIU
 {
     public partial class Principal : Form
     {
-        public Principal()
+        private Servicio servicio;
+        public Principal(Servicio servicio)
         {
             InitializeComponent();
+            this.servicio = servicio;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -24,18 +27,18 @@ namespace QuizifyIU
 
         private void biniciarS_Click(object sender, EventArgs e)
         {
-            Portal formportal = new Portal();
+            Portal formportal = new Portal(servicio);
             formportal.Show();
         }
 
         private void bregistrarse_Click(object sender, EventArgs e)
         {
-            AbrirFormRegistrarse(new registrarse());
+            AbrirFormRegistrarse(new registrarse(servicio));
         }
 
         private void AbrirFormRegistrarse(object formRegistrarse)
         {
-            registrarse formr = new registrarse();
+            registrarse formr = new registrarse(servicio);
             formr.ShowDialog();
         }
 

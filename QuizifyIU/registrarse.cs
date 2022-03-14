@@ -5,14 +5,18 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Quizify.Entities;
+using Quizify.Services;
 
 namespace QuizifyIU
 {
     public partial class registrarse : Form
     {
-        public registrarse()
+        private Servicio servicio;
+        public registrarse(Servicio servicio)
         {
             InitializeComponent();
+            this.servicio = servicio;
         }
 
         private void registrarse_Load(object sender, EventArgs e)

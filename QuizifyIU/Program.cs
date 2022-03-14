@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Quizify.Services;
+using Quizify.Persistence;
 
 namespace QuizifyIU
 {
@@ -14,10 +16,11 @@ namespace QuizifyIU
         [STAThread]
         static void Main()
         {
+            Servicio servicio = new Servicio(new DAL());
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Principal());
+            Application.Run(new Principal(servicio));
         }
 
     }

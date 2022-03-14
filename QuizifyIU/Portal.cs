@@ -5,14 +5,17 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Quizify.Services;
 
 namespace QuizifyIU
 {
     public partial class Portal : Form
     {
-        public Portal()
+        private Servicio servicio;
+        public Portal(Servicio servicio)
         {
             InitializeComponent();
+            this.servicio = servicio;
         }
 
         private void panelContenedor_Paint(object sender, PaintEventArgs e)
@@ -78,27 +81,27 @@ namespace QuizifyIU
 
         private void bCrearPregunta_Click(object sender, EventArgs e)
         {
-            AbrirFormCrearPregunta(new CrearPregunta());
+            AbrirFormCrearPregunta(new CrearPregunta(servicio));
         }
 
         private void bCrearQuiz_Click(object sender, EventArgs e)
         {
-            AbrirFormCrearQuiz(new CrearQuiz());
+            AbrirFormCrearQuiz(new CrearQuiz(servicio));
         }
 
         private void bMisPreguntas_Click(object sender, EventArgs e)
         {
-            AbrirFormMisPreguntas(new MisPreguntas());
+            AbrirFormMisPreguntas(new MisPreguntas(servicio));
         }
 
         private void bMisExamenes_Click(object sender, EventArgs e)
         {
-            AbrirFormMisExamenes(new MisExamenes());
+            AbrirFormMisExamenes(new MisExamenes(servicio));
         }
 
         private void bHacerExamen_Click(object sender, EventArgs e)
         {
-            AbrirFormHacerExamen(new HacerExamen());
+            AbrirFormHacerExamen(new HacerExamen(servicio));
         }
     }
 }
