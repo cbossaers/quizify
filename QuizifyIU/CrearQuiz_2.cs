@@ -8,19 +8,21 @@ using System.Windows.Forms;
 
 namespace QuizifyIU
 {
-    public partial class HacerExamen : Form
+    public partial class CrearQuiz_2 : Form
     {
-        public HacerExamen()
+        public CrearQuiz_2()
         {
             InitializeComponent();
         }
 
-        
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)  empezar.Enabled = false; 
-            if (!checkBox1.Checked) empezar.Enabled = true; 
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
