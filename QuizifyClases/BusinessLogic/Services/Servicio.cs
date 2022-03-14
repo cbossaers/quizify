@@ -95,7 +95,7 @@ namespace Quizify.Services
         }
         public Institucion GetInstitucionById(string correo)
         {
-            try { Institucion institucion = dal.GetEntidad(correo); return institucion }
+            try { Institucion institucion = dal.GetEntidad(correo); return institucion; }
             catch (Exception)
             {
                 throw new ServicioException("La institución con correo " + correo + " no existe");
