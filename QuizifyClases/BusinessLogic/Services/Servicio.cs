@@ -23,11 +23,9 @@ namespace Quizify.Services
         }
         public void AddPreguntaTest(PreguntaTest preguntaTest)
         {
-            if (dal.GetPregunta(preguntaTest.GetId(), preguntaTest.GetVersion()) == null)
-            {
                 dal.AddPregunta(preguntaTest);
-            }
-            else throw new ServicioException("La pregunta con Id " + preguntaTest.GetId() + " versión: " + preguntaTest.GetVersion() + " ya existe");
+                
+            //else throw new ServicioException("La pregunta con Id " + preguntaTest.GetId() + " versión: " + preguntaTest.GetVersion() + " ya existe");
         }
         public void AddAlumno(Alumno alumno)
         {

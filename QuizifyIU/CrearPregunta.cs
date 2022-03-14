@@ -104,7 +104,11 @@ namespace QuizifyIU
                                        MessageBoxIcon.Error);
             }
             if(tipoPregunta.Text == "Test") ComprobarOpcionesRellenadas(numeroDeOpciones);
-            //METODO ADD PREGUNTA A LA BDD
+
+            List<dynamic> lista = new List<dynamic> {0, "pepe", "amarillo", "limon"};
+            PreguntaTest preg = new PreguntaTest(3,enunciado.Text, lista);
+            
+            servicio.AddPreguntaTest(preg);
         }
 
         private void EvCambiarDificultad(object sender, EventArgs e)
