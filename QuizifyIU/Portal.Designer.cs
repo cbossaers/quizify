@@ -42,7 +42,7 @@
             // 
             // MenuVertical
             // 
-            this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.MenuVertical.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.MenuVertical.Controls.Add(this.bHacerExamen);
             this.MenuVertical.Controls.Add(this.bAjustes);
             this.MenuVertical.Controls.Add(this.bSalir);
@@ -58,9 +58,12 @@
             // 
             // bHacerExamen
             // 
-            this.bHacerExamen.Location = new System.Drawing.Point(0, 316);
+            this.bHacerExamen.FlatAppearance.BorderSize = 0;
+            this.bHacerExamen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bHacerExamen.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bHacerExamen.Location = new System.Drawing.Point(3, 294);
             this.bHacerExamen.Name = "bHacerExamen";
-            this.bHacerExamen.Size = new System.Drawing.Size(147, 40);
+            this.bHacerExamen.Size = new System.Drawing.Size(141, 40);
             this.bHacerExamen.TabIndex = 4;
             this.bHacerExamen.Text = "Hacer examen";
             this.bHacerExamen.UseVisualStyleBackColor = true;
@@ -68,9 +71,9 @@
             // 
             // bAjustes
             // 
-            this.bAjustes.Location = new System.Drawing.Point(106, 414);
+            this.bAjustes.Location = new System.Drawing.Point(78, 414);
             this.bAjustes.Name = "bAjustes";
-            this.bAjustes.Size = new System.Drawing.Size(35, 23);
+            this.bAjustes.Size = new System.Drawing.Size(54, 23);
             this.bAjustes.TabIndex = 5;
             this.bAjustes.Text = "Ajustes";
             this.bAjustes.UseVisualStyleBackColor = true;
@@ -86,9 +89,12 @@
             // 
             // bMisExamenes
             // 
-            this.bMisExamenes.Location = new System.Drawing.Point(0, 260);
+            this.bMisExamenes.FlatAppearance.BorderSize = 0;
+            this.bMisExamenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bMisExamenes.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bMisExamenes.Location = new System.Drawing.Point(3, 248);
             this.bMisExamenes.Name = "bMisExamenes";
-            this.bMisExamenes.Size = new System.Drawing.Size(147, 40);
+            this.bMisExamenes.Size = new System.Drawing.Size(141, 40);
             this.bMisExamenes.TabIndex = 3;
             this.bMisExamenes.Text = "Mis exámenes";
             this.bMisExamenes.UseVisualStyleBackColor = true;
@@ -96,9 +102,12 @@
             // 
             // bCrearQuiz
             // 
-            this.bCrearQuiz.Location = new System.Drawing.Point(0, 156);
+            this.bCrearQuiz.FlatAppearance.BorderSize = 0;
+            this.bCrearQuiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bCrearQuiz.Font = new System.Drawing.Font("Corbel", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bCrearQuiz.Location = new System.Drawing.Point(3, 156);
             this.bCrearQuiz.Name = "bCrearQuiz";
-            this.bCrearQuiz.Size = new System.Drawing.Size(147, 40);
+            this.bCrearQuiz.Size = new System.Drawing.Size(141, 40);
             this.bCrearQuiz.TabIndex = 2;
             this.bCrearQuiz.Text = "Crear quiz";
             this.bCrearQuiz.UseVisualStyleBackColor = true;
@@ -106,9 +115,12 @@
             // 
             // bMisPreguntas
             // 
-            this.bMisPreguntas.Location = new System.Drawing.Point(0, 202);
+            this.bMisPreguntas.FlatAppearance.BorderSize = 0;
+            this.bMisPreguntas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bMisPreguntas.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bMisPreguntas.Location = new System.Drawing.Point(3, 202);
             this.bMisPreguntas.Name = "bMisPreguntas";
-            this.bMisPreguntas.Size = new System.Drawing.Size(147, 40);
+            this.bMisPreguntas.Size = new System.Drawing.Size(141, 40);
             this.bMisPreguntas.TabIndex = 1;
             this.bMisPreguntas.Text = "Mis preguntas";
             this.bMisPreguntas.UseVisualStyleBackColor = true;
@@ -116,9 +128,12 @@
             // 
             // bCrearPregunta
             // 
-            this.bCrearPregunta.Location = new System.Drawing.Point(0, 110);
+            this.bCrearPregunta.FlatAppearance.BorderSize = 0;
+            this.bCrearPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bCrearPregunta.Font = new System.Drawing.Font("Corbel", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bCrearPregunta.Location = new System.Drawing.Point(3, 110);
             this.bCrearPregunta.Name = "bCrearPregunta";
-            this.bCrearPregunta.Size = new System.Drawing.Size(147, 40);
+            this.bCrearPregunta.Size = new System.Drawing.Size(141, 40);
             this.bCrearPregunta.TabIndex = 0;
             this.bCrearPregunta.Text = "Crear pregunta";
             this.bCrearPregunta.UseVisualStyleBackColor = true;
@@ -126,7 +141,7 @@
             // 
             // panelContenedor
             // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.panelContenedor.BackColor = System.Drawing.Color.White;
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(147, 0);
             this.panelContenedor.Name = "panelContenedor";

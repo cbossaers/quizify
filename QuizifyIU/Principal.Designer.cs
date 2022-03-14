@@ -40,24 +40,25 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(337, 67);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(131, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 20);
+            this.label1.Size = new System.Drawing.Size(358, 52);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bienvenido a QUIZIFY";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // emailField
             // 
-            this.emailField.Location = new System.Drawing.Point(441, 136);
+            this.emailField.Location = new System.Drawing.Point(140, 145);
             this.emailField.Name = "emailField";
-            this.emailField.Size = new System.Drawing.Size(100, 23);
+            this.emailField.Size = new System.Drawing.Size(192, 23);
             this.emailField.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(246, 144);
+            this.label2.Location = new System.Drawing.Point(140, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 15);
             this.label2.TabIndex = 2;
@@ -66,7 +67,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(215, 219);
+            this.label3.Location = new System.Drawing.Point(140, 204);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 15);
             this.label3.TabIndex = 3;
@@ -74,14 +75,14 @@
             // 
             // contraField
             // 
-            this.contraField.Location = new System.Drawing.Point(441, 219);
+            this.contraField.Location = new System.Drawing.Point(140, 222);
             this.contraField.Name = "contraField";
-            this.contraField.Size = new System.Drawing.Size(100, 23);
+            this.contraField.Size = new System.Drawing.Size(192, 23);
             this.contraField.TabIndex = 4;
             // 
             // biniciarS
             // 
-            this.biniciarS.Location = new System.Drawing.Point(445, 321);
+            this.biniciarS.Location = new System.Drawing.Point(140, 266);
             this.biniciarS.Name = "biniciarS";
             this.biniciarS.Size = new System.Drawing.Size(96, 23);
             this.biniciarS.TabIndex = 5;
@@ -91,7 +92,7 @@
             // 
             // bregistrarse
             // 
-            this.bregistrarse.Location = new System.Drawing.Point(325, 321);
+            this.bregistrarse.Location = new System.Drawing.Point(140, 343);
             this.bregistrarse.Name = "bregistrarse";
             this.bregistrarse.Size = new System.Drawing.Size(75, 23);
             this.bregistrarse.TabIndex = 6;
@@ -102,7 +103,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(153, 329);
+            this.label4.Location = new System.Drawing.Point(140, 315);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 15);
             this.label4.TabIndex = 7;
@@ -112,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(639, 411);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.bregistrarse);
             this.Controls.Add(this.biniciarS);
