@@ -13,43 +13,45 @@ namespace Quizify.Services
         {
             this.dal = dal;
         }
-        public void AddPreguntaVF(PreguntaVF preguntaFV)
+        public void AddPreguntaVF(PreguntaVF preguntaVF)
         {
-            if (dal.GetPregunta(preguntaFV.GetId(),preguntaFV.GetVersion()) == null)
+            try { dal.AddPregunta(preguntaVF); }
+            catch (Exception)
             {
-                dal.AddPregunta(preguntaFV);
+                throw new ServicioException("La pregunta con Id " + preguntaVF.GetId() + " versión: " + preguntaVF.GetVersion() + " ya existe");
             }
-            else throw new ServicioException("La pregunta con Id " + preguntaFV.GetId() + " versión: " + preguntaFV.GetVersion() + " ya existe");
         }
         public void AddPreguntaTest(PreguntaTest preguntaTest)
         {
-                dal.AddPregunta(preguntaTest);
-                
-            //else throw new ServicioException("La pregunta con Id " + preguntaTest.GetId() + " versión: " + preguntaTest.GetVersion() + " ya existe");
+            try { dal.AddPregunta(preguntaTest);}
+            catch(Exception) {
+                throw new ServicioException("La pregunta con Id " + preguntaTest.GetId() + " versión: " + preguntaTest.GetVersion() + " ya existe");
+                }
+            
         }
         public void AddAlumno(Alumno alumno)
         {
-            if (dal.GetEntidad(alumno.GetCorreo()) == null)
+            try { dal.AddEntidad(alumno); }
+            catch (Exception)
             {
-                dal.AddEntidad(alumno);
+                throw new ServicioException("El alumno con correo " + alumno.GetCorreo() + " ya existe");
             }
-            else throw new ServicioException("El alumno con correo " + alumno.GetCorreo() + " ya existe");
         }
         public void AddProfesor(Profesor profesor)
         {
-            if (dal.GetEntidad(profesor.GetCorreo()) == null)
+            try { dal.AddEntidad(profesor); }
+            catch (Exception)
             {
-                dal.AddEntidad(profesor);
+                throw new ServicioException("El profesor con correo " + profesor.GetCorreo() + " ya existe");
             }
-            else throw new ServicioException("El profesor con correo " + profesor.GetCorreo() + " ya existe");
         }
         public void AddInstitucion(Institucion institucion)
         {
-            if (dal.GetEntidad(institucion.GetCorreo()) == null)
+            try { dal.AddEntidad(institucion); }
+            catch (Exception)
             {
-                dal.AddEntidad(institucion);
+                throw new ServicioException("La institución con correo " + institucion.GetCorreo() + " ya existe");
             }
-            else throw new ServicioException("La institución con correo " + institucion.GetCorreo() + " ya existe");
         }
         public void AddExamen(Examen examen)
         {
@@ -61,33 +63,43 @@ namespace Quizify.Services
         }
         public PreguntaVF GetPreguntaVFById(int Id, int version)
         {
-            PreguntaVF pregunta = dal.GetPregunta(Id, version);
-            if (pregunta != null) return pregunta;
-            else throw new ServicioException("La pregunta con Id " + Id + " no existe");
+            try { PreguntaVF pregunta = dal.GetPregunta(Id, version); return pregunta; }
+            catch (Exception)
+            {
+                throw new ServicioException("La pregunta con Id " + Id + " no existe");
+            }
         }
         public PreguntaTest GetPreguntaTestById(int Id, int version)
         {
-            PreguntaTest pregunta = dal.GetPregunta(Id, version);
-            if (pregunta != null) return pregunta;
-            else throw new ServicioException("La pregunta con Id " + Id + " no existe");
+            try { PreguntaTest pregunta = dal.GetPregunta(Id, version); return pregunta; }
+            catch (Exception)
+            {
+                throw new ServicioException("La pregunta con Id " + Id + " no existe");
+            }
         }
         public Alumno GetAlumnoById(string correo)
         {
-            Alumno alumno = dal.GetEntidad(correo);
-            if (alumno != null) return alumno;
-            else throw new ServicioException("El alumno con correo " + correo + " no existe");
+            try { Alumno alumno = dal.GetEntidad(correo); return alumno; }
+            catch (Exception)
+            {
+                throw new ServicioException("El alumno con correo " + correo + " no existe");
+            }
         }
         public Profesor GetProfesorById(string correo)
         {
-            Profesor profesor = dal.GetEntidad(correo);
-            if (profesor != null) return profesor;
-            else throw new ServicioException("El profesor con correo " + correo + " no existe");
+            try { Profesor profesor = dal.GetEntidad(correo); return profesor; }
+            catch (Exception)
+            {
+                throw new ServicioException("El profesor con correo " + correo + " no existe");
+            }
         }
         public Institucion GetInstitucionById(string correo)
         {
-            Institucion institucion = dal.GetEntidad(correo);
-            if (institucion != null) return institucion;
-            else throw new ServicioException("La institución con correo " + correo + " no existe");
+            try { Institucion institucion = dal.GetEntidad(correo); return institucion }
+            catch (Exception)
+            {
+                throw new ServicioException("La institución con correo " + correo + " no existe");
+            }
         }
         public Examen GetExamenById(int Id)
         {
