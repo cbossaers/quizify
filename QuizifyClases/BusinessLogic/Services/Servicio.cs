@@ -110,7 +110,7 @@ namespace Quizify.Services
             else throw new ServicioException("El examen con Id " + Id + " no existe");
             return null;
         }
-        public ICollection<dynamic> GetPreguntas()
+        public ICollection<dynamic> GetPreguntas(List<dynamic> lista)
         {
             return null;
         }
