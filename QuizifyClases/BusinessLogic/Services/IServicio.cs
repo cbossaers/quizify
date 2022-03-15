@@ -21,7 +21,7 @@ namespace Quizify.Services
         public Institucion GetInstitucionById(string correo);
         public Examen GetExamenById(int Id);
 
-        public ICollection<dynamic> GetPreguntas();
+        public ICollection<dynamic> GetPreguntas(List<dynamic> lista);
         public ICollection<dynamic> GetEntidades();
         public ICollection<dynamic> GetExamenes();
 
