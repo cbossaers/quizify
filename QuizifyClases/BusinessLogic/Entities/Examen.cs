@@ -28,17 +28,7 @@ namespace Quizify.Entities
         public Boolean Eliminar_pregunta(Pregunta pregunta)
         {
             return true;
-        }
-
-        public dynamic Crear_pregunta(string enunciado, string tipo, List<dynamic> opciones = null)
-        {
-            switch (tipo)
-            {
-                case ("VF"): return new PreguntaVF(8, enunciado, Int32.Parse(opciones[0]));
-                case ("Test"): return new PreguntaTest(9, enunciado, opciones);
-                default: return true;
-            }
-        }
+        } 
         public int GetId()
         {
             return ID;

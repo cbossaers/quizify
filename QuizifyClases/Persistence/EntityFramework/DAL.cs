@@ -56,14 +56,16 @@ public class DAL {
         
         switch(tipo){
             case("Quizify.Entities.PreguntaTest"): 
-                consulta_pregunta = "INSERT into PSWC.pregunta(id,ver,enunciado,tipo) values(" + id + ",1,'" + pregunta.GetEnunciado() +"','test');";
+                consulta_pregunta = "INSERT into PSWC.pregunta(id,ver,enunciado,tipo,dificultad) values(" + id + ",1,'" + pregunta.GetEnunciado() 
+                    + "','test'," + pregunta.GetDificultad() + ");";
                 consulta_especifica = "INSERT into PSWC.pregunta_test(id,ver,opc_a,opc_b,opc_c,opc_d,opc_e,correcta) values(" + id + ",1,'" 
                     + pregunta.GetOpcA() + "','" + pregunta.GetOpcB() + "','" + pregunta.GetOpcC() + "','" + pregunta.GetOpcD() + "','" 
                     + pregunta.GetOpcE() + "'," + pregunta.GetCorrecta() + ");";
                 break;
 
             case("Quizify.Entities.PreguntaVF"): 
-                consulta_pregunta = "INSERT into PSWC.pregunta(id,ver,enunciado,tipo) values(" + id + ",1,'" + pregunta.GetEnunciado() +"','vf');";
+                consulta_pregunta = "INSERT into PSWC.pregunta(id,ver,enunciado,tipo,dificultad) values(" + id + ",1,'" + pregunta.GetEnunciado() 
+                    + "','vf'," + pregunta.GetDificultad() + ");";
                 consulta_especifica = "INSERT into PSWC.pregunta_vf(id,ver,correcta) values(" + id + ",1," + pregunta.GetCorrecta() + ");";
                 break;
         }
@@ -203,11 +205,11 @@ public class DAL {
                 if(data.Rows[0]["opc_e"].ToString() != null) { lista.Add(data.Rows[0]["opc_e"].ToString()); }
 
                 return new PreguntaTest(int.Parse(data.Rows[0]["id"].ToString()), GetEnunciado(id, ver), 
-                    lista, int.Parse(data.Rows[0]["ver"].ToString()));
+                    lista, GetDificultad(id, ver), int.Parse(data.Rows[0]["ver"].ToString()));
 
             case("vf"):
                 return new PreguntaVF(int.Parse(data.Rows[0]["id"].ToString()), GetEnunciado(id, ver), 
-                    int.Parse(data.Rows[0]["correcta"].ToString()), int.Parse(data.Rows[0]["ver"].ToString()));
+                    int.Parse(data.Rows[0]["correcta"].ToString()), GetDificultad(id, ver), int.Parse(data.Rows[0]["ver"].ToString()));
         }  
 
         conn.Close();
@@ -258,5 +260,18 @@ public class DAL {
                 consulta = rdr.GetString("enunciado");
         }
         return consulta;
+    }
+
+    public int GetDificultad(int id, int ver) {
+        string consulta = "SELECT dificultad FROM PSWC.pregunta WHERE id= " + id + " AND ver= " + ver + ";";
+        int res = 0;
+
+        MySqlCommand cmd = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+
+        while (rdr.Read()) {
+                res = int.Parse(rdr.GetString("enunciado"));
+        }
+        return res;
     }
 }}

@@ -112,3 +112,4 @@ CREATE TABLE respuestas_examenes (
     FOREIGN KEY (alumno) REFERENCES alumno(correo) ON DELETE CASCADE,
     FOREIGN KEY (pregunta, ver_pregunta) REFERENCES pregunta(id, ver) ON DELETE CASCADE
 );
+ALTER TABLE pregunta ADD COLUMN dificultad INTEGER NOT NULL;

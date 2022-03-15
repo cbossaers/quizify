@@ -24,5 +24,11 @@ namespace Quizify.Entities
             get;
             set;
         }
+
+        private int dificultad 
+        {
+            get;
+            set;
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace Quizify.Entities
 {
     public partial class PreguntaTest : Pregunta
     {
-        public PreguntaTest(int Id, string Enunciado, List<dynamic> lista, int version = 1) : base(Id, Enunciado, version)
+        public PreguntaTest(int Id, string Enunciado, List<dynamic> lista, int dificultad, int version = 1) : base(Id, Enunciado, dificultad, version)
         {
             opc_a = lista[1];
             opc_b = lista[2];
