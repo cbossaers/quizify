@@ -81,9 +81,57 @@ public class DAL {
         conn.Close();
     }
 
+    public void AddExamen(Examen ex) {
+        conn.Open();
+
+        int id_ex = UltimoIdExamen();
+
+        string consulta = "INSERT into PSWC.examen(id,titulo,descripcion,autor,curso,tiempo,fecha_ini,fecha_fin,intentos"
+         + ",volver_atras,errores_restan,mostrar_resultados,fecha_creac) VALUES(" + id_ex + ",'" + ex.GetTitulo() + "','" 
+         + ex.GetDescripcion() + "','" + ex.GetAutor() + "','" + ex.GetCurso() + "'," + ex.GetTiempo() + "," + ex.GetFechaIni()
+         + "," + ex.GetFechaFin() + "," + ex.GetIntentos() + "," + ex.GetVolverAtras() + "," + ex.GetErroresRestan() + ","
+         + ex.GetMostrarResultados() + "," + ex.GetFechaCreac() +");";
+
+        MySqlCommand cmd = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();   
+
+        List<int> lista = ex.GetPreguntasAsociadas();
+
+        for(int i = 0; i < 3 * lista.Count; i+=3) {
+            AddPreguntaAExamen(id_ex,lista[i],lista[i+1],lista[i+2]);
+        }
+
+        conn.Close();
+    }
+
+    public void AddPreguntaAExamen(int id_ex, int id_preg, int ver_preg, int puntos) {
+        string consulta = "INSERT into PSWC.lista_preguntas(id_examen,id_pregunta,ver,puntuacion) VALUES(" + id_ex
+            + "," + id_preg + "," + ver_preg + "," + puntos + ";";
+        
+        MySqlCommand cmd = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+    }
+
     public int UltimoIdPregunta(){
         conn.Open();
         string consulta = "SELECT id FROM PSWC.pregunta;";
+        int id = 0; int aux = 0;
+
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+
+        foreach (DataRow row in data.Rows) { 
+            aux = int.Parse(row["id"].ToString());
+            if(aux > id) { id = aux; }
+        }
+        conn.Close();
+        return id;
+    }
+
+    public int UltimoIdExamen() {
+        conn.Open();
+        string consulta = "SELECT id FROM PSWC.examen;";
         int id = 0; int aux = 0;
 
         MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
@@ -341,4 +389,25 @@ public class DAL {
 
         return data;
     }
+
+    public Examen GetExamen(int id) {
+        string consulta = "SELECT * FROM PSWC.examen WHERE id= " + id + ";";
+
+        conn.Open();
+
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+
+        conn.Close();
+
+        return new Examen(id, data.Rows[0]["nombre"].ToString(), data.Rows[0]["titulo"].ToString(),data.Rows[0]["descripcion"].ToString(),
+            data.Rows[0]["curso"].ToString(), data.Rows[0]["autor"].ToString(), DateTime.Parse(data.Rows[0]["fecha_creac"].ToString()),
+            DateTime.Parse(data.Rows[0]["fecha_ini"].ToString()), DateTime.Parse(data.Rows[0]["fecha_fin"].ToString()), 
+            int.Parse(data.Rows[0]["intentos"].ToString()), int.Parse(data.Rows[0]["volver_atras"].ToString()), 
+            int.Parse(data.Rows[0]["errores_restan"].ToString()), int.Parse(data.Rows[0]["mostrar_resultados"].ToString()));
+    }
+
+    public List<int> GetListaPreguntas(int id)
+
 }}
