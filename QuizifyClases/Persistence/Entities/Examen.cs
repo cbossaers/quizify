@@ -8,10 +8,6 @@ public partial class Examen
         get;
         set;
     }
-    public string nombre {
-        get;
-        set;
-    }
     public string titulo {
         get;
         set;
@@ -28,6 +24,14 @@ public partial class Examen
         get;
         set;
     }
+    public int tiempo {
+        get;
+        set;
+    }
+    public DateTime fecha_creac {
+        get;
+        set;
+    }
     public DateTime fecha_ini {
         get;
         set;
@@ -37,10 +41,6 @@ public partial class Examen
         set;
     }
     public int intentos {
-        get;
-        set;
-    }
-    public string CT {
         get;
         set;
     }
@@ -56,7 +56,8 @@ public partial class Examen
         get;
         set;
     }
-    public List<int> preguntas {
+
+    public List<int> preguntas_asociadas {
         get;
         set;
     }
