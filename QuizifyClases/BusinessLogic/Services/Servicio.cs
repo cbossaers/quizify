@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Data;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 using System.Collections.Generic;
-using System.Text;
 using Quizify.Entities;
 using Quizify.Persistence;
+using System.Text;
 
 namespace Quizify.Services
 {
@@ -110,9 +113,9 @@ namespace Quizify.Services
             else throw new ServicioException("El examen con Id " + Id + " no existe");
             return null;
         }
-        public ICollection<dynamic> GetPreguntas(List<dynamic> lista)
+        public DataTable GetPreguntas(List<dynamic> lista)
         {
-            return null;
+            return dal.GetPreguntas(lista);
         }
         public ICollection<dynamic> GetEntidades()
         {
