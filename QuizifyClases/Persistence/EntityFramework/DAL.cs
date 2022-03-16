@@ -303,13 +303,20 @@ public class DAL {
     public DataTable GetPreguntas(List<dynamic> filtros) {
         conn.Open();
 
-        string consulta = "SELECT * from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "' AND tipo= '" + filtros[1] + "' AND dificultad= " 
-            + filtros[2] + " AND tema= '" + filtros[3] + "';"; 
+        string consulta = "SELECT * from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "'";
+
+        if(filtros[1] != null) { consulta = consulta + " " +  "AND tipo= '" + filtros[1] + "'"; }
+        if(filtros[2] != null) { consulta = consulta + " " +  "AND dificultad= " + filtros[2] + ""; }
+        if(filtros[3] != null) { consulta = consulta + " " +  "AND tema= '" + filtros[3] + "'"; }
+
+        consulta = consulta + ";";
+
+         Console.WriteLine(consulta);
 
         MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
         DataTable data = new DataTable();
         adapter.Fill(data);
-        
+
         conn.Close();
 
         return data;
