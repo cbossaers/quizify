@@ -15,5 +15,7 @@ namespace Quizify.Persistence {
         void EliminarPregunta(int id);
         dynamic GetEntidad(string correo);
         dynamic GetPregunta(int id, int ver);
+        DataTable GetPreguntas(List<dynamic> filtros);
+        //filtros[autor(el correo), tipo('test','vf','desarrollo'), dificultad(0,1,2), tema(string)]
     }
 }
