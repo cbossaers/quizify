@@ -56,16 +56,16 @@ public class DAL {
         
         switch(tipo){
             case("Quizify.Entities.PreguntaTest"): 
-                consulta_pregunta = "INSERT into PSWC.pregunta(id,ver,enunciado,tipo,dificultad) values(" + id + ",1,'" + pregunta.GetEnunciado() 
-                    + "','test'," + pregunta.GetDificultad() + ");";
+                consulta_pregunta = "INSERT into PSWC.pregunta(id,ver,enunciado,tipo,dificultad,autor,tema) values(" + id + ",1,'" + pregunta.GetEnunciado() 
+                    + "','test'," + pregunta.GetDificultad() + ",'" + pregunta.GetAutor() + "','" + pregunta.GetTema() +  "');";
                 consulta_especifica = "INSERT into PSWC.pregunta_test(id,ver,opc_a,opc_b,opc_c,opc_d,opc_e,correcta) values(" + id + ",1,'" 
                     + pregunta.GetOpcA() + "','" + pregunta.GetOpcB() + "','" + pregunta.GetOpcC() + "','" + pregunta.GetOpcD() + "','" 
                     + pregunta.GetOpcE() + "'," + pregunta.GetCorrecta() + ");";
                 break;
 
             case("Quizify.Entities.PreguntaVF"): 
-                consulta_pregunta = "INSERT into PSWC.pregunta(id,ver,enunciado,tipo,dificultad) values(" + id + ",1,'" + pregunta.GetEnunciado() 
-                    + "','vf'," + pregunta.GetDificultad() + ");";
+                consulta_pregunta = "INSERT into PSWC.pregunta(id,ver,enunciado,tipo,dificultad,autor,tema) values(" + id + ",1,'" + pregunta.GetEnunciado() 
+                    + "','test'," + pregunta.GetDificultad() + ",'" + pregunta.GetAutor() + "','" + pregunta.GetTema() +  "');";
                 consulta_especifica = "INSERT into PSWC.pregunta_vf(id,ver,correcta) values(" + id + ",1," + pregunta.GetCorrecta() + ");";
                 break;
         }
@@ -205,11 +205,11 @@ public class DAL {
                 if(data.Rows[0]["opc_e"].ToString() != null) { lista.Add(data.Rows[0]["opc_e"].ToString()); }
 
                 return new PreguntaTest(int.Parse(data.Rows[0]["id"].ToString()), GetEnunciado(id, ver), 
-                    lista, GetDificultad(id, ver), int.Parse(data.Rows[0]["ver"].ToString()));
+                    lista, GetDificultad(id, ver), GetAutor(id,ver), GetTema(id, ver), int.Parse(data.Rows[0]["ver"].ToString()));
 
             case("vf"):
                 return new PreguntaVF(int.Parse(data.Rows[0]["id"].ToString()), GetEnunciado(id, ver), 
-                    int.Parse(data.Rows[0]["correcta"].ToString()), GetDificultad(id, ver), int.Parse(data.Rows[0]["ver"].ToString()));
+                    int.Parse(data.Rows[0]["correcta"].ToString()), GetDificultad(id, ver), GetAutor(id, ver), GetTema(id, ver), int.Parse(data.Rows[0]["ver"].ToString()));
         }  
 
         conn.Close();
@@ -273,5 +273,45 @@ public class DAL {
                 res = int.Parse(rdr.GetString("enunciado"));
         }
         return res;
+    }
+
+    public string GetAutor(int id, int ver) {
+        string consulta = "SELECT autor FROM PSWC.pregunta WHERE id= " + id + " AND ver= " + ver + ";";
+
+        MySqlCommand cmd = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+
+        while (rdr.Read()) {
+                consulta = rdr.GetString("enunciado");
+        }
+        return consulta;
+    }
+
+    public string GetTema(int id, int ver) {
+        string consulta = "SELECT tema FROM PSWC.pregunta WHERE id= " + id + " AND ver= " + ver + ";";
+
+        MySqlCommand cmd = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+
+        while (rdr.Read()) {
+                consulta = rdr.GetString("enunciado");
+        }
+        return consulta;
+    }
+    
+    //filtros[autor, tipo('test','vf','desarrollo'), dificultad(0,1,2), tema(string)]
+    public DataTable GetPreguntas(List<dynamic> filtros) {
+        conn.Open();
+
+        string consulta = "SELECT * from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "' AND tipo= '" + filtros[1] + "' AND dificultad= " 
+            + filtros[2] + " AND tema= '" + filtros[3] + "';"; 
+
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+        
+        conn.Close();
+
+        return data;
     }
 }}

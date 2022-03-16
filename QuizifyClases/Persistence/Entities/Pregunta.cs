@@ -30,5 +30,17 @@ namespace Quizify.Entities
             get;
             set;
         }
+
+        private string autor 
+        {
+            get;
+            set;
+        }
+
+        private string tema 
+        {
+            get;
+            set;
+        }
     }
 }

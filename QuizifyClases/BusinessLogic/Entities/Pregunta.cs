@@ -4,12 +4,14 @@ namespace Quizify.Entities
 {
     public partial class Pregunta
     {
-        public Pregunta(int Id, string Enunciado, int Dificultad, int ver)
+        public Pregunta(int Id, string Enunciado, int Dificultad, string Autor, string Tema, int ver)
         {
             ID = Id;
             version = ver;
             enunciado = Enunciado;
             dificultad = Dificultad;
+            autor = Autor;
+            tema = Tema;
         }
         public int GetId()
         {
@@ -27,6 +29,16 @@ namespace Quizify.Entities
         {
             return dificultad;
         }
+
+        public string GetAutor()
+        {
+            return autor;
+        }
+
+        public string GetTema()
+        {
+            return tema;
+        }
         public void SetVersion(int ver)
         {
             version = ver;
@@ -39,6 +51,16 @@ namespace Quizify.Entities
         public void SetDificultad(int Dificultad) 
         {
             dificultad = Dificultad;
+        }
+
+        public void SetAutor(string Autor)
+        {
+            autor = Autor;
+        }
+
+        public void SetTema(string Tema)
+        {
+            tema = Tema;
         }
     }
 }
