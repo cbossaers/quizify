@@ -18,5 +18,16 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
         }
+
+
+        private void bBuscar_Click(object sender, EventArgs e)
+        {
+            string textoBuscador = buscadorBox.Text;
+            int id = int.Parse(textoBuscador);
+            //List<Pregunta> preguntas = (List<Pregunta>)servicio.GetPreguntas();
+            //tablaPreguntas.DataSource = preguntas;
+            if ((servicio.GetPreguntaTestById(id, 1) != null) || (servicio.GetPreguntaVFById(id, 1) != null))
+            { }
+        }
     }
 }
