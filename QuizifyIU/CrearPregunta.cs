@@ -19,6 +19,8 @@ namespace QuizifyIU
         private int numeroDeOpciones = 3;
         private bool cambioDificultad = false;
         private bool cambioTipoPregunta = false;
+        private Fabrica fabrica = new Fabrica();
+        private List<dynamic> lista = new List<dynamic> { };
         public CrearPregunta(Servicio servicio)
         {
             InitializeComponent();
@@ -103,12 +105,22 @@ namespace QuizifyIU
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Error);
             }
-            if(tipoPregunta.Text == "Test") ComprobarOpcionesRellenadas(numeroDeOpciones);
+            if (tipoPregunta.Text == "Test")
+            {
+                if(ComprobarOpcionesRellenadas(numeroDeOpciones) == true)
+                {
+                    lista.Add(opc0.Text); lista.Add(opc1.Text); lista.Add(opc2.Text);
+                    if (numeroDeOpciones == 4) lista.Add(opc3.Text);
+                    if (numeroDeOpciones == 5) lista.Add(opc4.Text);
+                }
+                //llamar método fábrica Test
+            }
+            else
+            {
+                //llamar método fábrica VF
+            }
 
-            List<dynamic> lista = new List<dynamic> {0, "pepe", "amarillo", "limon"};
-            PreguntaTest preg = new PreguntaTest(3,enunciado.Text, lista);
-            
-            servicio.AddPreguntaTest(preg);
+            //servicio.AddPreguntaTest(pregunta);
         }
 
         private void EvCambiarDificultad(object sender, EventArgs e)
@@ -123,33 +135,30 @@ namespace QuizifyIU
                 crear.Enabled = true;
             }
         }
-        private void ComprobarOpcionesRellenadas(int numOpc)
+        private bool ComprobarOpcionesRellenadas(int numOpc)
         {
             if(numOpc >= 3)
             {
-                if (opc0.Text == "") {
-                    MessageBox.Show(this, "No se ha rellenado la opción A", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                }
-                if(opc1.Text == "") {
-                    MessageBox.Show(this, "No se ha rellenado la opción B", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (opc2.Text == "")
-                {
-                    MessageBox.Show(this, "No se ha rellenado la opción C", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (opc0.Text == "" || opc1.Text == "" || opc2.Text == "") {
+                    MessageBox.Show(this, "No se ha rellenado las tres primeras opciones", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
             }
             if(numOpc >= 4){
                 if (opc3.Text == "")
                 {
                     MessageBox.Show(this, "No se ha rellenado la opción D", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
             }
             if(numOpc == 5){
                 if (opc4.Text == "")
                 {
                     MessageBox.Show(this, "No se ha rellenado la opción E", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
             }
+            return true;
         }
     }
 }
