@@ -38,7 +38,7 @@
             this.emailBox = new System.Windows.Forms.TextBox();
             this.apellidosBox = new System.Windows.Forms.TextBox();
             this.contraBox = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tipoUsuario = new System.Windows.Forms.ComboBox();
             this.bVolver = new System.Windows.Forms.Button();
             this.bConfirmar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -109,6 +109,7 @@
             this.nombreBox.Name = "nombreBox";
             this.nombreBox.Size = new System.Drawing.Size(182, 23);
             this.nombreBox.TabIndex = 6;
+            this.nombreBox.TextChanged += new System.EventHandler(this.nombreBox_TextChanged);
             // 
             // emailBox
             // 
@@ -116,6 +117,7 @@
             this.emailBox.Name = "emailBox";
             this.emailBox.Size = new System.Drawing.Size(182, 23);
             this.emailBox.TabIndex = 7;
+            this.emailBox.TextChanged += new System.EventHandler(this.emailBox_TextChanged);
             // 
             // apellidosBox
             // 
@@ -123,6 +125,7 @@
             this.apellidosBox.Name = "apellidosBox";
             this.apellidosBox.Size = new System.Drawing.Size(182, 23);
             this.apellidosBox.TabIndex = 9;
+            this.apellidosBox.TextChanged += new System.EventHandler(this.apellidosBox_TextChanged);
             // 
             // contraBox
             // 
@@ -131,14 +134,21 @@
             this.contraBox.PasswordChar = '*';
             this.contraBox.Size = new System.Drawing.Size(182, 23);
             this.contraBox.TabIndex = 10;
+            this.contraBox.TextChanged += new System.EventHandler(this.contraBox_TextChanged);
             // 
-            // comboBox1
+            // tipoUsuario
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(192, 315);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 23);
-            this.comboBox1.TabIndex = 11;
+            this.tipoUsuario.FormattingEnabled = true;
+            this.tipoUsuario.Items.AddRange(new object[] {
+            "Alumno",
+            "Profesor",
+            "Institución"});
+            this.tipoUsuario.Location = new System.Drawing.Point(192, 315);
+            this.tipoUsuario.Name = "tipoUsuario";
+            this.tipoUsuario.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tipoUsuario.Size = new System.Drawing.Size(182, 23);
+            this.tipoUsuario.TabIndex = 11;
+            this.tipoUsuario.Text = "Elige un tipo de usuario";
             // 
             // bVolver
             // 
@@ -152,6 +162,7 @@
             // 
             // bConfirmar
             // 
+            this.bConfirmar.Enabled = false;
             this.bConfirmar.Location = new System.Drawing.Point(299, 373);
             this.bConfirmar.Name = "bConfirmar";
             this.bConfirmar.Size = new System.Drawing.Size(75, 23);
@@ -164,10 +175,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 418);
+            this.ClientSize = new System.Drawing.Size(584, 418);
             this.Controls.Add(this.bConfirmar);
             this.Controls.Add(this.bVolver);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.tipoUsuario);
             this.Controls.Add(this.contraBox);
             this.Controls.Add(this.apellidosBox);
             this.Controls.Add(this.emailBox);
@@ -198,7 +209,7 @@
         private System.Windows.Forms.TextBox emailBox;
         private System.Windows.Forms.TextBox apellidosBox;
         private System.Windows.Forms.TextBox contraBox;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox tipoUsuario;
         private System.Windows.Forms.Button bVolver;
         private System.Windows.Forms.Button bConfirmar;
     }
