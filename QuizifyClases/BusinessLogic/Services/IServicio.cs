@@ -26,7 +26,7 @@ namespace Quizify.Services
         public Examen GetExamenById(int Id);
 
         public DataTable GetPreguntas(List<dynamic> lista);
-        //filtros[autor(el correo), tipo('test','vf','desarrollo'), dificultad(0,1,2), tema(string)]
+        //filtros[autor(el correo), tipo('test','vf','desarrollo'), dificultad(0,1,2), tema(string)] - null si no hay parámetro
         public ICollection<dynamic> GetEntidades();
         public ICollection<dynamic> GetExamenes();
 

@@ -2,7 +2,7 @@ using System;
 namespace Quizify.Entities { 
 public partial class Profesor :Entidad
 {
-    public Profesor(string correo, string contraseña, string nombre, string apellidos, float almacenamiento = 100,
+    public Profesor(string correo, string contraseña, string nombre, string apellidos, string curso, float almacenamiento = 100,
         int quizes = 20) : base(correo) 
     {
         this.nombre = nombre;
@@ -10,6 +10,7 @@ public partial class Profesor :Entidad
         this.contraseña = contraseña;
         this.almacenamiento = almacenamiento;
         this.quizes = quizes;
+        this.Curso = curso;
     }
     public string GetNombre()
     {
@@ -31,6 +32,10 @@ public partial class Profesor :Entidad
     {
         return quizes;
     }
+    public string GetCurso()
+    {
+        return Curso;
+    }
     public void SetNombre(string nombre)
     {
         this.nombre = nombre;
@@ -51,6 +56,10 @@ public partial class Profesor :Entidad
     public void SetQuizes(int quizes)
     {
         this.quizes = quizes;
+    }
+    public void SetCurso(string curso)
+    {
+        this.Curso = curso;
     }
     }
 }

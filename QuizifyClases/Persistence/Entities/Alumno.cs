@@ -30,5 +30,10 @@ namespace Quizify.Entities {
             set;
         }
 
+        public string Curso{
+            get;
+            set;
+        }
+
     }
 }

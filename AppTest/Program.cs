@@ -14,7 +14,7 @@ namespace AppTest
             DAL dal = new DAL();
 
             //filtros[autor, tipo('test','vf','desarrollo'), dificultad(0,1,2), tema(string)]
-            /*dal.AddEntidad(new Profesor("angel", "luisseña", "dsufbi", "sdnfs"));
+            //dal.AddEntidad(new Profesor("angel", "luisseña", "dsufbi", "sdnfs"));
 
             List<dynamic> lista = new List<dynamic> {1,"limon", "pera", "hola"};
 
@@ -23,7 +23,7 @@ namespace AppTest
             dal.AddPregunta(new PreguntaTest(3,"PregTest3", lista, 2, "luis", "Jersey"));
             dal.AddPregunta(new PreguntaVF(3,"PregVF1", 1, 0, "angel", "Aqrs"));
             dal.AddPregunta(new PreguntaVF(3,"PregVF2", 1, 2, "angel", "Cosas"));
-            dal.AddPregunta(new PreguntaVF(3,"PregVF3", 1, 1, "luis", "Cosas"));*/
+            dal.AddPregunta(new PreguntaVF(3,"PregVF3", 1, 1, "luis", "Cosas"));
 
             List<dynamic> list = new List<dynamic> {"angel", null, 2, null};
             DataTable res = dal.GetPreguntas(list);

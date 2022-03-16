@@ -65,7 +65,7 @@ public class DAL {
 
             case("Quizify.Entities.PreguntaVF"): 
                 consulta_pregunta = "INSERT into PSWC.pregunta(id,ver,enunciado,tipo,dificultad,autor,tema) values(" + id + ",1,'" + pregunta.GetEnunciado() 
-                    + "','test'," + pregunta.GetDificultad() + ",'" + pregunta.GetAutor() + "','" + pregunta.GetTema() +  "');";
+                    + "','vf'," + pregunta.GetDificultad() + ",'" + pregunta.GetAutor() + "','" + pregunta.GetTema() +  "');";
                 consulta_especifica = "INSERT into PSWC.pregunta_vf(id,ver,correcta) values(" + id + ",1," + pregunta.GetCorrecta() + ");";
                 break;
         }
@@ -169,10 +169,10 @@ public class DAL {
         switch(tipo){
                 case("alumno"): 
                     return new Alumno(data.Rows[0]["correo"].ToString(), data.Rows[0]["contraseña"].ToString(), 
-                        data.Rows[0]["nombre"].ToString(), data.Rows[0]["apellidos"].ToString());
+                        data.Rows[0]["nombre"].ToString(), data.Rows[0]["apellidos"].ToString(), data.Rows[0]["curso"].ToString());
                 case("profesor"):
                     return new Profesor(data.Rows[0]["correo"].ToString(), data.Rows[0]["contraseña"].ToString(), 
-                        data.Rows[0]["nombre"].ToString(), data.Rows[0]["apellidos"].ToString(), 
+                        data.Rows[0]["nombre"].ToString(), data.Rows[0]["apellidos"].ToString(), data.Rows[0]["curso"].ToString(),
                         float.Parse(data.Rows[0]["almacenamiento"].ToString()), int.Parse(data.Rows[0]["quizes"].ToString()));
                 case("institucion"):
                     return new Institucion(data.Rows[0]["correo"].ToString(), data.Rows[0]["contraseña"].ToString(), 
@@ -298,8 +298,7 @@ public class DAL {
         }
         return consulta;
     }
-    
-    //filtros[autor, tipo('test','vf','desarrollo'), dificultad(0,1,2), tema(string)]
+
     public DataTable GetPreguntas(List<dynamic> filtros) {
         conn.Open();
 
@@ -311,7 +310,28 @@ public class DAL {
 
         consulta = consulta + ";";
 
-         Console.WriteLine(consulta);
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+
+        conn.Close();
+
+        return data;
+    }
+
+    public DataTable GetExamenes(dynamic persona) {
+        conn.Open();
+        string tipo = GetTipoEntidad(persona.GetCorreo());
+        string consulta = "";
+
+        switch(tipo){
+                case("alumno"): 
+                    consulta = "SELECT * FROM examen WHERE curso= '" + persona.GetCurso() + "';";
+                    break;
+                case("profesor"):
+                    consulta = "SELECT * FROM examen WHERE autor= '" + persona.GetCorreo() + "';";
+                    break;
+            }
 
         MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
         DataTable data = new DataTable();

@@ -24,5 +24,9 @@ public partial class Profesor
         get;
         set;
     }
-    
+
+    public string Curso{
+            get;
+            set;
+        }
 }}
