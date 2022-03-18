@@ -60,7 +60,7 @@ namespace Quizify.Services
         {
             if (true)
             {
-                //no existe el mismo Id
+                dal.AddExamen(examen);
             }
             else throw new ServicioException("El examen con Id " + examen.GetId() + " ya existe");
         }
@@ -108,22 +108,21 @@ namespace Quizify.Services
         {
             if (true)
             {
-                //Id existe
+                return dal.GetExamen(Id);
             }
             else throw new ServicioException("El examen con Id " + Id + " no existe");
-            return null;
         }
-        public DataTable GetPreguntas(List<dynamic> lista)
+        public DataTable GetPreguntas(List<dynamic> filtros)
         {
-            return dal.GetPreguntas(lista);
+            return dal.GetPreguntas(filtros);
         }
         public ICollection<dynamic> GetEntidades()
         {
             return null;
         }
-        public ICollection<dynamic> GetExamenes()
+        public DataTable GetExamenes(dynamic persona)
         {
-            return null;
+            return dal.GetExamenes(persona);
         }
     }
 }

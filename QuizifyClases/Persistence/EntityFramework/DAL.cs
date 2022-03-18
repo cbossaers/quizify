@@ -198,6 +198,16 @@ public class DAL {
         conn.Close();
     }
 
+    public void EliminarExamen(int id) {
+        conn.Open();
+
+        string consulta_pregunta = "DELETE FROM PSWC.examen WHERE id='" + id + "';";
+        MySqlCommand cmd = new MySqlCommand(consulta_pregunta, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+
+        conn.Close();
+    }
+
     public dynamic GetEntidad(string correo) {
         string tipo = GetTipoEntidad(correo);
 
@@ -392,6 +402,7 @@ public class DAL {
 
     public Examen GetExamen(int id) {
         string consulta = "SELECT * FROM PSWC.examen WHERE id= " + id + ";";
+        List<int> preg = GetListaPreguntas(id);
 
         conn.Open();
 
@@ -405,9 +416,28 @@ public class DAL {
             data.Rows[0]["curso"].ToString(), data.Rows[0]["autor"].ToString(), DateTime.Parse(data.Rows[0]["fecha_creac"].ToString()),
             DateTime.Parse(data.Rows[0]["fecha_ini"].ToString()), DateTime.Parse(data.Rows[0]["fecha_fin"].ToString()), 
             int.Parse(data.Rows[0]["intentos"].ToString()), int.Parse(data.Rows[0]["volver_atras"].ToString()), 
-            int.Parse(data.Rows[0]["errores_restan"].ToString()), int.Parse(data.Rows[0]["mostrar_resultados"].ToString()));
+            int.Parse(data.Rows[0]["errores_restan"].ToString()), int.Parse(data.Rows[0]["mostrar_resultados"].ToString()), preg);
     }
 
-    public List<int> GetListaPreguntas(int id)
+    public List<int> GetListaPreguntas(int id) {
+        conn.Open();
+
+        string consulta = "SELECT * FROM PSWC.lista_preguntas WHERE id_examen = id";
+        List<int> result = new List<int> {};
+
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+
+        foreach (DataRow row in data.Rows) { 
+            result.Add(int.Parse(row["id_pregunta"].ToString()));
+            result.Add(int.Parse(row["ver_pregunta"].ToString()));
+            result.Add(int.Parse(row["puntuacion"].ToString()));
+        }
+
+        conn.Close();
+
+        return result;
+    }
 
 }}

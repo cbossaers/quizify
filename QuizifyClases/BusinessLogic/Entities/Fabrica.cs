@@ -5,15 +5,15 @@ namespace Quizify.Entities
 {
     public class Fabrica
     {
-        public dynamic Crear_pregunta(string enunciado, string tipo, int dif, List<dynamic> opciones = null)
+        public dynamic Crear_pregunta(string tipo, int id, string enunciado, int dif, string autor, string tema, 
+            int version = 1, List<dynamic> opciones = null)
         {
-            /*switch (tipo)
+            switch (tipo)
             {
-                case ("VF"): return new PreguntaVF(0, enunciado, Int32.Parse(opciones[0]),dif);
-                case ("Test"): return new PreguntaTest(0, enunciado, opciones, dif);
-                default: return true;
-            }*/
-            return true;
+                case ("vf"): return new PreguntaVF(id, enunciado, int.Parse(opciones[0].ToString()), dif, autor, tema, version);
+                case ("test"): return new PreguntaTest(id, enunciado, opciones, dif, autor, tema, version);
+            }
+            return -1;
         }
     }
 }
