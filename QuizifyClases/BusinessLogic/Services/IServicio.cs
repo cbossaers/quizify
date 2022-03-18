@@ -23,6 +23,7 @@ namespace Quizify.Services
 
         public PreguntaVF GetPreguntaVFById(int Id, int version);
         public PreguntaTest GetPreguntaTestById(int Id, int version);
+        public dynamic GetPreguntaById(int Id, int version);
         public Alumno GetAlumnoById(string correo);
         public Profesor GetProfesorById(string correo);
         public Institucion GetInstitucionById(string correo);
