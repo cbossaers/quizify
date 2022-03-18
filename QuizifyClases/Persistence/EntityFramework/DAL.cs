@@ -425,7 +425,7 @@ public class DAL {
     public List<int> GetListaPreguntas(int id) {
         conn.Open();
 
-        string consulta = "SELECT * FROM PSWC.lista_preguntas WHERE id_examen = id";
+        string consulta = "SELECT * FROM PSWC.lista_preguntas WHERE id_examen = " + id + ";";
         List<int> result = new List<int> {};
 
         MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
