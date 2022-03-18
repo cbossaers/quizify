@@ -5,7 +5,7 @@ namespace Quizify.Entities
 {
     public partial class Examen
     {
-        public Examen(int id, string nombre, string titulo, string descripcion, string curso, string autor, DateTime fecha_creac, DateTime fecha_ini,
+        public Examen(int id, string titulo, string descripcion, string curso, string autor, int Tiempo, DateTime fecha_creac, DateTime fecha_ini,
             DateTime fecha_fin, int intentos, int volver_atras, int errores_restan, int mostrar_resultados, List<int> preguntas)
         {
             this.ID = id;
@@ -13,6 +13,7 @@ namespace Quizify.Entities
             this.descripcion = descripcion;
             this.autor = autor;
             this.curso = curso;
+            this.tiempo = Tiempo;
             this.fecha_creac = fecha_creac;
             this.fecha_ini = fecha_ini;
             this.fecha_fin = fecha_fin;
@@ -128,9 +129,9 @@ namespace Quizify.Entities
             this.autor = autor;
         }
 
-        public void SetTiempo(int tiempo)
+        public void SetTiempo(int Tiempo)
         {
-            this.tiempo = tiempo;
+            this.tiempo = Tiempo;
         }
 
         public void SetFechaCreac(DateTime fecha)
