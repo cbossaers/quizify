@@ -80,6 +80,9 @@ namespace Quizify.Services
                 throw new ServicioException("La pregunta con Id " + Id + " no existe");
             }
         }
+        public dynamic GetPreguntaById(int Id, int version) {
+            return dal.GetPregunta(Id, version);
+        }
         public Alumno GetAlumnoById(string correo)
         {
             try { Alumno alumno = dal.GetEntidad(correo); return alumno; }
