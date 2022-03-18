@@ -22,7 +22,7 @@ namespace AppTest
             //dal.AddExamen(ex);
 
             Examen test = dal.GetExamen(0);
-
+            
             /*foreach (DataRow row in res.Rows) { 
                 Console.WriteLine(row["id"]); 
                 Console.WriteLine(row["enunciado"]); 
