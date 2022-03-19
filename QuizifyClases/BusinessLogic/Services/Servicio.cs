@@ -83,6 +83,9 @@ namespace Quizify.Services
         public dynamic GetPreguntaById(int Id, int version) {
             return dal.GetPregunta(Id, version);
         }
+        public string GetTipoPregunta(int id) {
+            return dal.GetTipoPregunta(id);
+        }
         public Alumno GetAlumnoById(string correo)
         {
             try { Alumno alumno = dal.GetEntidad(correo); return alumno; }
