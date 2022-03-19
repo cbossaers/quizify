@@ -220,7 +220,7 @@ public class DAL {
         MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
         DataTable data = new DataTable();
         adapter.Fill(data);
-        
+
         switch(tipo){
                 case("alumno"): 
                     return new Alumno(data.Rows[0]["correo"].ToString(), data.Rows[0]["contraseña"].ToString(), 
@@ -249,6 +249,7 @@ public class DAL {
         MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
         DataTable data = new DataTable();
         adapter.Fill(data);
+        conn.Close();
 
         switch(tipo){
             case("test"): 
@@ -267,7 +268,7 @@ public class DAL {
                     int.Parse(data.Rows[0]["correcta"].ToString()), GetDificultad(id, ver), GetAutor(id, ver), GetTema(id, ver), int.Parse(data.Rows[0]["ver"].ToString()));
         }  
 
-        conn.Close();
+        
         return 0;
     }
 
@@ -308,6 +309,7 @@ public class DAL {
     }
 
     public string GetEnunciado(int id, int ver) {
+        conn.Open();
         string consulta = "SELECT enunciado FROM PSWC.pregunta WHERE id= " + id + " AND ver= " + ver + ";";
 
         MySqlCommand cmd = new MySqlCommand(consulta, conn);
@@ -318,11 +320,12 @@ public class DAL {
         }
 
         rdr.Close();
-
+        conn.Close();
         return consulta;
     }
 
     public int GetDificultad(int id, int ver) {
+        conn.Open();
         string consulta = "SELECT dificultad FROM PSWC.pregunta WHERE id= " + id + " AND ver= " + ver + ";";
         int res = 0;
 
@@ -334,11 +337,12 @@ public class DAL {
         }
 
         rdr.Close();
-
+        conn.Close();
         return res;
     }
 
     public string GetAutor(int id, int ver) {
+        conn.Open();
         string consulta = "SELECT autor FROM PSWC.pregunta WHERE id= " + id + " AND ver= " + ver + ";";
 
         MySqlCommand cmd = new MySqlCommand(consulta, conn);
@@ -349,11 +353,12 @@ public class DAL {
         }
 
         rdr.Close();
-
+        conn.Close();
         return consulta;
     }
 
     public string GetTema(int id, int ver) {
+        conn.Open();
         string consulta = "SELECT tema FROM PSWC.pregunta WHERE id= " + id + " AND ver= " + ver + ";";
 
         MySqlCommand cmd = new MySqlCommand(consulta, conn);
@@ -364,7 +369,7 @@ public class DAL {
         }
 
         rdr.Close();
-
+        conn.Close();
         return consulta;
     }
 
