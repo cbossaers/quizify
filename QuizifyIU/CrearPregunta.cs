@@ -21,6 +21,9 @@ namespace QuizifyIU
         private bool cambioTipoPregunta = false;
         private Fabrica fabrica = new Fabrica();
         private List<dynamic> lista = new List<dynamic> { };
+        private PreguntaTest preguntaTest;
+        private PreguntaVF preguntaVF;
+        private List<dynamic> listaVF = new List<dynamic> { };
         public CrearPregunta(Servicio servicio)
         {
             InitializeComponent();
@@ -113,14 +116,16 @@ namespace QuizifyIU
                     if (numeroDeOpciones == 4) lista.Add(opc3.Text);
                     if (numeroDeOpciones == 5) lista.Add(opc4.Text);
                 }
-                //llamar método fábrica Test
+                //id?? autor?? tema?? versión y lista al revés??
+                preguntaTest = fabrica.Crear_pregunta("test", 12345, enunciado.Text, int.Parse(opcionCorrecta), "pepe", "tema3", 1,lista);
+                servicio.AddPreguntaTest(preguntaTest);
             }
             else
             {
-                //llamar método fábrica VF
+                listaVF.Add("verdadero"); listaVF.Add("falso");
+                preguntaVF = fabrica.Crear_pregunta("vf", 123456, enunciado.Text, int.Parse(opcionCorrecta), "carlos", "tema1", 1,listaVF);
+                servicio.AddPreguntaVF(preguntaVF);
             }
-
-            //servicio.AddPreguntaTest(pregunta);
         }
 
         private void EvCambiarDificultad(object sender, EventArgs e)

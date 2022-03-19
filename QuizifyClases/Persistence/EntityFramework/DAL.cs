@@ -415,7 +415,7 @@ public class DAL {
         conn.Close();
 
         return new Examen(id, data.Rows[0]["titulo"].ToString(),data.Rows[0]["descripcion"].ToString(),
-            data.Rows[0]["curso"].ToString(), data.Rows[0]["autor"].ToString(), int.Parse(data.Rows[0]["autor"].ToString()), 
+            data.Rows[0]["curso"].ToString(), data.Rows[0]["autor"].ToString(), int.Parse(data.Rows[0]["tiempo"].ToString()), 
             DateTime.Parse(data.Rows[0]["fecha_creac"].ToString()), DateTime.Parse(data.Rows[0]["fecha_ini"].ToString()),
             DateTime.Parse(data.Rows[0]["fecha_fin"].ToString()), int.Parse(data.Rows[0]["intentos"].ToString()), 
             int.Parse(data.Rows[0]["volver_atras"].ToString()), int.Parse(data.Rows[0]["errores_restan"].ToString()),
