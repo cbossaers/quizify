@@ -37,8 +37,8 @@ namespace QuizifyIU
 
         private void sinlimite_CheckedChanged(object sender, EventArgs e)
         {
-            if(sinlimite.Checked) { horas.Enabled = false; minutos.Enabled = false; b1.Enabled = false; a1.Enabled = false; }
-            if (!sinlimite.Checked){ horas.Enabled = true; minutos.Enabled = true; a1.Enabled = true; b1.Enabled = false; }
+            if(sinlimite.Checked) { horas.Enabled = false; minutos.Enabled = false; b1.Visible = false; a1.Visible = false; b1.Enabled = false; mostrar.Visible = false; }
+            if (!sinlimite.Checked){ horas.Enabled = true; minutos.Enabled = true; a1.Visible = true; b1.Visible = true;  b1.Enabled = false; mostrar.Visible = true; }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -52,5 +52,7 @@ namespace QuizifyIU
             this.panelContenedor.Tag = fCP;
             fCP.Show();*/
         }
+
+        
     }
 }

@@ -83,6 +83,7 @@
             this.tablaPreguntas.RowTemplate.Height = 25;
             this.tablaPreguntas.Size = new System.Drawing.Size(344, 167);
             this.tablaPreguntas.TabIndex = 6;
+            
             // 
             // ID
             // 

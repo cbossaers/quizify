@@ -68,6 +68,7 @@
             this.tablaExamenDisponible.RowTemplate.Height = 25;
             this.tablaExamenDisponible.Size = new System.Drawing.Size(543, 167);
             this.tablaExamenDisponible.TabIndex = 0;
+            this.tablaExamenDisponible.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaExamenDisponible_CellContentClick);
             // 
             // examen
             // 

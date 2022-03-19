@@ -17,6 +17,7 @@ namespace Quizify.Entities
         {
             return ID;
         }
+
         public int GetVersion()
         {
             return version;
@@ -33,6 +34,10 @@ namespace Quizify.Entities
         public string GetAutor()
         {
             return autor;
+        }
+        public string GetTipo()
+        {
+            return tipo;
         }
 
         public string GetTema()
@@ -61,6 +66,10 @@ namespace Quizify.Entities
         public void SetTema(string Tema)
         {
             tema = Tema;
+        }
+        public void GetTipo(string Tipo)
+        {
+            this.tipo = Tipo;
         }
     }
 }

@@ -44,5 +44,10 @@ namespace QuizifyIU
             tablaExamenDisponible.DataSource = bindingList;
             tablaExamenResuelto.DataSource = bindingList2;
         }
+
+        private void tablaExamenDisponible_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
