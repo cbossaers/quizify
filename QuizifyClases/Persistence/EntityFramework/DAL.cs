@@ -326,11 +326,11 @@ public class DAL {
         string consulta = "SELECT dificultad FROM PSWC.pregunta WHERE id= " + id + " AND ver= " + ver + ";";
         int res = 0;
 
-        MySqlCommand cmd = new MySqlCommand(consulta, conn);
-        MySqlDataReader rdr = cmd.ExecuteReader();
+        MySqlCommand cmd2 = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr2 = cmd2.ExecuteReader();
 
-        while (rdr.Read()) {
-                res = int.Parse(rdr.GetString("enunciado"));
+        while (rdr2.Read()) {
+                res = int.Parse(rdr2.GetString("enunciado"));
         }
         return res;
     }
