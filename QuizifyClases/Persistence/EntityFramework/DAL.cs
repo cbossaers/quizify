@@ -220,12 +220,7 @@ public class DAL {
         MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
         DataTable data = new DataTable();
         adapter.Fill(data);
-
-        /*foreach (DataRow row in data.Rows) { 
-            Console.WriteLine(row["correo"]); 
-            Console.WriteLine(row["contraseña"]); 
-            Console.WriteLine(row["nombre"]); 
-        }*/
+        
         switch(tipo){
                 case("alumno"): 
                     return new Alumno(data.Rows[0]["correo"].ToString(), data.Rows[0]["contraseña"].ToString(), 
@@ -288,6 +283,7 @@ public class DAL {
                 tipo = rdr.GetString("tipo");
         }
 
+        rdr.Close();
         conn.Close();
 
         return tipo;
@@ -305,6 +301,7 @@ public class DAL {
                 tipo = rdr.GetString("tipo");
         }
 
+        rdr.Close();
         conn.Close();
         
         return tipo;
@@ -319,6 +316,9 @@ public class DAL {
         while (rdr.Read()) {
                 consulta = rdr.GetString("enunciado");
         }
+
+        rdr.Close();
+
         return consulta;
     }
 
@@ -326,12 +326,15 @@ public class DAL {
         string consulta = "SELECT dificultad FROM PSWC.pregunta WHERE id= " + id + " AND ver= " + ver + ";";
         int res = 0;
 
-        MySqlCommand cmd2 = new MySqlCommand(consulta, conn);
-        MySqlDataReader rdr2 = cmd2.ExecuteReader();
+        MySqlCommand cmd = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
 
-        while (rdr2.Read()) {
-                res = int.Parse(rdr2.GetString("enunciado"));
+        while (rdr.Read()) {
+                res = int.Parse(rdr.GetString("enunciado"));
         }
+
+        rdr.Close();
+
         return res;
     }
 
@@ -344,6 +347,9 @@ public class DAL {
         while (rdr.Read()) {
                 consulta = rdr.GetString("enunciado");
         }
+
+        rdr.Close();
+
         return consulta;
     }
 
@@ -356,6 +362,9 @@ public class DAL {
         while (rdr.Read()) {
                 consulta = rdr.GetString("enunciado");
         }
+
+        rdr.Close();
+
         return consulta;
     }
 
