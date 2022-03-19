@@ -333,7 +333,7 @@ public class DAL {
         MySqlDataReader rdr = cmd.ExecuteReader();
 
         while (rdr.Read()) {
-                res = int.Parse(rdr.GetString("enunciado"));
+                res = int.Parse(rdr.GetString("dificultad"));
         }
 
         rdr.Close();
@@ -349,7 +349,7 @@ public class DAL {
         MySqlDataReader rdr = cmd.ExecuteReader();
 
         while (rdr.Read()) {
-                consulta = rdr.GetString("enunciado");
+                consulta = rdr.GetString("autor");
         }
 
         rdr.Close();
@@ -365,7 +365,7 @@ public class DAL {
         MySqlDataReader rdr = cmd.ExecuteReader();
 
         while (rdr.Read()) {
-                consulta = rdr.GetString("enunciado");
+                consulta = rdr.GetString("tema");
         }
 
         rdr.Close();
