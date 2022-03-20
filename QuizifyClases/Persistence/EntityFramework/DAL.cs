@@ -393,6 +393,7 @@ public class DAL {
 
         foreach (DataRow row in data.Rows) { 
             result.Add(int.Parse(data.Rows[0]["id"].ToString()));
+            result.Add(int.Parse(data.Rows[0]["ver"].ToString()));
         }
 
         return result;
@@ -462,8 +463,19 @@ public class DAL {
         return result;
     }
 
-    public void SubirRespuestas() {
-        
+    public void SubirRespuestas(List<dynamic> respuestas) {
+        string consulta = "INSERT into PSWC.respuesta_examenes(examen,alumno,pregunta,ver_pregunta,respuesta) VALUES(" 
+            + respuestas[0] + "','" + respuestas[1] + "'";
+
+        for(int i = 2; i < respuestas.Count; i++) {
+            consulta = consulta + "," + respuestas[i] + "," + respuestas[i+1];
+
+            if(GetTipoPregunta(respuestas[i]) == "test" || GetTipoPregunta(respuestas[i]) == "vf") { 
+                consulta = consulta +  "," + respuestas[i+2] + ");"; 
+            } else {
+                consulta = consulta +  ",'" + respuestas[i+2] + "');"; 
+            }
+        }
     }
 
 }}
