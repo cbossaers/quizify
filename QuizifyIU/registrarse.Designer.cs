@@ -149,6 +149,7 @@
             this.tipoUsuario.Size = new System.Drawing.Size(182, 23);
             this.tipoUsuario.TabIndex = 11;
             this.tipoUsuario.Text = "Elige un tipo de usuario";
+            this.tipoUsuario.SelectedIndexChanged += new System.EventHandler(this.tipoUsuario_SelectedIndexChanged);
             // 
             // bVolver
             // 

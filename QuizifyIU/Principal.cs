@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Quizify.Entities;
 using Quizify.Services;
 
 namespace QuizifyIU
@@ -28,8 +29,9 @@ namespace QuizifyIU
 
         private void biniciarS_Click(object sender, EventArgs e)
         {
-             formportal = new Portal(servicio, formportal);
+            formportal = new Portal(servicio, formportal);
             formportal.Show();
+            logUser();
         }
 
         private void bregistrarse_Click(object sender, EventArgs e)
@@ -46,6 +48,46 @@ namespace QuizifyIU
         private void Principal_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void logUser()
+        {
+            Profesor prof = servicio.GetProfesorById(emailField.Text);
+            Alumno alum = servicio.GetAlumnoById(emailField.Text);
+            if(prof != null)
+            {
+                if (prof.contraseña.Equals(contraField.Text))
+                {
+                    //formportal = new Portal(servicio, prof);
+                    //formportal.ShowDialog();
+                }
+                else
+                {
+                    DialogResult answer = MessageBox.Show(this, "Email o contraseña incorrectos",
+                                                            "Error", MessageBoxButtons.OK,
+                                                            MessageBoxIcon.Exclamation);
+                }
+            }
+            else if (alum != null)
+            {
+                if (alum.contraseña.Equals(contraField.Text))
+                {
+                    //formportal = new Portal(servicio, alum);
+                    //formportal.ShowDialog();
+                }
+                else
+                {
+                    DialogResult answer = MessageBox.Show(this, "Email o contraseña incorrectos",
+                                                            "Error", MessageBoxButtons.OK,
+                                                            MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                DialogResult answer = MessageBox.Show(this, "Este email no está registrado",
+                                                            "Error", MessageBoxButtons.OK,
+                                                            MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

@@ -21,6 +21,7 @@ namespace QuizifyIU
         private Boolean nombreCorrecto = false;
         private Boolean contraCorrecto = false;
         private Boolean apellidoCorrecto = false;
+        private Boolean tipoCorrecto = false;
 
         public registrarse(Servicio servicio)
         {
@@ -35,29 +36,7 @@ namespace QuizifyIU
 
         private void bConfirmar_Click(object sender, EventArgs e)
         {
-            string nombre = nombreBox.Text;
-            string apellidos = apellidosBox.Text;
-            string email = emailBox.Text;
-            string contra = contraBox.Text;
-            string tipoUser = tipoUsuario.Text;
-
-            if (tipoUsuario.Text.Equals("Profesor"))
-            {
-                if (servicio.GetProfesorById(email) != null) existeProfesor = true;
-            }
-            else if (tipoUsuario.Text.Equals("Alumno"))
-            {
-                if (servicio.GetAlumnoById(email) != null) existeAlumno = true;
-        }
-            if(existeAlumno || existeProfesor)
-            {
-                _ = MessageBox.Show(this, "El email introducido ya está registrado, por favor, introduzca otro email.", "Email ya existe.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (confirmar == DialogResult.OK) this.Close();
-            }
+            registeredUser();
         }
 
         private void bVolver_Click(object sender, EventArgs e)
@@ -71,7 +50,7 @@ namespace QuizifyIU
             string email = emailBox.Text;
             if (email == "") emailCorrecto = false;
             else emailCorrecto = true;
-            if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto)
+            if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto && tipoCorrecto)
                 bConfirmar.Enabled = true;
         }
 
@@ -81,7 +60,7 @@ namespace QuizifyIU
             string nombre = nombreBox.Text;
             if (nombre == "") nombreCorrecto = false;
             else nombreCorrecto = true;
-            if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto)
+            if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto && tipoCorrecto)
                 bConfirmar.Enabled = true;
         }
 
@@ -91,7 +70,7 @@ namespace QuizifyIU
             string apellidos = apellidosBox.Text;
             if (apellidos == "") apellidoCorrecto = false;
             else apellidoCorrecto = true;
-            if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto)
+            if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto && tipoCorrecto)
                 bConfirmar.Enabled = true;
 
         }
@@ -102,7 +81,51 @@ namespace QuizifyIU
             string contra = contraBox.Text;
             if (contra == "") contraCorrecto = false;
             else contraCorrecto = true;
-            if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto)
+            if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto && tipoCorrecto)
+                bConfirmar.Enabled = true;
+        }
+
+        public void registeredUser()
+        {
+            string nombre = nombreBox.Text;
+            string apellidos = apellidosBox.Text;
+            string email = emailBox.Text;
+            string contra = contraBox.Text;
+            string tipoUser = tipoUsuario.Text;
+
+            //Deben haber usuario registrados para poder hacer la comprobacion
+            /*if (tipoUser.Equals("Profesor"))
+            {
+                if (servicio.GetProfesorById(email) != null) existeProfesor = true;
+            }
+
+            else if (tipoUser.Equals("Alumno"))
+            {
+                if (servicio.GetAlumnoById(email) != null) existeAlumno = true;
+            }
+            else if (existeAlumno || existeProfesor)
+            {
+                _ = MessageBox.Show(this, "El email introducido ya está registrado, por favor, introduzca otro email.", "Email ya existe.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }*/
+            if (tipoUser.Equals("Profesor"))
+            {
+                Profesor newProfesor = new Profesor(email, contra, nombre, apellidos, "Ejemplo", 100, 15);
+                servicio.AddProfesor(newProfesor);
+            }
+            else if (tipoUser.Equals("Alumno"))
+            {
+                Alumno newAlumno = new Alumno(email, contra, nombre, apellidos, "Ejemplo");
+                servicio.AddAlumno(newAlumno);
+            }
+            DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (confirmar == DialogResult.OK) this.Close();
+        }
+
+        private void tipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tipoUsuario.Text == "") bConfirmar.Enabled = false;
+            else tipoCorrecto = true;
+            if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto && tipoCorrecto)
                 bConfirmar.Enabled = true;
         }
     }
