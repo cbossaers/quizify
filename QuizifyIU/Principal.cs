@@ -29,8 +29,6 @@ namespace QuizifyIU
 
         private void biniciarS_Click(object sender, EventArgs e)
         {
-            formportal = new Portal(servicio, formportal);
-            formportal.Show();
             logUser();
         }
 
@@ -52,14 +50,14 @@ namespace QuizifyIU
 
         public void logUser()
         {
-            Profesor prof = servicio.GetProfesorById(emailField.Text);
             Alumno alum = servicio.GetAlumnoById(emailField.Text);
+            Profesor prof = servicio.GetProfesorById(emailField.Text);
             if(prof != null)
             {
                 if (prof.contraseña.Equals(contraField.Text))
                 {
-                    //formportal = new Portal(servicio, prof);
-                    //formportal.ShowDialog();
+                    formportal = new Portal(servicio, formportal, prof, null);
+                    formportal.ShowDialog();
                 }
                 else
                 {
@@ -72,8 +70,8 @@ namespace QuizifyIU
             {
                 if (alum.contraseña.Equals(contraField.Text))
                 {
-                    //formportal = new Portal(servicio, alum);
-                    //formportal.ShowDialog();
+                    formportal = new Portal(servicio, formportal, null, alum);
+                    formportal.ShowDialog();
                 }
                 else
                 {
@@ -89,5 +87,6 @@ namespace QuizifyIU
                                                             MessageBoxIcon.Exclamation);
             }
         }
+
     }
 }
