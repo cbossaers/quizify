@@ -36,7 +36,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.siguiente = new System.Windows.Forms.Button();
             this.button2a2 = new System.Windows.Forms.Button();
             this.b2 = new System.Windows.Forms.Button();
             this.a3 = new System.Windows.Forms.Button();
@@ -54,13 +54,15 @@
             this.mostrar = new System.Windows.Forms.Label();
             this.b1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(97, 52);
+            this.label1.Location = new System.Drawing.Point(97, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 20);
             this.label1.TabIndex = 0;
@@ -88,7 +90,7 @@
             // 
             // nombre
             // 
-            this.nombre.Location = new System.Drawing.Point(357, 49);
+            this.nombre.Location = new System.Drawing.Point(357, 28);
             this.nombre.Name = "nombre";
             this.nombre.Size = new System.Drawing.Size(241, 23);
             this.nombre.TabIndex = 4;
@@ -130,15 +132,15 @@
             this.label8.TabIndex = 11;
             this.label8.Text = "Mostrar respuestas al finalizar el quiz";
             // 
-            // button6
+            // siguiente
             // 
-            this.button6.Location = new System.Drawing.Point(682, 392);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(84, 28);
-            this.button6.TabIndex = 15;
-            this.button6.Text = "Siguiente";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.siguiente.Location = new System.Drawing.Point(682, 392);
+            this.siguiente.Name = "siguiente";
+            this.siguiente.Size = new System.Drawing.Size(84, 28);
+            this.siguiente.TabIndex = 15;
+            this.siguiente.Text = "Siguiente";
+            this.siguiente.UseVisualStyleBackColor = true;
+            this.siguiente.Click += new System.EventHandler(this.siguiente_Click);
             // 
             // button2a2
             // 
@@ -226,7 +228,6 @@
             this.sinlimite.TabIndex = 57;
             this.sinlimite.Text = "Sin limite de tiempo";
             this.sinlimite.UseVisualStyleBackColor = true;
-            
             // 
             // m
             // 
@@ -316,12 +317,31 @@
             this.label4.TabIndex = 49;
             this.label4.Text = "Limite de tiempo :";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(97, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 20);
+            this.label5.TabIndex = 58;
+            this.label5.Text = "Descripción";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(357, 69);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(241, 23);
+            this.textBox1.TabIndex = 59;
+            // 
             // CrearQuiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.sinlimite);
             this.Controls.Add(this.m);
             this.Controls.Add(this.h);
@@ -339,7 +359,7 @@
             this.Controls.Add(this.b3);
             this.Controls.Add(this.button2a2);
             this.Controls.Add(this.b2);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.siguiente);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -366,7 +386,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button siguiente;
         private System.Windows.Forms.Button button2a2;
         private System.Windows.Forms.Button b2;
         private System.Windows.Forms.Button a3;
@@ -384,5 +404,7 @@
         private System.Windows.Forms.Label mostrar;
         private System.Windows.Forms.Button b1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

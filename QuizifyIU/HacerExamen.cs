@@ -13,10 +13,14 @@ namespace QuizifyIU
     public partial class HacerExamen : Form
     {
         private Servicio servicio;
-        public HacerExamen(Servicio servicio)
+        private int id;
+        private Portal control;
+        public HacerExamen(Servicio servicio, Portal control)
         {
             InitializeComponent();
             this.servicio = servicio;
+            //Examen exam = servicio.GetExamenById(id);
+            //descripcion.Text = exam.GetDescripcion().ToString();
         }
 
         
@@ -25,6 +29,19 @@ namespace QuizifyIU
         {
             if (checkBox1.Checked)  empezar.Enabled = false; 
             if (!checkBox1.Checked) empezar.Enabled = true; 
+        }
+
+        private void empezar_Click(object sender, EventArgs e)
+        {
+            /*control.GetContainerControl()
+
+            control.Controls.RemoveAt(0);
+            Form fHE = new HacerExamen(servicio, control) as Form;
+            fHE.TopLevel = false;
+            fHE.Dock = DockStyle.Fill;
+            control.Controls.Add(fHE);
+            //this.panelContenedor.Tag = fHE;
+            fHE.Show();*/
         }
     }
 }

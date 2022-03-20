@@ -14,6 +14,7 @@ namespace QuizifyIU
     public partial class Principal : Form
     {
         private Servicio servicio;
+        Portal formportal;
         public Principal(Servicio servicio)
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace QuizifyIU
 
         private void biniciarS_Click(object sender, EventArgs e)
         {
-            Portal formportal = new Portal(servicio);
+             formportal = new Portal(servicio, formportal);
             formportal.Show();
         }
 

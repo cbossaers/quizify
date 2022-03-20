@@ -31,7 +31,6 @@
             this.correctaVF = new System.Windows.Forms.Panel();
             this.falso1 = new System.Windows.Forms.RadioButton();
             this.verdadero0 = new System.Windows.Forms.RadioButton();
-            this.correctaTest = new System.Windows.Forms.Panel();
             this.correcta4 = new System.Windows.Forms.RadioButton();
             this.correcta0 = new System.Windows.Forms.RadioButton();
             this.correcta3 = new System.Windows.Forms.RadioButton();
@@ -42,7 +41,7 @@
             this.letraC = new System.Windows.Forms.Label();
             this.letraB = new System.Windows.Forms.Label();
             this.letraA = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.enunciado = new System.Windows.Forms.Label();
             this.opc0 = new System.Windows.Forms.Label();
             this.opc1 = new System.Windows.Forms.Label();
             this.opc2 = new System.Windows.Forms.Label();
@@ -52,17 +51,15 @@
             this.anterior = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.borrar_seleccion = new System.Windows.Forms.Button();
             this.correctaVF.SuspendLayout();
-            this.correctaTest.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // correctaVF
             // 
             this.correctaVF.Controls.Add(this.falso1);
             this.correctaVF.Controls.Add(this.verdadero0);
-            this.correctaVF.Location = new System.Drawing.Point(12, 190);
+            this.correctaVF.Location = new System.Drawing.Point(48, 191);
             this.correctaVF.Name = "correctaVF";
             this.correctaVF.Size = new System.Drawing.Size(355, 100);
             this.correctaVF.TabIndex = 49;
@@ -84,7 +81,7 @@
             // 
             this.verdadero0.AutoSize = true;
             this.verdadero0.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.verdadero0.Location = new System.Drawing.Point(57, 33);
+            this.verdadero0.Location = new System.Drawing.Point(49, 34);
             this.verdadero0.Name = "verdadero0";
             this.verdadero0.Size = new System.Drawing.Size(121, 32);
             this.verdadero0.TabIndex = 0;
@@ -92,23 +89,11 @@
             this.verdadero0.Text = "Verdadero";
             this.verdadero0.UseVisualStyleBackColor = true;
             // 
-            // correctaTest
-            // 
-            this.correctaTest.Controls.Add(this.correcta4);
-            this.correctaTest.Controls.Add(this.correcta0);
-            this.correctaTest.Controls.Add(this.correcta3);
-            this.correctaTest.Controls.Add(this.correcta1);
-            this.correctaTest.Controls.Add(this.correcta2);
-            this.correctaTest.Location = new System.Drawing.Point(21, 138);
-            this.correctaTest.Name = "correctaTest";
-            this.correctaTest.Size = new System.Drawing.Size(41, 245);
-            this.correctaTest.TabIndex = 48;
-            this.correctaTest.Visible = false;
-            // 
             // correcta4
             // 
+            this.correcta4.AutoCheck = false;
             this.correcta4.AutoSize = true;
-            this.correcta4.Location = new System.Drawing.Point(19, 206);
+            this.correcta4.Location = new System.Drawing.Point(40, 346);
             this.correcta4.Name = "correcta4";
             this.correcta4.Size = new System.Drawing.Size(14, 13);
             this.correcta4.TabIndex = 24;
@@ -118,8 +103,10 @@
             // 
             // correcta0
             // 
+            this.correcta0.AutoCheck = false;
             this.correcta0.AutoSize = true;
-            this.correcta0.Location = new System.Drawing.Point(19, 16);
+            this.correcta0.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.correcta0.Location = new System.Drawing.Point(48, 154);
             this.correcta0.Name = "correcta0";
             this.correcta0.Size = new System.Drawing.Size(14, 13);
             this.correcta0.TabIndex = 19;
@@ -128,8 +115,9 @@
             // 
             // correcta3
             // 
+            this.correcta3.AutoCheck = false;
             this.correcta3.AutoSize = true;
-            this.correcta3.Location = new System.Drawing.Point(19, 158);
+            this.correcta3.Location = new System.Drawing.Point(41, 297);
             this.correcta3.Name = "correcta3";
             this.correcta3.Size = new System.Drawing.Size(14, 13);
             this.correcta3.TabIndex = 23;
@@ -139,8 +127,9 @@
             // 
             // correcta1
             // 
+            this.correcta1.AutoCheck = false;
             this.correcta1.AutoSize = true;
-            this.correcta1.Location = new System.Drawing.Point(19, 63);
+            this.correcta1.Location = new System.Drawing.Point(41, 199);
             this.correcta1.Name = "correcta1";
             this.correcta1.Size = new System.Drawing.Size(14, 13);
             this.correcta1.TabIndex = 21;
@@ -149,8 +138,9 @@
             // 
             // correcta2
             // 
+            this.correcta2.AutoCheck = false;
             this.correcta2.AutoSize = true;
-            this.correcta2.Location = new System.Drawing.Point(19, 110);
+            this.correcta2.Location = new System.Drawing.Point(41, 246);
             this.correcta2.Name = "correcta2";
             this.correcta2.Size = new System.Drawing.Size(14, 13);
             this.correcta2.TabIndex = 22;
@@ -207,15 +197,15 @@
             this.letraA.Text = "A";
             this.letraA.Visible = false;
             // 
-            // label1
+            // enunciado
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 28);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Enunciado:";
+            this.enunciado.AutoSize = true;
+            this.enunciado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.enunciado.Location = new System.Drawing.Point(21, 32);
+            this.enunciado.Name = "enunciado";
+            this.enunciado.Size = new System.Drawing.Size(107, 28);
+            this.enunciado.TabIndex = 32;
+            this.enunciado.Text = "Enunciado:";
             // 
             // opc0
             // 
@@ -264,29 +254,26 @@
             // 
             // siguiente
             // 
-            this.siguiente.Enabled = false;
             this.siguiente.Location = new System.Drawing.Point(102, 415);
             this.siguiente.Name = "siguiente";
             this.siguiente.Size = new System.Drawing.Size(75, 23);
             this.siguiente.TabIndex = 57;
             this.siguiente.Text = "Siguiente";
             this.siguiente.UseVisualStyleBackColor = true;
-            this.siguiente.Click += new System.EventHandler(this.button1_Click);
+            this.siguiente.Click += new System.EventHandler(this.siguiete_Click);
             // 
             // anterior
             // 
-            this.anterior.Enabled = false;
             this.anterior.Location = new System.Drawing.Point(21, 415);
             this.anterior.Name = "anterior";
             this.anterior.Size = new System.Drawing.Size(75, 23);
             this.anterior.TabIndex = 58;
             this.anterior.Text = "Anterior";
             this.anterior.UseVisualStyleBackColor = true;
-            this.anterior.Click += new System.EventHandler(this.button2_Click);
+            this.anterior.Click += new System.EventHandler(this.anterior_Click);
             // 
             // button3
             // 
-            this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(183, 415);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
@@ -296,32 +283,35 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(543, 117);
+            this.button1.Location = new System.Drawing.Point(324, 63);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 26);
             this.button1.TabIndex = 60;
             this.button1.Text = "Ocultar indice";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // borrar_seleccion
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuBar;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(332, 150);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(115, 150);
-            this.dataGridView1.TabIndex = 62;
+            this.borrar_seleccion.Location = new System.Drawing.Point(21, 377);
+            this.borrar_seleccion.Name = "borrar_seleccion";
+            this.borrar_seleccion.Size = new System.Drawing.Size(99, 23);
+            this.borrar_seleccion.TabIndex = 61;
+            this.borrar_seleccion.Text = "Borrar selección";
+            this.borrar_seleccion.UseVisualStyleBackColor = true;
+            this.borrar_seleccion.Click += new System.EventHandler(this.borrar_seleccion_Click);
             // 
-            // Form1
+            // HacerExamen2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.borrar_seleccion);
+            this.Controls.Add(this.correcta4);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.correcta3);
+            this.Controls.Add(this.correcta0);
+            this.Controls.Add(this.correcta2);
+            this.Controls.Add(this.correcta1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.anterior);
             this.Controls.Add(this.siguiente);
@@ -336,15 +326,15 @@
             this.Controls.Add(this.opc2);
             this.Controls.Add(this.letraB);
             this.Controls.Add(this.letraA);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.correctaTest);
-            this.Name = "Form1";
+            this.Controls.Add(this.enunciado);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "HacerExamen2";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Form1";
             this.correctaVF.ResumeLayout(false);
             this.correctaVF.PerformLayout();
-            this.correctaTest.ResumeLayout(false);
-            this.correctaTest.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,7 +344,6 @@
         private System.Windows.Forms.Panel correctaVF;
         private System.Windows.Forms.RadioButton falso1;
         private System.Windows.Forms.RadioButton verdadero0;
-        private System.Windows.Forms.Panel correctaTest;
         private System.Windows.Forms.RadioButton correcta4;
         private System.Windows.Forms.RadioButton correcta0;
         private System.Windows.Forms.RadioButton correcta3;
@@ -365,7 +354,7 @@
         private System.Windows.Forms.Label letraC;
         private System.Windows.Forms.Label letraB;
         private System.Windows.Forms.Label letraA;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label enunciado;
         private System.Windows.Forms.Label opc0;
         private System.Windows.Forms.Label opc1;
         private System.Windows.Forms.Label opc2;
@@ -375,6 +364,6 @@
         private System.Windows.Forms.Button anterior;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button borrar_seleccion;
     }
 }

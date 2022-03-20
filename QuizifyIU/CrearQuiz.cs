@@ -41,18 +41,9 @@ namespace QuizifyIU
             if (!sinlimite.Checked){ horas.Enabled = true; minutos.Enabled = true; a1.Visible = true; b1.Visible = true;  b1.Enabled = false; mostrar.Visible = true; }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void siguiente_Click(object sender, EventArgs e)
         {
-           /* if (this.panelContenedor.Controls.Count > 0)
-                this.panelContenedor.Controls.RemoveAt(0);
-            Form fCP = new MisExamenes() as Form;
-            fCP.TopLevel = false;
-            fCP.Dock = DockStyle.Fill;
-            this.panelContenedor.Controls.Add(fCP);
-            this.panelContenedor.Tag = fCP;
-            fCP.Show();*/
-        }
 
-        
+        }
     }
 }

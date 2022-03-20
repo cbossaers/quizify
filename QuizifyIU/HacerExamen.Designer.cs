@@ -177,6 +177,7 @@
             this.empezar.TabIndex = 4;
             this.empezar.Text = "Empezar examen";
             this.empezar.UseVisualStyleBackColor = true;
+            this.empezar.Click += new System.EventHandler(this.empezar_Click);
             // 
             // nombre_quiz
             // 

@@ -12,9 +12,10 @@ namespace QuizifyIU
     public partial class Portal : Form
     {
         private Servicio servicio;
+        private Portal control;
         
 
-        public Portal(Servicio servicio)
+        public Portal(Servicio servicio, Portal control)
         {
             InitializeComponent();
             this.servicio = servicio;
@@ -103,7 +104,9 @@ namespace QuizifyIU
 
         private void bHacerExamen_Click(object sender, EventArgs e)
         {
-            AbrirFormHacerExamen(new HacerExamen(servicio));
+            AbrirFormHacerExamen(new HacerExamen(servicio,control));
+            /*using (HacerExamen2 ventanaAlta = new HacerExamen2(servicio))
+                ventanaAlta.ShowDialog();*/
         }
     }
 }
