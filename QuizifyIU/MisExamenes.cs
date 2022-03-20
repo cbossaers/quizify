@@ -26,7 +26,7 @@ namespace QuizifyIU
             foreach (int x in lista)
             {
                 Examen ex = servicio.GetExamenById(x);
-                if(ex.GetFechaFin() > DateTime.Now)
+                if(servicio.GetTipoEntidad(user.GetCorreo()) == "alumno" && ex.GetFechaFin() > DateTime.Now)
                 {
                     bindingListExamenDisponible.Add(new
                     {
@@ -37,6 +37,18 @@ namespace QuizifyIU
                         fecha_ini = ex.GetFechaIni(),
                         fecha_fin = ex.GetFechaFin()
                     });;
+                }
+                else
+                {
+                    bindingListExamenDisponible.Add(new
+                    {
+                        titulo = ex.GetTitulo(),
+                        descripcion = ex.GetDescripcion(),
+                        curso = ex.GetCurso(),
+                        tiempo = ex.GetTiempo(),
+                        fecha_ini = ex.GetFechaIni(),
+                        fecha_fin = ex.GetFechaFin()
+                    }); ;
                 }
             }
             tablaExamenDisponible.DataSource = bindingListExamenDisponible;
