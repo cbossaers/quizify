@@ -475,8 +475,13 @@ public class DAL {
             MySqlDataReader rdr = cmd.ExecuteReader();
 
             rdr.Close();
+
             conn.Close();
         }
+    }
+
+    public void CalcularNotaExamen(int id_ex, string correo) {
+        
     }
 
 }}
