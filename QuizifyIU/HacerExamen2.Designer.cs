@@ -52,6 +52,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.borrar_seleccion = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.correctaVF.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             // 
             this.correctaVF.Controls.Add(this.falso1);
             this.correctaVF.Controls.Add(this.verdadero0);
-            this.correctaVF.Location = new System.Drawing.Point(12, 138);
+            this.correctaVF.Location = new System.Drawing.Point(21, 158);
             this.correctaVF.Name = "correctaVF";
             this.correctaVF.Size = new System.Drawing.Size(355, 100);
             this.correctaVF.TabIndex = 49;
@@ -209,7 +210,7 @@
             // opc1
             // 
             this.opc1.AutoSize = true;
-            this.opc1.Location = new System.Drawing.Point(68, 166);
+            this.opc1.Location = new System.Drawing.Point(68, 162);
             this.opc1.Name = "opc1";
             this.opc1.Size = new System.Drawing.Size(38, 15);
             this.opc1.TabIndex = 53;
@@ -291,11 +292,21 @@
             this.borrar_seleccion.UseVisualStyleBackColor = true;
             this.borrar_seleccion.Click += new System.EventHandler(this.borrar_seleccion_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(250, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "label1";
+            // 
             // HacerExamen2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.borrar_seleccion);
             this.Controls.Add(this.correcta4);
             this.Controls.Add(this.button1);
@@ -356,5 +367,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button borrar_seleccion;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -39,7 +39,7 @@ namespace QuizifyIU
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            comboBox1.Text = "222";
+            
 
             List<int> DTable = servicio.GetPreguntas(filtros);
             BindingList<object> bindinglist = new BindingList<object>();
@@ -78,10 +78,10 @@ namespace QuizifyIU
                             ds_autor = preg.GetTema()
                         });
                     }
-                Console.WriteLine("dsds");
+                
             }
             dataGridView1.DataSource = bindinglist;
-            comboBox1.Text = DTable[0].ToString();
+            
             /*Console.WriteLine(servicio.GetPreguntas(filtros).ToString());*/
 
             /*bindinglist.Add(new
