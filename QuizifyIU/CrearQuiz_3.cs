@@ -13,13 +13,15 @@ namespace QuizifyIU
 {
     public partial class CrearQuiz_3 : Form
     {
-        private Servicio servicio;
+        
         List<dynamic> filtros = new List<dynamic>() { "angel",null,null,null };
-        public CrearQuiz_3(Servicio servicio)
+        private Servicio servicio;
+        private dynamic usuario;
+        public CrearQuiz_3(Servicio servicio, dynamic user)
         {
-            this.servicio = servicio;
             InitializeComponent();
-            
+            this.servicio = servicio;
+            usuario = user;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
