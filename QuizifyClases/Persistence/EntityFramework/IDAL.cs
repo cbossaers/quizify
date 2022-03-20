@@ -25,7 +25,7 @@ namespace Quizify.Persistence {
         dynamic GetPregunta(int id, int ver);
         Examen GetExamen(int id);
 
-        List<dynamic> GetPreguntas(List<dynamic> filtros);
+        List<int> GetPreguntas(List<dynamic> filtros);
         //filtros[autor(el correo), tipo('test','vf','desarrollo'), dificultad(0,1,2), tema(string)]
         DataTable GetExamenes(dynamic persona);
         //Si se le pasa un alumno: muestra los exámenes que el alumno puede realizar
