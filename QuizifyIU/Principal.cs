@@ -55,6 +55,7 @@ namespace QuizifyIU
                 dynamic user = servicio.GetEntidadById(emailField.Text);
                 if (user.contraseña.Equals(contraField.Text))
                 {
+                    this.Hide();
                     formportal = new Portal(servicio, formportal, user);
                     formportal.ShowDialog();
                 }

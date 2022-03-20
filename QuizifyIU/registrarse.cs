@@ -92,33 +92,26 @@ namespace QuizifyIU
             string contra = contraBox.Text;
             string tipoUser = tipoUsuario.Text;
 
-            try
-            {
-                if (servicio.GetEntidadById(email) != null)
-                {
-                    _ = MessageBox.Show(this, "El email introducido ya está registrado, por favor, introduzca otro email.", "Email ya existe.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    if (tipoUser.Equals("Profesor"))
-                    {
-                        Profesor newProfesor = new Profesor(email, contra, nombre, apellidos, "Ejemplo", 100, 15);
-                        servicio.addEntidad(newProfesor);
-                        DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (confirmar == DialogResult.OK) this.Close();
-                    }
-                    else if (tipoUser.Equals("Alumno"))
-                    {
-                        Alumno newAlumno = new Alumno(email, contra, nombre, apellidos, "Ejemplo");
-                        servicio.addEntidad(newAlumno);
-                        DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (confirmar == DialogResult.OK) this.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
+            if (servicio.ExisteEntidad(email))
             {
                 _ = MessageBox.Show(this, "El email introducido ya está registrado, por favor, introduzca otro email.", "Email ya existe.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (tipoUser.Equals("Profesor"))
+                {
+                    Profesor newProfesor = new Profesor(email, contra, nombre, apellidos, "Ejemplo", 100, 15);
+                    servicio.addEntidad(newProfesor);
+                    DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (confirmar == DialogResult.OK) this.Close();
+                }
+                else if (tipoUser.Equals("Alumno"))
+                {
+                    Alumno newAlumno = new Alumno(email, contra, nombre, apellidos, "Ejemplo");
+                    servicio.addEntidad(newAlumno);
+                    DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (confirmar == DialogResult.OK) this.Close();
+                }
             }
             
         }
