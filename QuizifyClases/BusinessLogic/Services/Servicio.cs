@@ -130,5 +130,9 @@ namespace Quizify.Services
         {
             return dal.GetExamenes(persona);
         }
+
+        public void SubirRespuestas(List<dynamic> respuestas) {
+            dal.SubirRespuestas(respuestas);
+        }
     }
 }

@@ -31,5 +31,6 @@ namespace Quizify.Persistence {
         //Si se le pasa un alumno: muestra los exámenes que el alumno puede realizar
         //Si se le pasa un profesor: muestra los exámenes creados por el profesor
 
+        void SubirRespuestas(List<dynamic> respuestas);
     }
 }

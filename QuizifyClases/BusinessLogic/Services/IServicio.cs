@@ -37,5 +37,7 @@ namespace Quizify.Services
         //Si se le pasa un alumno: muestra los exámenes que el alumno puede realizar
         //Si se le pasa un profesor: muestra los exámenes creados por el profesor
 
+        public void SubirRespuestas(List<dynamic> respuestas);
+        //respuestas[id_ex, id_alumno, id_preg1, ver_preg1, resp1, id_preg2, ver_preg2, resp2,....]
     }
 }
