@@ -17,7 +17,9 @@ namespace QuizifyIU
         List<int> preguntas_asociadas = new List<int>();
         List<int> respuestas = new List<int>();
         Dictionary<int,int> res = new Dictionary<int, int>();    
-        int op_correcta = 0;
+        int op_correcta = -1;
+        
+        
         Boolean Test = false;
         
         public HacerExamen2(Servicio servicio)
@@ -46,7 +48,6 @@ namespace QuizifyIU
             guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
             cont += 3;
             interfaz();
-            
         }
 
         private void interfaz()
@@ -60,16 +61,22 @@ namespace QuizifyIU
                 enunciado.Text = preg.GetEnunciado().ToString();
                 visible(preg);
                 correctaVF.Visible = false;
+                label1.Text = res.ContainsKey(preguntas_asociadas[cont]).ToString();
                 if (res.ContainsKey(preguntas_asociadas[cont])) 
                 {
                     res.TryGetValue(preguntas_asociadas[cont], out op_correcta);
-                    /*switch (op_correcta)
-                    {
-                        case == 1 : 
+                    switch (op_correcta)
+                    {  
+                        case 0 : correcta0.Checked = true; break;
+                        case 1 : correcta1.Checked = true; break;
+                        case 2: correcta2.Checked = true; break;
+                        case 3: correcta3.Checked = true; break;
+                        case 4: correcta4.Checked = true; break;
+                    }
+                    
+                    label1.Text = op_correcta.ToString();
 
-                            break;
-                    }*/
-                         
+
                 }
                 else correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
 
@@ -88,11 +95,14 @@ namespace QuizifyIU
                 correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
                 correctaVF.Visible = true;
                 verdadero0.Checked = false; falso1.Checked = false;
-                if (res.ContainsKey(preguntas_asociadas[cont]))
+
+                if (res.ContainsKey(preguntas_asociadas[cont]) )
                 {
                     res.TryGetValue(preguntas_asociadas[cont], out op_correcta);
-                    if (op_correcta == 0) verdadero0.Checked = true; 
-                    else verdadero0.Checked = true;
+                    if (op_correcta == 0 ) verdadero0.Checked = true; 
+                    else if(op_correcta == 1) falso1.Checked = true;
+                    
+                    label1.Text = op_correcta.ToString();
                 }
                 
 
@@ -153,6 +163,7 @@ namespace QuizifyIU
             respuestas.Add(version);
             respuestas.Add(correcta);
             if(res.ContainsKey(id)) res[id]=correcta;
+            else res.Add(id,correcta);
         }
 
         private void borrar_seleccion_Click(object sender, EventArgs e)
@@ -165,29 +176,31 @@ namespace QuizifyIU
         {
             if (Test)
             {
-                if (correcta0.Checked) { op_correcta = 1; }
+                if (correcta0.Checked) { op_correcta = 0; }
                 else
                 {
-                    if (correcta1.Checked) { op_correcta = 2; }
+                    if (correcta1.Checked) { op_correcta = 1; }
                     else
                     {
-                        if (correcta2.Checked) { op_correcta = 3; }
+                        if (correcta2.Checked) { op_correcta = 2; }
                         else
                         {
-                            if (correcta3.Checked) { op_correcta = 4; }
+                            if (correcta3.Checked) { op_correcta = 3; }
                             else
                             {
-                                if (correcta4.Checked) { op_correcta = 5; }
+                                if (correcta4.Checked) { op_correcta = 4; }
                                 else
                                 {
-                                    op_correcta = 0;
+                                    op_correcta = -1;
                                 }
                             }
                         }
                     }
                 }
-            }else if(verdadero0.Checked) { op_correcta = 0; }
-            else if (verdadero0.Checked) { op_correcta = 1; }
+            }
+            else if (verdadero0.Checked) { op_correcta = 0; }
+                else if (verdadero0.Checked) { op_correcta = 1; }
+                else op_correcta = -1;
 
 
         }

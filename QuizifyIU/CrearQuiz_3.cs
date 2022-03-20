@@ -13,13 +13,15 @@ namespace QuizifyIU
 {
     public partial class CrearQuiz_3 : Form
     {
-        private Servicio servicio;
+        
         List<dynamic> filtros = new List<dynamic>() { "angel",null,null,null };
-        public CrearQuiz_3(Servicio servicio)
+        private Servicio servicio;
+        private dynamic usuario;
+        public CrearQuiz_3(Servicio servicio, dynamic user)
         {
-            this.servicio = servicio;
             InitializeComponent();
-            
+            this.servicio = servicio;
+            usuario = user;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -39,7 +41,7 @@ namespace QuizifyIU
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            comboBox1.Text = "222";
+            
 
             List<int> DTable = servicio.GetPreguntas(filtros);
             BindingList<object> bindinglist = new BindingList<object>();
@@ -78,10 +80,10 @@ namespace QuizifyIU
                             ds_autor = preg.GetTema()
                         });
                     }
-                Console.WriteLine("dsds");
+                
             }
             dataGridView1.DataSource = bindinglist;
-            comboBox1.Text = DTable[0].ToString();
+            
             /*Console.WriteLine(servicio.GetPreguntas(filtros).ToString());*/
 
             /*bindinglist.Add(new

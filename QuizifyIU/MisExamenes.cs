@@ -38,7 +38,7 @@ namespace QuizifyIU
                         fecha_fin = ex.GetFechaFin()
                     });;
                 }
-                else
+                else if(servicio.GetTipoEntidad(user.GetCorreo()) == "profesor")
                 {
                     bindingListExamenDisponible.Add(new
                     {

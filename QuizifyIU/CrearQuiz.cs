@@ -13,10 +13,12 @@ namespace QuizifyIU
     public partial class CrearQuiz : Form
     {
         private Servicio servicio;
+        private dynamic usuario;
         public CrearQuiz(Servicio servicio,dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
+            usuario = user;
         }
 
         private void sinlimite_CheckedChanged(object sender, EventArgs e)
@@ -27,7 +29,8 @@ namespace QuizifyIU
 
         private void siguiente_Click(object sender, EventArgs e)
         {
-
+            using (CrearQuiz_2 ventanaAlta = new CrearQuiz_2(servicio,usuario))
+                ventanaAlta.ShowDialog();
         }
 
         private void a3_Click(object sender, EventArgs e)
