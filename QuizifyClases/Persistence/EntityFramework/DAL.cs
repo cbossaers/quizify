@@ -377,7 +377,7 @@ public class DAL {
     public List<int> GetPreguntas(List<dynamic> filtros) {
         conn.Open();
 
-        string consulta = "SELECT id from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "'";
+        string consulta = "SELECT * from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "'";
         List<int> result = new List<int> {};
 
         if(filtros[1] != null) { consulta = consulta + " " +  "AND tipo= '" + filtros[1] + "'"; }
@@ -393,8 +393,8 @@ public class DAL {
         conn.Close();
 
         foreach (DataRow row in data.Rows) { 
-            result.Add(int.Parse(data.Rows[0]["id"].ToString()));
-            result.Add(int.Parse(data.Rows[0]["ver"].ToString()));
+            result.Add(int.Parse(row["id"].ToString()));
+            result.Add(int.Parse(row["ver"].ToString()));
         }
 
         return result;
