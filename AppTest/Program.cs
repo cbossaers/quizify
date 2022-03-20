@@ -19,9 +19,9 @@ namespace AppTest
             Examen ex = new Examen(3,"La materia","muchas cosas bonitas", "tercero", "angel", 35,
                 DateTime.Now,DateTime.Now,DateTime.Now, 3,0,0,1, lista);
 
-            //dal.AddExamen(ex);
+            dal.AddExamen(ex);
 
-            Examen test = dal.GetExamen(0);
+            //Examen test = dal.GetExamen(0);
             
             /*foreach (DataRow row in res.Rows) { 
                 Console.WriteLine(row["id"]); 
