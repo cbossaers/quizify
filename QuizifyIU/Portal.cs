@@ -13,6 +13,7 @@ namespace QuizifyIU
     public partial class Portal : Form
     {
         private Servicio servicio;
+        private dynamic usuario;
         private Portal control;
         
 
@@ -21,6 +22,7 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             nombreIniciado.Text = user.nombre;
+            usuario = user;
         }
 
         private void panelContenedor_Paint(object sender, PaintEventArgs e)
@@ -86,27 +88,27 @@ namespace QuizifyIU
 
         private void bCrearPregunta_Click(object sender, EventArgs e)
         {
-            AbrirFormCrearPregunta(new CrearPregunta(servicio));
+            AbrirFormCrearPregunta(new CrearPregunta(servicio,usuario));
         }
 
         private void bCrearQuiz_Click(object sender, EventArgs e)
         {
-            AbrirFormCrearQuiz(new CrearQuiz(servicio));
+            AbrirFormCrearQuiz(new CrearQuiz(servicio,usuario));
         }
 
         private void bMisPreguntas_Click(object sender, EventArgs e)
         {
-            AbrirFormMisPreguntas(new MisPreguntas(servicio));
+            AbrirFormMisPreguntas(new MisPreguntas(servicio,usuario));
         }
 
         private void bMisExamenes_Click(object sender, EventArgs e)
         {
-            AbrirFormMisExamenes(new MisExamenes(servicio));
+            AbrirFormMisExamenes(new MisExamenes(servicio,usuario));
         }
 
         private void bHacerExamen_Click(object sender, EventArgs e)
         {
-            AbrirFormHacerExamen(new HacerExamen(servicio,control));
+            AbrirFormHacerExamen(new HacerExamen(servicio,control,usuario));
             /*using (HacerExamen2 ventanaAlta = new HacerExamen2(servicio))
                 ventanaAlta.ShowDialog();*/
         }
