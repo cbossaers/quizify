@@ -19,14 +19,15 @@ public class DAL {
         switch(tipo){
             case("Quizify.Entities.Alumno"): 
                 consulta_entidad = "INSERT into PSWC.entidad(correo,tipo) values('" + entidad.correo + "','alumno');";
-                consulta_especifica = "INSERT into PSWC.alumno(correo,contraseña,nombre,apellidos) values('" 
-                    + entidad.correo + "','" + entidad.contraseña + "','" + entidad.nombre + "','" + entidad.apellidos + "');";
+                consulta_especifica = "INSERT into PSWC.alumno(correo,contraseña,nombre,apellidos,curso) values('" 
+                    + entidad.correo + "','" + entidad.contraseña + "','" + entidad.nombre + "','" + entidad.apellidos + "','" + entidad.curso + "');";
                 break;
 
             case("Quizify.Entities.Profesor"): 
                 consulta_entidad = "INSERT into PSWC.entidad(correo,tipo) values('" + entidad.correo + "','profesor');";
-                consulta_especifica = "INSERT into PSWC.profesor(correo,contraseña,nombre,apellidos,almacenamiento,quizes) values('" 
-                    + entidad.correo + "','" + entidad.contraseña + "','" + entidad.nombre + "','" + entidad.apellidos + "',100,20);";
+                consulta_especifica = "INSERT into PSWC.profesor(correo,contraseña,nombre,apellidos,almacenamiento,quizes,curso) values('" 
+                    + entidad.correo + "','" + entidad.contraseña + "','" + entidad.nombre + "','" + entidad.apellidos + "',100,20,'" 
+                    + entidad.curso + "');";
                 break;
 
             case("Quizify.Entities.Institucion"): 
