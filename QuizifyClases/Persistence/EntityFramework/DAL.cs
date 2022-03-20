@@ -490,7 +490,26 @@ public class DAL {
     }
 
     public void CalcularNotaExamen(int id_ex, string correo) {
-        
+        string consulta_lista =  "SELECT * FROM lista preguntas WHERE examen = " + id_ex + ";";
+        string consulta_respuestas = "SELECT * FROM respuestas_examenes WHERE examen = " + id_ex +  " AND alumno = '" + correo + "';";
+
+        double nota = 0;
+
+        conn.Open();
+
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta_lista, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+
+        MySqlDataAdapter adapter2 = new MySqlDataAdapter(consulta_respuestas, conn);
+        DataTable data2 = new DataTable();
+        adapter2.Fill(data2);
+
+        conn.Close();
+
+        foreach (DataRow row in data.Rows) { 
+            
+        }
     }
 
 
