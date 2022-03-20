@@ -469,13 +469,7 @@ public class DAL {
 
         for(int i = 2; i < respuestas.Count; i++) {
             conn.Open();
-            consulta = consulta + "," + respuestas[i] + "," + respuestas[i+1];
-
-            if(GetTipoPregunta(respuestas[i]) == "test" || GetTipoPregunta(respuestas[i]) == "vf") { 
-                consulta = consulta +  "," + respuestas[i+2] + ");"; 
-            } else {
-                consulta = consulta +  ",'" + respuestas[i+2] + "');"; 
-            }
+            consulta = consulta + "," + respuestas[i] + "," + respuestas[i+1] +  ",'" + respuestas[i+2].ToString() + "');";
 
             MySqlCommand cmd = new MySqlCommand(consulta, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
