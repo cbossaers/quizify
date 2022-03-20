@@ -49,9 +49,9 @@
             // 
             // emailField
             // 
-            this.emailField.Location = new System.Drawing.Point(441, 136);
+            this.emailField.Location = new System.Drawing.Point(365, 136);
             this.emailField.Name = "emailField";
-            this.emailField.Size = new System.Drawing.Size(100, 23);
+            this.emailField.Size = new System.Drawing.Size(176, 23);
             this.emailField.TabIndex = 1;
             // 
             // label2
@@ -74,9 +74,10 @@
             // 
             // contraField
             // 
-            this.contraField.Location = new System.Drawing.Point(441, 219);
+            this.contraField.Location = new System.Drawing.Point(365, 219);
             this.contraField.Name = "contraField";
-            this.contraField.Size = new System.Drawing.Size(100, 23);
+            this.contraField.PasswordChar = '*';
+            this.contraField.Size = new System.Drawing.Size(176, 23);
             this.contraField.TabIndex = 4;
             // 
             // biniciarS

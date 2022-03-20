@@ -19,14 +19,15 @@ public class DAL {
         switch(tipo){
             case("Quizify.Entities.Alumno"): 
                 consulta_entidad = "INSERT into PSWC.entidad(correo,tipo) values('" + entidad.correo + "','alumno');";
-                consulta_especifica = "INSERT into PSWC.alumno(correo,contraseña,nombre,apellidos) values('" 
-                    + entidad.correo + "','" + entidad.contraseña + "','" + entidad.nombre + "','" + entidad.apellidos + "');";
+                consulta_especifica = "INSERT into PSWC.alumno(correo,contraseña,nombre,apellidos,curso) values('" 
+                    + entidad.correo + "','" + entidad.contraseña + "','" + entidad.nombre + "','" + entidad.apellidos + "','" + entidad.curso + "');";
                 break;
 
             case("Quizify.Entities.Profesor"): 
                 consulta_entidad = "INSERT into PSWC.entidad(correo,tipo) values('" + entidad.correo + "','profesor');";
-                consulta_especifica = "INSERT into PSWC.profesor(correo,contraseña,nombre,apellidos,almacenamiento,quizes) values('" 
-                    + entidad.correo + "','" + entidad.contraseña + "','" + entidad.nombre + "','" + entidad.apellidos + "',100,20);";
+                consulta_especifica = "INSERT into PSWC.profesor(correo,contraseña,nombre,apellidos,almacenamiento,quizes,curso) values('" 
+                    + entidad.correo + "','" + entidad.contraseña + "','" + entidad.nombre + "','" + entidad.apellidos + "',100,20,'" 
+                    + entidad.curso + "');";
                 break;
 
             case("Quizify.Entities.Institucion"): 
@@ -376,7 +377,7 @@ public class DAL {
     public List<int> GetPreguntas(List<dynamic> filtros) {
         conn.Open();
 
-        string consulta = "SELECT id from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "'";
+        string consulta = "SELECT * from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "'";
         List<int> result = new List<int> {};
 
         if(filtros[1] != null) { consulta = consulta + " " +  "AND tipo= '" + filtros[1] + "'"; }
@@ -392,8 +393,8 @@ public class DAL {
         conn.Close();
 
         foreach (DataRow row in data.Rows) { 
-            result.Add(int.Parse(data.Rows[0]["id"].ToString()));
-            result.Add(int.Parse(data.Rows[0]["ver"].ToString()));
+            result.Add(int.Parse(row["id"].ToString()));
+            result.Add(int.Parse(row["ver"].ToString()));
         }
 
         return result;
@@ -475,8 +476,13 @@ public class DAL {
             MySqlDataReader rdr = cmd.ExecuteReader();
 
             rdr.Close();
+
             conn.Close();
         }
+    }
+
+    public void CalcularNotaExamen(int id_ex, string correo) {
+        
     }
 
 }}

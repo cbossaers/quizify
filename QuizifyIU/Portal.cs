@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Quizify.Entities;
 using Quizify.Services;
 
 namespace QuizifyIU
@@ -15,10 +16,11 @@ namespace QuizifyIU
         private Portal control;
         
 
-        public Portal(Servicio servicio, Portal control)
+        public Portal(Servicio servicio, Portal control, dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
+            nombreIniciado.Text = user.nombre;
         }
 
         private void panelContenedor_Paint(object sender, PaintEventArgs e)
