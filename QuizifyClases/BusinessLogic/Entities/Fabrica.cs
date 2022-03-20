@@ -5,8 +5,8 @@ namespace Quizify.Entities
 {
     public class Fabrica
     {
-        public dynamic Crear_pregunta(string tipo, int id, string enunciado, int dif, string autor, string tema, 
-            int version = 1, List<dynamic> opciones = null)
+        public dynamic Crear_pregunta(string tipo, int id, string enunciado, int dif, string autor, string tema,
+            List<dynamic> opciones = null, int version = 1)
         {
             switch (tipo)
             {
