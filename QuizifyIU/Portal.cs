@@ -110,5 +110,16 @@ namespace QuizifyIU
             /*using (HacerExamen2 ventanaAlta = new HacerExamen2(servicio))
                 ventanaAlta.ShowDialog();*/
         }
+
+        private void bSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bAjustes_Click(object sender, EventArgs e)
+        {
+            DialogResult tobecontinued = MessageBox.Show(this, "Próximamente",
+                                                            "", MessageBoxButtons.OK);
+        }
     }
 }
