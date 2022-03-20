@@ -33,6 +33,8 @@ namespace QuizifyIU
 
         private void empezar_Click(object sender, EventArgs e)
         {
+            using (HacerExamen2 ventanaAlta = new HacerExamen2(servicio))
+                ventanaAlta.ShowDialog();
             /*control.GetContainerControl()
 
             control.Controls.RemoveAt(0);

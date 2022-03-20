@@ -16,23 +16,27 @@ namespace QuizifyIU
         private Servicio servicio;
         List<int> preguntas_asociadas = new List<int>();
         List<int> respuestas = new List<int>();
-        Pregunta pregunta;
+        Dictionary<int,int> res = new Dictionary<int, int>();    
         int op_correcta = 0;
+        Boolean Test = false;
         
         public HacerExamen2(Servicio servicio)
         {
             InitializeComponent();
-            //Examen examen = servicio.GetExamenById(id);
-            //preguntas_asociadas = examen.preguntas_asociadas; 
+            Examen examen = servicio.GetExamenById(0);
+            preguntas_asociadas = examen.preguntas_asociadas; 
             this.servicio = servicio;
+            //if(examen.GetVolverAtras()==0) anterior.Visible = false;
             interfaz();
+            
             
         }
 
         private void anterior_Click(object sender, EventArgs e)
         {
+            correct();
             guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
-            cont=-3;
+            cont -=3;
             interfaz();
         }
 
@@ -48,20 +52,33 @@ namespace QuizifyIU
         private void interfaz()
         {
             //pregunta = servicio.GetPreguntaById(preguntas_asociadas[cont], preguntas_asociadas[cont+1]);
-            
-            if (servicio.GetTipoPregunta(cont) == "test")
+            bloquear();
+            if (servicio.GetTipoPregunta(preguntas_asociadas[cont]) == "test")
             {
+                Test = true;
                 PreguntaTest preg = servicio.GetPreguntaById(preguntas_asociadas[cont], preguntas_asociadas[cont + 1]);
-                //PreguntaTest preg = servicio.GetPreguntaTestById(1,1);
                 enunciado.Text = preg.GetEnunciado().ToString();
-                correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
                 visible(preg);
                 correctaVF.Visible = false;
+                if (res.ContainsKey(preguntas_asociadas[cont])) 
+                {
+                    res.TryGetValue(preguntas_asociadas[cont], out op_correcta);
+                    /*switch (op_correcta)
+                    {
+                        case == 1 : 
 
-                
+                            break;
+                    }*/
+                         
+                }
+                else correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
+
+
+
             }
             else
             {
+                Test=false;
                 opc0.Visible = false; letraA.Visible = false; correcta0.Visible = false;
                 opc1.Visible = false; letraB.Visible = false; correcta1.Visible = false;
                 opc2.Visible = false; letraC.Visible = false; correcta2.Visible = false;
@@ -70,12 +87,21 @@ namespace QuizifyIU
                 opc0.Text = ""; opc1.Text = ""; opc2.Text = ""; opc3.Text = ""; opc4.Text = "";
                 correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
                 correctaVF.Visible = true;
+                verdadero0.Checked = false; falso1.Checked = false;
+                if (res.ContainsKey(preguntas_asociadas[cont]))
+                {
+                    res.TryGetValue(preguntas_asociadas[cont], out op_correcta);
+                    if (op_correcta == 0) verdadero0.Checked = true; 
+                    else verdadero0.Checked = true;
+                }
+                
 
             }
 
 
 
         }
+        
         private void visible(PreguntaTest preg)
         {
             if (preg.GetOpcA() != "")
@@ -126,33 +152,50 @@ namespace QuizifyIU
             respuestas.Add(id);
             respuestas.Add(version);
             respuestas.Add(correcta);
+            if(res.ContainsKey(id)) res[id]=correcta;
         }
 
         private void borrar_seleccion_Click(object sender, EventArgs e)
         {
             op_correcta = 0;
-            correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
+            verdadero0.Checked = false; falso1.Checked = false; correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
         }
 
         private void correct()
         {
-            if (correcta0.Checked) { op_correcta = 1; }
-            else {
-                if (correcta1.Checked) { op_correcta = 2; }
-                else {
-                    if (correcta2.Checked) { op_correcta = 3; }
-                    else {
-                        if (correcta3.Checked) { op_correcta = 4; }
-                        else {
-                            if (correcta4.Checked) { op_correcta = 5; }
+            if (Test)
+            {
+                if (correcta0.Checked) { op_correcta = 1; }
+                else
+                {
+                    if (correcta1.Checked) { op_correcta = 2; }
+                    else
+                    {
+                        if (correcta2.Checked) { op_correcta = 3; }
+                        else
+                        {
+                            if (correcta3.Checked) { op_correcta = 4; }
                             else
                             {
-                                op_correcta = 0;
+                                if (correcta4.Checked) { op_correcta = 5; }
+                                else
+                                {
+                                    op_correcta = 0;
+                                }
                             }
                         }
                     }
                 }
-            }
+            }else if(verdadero0.Checked) { op_correcta = 0; }
+            else if (verdadero0.Checked) { op_correcta = 1; }
+
+
+        }
+        public void bloquear()
+        {
+            if (cont <= 0) { anterior.Enabled = false; }
+            else anterior.Enabled = true; if (cont >= preguntas_asociadas.Count-3) { siguiente.Enabled = false; }
+            else siguiente.Enabled = true;
 
         }
         

@@ -37,7 +37,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.siguiente = new System.Windows.Forms.Button();
-            this.button2a2 = new System.Windows.Forms.Button();
+            this.a2 = new System.Windows.Forms.Button();
             this.b2 = new System.Windows.Forms.Button();
             this.a3 = new System.Windows.Forms.Button();
             this.b3 = new System.Windows.Forms.Button();
@@ -142,14 +142,15 @@
             this.siguiente.UseVisualStyleBackColor = true;
             this.siguiente.Click += new System.EventHandler(this.siguiente_Click);
             // 
-            // button2a2
+            // a2
             // 
-            this.button2a2.Location = new System.Drawing.Point(433, 148);
-            this.button2a2.Name = "button2a2";
-            this.button2a2.Size = new System.Drawing.Size(41, 25);
-            this.button2a2.TabIndex = 19;
-            this.button2a2.Text = "ON";
-            this.button2a2.UseVisualStyleBackColor = true;
+            this.a2.Location = new System.Drawing.Point(433, 148);
+            this.a2.Name = "a2";
+            this.a2.Size = new System.Drawing.Size(41, 25);
+            this.a2.TabIndex = 19;
+            this.a2.Text = "ON";
+            this.a2.UseVisualStyleBackColor = true;
+            this.a2.Click += new System.EventHandler(this.a2_Click);
             // 
             // b2
             // 
@@ -160,6 +161,7 @@
             this.b2.TabIndex = 18;
             this.b2.Text = "OFF";
             this.b2.UseVisualStyleBackColor = true;
+            this.b2.Click += new System.EventHandler(this.b2_Click);
             // 
             // a3
             // 
@@ -169,6 +171,7 @@
             this.a3.TabIndex = 21;
             this.a3.Text = "ON";
             this.a3.UseVisualStyleBackColor = true;
+            this.a3.Click += new System.EventHandler(this.a3_Click);
             // 
             // b3
             // 
@@ -179,6 +182,7 @@
             this.b3.TabIndex = 20;
             this.b3.Text = "OFF";
             this.b3.UseVisualStyleBackColor = true;
+            this.b3.Click += new System.EventHandler(this.b3_Click);
             // 
             // a4
             // 
@@ -188,6 +192,7 @@
             this.a4.TabIndex = 23;
             this.a4.Text = "ON";
             this.a4.UseVisualStyleBackColor = true;
+            this.a4.Click += new System.EventHandler(this.a4_Click);
             // 
             // b4
             // 
@@ -198,6 +203,7 @@
             this.b4.TabIndex = 22;
             this.b4.Text = "OFF";
             this.b4.UseVisualStyleBackColor = true;
+            this.b4.Click += new System.EventHandler(this.b4_Click);
             // 
             // a5
             // 
@@ -207,6 +213,7 @@
             this.a5.TabIndex = 25;
             this.a5.Text = "ON";
             this.a5.UseVisualStyleBackColor = true;
+            this.a5.Click += new System.EventHandler(this.a5_Click);
             // 
             // b5
             // 
@@ -217,6 +224,7 @@
             this.b5.TabIndex = 24;
             this.b5.Text = "OFF";
             this.b5.UseVisualStyleBackColor = true;
+            this.b5.Click += new System.EventHandler(this.b5_Click);
             // 
             // sinlimite
             // 
@@ -286,6 +294,7 @@
             this.a1.TabIndex = 52;
             this.a1.Text = "ON";
             this.a1.UseVisualStyleBackColor = true;
+            this.a1.Click += new System.EventHandler(this.a1_Click_1);
             // 
             // mostrar
             // 
@@ -306,6 +315,7 @@
             this.b1.TabIndex = 50;
             this.b1.Text = "OFF";
             this.b1.UseVisualStyleBackColor = true;
+            this.b1.Click += new System.EventHandler(this.b1_Click_1);
             // 
             // label4
             // 
@@ -357,7 +367,7 @@
             this.Controls.Add(this.b4);
             this.Controls.Add(this.a3);
             this.Controls.Add(this.b3);
-            this.Controls.Add(this.button2a2);
+            this.Controls.Add(this.a2);
             this.Controls.Add(this.b2);
             this.Controls.Add(this.siguiente);
             this.Controls.Add(this.label8);
@@ -387,7 +397,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button siguiente;
-        private System.Windows.Forms.Button button2a2;
+        private System.Windows.Forms.Button a2;
         private System.Windows.Forms.Button b2;
         private System.Windows.Forms.Button a3;
         private System.Windows.Forms.Button b3;
