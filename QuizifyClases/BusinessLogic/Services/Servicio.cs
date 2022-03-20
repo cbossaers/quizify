@@ -89,9 +89,9 @@ namespace Quizify.Services
         public Alumno GetAlumnoById(string correo)
         {
             try { Alumno alumno = dal.GetEntidad(correo); return alumno; }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw new ServicioException("El alumno con correo " + correo + " no existe");
+                throw new ServicioException(e.ToString());
             }
         }
         public Profesor GetProfesorById(string correo)
