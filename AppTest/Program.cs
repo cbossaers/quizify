@@ -16,6 +16,12 @@ namespace AppTest
             DAL dal = new DAL();
             Servicio servicio = new Servicio(dal);
 
+            List<dynamic> filtro = new List<dynamic> {"angel", null, null, null};
+            List<int> lista = servicio.GetPreguntas(filtro);
+
+            foreach(int x in lista) {
+                Console.WriteLine(x);
+            }
         }
     }
 }

@@ -111,7 +111,7 @@ namespace Quizify.Services
         {
             return null;
         }
-        public DataTable GetExamenes(dynamic persona)
+        public List<int> GetExamenes(dynamic persona)
         {
             return dal.GetExamenes(persona);
         }

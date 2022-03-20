@@ -400,17 +400,19 @@ public class DAL {
         return result;
     }
 
-    public DataTable GetExamenes(dynamic persona) {
+    public List<int> GetExamenes(dynamic persona) {
         conn.Open();
         string tipo = GetTipoEntidad(persona.GetCorreo());
         string consulta = "";
 
+        List<int> result = new List<int> {};
+
         switch(tipo){
                 case("alumno"): 
-                    consulta = "SELECT * FROM examen WHERE curso= '" + persona.GetCurso() + "';";
+                    consulta = "SELECT id FROM examen WHERE curso= '" + persona.GetCurso() + "';";
                     break;
                 case("profesor"):
-                    consulta = "SELECT * FROM examen WHERE autor= '" + persona.GetCorreo() + "';";
+                    consulta = "SELECT id FROM examen WHERE autor= '" + persona.GetCorreo() + "';";
                     break;
             }
 
@@ -420,7 +422,11 @@ public class DAL {
 
         conn.Close();
 
-        return data;
+        foreach (DataRow row in data.Rows) { 
+            result.Add(int.Parse(row["id"].ToString()));
+        }
+
+        return result;
     }
 
     public Examen GetExamen(int id) {
