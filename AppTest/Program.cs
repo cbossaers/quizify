@@ -16,11 +16,11 @@ namespace AppTest
             DAL dal = new DAL();
             Servicio servicio = new Servicio(dal);
 
-            List<dynamic> filtro = new List<dynamic> {"angel", null, null, null};
-            List<int> lista = servicio.GetPreguntas(filtro);
+            Profesor prof = servicio.GetEntidadById("angel");
+            List<int> lista = servicio.GetExamenes(prof);
 
             foreach(int x in lista) {
-                Console.WriteLine(x);
+                Console.WriteLine(servicio.GetExamenById(x).fecha_fin);
             }
         }
     }

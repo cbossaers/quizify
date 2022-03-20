@@ -222,6 +222,8 @@ public class DAL {
         DataTable data = new DataTable();
         adapter.Fill(data);
 
+        conn.Close();
+
         switch(tipo){
                 case("alumno"): 
                     return new Alumno(data.Rows[0]["correo"].ToString(), data.Rows[0]["contraseña"].ToString(), 
@@ -235,7 +237,6 @@ public class DAL {
                         data.Rows[0]["nombre"].ToString(), int.Parse(data.Rows[0]["quizes"].ToString()));
             }  
 
-        conn.Close();
         return 0;
     }
 
@@ -401,7 +402,7 @@ public class DAL {
     }
 
     public List<int> GetExamenes(dynamic persona) {
-        conn.Open();
+        
         string tipo = GetTipoEntidad(persona.GetCorreo());
         string consulta = "";
 
@@ -415,6 +416,7 @@ public class DAL {
                     consulta = "SELECT id FROM examen WHERE autor= '" + persona.GetCorreo() + "';";
                     break;
             }
+        conn.Open();
 
         MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
         DataTable data = new DataTable();
@@ -488,7 +490,27 @@ public class DAL {
     }
 
     public void CalcularNotaExamen(int id_ex, string correo) {
-        
+        string consulta_lista =  "SELECT * FROM lista preguntas WHERE examen = " + id_ex + ";";
+        string consulta_respuestas = "SELECT * FROM respuestas_examenes WHERE examen = " + id_ex +  " AND alumno = '" + correo + "';";
+
+        double nota = 0;
+
+        conn.Open();
+
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta_lista, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+
+        MySqlDataAdapter adapter2 = new MySqlDataAdapter(consulta_respuestas, conn);
+        DataTable data2 = new DataTable();
+        adapter2.Fill(data2);
+
+        conn.Close();
+
+        foreach (DataRow row in data.Rows) { 
+            
+        }
     }
+
 
 }}

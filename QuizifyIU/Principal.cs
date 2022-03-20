@@ -60,7 +60,7 @@ namespace QuizifyIU
                 }
                 else
                 {
-                    DialogResult answer = MessageBox.Show(this, "Email o contraseña incorrectos",
+                    DialogResult answer = MessageBox.Show(this, "Contraseña incorrecta, inténtelo de nuevo.",
                                                             "Error", MessageBoxButtons.OK,
                                                             MessageBoxIcon.Exclamation);
                 }
@@ -69,7 +69,7 @@ namespace QuizifyIU
             
             catch (Exception ex)
             {
-                DialogResult answer = MessageBox.Show(this, "Este email no está registrado",
+                DialogResult answer = MessageBox.Show(this, "Este email no está registrado.",
                                                             "Error", MessageBoxButtons.OK,
                                                             MessageBoxIcon.Exclamation);
             }

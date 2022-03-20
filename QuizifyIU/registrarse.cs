@@ -15,8 +15,7 @@ namespace QuizifyIU
         private Servicio servicio;
 
         //Variables para habilitar/deshabilitar el botón "Confirmar"
-        private Boolean existeAlumno = false;
-        private Boolean existeProfesor = false;
+        private Boolean existeUser = false;
         private Boolean emailCorrecto = false;
         private Boolean nombreCorrecto = false;
         private Boolean contraCorrecto = false;
@@ -93,35 +92,38 @@ namespace QuizifyIU
             string contra = contraBox.Text;
             string tipoUser = tipoUsuario.Text;
 
-            //Deben haber usuario registrados para poder hacer la comprobacion
-            /*if (tipoUser.Equals("Profesor"))
+            try
             {
-                if (servicio.GetProfesorById(email) != null) existeProfesor = true;
+                if (servicio.GetEntidadById(email) != null)
+                {
+                    _ = MessageBox.Show(this, "El email introducido ya está registrado, por favor, introduzca otro email.", "Email ya existe.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    if (tipoUser.Equals("Profesor"))
+                    {
+                        Profesor newProfesor = new Profesor(email, contra, nombre, apellidos, "Ejemplo", 100, 15);
+                        servicio.AddProfesor(newProfesor);
+                        DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (confirmar == DialogResult.OK) this.Close();
+                    }
+                    else if (tipoUser.Equals("Alumno"))
+                    {
+                        Alumno newAlumno = new Alumno(email, contra, nombre, apellidos, "Ejemplo");
+                        servicio.AddAlumno(newAlumno);
+                        DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (confirmar == DialogResult.OK) this.Close();
+                    }
+                }
             }
-
-            else if (tipoUser.Equals("Alumno"))
-            {
-                if (servicio.GetAlumnoById(email) != null) existeAlumno = true;
-            }
-            else if (existeAlumno || existeProfesor)
+            catch (Exception ex)
             {
                 _ = MessageBox.Show(this, "El email introducido ya está registrado, por favor, introduzca otro email.", "Email ya existe.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }*/
-            if (tipoUser.Equals("Profesor"))
-            {
-                Profesor newProfesor = new Profesor(email, contra, nombre, apellidos, "Ejemplo", 100, 15);
-                servicio.AddProfesor(newProfesor);
             }
-            else if (tipoUser.Equals("Alumno"))
-            {
-                Alumno newAlumno = new Alumno(email, contra, nombre, apellidos, "Ejemplo");
-                servicio.AddAlumno(newAlumno);
-            }
-            DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (confirmar == DialogResult.OK) this.Close();
+            
         }
 
-        private void tipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        private void tipoUsuario_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (tipoUsuario.Text == "") bConfirmar.Enabled = false;
             else tipoCorrecto = true;
