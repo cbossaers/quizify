@@ -16,6 +16,12 @@ namespace AppTest
             DAL dal = new DAL();
             Servicio servicio = new Servicio(dal);
 
+            Profesor prof = servicio.GetEntidadById("angel");
+            List<int> lista = servicio.GetExamenes(prof);
+
+            foreach(int x in lista) {
+                Console.WriteLine(servicio.GetExamenById(x).fecha_fin);
+            }
         }
     }
 }
