@@ -35,9 +35,9 @@ namespace Quizify.Services
         public void AddAlumno(Alumno alumno)
         {
             try { dal.AddEntidad(alumno); }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw new ServicioException("El alumno con correo " + alumno.GetCorreo() + " ya existe");
+                throw new ServicioException(e.ToString());
             }
         }
         public void AddProfesor(Profesor profesor)

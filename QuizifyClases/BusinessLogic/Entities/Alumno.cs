@@ -8,7 +8,7 @@ public partial class Alumno : Entidad
         this.nombre = nombre;   
         this.apellidos = apellidos;
         this.contraseña = contraseña;
-        this.Curso = curso;
+        this.curso = curso;
     }
     public string GetNombre()
     {
@@ -24,7 +24,7 @@ public partial class Alumno : Entidad
     }
     public string GetCurso()
     {
-        return Curso;
+        return curso;
     }
 
     public void SetNombre(string nombre)
@@ -41,7 +41,7 @@ public partial class Alumno : Entidad
     }
     public void SetCurso(string curso)
     {
-        this.Curso = curso;
+        this.curso = curso;
     }
     }
 }
