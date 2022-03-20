@@ -50,27 +50,12 @@ namespace QuizifyIU
 
         public void logUser()
         {
-            Alumno alum = servicio.GetAlumnoById(emailField.Text);
-            Profesor prof = servicio.GetProfesorById(emailField.Text);
-            if(prof != null)
+            dynamic user = servicio.GetEntidadById(emailField.Text);
+            if(user != null)
             {
-                if (prof.contraseña.Equals(contraField.Text))
+                if (user.contraseña.Equals(contraField.Text))
                 {
-                    formportal = new Portal(servicio, formportal, prof, null);
-                    formportal.ShowDialog();
-                }
-                else
-                {
-                    DialogResult answer = MessageBox.Show(this, "Email o contraseña incorrectos",
-                                                            "Error", MessageBoxButtons.OK,
-                                                            MessageBoxIcon.Exclamation);
-                }
-            }
-            else if (alum != null)
-            {
-                if (alum.contraseña.Equals(contraField.Text))
-                {
-                    formportal = new Portal(servicio, formportal, null, alum);
+                    formportal = new Portal(servicio, formportal, user);
                     formportal.ShowDialog();
                 }
                 else

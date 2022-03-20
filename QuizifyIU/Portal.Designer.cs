@@ -37,12 +37,14 @@
             this.bMisPreguntas = new System.Windows.Forms.Button();
             this.bCrearPregunta = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.nombreIniciado = new System.Windows.Forms.Label();
             this.MenuVertical.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.MenuVertical.Controls.Add(this.nombreIniciado);
             this.MenuVertical.Controls.Add(this.bHacerExamen);
             this.MenuVertical.Controls.Add(this.bAjustes);
             this.MenuVertical.Controls.Add(this.bSalir);
@@ -149,6 +151,15 @@
             this.panelContenedor.TabIndex = 1;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
+            // nombreIniciado
+            // 
+            this.nombreIniciado.AutoSize = true;
+            this.nombreIniciado.Location = new System.Drawing.Point(41, 33);
+            this.nombreIniciado.Name = "nombreIniciado";
+            this.nombreIniciado.Size = new System.Drawing.Size(38, 15);
+            this.nombreIniciado.TabIndex = 6;
+            this.nombreIniciado.Text = "label1";
+            // 
             // Portal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -160,6 +171,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Portal";
             this.MenuVertical.ResumeLayout(false);
+            this.MenuVertical.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -175,5 +187,6 @@
         private System.Windows.Forms.Button bMisPreguntas;
         private System.Windows.Forms.Button bCrearPregunta;
         private System.Windows.Forms.Button bHacerExamen;
+        private System.Windows.Forms.Label nombreIniciado;
     }
 }

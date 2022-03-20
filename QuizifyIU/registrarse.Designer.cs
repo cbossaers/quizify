@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ComboBox tipoUsuario;
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,9 +39,9 @@
             this.emailBox = new System.Windows.Forms.TextBox();
             this.apellidosBox = new System.Windows.Forms.TextBox();
             this.contraBox = new System.Windows.Forms.TextBox();
-            this.tipoUsuario = new System.Windows.Forms.ComboBox();
             this.bVolver = new System.Windows.Forms.Button();
             this.bConfirmar = new System.Windows.Forms.Button();
+            tipoUsuario = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -138,18 +139,18 @@
             // 
             // tipoUsuario
             // 
-            this.tipoUsuario.FormattingEnabled = true;
-            this.tipoUsuario.Items.AddRange(new object[] {
+            tipoUsuario.FormattingEnabled = true;
+            tipoUsuario.Items.AddRange(new object[] {
             "Alumno",
             "Profesor",
             "Institución"});
-            this.tipoUsuario.Location = new System.Drawing.Point(192, 315);
-            this.tipoUsuario.Name = "tipoUsuario";
-            this.tipoUsuario.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tipoUsuario.Size = new System.Drawing.Size(182, 23);
-            this.tipoUsuario.TabIndex = 11;
-            this.tipoUsuario.Text = "Elige un tipo de usuario";
-            this.tipoUsuario.SelectedIndexChanged += new System.EventHandler(this.tipoUsuario_SelectedIndexChanged);
+            tipoUsuario.Location = new System.Drawing.Point(192, 315);
+            tipoUsuario.Name = "tipoUsuario";
+            tipoUsuario.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            tipoUsuario.Size = new System.Drawing.Size(182, 23);
+            tipoUsuario.TabIndex = 11;
+            tipoUsuario.Text = "Elige un tipo de usuario";
+            tipoUsuario.SelectedIndexChanged += new System.EventHandler(this.tipoUsuario_SelectedIndexChanged);
             // 
             // bVolver
             // 
@@ -179,7 +180,7 @@
             this.ClientSize = new System.Drawing.Size(584, 418);
             this.Controls.Add(this.bConfirmar);
             this.Controls.Add(this.bVolver);
-            this.Controls.Add(this.tipoUsuario);
+            this.Controls.Add(tipoUsuario);
             this.Controls.Add(this.contraBox);
             this.Controls.Add(this.apellidosBox);
             this.Controls.Add(this.emailBox);

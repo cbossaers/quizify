@@ -16,10 +16,11 @@ namespace QuizifyIU
         private Portal control;
         
 
-        public Portal(Servicio servicio, Portal control, Profesor profesor, Alumno alumno)
+        public Portal(Servicio servicio, Portal control, dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
+            nombreIniciado.Text = user.nombre;
         }
 
         private void panelContenedor_Paint(object sender, PaintEventArgs e)
