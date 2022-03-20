@@ -86,30 +86,15 @@ namespace Quizify.Services
         public string GetTipoPregunta(int id) {
             return dal.GetTipoPregunta(id);
         }
-        public Alumno GetAlumnoById(string correo)
+        public dynamic GetEntidadById(string correo)
         {
-            try { Alumno alumno = dal.GetEntidad(correo); return alumno; }
+            try { dynamic entidad = dal.GetEntidad(correo); return entidad; }
             catch (Exception e)
             {
                 throw new ServicioException(e.ToString());
             }
         }
-        public Profesor GetProfesorById(string correo)
-        {
-            try { Profesor profesor = dal.GetEntidad(correo); return profesor; }
-            catch (Exception)
-            {
-                throw new ServicioException("El profesor con correo " + correo + " no existe");
-            }
-        }
-        public Institucion GetInstitucionById(string correo)
-        {
-            try { Institucion institucion = dal.GetEntidad(correo); return institucion; }
-            catch (Exception)
-            {
-                throw new ServicioException("La institución con correo " + correo + " no existe");
-            }
-        }
+        
         public Examen GetExamenById(int Id)
         {
             if (true)
