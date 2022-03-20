@@ -118,7 +118,7 @@ namespace Quizify.Services
             }
             else throw new ServicioException("El examen con Id " + Id + " no existe");
         }
-        public List<dynamic> GetPreguntas(List<dynamic> filtros)
+        public List<int> GetPreguntas(List<dynamic> filtros)
         {
             return dal.GetPreguntas(filtros);
         }

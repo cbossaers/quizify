@@ -373,11 +373,11 @@ public class DAL {
         return consulta;
     }
 
-    public List<dynamic> GetPreguntas(List<dynamic> filtros) {
+    public List<int> GetPreguntas(List<dynamic> filtros) {
         conn.Open();
 
-        string consulta = "SELECT * from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "'";
-        List<dynamic> result = new List<dynamic> {};
+        string consulta = "SELECT id from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "'";
+        List<int> result = new List<int> {};
 
         if(filtros[1] != null) { consulta = consulta + " " +  "AND tipo= '" + filtros[1] + "'"; }
         if(filtros[2] != null) { consulta = consulta + " " +  "AND dificultad= " + filtros[2] + ""; }
@@ -392,7 +392,7 @@ public class DAL {
         conn.Close();
 
         foreach (DataRow row in data.Rows) { 
-            result.Add(GetPregunta(int.Parse(data.Rows[0]["id"].ToString()), int.Parse(data.Rows[0]["ver"].ToString())));
+            result.Add(int.Parse(data.Rows[0]["id"].ToString()));
         }
 
         return result;
@@ -462,6 +462,8 @@ public class DAL {
         return result;
     }
 
-    public void SubirRespuestas() {}
+    public void SubirRespuestas() {
+        
+    }
 
 }}
