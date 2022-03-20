@@ -23,7 +23,7 @@ namespace QuizifyIU
         private List<dynamic> lista = new List<dynamic> { };
         private PreguntaTest preguntaTest;
         private PreguntaVF preguntaVF;
-        private List<dynamic> listaVF = new List<dynamic> { };
+        private int dificultadNum;
         public CrearPregunta(Servicio servicio)
         {
             InitializeComponent();
@@ -116,20 +116,25 @@ namespace QuizifyIU
                     if (numeroDeOpciones == 4) lista.Add(opc3.Text);
                     if (numeroDeOpciones == 5) lista.Add(opc4.Text);
                 }
-                //id?? autor?? tema?? versión y lista al revés??
-                preguntaTest = fabrica.Crear_pregunta("test", 12345, enunciado.Text, int.Parse(opcionCorrecta), "pepe", "tema3", 1,lista);
+                preguntaTest = fabrica.Crear_pregunta("test", 12345, enunciado.Text, dificultadNum, "pepe", "tema3", lista,1);
                 servicio.AddPreguntaTest(preguntaTest);
             }
             else
             {
-                listaVF.Add("verdadero"); listaVF.Add("falso");
-                preguntaVF = fabrica.Crear_pregunta("vf", 123456, enunciado.Text, int.Parse(opcionCorrecta), "carlos", "tema1", 1,listaVF);
+                preguntaVF = fabrica.Crear_pregunta("vf", 123456, enunciado.Text, dificultadNum, "carlos", "tema1",lista, 1);
                 servicio.AddPreguntaVF(preguntaVF);
             }
         }
 
         private void EvCambiarDificultad(object sender, EventArgs e)
         {
+            switch(dificultad.Text)
+            {
+                case("Fácil"): dificultadNum = 0; break;
+                case ("Normal"): dificultadNum = 1; break;
+                case ("Difícil"): dificultadNum = 2; break;
+            }
+            lista.Add(dificultadNum);
             cambioDificultad = true;
             HabilitarCrear();
         }
