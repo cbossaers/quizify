@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Quizify.Entities;
 using Quizify.Services;
 
 namespace QuizifyIU
@@ -15,7 +16,7 @@ namespace QuizifyIU
         private Portal control;
         
 
-        public Portal(Servicio servicio, Portal control)
+        public Portal(Servicio servicio, Portal control, Profesor profesor, Alumno alumno)
         {
             InitializeComponent();
             this.servicio = servicio;
