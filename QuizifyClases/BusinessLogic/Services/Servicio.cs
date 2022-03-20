@@ -32,28 +32,12 @@ namespace Quizify.Services
                 }
             
         }
-        public void AddAlumno(Alumno alumno)
+        public void addEntidad(dynamic user)
         {
-            try { dal.AddEntidad(alumno); }
-            catch (Exception)
+            try { dal.AddEntidad(user); }
+            catch (Exception e)
             {
-                throw new ServicioException("El alumno con correo " + alumno.GetCorreo() + " ya existe");
-            }
-        }
-        public void AddProfesor(Profesor profesor)
-        {
-            try { dal.AddEntidad(profesor); }
-            catch (Exception)
-            {
-                throw new ServicioException("El profesor con correo " + profesor.GetCorreo() + " ya existe");
-            }
-        }
-        public void AddInstitucion(Institucion institucion)
-        {
-            try { dal.AddEntidad(institucion); }
-            catch (Exception)
-            {
-                throw new ServicioException("La institución con correo " + institucion.GetCorreo() + " ya existe");
+                throw new ServicioException(e.ToString());
             }
         }
         public void AddExamen(Examen examen)

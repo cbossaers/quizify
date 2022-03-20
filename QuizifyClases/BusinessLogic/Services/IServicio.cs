@@ -13,9 +13,7 @@ namespace Quizify.Services
     {
         public void AddPreguntaVF(PreguntaVF preguntaVF);
         public void AddPreguntaTest(PreguntaTest preguntaTest);
-        public void AddAlumno(Alumno alumno);
-        public void AddProfesor(Profesor profesor);
-        public void AddInstitucion(Institucion institucion);
+        public void addEntidad(dynamic usuario);
         public void AddExamen(Examen examen);
         //Atributos: id, nombre, titulo, descrpicion, curso, autor, fecha_creac, fecha_ini, fecha_fin, intentos (numero), 
         //volver_atras (0 = no, 1 = si), errores_restan (0 = no, 1 = si), mostrar_resultados (0 = no, 1 = si), preguntas.
