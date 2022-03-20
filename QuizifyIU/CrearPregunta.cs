@@ -101,28 +101,41 @@ namespace QuizifyIU
                 MessageBox.Show(this, "No se ha introducido un enunciado", "Error",
                                    MessageBoxButtons.OK,
                                    MessageBoxIcon.Error);
+                return;
             }
             else if (opcionCorrecta == null)
             {
                 MessageBox.Show(this, "No se ha seleccionado una opción correcta", "Error",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Error);
+                return;
             }
             if (tipoPregunta.Text == "Test")
             {
-                if(ComprobarOpcionesRellenadas(numeroDeOpciones) == true)
+                if(ComprobarOpcionesRellenadas(numeroDeOpciones) == false){
+                    return;
+                }
+                else
                 {
                     lista.Add(opc0.Text); lista.Add(opc1.Text); lista.Add(opc2.Text);
                     if (numeroDeOpciones == 4) lista.Add(opc3.Text);
                     if (numeroDeOpciones == 5) lista.Add(opc4.Text);
                 }
-                preguntaTest = fabrica.Crear_pregunta("test", 12345, enunciado.Text, dificultadNum, "pepe", "tema3", lista,1);
-                servicio.AddPreguntaTest(preguntaTest);
+                //preguntaTest = fabrica.Crear_pregunta("test", 12345, enunciado.Text, dificultadNum, "pepe", "tema3", lista,1);
+                //servicio.AddPreguntaTest(preguntaTest);
+                MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Information);
+                VaciarCampos();
             }
             else
             {
-                preguntaVF = fabrica.Crear_pregunta("vf", 123456, enunciado.Text, dificultadNum, "carlos", "tema1",lista, 1);
-                servicio.AddPreguntaVF(preguntaVF);
+                //preguntaVF = fabrica.Crear_pregunta("vf", 123456, enunciado.Text, dificultadNum, "carlos", "tema1",lista, 1);
+                //servicio.AddPreguntaVF(preguntaVF);
+                MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Information);
+                VaciarCampos();
             }
         }
 
@@ -170,7 +183,13 @@ namespace QuizifyIU
             }
             return true;
         }
-
-        
+        private void VaciarCampos(){
+            enunciado.Text = "";
+            opc0.Text = ""; opc1.Text = ""; opc2.Text = ""; opc3.Text = ""; opc4.Text = "";
+            correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
+            verdadero0.Checked = false; falso1.Checked = false;
+            opcionCorrecta = null;
+            lista.Clear();
+        }
     }
 }
