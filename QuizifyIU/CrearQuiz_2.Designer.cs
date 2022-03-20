@@ -31,20 +31,21 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.Pregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dificultad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Puntuacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(79, 415);
+            this.button3.Location = new System.Drawing.Point(53, 415);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(186, 23);
             this.button3.TabIndex = 12;
@@ -53,7 +54,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(609, 415);
+            this.button2.Location = new System.Drawing.Point(599, 415);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(123, 23);
             this.button2.TabIndex = 11;
@@ -66,48 +67,24 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Pregunta,
-            this.Materia,
             this.Dificultad,
             this.Autor,
+            this.Materia,
+            this.Tipo,
             this.Puntuacion,
             this.Eliminar});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.MenuBar;
-            this.dataGridView1.Location = new System.Drawing.Point(110, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(53, 58);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(571, 334);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(669, 334);
             this.dataGridView1.TabIndex = 10;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(579, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Añadir pregunta";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(110, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Nombre del quiz";
             // 
             // Pregunta
             // 
             this.Pregunta.HeaderText = "Pregunta";
             this.Pregunta.Name = "Pregunta";
-            // 
-            // Materia
-            // 
-            this.Materia.HeaderText = "Materia";
-            this.Materia.Name = "Materia";
             // 
             // Dificultad
             // 
@@ -119,6 +96,16 @@
             this.Autor.HeaderText = "Autor";
             this.Autor.Name = "Autor";
             // 
+            // Materia
+            // 
+            this.Materia.HeaderText = "Materia";
+            this.Materia.Name = "Materia";
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            // 
             // Puntuacion
             // 
             this.Puntuacion.HeaderText = "Puntuación";
@@ -129,6 +116,25 @@
             this.Eliminar.HeaderText = "🗑";
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Width = 30;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(620, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Añadir pregunta";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(110, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Nombre del quiz";
             // 
             // CrearQuiz_2
             // 
@@ -156,9 +162,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pregunta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dificultad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Autor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Puntuacion;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }

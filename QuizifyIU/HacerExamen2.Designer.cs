@@ -59,7 +59,7 @@
             // 
             this.correctaVF.Controls.Add(this.falso1);
             this.correctaVF.Controls.Add(this.verdadero0);
-            this.correctaVF.Location = new System.Drawing.Point(48, 191);
+            this.correctaVF.Location = new System.Drawing.Point(12, 138);
             this.correctaVF.Name = "correctaVF";
             this.correctaVF.Size = new System.Drawing.Size(355, 100);
             this.correctaVF.TabIndex = 49;
@@ -91,66 +91,56 @@
             // 
             // correcta4
             // 
-            this.correcta4.AutoCheck = false;
             this.correcta4.AutoSize = true;
-            this.correcta4.Location = new System.Drawing.Point(40, 346);
+            this.correcta4.Location = new System.Drawing.Point(40, 311);
             this.correcta4.Name = "correcta4";
             this.correcta4.Size = new System.Drawing.Size(14, 13);
             this.correcta4.TabIndex = 24;
-            this.correcta4.TabStop = true;
             this.correcta4.UseVisualStyleBackColor = true;
             this.correcta4.Visible = false;
             // 
             // correcta0
             // 
-            this.correcta0.AutoCheck = false;
             this.correcta0.AutoSize = true;
             this.correcta0.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.correcta0.Location = new System.Drawing.Point(48, 154);
+            this.correcta0.Location = new System.Drawing.Point(48, 119);
             this.correcta0.Name = "correcta0";
             this.correcta0.Size = new System.Drawing.Size(14, 13);
             this.correcta0.TabIndex = 19;
-            this.correcta0.TabStop = true;
             this.correcta0.UseVisualStyleBackColor = true;
             // 
             // correcta3
             // 
-            this.correcta3.AutoCheck = false;
             this.correcta3.AutoSize = true;
-            this.correcta3.Location = new System.Drawing.Point(41, 297);
+            this.correcta3.Location = new System.Drawing.Point(41, 262);
             this.correcta3.Name = "correcta3";
             this.correcta3.Size = new System.Drawing.Size(14, 13);
             this.correcta3.TabIndex = 23;
-            this.correcta3.TabStop = true;
             this.correcta3.UseVisualStyleBackColor = true;
             this.correcta3.Visible = false;
             // 
             // correcta1
             // 
-            this.correcta1.AutoCheck = false;
             this.correcta1.AutoSize = true;
-            this.correcta1.Location = new System.Drawing.Point(41, 199);
+            this.correcta1.Location = new System.Drawing.Point(41, 164);
             this.correcta1.Name = "correcta1";
             this.correcta1.Size = new System.Drawing.Size(14, 13);
             this.correcta1.TabIndex = 21;
-            this.correcta1.TabStop = true;
             this.correcta1.UseVisualStyleBackColor = true;
             // 
             // correcta2
             // 
-            this.correcta2.AutoCheck = false;
             this.correcta2.AutoSize = true;
-            this.correcta2.Location = new System.Drawing.Point(41, 246);
+            this.correcta2.Location = new System.Drawing.Point(41, 211);
             this.correcta2.Name = "correcta2";
             this.correcta2.Size = new System.Drawing.Size(14, 13);
             this.correcta2.TabIndex = 22;
-            this.correcta2.TabStop = true;
             this.correcta2.UseVisualStyleBackColor = true;
             // 
             // letraE
             // 
             this.letraE.AutoSize = true;
-            this.letraE.Location = new System.Drawing.Point(21, 344);
+            this.letraE.Location = new System.Drawing.Point(21, 309);
             this.letraE.Name = "letraE";
             this.letraE.Size = new System.Drawing.Size(13, 15);
             this.letraE.TabIndex = 45;
@@ -160,7 +150,7 @@
             // letraD
             // 
             this.letraD.AutoSize = true;
-            this.letraD.Location = new System.Drawing.Point(21, 296);
+            this.letraD.Location = new System.Drawing.Point(21, 261);
             this.letraD.Name = "letraD";
             this.letraD.Size = new System.Drawing.Size(15, 15);
             this.letraD.TabIndex = 44;
@@ -170,7 +160,7 @@
             // letraC
             // 
             this.letraC.AutoSize = true;
-            this.letraC.Location = new System.Drawing.Point(21, 247);
+            this.letraC.Location = new System.Drawing.Point(21, 212);
             this.letraC.Name = "letraC";
             this.letraC.Size = new System.Drawing.Size(15, 15);
             this.letraC.TabIndex = 43;
@@ -180,7 +170,7 @@
             // letraB
             // 
             this.letraB.AutoSize = true;
-            this.letraB.Location = new System.Drawing.Point(21, 198);
+            this.letraB.Location = new System.Drawing.Point(21, 163);
             this.letraB.Name = "letraB";
             this.letraB.Size = new System.Drawing.Size(14, 15);
             this.letraB.TabIndex = 42;
@@ -190,7 +180,7 @@
             // letraA
             // 
             this.letraA.AutoSize = true;
-            this.letraA.Location = new System.Drawing.Point(21, 153);
+            this.letraA.Location = new System.Drawing.Point(21, 118);
             this.letraA.Name = "letraA";
             this.letraA.Size = new System.Drawing.Size(15, 15);
             this.letraA.TabIndex = 41;
@@ -201,7 +191,7 @@
             // 
             this.enunciado.AutoSize = true;
             this.enunciado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.enunciado.Location = new System.Drawing.Point(21, 32);
+            this.enunciado.Location = new System.Drawing.Point(13, 37);
             this.enunciado.Name = "enunciado";
             this.enunciado.Size = new System.Drawing.Size(107, 28);
             this.enunciado.TabIndex = 32;
@@ -210,7 +200,7 @@
             // opc0
             // 
             this.opc0.AutoSize = true;
-            this.opc0.Location = new System.Drawing.Point(68, 152);
+            this.opc0.Location = new System.Drawing.Point(68, 117);
             this.opc0.Name = "opc0";
             this.opc0.Size = new System.Drawing.Size(38, 15);
             this.opc0.TabIndex = 52;
@@ -219,7 +209,7 @@
             // opc1
             // 
             this.opc1.AutoSize = true;
-            this.opc1.Location = new System.Drawing.Point(68, 201);
+            this.opc1.Location = new System.Drawing.Point(68, 166);
             this.opc1.Name = "opc1";
             this.opc1.Size = new System.Drawing.Size(38, 15);
             this.opc1.TabIndex = 53;
@@ -228,7 +218,7 @@
             // opc2
             // 
             this.opc2.AutoSize = true;
-            this.opc2.Location = new System.Drawing.Point(68, 246);
+            this.opc2.Location = new System.Drawing.Point(68, 211);
             this.opc2.Name = "opc2";
             this.opc2.Size = new System.Drawing.Size(38, 15);
             this.opc2.TabIndex = 54;
@@ -237,7 +227,7 @@
             // opc3
             // 
             this.opc3.AutoSize = true;
-            this.opc3.Location = new System.Drawing.Point(68, 294);
+            this.opc3.Location = new System.Drawing.Point(68, 259);
             this.opc3.Name = "opc3";
             this.opc3.Size = new System.Drawing.Size(38, 15);
             this.opc3.TabIndex = 55;
@@ -246,11 +236,12 @@
             // opc4
             // 
             this.opc4.AutoSize = true;
-            this.opc4.Location = new System.Drawing.Point(68, 343);
+            this.opc4.Location = new System.Drawing.Point(68, 308);
             this.opc4.Name = "opc4";
             this.opc4.Size = new System.Drawing.Size(38, 15);
             this.opc4.TabIndex = 56;
             this.opc4.Text = "label4";
+            this.opc4.Visible = false;
             // 
             // siguiente
             // 
@@ -292,7 +283,7 @@
             // 
             // borrar_seleccion
             // 
-            this.borrar_seleccion.Location = new System.Drawing.Point(21, 377);
+            this.borrar_seleccion.Location = new System.Drawing.Point(21, 342);
             this.borrar_seleccion.Name = "borrar_seleccion";
             this.borrar_seleccion.Size = new System.Drawing.Size(99, 23);
             this.borrar_seleccion.TabIndex = 61;

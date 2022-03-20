@@ -34,10 +34,11 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enunciado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dificultad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,48 +94,62 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Pregunta,
-            this.Materia,
+            this.enunciado,
             this.Tipo,
+            this.Version,
             this.Dificultad,
+            this.Materia,
             this.Autor});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.MenuBar;
-            this.dataGridView1.Location = new System.Drawing.Point(42, 105);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 102);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(701, 289);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(797, 289);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ID
             // 
+            this.ID.DataPropertyName = "ds_ID";
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.Width = 60;
             // 
-            // Pregunta
+            // enunciado
             // 
-            this.Pregunta.HeaderText = "Pregunta";
-            this.Pregunta.Name = "Pregunta";
-            this.Pregunta.Width = 200;
-            // 
-            // Materia
-            // 
-            this.Materia.HeaderText = "Materia";
-            this.Materia.Name = "Materia";
+            this.enunciado.DataPropertyName = "ds_enunciado";
+            this.enunciado.HeaderText = "Enunciado";
+            this.enunciado.Name = "enunciado";
+            this.enunciado.Width = 200;
             // 
             // Tipo
             // 
+            this.Tipo.DataPropertyName = "ds_tipo";
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.Name = "Tipo";
             // 
+            // Version
+            // 
+            this.Version.DataPropertyName = "ds_version";
+            this.Version.HeaderText = "Versión";
+            this.Version.Name = "Version";
+            // 
             // Dificultad
             // 
+            this.Dificultad.DataPropertyName = "ds_dificultad";
             this.Dificultad.HeaderText = "Dificultad";
             this.Dificultad.Name = "Dificultad";
             // 
+            // Materia
+            // 
+            this.Materia.DataPropertyName = "ds_materia";
+            this.Materia.HeaderText = "Materia";
+            this.Materia.Name = "Materia";
+            // 
             // Autor
             // 
+            this.Autor.DataPropertyName = "ds_autor";
             this.Autor.HeaderText = "Autor";
             this.Autor.Name = "Autor";
             // 
@@ -174,12 +189,13 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pregunta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dificultad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Autor;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn enunciado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Version;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dificultad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Autor;
     }
 }
