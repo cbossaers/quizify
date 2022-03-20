@@ -15,7 +15,7 @@ namespace QuizifyIU
         private Servicio servicio;
         private int id;
         private Portal control;
-        public HacerExamen(Servicio servicio, Portal control)
+        public HacerExamen(Servicio servicio, Portal control, dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;

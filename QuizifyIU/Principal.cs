@@ -50,9 +50,9 @@ namespace QuizifyIU
 
         public void logUser()
         {
-            dynamic user = servicio.GetEntidadById(emailField.Text);
-            if(user != null)
+            try
             {
+                dynamic user = servicio.GetEntidadById(emailField.Text);
                 if (user.contraseña.Equals(contraField.Text))
                 {
                     formportal = new Portal(servicio, formportal, user);
@@ -60,14 +60,16 @@ namespace QuizifyIU
                 }
                 else
                 {
-                    DialogResult answer = MessageBox.Show(this, "Email o contraseña incorrectos",
+                    DialogResult answer = MessageBox.Show(this, "Contraseña incorrecta, inténtelo de nuevo.",
                                                             "Error", MessageBoxButtons.OK,
                                                             MessageBoxIcon.Exclamation);
                 }
+                
             }
-            else
+            
+            catch (Exception ex)
             {
-                DialogResult answer = MessageBox.Show(this, "Este email no está registrado",
+                DialogResult answer = MessageBox.Show(this, "Este email no está registrado.",
                                                             "Error", MessageBoxButtons.OK,
                                                             MessageBoxIcon.Exclamation);
             }

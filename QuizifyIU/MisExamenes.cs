@@ -13,36 +13,46 @@ namespace QuizifyIU
     public partial class MisExamenes : Form
     {
         private Servicio servicio;
-        public MisExamenes(Servicio servicio)
+        public MisExamenes(Servicio servicio, dynamic usuario)
         {
             InitializeComponent();
             this.servicio = servicio;
-            BindingList<object> bindingList = new BindingList<object>();
-            for (int i = 0; i < 2; i++)
+            BindingList<object> bindingListExamenDisponible = new BindingList<object>();
+            
+
+            dynamic user = usuario;
+            List<int> lista = servicio.GetExamenes(user);
+
+            foreach (int x in lista)
             {
-                bindingList.Add(new
+                Examen ex = servicio.GetExamenById(x);
+                if(servicio.GetTipoEntidad(user.GetCorreo()) == "alumno" && ex.GetFechaFin() > DateTime.Now)
                 {
-                    examen = "hola",
-                    asignatura = "PSW",
-                    tiempo = "12",
-                    inicio = "1",
-                    fin = "3"
-                });
-            }
-            BindingList<object> bindingList2 = new BindingList<object>();
-            for (int i = 0; i < 5; i++)
-            {
-                bindingList2.Add(new
+                    bindingListExamenDisponible.Add(new
+                    {
+                        titulo = ex.GetTitulo(),
+                        descripcion = ex.GetDescripcion(),
+                        curso = ex.GetCurso(),
+                        tiempo = ex.GetTiempo(),
+                        fecha_ini = ex.GetFechaIni(),
+                        fecha_fin = ex.GetFechaFin()
+                    });;
+                }
+                else if(servicio.GetTipoEntidad(user.GetCorreo()) == "profesor")
                 {
-                    examen = "suuu",
-                    asignatura = "PdadSW",
-                    tiempo = "12dd",
-                    inicio = "1342",
-                    fin = "2342343"
-                });
+                    bindingListExamenDisponible.Add(new
+                    {
+                        titulo = ex.GetTitulo(),
+                        descripcion = ex.GetDescripcion(),
+                        curso = ex.GetCurso(),
+                        tiempo = ex.GetTiempo(),
+                        fecha_ini = ex.GetFechaIni(),
+                        fecha_fin = ex.GetFechaFin()
+                    }); ;
+                }
             }
-            tablaExamenDisponible.DataSource = bindingList;
-            tablaExamenResuelto.DataSource = bindingList2;
+            tablaExamenDisponible.DataSource = bindingListExamenDisponible;
+            
         }
 
         private void tablaExamenDisponible_CellContentClick(object sender, DataGridViewCellEventArgs e)

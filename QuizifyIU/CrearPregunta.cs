@@ -24,7 +24,7 @@ namespace QuizifyIU
         private PreguntaTest preguntaTest;
         private PreguntaVF preguntaVF;
         private int dificultadNum;
-        public CrearPregunta(Servicio servicio)
+        public CrearPregunta(Servicio servicio,dynamic usuario)
         {
             InitializeComponent();
             this.servicio = servicio;

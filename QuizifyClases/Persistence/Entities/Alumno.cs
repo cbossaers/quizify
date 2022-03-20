@@ -19,18 +19,8 @@ namespace Quizify.Entities {
             get;
             set;
         }
-        public int nota_media
-        {
-            get;
-            set;
-        }
-        public int nota_CT
-        {
-            get;
-            set;
-        }
 
-        public string Curso{
+        public string curso{
             get;
             set;
         }
