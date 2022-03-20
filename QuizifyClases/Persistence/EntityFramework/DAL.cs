@@ -462,4 +462,6 @@ public class DAL {
         return result;
     }
 
+    public void SubirRespuestas() {}
+
 }}
