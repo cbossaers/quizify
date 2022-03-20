@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.nombreIniciado = new System.Windows.Forms.Label();
             this.bHacerExamen = new System.Windows.Forms.Button();
             this.bAjustes = new System.Windows.Forms.Button();
             this.bSalir = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.bMisPreguntas = new System.Windows.Forms.Button();
             this.bCrearPregunta = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.nombreIniciado = new System.Windows.Forms.Label();
             this.MenuVertical.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,15 @@
             this.MenuVertical.Name = "MenuVertical";
             this.MenuVertical.Size = new System.Drawing.Size(147, 450);
             this.MenuVertical.TabIndex = 0;
+            // 
+            // nombreIniciado
+            // 
+            this.nombreIniciado.AutoSize = true;
+            this.nombreIniciado.Location = new System.Drawing.Point(41, 33);
+            this.nombreIniciado.Name = "nombreIniciado";
+            this.nombreIniciado.Size = new System.Drawing.Size(38, 15);
+            this.nombreIniciado.TabIndex = 6;
+            this.nombreIniciado.Text = "label1";
             // 
             // bHacerExamen
             // 
@@ -79,6 +88,7 @@
             this.bAjustes.TabIndex = 5;
             this.bAjustes.Text = "Ajustes";
             this.bAjustes.UseVisualStyleBackColor = true;
+            this.bAjustes.Click += new System.EventHandler(this.bAjustes_Click);
             // 
             // bSalir
             // 
@@ -88,6 +98,7 @@
             this.bSalir.TabIndex = 4;
             this.bSalir.Text = "Salir";
             this.bSalir.UseVisualStyleBackColor = true;
+            this.bSalir.Click += new System.EventHandler(this.bSalir_Click);
             // 
             // bMisExamenes
             // 
@@ -150,15 +161,6 @@
             this.panelContenedor.Size = new System.Drawing.Size(653, 450);
             this.panelContenedor.TabIndex = 1;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
-            // 
-            // nombreIniciado
-            // 
-            this.nombreIniciado.AutoSize = true;
-            this.nombreIniciado.Location = new System.Drawing.Point(41, 33);
-            this.nombreIniciado.Name = "nombreIniciado";
-            this.nombreIniciado.Size = new System.Drawing.Size(38, 15);
-            this.nombreIniciado.TabIndex = 6;
-            this.nombreIniciado.Text = "label1";
             // 
             // Portal
             // 
