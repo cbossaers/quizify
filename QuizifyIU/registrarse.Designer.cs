@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ComboBox tipoUsuario;
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,7 +40,7 @@
             this.contraBox = new System.Windows.Forms.TextBox();
             this.bVolver = new System.Windows.Forms.Button();
             this.bConfirmar = new System.Windows.Forms.Button();
-            tipoUsuario = new System.Windows.Forms.ComboBox();
+            this.tipoUsuario = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -137,21 +136,6 @@
             this.contraBox.TabIndex = 10;
             this.contraBox.TextChanged += new System.EventHandler(this.contraBox_TextChanged);
             // 
-            // tipoUsuario
-            // 
-            tipoUsuario.FormattingEnabled = true;
-            tipoUsuario.Items.AddRange(new object[] {
-            "Alumno",
-            "Profesor",
-            "Institución"});
-            tipoUsuario.Location = new System.Drawing.Point(192, 315);
-            tipoUsuario.Name = "tipoUsuario";
-            tipoUsuario.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            tipoUsuario.Size = new System.Drawing.Size(182, 23);
-            tipoUsuario.TabIndex = 11;
-            tipoUsuario.Text = "Elige un tipo de usuario";
-            tipoUsuario.SelectedIndexChanged += new System.EventHandler(this.tipoUsuario_SelectedIndexChanged);
-            // 
             // bVolver
             // 
             this.bVolver.Location = new System.Drawing.Point(192, 373);
@@ -173,14 +157,28 @@
             this.bConfirmar.UseVisualStyleBackColor = true;
             this.bConfirmar.Click += new System.EventHandler(this.bConfirmar_Click);
             // 
+            // tipoUsuario
+            // 
+            this.tipoUsuario.FormattingEnabled = true;
+            this.tipoUsuario.Items.AddRange(new object[] {
+            "Alumno",
+            "Profesor",
+            "Institucion"});
+            this.tipoUsuario.Location = new System.Drawing.Point(192, 315);
+            this.tipoUsuario.Name = "tipoUsuario";
+            this.tipoUsuario.Size = new System.Drawing.Size(182, 23);
+            this.tipoUsuario.TabIndex = 14;
+            this.tipoUsuario.Text = "Elige un tipo de usuario.";
+            this.tipoUsuario.SelectedIndexChanged += new System.EventHandler(this.tipoUsuario_SelectedIndexChanged_1);
+            // 
             // registrarse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 418);
+            this.Controls.Add(this.tipoUsuario);
             this.Controls.Add(this.bConfirmar);
             this.Controls.Add(this.bVolver);
-            this.Controls.Add(tipoUsuario);
             this.Controls.Add(this.contraBox);
             this.Controls.Add(this.apellidosBox);
             this.Controls.Add(this.emailBox);
@@ -211,8 +209,8 @@
         private System.Windows.Forms.TextBox emailBox;
         private System.Windows.Forms.TextBox apellidosBox;
         private System.Windows.Forms.TextBox contraBox;
-        private System.Windows.Forms.ComboBox tipoUsuario;
         private System.Windows.Forms.Button bVolver;
         private System.Windows.Forms.Button bConfirmar;
+        private System.Windows.Forms.ComboBox tipoUsuario;
     }
 }
