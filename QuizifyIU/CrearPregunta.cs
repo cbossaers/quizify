@@ -121,8 +121,8 @@ namespace QuizifyIU
                     if (numeroDeOpciones == 4) lista.Add(opc3.Text);
                     if (numeroDeOpciones == 5) lista.Add(opc4.Text);
                 }
-                //preguntaTest = fabrica.Crear_pregunta("test", 12345, enunciado.Text, dificultadNum, "pepe", "tema3", lista,1);
-                //servicio.AddPreguntaTest(preguntaTest);
+                preguntaTest = fabrica.Crear_pregunta("test", 12345, enunciado.Text, dificultadNum, "pepe", "tema3", lista,1);
+                servicio.AddPreguntaTest(preguntaTest);
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Information);
@@ -130,8 +130,8 @@ namespace QuizifyIU
             }
             else
             {
-                //preguntaVF = fabrica.Crear_pregunta("vf", 123456, enunciado.Text, dificultadNum, "carlos", "tema1",lista, 1);
-                //servicio.AddPreguntaVF(preguntaVF);
+                preguntaVF = fabrica.Crear_pregunta("vf", 123456, enunciado.Text, dificultadNum, "carlos", "tema1",lista, 1);
+                servicio.AddPreguntaVF(preguntaVF);
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Information);
