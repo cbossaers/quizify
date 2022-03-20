@@ -119,5 +119,9 @@ namespace Quizify.Services
         public void SubirRespuestas(List<dynamic> respuestas) {
             dal.SubirRespuestas(respuestas);
         }
+
+        public string GetTipoEntidad(string correo) {
+            return dal.GetTipoEntidad(correo);
+        }
     }
 }

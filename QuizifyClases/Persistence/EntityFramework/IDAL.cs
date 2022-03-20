@@ -24,6 +24,7 @@ namespace Quizify.Persistence {
         dynamic GetEntidad(string correo);
         dynamic GetPregunta(int id, int ver);
         Examen GetExamen(int id);
+        string GetTipoEntidad(string correo);
 
         List<int> GetPreguntas(List<dynamic> filtros);
         //filtros[autor(el correo), tipo('test','vf','desarrollo'), dificultad(0,1,2), tema(string)]

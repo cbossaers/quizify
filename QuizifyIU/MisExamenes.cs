@@ -26,7 +26,7 @@ namespace QuizifyIU
             foreach (int x in lista)
             {
                 Examen ex = servicio.GetExamenById(x);
-                if(ex.fecha_fin <= DateTime.Now)
+                if(ex.GetFechaFin() > DateTime.Now)
                 {
                     bindingListExamenDisponible.Add(new
                     {
