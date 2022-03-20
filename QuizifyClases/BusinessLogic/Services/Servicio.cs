@@ -107,5 +107,9 @@ namespace Quizify.Services
         public string GetTipoEntidad(string correo) {
             return dal.GetTipoEntidad(correo);
         }
+
+        public bool ExisteEntidad(string correo) {
+            return dal.ExisteEntidad(correo);
+        }
     }
 }

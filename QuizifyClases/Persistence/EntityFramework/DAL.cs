@@ -512,5 +512,20 @@ public class DAL {
         }
     }
 
+    public bool ExisteEntidad(string correo) {
+        conn.Open();
+        string consulta = "SELECT correo FROM PSWC.entidad WHERE correo ='" + correo + "';";
+        bool existe = false;
 
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+
+        foreach (DataRow row in data.Rows) { 
+            existe = true;
+            Console.WriteLine(row);
+        }
+        conn.Close();
+        return existe;
+    }
 }}
