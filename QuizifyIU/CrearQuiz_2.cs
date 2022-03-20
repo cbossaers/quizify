@@ -22,7 +22,7 @@ namespace QuizifyIU
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (HacerExamen2 ventanaAlta = new CrearQuiz_3(servicio))
+            using (CrearQuiz_3 ventanaAlta = new CrearQuiz_3(servicio,usuario))
                 ventanaAlta.ShowDialog();
         }
     }
