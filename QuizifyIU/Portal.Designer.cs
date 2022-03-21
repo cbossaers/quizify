@@ -66,6 +66,7 @@
             this.nombreIniciado.Size = new System.Drawing.Size(38, 15);
             this.nombreIniciado.TabIndex = 6;
             this.nombreIniciado.Text = "label1";
+            
             // 
             // bHacerExamen
             // 

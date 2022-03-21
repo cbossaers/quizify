@@ -18,12 +18,17 @@ namespace QuizifyIU
         private Servicio servicio;
         private dynamic usuario;
         private Examen examen;
+        public bool crearquiz = false;
         public CrearQuiz_3(Servicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
+            
             this.servicio = servicio;
             usuario = user;
+            //filtros[0] = usuario.nombre;
+            tabla();
             this.examen = examen;
+            crearquiz = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -33,7 +38,10 @@ namespace QuizifyIU
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            var form2 = new CrearPregunta(servicio,usuario,examen);
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -43,15 +51,17 @@ namespace QuizifyIU
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
-
+            tabla();
+        }
+        private void tabla()
+        {
             List<int> DTable = servicio.GetPreguntas(filtros);
             BindingList<object> bindinglist = new BindingList<object>();
-            
+
 
             for (int i = 0; i < DTable.Count; i += 2)
-                {
-                
+            {
+
                 if (servicio.GetTipoPregunta(DTable[i]).ToString() == "test")
                 {
                     PreguntaTest preg = servicio.GetPreguntaTestById(DTable[i], DTable[i + 1]);
@@ -63,29 +73,29 @@ namespace QuizifyIU
                         ds_version = preg.GetVersion(),
                         ds_dificultad = preg.GetDificultad(),
                         ds_materia = preg.GetDificultad(),
-                    ds_autor = preg.GetTema()
+                        ds_autor = filtros[0]
                     });
 
 
-                }else
+                }
+                else
                     if (servicio.GetTipoPregunta(DTable[i]).ToString() == "vf")
+                {
+                    PreguntaVF preg = servicio.GetPreguntaVFById(DTable[i], DTable[i + 1]);
+                    bindinglist.Add(new
                     {
-                        PreguntaVF preg = servicio.GetPreguntaVFById(DTable[i], DTable[i + 1]);
-                        bindinglist.Add(new
-                        {
-                            ds_ID = preg.GetId().ToString(),
-                            ds_enunciado = preg.GetEnunciado(),
-                            ds_tipo = "VF",
-                            ds_version = preg.GetVersion(),
-                            ds_dificultad = preg.GetDificultad(),
-                            ds_materia = preg.GetDificultad(),
-                            ds_autor = preg.GetTema()
-                        });
-                    }
-                
+                        ds_ID = preg.GetId().ToString(),
+                        ds_enunciado = preg.GetEnunciado(),
+                        ds_tipo = "VF",
+                        ds_version = preg.GetVersion(),
+                        ds_dificultad = preg.GetDificultad(),
+                        ds_materia = preg.GetDificultad(),
+                        ds_autor = filtros[0]
+                    });
+                }
+
             }
             dataGridView1.DataSource = bindinglist;
-            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -94,10 +104,16 @@ namespace QuizifyIU
             List<int> lista = examen.GetPreguntasAsociadas();
             lista.Add(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()));
             lista.Add(int.Parse(dataGridView1.SelectedCells[3].Value.ToString()));
-            lista.Add(0);
+            if (dataGridView1.SelectedCells[0].Value.ToString() == "Test")
+            {
+                lista.Add(1);
+            }
+            else if(dataGridView1.SelectedCells[0].Value.ToString() == "VF") { lista.Add(1); }
             examen.SetPreguntasAsociadas(lista);
-            using (CrearQuiz_2 ventanaAlta = new CrearQuiz_2(servicio, usuario, examen))
-                ventanaAlta.ShowDialog();
+            //this.Hide();
+            var form2 = new CrearQuiz_2(servicio, usuario, examen);
+            //form2.Closed += (s, args) => this.Close();
+            form2.Show();
 
         }
 

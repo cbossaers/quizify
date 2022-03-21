@@ -25,70 +25,80 @@ namespace QuizifyIU
         }
 
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
-        public void tabla()
+        private void tabla()
         {
             List<int> DTable = examen.GetPreguntasAsociadas();
-            
+            BindingList<object> bindinglist = new BindingList<object>();
 
-            if (DTable.Count != 0)
+
+            for (int i = 0; i < DTable.Count; i += 2)
             {
-                label1.Text = DTable[0].ToString();
-                BindingList<object> bindinglist = new BindingList<object>();
 
-
-                for (int i = 0; i < DTable.Count; i += 3)
+                if (servicio.GetTipoPregunta(DTable[i]).ToString() == "test")
                 {
-
-                    if (servicio.GetTipoPregunta(DTable[i]).ToString() == "test")
+                    PreguntaTest preg = servicio.GetPreguntaTestById(DTable[i], DTable[i + 1]);
+                    bindinglist.Add(new
                     {
-                        PreguntaTest preg = servicio.GetPreguntaTestById(DTable[i], DTable[i + 1]);
-                        bindinglist.Add(new
-                        {
-                            ds_ID = preg.GetId().ToString(),
-                            ds_enunciado = preg.GetEnunciado(),
-                            ds_tipo = "Test",
-                            ds_version = preg.GetVersion(),
-                            ds_dificultad = preg.GetDificultad(),
-                            ds_materia = preg.GetDificultad(),
-                            ds_autor = preg.GetTema(),
-                            ds_puntuacion = DTable[i+2]
-                        });
+                        ds_ID = preg.GetId().ToString(),
+                        ds_enunciado = preg.GetEnunciado(),
+                        ds_tipo = "Test",
+                        ds_version = preg.GetVersion(),
+                        ds_dificultad = preg.GetDificultad(),
+                        ds_materia = preg.GetDificultad(),
+                        ds_autor = preg.GetAutor()
+                    });
 
 
-                    }
-                    else
-                        if (servicio.GetTipoPregunta(DTable[i]).ToString() == "vf")
+                }
+                else
+                    if (servicio.GetTipoPregunta(DTable[i]).ToString() == "vf")
+                {
+                    PreguntaVF preg = servicio.GetPreguntaVFById(DTable[i], DTable[i + 1]);
+                    bindinglist.Add(new
                     {
-                        PreguntaVF preg = servicio.GetPreguntaVFById(DTable[i], DTable[i + 1]);
-                        bindinglist.Add(new
-                        {
-                            ds_ID = preg.GetId().ToString(),
-                            ds_enunciado = preg.GetEnunciado(),
-                            ds_tipo = "VF",
-                            ds_version = preg.GetVersion(),
-                            ds_dificultad = preg.GetDificultad(),
-                            ds_materia = preg.GetDificultad(),
-                            ds_autor = preg.GetTema()
-                        });
-
-
-                    }
-                    
-                    dataGridView1.DataSource = bindinglist;
+                        ds_ID = preg.GetId().ToString(),
+                        ds_enunciado = preg.GetEnunciado(),
+                        ds_tipo = "VF",
+                        ds_version = preg.GetVersion(),
+                        ds_dificultad = preg.GetDificultad(),
+                        ds_materia = preg.GetDificultad(),
+                        ds_autor = preg.GetAutor()
+                    });
                 }
 
-
             }
+            dataGridView1.DataSource = bindinglist;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (CrearQuiz_3 ventanaAlta = new CrearQuiz_3(servicio, usuario, examen))
-                ventanaAlta.ShowDialog();
+            //this.Hide();
+            var form2 = new CrearQuiz_3(servicio, usuario, examen);
+            //form2.Closed += (s, args) => this.Close();
+            form2.Show();
+            
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            /*if (e.ColumnIndex == 0)
+            {
+                string value = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                MessageBox.Show(value);
+            }*/
+        }
+
+        private void crear_Click(object sender, EventArgs e)
+        {
+            servicio.AddExamen(examen);
+            MessageBox.Show(this, "Se ha creado el examen", "Éxito",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Information);
         }
     }
 }

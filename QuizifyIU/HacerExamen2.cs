@@ -14,14 +14,15 @@ namespace QuizifyIU
 {
     public partial class HacerExamen2 : Form
     {
-        int id= 0,cont =0;
+        private int id= 0,cont =0;
         private Servicio servicio;
         List<int> preguntas_asociadas = new List<int>();
-        List<int> respuestas = new List<int>();
+        List<dynamic> respuestas = new List<dynamic>();
         Dictionary<int,int> res = new Dictionary<int, int>();    
-        int op_correcta = -1;
+        private int op_correcta = -1;
         Boolean Test = false;
         private dynamic usuario;
+        private int p;
 
         public HacerExamen2(Servicio servicio, dynamic user)
         {
@@ -31,6 +32,10 @@ namespace QuizifyIU
             this.servicio = servicio;
             Examen examen = servicio.GetExamenById(0);
             preguntas_asociadas = examen.GetPreguntasAsociadas(); 
+            for(int i = 0; i < preguntas_asociadas.Count; i += 3)
+            {
+                res.Add(preguntas_asociadas[i], -1);
+            }
             //if(examen.GetVolverAtras()==0) anterior.Visible = false;
             interfaz();
             
@@ -48,11 +53,26 @@ namespace QuizifyIU
 
         private void siguiete_Click(object sender, EventArgs e)
         {
-            
             guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
-            cont += 3;
+            if(siguiente.Text == "Finalizar examen")
+            {
+                respuestas.Add(22);//
+                respuestas.Add(usuario.name);
+                for (int i = 0; i < res.Count; i+=3) 
+                {
+                    respuestas.Add(preguntas_asociadas[i]);
+                    respuestas.Add(preguntas_asociadas[i + 1]);
+                    respuestas.Add(res[preguntas_asociadas[i]]);
+                }
+                servicio.SubirRespuestas(respuestas);
+            }
+            else
+            {
+                cont += 3;
+                interfaz();
+            }
+
             
-            interfaz();
         }
 
         private void interfaz()
@@ -152,9 +172,7 @@ namespace QuizifyIU
 
         private void guardar(int id, int version, int correcta)
         {
-            respuestas.Add(id);
-            respuestas.Add(version);
-            respuestas.Add(correcta);
+            
             if (res.ContainsKey(id)) res[id] = correcta;
             else res.Add(id, correcta);
             
@@ -212,8 +230,8 @@ namespace QuizifyIU
         public void bloquear()
         {
             if (cont <= 0) { anterior.Enabled = false; }
-            else anterior.Enabled = true; if (cont >= preguntas_asociadas.Count-3) { siguiente.Enabled = false; }
-            else siguiente.Enabled = true;
+            else anterior.Enabled = true; if (cont >= preguntas_asociadas.Count-3) { siguiente.Text = "Finalizar examen"; }
+            else siguiente.Text = "Siguiente";
         }
         
     }

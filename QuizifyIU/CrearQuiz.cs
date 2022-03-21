@@ -13,7 +13,7 @@ namespace QuizifyIU
     public partial class CrearQuiz : Form
     {
         
-        int volver_atras, errores_restan, mostrar_resultados;
+        int volver_atras = 0, errores_restan = 0, mostrar_resultados = 0;
         List<int> pregunta = new List<int>();
         private Servicio servicio;
         private dynamic usuario;
@@ -35,11 +35,11 @@ namespace QuizifyIU
 
         private void siguiente_Click(object sender, EventArgs e)
         {
-            usuario = new Profesor("cesaria","s","servicio","solicitado");
+            
             int id = 2;//
             string titulo=nombre.Text;
             string descripcio = descripcion.Text;
-            string autor = "pepe";// 
+            string autor = usuario.nombre;
             string cursos = curso.Text;
             int tiempo = int.Parse(horas.Text) * 60 + int.Parse(minutos.Text);
             int intento = int.Parse(intentos.Text);
@@ -51,9 +51,12 @@ namespace QuizifyIU
             
             Examen examen = new Examen(id,titulo, descripcio,cursos,autor,tiempo,fecha_actual,fecha_inicial,fecha_finanl,intento, volver_atras, errores_restan, mostrar_resultados,pregunta);
 
-
-            using (CrearQuiz_2 ventanaAlta = new CrearQuiz_2(servicio,usuario,examen))
-                ventanaAlta.ShowDialog();
+            this.Hide();
+            var form2 = new CrearQuiz_2(servicio, usuario, examen);
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
+            
+                
         }
 
         private void a3_Click(object sender, EventArgs e)

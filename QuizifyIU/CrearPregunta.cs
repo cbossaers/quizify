@@ -19,15 +19,28 @@ namespace QuizifyIU
         private int numeroDeOpciones = 3;
         private bool cambioDificultad = false;
         private bool cambioTipoPregunta = false;
+        private bool crearquiz = false;
         private Fabrica fabrica = new Fabrica();
         private List<dynamic> lista = new List<dynamic> { };
         private PreguntaTest preguntaTest;
         private PreguntaVF preguntaVF;
         private int dificultadNum;
+
+        Examen examen;
+        dynamic usuario;
+        
         public CrearPregunta(Servicio servicio,dynamic usuario)
         {
             InitializeComponent();
             this.servicio = servicio;
+        }
+        public CrearPregunta(Servicio servicio, dynamic usuario,Examen examen)
+        {
+            InitializeComponent();
+            this.servicio = servicio;
+            this.examen = examen;
+            this.crearquiz= true;
+            this.usuario = usuario;
         }
 
         private void CambiaTipoPregunta(object sender, EventArgs e)
@@ -123,18 +136,44 @@ namespace QuizifyIU
                 }
                 preguntaTest = fabrica.Crear_pregunta("test", 12345, enunciado.Text, dificultadNum, "pepe", "tema3", lista,1);
                 servicio.AddPreguntaTest(preguntaTest);
+                
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Information);
+                if (crearquiz = true) {
+                    List<int> lista = examen.GetPreguntasAsociadas();
+                    lista.Add(preguntaTest.GetId());
+                    lista.Add(preguntaTest.GetVersion());
+                    lista.Add(1);
+                    examen.SetPreguntasAsociadas(lista);
+
+                    this.Hide();
+                    var form2 = new CrearQuiz_2(servicio,usuario,examen);
+                    form2.Closed += (s, args) => this.Close();
+                    form2.Show();
+                }
                 VaciarCampos();
             }
             else
             {
-                preguntaVF = fabrica.Crear_pregunta("vf", 123456, enunciado.Text, dificultadNum, "carlos", "tema1",lista, 1);
+                preguntaVF = fabrica.Crear_pregunta("vf", 120, enunciado.Text, dificultadNum, "carlos", "tema1",lista, 1);
                 servicio.AddPreguntaVF(preguntaVF);
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Information);
+                if (crearquiz = true)
+                {
+                    List<int> lista = examen.GetPreguntasAsociadas();
+                    lista.Add(preguntaTest.GetId());
+                    lista.Add(preguntaTest.GetVersion());
+                    lista.Add(1);
+                    examen.SetPreguntasAsociadas(lista);
+
+                    this.Hide();
+                    var form2 = new CrearQuiz_2(servicio, usuario, examen);
+                    form2.Closed += (s, args) => this.Close();
+                    form2.Show();
+                }
                 VaciarCampos();
             }
         }

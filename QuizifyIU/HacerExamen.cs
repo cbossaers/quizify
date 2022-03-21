@@ -39,8 +39,11 @@ namespace QuizifyIU
 
         private void empezar_Click(object sender, EventArgs e)
         {
-            using (HacerExamen2 ventanaAlta = new HacerExamen2(servicio,usuario))
-                ventanaAlta.ShowDialog();
+            this.Hide();
+            var form2 = new HacerExamen2(servicio, usuario);
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
+            
             /*control.GetContainerControl()
 
             control.Controls.RemoveAt(0);

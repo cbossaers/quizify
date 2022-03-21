@@ -125,5 +125,7 @@ namespace QuizifyIU
             DialogResult tobecontinued = MessageBox.Show(this, "Próximamente",
                                                             "", MessageBoxButtons.OK);
         }
+
+        
     }
 }
