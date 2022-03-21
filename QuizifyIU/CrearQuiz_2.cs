@@ -13,7 +13,7 @@ namespace QuizifyIU
     public partial class CrearQuiz_2 : Form
     {
         private Servicio servicio;
-        private Profesor usuario;
+        private dynamic usuario;
         private Examen examen;
         public CrearQuiz_2(Servicio servicio, dynamic user,Examen examen)
         {
@@ -72,9 +72,9 @@ namespace QuizifyIU
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             var form2 = new CrearQuiz_3(servicio, usuario, examen);
-            form2.Closed += (s, args) => this.Close();
+            //form2.Closed += (s, args) => this.Close();
             form2.Show();
             
         }

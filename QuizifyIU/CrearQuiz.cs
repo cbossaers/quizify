@@ -51,9 +51,9 @@ namespace QuizifyIU
             
             Examen examen = new Examen(id,titulo, descripcio,cursos,autor,tiempo,fecha_actual,fecha_inicial,fecha_finanl,intento, volver_atras, errores_restan, mostrar_resultados,pregunta);
 
-            this.Hide();
+            //this.Hide();
             var form2 = new CrearQuiz_2(servicio, usuario, examen);
-            form2.Closed += (s, args) => this.Close();
+            //form2.Closed += (s, args) => this.Close();
             form2.Show();
             
                 
