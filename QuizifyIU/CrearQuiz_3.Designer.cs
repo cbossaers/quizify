@@ -52,6 +52,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Agregar nueva pregunta";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
@@ -62,6 +63,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "🧲";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             // 
             // textBox1
             // 
@@ -70,6 +72,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(268, 23);
             this.textBox1.TabIndex = 3;
+            this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // comboBox1
@@ -86,6 +89,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 4;
+            this.comboBox1.Visible = false;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // dataGridView1
@@ -101,8 +105,10 @@
             this.Materia,
             this.Autor});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.MenuBar;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 102);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 87);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(797, 289);
@@ -115,6 +121,7 @@
             this.ID.DataPropertyName = "ds_ID";
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             this.ID.Width = 60;
             // 
             // enunciado
@@ -122,6 +129,7 @@
             this.enunciado.DataPropertyName = "ds_enunciado";
             this.enunciado.HeaderText = "Enunciado";
             this.enunciado.Name = "enunciado";
+            this.enunciado.ReadOnly = true;
             this.enunciado.Width = 200;
             // 
             // Tipo
@@ -129,34 +137,39 @@
             this.Tipo.DataPropertyName = "ds_tipo";
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
             // 
             // Version
             // 
             this.Version.DataPropertyName = "ds_version";
             this.Version.HeaderText = "Versión";
             this.Version.Name = "Version";
+            this.Version.ReadOnly = true;
             // 
             // Dificultad
             // 
             this.Dificultad.DataPropertyName = "ds_dificultad";
             this.Dificultad.HeaderText = "Dificultad";
             this.Dificultad.Name = "Dificultad";
+            this.Dificultad.ReadOnly = true;
             // 
             // Materia
             // 
             this.Materia.DataPropertyName = "ds_materia";
             this.Materia.HeaderText = "Materia";
             this.Materia.Name = "Materia";
+            this.Materia.ReadOnly = true;
             // 
             // Autor
             // 
             this.Autor.DataPropertyName = "ds_autor";
             this.Autor.HeaderText = "Autor";
             this.Autor.Name = "Autor";
+            this.Autor.ReadOnly = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(557, 411);
+            this.button3.Location = new System.Drawing.Point(573, 23);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(186, 27);
             this.button3.TabIndex = 6;

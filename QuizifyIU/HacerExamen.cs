@@ -23,7 +23,7 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
-            //Examen exam = servicio.GetExamenById(id);
+            //Examen exam = servicio.GetExamenById();
             //descripcion.Text = exam.GetDescripcion().ToString();
         }
 

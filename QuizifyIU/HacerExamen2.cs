@@ -17,20 +17,20 @@ namespace QuizifyIU
         private int id= 0,cont =0;
         private Servicio servicio;
         List<int> preguntas_asociadas = new List<int>();
-        List<dynamic> respuestas = new List<dynamic>();
+        List<dynamic> respuestas = new List<dynamic>{ };
         Dictionary<int,int> res = new Dictionary<int, int>();    
         private int op_correcta = -1;
         Boolean Test = false;
-        private dynamic usuario;
+        private Alumno usuario;
         private int p;
-
+        Examen examen;
         public HacerExamen2(Servicio servicio, dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
             this.servicio = servicio;
-            Examen examen = servicio.GetExamenById(0);
+            examen = servicio.GetExamenById(0);
             preguntas_asociadas = examen.GetPreguntasAsociadas(); 
             for(int i = 0; i < preguntas_asociadas.Count; i += 3)
             {
@@ -38,8 +38,9 @@ namespace QuizifyIU
             }
             //if(examen.GetVolverAtras()==0) anterior.Visible = false;
             interfaz();
-            
-            
+
+            label1.Text =preguntas_asociadas[cont].ToString();
+            label1.Text = preguntas_asociadas[cont+1].ToString();
         }
 
         private void anterior_Click(object sender, EventArgs e)
@@ -56,15 +57,16 @@ namespace QuizifyIU
             guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
             if(siguiente.Text == "Finalizar examen")
             {
-                respuestas.Add(22);//
-                respuestas.Add(usuario.name);
-                for (int i = 0; i < res.Count; i+=3) 
+                respuestas.Add(examen.GetId());//id
+                respuestas.Add(usuario.GetCorreo());
+                for (int i = 0; i < preguntas_asociadas.Count; i+=3) 
                 {
                     respuestas.Add(preguntas_asociadas[i]);
                     respuestas.Add(preguntas_asociadas[i + 1]);
                     respuestas.Add(res[preguntas_asociadas[i]]);
                 }
                 servicio.SubirRespuestas(respuestas);
+                //this.Close();
             }
             else
             {

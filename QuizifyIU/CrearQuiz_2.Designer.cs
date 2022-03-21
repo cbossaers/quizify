@@ -31,8 +31,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.crear = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dificultad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,7 +38,8 @@
             this.Autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Puntuacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,38 +73,17 @@
             this.Tipo,
             this.Autor,
             this.Materia,
-            this.Puntuacion,
-            this.Eliminar});
+            this.Puntuacion});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.MenuBar;
-            this.dataGridView1.Location = new System.Drawing.Point(36, 61);
+            this.dataGridView1.Location = new System.Drawing.Point(46, 61);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(732, 334);
+            this.dataGridView1.Size = new System.Drawing.Size(702, 334);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(665, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Añadir pregunta";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(36, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Nombre del quiz";
             // 
             // id
             // 
@@ -149,11 +127,25 @@
             this.Puntuacion.HeaderText = "Puntuación";
             this.Puntuacion.Name = "Puntuacion";
             // 
-            // Eliminar
+            // button1
             // 
-            this.Eliminar.HeaderText = "🗑";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Width = 30;
+            this.button1.Location = new System.Drawing.Point(665, 23);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Añadir pregunta";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(36, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Nombre del quiz";
             // 
             // CrearQuiz_2
             // 
@@ -188,6 +180,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Autor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Puntuacion;
-        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }
