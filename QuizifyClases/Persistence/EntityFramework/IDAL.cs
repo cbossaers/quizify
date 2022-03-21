@@ -33,5 +33,6 @@ namespace Quizify.Persistence {
         //Si se le pasa un profesor: muestra los exámenes creados por el profesor
 
         void SubirRespuestas(List<dynamic> respuestas);
+        bool ExisteEntidad(string correo);
     }
 }

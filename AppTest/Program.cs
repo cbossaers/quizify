@@ -21,8 +21,11 @@ namespace AppTest
             servicio.AddExamen(new Examen(3,"titulo", "descripcion", "TSR", "angel", 90, DateTime.Now, 
                 DateTime.Now, DateTime.Now.AddDays(3), 3, 0, 0, 1, preg));*/
 
-            dal.AddEntidad(new Alumno("alumnoentercero2", "alumnoentercero", "rosquilleta", "bachoqueta", "tercero"));
+            //dal.AddEntidad(new Alumno("alumnoentercero2", "alumnoentercero", "rosquilleta", "bachoqueta", "tercero"));
             //dal.AddEntidad(new Alumno("alumnoenTSR", "alumnoenTSR", "Agaporni", "ZaraHugoBoss", "TSR"));
+
+            Console.WriteLine(dal.ExisteEntidad("angel"));
+            Console.WriteLine(dal.ExisteEntidad("manolitogafotas33"));
         }
     }
 }
