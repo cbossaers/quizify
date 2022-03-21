@@ -473,12 +473,12 @@ public class DAL {
     }
 
     public void SubirRespuestas(List<dynamic> respuestas) {
-        string consulta = "INSERT into PSWC.respuestas_examenes(examen,alumno,pregunta,ver_pregunta,respuesta) VALUES(" 
-            + respuestas[0] + ",'" + respuestas[1] + "'";
+        string consulta = "";
 
         for(int i = 2; i < respuestas.Count; i+=3) {
             conn.Open();
-            consulta = consulta + "," + respuestas[i] + "," + respuestas[i+1] +  ",'" + respuestas[i+2].ToString() + "');";
+            consulta = "INSERT into PSWC.respuestas_examenes(examen,alumno,pregunta,ver_pregunta,respuesta) VALUES(" 
+            + respuestas[0] + ",'" + respuestas[1] + "'," + respuestas[i] + "," + respuestas[i+1] +  ",'" + respuestas[i+2].ToString() + "');";
 
             MySqlCommand cmd = new MySqlCommand(consulta, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
