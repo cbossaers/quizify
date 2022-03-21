@@ -171,6 +171,7 @@
             // 
             // empezar
             // 
+            this.empezar.Enabled = false;
             this.empezar.Location = new System.Drawing.Point(43, 394);
             this.empezar.Name = "empezar";
             this.empezar.Size = new System.Drawing.Size(114, 23);

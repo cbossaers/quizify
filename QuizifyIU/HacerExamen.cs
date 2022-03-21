@@ -15,25 +15,31 @@ namespace QuizifyIU
         private Servicio servicio;
         private int id;
         private Portal control;
-        public HacerExamen(Servicio servicio, Portal control, dynamic user)
+        
+        private dynamic usuario;
+
+        public HacerExamen(Servicio servicio, dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
+            usuario = user;
             //Examen exam = servicio.GetExamenById(id);
             //descripcion.Text = exam.GetDescripcion().ToString();
         }
 
-        
+
+
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)  empezar.Enabled = false; 
-            if (!checkBox1.Checked) empezar.Enabled = true; 
+            if (checkBox1.Checked)  empezar.Enabled = true; 
+            if (!checkBox1.Checked) empezar.Enabled = false; 
         }
 
         private void empezar_Click(object sender, EventArgs e)
         {
-            using (HacerExamen2 ventanaAlta = new HacerExamen2(servicio))
+            using (HacerExamen2 ventanaAlta = new HacerExamen2(servicio,usuario))
                 ventanaAlta.ShowDialog();
             /*control.GetContainerControl()
 

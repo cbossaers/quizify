@@ -65,11 +65,11 @@
             // 
             // textBox1
             // 
+            this.textBox1.AccessibleName = "";
             this.textBox1.Location = new System.Drawing.Point(42, 58);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(268, 23);
             this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "Buscador...";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // comboBox1
@@ -108,6 +108,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(797, 289);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // ID
             // 
@@ -161,6 +162,7 @@
             this.button3.TabIndex = 6;
             this.button3.Text = "Agregar pregunta seleccionada";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // CrearQuiz_3
             // 
@@ -175,6 +177,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "CrearQuiz_3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

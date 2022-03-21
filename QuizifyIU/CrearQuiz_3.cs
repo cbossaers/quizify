@@ -17,16 +17,18 @@ namespace QuizifyIU
         List<dynamic> filtros = new List<dynamic>() { "angel",null,null,null };
         private Servicio servicio;
         private dynamic usuario;
-        public CrearQuiz_3(Servicio servicio, dynamic user)
+        private Examen examen;
+        public CrearQuiz_3(Servicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
+            this.examen = examen;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -84,21 +86,24 @@ namespace QuizifyIU
             }
             dataGridView1.DataSource = bindinglist;
             
-            /*Console.WriteLine(servicio.GetPreguntas(filtros).ToString());*/
+        }
 
-            /*bindinglist.Add(new
-            {
-                //ds_... are DataPropertyNames defined in the DataGridView object
-                //see DataGridView column definitions in Visual Studio Designer
-                ID = r.Crates.First().Group.Parcel.Name,
-                enunciado = r.Crates.First().Group.Date,
-                Tipo = r.Crates.Count,
-                ds_peso = r.CarriedWeight
-            });
-            bindingSource1.DataSource = bindinglist;*/
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //dataGridView1.SelectedCells[0].Value.ToString();
+            List<int> lista = examen.GetPreguntasAsociadas();
+            lista.Add(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()));
+            lista.Add(int.Parse(dataGridView1.SelectedCells[3].Value.ToString()));
+            lista.Add(0);
+            examen.SetPreguntasAsociadas(lista);
+            using (CrearQuiz_2 ventanaAlta = new CrearQuiz_2(servicio, usuario, examen))
+                ventanaAlta.ShowDialog();
 
+        }
 
-            //dataGridView1.DataMember = "preguntas";
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+           
         }
     }
 }
