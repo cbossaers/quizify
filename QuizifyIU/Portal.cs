@@ -108,7 +108,7 @@ namespace QuizifyIU
 
         private void bHacerExamen_Click(object sender, EventArgs e)
         {
-            AbrirFormHacerExamen(new HacerExamen(servicio,control,usuario));
+            AbrirFormHacerExamen(new HacerExamen(servicio,usuario));
             /*using (HacerExamen2 ventanaAlta = new HacerExamen2(servicio))
                 ventanaAlta.ShowDialog();*/
         }
