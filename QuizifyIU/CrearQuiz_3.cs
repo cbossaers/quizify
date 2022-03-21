@@ -104,15 +104,11 @@ namespace QuizifyIU
             List<int> lista = examen.GetPreguntasAsociadas();
             lista.Add(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()));
             lista.Add(int.Parse(dataGridView1.SelectedCells[3].Value.ToString()));
-            if (dataGridView1.SelectedCells[0].Value.ToString() == "Test")
-            {
-                lista.Add(1);
-            }
-            else if(dataGridView1.SelectedCells[0].Value.ToString() == "VF") { lista.Add(1); }
+            lista.Add(1);
             examen.SetPreguntasAsociadas(lista);
-            //this.Hide();
+            this.Hide();
             var form2 = new CrearQuiz_2(servicio, usuario, examen);
-            //form2.Closed += (s, args) => this.Close();
+            form2.Closed += (s, args) => this.Close();
             form2.Show();
 
         }

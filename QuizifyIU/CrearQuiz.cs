@@ -36,10 +36,10 @@ namespace QuizifyIU
         private void siguiente_Click(object sender, EventArgs e)
         {
             
-            int id = 2;//
+            int id = 666;
             string titulo=nombre.Text;
             string descripcio = descripcion.Text;
-            string autor = usuario.nombre;
+            string autor = usuario.correo;
             string cursos = curso.Text;
             int tiempo = int.Parse(horas.Text) * 60 + int.Parse(minutos.Text);
             int intento = int.Parse(intentos.Text);
