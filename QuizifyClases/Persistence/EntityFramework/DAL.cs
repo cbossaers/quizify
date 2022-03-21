@@ -473,7 +473,7 @@ public class DAL {
     }
 
     public void SubirRespuestas(List<dynamic> respuestas) {
-        string consulta = "INSERT into PSWC.respuesta_examenes(examen,alumno,pregunta,ver_pregunta,respuesta) VALUES(" 
+        string consulta = "INSERT into PSWC.respuestas_examenes(examen,alumno,pregunta,ver_pregunta,respuesta) VALUES(" 
             + respuestas[0] + ",'" + respuestas[1] + "'";
 
         for(int i = 2; i < respuestas.Count; i++) {
