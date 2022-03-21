@@ -24,7 +24,7 @@ namespace QuizifyIU
             InitializeComponent();
             
             this.servicio = servicio;
-            usuario = user;
+            this.usuario = user;
             //filtros[0] = usuario.nombre;
             tabla();
             this.examen = examen;
@@ -110,8 +110,20 @@ namespace QuizifyIU
             var form2 = new CrearQuiz_2(servicio, usuario, examen);
             form2.Closed += (s, args) => this.Close();
             form2.Show();*/
-            using (CrearQuiz_2 ventanaAlta = new CrearQuiz_2(servicio, usuario, examen))
-                ventanaAlta.ShowDialog();
+
+            try{
+                using (CrearQuiz_2 ventanaAlta = new CrearQuiz_2(servicio, usuario, examen))
+                    ventanaAlta.ShowDialog();
+            }catch(Exception ex){
+                DialogResult answer = MessageBox.Show(this, ex.ToString(),
+                                            "Exito", MessageBoxButtons.OK,
+                                            MessageBoxIcon.Information);
+
+            }
+                
+            
+            
+
 
         }
 

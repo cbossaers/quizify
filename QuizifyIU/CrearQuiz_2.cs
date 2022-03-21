@@ -31,7 +31,7 @@ namespace QuizifyIU
             BindingList<object> bindinglist = new BindingList<object>();
 
 
-            for (int i = 0; i < DTable.Count; i += 2)
+            for (int i = 0; i < DTable.Count; i += 3)
             {
 
                 if (servicio.GetTipoPregunta(DTable[i]).ToString() == "test")

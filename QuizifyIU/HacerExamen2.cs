@@ -22,7 +22,7 @@ namespace QuizifyIU
         private int op_correcta = -1;
         Boolean Test = false;
         private Alumno usuario;
-        private int p;
+        
         Examen examen;
         public HacerExamen2(Servicio servicio, dynamic user)
         {
@@ -66,7 +66,10 @@ namespace QuizifyIU
                     respuestas.Add(res[preguntas_asociadas[i]]);
                 }
                 servicio.SubirRespuestas(respuestas);
-                //this.Close();
+                DialogResult answer = MessageBox.Show(this, "examen añadido correctamente.",
+                                                            "Exito", MessageBoxButtons.OK,
+                                                            MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {
@@ -120,7 +123,9 @@ namespace QuizifyIU
             }
             else
             {
-                Test=false;
+                PreguntaVF preg = servicio.GetPreguntaById(preguntas_asociadas[cont], preguntas_asociadas[cont + 1]);
+                enunciado.Text = preg.GetEnunciado().ToString();
+                Test =false;
                 opc0.Visible = false; letraA.Visible = false; correcta0.Visible = false;
                 opc1.Visible = false; letraB.Visible = false; correcta1.Visible = false;
                 opc2.Visible = false; letraC.Visible = false; correcta2.Visible = false;
