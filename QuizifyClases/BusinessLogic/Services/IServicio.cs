@@ -15,7 +15,7 @@ namespace Quizify.Services
         public void AddPreguntaTest(PreguntaTest preguntaTest);
         public void addEntidad(dynamic usuario);
         public void AddExamen(Examen examen);
-        //Atributos: id, nombre, titulo, descrpicion, curso, autor, fecha_creac, fecha_ini, fecha_fin, intentos (numero), 
+        //Atributos: id, titulo, descrpicion, curso, autor, fecha_creac, fecha_ini, fecha_fin, intentos (int), 
         //volver_atras (0 = no, 1 = si), errores_restan (0 = no, 1 = si), mostrar_resultados (0 = no, 1 = si), preguntas.
         //preguntas[i] = id_pregunta, preguntas[i+1] = version_pregunta, preguntas[i+2] = puntuacion
 
