@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.tablaExamenDisponible = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titulo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,9 +39,6 @@
             this.tiempo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_ini2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_fin2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,75 +57,28 @@
             this.tiempo2,
             this.fecha_ini2,
             this.fecha_fin2});
-            this.tablaExamenDisponible.Location = new System.Drawing.Point(12, 71);
+            this.tablaExamenDisponible.Location = new System.Drawing.Point(17, 118);
+            this.tablaExamenDisponible.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tablaExamenDisponible.MultiSelect = false;
             this.tablaExamenDisponible.Name = "tablaExamenDisponible";
             this.tablaExamenDisponible.ReadOnly = true;
             this.tablaExamenDisponible.RowHeadersVisible = false;
+            this.tablaExamenDisponible.RowHeadersWidth = 62;
             this.tablaExamenDisponible.RowTemplate.Height = 25;
             this.tablaExamenDisponible.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenDisponible.Size = new System.Drawing.Size(631, 351);
+            this.tablaExamenDisponible.Size = new System.Drawing.Size(901, 585);
             this.tablaExamenDisponible.TabIndex = 0;
             this.tablaExamenDisponible.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaExamenDisponible_CellContentClick);
             this.tablaExamenDisponible.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenDisponible_CellMouseDoubleClick);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "id";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 30;
-            // 
-            // titulo2
-            // 
-            this.titulo2.DataPropertyName = "titulo";
-            this.titulo2.HeaderText = "Título";
-            this.titulo2.Name = "titulo2";
-            this.titulo2.ReadOnly = true;
-            // 
-            // descripcion2
-            // 
-            this.descripcion2.DataPropertyName = "descripcion";
-            this.descripcion2.HeaderText = "Descripción";
-            this.descripcion2.Name = "descripcion2";
-            this.descripcion2.ReadOnly = true;
-            // 
-            // curso2
-            // 
-            this.curso2.DataPropertyName = "curso";
-            this.curso2.HeaderText = "Curso";
-            this.curso2.Name = "curso2";
-            this.curso2.ReadOnly = true;
-            // 
-            // tiempo2
-            // 
-            this.tiempo2.DataPropertyName = "tiempo";
-            this.tiempo2.HeaderText = "Tiempo";
-            this.tiempo2.Name = "tiempo2";
-            this.tiempo2.ReadOnly = true;
-            // 
-            // fecha_ini2
-            // 
-            this.fecha_ini2.DataPropertyName = "fecha_ini";
-            this.fecha_ini2.HeaderText = "Fecha Ini";
-            this.fecha_ini2.Name = "fecha_ini2";
-            this.fecha_ini2.ReadOnly = true;
-            // 
-            // fecha_fin2
-            // 
-            this.fecha_fin2.DataPropertyName = "fecha_fin";
-            this.fecha_fin2.HeaderText = "Fecha Fin";
-            this.fecha_fin2.Name = "fecha_fin2";
-            this.fecha_fin2.ReadOnly = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(5, 7);
+            this.label1.Location = new System.Drawing.Point(7, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 32);
+            this.label1.Size = new System.Drawing.Size(166, 48);
             this.label1.TabIndex = 2;
             this.label1.Text = "Mis Quiz:";
             // 
@@ -133,9 +86,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(9, 48);
+            this.label2.Location = new System.Drawing.Point(13, 80);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 21);
+            this.label2.Size = new System.Drawing.Size(196, 32);
             this.label2.TabIndex = 4;
             this.label2.Text = "Quiz disponibles:";
             // 
@@ -146,17 +100,82 @@
             this.mySqlCommand1.EnableCaching = false;
             this.mySqlCommand1.Transaction = null;
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "id";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 40;
+            // 
+            // titulo2
+            // 
+            this.titulo2.DataPropertyName = "titulo";
+            this.titulo2.HeaderText = "Título";
+            this.titulo2.MinimumWidth = 8;
+            this.titulo2.Name = "titulo2";
+            this.titulo2.ReadOnly = true;
+            this.titulo2.Width = 150;
+            // 
+            // descripcion2
+            // 
+            this.descripcion2.DataPropertyName = "descripcion";
+            this.descripcion2.HeaderText = "Descripción";
+            this.descripcion2.MinimumWidth = 8;
+            this.descripcion2.Name = "descripcion2";
+            this.descripcion2.ReadOnly = true;
+            this.descripcion2.Width = 150;
+            // 
+            // curso2
+            // 
+            this.curso2.DataPropertyName = "curso";
+            this.curso2.HeaderText = "Curso";
+            this.curso2.MinimumWidth = 8;
+            this.curso2.Name = "curso2";
+            this.curso2.ReadOnly = true;
+            this.curso2.Width = 150;
+            // 
+            // tiempo2
+            // 
+            this.tiempo2.DataPropertyName = "tiempo";
+            this.tiempo2.HeaderText = "Tiempo";
+            this.tiempo2.MinimumWidth = 8;
+            this.tiempo2.Name = "tiempo2";
+            this.tiempo2.ReadOnly = true;
+            this.tiempo2.Width = 150;
+            // 
+            // fecha_ini2
+            // 
+            this.fecha_ini2.DataPropertyName = "fecha_ini";
+            this.fecha_ini2.HeaderText = "Fecha Ini";
+            this.fecha_ini2.MinimumWidth = 8;
+            this.fecha_ini2.Name = "fecha_ini2";
+            this.fecha_ini2.ReadOnly = true;
+            this.fecha_ini2.Width = 150;
+            // 
+            // fecha_fin2
+            // 
+            this.fecha_fin2.DataPropertyName = "fecha_fin";
+            this.fecha_fin2.HeaderText = "Fecha Fin";
+            this.fecha_fin2.MinimumWidth = 8;
+            this.fecha_fin2.Name = "fecha_fin2";
+            this.fecha_fin2.ReadOnly = true;
+            this.fecha_fin2.Width = 150;
+            // 
             // MisExamenes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 450);
+            this.ClientSize = new System.Drawing.Size(936, 750);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tablaExamenDisponible);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MisExamenes";
             this.Text = "MisExamenes";
+            this.Load += new System.EventHandler(this.MisExamenes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

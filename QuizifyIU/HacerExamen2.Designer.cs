@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.correctaVF = new System.Windows.Forms.Panel();
             this.falso1 = new System.Windows.Forms.RadioButton();
             this.verdadero0 = new System.Windows.Forms.RadioButton();
@@ -59,6 +60,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Pregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contestada = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.correctaVF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -360,6 +362,7 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(331, 38);
             this.progressBar1.TabIndex = 64;
+            this.progressBar1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tiempoRestante_MouseMove);
             // 
             // label3
             // 
@@ -406,6 +409,10 @@
             this.Contestada.ReadOnly = true;
             this.Contestada.TrueValue = "1";
             this.Contestada.Width = 70;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // HacerExamen2
             // 
@@ -488,5 +495,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pregunta;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Contestada;
+        private System.Windows.Forms.Timer timer1;
     }
 }

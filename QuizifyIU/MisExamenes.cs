@@ -46,13 +46,14 @@ namespace QuizifyIU
                 {
                     bindingListExamenDisponible.Add(new
                     {
+                        id = ex.GetId(),
                         titulo = ex.GetTitulo(),
                         descripcion = ex.GetDescripcion(),
                         curso = ex.GetCurso(),
                         tiempo = ex.GetTiempo(),
                         fecha_ini = ex.GetFechaIni(),
                         fecha_fin = ex.GetFechaFin()
-                    }); ;
+                    }) ; ;
                 }
             }
             tablaExamenDisponible.DataSource = bindingListExamenDisponible;
@@ -107,6 +108,23 @@ namespace QuizifyIU
                 form2.Show();
                 }
             }
+            else
+            {
+                Examen examen = servicio.GetExamenById(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
+                if (examen != null)
+                {
+                    this.Hide();
+                    var form2 = new CrearQuiz(servicio, user, examen);
+                    form2.Closed += (s, args) => this.Close();
+                    form2.Show();
+                }
+            }
+             
+        }
+
+        private void MisExamenes_Load(object sender, EventArgs e)
+        {
+
         }
     }
         

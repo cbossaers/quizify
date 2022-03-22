@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
-
+using System.Diagnostics;
 
 namespace QuizifyIU
 {
@@ -27,7 +27,9 @@ namespace QuizifyIU
         int minutes;
         DateTime start;
         DateTime endTime;
+        Stopwatch stopwatch = new Stopwatch();
         
+
 
         Examen examen;
         public HacerExamen2(Servicio servicio, dynamic user)
@@ -39,7 +41,9 @@ namespace QuizifyIU
             examen = servicio.GetExamenById(0);
             preguntas_asociadas = examen.GetPreguntasAsociadas();
             counter = examen.tiempo;
+            stopwatch.Start();
             //tiempo_barra();
+            tiempo();
             for(int i = 0; i < preguntas_asociadas.Count; i += 3)
             {
                 res.Add(preguntas_asociadas[i], -1);
@@ -311,6 +315,41 @@ namespace QuizifyIU
                 }
 
             }*/
+        }
+        private TimeSpan tiempo()
+        {
+            
+            string s = "24:00:00";
+            string temp = examen.GetTiempo().ToString();
+            if (!string.IsNullOrEmpty(temp))
+                s = temp;
+            TimeSpan a = TimeSpan.Parse(s);
+            return a;
+        }
+
+        private void tiempoRestante_MouseMove(object sender, MouseEventArgs e)
+        {
+            //tiempoRestante.Text=tiempo().ToString();
+            TimeSpan ts = stopwatch.Elapsed;
+            TimeSpan maximo = tiempo();
+            label3.Text = maximo.Subtract(ts).ToString("hh\\:mm\\:ss");
+            //ts.ToString("mm\\:ss\\.ff");
+
+        }
+
+        
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label3.Text = tiempo().ToString();
+            TimeSpan ts = stopwatch.Elapsed;
+            TimeSpan maximo = tiempo();
+            label3.Text = maximo.Subtract(ts).ToString("hh\\:mm\\:ss");
+            //ts.ToString("mm\\:ss\\.ff");
+            if (label3.Text == "00:00:00")
+            {
+                
+            }
         }
     }
 }

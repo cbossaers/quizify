@@ -10,6 +10,7 @@ using Quizify.Services;
 
 namespace QuizifyIU
 {
+    
     public partial class CrearQuiz : Form
     {
         
@@ -18,6 +19,8 @@ namespace QuizifyIU
         private Servicio servicio;
         private dynamic usuario;
         int tiempo;
+        
+        private Examen examen;
 
         public CrearQuiz(Servicio servicio,dynamic user)
         {
@@ -27,8 +30,45 @@ namespace QuizifyIU
             fin.Text = "23/03/2022";
 
         }
+        public CrearQuiz(Servicio servicio, dynamic user,Examen examen)
+        {
+            InitializeComponent();
+            this.servicio = servicio;
+            usuario = user;
+            fin.Text = "23/03/2022";
+            this.examen = examen;
+            
+            mostrear();
+        }
 
+        private void mostrear()
+        {
+            int id = 666;
+            nombre.Text = examen.GetTitulo();
+            descripcion.Text = examen.GetDescripcion();
+            curso.Text = examen.GetCurso();
+            ini.Text = examen.GetFechaIni().ToString();
+            fin.Text = examen.GetFechaFin().ToString();
+            intentos.Text = examen.GetIntentos().ToString();
+            dificultad.Text = "Media";
 
+            //DateTimeOffset fecha_inicial = DateTime.Parse(ini.Text +" "+ hini) ;
+            if (examen.GetVolverAtras() == 1)
+            {
+                a2.Enabled = true;
+                b2.Enabled = false;
+            }
+            if(examen.GetErroresRestan() == 1)
+            {
+                a3.Enabled = true;
+                b3.Enabled = false;
+            }
+            if(examen.GetMostrarResultados() == 1)
+            {
+                a5.Enabled=true;
+                b5.Enabled=false;
+            }
+        }
 
         private void sinlimite_CheckedChanged(object sender, EventArgs e)
         {
