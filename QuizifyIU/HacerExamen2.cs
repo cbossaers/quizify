@@ -239,7 +239,10 @@ namespace QuizifyIU
 
         private void HacerExamen2_Load(object sender, EventArgs e)
         {
-
+            var minutes = examen.tiempo; //countdown time
+            var start = DateTime.UtcNow; // Use UtcNow instead of Now
+            endTime = start.AddMinutes(minutes); //endTime is a member, not a local variable
+            timer1.Enabled = true;
         }
 
         public void bloquear()
@@ -250,22 +253,16 @@ namespace QuizifyIU
         }
         private void tiempo_barra()
         {
-           
-           
-            
-        }
-        void timer1_Tick(object sender, EventArgs e)
-        {
-            counter--;
-
-            // Perform one step...
-            progressBar1.PerformStep();
-
-            if (counter == 0)
+            TimeSpan remainingTime=endTime-DateTime.UtcNow;
+            if(remainingTime<TimeSpan.Zero)
             {
-                
+                label3.Text = "Done!";
+                timer1.Enabled=false; 
             }
-            //textBox1.Text = dt.AddSeconds(counter).ToString("mm:ss");
+            else
+            {
+                label1.Text = remainingTime.ToString();
+            }
         }
         private void indice()
         {
