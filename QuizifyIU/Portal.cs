@@ -116,9 +116,10 @@ namespace QuizifyIU
 
         private void bSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Principal formp = new Principal(servicio);
-            formp.ShowDialog();
+            this.Hide();
+            var form2 = new Principal(servicio);
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
         }
 
         private void bAjustes_Click(object sender, EventArgs e)
