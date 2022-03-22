@@ -23,7 +23,7 @@ namespace QuizifyIU
             this.servicio = servicio;
             nombreIniciado.Text = user.nombre;
             usuario = user;
-            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno") { bCrearQuiz.Visible = false; }
+            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno") { bMisPreguntas.Visible = false; bCrearQuiz.Visible = false; bCrearPregunta.Visible = false; }
 
         }
         private void panelContenedor_Paint(object sender, PaintEventArgs e)

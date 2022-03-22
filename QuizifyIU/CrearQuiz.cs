@@ -24,6 +24,8 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
+            fin.Text = "23/03/2022";
+
         }
 
 
