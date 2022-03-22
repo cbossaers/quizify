@@ -24,6 +24,9 @@ namespace QuizifyIU
         Boolean Test = false;
         private Alumno usuario;
         int counter;
+        int minutes;
+        DateTime start;
+        DateTime endTime;
         
 
         Examen examen;
@@ -239,10 +242,10 @@ namespace QuizifyIU
 
         private void HacerExamen2_Load(object sender, EventArgs e)
         {
-            var minutes = examen.tiempo; //countdown time
-            var start = DateTime.UtcNow; // Use UtcNow instead of Now
-            var endTime = start.AddMinutes(minutes); //endTime is a member, not a local variable
-            timer1.Enabled = true;
+             minutes = examen.tiempo; //countdown time
+             start = DateTime.UtcNow; // Use UtcNow instead of Now
+             endTime = start.AddMinutes(minutes); //endTime is a member, not a local variable
+            //timer1.Enabled = true;
         }
 
         public void bloquear()
@@ -257,7 +260,7 @@ namespace QuizifyIU
             if(remainingTime<TimeSpan.Zero)
             {
                 label3.Text = "Done!";
-                timer1.Enabled=false; 
+                //timer1.Enabled=false; 
             }
             else
             {
