@@ -241,7 +241,7 @@ namespace QuizifyIU
         {
             var minutes = examen.tiempo; //countdown time
             var start = DateTime.UtcNow; // Use UtcNow instead of Now
-            endTime = start.AddMinutes(minutes); //endTime is a member, not a local variable
+            var endTime = start.AddMinutes(minutes); //endTime is a member, not a local variable
             timer1.Enabled = true;
         }
 
