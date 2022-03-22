@@ -261,7 +261,7 @@ namespace QuizifyIU
             }
             else
             {
-                label1.Text = remainingTime.ToString();
+                label3.Text = remainingTime.ToString();
             }
         }
         private void indice()
