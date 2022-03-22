@@ -26,6 +26,8 @@ namespace AppTest
 
             Console.WriteLine(dal.ExisteEntidad("angel"));
             Console.WriteLine(dal.ExisteEntidad("manolitogafotas33"));
+
+           
         }
     }
 }
