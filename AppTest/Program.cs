@@ -16,18 +16,48 @@ namespace AppTest
             DAL dal = new DAL();
             Servicio servicio = new Servicio(dal);
 
-            /*List<int> preg = new List<int> {2,1,6,3,1,8,5,1,2};
+            /*Alumno al1 = new Alumno("cristan@gmail.com", "cristianseña", "Cristian", "Rodriguez", "Primero");
+            Alumno al2 = new Alumno("santiago@gmail.com", "santiseña", "Santiago", "Cunillera", "Segundo");
+            Alumno al3 = new Alumno("cesar@gmail.com", "cesarseña", "Cesar", "Ayuso", "Tercero");
+            Alumno al4 = new Alumno("paul@gmail.com", "paulseña", "Paul", "Lopez", "Segundo");
 
-            servicio.AddExamen(new Examen(3,"titulo", "descripcion", "TSR", "angel", 90, DateTime.Now, 
-                DateTime.Now, DateTime.Now.AddDays(3), 3, 0, 0, 1, preg));*/
+            servicio.addEntidad(al1);
+            servicio.addEntidad(al2);
+            servicio.addEntidad(al3);
+            servicio.addEntidad(al4);*/
 
-            //dal.AddEntidad(new Alumno("alumnoentercero2", "alumnoentercero", "rosquilleta", "bachoqueta", "tercero"));
-            //dal.AddEntidad(new Alumno("alumnoenTSR", "alumnoenTSR", "Agaporni", "ZaraHugoBoss", "TSR"));
+            /*Profesor p1 = new Profesor("patricio@gmail.com", "patriseña", "Patricio", "Estrella");
+            Profesor p2 = new Profesor("antonio@gmail.com", "antonioseña", "Antonio", "Martinez");
 
-            Console.WriteLine(dal.ExisteEntidad("angel"));
-            Console.WriteLine(dal.ExisteEntidad("manolitogafotas33"));
+            servicio.addEntidad(p1);
+            servicio.addEntidad(p2);
 
-           
+            List<dynamic> lista1 = new List<dynamic> {3, "Pera", "Limón", "Manzana", "Árbol", "Baguette"};
+            List<dynamic> lista2 = new List<dynamic> {1, "Azul", "Rojo", "Verde"};
+            List<dynamic> lista3 = new List<dynamic> {0, "Movil", "PC", "Portatil", "Reloj"};
+
+            PreguntaTest PT1 = new PreguntaTest(1, "Enunciado1", lista1,2,"patricio@gmail.com", "GPR");
+            PreguntaTest PT2 = new PreguntaTest(1, "Enunciado2", lista2,2,"antonio@gmail.com", "PSW");
+            PreguntaTest PT3 = new PreguntaTest(1, "Enunciado3", lista3,2,"antonio@gmail.com", "TSR");
+
+            PreguntaVF PVF1 = new PreguntaVF(1,"Enunciado4", 0, 1, "patricio@gmail.com", "AIC");
+            PreguntaVF PVF2 = new PreguntaVF(1,"Enunciado5", 1, 2, "antonio@gmail.com", "EDA");
+            PreguntaVF PVF3 = new PreguntaVF(1,"Enunciado6", 0, 1, "patricio@gmail.com", "IIP");
+
+            servicio.AddPreguntaTest(PT1);
+            servicio.AddPreguntaTest(PT2);
+            servicio.AddPreguntaTest(PT3);
+
+            servicio.AddPreguntaVF(PVF1);
+            servicio.AddPreguntaVF(PVF2);
+            servicio.AddPreguntaVF(PVF3);*/
+
+            List<int> listapreg = new List<int> {3,1,5,5,1,7,7,1,2};
+
+            Examen ex1 = new Examen(1, "Titulo2", "Descripción2", "Segundo", "antonio@gmail.com", 120, DateTime.Now, DateTime.Now,
+            DateTime.Now.AddDays(3), 3, 0,0,0, listapreg);
+
+            servicio.AddExamen(ex1);
         }
     }
 }

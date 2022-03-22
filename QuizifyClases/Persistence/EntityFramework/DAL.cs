@@ -27,7 +27,7 @@ public class DAL {
                 consulta_entidad = "INSERT into PSWC.entidad(correo,tipo) values('" + entidad.correo + "','profesor');";
                 consulta_especifica = "INSERT into PSWC.profesor(correo,contraseña,nombre,apellidos,almacenamiento,quizes,curso) values('" 
                     + entidad.correo + "','" + entidad.contraseña + "','" + entidad.nombre + "','" + entidad.apellidos + "',100,20,'" 
-                    + entidad.curso + "');";
+                    + entidad.Curso + "');";
                 break;
 
             case("Quizify.Entities.Institucion"): 
