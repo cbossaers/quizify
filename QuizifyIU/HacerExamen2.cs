@@ -45,7 +45,7 @@ namespace QuizifyIU
                 res.Add(preguntas_asociadas[i], -1);
             }
             //indice();
-            //if(examen.GetVolverAtras()==0) anterior.Visible = false;
+            if(examen.GetVolverAtras()==0) anterior.Visible = false;
             interfaz();
 
             label1.Text =preguntas_asociadas[cont].ToString();
