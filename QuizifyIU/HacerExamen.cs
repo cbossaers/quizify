@@ -17,19 +17,19 @@ namespace QuizifyIU
         private Portal control;
         
         private dynamic usuario;
+        Examen examen;
 
-        public HacerExamen(Servicio servicio, dynamic user)
+        public HacerExamen(Servicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
-            //Examen exam = servicio.GetExamenById();
-            //descripcion.Text = exam.GetDescripcion().ToString();
+            this.examen = examen;
+            
+            rellenar();
         }
 
-
-
-
+        
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -54,5 +54,29 @@ namespace QuizifyIU
             //this.panelContenedor.Tag = fHE;
             fHE.Show();*/
         }
+        private void rellenar()
+        {
+            descripcion.Text = examen.GetDescripcion().ToString();
+            nombre_quiz.Text = examen.GetTitulo().ToString();   
+            if (examen.GetIntentos()!=null)
+            {
+                label3.Text = "Tiene "+ examen.GetIntentos().ToString() +" intentos";
+            }
+            if (examen.GetVolverAtras() == 0)
+            {
+                label4.Text = "No se podra volver a la pregunta anterior";
+            }
+            else { label4.Text = "Si se podra volver a la pregunta anterior"; }
+            if (examen.GetErroresRestan() == 0)
+            {
+                label5.Text = "Los errores no restan";
+            }
+            else { label5.Text = "Los errores restan";  }
+            if (examen.GetMostrarResultados() == 0)
+            {
+                label6.Text = "No se mostraran las soluciones al finalizar el examen";
+            }else { label6.Text = "Se le mostraran las soluciones al finalizar el examen"; }
+        }
+
     }
 }

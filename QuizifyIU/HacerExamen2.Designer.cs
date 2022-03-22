@@ -54,7 +54,13 @@
             this.correcta3 = new System.Windows.Forms.RadioButton();
             this.correcta4 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Pregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contestada = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.correctaVF.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // correctaVF
@@ -147,7 +153,7 @@
             // 
             this.enunciado.AutoSize = true;
             this.enunciado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.enunciado.Location = new System.Drawing.Point(13, 37);
+            this.enunciado.Location = new System.Drawing.Point(12, 45);
             this.enunciado.Name = "enunciado";
             this.enunciado.Size = new System.Drawing.Size(107, 28);
             this.enunciado.TabIndex = 32;
@@ -230,12 +236,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(324, 63);
+            this.button1.Location = new System.Drawing.Point(534, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 26);
             this.button1.TabIndex = 60;
             this.button1.Text = "Ocultar indice";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // borrar_seleccion
             // 
@@ -255,6 +262,7 @@
             this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 62;
             this.label1.Text = "label1";
+            this.label1.Visible = false;
             // 
             // correcta0
             // 
@@ -317,12 +325,65 @@
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 63;
             this.label2.Text = "label2";
+            this.label2.Visible = false;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 19);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(232, 23);
+            this.progressBar1.TabIndex = 64;
+            this.progressBar1.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(106, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 15);
+            this.label3.TabIndex = 65;
+            this.label3.Text = "label3";
+            this.label3.Visible = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Pregunta,
+            this.Contestada});
+            this.dataGridView1.Location = new System.Drawing.Point(410, 45);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(173, 272);
+            this.dataGridView1.TabIndex = 66;
+            this.dataGridView1.Visible = false;
+            // 
+            // Pregunta
+            // 
+            this.Pregunta.DataPropertyName = "ds_pregunta";
+            this.Pregunta.HeaderText = "Pregunta";
+            this.Pregunta.Name = "Pregunta";
+            // 
+            // Contestada
+            // 
+            this.Contestada.DataPropertyName = "ds_contestada";
+            this.Contestada.FalseValue = "0";
+            this.Contestada.HeaderText = "Contestada";
+            this.Contestada.Name = "Contestada";
+            this.Contestada.ReadOnly = true;
+            this.Contestada.TrueValue = "1";
+            this.Contestada.Width = 70;
             // 
             // HacerExamen2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 450);
+            this.ClientSize = new System.Drawing.Size(477, 450);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.borrar_seleccion);
@@ -357,6 +418,7 @@
             this.Load += new System.EventHandler(this.HacerExamen2_Load);
             this.correctaVF.ResumeLayout(false);
             this.correctaVF.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,5 +451,10 @@
         private System.Windows.Forms.RadioButton correcta3;
         private System.Windows.Forms.RadioButton correcta4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pregunta;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Contestada;
     }
 }

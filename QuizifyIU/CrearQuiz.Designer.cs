@@ -111,6 +111,7 @@
             // 
             // siguiente
             // 
+            this.siguiente.Enabled = false;
             this.siguiente.Location = new System.Drawing.Point(524, 415);
             this.siguiente.Name = "siguiente";
             this.siguiente.Size = new System.Drawing.Size(84, 28);
@@ -171,6 +172,7 @@
             this.sinlimite.TabIndex = 57;
             this.sinlimite.Text = "Sin limite de tiempo";
             this.sinlimite.UseVisualStyleBackColor = true;
+            this.sinlimite.CheckedChanged += new System.EventHandler(this.sinlimite_CheckedChanged);
             // 
             // m
             // 
@@ -377,6 +379,7 @@
             this.intentos.Size = new System.Drawing.Size(111, 23);
             this.intentos.TabIndex = 68;
             this.intentos.Text = "Intentos";
+            this.intentos.SelectedIndexChanged += new System.EventHandler(this.intentos_SelectedIndexChanged);
             // 
             // hini
             // 

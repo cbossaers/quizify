@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 
+
 namespace QuizifyIU
 {
     public partial class HacerExamen2 : Form
@@ -22,7 +23,9 @@ namespace QuizifyIU
         private int op_correcta = -1;
         Boolean Test = false;
         private Alumno usuario;
+        int counter;
         
+
         Examen examen;
         public HacerExamen2(Servicio servicio, dynamic user)
         {
@@ -31,17 +34,22 @@ namespace QuizifyIU
             usuario = user;
             this.servicio = servicio;
             examen = servicio.GetExamenById(0);
-            preguntas_asociadas = examen.GetPreguntasAsociadas(); 
+            preguntas_asociadas = examen.GetPreguntasAsociadas();
+            counter = examen.tiempo;
+            //tiempo_barra();
             for(int i = 0; i < preguntas_asociadas.Count; i += 3)
             {
                 res.Add(preguntas_asociadas[i], -1);
             }
+            //indice();
             //if(examen.GetVolverAtras()==0) anterior.Visible = false;
             interfaz();
 
             label1.Text =preguntas_asociadas[cont].ToString();
             label1.Text = preguntas_asociadas[cont+1].ToString();
         }
+
+        
 
         private void anterior_Click(object sender, EventArgs e)
         {
@@ -240,6 +248,69 @@ namespace QuizifyIU
             else anterior.Enabled = true; if (cont >= preguntas_asociadas.Count-3) { siguiente.Text = "Finalizar examen"; }
             else siguiente.Text = "Siguiente";
         }
-        
+        private void tiempo_barra()
+        {
+           
+           
+            
+        }
+        void timer1_Tick(object sender, EventArgs e)
+        {
+            counter--;
+
+            // Perform one step...
+            progressBar1.PerformStep();
+
+            if (counter == 0)
+            {
+                
+            }
+            //textBox1.Text = dt.AddSeconds(counter).ToString("mm:ss");
+        }
+        private void indice()
+        {
+            BindingList<object> bindinglist = new BindingList<object>();
+            int cuen=0;
+            for (int i = 0; i < res.Count; i++)
+            {
+                if (res[preguntas_asociadas[cuen]] !=-1)
+                {
+                    bindinglist.Add(new
+                    {
+                        ds_pregunta = "Pregunta " + i.ToString(),
+                        ds_correcta = 1,
+
+                    });
+                }
+                else
+                {
+                    bindinglist.Add(new
+                    {
+                        ds_pregunta = "Pregunta " + i.ToString(),
+                        ds_correcta = 0,
+
+                    });
+                }
+                cuen += 3;
+                
+
+            }
+            dataGridView1.DataSource = bindinglist;
+        }
+        private void indice2()
+        {
+            /*for (int i = 0; i < preguntas_asociadas.Count; i+=3)
+            {
+                if (res[preguntas_asociadas[i]] != 1)
+                {
+                    dataGridView1.row[1].Value = 1;
+                }
+                else
+                {
+                    dataGridView1.SelectedCells[1].Value = 0;
+                }
+
+            }*/
+        }
     }
 }

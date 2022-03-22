@@ -66,7 +66,6 @@
             this.nombreIniciado.Size = new System.Drawing.Size(38, 15);
             this.nombreIniciado.TabIndex = 6;
             this.nombreIniciado.Text = "label1";
-            
             // 
             // bHacerExamen
             // 
@@ -79,7 +78,7 @@
             this.bHacerExamen.TabIndex = 4;
             this.bHacerExamen.Text = "Hacer examen";
             this.bHacerExamen.UseVisualStyleBackColor = true;
-            this.bHacerExamen.Click += new System.EventHandler(this.bHacerExamen_Click);
+            this.bHacerExamen.Visible = false;
             // 
             // bAjustes
             // 
@@ -119,7 +118,7 @@
             this.bCrearQuiz.FlatAppearance.BorderSize = 0;
             this.bCrearQuiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bCrearQuiz.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bCrearQuiz.Location = new System.Drawing.Point(3, 156);
+            this.bCrearQuiz.Location = new System.Drawing.Point(2, 122);
             this.bCrearQuiz.Name = "bCrearQuiz";
             this.bCrearQuiz.Size = new System.Drawing.Size(141, 40);
             this.bCrearQuiz.TabIndex = 2;
@@ -145,7 +144,7 @@
             this.bCrearPregunta.FlatAppearance.BorderSize = 0;
             this.bCrearPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bCrearPregunta.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bCrearPregunta.Location = new System.Drawing.Point(3, 110);
+            this.bCrearPregunta.Location = new System.Drawing.Point(2, 163);
             this.bCrearPregunta.Name = "bCrearPregunta";
             this.bCrearPregunta.Size = new System.Drawing.Size(141, 40);
             this.bCrearPregunta.TabIndex = 0;

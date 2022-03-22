@@ -26,8 +26,9 @@ namespace QuizifyIU
             this.servicio = servicio;
             this.usuario = user;
             //filtros[0] = usuario.nombre;
-            tabla();
+            
             this.examen = examen;
+            tabla();
             crearquiz = false;
         }
 
@@ -56,43 +57,56 @@ namespace QuizifyIU
         private void tabla()
         {
             List<int> DTable = servicio.GetPreguntas(filtros);
+            bool esta = false;
             BindingList<object> bindinglist = new BindingList<object>();
 
 
             for (int i = 0; i < DTable.Count; i += 2)
             {
-
-                if (servicio.GetTipoPregunta(DTable[i]).ToString() == "test")
+                esta = false;
+                if(examen.GetPreguntasAsociadas().Count != null)
                 {
-                    PreguntaTest preg = servicio.GetPreguntaTestById(DTable[i], DTable[i + 1]);
-                    bindinglist.Add(new
+                    for (int j = 0; j < examen.GetPreguntasAsociadas().Count; j += 3)
                     {
-                        ds_ID = preg.GetId().ToString(),
-                        ds_enunciado = preg.GetEnunciado(),
-                        ds_tipo = "Test",
-                        ds_version = preg.GetVersion(),
-                        ds_dificultad = preg.GetDificultad(),
-                        ds_materia = preg.GetDificultad(),
-                        ds_autor = filtros[0]
-                    });
-
-
+                        if (DTable[i] == examen.GetPreguntasAsociadas()[j]) { esta = true; };
+                    }
                 }
-                else
+                
+                if (!esta)
+                {
+                    if (servicio.GetTipoPregunta(DTable[i]).ToString() == "test")
+                    {
+                        PreguntaTest preg = servicio.GetPreguntaTestById(DTable[i], DTable[i + 1]);
+                        bindinglist.Add(new
+                        {
+                            ds_ID = preg.GetId().ToString(),
+                            ds_enunciado = preg.GetEnunciado(),
+                            ds_tipo = "Test",
+                            ds_version = preg.GetVersion(),
+                            ds_dificultad = preg.GetDificultad(),
+                            ds_materia = preg.GetDificultad(),
+                            ds_autor = filtros[0]
+                        });
+
+                    }
+                    else
                     if (servicio.GetTipoPregunta(DTable[i]).ToString() == "vf")
-                {
-                    PreguntaVF preg = servicio.GetPreguntaVFById(DTable[i], DTable[i + 1]);
-                    bindinglist.Add(new
                     {
-                        ds_ID = preg.GetId().ToString(),
-                        ds_enunciado = preg.GetEnunciado(),
-                        ds_tipo = "VF",
-                        ds_version = preg.GetVersion(),
-                        ds_dificultad = preg.GetDificultad(),
-                        ds_materia = preg.GetDificultad(),
-                        ds_autor = filtros[0]
-                    });
+                        PreguntaVF preg = servicio.GetPreguntaVFById(DTable[i], DTable[i + 1]);
+                        bindinglist.Add(new
+                        {
+                            ds_ID = preg.GetId().ToString(),
+                            ds_enunciado = preg.GetEnunciado(),
+                            ds_tipo = "VF",
+                            ds_version = preg.GetVersion(),
+                            ds_dificultad = preg.GetDificultad(),
+                            ds_materia = preg.GetDificultad(),
+                            ds_autor = filtros[0]
+                        });
+                    }
                 }
+                
+                
 
             }
             dataGridView1.DataSource = bindinglist;
@@ -106,25 +120,10 @@ namespace QuizifyIU
             lista.Add(int.Parse(dataGridView1.SelectedCells[3].Value.ToString()));
             lista.Add(1);
             examen.SetPreguntasAsociadas(lista);
-            /*this.Hide();
+            this.Hide();
             var form2 = new CrearQuiz_2(servicio, usuario, examen);
             form2.Closed += (s, args) => this.Close();
-            form2.Show();*/
-
-            try{
-                using (CrearQuiz_2 ventanaAlta = new CrearQuiz_2(servicio, usuario, examen))
-                    ventanaAlta.ShowDialog();
-            }catch(Exception ex){
-                DialogResult answer = MessageBox.Show(this, ex.ToString(),
-                                            "Exito", MessageBoxButtons.OK,
-                                            MessageBoxIcon.Information);
-
-            }
-                
-            
-            
-
-
+            form2.Show();
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

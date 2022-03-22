@@ -21,6 +21,7 @@ namespace QuizifyIU
             this.servicio = servicio;
             usuario = user;
             this.examen = examen;
+            label1.Text=examen.titulo.ToString();
             tabla();
         }
 
@@ -72,9 +73,9 @@ namespace QuizifyIU
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //this.Hide();
+            this.Hide();
             var form2 = new CrearQuiz_3(servicio, usuario, examen);
-            //form2.Closed += (s, args) => this.Close();
+            form2.Closed += (s, args) => this.Close();
             form2.Show();
             
         }
@@ -99,6 +100,10 @@ namespace QuizifyIU
             MessageBox.Show(this, "Se ha creado el examen", "Éxito",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Information);
+            this.Hide();
+            
+            
+
         }
     }
 }

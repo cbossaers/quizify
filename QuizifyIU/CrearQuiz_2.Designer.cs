@@ -51,6 +51,7 @@
             this.button3.TabIndex = 12;
             this.button3.Text = "Editar informacion del quiz";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             // 
             // crear
             // 
@@ -64,6 +65,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -141,7 +143,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(36, 26);
+            this.label1.Location = new System.Drawing.Point(46, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 20);
             this.label1.TabIndex = 7;

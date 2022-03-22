@@ -17,6 +17,7 @@ namespace QuizifyIU
         List<int> pregunta = new List<int>();
         private Servicio servicio;
         private dynamic usuario;
+        int tiempo;
 
         public CrearQuiz(Servicio servicio,dynamic user)
         {
@@ -31,6 +32,7 @@ namespace QuizifyIU
         {
             if(sinlimite.Checked) { horas.Enabled = false; minutos.Enabled = false; }
             if (!sinlimite.Checked){ horas.Enabled = true; minutos.Enabled = true; }
+
         }
 
         private void siguiente_Click(object sender, EventArgs e)
@@ -41,7 +43,8 @@ namespace QuizifyIU
             string descripcio = descripcion.Text;
             string autor = usuario.correo;
             string cursos = curso.Text;
-            int tiempo = int.Parse(horas.Text) * 60 + int.Parse(minutos.Text);
+            if(sinlimite.Checked){ tiempo = 1000; }
+            else {tiempo = int.Parse(horas.Text) * 60 + int.Parse(minutos.Text);}
             int intento = int.Parse(intentos.Text);
             //DateTimeOffset fecha_inicial = DateTime.Parse(ini.Text +" "+ hini) ;
             DateTime fecha_inicial = DateTime.Parse(ini.Text);
@@ -51,9 +54,9 @@ namespace QuizifyIU
             
             Examen examen = new Examen(id,titulo, descripcio,cursos,autor,tiempo,fecha_actual,fecha_inicial,fecha_finanl,intento, volver_atras, errores_restan, mostrar_resultados,pregunta);
 
-            //this.Hide();
+            this.Hide();
             var form2 = new CrearQuiz_2(servicio, usuario, examen);
-            //form2.Closed += (s, args) => this.Close();
+            form2.Closed += (s, args) => this.Close();
             form2.Show();
             
                 
@@ -91,6 +94,11 @@ namespace QuizifyIU
             a5.Enabled = true;
             a5.Focus();
             mostrar_resultados = 0;
+        }
+
+        private void intentos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            siguiente.Enabled = true;
         }
 
         private void a2_Click(object sender, EventArgs e)

@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.tablaExamenDisponible = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titulo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.curso2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_ini2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_fin2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             this.tablaExamenDisponible.AllowUserToResizeRows = false;
             this.tablaExamenDisponible.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaExamenDisponible.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.titulo2,
             this.descripcion2,
             this.curso2,
@@ -59,37 +61,21 @@
             this.tablaExamenDisponible.MultiSelect = false;
             this.tablaExamenDisponible.Name = "tablaExamenDisponible";
             this.tablaExamenDisponible.ReadOnly = true;
+            this.tablaExamenDisponible.RowHeadersVisible = false;
             this.tablaExamenDisponible.RowTemplate.Height = 25;
+            this.tablaExamenDisponible.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tablaExamenDisponible.Size = new System.Drawing.Size(631, 351);
             this.tablaExamenDisponible.TabIndex = 0;
             this.tablaExamenDisponible.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaExamenDisponible_CellContentClick);
+            this.tablaExamenDisponible.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenDisponible_CellMouseDoubleClick);
             // 
-            // label1
+            // ID
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(5, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 32);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Mis Quiz:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(9, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 21);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Quiz disponibles:";
-            // 
-            // mySqlCommand1
-            // 
-            this.mySqlCommand1.CacheAge = 0;
-            this.mySqlCommand1.Connection = null;
-            this.mySqlCommand1.EnableCaching = false;
-            this.mySqlCommand1.Transaction = null;
+            this.ID.DataPropertyName = "id";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 30;
             // 
             // titulo2
             // 
@@ -133,6 +119,33 @@
             this.fecha_fin2.Name = "fecha_fin2";
             this.fecha_fin2.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(5, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 32);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Mis Quiz:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(9, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 21);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Quiz disponibles:";
+            // 
+            // mySqlCommand1
+            // 
+            this.mySqlCommand1.CacheAge = 0;
+            this.mySqlCommand1.Connection = null;
+            this.mySqlCommand1.EnableCaching = false;
+            this.mySqlCommand1.Transaction = null;
+            // 
             // MisExamenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -156,6 +169,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn titulo2;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion2;
         private System.Windows.Forms.DataGridViewTextBoxColumn curso2;

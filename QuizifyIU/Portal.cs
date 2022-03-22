@@ -23,8 +23,9 @@ namespace QuizifyIU
             this.servicio = servicio;
             nombreIniciado.Text = user.nombre;
             usuario = user;
-        }
+            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno") { bCrearQuiz.Visible = false; }
 
+        }
         private void panelContenedor_Paint(object sender, PaintEventArgs e)
         {
 
@@ -106,12 +107,12 @@ namespace QuizifyIU
             AbrirFormMisExamenes(new MisExamenes(servicio,usuario));
         }
 
-        private void bHacerExamen_Click(object sender, EventArgs e)
+        /*private void bHacerExamen_Click(object sender, EventArgs e)
         {
             AbrirFormHacerExamen(new HacerExamen(servicio,usuario));
             /*using (HacerExamen2 ventanaAlta = new HacerExamen2(servicio))
-                ventanaAlta.ShowDialog();*/
-        }
+                ventanaAlta.ShowDialog();
+        }*/
 
         private void bSalir_Click(object sender, EventArgs e)
         {

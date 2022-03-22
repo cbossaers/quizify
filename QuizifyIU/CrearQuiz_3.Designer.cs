@@ -94,6 +94,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -169,7 +170,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(590, 12);
+            this.button3.Location = new System.Drawing.Point(590, 32);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(186, 27);
             this.button3.TabIndex = 6;
