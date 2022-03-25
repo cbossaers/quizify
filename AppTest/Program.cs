@@ -24,16 +24,16 @@ namespace AppTest
             servicio.addEntidad(al1);
             servicio.addEntidad(al2);
             servicio.addEntidad(al3);
-            servicio.addEntidad(al4);*/
+            servicio.addEntidad(al4);
 
-            /*Profesor p1 = new Profesor("patricio@gmail.com", "patriseña", "Patricio", "Estrella");
+            Profesor p1 = new Profesor("patricio@gmail.com", "patriseña", "Patricio", "Estrella");
             Profesor p2 = new Profesor("antonio@gmail.com", "antonioseña", "Antonio", "Martinez");
 
             servicio.addEntidad(p1);
-            servicio.addEntidad(p2);
+            servicio.addEntidad(p2);*/
 
             List<dynamic> lista1 = new List<dynamic> {3, "Pera", "Limón", "Manzana", "Árbol", "Baguette"};
-            List<dynamic> lista2 = new List<dynamic> {1, "Azul", "Rojo", "Verde"};
+            /*List<dynamic> lista2 = new List<dynamic> {1, "Azul", "Rojo", "Verde"};
             List<dynamic> lista3 = new List<dynamic> {0, "Movil", "PC", "Portatil", "Reloj"};
 
             PreguntaTest PT1 = new PreguntaTest(1, "Enunciado1", lista1,2,"patricio@gmail.com", "GPR");
@@ -50,14 +50,20 @@ namespace AppTest
 
             servicio.AddPreguntaVF(PVF1);
             servicio.AddPreguntaVF(PVF2);
-            servicio.AddPreguntaVF(PVF3);*/
+            servicio.AddPreguntaVF(PVF3);
 
             List<int> listapreg = new List<int> {3,1,5,5,1,7,7,1,2};
 
             Examen ex1 = new Examen(1, "Titulo2", "Descripción2", "Segundo", "antonio@gmail.com", 120, DateTime.Now, DateTime.Now,
             DateTime.Now.AddDays(3), 3, 0,0,0, listapreg);
 
-            servicio.AddExamen(ex1);
+            servicio.AddExamen(ex1);*/
+
+            /*PreguntaTest PT5 = new PreguntaTest(1, "Enunciado1", lista1,2,"patricio@gmail.com", "GPR");
+            servicio.AddPreguntaTest(PT5);*/
+
+            Profesor p1 = new Profesor("f", "f", "f", "f");
+            servicio.addEntidad(p1);
         }
     }
 }
