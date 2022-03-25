@@ -83,7 +83,7 @@ namespace QuizifyIU
             int id = 666;
             string titulo=nombre.Text;
             string descripcio = descripcion.Text;
-            string autor = usuario.correo;
+            string autor = usuario.GetCorreo();
             string cursos = curso.Text;
             if(sinlimite.Checked){ tiempo = 1000; }
             else {tiempo = int.Parse(horas.Text) * 60 + int.Parse(minutos.Text);}

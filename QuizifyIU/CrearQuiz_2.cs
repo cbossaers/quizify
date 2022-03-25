@@ -73,10 +73,13 @@ namespace QuizifyIU
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var form2 = new CrearQuiz_3(servicio, usuario, examen);
-            form2.Closed += (s, args) => this.Close();
-            form2.Show();
+            
+                this.Hide();
+                var form2 = new CrearQuiz_3(servicio, usuario, examen);
+                form2.Closed += (s, args) => this.Close();
+                form2.Show();
+            
+                
             
         }
 
@@ -96,6 +99,7 @@ namespace QuizifyIU
 
         private void crear_Click(object sender, EventArgs e)
         {
+            
             servicio.AddExamen(examen);
             MessageBox.Show(this, "Se ha creado el examen", "Éxito",
                                        MessageBoxButtons.OK,

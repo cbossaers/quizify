@@ -13,12 +13,13 @@ namespace QuizifyIU
 {
     public partial class CrearQuiz_3 : Form
     {
-        
-        List<dynamic> filtros = new List<dynamic>() { "angel",null,null,null };
+
+        List<dynamic> filtros;
         private Servicio servicio;
         private dynamic usuario;
         private Examen examen;
         public bool crearquiz = false;
+        List<int> DTable;
         public CrearQuiz_3(Servicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
@@ -26,10 +27,12 @@ namespace QuizifyIU
             this.servicio = servicio;
             this.usuario = user;
             //filtros[0] = usuario.nombre;
-            
+            filtros = new List<dynamic>() { usuario.GetCorreo(), null, null, null };
             this.examen = examen;
+            DTable = servicio.GetPreguntas(filtros);
             tabla();
             crearquiz = false;
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -56,7 +59,7 @@ namespace QuizifyIU
         }
         private void tabla()
         {
-            List<int> DTable = servicio.GetPreguntas(filtros);
+            
             bool esta = false;
             BindingList<object> bindinglist = new BindingList<object>();
 
@@ -115,15 +118,18 @@ namespace QuizifyIU
         private void button3_Click(object sender, EventArgs e)
         {
             //dataGridView1.SelectedCells[0].Value.ToString();
-            List<int> lista = examen.GetPreguntasAsociadas();
-            lista.Add(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()));
-            lista.Add(int.Parse(dataGridView1.SelectedCells[3].Value.ToString()));
-            lista.Add(1);
-            examen.SetPreguntasAsociadas(lista);
-            this.Hide();
-            var form2 = new CrearQuiz_2(servicio, usuario, examen);
-            form2.Closed += (s, args) => this.Close();
-            form2.Show();
+            if (dataGridView1.Rows.Count > 0)
+            {
+                List<int> lista = examen.GetPreguntasAsociadas();
+                lista.Add(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()));
+                lista.Add(int.Parse(dataGridView1.SelectedCells[3].Value.ToString()));
+                lista.Add(1);
+                examen.SetPreguntasAsociadas(lista);
+                this.Hide();
+                var form2 = new CrearQuiz_2(servicio, usuario, examen);
+                form2.Closed += (s, args) => this.Close();
+                form2.Show();
+            }
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
