@@ -9,7 +9,7 @@ using Quizify.Persistence;
 namespace Quizify.Persistence {
 
 public class DAL {
-    static string connStr = "server=88.17.214.52;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
+    static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
     MySqlConnection conn = new MySqlConnection(connStr);
     public void AddEntidad(dynamic entidad) {
         string consulta_entidad = "";
