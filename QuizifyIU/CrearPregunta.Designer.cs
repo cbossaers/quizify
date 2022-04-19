@@ -55,8 +55,16 @@
             this.verdadero0 = new System.Windows.Forms.RadioButton();
             this.dificultad = new System.Windows.Forms.ComboBox();
             this.crear = new System.Windows.Forms.Button();
+            this.RespuestaTxt = new System.Windows.Forms.TextBox();
+            this.CorrectaMult = new System.Windows.Forms.Panel();
+            this.check0 = new System.Windows.Forms.CheckBox();
+            this.check1 = new System.Windows.Forms.CheckBox();
+            this.check2 = new System.Windows.Forms.CheckBox();
+            this.check3 = new System.Windows.Forms.CheckBox();
+            this.check4 = new System.Windows.Forms.CheckBox();
             this.correctaTest.SuspendLayout();
             this.correctaVF.SuspendLayout();
+            this.CorrectaMult.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -91,7 +99,9 @@
             this.tipoPregunta.FormattingEnabled = true;
             this.tipoPregunta.Items.AddRange(new object[] {
             "Test",
-            "Verdadero Falso"});
+            "Verdadero Falso",
+            "Desarrollo",
+            "Selección Múltiple"});
             this.tipoPregunta.Location = new System.Drawing.Point(12, 151);
             this.tipoPregunta.Name = "tipoPregunta";
             this.tipoPregunta.Size = new System.Drawing.Size(121, 23);
@@ -342,11 +352,84 @@
             this.crear.UseVisualStyleBackColor = true;
             this.crear.Click += new System.EventHandler(this.EvCrearPregunta);
             // 
+            // RespuestaTxt
+            // 
+            this.RespuestaTxt.Location = new System.Drawing.Point(16, 188);
+            this.RespuestaTxt.Multiline = true;
+            this.RespuestaTxt.Name = "RespuestaTxt";
+            this.RespuestaTxt.Size = new System.Drawing.Size(623, 221);
+            this.RespuestaTxt.TabIndex = 32;
+            this.RespuestaTxt.Visible = false;
+            // 
+            // CorrectaMult
+            // 
+            this.CorrectaMult.Controls.Add(this.check4);
+            this.CorrectaMult.Controls.Add(this.check3);
+            this.CorrectaMult.Controls.Add(this.check2);
+            this.CorrectaMult.Controls.Add(this.check1);
+            this.CorrectaMult.Controls.Add(this.check0);
+            this.CorrectaMult.Location = new System.Drawing.Point(552, 183);
+            this.CorrectaMult.Name = "CorrectaMult";
+            this.CorrectaMult.Size = new System.Drawing.Size(67, 245);
+            this.CorrectaMult.TabIndex = 33;
+            this.CorrectaMult.Visible = false;
+            // 
+            // check0
+            // 
+            this.check0.AutoSize = true;
+            this.check0.Location = new System.Drawing.Point(16, 15);
+            this.check0.Name = "check0";
+            this.check0.Size = new System.Drawing.Size(15, 14);
+            this.check0.TabIndex = 0;
+            this.check0.UseVisualStyleBackColor = true;
+            this.check0.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
+            // 
+            // check1
+            // 
+            this.check1.AutoSize = true;
+            this.check1.Location = new System.Drawing.Point(16, 62);
+            this.check1.Name = "check1";
+            this.check1.Size = new System.Drawing.Size(15, 14);
+            this.check1.TabIndex = 1;
+            this.check1.UseVisualStyleBackColor = true;
+            this.check1.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
+            // 
+            // check2
+            // 
+            this.check2.AutoSize = true;
+            this.check2.Location = new System.Drawing.Point(16, 110);
+            this.check2.Name = "check2";
+            this.check2.Size = new System.Drawing.Size(15, 14);
+            this.check2.TabIndex = 2;
+            this.check2.UseVisualStyleBackColor = true;
+            this.check2.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
+            // 
+            // check3
+            // 
+            this.check3.AutoSize = true;
+            this.check3.Location = new System.Drawing.Point(16, 159);
+            this.check3.Name = "check3";
+            this.check3.Size = new System.Drawing.Size(15, 14);
+            this.check3.TabIndex = 3;
+            this.check3.UseVisualStyleBackColor = true;
+            this.check3.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
+            // 
+            // check4
+            // 
+            this.check4.AutoSize = true;
+            this.check4.Location = new System.Drawing.Point(16, 207);
+            this.check4.Name = "check4";
+            this.check4.Size = new System.Drawing.Size(15, 14);
+            this.check4.TabIndex = 4;
+            this.check4.UseVisualStyleBackColor = true;
+            this.check4.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
+            // 
             // CrearPregunta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 450);
+            this.Controls.Add(this.CorrectaMult);
             this.Controls.Add(this.crear);
             this.Controls.Add(this.dificultad);
             this.Controls.Add(this.correctaVF);
@@ -367,15 +450,17 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.enunciado);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.RespuestaTxt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrearPregunta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrearPregunta";
-            
             this.correctaTest.ResumeLayout(false);
             this.correctaTest.PerformLayout();
             this.correctaVF.ResumeLayout(false);
             this.correctaVF.PerformLayout();
+            this.CorrectaMult.ResumeLayout(false);
+            this.CorrectaMult.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -410,5 +495,12 @@
         private System.Windows.Forms.RadioButton verdadero0;
         private System.Windows.Forms.ComboBox dificultad;
         private System.Windows.Forms.Button crear;
+        private System.Windows.Forms.TextBox RespuestaTxt;
+        private System.Windows.Forms.Panel CorrectaMult;
+        private System.Windows.Forms.CheckBox check0;
+        private System.Windows.Forms.CheckBox check4;
+        private System.Windows.Forms.CheckBox check3;
+        private System.Windows.Forms.CheckBox check2;
+        private System.Windows.Forms.CheckBox check1;
     }
 }
