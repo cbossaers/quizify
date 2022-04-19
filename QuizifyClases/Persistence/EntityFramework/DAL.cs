@@ -493,7 +493,7 @@ public class DAL {
         string consulta_lista =  "SELECT * FROM lista preguntas WHERE examen = " + id_ex + ";";
         string consulta_respuestas = "SELECT * FROM respuestas_examenes WHERE examen = " + id_ex +  " AND alumno = '" + correo + "';";
 
-        double nota = 0;
+        //double nota = 0;
 
         conn.Open();
 

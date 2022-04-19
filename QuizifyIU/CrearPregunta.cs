@@ -21,7 +21,7 @@ namespace QuizifyIU
         private bool cambioDificultad = false;
         private bool cambioTipoPregunta = false;
         private bool crearquiz = false;
-        private Fabrica fabrica = new Fabrica();
+        private FabricaPreguntas fabrica = new FabricaPreguntas();
         private List<dynamic> lista = new List<dynamic> { };
         private PreguntaTest preguntaTest;
         private PreguntaVF preguntaVF;
