@@ -32,6 +32,14 @@ namespace Quizify.Services
                 }
             
         }
+        public void AddPreguntaDesarrollo(PreguntaDesarrollo preguntaDesarrollo)
+        {
+            try { dal.AddPregunta(preguntaDesarrollo); }
+            catch (Exception)
+            {
+                throw new ServicioException("La pregunta con Id " + preguntaDesarrollo.GetId() + " versión: " + preguntaDesarrollo.GetVersion() + " ya existe");
+            }
+        }
         public void addEntidad(dynamic user)
         {
             try { dal.AddEntidad(user); }
