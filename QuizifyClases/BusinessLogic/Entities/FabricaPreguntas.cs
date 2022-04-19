@@ -13,7 +13,6 @@ namespace Quizify.Entities
                 case ("vf"): return new PreguntaVF(id, enunciado, int.Parse(opciones[0].ToString()), dif, autor, tema, version);
                 case ("test"): return new PreguntaTest(id, enunciado, opciones, dif, autor, tema, version);
                 case ("desarrollo"): return new PreguntaTest(id, enunciado, opciones[0].ToString(), dif, autor, tema, version);
-
             }
             return -1;
         }
