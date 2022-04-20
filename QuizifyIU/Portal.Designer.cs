@@ -38,12 +38,14 @@
             this.bMisPreguntas = new System.Windows.Forms.Button();
             this.bCrearPregunta = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.bCrearCurso = new System.Windows.Forms.Button();
             this.MenuVertical.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.MenuVertical.Controls.Add(this.bCrearCurso);
             this.MenuVertical.Controls.Add(this.nombreIniciado);
             this.MenuVertical.Controls.Add(this.bHacerExamen);
             this.MenuVertical.Controls.Add(this.bAjustes);
@@ -162,6 +164,19 @@
             this.panelContenedor.TabIndex = 1;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
+            // bCrearCurso
+            // 
+            this.bCrearCurso.FlatAppearance.BorderSize = 0;
+            this.bCrearCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bCrearCurso.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bCrearCurso.Location = new System.Drawing.Point(2, 340);
+            this.bCrearCurso.Name = "bCrearCurso";
+            this.bCrearCurso.Size = new System.Drawing.Size(141, 40);
+            this.bCrearCurso.TabIndex = 7;
+            this.bCrearCurso.Text = "Crear curso";
+            this.bCrearCurso.UseVisualStyleBackColor = true;
+            this.bCrearCurso.Click += new System.EventHandler(this.bCrearCurso_Click);
+            // 
             // Portal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -190,5 +205,6 @@
         private System.Windows.Forms.Button bCrearPregunta;
         private System.Windows.Forms.Button bHacerExamen;
         private System.Windows.Forms.Label nombreIniciado;
+        private System.Windows.Forms.Button bCrearCurso;
     }
 }

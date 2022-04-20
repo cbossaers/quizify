@@ -87,6 +87,18 @@ namespace QuizifyIU
             fHE.Show();
         }
 
+        private void AbrirFormCrearCurso(object formCrearCurso)
+        {
+            if (this.panelContenedor.Controls.Count > 0)
+                this.panelContenedor.Controls.RemoveAt(0);
+            Form fCC = formCrearCurso as Form;
+            fCC.TopLevel = false;
+            fCC.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(fCC);
+            this.panelContenedor.Tag = fCC;
+            fCC.Show();
+        }
+
         private void bCrearPregunta_Click(object sender, EventArgs e)
         {
             AbrirFormCrearPregunta(new CrearPregunta(servicio,usuario));
@@ -128,6 +140,9 @@ namespace QuizifyIU
                                                             "", MessageBoxButtons.OK);
         }
 
-        
+        private void bCrearCurso_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
