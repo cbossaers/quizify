@@ -48,6 +48,20 @@ namespace Quizify.Services
                 throw new ServicioException(e.ToString());
             }
         }
+        public void AddCurso(string codigo, string nombre, string profesor) {
+            try { dal.AddCurso(codigo,nombre,profesor); }
+            catch (Exception e)
+            {
+                throw new ServicioException(e.ToString());
+            }
+        }
+        public void AddAlumnoACurso(string alumno, string curso) {
+            try { dal.AddAlumnoACurso(alumno,curso); }
+            catch (Exception e)
+            {
+                throw new ServicioException(e.ToString());
+            }
+        }
         public void AddExamen(Examen examen)
         {
             if (true)
@@ -119,5 +133,7 @@ namespace Quizify.Services
         public bool ExisteEntidad(string correo) {
             return dal.ExisteEntidad(correo);
         }
+
+
     }
 }

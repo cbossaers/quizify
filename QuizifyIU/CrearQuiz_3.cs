@@ -67,7 +67,7 @@ namespace QuizifyIU
             for (int i = 0; i < DTable.Count; i += 2)
             {
                 esta = false;
-                if(examen.GetPreguntasAsociadas().Count != null)
+                if(examen.GetPreguntasAsociadas().Count > 0)
                 {
                     for (int j = 0; j < examen.GetPreguntasAsociadas().Count; j += 3)
                     {

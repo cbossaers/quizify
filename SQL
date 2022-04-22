@@ -113,3 +113,19 @@ CREATE TABLE respuestas_examenes (
     FOREIGN KEY (pregunta, ver_pregunta) REFERENCES pregunta(id, ver) ON DELETE CASCADE
 );
 ALTER TABLE pregunta ADD COLUMN dificultad INTEGER NOT NULL;
+
+CREATE TABLE cursos (
+    codigo VARCHAR(8) NOT NULL,
+    nombre VARCHAR(128) NOT NULL,
+    profesor VARCHAR(256) NOT NULL,
+    PRIMARY KEY (codigo,profesor),
+    FOREIGN KEY (profesor) REFERENCES profesor(correo) ON DELETE CASCADE
+);
+
+CREATE TABLE alumno_curso (
+    alumno VARCHAR(256),
+    curso VARCHAR(8),
+    PRIMARY KEY (alumno, curso),
+    FOREIGN KEY (alumno) REFERENCES alumno(correo) ON DELETE CASCADE,
+    FOREIGN KEY (curso) REFERENCES cursos(codigo) ON DELETE CASCADE
+);

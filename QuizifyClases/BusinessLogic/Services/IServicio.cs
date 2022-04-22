@@ -20,6 +20,10 @@ namespace Quizify.Services
         //volver_atras (0 = no, 1 = si), errores_restan (0 = no, 1 = si), mostrar_resultados (0 = no, 1 = si), preguntas.
         //preguntas[i] = id_pregunta, preguntas[i+1] = version_pregunta, preguntas[i+2] = puntuacion
 
+        public void AddCurso(string codigo, string nombre, string profesor);
+        //codigo = max 8 caracteres (AIC), nombre = "Arquitectura de computadores", profesor = correo del profesor
+        public void AddAlumnoACurso(string alumno, string curso);
+        //alumno = correo del alumno, curso = codigo del curso
         public PreguntaVF GetPreguntaVFById(int Id, int version);
         public PreguntaTest GetPreguntaTestById(int Id, int version);
         public dynamic GetPreguntaById(int Id, int version);

@@ -128,7 +128,7 @@ namespace QuizifyIU
             if(tipoPregunta.Text == "Desarrollo")
             {
                 lista.Add(RespuestaTxt.Text);
-                preguntaDesarrollo = fabrica.Crear_pregunta("desarrollo", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo(), "tema3", lista, 1);
+                preguntaDesarrollo = fabrica.CrearPregunta("desarrollo", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo(), "tema3", lista, 1);
                 servicio.AddPreguntaDesarrollo(preguntaDesarrollo);
 
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
@@ -148,7 +148,7 @@ namespace QuizifyIU
                     if (numeroDeOpciones == 4) lista.Add(opc3.Text);
                     if (numeroDeOpciones == 5) lista.Add(opc4.Text);
                 }
-                preguntaTest = fabrica.Crear_pregunta("test", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo() , "tema3", lista,1);
+                preguntaTest = fabrica.CrearPregunta("test", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo() , "tema3", lista,1);
                 servicio.AddPreguntaTest(preguntaTest);
                 
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
@@ -170,7 +170,7 @@ namespace QuizifyIU
             }
             else
             {
-                preguntaVF = fabrica.Crear_pregunta("vf", 120, enunciado.Text, dificultadNum, usuario.GetCorreo() , "tema1",lista, 1);
+                preguntaVF = fabrica.CrearPregunta("vf", 120, enunciado.Text, dificultadNum, usuario.GetCorreo() , "tema1",lista, 1);
                 servicio.AddPreguntaVF(preguntaVF);
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,

@@ -490,10 +490,15 @@ public class DAL {
     }
 
     public void CalcularNotaExamen(int id_ex, string correo) {
-        string consulta_lista =  "SELECT * FROM lista preguntas WHERE examen = " + id_ex + ";";
+        string consulta_lista =  "SELECT * FROM lista_preguntas WHERE id_examen = " + id_ex + ";";
         string consulta_respuestas = "SELECT * FROM respuestas_examenes WHERE examen = " + id_ex +  " AND alumno = '" + correo + "';";
+        int restan = ErroresRestan(id_ex);
 
-        //double nota = 0;
+        double nota = 0;
+        dynamic pregunta = null;
+        int id_preg = 0;
+        int ver_preg = 0;
+        double puntuacion = 0.0;
 
         conn.Open();
 
@@ -508,7 +513,16 @@ public class DAL {
         conn.Close();
 
         foreach (DataRow row in data.Rows) { 
-            
+            id_preg = int.Parse(row["id_pregunta"].ToString());
+            ver_preg = int.Parse(row["ver_pregunta"].ToString());
+            puntuacion = double.Parse(row["ver_pregunta"].ToString());
+
+            foreach (DataRow row2 in data2.Rows) { 
+                if(id_preg == int.Parse(row2["pregunta"].ToString())) {
+                    pregunta = GetPregunta(id_preg, ver_preg);
+                    nota+=CuantaNota(pregunta, int.Parse(row2["respuesta"].ToString()),puntuacion,restan);
+                }
+            }
         }
     }
 
@@ -527,5 +541,91 @@ public class DAL {
         }
         conn.Close();
         return existe;
+    }
+
+    public double CuantaNota(dynamic preg, int respuesta, double puntuacion, int resta) {
+        string tipo = GetTipoPregunta(preg.GetId());
+        int correcta = preg.GetCorrecta();
+
+        switch(tipo){
+            case("test"): 
+                if(respuesta == correcta) {
+                    return puntuacion;
+                } else if (resta == 1) {
+                    return -puntuacion/(CuantasOpciones(preg) - 1);
+                } else return 0;
+
+            case("vf"):
+                if(respuesta == correcta) {
+                    return puntuacion;
+                } else if (resta == 1) {
+                    return -puntuacion;
+                } else return 0;
+
+            case("mult"):
+                return 0;
+
+            case("des"):
+                return 0;
+        }
+
+        return 0;
+    }
+
+    public int ErroresRestan(int id_ex) {
+        conn.Open();
+        string consulta = "SELECT errores_restan FROM examen WHERE id = " + id_ex + ";";
+
+        int restan = 0;
+
+        MySqlCommand cmd = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+
+        while (rdr.Read()) {
+                restan = int.Parse(rdr.GetString("errores_restan").ToString());
+        }
+
+        rdr.Close();
+        conn.Close();
+        return restan;
+    }
+
+    public int CuantasOpciones(dynamic preg) {
+        if(preg.GetOpcE() != null) {return 5;}
+        else if(preg.GetOpcD != null) {return 4;}
+        else return 3;
+    }
+
+    public void AddCurso(string codigo, string nombre, string profesor) {
+        conn.Open();
+
+        string consulta = "INSERT into PSWC.cursos(codigo,nombre,profesor) VALUES('" + codigo + "','" + nombre 
+        + "','" + profesor + "');";
+
+        MySqlCommand cmd = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();   
+
+        conn.Close();
+    }
+
+    public void EliminarCurso(string codigo) {
+        conn.Open();
+
+        string consulta = "DELETE FROM PSWC.cursos WHERE codigo='" + codigo + "';";
+        MySqlCommand cmd = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+
+        conn.Close();
+    }
+
+    public void AddAlumnoACurso(string alumno, string curso) {
+        conn.Open();
+        
+        string consulta = "INSERT into PSWC.alumno_curso(alumno,curso) VALUES('" + alumno + "','" + curso + "');";
+
+        MySqlCommand cmd = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();   
+
+        conn.Close();
     }
 }}
