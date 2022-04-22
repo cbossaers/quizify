@@ -489,12 +489,12 @@ public class DAL {
         }
     }
 
-    public void CalcularNotaExamen(int id_ex, string correo) {
+    public double CalcularNotaExamen(int id_ex, string correo) {
         string consulta_lista =  "SELECT * FROM lista_preguntas WHERE id_examen = " + id_ex + ";";
         string consulta_respuestas = "SELECT * FROM respuestas_examenes WHERE examen = " + id_ex +  " AND alumno = '" + correo + "';";
         int restan = ErroresRestan(id_ex);
 
-        double nota = 0;
+        double nota = 0.0;
         dynamic pregunta = null;
         int id_preg = 0;
         int ver_preg = 0;
@@ -524,6 +524,11 @@ public class DAL {
                 }
             }
         }
+
+        string consulta = "INSERT into PSWC.notas_examenes(alumno,examen,nota) VALUES('" + correo + "','" + id_ex 
+        + "'," + nota + ");";
+
+        return nota;
     }
 
     public bool ExisteEntidad(string correo) {
@@ -619,9 +624,21 @@ public class DAL {
     }
 
     public void AddAlumnoACurso(string alumno, string curso) {
-        conn.Open();
-        
         string consulta = "INSERT into PSWC.alumno_curso(alumno,curso) VALUES('" + alumno + "','" + curso + "');";
+
+        conn.Open();
+
+        MySqlCommand cmd = new MySqlCommand(consulta, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();   
+
+        conn.Close();
+    }
+
+    public void AnularPregunta(int id_ex, int id_preg) {
+        string consulta = "UPDATE lista_preguntas SET puntuacion = 0 WHERE id_examen=" + id_ex 
+        + "AND id_pregunta=" + id_preg + ";";
+
+        conn.Open();
 
         MySqlCommand cmd = new MySqlCommand(consulta, conn);
         MySqlDataReader rdr = cmd.ExecuteReader();   

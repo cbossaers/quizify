@@ -44,5 +44,6 @@ namespace Quizify.Services
         //respuestas[id_ex, id_alumno, id_preg1, ver_preg1, resp1, id_preg2, ver_preg2, resp2,....]
 
         public bool ExisteEntidad(string correo);
+        public void AnularPregunta(int id_ex, int id_preg);
     }
 }

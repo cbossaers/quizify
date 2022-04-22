@@ -133,7 +133,9 @@ namespace Quizify.Services
         public bool ExisteEntidad(string correo) {
             return dal.ExisteEntidad(correo);
         }
-
+        public void AnularPregunta(int id_ex, int id_preg) {
+            dal.AnularPregunta(id_ex, id_preg);
+        }
 
     }
 }
