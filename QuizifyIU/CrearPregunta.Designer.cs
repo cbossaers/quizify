@@ -57,11 +57,13 @@
             this.crear = new System.Windows.Forms.Button();
             this.RespuestaTxt = new System.Windows.Forms.TextBox();
             this.CorrectaMult = new System.Windows.Forms.Panel();
-            this.check0 = new System.Windows.Forms.CheckBox();
-            this.check1 = new System.Windows.Forms.CheckBox();
-            this.check2 = new System.Windows.Forms.CheckBox();
-            this.check3 = new System.Windows.Forms.CheckBox();
             this.check4 = new System.Windows.Forms.CheckBox();
+            this.check3 = new System.Windows.Forms.CheckBox();
+            this.check2 = new System.Windows.Forms.CheckBox();
+            this.check1 = new System.Windows.Forms.CheckBox();
+            this.check0 = new System.Windows.Forms.CheckBox();
+            this.botonAdd2 = new System.Windows.Forms.Button();
+            this.botonBorrar2 = new System.Windows.Forms.Button();
             this.correctaTest.SuspendLayout();
             this.correctaVF.SuspendLayout();
             this.CorrectaMult.SuspendLayout();
@@ -374,25 +376,27 @@
             this.CorrectaMult.TabIndex = 33;
             this.CorrectaMult.Visible = false;
             // 
-            // check0
+            // check4
             // 
-            this.check0.AutoSize = true;
-            this.check0.Location = new System.Drawing.Point(16, 15);
-            this.check0.Name = "check0";
-            this.check0.Size = new System.Drawing.Size(15, 14);
-            this.check0.TabIndex = 0;
-            this.check0.UseVisualStyleBackColor = true;
-            this.check0.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
+            this.check4.AutoSize = true;
+            this.check4.Location = new System.Drawing.Point(16, 207);
+            this.check4.Name = "check4";
+            this.check4.Size = new System.Drawing.Size(15, 14);
+            this.check4.TabIndex = 4;
+            this.check4.UseVisualStyleBackColor = true;
+            this.check4.Visible = false;
+            this.check4.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
             // 
-            // check1
+            // check3
             // 
-            this.check1.AutoSize = true;
-            this.check1.Location = new System.Drawing.Point(16, 62);
-            this.check1.Name = "check1";
-            this.check1.Size = new System.Drawing.Size(15, 14);
-            this.check1.TabIndex = 1;
-            this.check1.UseVisualStyleBackColor = true;
-            this.check1.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
+            this.check3.AutoSize = true;
+            this.check3.Location = new System.Drawing.Point(16, 159);
+            this.check3.Name = "check3";
+            this.check3.Size = new System.Drawing.Size(15, 14);
+            this.check3.TabIndex = 3;
+            this.check3.UseVisualStyleBackColor = true;
+            this.check3.Visible = false;
+            this.check3.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
             // 
             // check2
             // 
@@ -404,31 +408,55 @@
             this.check2.UseVisualStyleBackColor = true;
             this.check2.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
             // 
-            // check3
+            // check1
             // 
-            this.check3.AutoSize = true;
-            this.check3.Location = new System.Drawing.Point(16, 159);
-            this.check3.Name = "check3";
-            this.check3.Size = new System.Drawing.Size(15, 14);
-            this.check3.TabIndex = 3;
-            this.check3.UseVisualStyleBackColor = true;
-            this.check3.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
+            this.check1.AutoSize = true;
+            this.check1.Location = new System.Drawing.Point(16, 62);
+            this.check1.Name = "check1";
+            this.check1.Size = new System.Drawing.Size(15, 14);
+            this.check1.TabIndex = 1;
+            this.check1.UseVisualStyleBackColor = true;
+            this.check1.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
             // 
-            // check4
+            // check0
             // 
-            this.check4.AutoSize = true;
-            this.check4.Location = new System.Drawing.Point(16, 207);
-            this.check4.Name = "check4";
-            this.check4.Size = new System.Drawing.Size(15, 14);
-            this.check4.TabIndex = 4;
-            this.check4.UseVisualStyleBackColor = true;
-            this.check4.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
+            this.check0.AutoSize = true;
+            this.check0.Location = new System.Drawing.Point(16, 15);
+            this.check0.Name = "check0";
+            this.check0.Size = new System.Drawing.Size(15, 14);
+            this.check0.TabIndex = 0;
+            this.check0.UseVisualStyleBackColor = true;
+            this.check0.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
+            // 
+            // botonAdd2
+            // 
+            this.botonAdd2.Location = new System.Drawing.Point(370, 151);
+            this.botonAdd2.Name = "botonAdd2";
+            this.botonAdd2.Size = new System.Drawing.Size(55, 23);
+            this.botonAdd2.TabIndex = 34;
+            this.botonAdd2.Text = "Añadir";
+            this.botonAdd2.UseVisualStyleBackColor = true;
+            this.botonAdd2.Visible = false;
+            this.botonAdd2.Click += new System.EventHandler(this.AddOpc2);
+            // 
+            // botonBorrar2
+            // 
+            this.botonBorrar2.Location = new System.Drawing.Point(440, 151);
+            this.botonBorrar2.Name = "botonBorrar2";
+            this.botonBorrar2.Size = new System.Drawing.Size(55, 23);
+            this.botonBorrar2.TabIndex = 35;
+            this.botonBorrar2.Text = "Borrar";
+            this.botonBorrar2.UseVisualStyleBackColor = true;
+            this.botonBorrar2.Visible = false;
+            this.botonBorrar2.Click += new System.EventHandler(this.BorrarOpc2);
             // 
             // CrearPregunta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 450);
+            this.Controls.Add(this.botonBorrar2);
+            this.Controls.Add(this.botonAdd2);
             this.Controls.Add(this.CorrectaMult);
             this.Controls.Add(this.crear);
             this.Controls.Add(this.dificultad);
@@ -502,5 +530,7 @@
         private System.Windows.Forms.CheckBox check3;
         private System.Windows.Forms.CheckBox check2;
         private System.Windows.Forms.CheckBox check1;
+        private System.Windows.Forms.Button botonAdd2;
+        private System.Windows.Forms.Button botonBorrar2;
     }
 }

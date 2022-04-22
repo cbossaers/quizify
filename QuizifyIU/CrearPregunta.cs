@@ -75,13 +75,13 @@ namespace QuizifyIU
             {
                 opc4.Visible = false; letraE.Visible = false; correcta4.Visible = false;
                 numeroDeOpciones--;
-                if (correcta4.Checked == true) opcionCorrecta = null;
+                if (correcta4.Checked == true) opcionCorrecta = null; correcta4.Checked = false;
             }
             else if (opc3.Visible == true)
             {
                 opc3.Visible = false; letraD.Visible = false; correcta3.Visible = false;
                 numeroDeOpciones--;
-                if (correcta3.Checked == true) opcionCorrecta = null;
+                if (correcta3.Checked == true) opcionCorrecta = null; correcta3.Checked = false;
             }
         }
 
@@ -98,6 +98,36 @@ namespace QuizifyIU
                 numeroDeOpciones++;
             }
             
+        }
+
+        private void BorrarOpc2(object sender, EventArgs e)
+        {
+            if (check4.Visible == true)
+            {
+                opc4.Visible = false; letraE.Visible = false; check4.Visible = false;
+                numeroDeOpciones--;
+                if (check4.Checked == true) listaOpCorrecta[4] = "0"; check4.Checked = false;
+            }
+            else if (check3.Visible == true)
+            {
+                opc3.Visible = false; letraD.Visible = false; check3.Visible = false;
+                numeroDeOpciones--;
+                if (check3.Checked == true) listaOpCorrecta[3] = "0"; check3.Checked = false;
+            }
+        }
+
+        private void AddOpc2(object sender, EventArgs e)
+        {
+            if (opc3.Visible != true)
+            {
+                opc3.Visible = true; letraD.Visible = true; check3.Visible = true;
+                numeroDeOpciones++;
+            }
+            else if (opc4.Visible != true)
+            {
+                opc4.Visible = true; letraE.Visible = true; check4.Visible = true;
+                numeroDeOpciones++;
+            }
         }
 
         private void MarcarCorrecta(object sender, EventArgs e)
@@ -118,7 +148,7 @@ namespace QuizifyIU
                                    MessageBoxIcon.Error);
                 return;
             }
-            else if (opcionCorrecta == null)
+            else if (opcionCorrecta == "")
             {
                 MessageBox.Show(this, "No se ha seleccionado una opción correcta", "Error",
                                        MessageBoxButtons.OK,
@@ -134,7 +164,7 @@ namespace QuizifyIU
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Information);
-                VaciarCampos();
+                VistaDesarrollo();
             }
             else if (tipoPregunta.Text == "Test")
             {
@@ -154,19 +184,30 @@ namespace QuizifyIU
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Information);
-                /*if (crearquiz = true) {
-                    List<int> lista = examen.GetPreguntasAsociadas();
-                    lista.Add(preguntaTest.GetId());
-                    lista.Add(preguntaTest.GetVersion());
-                    lista.Add(1);
-                    examen.SetPreguntasAsociadas(lista);
+                
+                VistaTest();
+            }
+            else if (tipoPregunta.Text == "Selección Múltiple")
+            {
+                if (ComprobarOpcionesRellenadas(numeroDeOpciones) == false)
+                {
+                    return;
+                }
+                else
+                {
+                    lista.Add(Convert.ToInt32(opcionCorrecta));
+                    lista.Add(opc0.Text); lista.Add(opc1.Text); lista.Add(opc2.Text);
+                    if (numeroDeOpciones == 4) lista.Add(opc3.Text);
+                    if (numeroDeOpciones == 5) lista.Add(opc4.Text);
+                }
+                preguntaTest = fabrica.CrearPregunta("test", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo(), "tema3", lista, 1);
+                servicio.AddPreguntaTest(preguntaTest);
 
-                    this.Hide();
-                    var form2 = new CrearQuiz_2(servicio,usuario,examen);
-                    form2.Closed += (s, args) => this.Close();
-                    form2.Show();
-                }*/
-                VaciarCampos();
+                MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Information);
+
+                VistaMultiple();
             }
             else
             {
@@ -175,20 +216,8 @@ namespace QuizifyIU
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Information);
-                /*if (crearquiz = true)
-                {
-                    List<int> lista = examen.GetPreguntasAsociadas();
-                    lista.Add(preguntaTest.GetId());
-                    lista.Add(preguntaTest.GetVersion());
-                    lista.Add(1);
-                    examen.SetPreguntasAsociadas(lista);
-
-                    this.Hide();
-                    var form2 = new CrearQuiz_2(servicio, usuario, examen);
-                    form2.Closed += (s, args) => this.Close();
-                    form2.Show();
-                }*/
-                VaciarCampos();
+                
+                VistaVF();
             }
         }
 
@@ -236,69 +265,57 @@ namespace QuizifyIU
             }
             return true;
         }
-        private void VaciarCampos(){
-            enunciado.Text = "";
-            opc0.Text = ""; opc1.Text = ""; opc2.Text = ""; opc3.Text = ""; opc4.Text = ""; RespuestaTxt.Text = "";
-            correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
-            verdadero0.Checked = false; falso1.Checked = false;
-            opcionCorrecta = null;
-            lista.Clear();
-            listaOpCorrecta.Clear();
-        }
         public void VistaVF()
         {
-            RespuestaTxt.Visible = false; RespuestaTxt.Text = "";
             letraA.Visible = false; letraB.Visible = false; letraC.Visible = false; letraD.Visible = false; letraE.Visible = false;
             opc0.Visible = false; opc1.Visible = false; opc2.Visible = false; opc3.Visible = false; opc4.Visible = false;
-            botonAdd.Visible = false; botonBorrar.Visible = false;
+            verdadero0.Checked = false; falso1.Checked = false;
             correctaTest.Visible = false; correctaVF.Visible = true; CorrectaMult.Visible = false;
-            check0.Checked = false; check1.Checked = false; check2.Checked = false; check3.Checked = false; check4.Checked = false;
-            correcta3.Visible = false; correcta4.Visible = false;
-            opc0.Text = ""; opc1.Text = ""; opc2.Text = ""; opc3.Text = ""; opc4.Text = "";
-            correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
-            opcionCorrecta = null;
-            listaOpCorrecta.Clear();
+            botonAdd.Visible = false; botonBorrar.Visible = false; botonAdd2.Visible = false; botonBorrar2.Visible = false;
+            RespuestaTxt.Visible = false;
+            lista.Clear();
         }
         public void VistaTest()
         {
-            RespuestaTxt.Visible = false; RespuestaTxt.Text = "";
-            letraA.Visible = true; letraB.Visible = true; letraC.Visible = true;
-            opc0.Visible = true; opc1.Visible = true; opc2.Visible = true;
-            botonAdd.Visible = true; botonBorrar.Visible = true;
+            numeroDeOpciones = 3;
+            letraA.Visible = true; letraB.Visible = true; letraC.Visible = true; letraD.Visible = false; letraE.Visible = false;
+            opc0.Visible = true; opc1.Visible = true; opc2.Visible = true; opc3.Visible = false; opc4.Visible = false;
+            opc0.Text = ""; opc1.Text = ""; opc2.Text = ""; opc3.Text = ""; opc4.Text = "";
+            correcta0.Visible = true; correcta1.Visible = true; correcta2.Visible = true; correcta3.Visible = false; correcta4.Visible = false;
+            correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
             correctaTest.Visible = true; correctaVF.Visible = false; CorrectaMult.Visible = false;
-            verdadero0.Checked = false; falso1.Checked = false;
-            opcionCorrecta = null;
-            listaOpCorrecta.Clear();
+            botonAdd.Visible = true; botonBorrar.Visible = true; botonAdd2.Visible = false; botonBorrar2.Visible = false;
+            RespuestaTxt.Visible = false;
+            opcionCorrecta = "";
+            lista.Clear();
         }
         public void VistaDesarrollo()
         {
-            RespuestaTxt.Visible = true;
+            RespuestaTxt.Visible = true; RespuestaTxt.Text = "";
             letraA.Visible = false; letraB.Visible = false; letraC.Visible = false; letraD.Visible = false; letraE.Visible = false;
             opc0.Visible = false; opc1.Visible = false; opc2.Visible = false; opc3.Visible = false; opc4.Visible = false;
-            botonAdd.Visible = false; botonBorrar.Visible = false;
+            botonAdd.Visible = false; botonBorrar.Visible = false; botonAdd2.Visible = false; botonBorrar2.Visible = false;
             correctaTest.Visible = false; correctaVF.Visible = false; CorrectaMult.Visible = false;
-            check0.Checked = false; check1.Checked = false; check2.Checked = false; check3.Checked = false; check4.Checked = false;
-            correcta3.Visible = false; correcta4.Visible = false;
-            opc0.Text = ""; opc1.Text = ""; opc2.Text = ""; opc3.Text = ""; opc4.Text = "";
-            correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
-            verdadero0.Checked = false; falso1.Checked = false;
-            opcionCorrecta = null;
-            listaOpCorrecta.Clear();
+            lista.Clear();
         }
         public void VistaMultiple()
         {
-            RespuestaTxt.Visible = false; RespuestaTxt.Text = "";
-            letraA.Visible = true; letraB.Visible = true; letraC.Visible = true; letraD.Visible = true; letraE.Visible = true;
-            botonAdd.Visible = false; botonBorrar.Visible = false;
+            numeroDeOpciones = 3;
+            letraA.Visible = true; letraB.Visible = true; letraC.Visible = true; letraD.Visible = false; letraE.Visible = false;
+            opc0.Visible = true; opc1.Visible = true; opc2.Visible = true; opc3.Visible = false; opc4.Visible=false;
+            opc0.Text = ""; opc1.Text = ""; opc2.Text = ""; opc3.Text = ""; opc4.Text = "";
+            check0.Visible = true; check1.Visible = true; check2.Visible = true; check3.Visible = false; check4.Visible = false;
+            check0.Checked = false; check1.Checked = false; check2.Checked = false; check3.Checked = false; check4.Checked = false;
             correctaTest.Visible = false; correctaVF.Visible = false; CorrectaMult.Visible = true;
-            verdadero0.Checked = false; falso1.Checked = false;
-            correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
-            opcionCorrecta = null;
-            listaOpCorrecta.Clear();
+            botonAdd.Visible = false; botonBorrar.Visible = false; botonAdd2.Visible = true; botonBorrar2.Visible = true;
+            RespuestaTxt.Visible = false; 
+            opcionCorrecta = "";
+            for(int i = 0; i < 5; i++) { listaOpCorrecta[i] = "0"; }
+            lista.Clear();
         }
         public void CraftearStringCorrecta(List<string> listilla)
         {
-            for (int i = 0; i < listilla.Count; i++)
+            for (int i = 0; i < 5; i++)
             {
                 opcionCorrecta = opcionCorrecta + listilla[i];
             }
@@ -309,7 +326,6 @@ namespace QuizifyIU
             //TF: 0 True 1 False, Test: 0A 1B 2C 3D 4E
             CheckBox checkBox = (CheckBox)sender;
             String numero = checkBox.Name.Last().ToString();
-            opcionCorrecta = numero;
             if(checkBox.Checked == true)
             {
                 listaOpCorrecta[Convert.ToInt32(numero)] = "1";
@@ -323,5 +339,7 @@ namespace QuizifyIU
             
             
         }
+
+        
     }
 }
