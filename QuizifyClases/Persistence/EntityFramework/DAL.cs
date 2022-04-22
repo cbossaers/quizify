@@ -552,6 +552,8 @@ public class DAL {
         string tipo = GetTipoPregunta(preg.GetId());
         int correcta = preg.GetCorrecta();
 
+        if(respuesta == -1) { return 0; }
+
         switch(tipo){
             case("test"): 
                 if(respuesta == correcta) {

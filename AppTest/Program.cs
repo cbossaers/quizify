@@ -32,7 +32,7 @@ namespace AppTest
             servicio.addEntidad(p1);
             servicio.addEntidad(p2);*/
 
-            List<dynamic> lista1 = new List<dynamic> {3, "Pera", "Limón", "Manzana", "Árbol", "Baguette"};
+            //List<dynamic> lista1 = new List<dynamic> {3, "Pera", "Limón", "Manzana", "Árbol", "Baguette"};
             /*List<dynamic> lista2 = new List<dynamic> {1, "Azul", "Rojo", "Verde"};
             List<dynamic> lista3 = new List<dynamic> {0, "Movil", "PC", "Portatil", "Reloj"};
 
@@ -62,8 +62,30 @@ namespace AppTest
             /*PreguntaTest PT5 = new PreguntaTest(1, "Enunciado1", lista1,2,"patricio@gmail.com", "GPR");
             servicio.AddPreguntaTest(PT5);*/
 
-            Profesor p1 = new Profesor("f", "f", "f", "f");
-            servicio.addEntidad(p1);
+            //Profesor p1 = new Profesor("f", "f", "f", "f");
+            //servicio.addEntidad(p1);
+
+            int a = 10110;
+            int b = 10010;
+
+            string sum = "";
+
+            for(int i = 0; i < 5; i++) {
+                sum += Math.Abs((a % 10) - (b % 10));
+
+                a /= 10;
+                b /= 10;
+            }
+
+            int sum2 = int.Parse(sum);
+
+            int res = 0;
+            while (sum2 != 0) {
+                res += sum2 % 10;
+                sum2 /= 10;
+            }
+
+            Console.WriteLine(res);
         }
     }
 }
