@@ -68,27 +68,34 @@ namespace AppTest
             //Profesor p1 = new Profesor("f", "f", "f", "f");
             //servicio.addEntidad(p1);
 
-            int a = 10110;
-            int b = 10010;
+            int a = 10011;
+            int b = 00111;
 
-            string sum = "";
+            int c = 0;
+
+            int sum = 0;
+            double total = 0.0;
+
+            a *= 2;
 
             for(int i = 0; i < 5; i++) {
-                sum += Math.Abs((a % 10) - (b % 10));
+                
+                if(a % 10 == 2) { total++; }
+
+                c = (a % 10) - (b % 10);
+                if(c < 2) {
+                    sum+=c;
+                }
 
                 a /= 10;
                 b /= 10;
             }
 
-            int sum2 = int.Parse(sum);
+            if(sum < 0) { sum = 0; }
 
-            int res = 0;
-            while (sum2 != 0) {
-                res += sum2 % 10;
-                sum2 /= 10;
-            }
+            total = sum / total;
 
-            Console.WriteLine(res);
+            Console.WriteLine(total);
         }
     }
 }
