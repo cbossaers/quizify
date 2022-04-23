@@ -603,41 +603,123 @@ public class DAL {
         else return 3;
     }
 
-    public void AddCurso(string codigo, string nombre, string profesor) {
-        conn.Open();
+    public void AddCurso(Curso curso) {
+        
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
-        string consulta = "INSERT into PSWC.cursos(codigo,nombre,profesor) VALUES('" + codigo + "','" + nombre 
-        + "','" + profesor + "');";
+            using(MySqlCommand cmd = conn.CreateCommand()) {
 
-        MySqlCommand cmd = new MySqlCommand(consulta, conn);
-        MySqlDataReader rdr = cmd.ExecuteReader();   
+                cmd.CommandText = "INSERT into PSWC.cursos(codigo,nombre,profesor,apuntados,capacidad,fecha_creac,contraseña) "
+                    + "VALUES(@codigo, @nombre, @profesor, @apuntados, @capacidad, @fecha_creac, @contraseña);";
 
-        conn.Close();
+                cmd.Parameters.AddWithValue("@codigo", curso.GetCodigo());
+                cmd.Parameters.AddWithValue("@nombre", curso.GetNombre());
+                cmd.Parameters.AddWithValue("@profesor", curso.GetAutor());
+                cmd.Parameters.AddWithValue("@apuntados", 0);
+                cmd.Parameters.AddWithValue("@capacidad", curso.GetMaxAlumnos());
+                cmd.Parameters.AddWithValue("@fecha_creac", curso.GetFechaCreacion());
+                cmd.Parameters.AddWithValue("@contraseña", curso.GetContraseña());
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 
-    public void EliminarCurso(string codigo) {
-        conn.Open();
+    public void EliminarCurso(string codigo, string profesor) {
 
-        string consulta = "DELETE FROM PSWC.cursos WHERE codigo='" + codigo + "';";
-        MySqlCommand cmd = new MySqlCommand(consulta, conn);
-        MySqlDataReader rdr = cmd.ExecuteReader();
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
-        conn.Close();
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "DELETE FROM PSWC.cursos WHERE codigo= @codigo AND profesor= @profesor;";
+
+                cmd.Parameters.AddWithValue("@codigo", codigo);
+                cmd.Parameters.AddWithValue("@profesor", profesor);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 
-    public void AddAlumnoACurso(string alumno, string curso) {
-        string consulta = "INSERT into PSWC.alumno_curso(alumno,curso) VALUES('" + alumno + "','" + curso + "');";
+    public void AddAlumnoACurso(string alumno, string curso, string profesor) {
+        
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
-        conn.Open();
+            int apuntados = 0;
+            int capacidad = 0;
 
-        MySqlCommand cmd = new MySqlCommand(consulta, conn);
-        MySqlDataReader rdr = cmd.ExecuteReader();   
+            using(MySqlCommand cmd = conn.CreateCommand()) {
 
-        conn.Close();
+                cmd.CommandText = "SELECT apuntados,capacidad FROM PSWC.cursos WHERE codigo = @curso AND profesor = @profesor;";
+
+                cmd.Parameters.AddWithValue("@codigo_curso", curso);
+                cmd.Parameters.AddWithValue("@profesor", profesor);
+
+                using (MySqlDataReader dr = cmd.ExecuteReader()) {
+                    while (dr.Read())
+                    apuntados = int.Parse(dr.GetString("apuntados").ToString());
+                    capacidad = int.Parse(dr.GetString("capacidad").ToString());
+                }
+            }
+
+            if(apuntados >= capacidad) {throw new InvalidOperationException("Ese curso ya está lleno"); }
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "INSERT into PSWC.alumno_curso(alumno,curso) "
+                    + "VALUES(@alumno,@curso);";
+
+                cmd.Parameters.AddWithValue("@alumno", alumno);
+                cmd.Parameters.AddWithValue("@curso", curso);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+
+                AlterarNumeroAlumnos(1,curso,profesor,apuntados);
+            }
+        }
+    }
+
+    public void EliminarAlumnoDeCurso(string alumno, string curso, string profesor) {
+        
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+            
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "DELETE FROM PSWC.alumno_curso WHERE alumno = @alumno AND curso = @curso";
+
+                cmd.Parameters.AddWithValue("@alumno", alumno);
+                cmd.Parameters.AddWithValue("@curso", curso);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+
+                AlterarNumeroAlumnos(-1,curso,profesor);
+            }
+        }
+    }
+
+    public void AlterarNumeroAlumnos(int tipo_cambio, string codigo_curso, string profesor, int apuntados = 0) {
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "UPDATE PSWC.cursos SET apuntados = @nuevo WHERE codigo = @codigo_curso AND profesor = @profesor;";
+
+                cmd.Parameters.AddWithValue("@nuevo",apuntados + tipo_cambio);
+                cmd.Parameters.AddWithValue("@codigo_curso", codigo_curso);
+                cmd.Parameters.AddWithValue("@profesor", profesor);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 
     public void AnularPregunta(int id_ex, int id_preg) {
-        string consulta = "UPDATE lista_preguntas SET puntuacion = 0 WHERE id_examen=" + id_ex 
+        string consulta = "UPDATE PSWC.lista_preguntas SET puntuacion = 0 WHERE id_examen=" + id_ex 
         + "AND id_pregunta=" + id_preg + ";";
 
         conn.Open();

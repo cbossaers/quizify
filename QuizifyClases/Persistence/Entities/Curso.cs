@@ -6,7 +6,7 @@ namespace Quizify.Entities
 {
     public partial class Curso
     {
-        public int ID
+        public string codigo
         {
             get;
             set;
@@ -37,6 +37,12 @@ namespace Quizify.Entities
         } 
 
         public DateTime fechaCreacion
+        {
+            get;
+            set;
+        }
+
+        public string contraseña
         {
             get;
             set;

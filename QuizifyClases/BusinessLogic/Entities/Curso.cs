@@ -6,19 +6,20 @@ namespace Quizify.Entities
 {
     public partial class Curso
     {
-        public Curso(int id, string nombre, string autor, int alumnosApuntados, int maxAlumnos, DateTime fechaCreacion)
+        public Curso(string codigo, string nombre, string autor, int alumnosApuntados, int maxAlumnos, DateTime fechaCreacion, string contraseña)
         {
-            this.ID = id;
+            this.codigo = codigo;
             this.nombre = nombre;
             this.autor = autor;
             this.alumnosApuntados = alumnosApuntados;
             this.maxAlumnos = maxAlumnos;
             this.fechaCreacion = fechaCreacion;
+            this.contraseña = contraseña;
         }
 
-        public int GetId()
+        public string GetCodigo()
         {
-            return ID;
+            return codigo;
         }
 
         public string GetNombre()
@@ -36,9 +37,19 @@ namespace Quizify.Entities
             return alumnosApuntados;
         }
 
+        public int GetMaxAlumnos()
+        {
+            return maxAlumnos;
+        }
+
         public DateTime GetFechaCreacion()
         {
             return fechaCreacion;
+        }
+
+        public string GetContraseña()
+        {
+            return contraseña;
         }
     }
 }

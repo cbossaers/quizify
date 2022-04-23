@@ -48,15 +48,15 @@ namespace Quizify.Services
                 throw new ServicioException(e.ToString());
             }
         }
-        public void AddCurso(string codigo, string nombre, string profesor) {
-            try { dal.AddCurso(codigo,nombre,profesor); }
+        public void AddCurso(Curso curso) {
+            try { dal.AddCurso(curso); }
             catch (Exception e)
             {
                 throw new ServicioException(e.ToString());
             }
         }
-        public void AddAlumnoACurso(string alumno, string curso) {
-            try { dal.AddAlumnoACurso(alumno,curso); }
+        public void AddAlumnoACurso(string alumno, string curso, string profesor) {
+            try { dal.AddAlumnoACurso(alumno,curso,profesor); }
             catch (Exception e)
             {
                 throw new ServicioException(e.ToString());
@@ -137,5 +137,12 @@ namespace Quizify.Services
             dal.AnularPregunta(id_ex, id_preg);
         }
 
+        public void EliminarCurso(string codigo, string profesor) {
+            try { dal.EliminarCurso(codigo, profesor); }
+            catch (Exception e)
+            {
+                throw new ServicioException(e.ToString());
+            }
+        }
     }
 }
