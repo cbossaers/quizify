@@ -69,6 +69,9 @@ public class DAL {
                     + "','vf'," + pregunta.GetDificultad() + ",'" + pregunta.GetAutor() + "','" + pregunta.GetTema() +  "');";
                 consulta_especifica = "INSERT into PSWC.pregunta_vf(id,ver,correcta) values(" + id + ",1," + pregunta.GetCorrecta() + ");";
                 break;
+
+            case("Quizify.Entities.PreguntaDesarrollo"):
+                
         }
         
         conn.Open();
@@ -570,7 +573,26 @@ public class DAL {
                 } else return 0;
 
             case("mult"):
-                return 0;
+                int a = correcta * 2;
+                int c = 0;
+                int sum = 0;
+                double total = 0.0;
+
+                for(int i = 0; i < 5; i++) {
+                    if(a % 10 == 2) { total++; }
+
+                    c = (a % 10) - (respuesta % 10);
+                    if(c < 2) { sum+=c; }
+
+                    a /= 10;
+                    respuesta /= 10;
+                }
+
+                if(sum < 0) { sum = 0; }
+
+                total = sum / total;
+
+                return total * puntuacion;
 
             case("des"):
                 return 0;
@@ -594,6 +616,7 @@ public class DAL {
 
         rdr.Close();
         conn.Close();
+        
         return restan;
     }
 
@@ -702,6 +725,7 @@ public class DAL {
     }
 
     public void AlterarNumeroAlumnos(int tipo_cambio, string codigo_curso, string profesor, int apuntados = 0) {
+
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
@@ -719,14 +743,19 @@ public class DAL {
     }
 
     public void AnularPregunta(int id_ex, int id_preg) {
-        string consulta = "UPDATE PSWC.lista_preguntas SET puntuacion = 0 WHERE id_examen=" + id_ex 
-        + "AND id_pregunta=" + id_preg + ";";
 
-        conn.Open();
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
-        MySqlCommand cmd = new MySqlCommand(consulta, conn);
-        MySqlDataReader rdr = cmd.ExecuteReader();   
+            using(MySqlCommand cmd = conn.CreateCommand()) {
 
-        conn.Close();
+                cmd.CommandText = "UPDATE PSWC.lista_preguntas SET puntuacion = 0 WHERE id_examen = @id_ex AND id_pregunta = @id_preg;";
+
+                cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                cmd.Parameters.AddWithValue("@id_preg", id_preg);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }}
