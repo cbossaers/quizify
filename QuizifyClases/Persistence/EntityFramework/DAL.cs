@@ -71,7 +71,8 @@ public class DAL {
                 break;
 
             case("Quizify.Entities.PreguntaDesarrollo"):
-                
+                break;
+
         }
         
         conn.Open();
