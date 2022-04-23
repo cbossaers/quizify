@@ -16,6 +16,9 @@ namespace AppTest
             DAL dal = new DAL();
             Servicio servicio = new Servicio(dal);
 
+            //https://en.wikipedia.org/wiki/SQL_injection#Incorrectly_constructed_SQL_statements
+            //https://stackoverflow.com/questions/75401/what-are-the-uses-of-using-in-c
+
             /*Alumno al1 = new Alumno("cristan@gmail.com", "cristianseña", "Cristian", "Rodriguez", "Primero");
             Alumno al2 = new Alumno("santiago@gmail.com", "santiseña", "Santiago", "Cunillera", "Segundo");
             Alumno al3 = new Alumno("cesar@gmail.com", "cesarseña", "Cesar", "Ayuso", "Tercero");
