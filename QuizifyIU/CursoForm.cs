@@ -25,6 +25,16 @@ namespace QuizifyIU
             AbrirFormCrearCurso(new CrearCurso(servicio, usuario));
         }
 
+        private void bGestionarCurso_Click(object sender, EventArgs e)
+        {
+            AbrirFormGestionarCurso(new GestionarCurso(servicio, usuario));
+        }
+
+        private void bApuntarse_Click(object sender, EventArgs e)
+        {
+            AbrirFormApuntarseCurso();
+        }
+
         private void AbrirFormCrearCurso(object formCrearCurso)
         {
             if (this.panelCurso.Controls.Count > 0)
@@ -36,15 +46,21 @@ namespace QuizifyIU
             this.panelCurso.Tag = fCC;
             fCC.Show();
         }
-
-        private void bGestionarCurso_Click(object sender, EventArgs e)
+        private void AbrirFormApuntarseCurso()
         {
-
+            ApuntarseCurso formApuntarse = new ApuntarseCurso(servicio, usuario);
+            formApuntarse.ShowDialog();
         }
-
-        private void bApuntarse_Click(object sender, EventArgs e)
+        private void AbrirFormGestionarCurso(object formGestionarCurso)
         {
-
+            if (this.panelCurso.Controls.Count > 0)
+                this.panelCurso.Controls.RemoveAt(0);
+            Form fGC = formGestionarCurso as Form;
+            fGC.TopLevel = false;
+            fGC.Dock = DockStyle.Fill;
+            this.panelCurso.Controls.Add(fGC);
+            this.panelCurso.Tag = fGC;
+            fGC.Show();
         }
     }
 }

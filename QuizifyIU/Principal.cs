@@ -34,10 +34,10 @@ namespace QuizifyIU
 
         private void bregistrarse_Click(object sender, EventArgs e)
         {
-            AbrirFormRegistrarse(new registrarse(servicio));
+            AbrirFormRegistrarse();
         }
 
-        private void AbrirFormRegistrarse(object formRegistrarse)
+        private void AbrirFormRegistrarse()
         {
             registrarse formr = new registrarse(servicio);
             formr.ShowDialog();
