@@ -31,6 +31,7 @@
             this.bCrearCurso = new System.Windows.Forms.Button();
             this.bGestionarCurso = new System.Windows.Forms.Button();
             this.panelCurso = new System.Windows.Forms.Panel();
+            this.bApuntarse = new System.Windows.Forms.Button();
             this.panelCurso.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,9 +53,11 @@
             this.bGestionarCurso.TabIndex = 5;
             this.bGestionarCurso.Text = "Gestionar curso";
             this.bGestionarCurso.UseVisualStyleBackColor = true;
+            this.bGestionarCurso.Click += new System.EventHandler(this.bGestionarCurso_Click);
             // 
             // panelCurso
             // 
+            this.panelCurso.Controls.Add(this.bApuntarse);
             this.panelCurso.Controls.Add(this.bCrearCurso);
             this.panelCurso.Controls.Add(this.bGestionarCurso);
             this.panelCurso.Location = new System.Drawing.Point(0, 0);
@@ -62,14 +65,24 @@
             this.panelCurso.Size = new System.Drawing.Size(653, 450);
             this.panelCurso.TabIndex = 6;
             // 
-            // Curso
+            // bApuntarse
+            // 
+            this.bApuntarse.Location = new System.Drawing.Point(156, 330);
+            this.bApuntarse.Name = "bApuntarse";
+            this.bApuntarse.Size = new System.Drawing.Size(101, 23);
+            this.bApuntarse.TabIndex = 6;
+            this.bApuntarse.Text = "Apuntarse curso";
+            this.bApuntarse.UseVisualStyleBackColor = true;
+            this.bApuntarse.Click += new System.EventHandler(this.bApuntarse_Click);
+            // 
+            // CursoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 450);
             this.Controls.Add(this.panelCurso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Curso";
+            this.Name = "CursoForm";
             this.Text = "Curso";
             this.panelCurso.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -80,5 +93,6 @@
         private System.Windows.Forms.Button bCrearCurso;
         private System.Windows.Forms.Button bGestionarCurso;
         private System.Windows.Forms.Panel panelCurso;
+        private System.Windows.Forms.Button bApuntarse;
     }
 }

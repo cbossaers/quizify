@@ -36,5 +36,15 @@ namespace QuizifyIU
             this.panelCurso.Tag = fCC;
             fCC.Show();
         }
+
+        private void bGestionarCurso_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bApuntarse_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
