@@ -53,10 +53,16 @@ namespace QuizifyIU
             DateTime fechaCreado = DateTime.Now;
             string contraseña = boxContraseña.Text;
 
-            /*Si existe un Curso con un codigo que ya existe, DEVUELVE EXCEPCION*/
-            Curso newCurso = new Curso(codigo, nombre, autor, numAl, numMaxAl, fechaCreado, contraseña);
-            servicio.AddCurso(newCurso);
-            DialogResult confirmar = MessageBox.Show(this, "Tu curso ha sido creado con éxito.", "Curso registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (servicio.ExisteCurso(codigo))
+            {
+                DialogResult avisoCursoRepe = MessageBox.Show(this, "El curso con el código " + codigo + " ya existe.", "Curso repetido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                Curso newCurso = new Curso(codigo, nombre, autor, numAl, numMaxAl, fechaCreado, contraseña);
+                servicio.AddCurso(newCurso);
+                DialogResult confirmar = MessageBox.Show(this, "Tu curso ha sido creado con éxito.", "Curso registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
