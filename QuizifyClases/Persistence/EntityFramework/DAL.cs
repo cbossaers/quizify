@@ -776,23 +776,6 @@ public class DAL {
             DateTime.Parse(data.Rows[0]["fecha_creac"].ToString()), data.Rows[0]["contraseña"].ToString());
     }
 
-    public string GetAutorCurso(string cod) {
-            conn.Open();
-            string consulta = "SELECT autor FROM PSWC.cursos WHERE codigo= " + cod + ";";
-
-            MySqlCommand cmd = new MySqlCommand(consulta, conn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
-
-            while (rdr.Read())
-            {
-                consulta = rdr.GetString("autor");
-            }
-
-            rdr.Close();
-            conn.Close();
-            return consulta;
-    }
-
     public bool ExisteCurso(string cod) {
             conn.Open();
             string consulta = "SELECT correo FROM PSWC.cursos WHERE codigo ='" + cod + "';";

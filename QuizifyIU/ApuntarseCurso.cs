@@ -1,4 +1,5 @@
-﻿using Quizify.Services;
+﻿using Quizify.Entities;
+using Quizify.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,11 +29,10 @@ namespace QuizifyIU
         private void comprobarDatos()
         {
             string alumno = usuario.correo;
-            string curso = codBox.Text;
-            string profesor = "";
-            /*Curso apuntado = GetCurso(curso);
-            string profesor = apuntado.GetAutor();*/
-            servicio.AddAlumnoACurso(alumno, curso, profesor);
+            string codigo = codBox.Text;
+            Curso cursoApuntado = servicio.GetCurso(codigo);
+            string profesor = cursoApuntado.autor;
+            servicio.AddAlumnoACurso(alumno, codigo, profesor);
         }
     }
 }

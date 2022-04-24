@@ -46,7 +46,6 @@ namespace Quizify.Services
         public void AnularPregunta(int id_ex, int id_preg);
         public void EliminarCurso(string codigo, string profesor);
         public Curso GetCurso(string codigo);
-        public string GetAutorCurso(string codigo);
         public bool ExisteCurso(string codigo);
     }
 }
