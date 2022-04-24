@@ -70,7 +70,7 @@ namespace QuizifyIU
             
             catch (Exception ex)
             {
-                DialogResult answer = MessageBox.Show(this, "Este email no está registrado.",
+                DialogResult answer = MessageBox.Show(this, "Este email no está registrado." + ex,
                                                             "Error", MessageBoxButtons.OK,
                                                             MessageBoxIcon.Exclamation);
             }

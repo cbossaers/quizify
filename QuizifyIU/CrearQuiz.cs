@@ -43,7 +43,7 @@ namespace QuizifyIU
 
         private void mostrear()
         {
-            int id = 666;
+            //int id = 666;
             nombre.Text = examen.GetTitulo();
             descripcion.Text = examen.GetDescripcion();
             curso.Text = examen.GetCurso();
