@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.bCrearCurso = new System.Windows.Forms.Button();
             this.nombreIniciado = new System.Windows.Forms.Label();
             this.bHacerExamen = new System.Windows.Forms.Button();
             this.bAjustes = new System.Windows.Forms.Button();
@@ -38,7 +39,6 @@
             this.bMisPreguntas = new System.Windows.Forms.Button();
             this.bCrearPregunta = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.bCrearCurso = new System.Windows.Forms.Button();
             this.MenuVertical.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,19 @@
             this.MenuVertical.Name = "MenuVertical";
             this.MenuVertical.Size = new System.Drawing.Size(147, 450);
             this.MenuVertical.TabIndex = 0;
+            // 
+            // bCrearCurso
+            // 
+            this.bCrearCurso.FlatAppearance.BorderSize = 0;
+            this.bCrearCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bCrearCurso.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bCrearCurso.Location = new System.Drawing.Point(2, 340);
+            this.bCrearCurso.Name = "bCrearCurso";
+            this.bCrearCurso.Size = new System.Drawing.Size(141, 40);
+            this.bCrearCurso.TabIndex = 7;
+            this.bCrearCurso.Text = "Curso";
+            this.bCrearCurso.UseVisualStyleBackColor = true;
+            this.bCrearCurso.Click += new System.EventHandler(this.bCrearCurso_Click);
             // 
             // nombreIniciado
             // 
@@ -163,19 +176,6 @@
             this.panelContenedor.Size = new System.Drawing.Size(653, 450);
             this.panelContenedor.TabIndex = 1;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
-            // 
-            // bCrearCurso
-            // 
-            this.bCrearCurso.FlatAppearance.BorderSize = 0;
-            this.bCrearCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bCrearCurso.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bCrearCurso.Location = new System.Drawing.Point(2, 340);
-            this.bCrearCurso.Name = "bCrearCurso";
-            this.bCrearCurso.Size = new System.Drawing.Size(141, 40);
-            this.bCrearCurso.TabIndex = 7;
-            this.bCrearCurso.Text = "Crear curso";
-            this.bCrearCurso.UseVisualStyleBackColor = true;
-            this.bCrearCurso.Click += new System.EventHandler(this.bCrearCurso_Click);
             // 
             // Portal
             // 
