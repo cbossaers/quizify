@@ -759,4 +759,39 @@ public class DAL {
             }
         }
     }
-}}
+
+    public Curso GetCurso(string cod) {
+        string consulta = "SELECT * FROM PSWC.cursos WHERE codigo= " + cod + ";";
+
+        conn.Open();
+
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+
+        conn.Close();
+
+        return new Curso(cod, data.Rows[0]["nombre"].ToString(),
+            data.Rows[0]["profesor"].ToString(), int.Parse(data.Rows[0]["apuntados"].ToString()), int.Parse(data.Rows[0]["capacidad"].ToString()),
+            DateTime.Parse(data.Rows[0]["fecha_creac"].ToString()), data.Rows[0]["contraseña"].ToString());
+    }
+
+    public bool ExisteCurso(string cod) {
+            conn.Open();
+            string consulta = "SELECT correo FROM PSWC.cursos WHERE codigo ='" + cod + "';";
+            bool existe = false;
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+            DataTable data = new DataTable();
+            adapter.Fill(data);
+
+            foreach (DataRow row in data.Rows)
+            {
+                existe = true;
+                Console.WriteLine(row);
+            }
+            conn.Close();
+            return existe;
+        }
+    }
+}

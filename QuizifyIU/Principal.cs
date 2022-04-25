@@ -34,10 +34,10 @@ namespace QuizifyIU
 
         private void bregistrarse_Click(object sender, EventArgs e)
         {
-            AbrirFormRegistrarse(new registrarse(servicio));
+            AbrirFormRegistrarse();
         }
 
-        private void AbrirFormRegistrarse(object formRegistrarse)
+        private void AbrirFormRegistrarse()
         {
             registrarse formr = new registrarse(servicio);
             formr.ShowDialog();
@@ -70,7 +70,7 @@ namespace QuizifyIU
             
             catch (Exception ex)
             {
-                DialogResult answer = MessageBox.Show(this, "Este email no está registrado.",
+                DialogResult answer = MessageBox.Show(this, "Este email no está registrado." + ex,
                                                             "Error", MessageBoxButtons.OK,
                                                             MessageBoxIcon.Exclamation);
             }

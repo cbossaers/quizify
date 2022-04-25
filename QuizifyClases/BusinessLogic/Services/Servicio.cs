@@ -144,5 +144,19 @@ namespace Quizify.Services
                 throw new ServicioException(e.ToString());
             }
         }
+
+        public Curso GetCurso(string codigo)
+        {
+            if (true)
+            {
+                return dal.GetCurso(codigo);
+            }
+            else throw new ServicioException("El curso con código " + codigo + " no existe");
+        }
+
+        public bool ExisteCurso(string codigo)
+        {
+            return dal.ExisteCurso(codigo);
+        }
     }
 }

@@ -58,7 +58,7 @@ namespace QuizifyIU
         {
             descripcion.Text = examen.GetDescripcion().ToString();
             nombre_quiz.Text = examen.GetTitulo().ToString();   
-            if (examen.GetIntentos()!=null)
+            if (examen.GetIntentos() > 0)
             {
                 label3.Text = "Tiene "+ examen.GetIntentos().ToString() +" intentos";
             }
