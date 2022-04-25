@@ -84,19 +84,10 @@ namespace QuizifyIU
 
         private void tablaPreguntas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (tablaPreguntas.SelectedCells[2].Value.ToString() == "test")
-            {
-                PreguntaTest preg = servicio.GetPreguntaTestById(int.Parse(tablaPreguntas.SelectedCells[0].Value.ToString()), int.Parse(tablaPreguntas.SelectedCells[3].Value.ToString()));
-            }
-            else if (tablaPreguntas.SelectedCells[2].Value.ToString() == "vf")
-            {
-                PreguntaVF preg = servicio.GetPreguntaVFById(int.Parse(tablaPreguntas.SelectedCells[0].Value.ToString()), int.Parse(tablaPreguntas.SelectedCells[3].Value.ToString()));
-            }
-            /*this.Hide();
-            var form2 = new CrearPregunta(servicio, usuario, int.Parse(tablaPreguntas.SelectedCells[0].Value.ToString()));
+            this.Hide();
+            var form2 = new CrearPregunta(servicio, usuario, int.Parse(tablaPreguntas.SelectedCells[0].Value.ToString()), int.Parse(tablaPreguntas.SelectedCells[3].Value.ToString()), tablaPreguntas.SelectedCells[2].Value.ToString());
             form2.Closed += (s, args) => this.Close();
-            form2.Show();*/
-
+            form2.Show();
         }
     }
 }

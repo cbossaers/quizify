@@ -46,7 +46,15 @@ namespace QuizifyIU
             this.crearquiz= true;
             this.usuario = usuario;
         }
+        public CrearPregunta(Servicio servicio, dynamic usuario,int id, int version, string tipo)
+        {
+            InitializeComponent();
+            this.servicio = servicio;
+            this.usuario = usuario;
+            editar(id,version,tipo); 
+        }
 
+        
 
         private void CambiaTipoPregunta(object sender, EventArgs e)
         {
@@ -339,6 +347,19 @@ namespace QuizifyIU
             }
             
             
+        }
+
+        private void editar(int id,int version,string tipo)
+        {
+            if (tipo == "test")
+            {
+                PreguntaTest preg = servicio.GetPreguntaTestById(id,version);
+            }
+            else if (tipo == "vf")
+            {
+                PreguntaVF preg = servicio.GetPreguntaVFById(id,version);
+            }
+
         }
 
         
