@@ -40,7 +40,7 @@ namespace QuizifyIU
         private void empezar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var form2 = new HacerExamen2(servicio, usuario);
+            var form2 = new HacerExamen2(servicio, usuario,examen);
             form2.Closed += (s, args) => this.Close();
             form2.Show();
             

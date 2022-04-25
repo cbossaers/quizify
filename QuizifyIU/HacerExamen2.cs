@@ -28,35 +28,31 @@ namespace QuizifyIU
         DateTime start;
         DateTime endTime;
         Stopwatch stopwatch = new Stopwatch();
-        
-
 
         Examen examen;
-        public HacerExamen2(Servicio servicio, dynamic user)
+
+        public HacerExamen2(Servicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
             this.servicio = servicio;
-            examen = servicio.GetExamenById(0);
             preguntas_asociadas = examen.GetPreguntasAsociadas();
             counter = examen.tiempo;
             stopwatch.Start();
             //tiempo_barra();
-            tiempo();
+            //tiempo();
             for(int i = 0; i < preguntas_asociadas.Count; i += 3)
             {
                 res.Add(preguntas_asociadas[i], -1);
             }
-            //indice();
-            if(examen.GetVolverAtras()==0) anterior.Visible = false;
+            
+            if (examen.GetVolverAtras()==0) anterior.Visible = false;
             interfaz();
 
             label1.Text =preguntas_asociadas[cont].ToString();
             label1.Text = preguntas_asociadas[cont+1].ToString();
         }
-
-        
 
         private void anterior_Click(object sender, EventArgs e)
         {
@@ -97,8 +93,7 @@ namespace QuizifyIU
 
         private void interfaz()
         {
-            
-            //pregunta = servicio.GetPreguntaById(preguntas_asociadas[cont], preguntas_asociadas[cont+1]);
+            indice();
             bloquear();
             if (servicio.GetTipoPregunta(preguntas_asociadas[cont]) == "test")
             {
@@ -111,7 +106,7 @@ namespace QuizifyIU
                 label1.Text = res.ContainsKey(preguntas_asociadas[cont]).ToString();
                 
                 
-                if (res.ContainsKey(preguntas_asociadas[cont])&& res[preguntas_asociadas[cont]] !=-1) 
+                if (res.ContainsKey(preguntas_asociadas[cont]) && res[preguntas_asociadas[cont]] !=-1) 
                 {
                     res.TryGetValue(preguntas_asociadas[cont], out op_correcta);
 
@@ -163,6 +158,7 @@ namespace QuizifyIU
             }
 
         }
+
         private void correct(object sender, EventArgs e)
         {
             RadioButton radioButton = (RadioButton)sender;
@@ -184,7 +180,6 @@ namespace QuizifyIU
 
         }
 
-
         private void borrar_seleccion_Click(object sender, EventArgs e)
         {
             
@@ -193,13 +188,12 @@ namespace QuizifyIU
         }
 
         private void guardar(int id, int version, int correcta)
-        {
-            
+        { 
             if (res.ContainsKey(id)) res[id] = correcta;
             else res.Add(id, correcta);
-            
 
         }
+
         private void visible(PreguntaTest preg)
         {
             if (preg.GetOpcA() != "")
@@ -246,10 +240,10 @@ namespace QuizifyIU
 
         private void HacerExamen2_Load(object sender, EventArgs e)
         {
-             minutes = examen.tiempo; //countdown time
+            /* minutes = examen.tiempo; //countdown time
              start = DateTime.UtcNow; // Use UtcNow instead of Now
              endTime = start.AddMinutes(minutes); //endTime is a member, not a local variable
-            //timer1.Enabled = true;
+            //timer1.Enabled = true;*/
         }
 
         public void bloquear()
@@ -258,64 +252,7 @@ namespace QuizifyIU
             else anterior.Enabled = true; if (cont >= preguntas_asociadas.Count-3) { siguiente.Text = "Finalizar examen"; }
             else siguiente.Text = "Siguiente";
         }
-        private void tiempo_barra()
-        {
-            TimeSpan remainingTime=endTime-DateTime.UtcNow;
-            if(remainingTime<TimeSpan.Zero)
-            {
-                label3.Text = "Done!";
-                //timer1.Enabled=false; 
-            }
-            else
-            {
-                label3.Text = remainingTime.ToString();
-            }
-        }
-        private void indice()
-        {
-            BindingList<object> bindinglist = new BindingList<object>();
-            int cuen=0;
-            for (int i = 0; i < res.Count; i++)
-            {
-                if (res[preguntas_asociadas[cuen]] !=-1)
-                {
-                    bindinglist.Add(new
-                    {
-                        ds_pregunta = "Pregunta " + i.ToString(),
-                        ds_correcta = 1,
-
-                    });
-                }
-                else
-                {
-                    bindinglist.Add(new
-                    {
-                        ds_pregunta = "Pregunta " + i.ToString(),
-                        ds_correcta = 0,
-
-                    });
-                }
-                cuen += 3;
-                
-
-            }
-            dataGridView1.DataSource = bindinglist;
-        }
-        private void indice2()
-        {
-            /*for (int i = 0; i < preguntas_asociadas.Count; i+=3)
-            {
-                if (res[preguntas_asociadas[i]] != 1)
-                {
-                    dataGridView1.row[1].Value = 1;
-                }
-                else
-                {
-                    dataGridView1.SelectedCells[1].Value = 0;
-                }
-
-            }*/
-        }
+        
         private TimeSpan tiempo()
         {
             
@@ -337,8 +274,6 @@ namespace QuizifyIU
 
         }
 
-        
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             label3.Text = tiempo().ToString();
@@ -351,5 +286,53 @@ namespace QuizifyIU
                 
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
+            indice();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            for (int i = 0; i < res.Count; i++)
+            {
+                if(dataGridView1.SelectedCells[0].Value.ToString().Equals("Pregunta "+ (i+1).ToString()))
+                {
+                    guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
+                    cont = i*3 ;
+                    interfaz();
+
+                }
+            }
+        }
+
+        private void indice()
+        {
+            BindingList<object> bindinglist = new BindingList<object>();
+            int cuen = 0;
+            for (int i = 1; i <= res.Count; i++)
+            {
+                if (res[preguntas_asociadas[cuen]] != -1)
+                {
+                    bindinglist.Add(new
+                    {
+                        ds_pregunta = "Pregunta " + i.ToString(),
+                        ds_contestada = "◉",
+                    });
+                }
+                else
+                {
+                    bindinglist.Add(new
+                    {
+                        ds_pregunta = "Pregunta " + i.ToString(),
+                        ds_contestada = "○"
+                    });
+                }
+                cuen += 3;
+            }
+            dataGridView1.DataSource = bindinglist;
+        }
+        
     }
 }

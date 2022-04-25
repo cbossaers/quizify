@@ -34,7 +34,6 @@ namespace QuizifyIU
 
             for (int i = 0; i < DTable.Count; i += 3)
             {
-
                 if (servicio.GetTipoPregunta(DTable[i]).ToString() == "test")
                 {
                     PreguntaTest preg = servicio.GetPreguntaTestById(DTable[i], DTable[i + 1]);

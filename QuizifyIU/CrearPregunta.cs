@@ -47,6 +47,7 @@ namespace QuizifyIU
             this.usuario = usuario;
         }
 
+
         private void CambiaTipoPregunta(object sender, EventArgs e)
         {
             cambioTipoPregunta = true;
