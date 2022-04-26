@@ -18,6 +18,7 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
+            //SOLO los PROFESORES pueden acceder al apartado de Gestionar Curso
         }
 
         private void bCrearCurso_Click(object sender, EventArgs e)
