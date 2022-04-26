@@ -26,6 +26,7 @@ namespace QuizifyIU
         private PreguntaTest preguntaTest;
         private PreguntaVF preguntaVF;
         private PreguntaDesarrollo preguntaDesarrollo;
+        private PreguntaMultiple preguntaMultiple;
         private int dificultadNum;
 
         Examen examen;
@@ -167,8 +168,8 @@ namespace QuizifyIU
             if(tipoPregunta.Text == "Desarrollo")
             {
                 lista.Add(RespuestaTxt.Text);
-                preguntaDesarrollo = fabrica.CrearPregunta("desarrollo", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo(), "tema3", lista, 1);
-                servicio.AddPreguntaDesarrollo(preguntaDesarrollo);
+                preguntaDesarrollo = fabrica.CrearPregunta("desarrollo", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo(), tema.Text, lista, 1);
+                servicio.AddPregunta(preguntaDesarrollo);
 
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
@@ -187,8 +188,8 @@ namespace QuizifyIU
                     if (numeroDeOpciones == 4) lista.Add(opc3.Text);
                     if (numeroDeOpciones == 5) lista.Add(opc4.Text);
                 }
-                preguntaTest = fabrica.CrearPregunta("test", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo() , "tema3", lista,1);
-                servicio.AddPreguntaTest(preguntaTest);
+                preguntaTest = fabrica.CrearPregunta("test", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo() , tema.Text, lista,1);
+                servicio.AddPregunta(preguntaTest);
                 
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
@@ -209,8 +210,8 @@ namespace QuizifyIU
                     if (numeroDeOpciones == 4) lista.Add(opc3.Text);
                     if (numeroDeOpciones == 5) lista.Add(opc4.Text);
                 }
-                preguntaTest = fabrica.CrearPregunta("test", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo(), "tema3", lista, 1);
-                servicio.AddPreguntaTest(preguntaTest);
+                preguntaMultiple = fabrica.CrearPregunta("multiple", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo(), tema.Text, lista, 1);
+                servicio.AddPregunta(preguntaMultiple);
 
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
@@ -220,8 +221,8 @@ namespace QuizifyIU
             }
             else
             {
-                preguntaVF = fabrica.CrearPregunta("vf", 120, enunciado.Text, dificultadNum, usuario.GetCorreo() , "tema1",lista, 1);
-                servicio.AddPreguntaVF(preguntaVF);
+                preguntaVF = fabrica.CrearPregunta("vf", 120, enunciado.Text, dificultadNum, usuario.GetCorreo() , tema.Text,lista, 1);
+                servicio.AddPregunta(preguntaVF);
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Information);
@@ -361,7 +362,5 @@ namespace QuizifyIU
             }
 
         }
-
-        
     }
 }
