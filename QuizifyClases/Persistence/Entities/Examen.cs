@@ -61,5 +61,11 @@ public partial class Examen
         get;
         set;
     }
+
+    public string competenciaTransversal
+        {
+            get;
+            set;
+        }
 }
 }

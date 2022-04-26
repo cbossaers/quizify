@@ -39,7 +39,8 @@ namespace QuizifyIU
                         curso = ex.GetCurso(),
                         tiempo = ex.GetTiempo(),
                         fecha_ini = ex.GetFechaIni(),
-                        fecha_fin = ex.GetFechaFin()
+                        fecha_fin = ex.GetFechaFin(),
+                        competenciaTransversal = ex.GetCompetenciaTransversal()
                     }) ;;
                 }
                 else if(servicio.GetTipoEntidad(user.GetCorreo()) == "profesor")
@@ -52,7 +53,8 @@ namespace QuizifyIU
                         curso = ex.GetCurso(),
                         tiempo = ex.GetTiempo(),
                         fecha_ini = ex.GetFechaIni(),
-                        fecha_fin = ex.GetFechaFin()
+                        fecha_fin = ex.GetFechaFin(),
+                        competenciaTransversal = ex.GetCompetenciaTransversal()
                     }) ; ;
                 }
             }
@@ -80,7 +82,8 @@ namespace QuizifyIU
                             curso = ex.GetCurso(),
                             tiempo = ex.GetTiempo(),
                             fecha_ini = ex.GetFechaIni(),
-                            fecha_fin = ex.GetFechaFin()
+                            fecha_fin = ex.GetFechaFin(),
+                            competenciaTransversal = ex.GetCompetenciaTransversal()
                         }); ;
                     }
                     
