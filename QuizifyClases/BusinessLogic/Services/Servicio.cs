@@ -142,5 +142,10 @@ namespace Quizify.Services
         {
             return dal.ExisteCurso(codigo);
         }
+
+        public List<string> GetCursosByAutor(dynamic persona)
+        {
+            return dal.GetCursosByAutor(persona);
+        }
     }
 }

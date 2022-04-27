@@ -29,44 +29,56 @@
         private void InitializeComponent()
         {
             this.panelGestionarCurso = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tablaDatoCurso = new System.Windows.Forms.DataGridView();
             this.bAñadir = new System.Windows.Forms.Button();
             this.bEliminar = new System.Windows.Forms.Button();
             this.alumnoBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cursoBox = new System.Windows.Forms.TextBox();
             this.bVolver = new System.Windows.Forms.Button();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numAl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelGestionarCurso.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDatoCurso)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGestionarCurso
             // 
-            this.panelGestionarCurso.Controls.Add(this.button1);
+            this.panelGestionarCurso.Controls.Add(this.tablaDatoCurso);
             this.panelGestionarCurso.Controls.Add(this.bAñadir);
             this.panelGestionarCurso.Controls.Add(this.bEliminar);
             this.panelGestionarCurso.Controls.Add(this.alumnoBox);
             this.panelGestionarCurso.Controls.Add(this.label2);
-            this.panelGestionarCurso.Controls.Add(this.label1);
-            this.panelGestionarCurso.Controls.Add(this.cursoBox);
             this.panelGestionarCurso.Controls.Add(this.bVolver);
             this.panelGestionarCurso.Location = new System.Drawing.Point(-2, -1);
             this.panelGestionarCurso.Name = "panelGestionarCurso";
             this.panelGestionarCurso.Size = new System.Drawing.Size(657, 452);
             this.panelGestionarCurso.TabIndex = 0;
             // 
-            // button1
+            // tablaDatoCurso
             // 
-            this.button1.Location = new System.Drawing.Point(480, 359);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tablaDatoCurso.AllowUserToResizeColumns = false;
+            this.tablaDatoCurso.AllowUserToResizeRows = false;
+            this.tablaDatoCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaDatoCurso.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigo,
+            this.nombre,
+            this.numAl,
+            this.fechaCreado});
+            this.tablaDatoCurso.Location = new System.Drawing.Point(48, 65);
+            this.tablaDatoCurso.MultiSelect = false;
+            this.tablaDatoCurso.Name = "tablaDatoCurso";
+            this.tablaDatoCurso.RowHeadersVisible = false;
+            this.tablaDatoCurso.RowHeadersWidth = 62;
+            this.tablaDatoCurso.RowTemplate.Height = 25;
+            this.tablaDatoCurso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tablaDatoCurso.Size = new System.Drawing.Size(503, 273);
+            this.tablaDatoCurso.TabIndex = 9;
             // 
             // bAñadir
             // 
-            this.bAñadir.Location = new System.Drawing.Point(222, 368);
+            this.bAñadir.Location = new System.Drawing.Point(151, 368);
             this.bAñadir.Name = "bAñadir";
             this.bAñadir.Size = new System.Drawing.Size(75, 23);
             this.bAñadir.TabIndex = 7;
@@ -76,7 +88,7 @@
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(339, 368);
+            this.bEliminar.Location = new System.Drawing.Point(256, 368);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(75, 23);
             this.bEliminar.TabIndex = 6;
@@ -86,7 +98,7 @@
             // 
             // alumnoBox
             // 
-            this.alumnoBox.Location = new System.Drawing.Point(257, 195);
+            this.alumnoBox.Location = new System.Drawing.Point(163, 21);
             this.alumnoBox.Name = "alumnoBox";
             this.alumnoBox.Size = new System.Drawing.Size(157, 23);
             this.alumnoBox.TabIndex = 5;
@@ -94,27 +106,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(112, 203);
+            this.label2.Location = new System.Drawing.Point(48, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 15);
             this.label2.TabIndex = 4;
             this.label2.Text = "Correo del alumno:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(121, 140);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Código del curso:";
-            // 
-            // cursoBox
-            // 
-            this.cursoBox.Location = new System.Drawing.Point(257, 140);
-            this.cursoBox.Name = "cursoBox";
-            this.cursoBox.Size = new System.Drawing.Size(157, 23);
-            this.cursoBox.TabIndex = 2;
             // 
             // bVolver
             // 
@@ -125,6 +121,31 @@
             this.bVolver.Text = "Volver";
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "cod";
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 200;
+            // 
+            // numAl
+            // 
+            this.numAl.DataPropertyName = "numAl";
+            this.numAl.HeaderText = "Número alumnos";
+            this.numAl.Name = "numAl";
+            // 
+            // fechaCreado
+            // 
+            this.fechaCreado.DataPropertyName = "fechaCreacion";
+            this.fechaCreado.HeaderText = "Fecha creación";
+            this.fechaCreado.Name = "fechaCreado";
             // 
             // GestionarCurso
             // 
@@ -137,6 +158,7 @@
             this.Text = "GestionarCurso";
             this.panelGestionarCurso.ResumeLayout(false);
             this.panelGestionarCurso.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDatoCurso)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -147,10 +169,12 @@
         private System.Windows.Forms.Button bVolver;
         private System.Windows.Forms.TextBox alumnoBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox cursoBox;
         private System.Windows.Forms.Button bEliminar;
         private System.Windows.Forms.Button bAñadir;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView tablaDatoCurso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numAl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreado;
     }
 }

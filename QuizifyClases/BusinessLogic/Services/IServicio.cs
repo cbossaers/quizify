@@ -45,5 +45,6 @@ namespace Quizify.Services
         public void EliminarCurso(string codigo, string profesor);
         public Curso GetCurso(string codigo);
         public bool ExisteCurso(string codigo);
+        public List<string> GetCursosByAutor(dynamic persona);
     }
 }

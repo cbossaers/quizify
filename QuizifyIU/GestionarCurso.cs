@@ -1,4 +1,5 @@
-﻿using Quizify.Services;
+﻿using Quizify.Entities;
+using Quizify.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,25 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
+            
+            BindingList<object> bindingListExamenDisponible = new BindingList<object>();
+
+            List<string> lista = servicio.GetCursosByAutor(usuario);
+
+            foreach (string x in lista)
+            {
+                Curso cu = servicio.GetCurso(x);
+                
+                bindingListExamenDisponible.Add(new
+                {
+                    cod = cu.GetCodigo(),
+                    nombre = cu.GetNombre(),
+                    numAl = cu.GetNumAlumnos(),
+                    fechaCreado = cu.GetFechaCreacion()
+                }); ;
+                
+            }
+            tablaDatoCurso.DataSource = bindingListExamenDisponible;
         }
 
         private void bVolver_Click(object sender, EventArgs e)
@@ -49,7 +69,7 @@ namespace QuizifyIU
 
         private void profeAñadeAlumno()
         {
-            string curso = cursoBox.Text;
+            string curso = "";
             string alumno = alumnoBox.Text;
             string profesor = usuario.nombre;
             servicio.AddAlumnoACurso(alumno, curso, profesor);
@@ -57,7 +77,7 @@ namespace QuizifyIU
 
         private void EliminarCurso()
         {
-            string curso = cursoBox.Text;
+            string curso = "";
             string profesor = usuario.nombre;
             servicio.EliminarCurso(curso, profesor);
         }

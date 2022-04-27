@@ -844,5 +844,31 @@ public class DAL : IDAL {
 
         ActualizarEstadoQuizes();
     }
-}
+
+        public List<string> GetCursosByAutor(dynamic persona)
+        {
+
+            string tipo = GetTipoEntidad(persona.GetCorreo());
+            string consulta = "";
+
+            List<string> result = new List<string> { };
+
+            if(tipo == "profesor") consulta = "SELECT id FROM cursos WHERE autor= '" + persona.GetCorreo() + "';";
+
+            conn.Open();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+            DataTable data = new DataTable();
+            adapter.Fill(data);
+
+            conn.Close();
+
+            foreach (DataRow row in data.Rows)
+            {
+                result.Add(row["codigo"].ToString());
+            }
+
+            return result;
+        }
+    }
 }
