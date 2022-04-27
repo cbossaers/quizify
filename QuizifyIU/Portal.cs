@@ -142,7 +142,7 @@ namespace QuizifyIU
 
         private void bCrearCurso_Click(object sender, EventArgs e)
         {
-
+            AbrirFormCurso(new CursoForm(servicio, usuario));
         }
     }
 }

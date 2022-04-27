@@ -42,5 +42,11 @@ namespace Quizify.Entities
             get;
             set;
         }
+
+        private string competenciaT
+        {
+            get;
+            set;
+        }
     }
 }

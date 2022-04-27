@@ -92,7 +92,7 @@ namespace QuizifyIU
             DateTime fecha_inicial = DateTime.Parse(ini.Text);
             DateTime fecha_finanl = DateTime.Parse(fin.Text);
             DateTime fecha_actual = DateTime.Now;
-            string CT = comboBoxCT.Text.ToString();
+            string CT = comboBoxCT.Text;
             
             
             Examen examen = new Examen(id,titulo, descripcio,cursos,autor,tiempo,fecha_actual,fecha_inicial,fecha_finanl,intento, volver_atras, errores_restan, mostrar_resultados,pregunta, CT);

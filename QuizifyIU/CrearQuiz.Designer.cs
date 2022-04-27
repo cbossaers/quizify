@@ -420,7 +420,6 @@
             this.comboBoxCT.Name = "comboBoxCT";
             this.comboBoxCT.Size = new System.Drawing.Size(210, 23);
             this.comboBoxCT.TabIndex = 71;
-            this.comboBoxCT.Text = "Elige una competencia transversal";
             // 
             // label7
             // 
@@ -428,9 +427,9 @@
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(34, 423);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(176, 20);
+            this.label7.Size = new System.Drawing.Size(241, 20);
             this.label7.TabIndex = 72;
-            this.label7.Text = "Competencia Transversal:";
+            this.label7.Text = "Elige una Competencia Transversal:";
             // 
             // CrearQuiz
             // 

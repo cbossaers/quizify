@@ -5,7 +5,7 @@ namespace Quizify.Entities
     public partial class PreguntaVF : Pregunta
     {
         public PreguntaVF(int Id, string Enunciado, int OpCorrecta, int dificultad, string autor, string tema, 
-            int version = 1) : base(Id, Enunciado, dificultad, autor, tema, version)
+            int version = 1, string CT="") : base(Id, Enunciado, dificultad, autor, tema, version, CT)
         {
             correcta = OpCorrecta;
         }
