@@ -4,7 +4,7 @@ namespace Quizify.Entities
 {
     public partial class Pregunta
     {
-        public Pregunta(int Id, string Enunciado, int Dificultad, string Autor, string Tema, int ver)
+        public Pregunta(int Id, string Enunciado, int Dificultad, string Autor, string Tema, int ver, string CT)
         {
             ID = Id;
             version = ver;
@@ -12,6 +12,7 @@ namespace Quizify.Entities
             dificultad = Dificultad;
             autor = Autor;
             tema = Tema;
+            competenciaT = CT;
         }
         public int GetId()
         {
@@ -70,6 +71,16 @@ namespace Quizify.Entities
         public void GetTipo(string Tipo)
         {
             this.tipo = Tipo;
+        }
+
+        public string GetCT()
+        {
+            return competenciaT;
+        }
+
+        public void SetCT(string CT)
+        {
+            competenciaT = CT;
         }
     }
 }

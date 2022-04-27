@@ -52,6 +52,7 @@ namespace QuizifyIU
             int numMaxAl = (int)maxAlumnos.Value;
             DateTime fechaCreado = DateTime.Now;
             string contraseña = boxContraseña.Text;
+            string CT = ctCurso.Text;
 
             if (servicio.ExisteCurso(codigo))
             {

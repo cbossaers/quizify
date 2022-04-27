@@ -65,6 +65,7 @@
             this.botonBorrar2 = new System.Windows.Forms.Button();
             this.tema = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.ctPregunta = new System.Windows.Forms.ComboBox();
             this.correctaTest.SuspendLayout();
             this.correctaVF.SuspendLayout();
             this.CorrectaMult.SuspendLayout();
@@ -74,19 +75,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(14, 12);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 35);
+            this.label1.Size = new System.Drawing.Size(107, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Enunciado:";
             // 
             // enunciado
             // 
-            this.enunciado.Location = new System.Drawing.Point(14, 53);
-            this.enunciado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.enunciado.Location = new System.Drawing.Point(12, 40);
             this.enunciado.Multiline = true;
             this.enunciado.Name = "enunciado";
-            this.enunciado.Size = new System.Drawing.Size(711, 99);
+            this.enunciado.Size = new System.Drawing.Size(623, 75);
             this.enunciado.TabIndex = 1;
             // 
             // tipoPregunta
@@ -97,65 +97,59 @@
             "Verdadero Falso",
             "Desarrollo",
             "Selección Múltiple"});
-            this.tipoPregunta.Location = new System.Drawing.Point(14, 201);
-            this.tipoPregunta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tipoPregunta.Location = new System.Drawing.Point(12, 151);
             this.tipoPregunta.Name = "tipoPregunta";
-            this.tipoPregunta.Size = new System.Drawing.Size(138, 28);
+            this.tipoPregunta.Size = new System.Drawing.Size(121, 23);
             this.tipoPregunta.TabIndex = 6;
             this.tipoPregunta.Text = "Tipo de pregunta";
             this.tipoPregunta.SelectedIndexChanged += new System.EventHandler(this.CambiaTipoPregunta);
             // 
             // opc0
             // 
-            this.opc0.Location = new System.Drawing.Point(53, 259);
-            this.opc0.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.opc0.Location = new System.Drawing.Point(46, 194);
             this.opc0.Name = "opc0";
-            this.opc0.Size = new System.Drawing.Size(555, 27);
+            this.opc0.Size = new System.Drawing.Size(486, 23);
             this.opc0.TabIndex = 7;
             this.opc0.Visible = false;
             // 
             // opc1
             // 
-            this.opc1.Location = new System.Drawing.Point(53, 320);
-            this.opc1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.opc1.Location = new System.Drawing.Point(46, 240);
             this.opc1.Name = "opc1";
-            this.opc1.Size = new System.Drawing.Size(555, 27);
+            this.opc1.Size = new System.Drawing.Size(486, 23);
             this.opc1.TabIndex = 8;
             this.opc1.Visible = false;
             // 
             // opc2
             // 
-            this.opc2.Location = new System.Drawing.Point(53, 385);
-            this.opc2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.opc2.Location = new System.Drawing.Point(46, 289);
             this.opc2.Name = "opc2";
-            this.opc2.Size = new System.Drawing.Size(555, 27);
+            this.opc2.Size = new System.Drawing.Size(486, 23);
             this.opc2.TabIndex = 9;
             this.opc2.Visible = false;
             // 
             // opc3
             // 
-            this.opc3.Location = new System.Drawing.Point(53, 449);
-            this.opc3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.opc3.Location = new System.Drawing.Point(46, 337);
             this.opc3.Name = "opc3";
-            this.opc3.Size = new System.Drawing.Size(555, 27);
+            this.opc3.Size = new System.Drawing.Size(486, 23);
             this.opc3.TabIndex = 10;
             this.opc3.Visible = false;
             // 
             // opc4
             // 
-            this.opc4.Location = new System.Drawing.Point(53, 515);
-            this.opc4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.opc4.Location = new System.Drawing.Point(46, 386);
             this.opc4.Name = "opc4";
-            this.opc4.Size = new System.Drawing.Size(555, 27);
+            this.opc4.Size = new System.Drawing.Size(486, 23);
             this.opc4.TabIndex = 11;
             this.opc4.Visible = false;
             // 
             // letraA
             // 
             this.letraA.AutoSize = true;
-            this.letraA.Location = new System.Drawing.Point(29, 264);
+            this.letraA.Location = new System.Drawing.Point(25, 198);
             this.letraA.Name = "letraA";
-            this.letraA.Size = new System.Drawing.Size(19, 20);
+            this.letraA.Size = new System.Drawing.Size(15, 15);
             this.letraA.TabIndex = 12;
             this.letraA.Text = "A";
             this.letraA.Visible = false;
@@ -163,9 +157,9 @@
             // letraB
             // 
             this.letraB.AutoSize = true;
-            this.letraB.Location = new System.Drawing.Point(29, 324);
+            this.letraB.Location = new System.Drawing.Point(25, 243);
             this.letraB.Name = "letraB";
-            this.letraB.Size = new System.Drawing.Size(18, 20);
+            this.letraB.Size = new System.Drawing.Size(14, 15);
             this.letraB.TabIndex = 13;
             this.letraB.Text = "B";
             this.letraB.Visible = false;
@@ -173,9 +167,9 @@
             // letraC
             // 
             this.letraC.AutoSize = true;
-            this.letraC.Location = new System.Drawing.Point(29, 389);
+            this.letraC.Location = new System.Drawing.Point(25, 292);
             this.letraC.Name = "letraC";
-            this.letraC.Size = new System.Drawing.Size(18, 20);
+            this.letraC.Size = new System.Drawing.Size(15, 15);
             this.letraC.TabIndex = 14;
             this.letraC.Text = "C";
             this.letraC.Visible = false;
@@ -183,9 +177,9 @@
             // letraD
             // 
             this.letraD.AutoSize = true;
-            this.letraD.Location = new System.Drawing.Point(29, 455);
+            this.letraD.Location = new System.Drawing.Point(25, 341);
             this.letraD.Name = "letraD";
-            this.letraD.Size = new System.Drawing.Size(20, 20);
+            this.letraD.Size = new System.Drawing.Size(15, 15);
             this.letraD.TabIndex = 15;
             this.letraD.Text = "D";
             this.letraD.Visible = false;
@@ -193,19 +187,18 @@
             // letraE
             // 
             this.letraE.AutoSize = true;
-            this.letraE.Location = new System.Drawing.Point(29, 519);
+            this.letraE.Location = new System.Drawing.Point(25, 389);
             this.letraE.Name = "letraE";
-            this.letraE.Size = new System.Drawing.Size(17, 20);
+            this.letraE.Size = new System.Drawing.Size(13, 15);
             this.letraE.TabIndex = 16;
             this.letraE.Text = "E";
             this.letraE.Visible = false;
             // 
             // botonAdd
             // 
-            this.botonAdd.Location = new System.Drawing.Point(423, 200);
-            this.botonAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.botonAdd.Location = new System.Drawing.Point(370, 150);
             this.botonAdd.Name = "botonAdd";
-            this.botonAdd.Size = new System.Drawing.Size(63, 31);
+            this.botonAdd.Size = new System.Drawing.Size(55, 23);
             this.botonAdd.TabIndex = 17;
             this.botonAdd.Text = "Añadir";
             this.botonAdd.UseVisualStyleBackColor = true;
@@ -214,10 +207,9 @@
             // 
             // botonBorrar
             // 
-            this.botonBorrar.Location = new System.Drawing.Point(503, 200);
-            this.botonBorrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.botonBorrar.Location = new System.Drawing.Point(440, 150);
             this.botonBorrar.Name = "botonBorrar";
-            this.botonBorrar.Size = new System.Drawing.Size(63, 31);
+            this.botonBorrar.Size = new System.Drawing.Size(55, 23);
             this.botonBorrar.TabIndex = 18;
             this.botonBorrar.Text = "Borrar";
             this.botonBorrar.UseVisualStyleBackColor = true;
@@ -227,10 +219,9 @@
             // correcta0
             // 
             this.correcta0.AutoSize = true;
-            this.correcta0.Location = new System.Drawing.Point(22, 21);
-            this.correcta0.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.correcta0.Location = new System.Drawing.Point(19, 16);
             this.correcta0.Name = "correcta0";
-            this.correcta0.Size = new System.Drawing.Size(17, 16);
+            this.correcta0.Size = new System.Drawing.Size(14, 13);
             this.correcta0.TabIndex = 19;
             this.correcta0.TabStop = true;
             this.correcta0.UseVisualStyleBackColor = true;
@@ -239,10 +230,9 @@
             // correcta1
             // 
             this.correcta1.AutoSize = true;
-            this.correcta1.Location = new System.Drawing.Point(22, 84);
-            this.correcta1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.correcta1.Location = new System.Drawing.Point(19, 63);
             this.correcta1.Name = "correcta1";
-            this.correcta1.Size = new System.Drawing.Size(17, 16);
+            this.correcta1.Size = new System.Drawing.Size(14, 13);
             this.correcta1.TabIndex = 21;
             this.correcta1.TabStop = true;
             this.correcta1.UseVisualStyleBackColor = true;
@@ -251,10 +241,9 @@
             // correcta2
             // 
             this.correcta2.AutoSize = true;
-            this.correcta2.Location = new System.Drawing.Point(22, 147);
-            this.correcta2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.correcta2.Location = new System.Drawing.Point(19, 110);
             this.correcta2.Name = "correcta2";
-            this.correcta2.Size = new System.Drawing.Size(17, 16);
+            this.correcta2.Size = new System.Drawing.Size(14, 13);
             this.correcta2.TabIndex = 22;
             this.correcta2.TabStop = true;
             this.correcta2.UseVisualStyleBackColor = true;
@@ -263,10 +252,9 @@
             // correcta3
             // 
             this.correcta3.AutoSize = true;
-            this.correcta3.Location = new System.Drawing.Point(22, 211);
-            this.correcta3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.correcta3.Location = new System.Drawing.Point(19, 158);
             this.correcta3.Name = "correcta3";
-            this.correcta3.Size = new System.Drawing.Size(17, 16);
+            this.correcta3.Size = new System.Drawing.Size(14, 13);
             this.correcta3.TabIndex = 23;
             this.correcta3.TabStop = true;
             this.correcta3.UseVisualStyleBackColor = true;
@@ -276,10 +264,9 @@
             // correcta4
             // 
             this.correcta4.AutoSize = true;
-            this.correcta4.Location = new System.Drawing.Point(22, 275);
-            this.correcta4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.correcta4.Location = new System.Drawing.Point(19, 206);
             this.correcta4.Name = "correcta4";
-            this.correcta4.Size = new System.Drawing.Size(17, 16);
+            this.correcta4.Size = new System.Drawing.Size(14, 13);
             this.correcta4.TabIndex = 24;
             this.correcta4.TabStop = true;
             this.correcta4.UseVisualStyleBackColor = true;
@@ -293,10 +280,9 @@
             this.correctaTest.Controls.Add(this.correcta3);
             this.correctaTest.Controls.Add(this.correcta1);
             this.correctaTest.Controls.Add(this.correcta2);
-            this.correctaTest.Location = new System.Drawing.Point(627, 244);
-            this.correctaTest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.correctaTest.Location = new System.Drawing.Point(549, 183);
             this.correctaTest.Name = "correctaTest";
-            this.correctaTest.Size = new System.Drawing.Size(77, 327);
+            this.correctaTest.Size = new System.Drawing.Size(67, 245);
             this.correctaTest.TabIndex = 26;
             this.correctaTest.Visible = false;
             // 
@@ -304,10 +290,9 @@
             // 
             this.correctaVF.Controls.Add(this.falso1);
             this.correctaVF.Controls.Add(this.verdadero0);
-            this.correctaVF.Location = new System.Drawing.Point(160, 264);
-            this.correctaVF.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.correctaVF.Location = new System.Drawing.Point(140, 198);
             this.correctaVF.Name = "correctaVF";
-            this.correctaVF.Size = new System.Drawing.Size(406, 133);
+            this.correctaVF.Size = new System.Drawing.Size(355, 100);
             this.correctaVF.TabIndex = 29;
             this.correctaVF.Visible = false;
             // 
@@ -315,10 +300,9 @@
             // 
             this.falso1.AutoSize = true;
             this.falso1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.falso1.Location = new System.Drawing.Point(241, 45);
-            this.falso1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.falso1.Location = new System.Drawing.Point(211, 34);
             this.falso1.Name = "falso1";
-            this.falso1.Size = new System.Drawing.Size(92, 39);
+            this.falso1.Size = new System.Drawing.Size(74, 32);
             this.falso1.TabIndex = 1;
             this.falso1.TabStop = true;
             this.falso1.Text = "Falso";
@@ -329,10 +313,9 @@
             // 
             this.verdadero0.AutoSize = true;
             this.verdadero0.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.verdadero0.Location = new System.Drawing.Point(65, 44);
-            this.verdadero0.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.verdadero0.Location = new System.Drawing.Point(57, 33);
             this.verdadero0.Name = "verdadero0";
-            this.verdadero0.Size = new System.Drawing.Size(152, 39);
+            this.verdadero0.Size = new System.Drawing.Size(121, 32);
             this.verdadero0.TabIndex = 0;
             this.verdadero0.TabStop = true;
             this.verdadero0.Text = "Verdadero";
@@ -346,10 +329,9 @@
             "Fácil",
             "Normal",
             "Difícil"});
-            this.dificultad.Location = new System.Drawing.Point(587, 164);
-            this.dificultad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dificultad.Location = new System.Drawing.Point(514, 123);
             this.dificultad.Name = "dificultad";
-            this.dificultad.Size = new System.Drawing.Size(138, 28);
+            this.dificultad.Size = new System.Drawing.Size(121, 23);
             this.dificultad.TabIndex = 30;
             this.dificultad.Text = "Dificultad";
             this.dificultad.SelectedIndexChanged += new System.EventHandler(this.EvCambiarDificultad);
@@ -357,10 +339,9 @@
             // crear
             // 
             this.crear.Enabled = false;
-            this.crear.Location = new System.Drawing.Point(649, 553);
-            this.crear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.crear.Location = new System.Drawing.Point(568, 415);
             this.crear.Name = "crear";
-            this.crear.Size = new System.Drawing.Size(86, 31);
+            this.crear.Size = new System.Drawing.Size(75, 23);
             this.crear.TabIndex = 31;
             this.crear.Text = "Crear";
             this.crear.UseVisualStyleBackColor = true;
@@ -368,11 +349,10 @@
             // 
             // RespuestaTxt
             // 
-            this.RespuestaTxt.Location = new System.Drawing.Point(18, 251);
-            this.RespuestaTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.RespuestaTxt.Location = new System.Drawing.Point(16, 188);
             this.RespuestaTxt.Multiline = true;
             this.RespuestaTxt.Name = "RespuestaTxt";
-            this.RespuestaTxt.Size = new System.Drawing.Size(711, 293);
+            this.RespuestaTxt.Size = new System.Drawing.Size(623, 221);
             this.RespuestaTxt.TabIndex = 32;
             this.RespuestaTxt.Visible = false;
             // 
@@ -383,20 +363,18 @@
             this.CorrectaMult.Controls.Add(this.check2);
             this.CorrectaMult.Controls.Add(this.check1);
             this.CorrectaMult.Controls.Add(this.check0);
-            this.CorrectaMult.Location = new System.Drawing.Point(631, 244);
-            this.CorrectaMult.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CorrectaMult.Location = new System.Drawing.Point(552, 183);
             this.CorrectaMult.Name = "CorrectaMult";
-            this.CorrectaMult.Size = new System.Drawing.Size(77, 327);
+            this.CorrectaMult.Size = new System.Drawing.Size(67, 245);
             this.CorrectaMult.TabIndex = 33;
             this.CorrectaMult.Visible = false;
             // 
             // check4
             // 
             this.check4.AutoSize = true;
-            this.check4.Location = new System.Drawing.Point(18, 276);
-            this.check4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.check4.Location = new System.Drawing.Point(16, 207);
             this.check4.Name = "check4";
-            this.check4.Size = new System.Drawing.Size(18, 17);
+            this.check4.Size = new System.Drawing.Size(15, 14);
             this.check4.TabIndex = 4;
             this.check4.UseVisualStyleBackColor = true;
             this.check4.Visible = false;
@@ -405,10 +383,9 @@
             // check3
             // 
             this.check3.AutoSize = true;
-            this.check3.Location = new System.Drawing.Point(18, 212);
-            this.check3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.check3.Location = new System.Drawing.Point(16, 159);
             this.check3.Name = "check3";
-            this.check3.Size = new System.Drawing.Size(18, 17);
+            this.check3.Size = new System.Drawing.Size(15, 14);
             this.check3.TabIndex = 3;
             this.check3.UseVisualStyleBackColor = true;
             this.check3.Visible = false;
@@ -417,10 +394,9 @@
             // check2
             // 
             this.check2.AutoSize = true;
-            this.check2.Location = new System.Drawing.Point(18, 147);
-            this.check2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.check2.Location = new System.Drawing.Point(16, 110);
             this.check2.Name = "check2";
-            this.check2.Size = new System.Drawing.Size(18, 17);
+            this.check2.Size = new System.Drawing.Size(15, 14);
             this.check2.TabIndex = 2;
             this.check2.UseVisualStyleBackColor = true;
             this.check2.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
@@ -428,10 +404,9 @@
             // check1
             // 
             this.check1.AutoSize = true;
-            this.check1.Location = new System.Drawing.Point(18, 83);
-            this.check1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.check1.Location = new System.Drawing.Point(16, 62);
             this.check1.Name = "check1";
-            this.check1.Size = new System.Drawing.Size(18, 17);
+            this.check1.Size = new System.Drawing.Size(15, 14);
             this.check1.TabIndex = 1;
             this.check1.UseVisualStyleBackColor = true;
             this.check1.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
@@ -439,20 +414,18 @@
             // check0
             // 
             this.check0.AutoSize = true;
-            this.check0.Location = new System.Drawing.Point(18, 20);
-            this.check0.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.check0.Location = new System.Drawing.Point(16, 15);
             this.check0.Name = "check0";
-            this.check0.Size = new System.Drawing.Size(18, 17);
+            this.check0.Size = new System.Drawing.Size(15, 14);
             this.check0.TabIndex = 0;
             this.check0.UseVisualStyleBackColor = true;
             this.check0.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
             // 
             // botonAdd2
             // 
-            this.botonAdd2.Location = new System.Drawing.Point(423, 201);
-            this.botonAdd2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.botonAdd2.Location = new System.Drawing.Point(370, 151);
             this.botonAdd2.Name = "botonAdd2";
-            this.botonAdd2.Size = new System.Drawing.Size(63, 31);
+            this.botonAdd2.Size = new System.Drawing.Size(55, 23);
             this.botonAdd2.TabIndex = 34;
             this.botonAdd2.Text = "Añadir";
             this.botonAdd2.UseVisualStyleBackColor = true;
@@ -461,10 +434,9 @@
             // 
             // botonBorrar2
             // 
-            this.botonBorrar2.Location = new System.Drawing.Point(503, 201);
-            this.botonBorrar2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.botonBorrar2.Location = new System.Drawing.Point(440, 151);
             this.botonBorrar2.Name = "botonBorrar2";
-            this.botonBorrar2.Size = new System.Drawing.Size(63, 31);
+            this.botonBorrar2.Size = new System.Drawing.Size(55, 23);
             this.botonBorrar2.TabIndex = 35;
             this.botonBorrar2.Text = "Borrar";
             this.botonBorrar2.UseVisualStyleBackColor = true;
@@ -473,28 +445,50 @@
             // 
             // tema
             // 
-            this.tema.Location = new System.Drawing.Point(70, 164);
-            this.tema.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tema.Location = new System.Drawing.Point(61, 123);
             this.tema.Multiline = true;
             this.tema.Name = "tema";
-            this.tema.Size = new System.Drawing.Size(210, 30);
+            this.tema.Size = new System.Drawing.Size(246, 24);
             this.tema.TabIndex = 36;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(14, 163);
+            this.label2.Location = new System.Drawing.Point(12, 122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 28);
+            this.label2.Size = new System.Drawing.Size(49, 21);
             this.label2.TabIndex = 15;
             this.label2.Text = "Tema:";
             // 
+            // ctPregunta
+            // 
+            this.ctPregunta.FormattingEnabled = true;
+            this.ctPregunta.Items.AddRange(new object[] {
+            "Comprensión e Integración",
+            "Aplicación y pensamiento práctico",
+            "Análisis y resolución de problemas",
+            "Innovación, creatividad y emprendimiento",
+            "Diseño y proyecto",
+            "Trabajo en equipo y liderazgo",
+            "Responsabilidad ética",
+            "Comunicación efectiva",
+            "Pensamiento crítico",
+            "Conocimiento de problemas actuales contemporáneos",
+            "Aprendizaje permanente",
+            "Planificación y Gestión del tiempo"});
+            this.ctPregunta.Location = new System.Drawing.Point(140, 151);
+            this.ctPregunta.Name = "ctPregunta";
+            this.ctPregunta.Size = new System.Drawing.Size(167, 23);
+            this.ctPregunta.TabIndex = 37;
+            this.ctPregunta.Text = "Competencia Transversal";
+            // 
             // CrearPregunta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 600);
+            this.ClientSize = new System.Drawing.Size(655, 450);
+            this.Controls.Add(this.ctPregunta);
             this.Controls.Add(this.crear);
             this.Controls.Add(this.tema);
             this.Controls.Add(this.label2);
@@ -521,7 +515,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.RespuestaTxt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CrearPregunta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrearPregunta";
@@ -575,5 +568,6 @@
         private System.Windows.Forms.Button botonBorrar2;
         private System.Windows.Forms.TextBox tema;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox ctPregunta;
     }
 }
