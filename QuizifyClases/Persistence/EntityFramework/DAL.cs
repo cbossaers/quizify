@@ -8,7 +8,7 @@ using Quizify.Persistence;
 
 namespace Quizify.Persistence {
 
-public class DAL {
+public class DAL : IDAL {
     static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
     MySqlConnection conn = new MySqlConnection(connStr);
     public void AddEntidad(dynamic entidad) {
@@ -106,6 +106,29 @@ public class DAL {
 
         for(int i = 0; i < lista.Count; i+=3) {
             AddPreguntaAExamen(id_ex,lista[i],lista[i+1],lista[i+2]);
+        }
+    }
+
+    public void AddCurso(Curso curso) {
+        
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "INSERT into PSWC.cursos(codigo,nombre,profesor,apuntados,capacidad,fecha_creac,contraseña) "
+                    + "VALUES(@codigo, @nombre, @profesor, @apuntados, @capacidad, @fecha_creac, @contraseña);";
+
+                cmd.Parameters.AddWithValue("@codigo", curso.GetCodigo());
+                cmd.Parameters.AddWithValue("@nombre", curso.GetNombre());
+                cmd.Parameters.AddWithValue("@profesor", curso.GetAutor());
+                cmd.Parameters.AddWithValue("@apuntados", 0);
+                cmd.Parameters.AddWithValue("@capacidad", curso.GetMaxAlumnos());
+                cmd.Parameters.AddWithValue("@fecha_creac", curso.GetFechaCreacion());
+                cmd.Parameters.AddWithValue("@contraseña", curso.GetContraseña());
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 
@@ -452,7 +475,7 @@ public class DAL {
             DateTime.Parse(data.Rows[0]["fecha_creac"].ToString()), DateTime.Parse(data.Rows[0]["fecha_ini"].ToString()),
             DateTime.Parse(data.Rows[0]["fecha_fin"].ToString()), int.Parse(data.Rows[0]["intentos"].ToString()), 
             int.Parse(data.Rows[0]["volver_atras"].ToString()), int.Parse(data.Rows[0]["errores_restan"].ToString()),
-            int.Parse(data.Rows[0]["mostrar_resultados"].ToString()), preg);
+            int.Parse(data.Rows[0]["mostrar_resultados"].ToString()), preg, data.Rows[0]["CT"].ToString());
     }
 
     public List<int> GetListaPreguntas(int id) {
@@ -627,29 +650,6 @@ public class DAL {
         else return 3;
     }
 
-    public void AddCurso(Curso curso) {
-        
-        using(MySqlConnection conn = new MySqlConnection(connStr)) {
-
-            using(MySqlCommand cmd = conn.CreateCommand()) {
-
-                cmd.CommandText = "INSERT into PSWC.cursos(codigo,nombre,profesor,apuntados,capacidad,fecha_creac,contraseña) "
-                    + "VALUES(@codigo, @nombre, @profesor, @apuntados, @capacidad, @fecha_creac, @contraseña);";
-
-                cmd.Parameters.AddWithValue("@codigo", curso.GetCodigo());
-                cmd.Parameters.AddWithValue("@nombre", curso.GetNombre());
-                cmd.Parameters.AddWithValue("@profesor", curso.GetAutor());
-                cmd.Parameters.AddWithValue("@apuntados", 0);
-                cmd.Parameters.AddWithValue("@capacidad", curso.GetMaxAlumnos());
-                cmd.Parameters.AddWithValue("@fecha_creac", curso.GetFechaCreacion());
-                cmd.Parameters.AddWithValue("@contraseña", curso.GetContraseña());
-
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
-    }
-
     public void EliminarCurso(string codigo, string profesor) {
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
@@ -792,6 +792,57 @@ public class DAL {
             }
             conn.Close();
             return existe;
+    }
+
+    public void ActualizarEstadoQuizes() {
+        int x = UltimoIdExamen();
+
+        Examen ex = null;
+
+        for(int i = 0; i < x; i++) {
+            
+            ex = GetExamen(i);
+            string estado = "";
+
+            if(ex.GetMostrarResultados() == 1) { estado = "Calificado"; }
+            else if(ex.GetFechaIni() < DateTime.Now) { estado = "Inactivo";}
+            else if(ex.GetFechaIni() >= DateTime.Now && ex.GetFechaFin() < DateTime.Now) { estado = "Activo"; }
+            else if(ex.GetFechaFin() >= DateTime.Now) { estado = "Finalizado"; }
+
+
+            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "UPDATE PSWC.examen SET estado = @estado WHERE id = @id;";
+
+                    cmd.Parameters.AddWithValue("@estado", estado);
+                    cmd.Parameters.AddWithValue("@id",i);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
+    
+    public void PublicarNotas(int ex_id) {
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "UPDATE PSWC.examen SET mostrar_resultados = @mostrar WHERE id = @id;";
+
+                cmd.Parameters.AddWithValue("@mostrar", 1);
+                cmd.Parameters.AddWithValue("@id",ex_id);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        ActualizarEstadoQuizes();
+    }
+}
 }
