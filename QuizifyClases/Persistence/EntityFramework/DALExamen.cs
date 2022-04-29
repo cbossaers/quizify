@@ -19,11 +19,11 @@ public class DALExamen : IDAL2<Examen> {
         }
     }
 
-    public void Get(int id) {
+    public void Get(string id) {
 
     }
 
-    public void Eliminar(int id) {
+    public void Eliminar(string id) {
 
     }
 

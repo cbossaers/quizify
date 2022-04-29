@@ -19,11 +19,11 @@ public class DALProfesor : IDAL2<Profesor> {
         }
     }
 
-    public void Get(int id) {
+    public void Get(string id) {
 
     }
 
-    public void Eliminar(int id) {
+    public void Eliminar(string id) {
 
     }
 
