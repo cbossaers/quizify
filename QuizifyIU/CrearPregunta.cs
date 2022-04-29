@@ -30,6 +30,7 @@ namespace QuizifyIU
 
         Examen examen;
         dynamic usuario;
+        bool mispreguntas = false;
         
         public CrearPregunta(Servicio servicio,dynamic usuario)
         {
@@ -51,6 +52,7 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             this.usuario = usuario;
+            mispreguntas = true;
             editar(id,version,tipo); 
         }
 
@@ -351,13 +353,43 @@ namespace QuizifyIU
 
         private void editar(int id,int version,string tipo)
         {
+            
+            
             if (tipo == "test")
             {
+                
                 PreguntaTest preg = servicio.GetPreguntaTestById(id,version);
+                tipoPregunta.Text = "Test";
+                VistaTest();
+                dificultad.TabIndex = preg.GetDificultad();
+                enunciado.Text = preg.GetEnunciado();
+                if(preg.GetOpcA()!= null)
+                {
+                    opc0.Text = preg.GetOpcA();
+                }
+                else if(preg.GetOpcB()!= null)
+                {
+                    opc1.Text = preg.GetOpcB();
+                }else if(preg.GetOpcC()!= null)
+                {
+                    opc2.Text = preg.GetOpcC();
+                }else if(preg.GetOpcD()!= null)
+                {
+                    opc3.Text = preg.GetOpcD();
+                }else if(preg.GetOpcE() != null)
+                {
+                    opc3.Text = preg.GetOpcD();
+                }
+
             }
             else if (tipo == "vf")
             {
+                tipoPregunta.Text = "VF";
+                VistaVF();
                 PreguntaVF preg = servicio.GetPreguntaVFById(id,version);
+                enunciado.Text = preg.GetEnunciado();
+                dificultad.TabIndex = preg.GetDificultad();
+                
             }
 
         }

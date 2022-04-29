@@ -34,6 +34,9 @@
             this.dificultad_txt = new System.Windows.Forms.ComboBox();
             this.tema_txt = new System.Windows.Forms.TextBox();
             this.tablaPreguntas = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enunciado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,9 +44,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPreguntas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,17 +51,19 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(12, 18);
+            this.label2.Location = new System.Drawing.Point(17, 30);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(165, 32);
+            this.label2.Size = new System.Drawing.Size(244, 48);
             this.label2.TabIndex = 3;
             this.label2.Text = "Mis Preguntas";
             // 
             // bBuscar
             // 
-            this.bBuscar.Location = new System.Drawing.Point(656, 93);
+            this.bBuscar.Location = new System.Drawing.Point(937, 155);
+            this.bBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bBuscar.Name = "bBuscar";
-            this.bBuscar.Size = new System.Drawing.Size(75, 23);
+            this.bBuscar.Size = new System.Drawing.Size(107, 38);
             this.bBuscar.TabIndex = 7;
             this.bBuscar.Text = "Buscar";
             this.bBuscar.UseVisualStyleBackColor = true;
@@ -74,9 +76,10 @@
             "Test",
             "VF",
             "Desarrollo"});
-            this.tipo_txt.Location = new System.Drawing.Point(98, 94);
+            this.tipo_txt.Location = new System.Drawing.Point(140, 157);
+            this.tipo_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tipo_txt.Name = "tipo_txt";
-            this.tipo_txt.Size = new System.Drawing.Size(121, 23);
+            this.tipo_txt.Size = new System.Drawing.Size(171, 33);
             this.tipo_txt.TabIndex = 8;
             // 
             // dificultad_txt
@@ -86,16 +89,18 @@
             "Fácil",
             "Medio",
             "Difícil"});
-            this.dificultad_txt.Location = new System.Drawing.Point(318, 93);
+            this.dificultad_txt.Location = new System.Drawing.Point(454, 155);
+            this.dificultad_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dificultad_txt.Name = "dificultad_txt";
-            this.dificultad_txt.Size = new System.Drawing.Size(121, 23);
+            this.dificultad_txt.Size = new System.Drawing.Size(171, 33);
             this.dificultad_txt.TabIndex = 9;
             // 
             // tema_txt
             // 
-            this.tema_txt.Location = new System.Drawing.Point(507, 93);
+            this.tema_txt.Location = new System.Drawing.Point(724, 155);
+            this.tema_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tema_txt.Name = "tema_txt";
-            this.tema_txt.Size = new System.Drawing.Size(100, 23);
+            this.tema_txt.Size = new System.Drawing.Size(141, 31);
             this.tema_txt.TabIndex = 10;
             // 
             // tablaPreguntas
@@ -112,20 +117,56 @@
             this.Materia,
             this.Autor});
             this.tablaPreguntas.GridColor = System.Drawing.SystemColors.MenuBar;
-            this.tablaPreguntas.Location = new System.Drawing.Point(-1, 145);
+            this.tablaPreguntas.Location = new System.Drawing.Point(17, 231);
+            this.tablaPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tablaPreguntas.MultiSelect = false;
             this.tablaPreguntas.Name = "tablaPreguntas";
             this.tablaPreguntas.ReadOnly = true;
+            this.tablaPreguntas.RowHeadersWidth = 62;
             this.tablaPreguntas.RowTemplate.Height = 25;
             this.tablaPreguntas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaPreguntas.Size = new System.Drawing.Size(798, 243);
+            this.tablaPreguntas.Size = new System.Drawing.Size(1119, 405);
             this.tablaPreguntas.TabIndex = 11;
             this.tablaPreguntas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaPreguntas_CellContentDoubleClick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(83, 162);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 28);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Tipo";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(357, 158);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 28);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Dificultad";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(660, 158);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 28);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Tema";
             // 
             // ID
             // 
             this.ID.DataPropertyName = "ds_ID";
             this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             this.ID.Width = 60;
@@ -134,6 +175,7 @@
             // 
             this.enunciado.DataPropertyName = "ds_enunciado";
             this.enunciado.HeaderText = "Enunciado";
+            this.enunciado.MinimumWidth = 8;
             this.enunciado.Name = "enunciado";
             this.enunciado.ReadOnly = true;
             this.enunciado.Width = 200;
@@ -142,72 +184,52 @@
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "ds_tipo";
             this.dataGridViewTextBoxColumn1.HeaderText = "Tipo";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 150;
             // 
             // Version
             // 
             this.Version.DataPropertyName = "ds_version";
             this.Version.HeaderText = "Versión";
+            this.Version.MinimumWidth = 8;
             this.Version.Name = "Version";
             this.Version.ReadOnly = true;
+            this.Version.Width = 150;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "ds_dificultad";
             this.dataGridViewTextBoxColumn2.HeaderText = "Dificultad";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 150;
             // 
             // Materia
             // 
             this.Materia.DataPropertyName = "ds_materia";
             this.Materia.HeaderText = "Materia";
+            this.Materia.MinimumWidth = 8;
             this.Materia.Name = "Materia";
             this.Materia.ReadOnly = true;
+            this.Materia.Width = 150;
             // 
             // Autor
             // 
             this.Autor.DataPropertyName = "ds_autor";
             this.Autor.HeaderText = "Autor";
+            this.Autor.MinimumWidth = 8;
             this.Autor.Name = "Autor";
             this.Autor.ReadOnly = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(58, 97);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 17);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Tipo";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(250, 95);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 17);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Dificultad";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(462, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 17);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Tema";
+            this.Autor.Width = 200;
             // 
             // MisPreguntas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1143, 750);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -218,6 +240,7 @@
             this.Controls.Add(this.bBuscar);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MisPreguntas";
             this.Text = "MisPreguntas";
             ((System.ComponentModel.ISupportInitialize)(this.tablaPreguntas)).EndInit();
@@ -233,6 +256,9 @@
         private System.Windows.Forms.ComboBox dificultad_txt;
         private System.Windows.Forms.TextBox tema_txt;
         private System.Windows.Forms.DataGridView tablaPreguntas;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn enunciado;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -240,8 +266,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Autor;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
     }
 }

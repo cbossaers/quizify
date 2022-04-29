@@ -85,7 +85,7 @@ namespace QuizifyIU
         private void tablaPreguntas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.Hide();
-            var form2 = new CrearPregunta(servicio, usuario, int.Parse(tablaPreguntas.SelectedCells[0].Value.ToString()), int.Parse(tablaPreguntas.SelectedCells[3].Value.ToString()), tablaPreguntas.SelectedCells[2].Value.ToString());
+            var form2 = new CrearPregunta(servicio, usuario, int.Parse(tablaPreguntas.SelectedCells[0].Value.ToString()), int.Parse(tablaPreguntas.SelectedCells[3].Value.ToString()), tablaPreguntas.SelectedCells[2].Value.ToString().ToLower());
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }
