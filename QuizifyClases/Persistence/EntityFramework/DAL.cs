@@ -241,7 +241,7 @@ public class DAL : IDAL {
 
         conn.Open();
 
-        string consulta = "SELECT * from PSWC." + tipo + " WHERE correo='" + correo + "';";   
+        string consulta = "SELECT * from PSWC." + tipo + " WHERE correo='" + correo + "';";
 
         MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
         DataTable data = new DataTable();
@@ -252,7 +252,7 @@ public class DAL : IDAL {
         switch(tipo){
                 case("alumno"): 
                     return new Alumno(data.Rows[0]["correo"].ToString(), data.Rows[0]["contraseña"].ToString(), 
-                        data.Rows[0]["nombre"].ToString(), data.Rows[0]["apellidos"].ToString(), data.Rows[0]["curso"].ToString());
+                        data.Rows[0]["nombre"].ToString(), data.Rows[0]["apellidos"].ToString());
                 case("profesor"):
                     return new Profesor(data.Rows[0]["correo"].ToString(), data.Rows[0]["contraseña"].ToString(), 
                         data.Rows[0]["nombre"].ToString(), data.Rows[0]["apellidos"].ToString(), data.Rows[0]["curso"].ToString(),
@@ -851,7 +851,7 @@ public class DAL : IDAL {
 
             List<string> result = new List<string> { };
 
-            if(tipo == "profesor") consulta = "SELECT id FROM cursos WHERE autor= '" + persona.GetCorreo() + "';";
+            if(tipo == "profesor") consulta = "SELECT id FROM cursos WHERE profesor = '" + persona.GetCorreo() + "';";
 
             conn.Open();
 
@@ -867,6 +867,32 @@ public class DAL : IDAL {
             }
 
             return result;
+        }
+
+        public double GetNota(string id_alumno, int id_ex) {
+
+            double res = 0.0;
+
+            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "SELECT nota FROM notas_examanes WHERE alumno = @id_alumno AND examen = @id_ex;"; 
+
+                    cmd.Parameters.AddWithValue("@id_alumno", id_alumno);
+                    cmd.Parameters.AddWithValue("@id_ex",id_ex);
+
+                    conn.Open();
+
+                    using(MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                        while (rdr.Read()) {
+                            res = double.Parse(rdr.GetString("nota"));
+                        }
+                    }
+                }
+            }   
+            return res;
         }
     }
 }
