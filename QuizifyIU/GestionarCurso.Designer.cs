@@ -30,15 +30,15 @@
         {
             this.panelGestionarCurso = new System.Windows.Forms.Panel();
             this.tablaDatoCurso = new System.Windows.Forms.DataGridView();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numAl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bAñadir = new System.Windows.Forms.Button();
             this.bEliminar = new System.Windows.Forms.Button();
             this.alumnoBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bVolver = new System.Windows.Forms.Button();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numAl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCreado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelGestionarCurso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaDatoCurso)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +75,32 @@
             this.tablaDatoCurso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tablaDatoCurso.Size = new System.Drawing.Size(503, 273);
             this.tablaDatoCurso.TabIndex = 9;
+            this.tablaDatoCurso.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaCurso_doble_click);
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "cod";
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 200;
+            // 
+            // numAl
+            // 
+            this.numAl.DataPropertyName = "numAl";
+            this.numAl.HeaderText = "Número alumnos";
+            this.numAl.Name = "numAl";
+            // 
+            // fechaCreado
+            // 
+            this.fechaCreado.DataPropertyName = "fechaCreacion";
+            this.fechaCreado.HeaderText = "Fecha creación";
+            this.fechaCreado.Name = "fechaCreado";
             // 
             // bAñadir
             // 
@@ -121,31 +147,6 @@
             this.bVolver.Text = "Volver";
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
-            // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "cod";
-            this.codigo.HeaderText = "Código";
-            this.codigo.Name = "codigo";
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.Width = 200;
-            // 
-            // numAl
-            // 
-            this.numAl.DataPropertyName = "numAl";
-            this.numAl.HeaderText = "Número alumnos";
-            this.numAl.Name = "numAl";
-            // 
-            // fechaCreado
-            // 
-            this.fechaCreado.DataPropertyName = "fechaCreacion";
-            this.fechaCreado.HeaderText = "Fecha creación";
-            this.fechaCreado.Name = "fechaCreado";
             // 
             // GestionarCurso
             // 

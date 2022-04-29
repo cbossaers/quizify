@@ -147,5 +147,14 @@ namespace Quizify.Services
         {
             return dal.GetCursosByAutor(persona);
         }
+
+        public void EliminarAlumnoDeCurso(string alumno, string curso, string profesor)
+        {
+            try { dal.EliminarAlumnoDeCurso(alumno, curso, profesor); }
+            catch (Exception e)
+            {
+                throw new ServicioException(e.ToString());
+            }
+        }
     }
 }

@@ -100,10 +100,11 @@
             // 
             // maxAlumnos
             // 
+            this.maxAlumnos.InterceptArrowKeys = false;
             this.maxAlumnos.Location = new System.Drawing.Point(367, 185);
             this.maxAlumnos.Name = "maxAlumnos";
             this.maxAlumnos.Size = new System.Drawing.Size(84, 23);
-            this.maxAlumnos.TabIndex = 7;
+            this.maxAlumnos.TabIndex = 30;
             // 
             // codCursoBox
             // 
