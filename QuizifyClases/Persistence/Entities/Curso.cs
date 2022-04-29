@@ -47,5 +47,11 @@ namespace Quizify.Entities
             get;
             set;
         }
+
+        public List<string> listaAl
+        {
+            get;
+            set;
+        }
     }
 }

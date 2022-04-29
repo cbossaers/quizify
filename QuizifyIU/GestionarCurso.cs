@@ -54,17 +54,34 @@ namespace QuizifyIU
 
         private void profeAñadeAlumno()
         {
-            string curso = tablaDatoCurso.CurrentRow.Cells[0].Value.ToString();
+            string curso = tablaDatoCurso.SelectedRows[0].Cells["Código"].Value.ToString();
             string alumno = alumnoBox.Text;
             string profesor = usuario.nombre;
-            servicio.AddAlumnoACurso(alumno, curso, profesor);
+            if (servicio.ExisteEntidad(alumno))
+            {
+                servicio.AddAlumnoACurso(alumno, curso, profesor);
+                Curso objCurso = servicio.GetCurso(curso);
+                objCurso.GetListaAlumnos().Add(alumno);
+            }
+            else
+            {
+                DialogResult avisoNoExiste = MessageBox.Show(this, "El usuario con correo " + alumno + " no existe.",
+                                                          "Error", MessageBoxButtons.OK,
+                                                          MessageBoxIcon.Exclamation);
+            }
         }
 
         private void EliminarCurso()
         {
             string curso = tablaDatoCurso.SelectedRows[0].Cells["Código"].Value.ToString();
             string profesor = usuario.nombre;
-            servicio.EliminarCurso(curso, profesor);
+            DialogResult avisoBorrarCurso = MessageBox.Show(this, "¿Estás seguro de que quieres borrar este curso?",
+                                                          "Borrar curso", MessageBoxButtons.OK,
+                                                          MessageBoxIcon.Question);
+            if (avisoBorrarCurso == DialogResult.OK) { 
+                servicio.EliminarCurso(curso, profesor);
+                actualizarTabla();
+            }
         }
 
         private void tablaCurso_doble_click(object sender, DataGridViewCellEventArgs e)

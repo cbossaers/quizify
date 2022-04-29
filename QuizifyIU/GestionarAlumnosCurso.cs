@@ -38,13 +38,14 @@ namespace QuizifyIU
             string codCurso = curso.GetCodigo();
             string profesor = usuario.correo;
             servicio.EliminarAlumnoDeCurso(correoAl, codCurso, profesor);
+            curso.GetListaAlumnos().Remove(correoAl);
         }
 
         private void actualizarTabla()
         {
-            /*BindingList<object> bindingListAlumnosCurso = new BindingList<object>();
+            BindingList<object> bindingListAlumnosCurso = new BindingList<object>();
 
-            List<string> lista = servicio.GetAlumnosByCurso(usuario);
+            List<string> lista = curso.GetListaAlumnos();
 
             foreach (string x in lista)
             {
@@ -54,11 +55,11 @@ namespace QuizifyIU
                 {
                     correo = al.GetCorreo(),
                     nombre = al.GetNombre(),
-                    apellidos = al.GetApellidos()
+                    apellidos = al.Getapellidos()
                 }); ;
 
             }
-            tablaDatoCurso.DataSource = bindingListAlumnosCurso;*/
+            tablaAlumnoCurso.DataSource = bindingListAlumnosCurso;
         }
 
     }
