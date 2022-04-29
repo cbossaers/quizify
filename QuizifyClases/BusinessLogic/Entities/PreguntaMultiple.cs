@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Quizify.Entities
 {
-    public partial class PreguntaTest : Pregunta
+    public partial class PreguntaMultiple : Pregunta
     {
-        public PreguntaTest(int Id, string Enunciado, List<dynamic> lista, int dificultad, string autor, string tema, 
+        public PreguntaMultiple(int Id, string Enunciado, List<dynamic> lista, int dificultad, string autor, string tema,
             int version = 1, string CT="") : base(Id, Enunciado, dificultad, autor, tema, version, CT)
         {
             opc_a = lista[1];

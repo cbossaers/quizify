@@ -60,16 +60,17 @@
             this.intentos = new System.Windows.Forms.ComboBox();
             this.hini = new System.Windows.Forms.DateTimePicker();
             this.hfin = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxCT = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(53, 38);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(37, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 29);
+            this.label1.Size = new System.Drawing.Size(124, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre del quiz :";
             // 
@@ -77,10 +78,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(53, 240);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(37, 144);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 29);
+            this.label2.Size = new System.Drawing.Size(76, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Dificultad :";
             // 
@@ -88,39 +88,35 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(49, 475);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(34, 285);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 29);
+            this.label3.Size = new System.Drawing.Size(98, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Volver a atras";
             // 
             // nombre
             // 
-            this.nombre.Location = new System.Drawing.Point(254, 38);
-            this.nombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nombre.Location = new System.Drawing.Point(178, 23);
             this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(513, 31);
+            this.nombre.Size = new System.Drawing.Size(360, 23);
             this.nombre.TabIndex = 4;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(50, 577);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(35, 346);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(407, 29);
+            this.label8.Size = new System.Drawing.Size(252, 18);
             this.label8.TabIndex = 11;
             this.label8.Text = "Mostrar respuestas al finalizar el quiz";
             // 
             // siguiente
             // 
             this.siguiente.Enabled = false;
-            this.siguiente.Location = new System.Drawing.Point(749, 692);
-            this.siguiente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.siguiente.Location = new System.Drawing.Point(524, 415);
             this.siguiente.Name = "siguiente";
-            this.siguiente.Size = new System.Drawing.Size(120, 47);
+            this.siguiente.Size = new System.Drawing.Size(84, 28);
             this.siguiente.TabIndex = 15;
             this.siguiente.Text = "Siguiente";
             this.siguiente.UseVisualStyleBackColor = true;
@@ -128,10 +124,9 @@
             // 
             // a2
             // 
-            this.a2.Location = new System.Drawing.Point(533, 463);
-            this.a2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.a2.Location = new System.Drawing.Point(373, 278);
             this.a2.Name = "a2";
-            this.a2.Size = new System.Drawing.Size(59, 42);
+            this.a2.Size = new System.Drawing.Size(41, 25);
             this.a2.TabIndex = 19;
             this.a2.Text = "ON";
             this.a2.UseVisualStyleBackColor = true;
@@ -140,10 +135,9 @@
             // b2
             // 
             this.b2.Enabled = false;
-            this.b2.Location = new System.Drawing.Point(589, 463);
-            this.b2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b2.Location = new System.Drawing.Point(412, 278);
             this.b2.Name = "b2";
-            this.b2.Size = new System.Drawing.Size(59, 42);
+            this.b2.Size = new System.Drawing.Size(41, 25);
             this.b2.TabIndex = 18;
             this.b2.Text = "OFF";
             this.b2.UseVisualStyleBackColor = true;
@@ -151,10 +145,9 @@
             // 
             // a5
             // 
-            this.a5.Location = new System.Drawing.Point(533, 568);
-            this.a5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.a5.Location = new System.Drawing.Point(373, 341);
             this.a5.Name = "a5";
-            this.a5.Size = new System.Drawing.Size(59, 42);
+            this.a5.Size = new System.Drawing.Size(41, 25);
             this.a5.TabIndex = 25;
             this.a5.Text = "ON";
             this.a5.UseVisualStyleBackColor = true;
@@ -163,10 +156,9 @@
             // b5
             // 
             this.b5.Enabled = false;
-            this.b5.Location = new System.Drawing.Point(589, 568);
-            this.b5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b5.Location = new System.Drawing.Point(412, 341);
             this.b5.Name = "b5";
-            this.b5.Size = new System.Drawing.Size(59, 42);
+            this.b5.Size = new System.Drawing.Size(41, 25);
             this.b5.TabIndex = 24;
             this.b5.Text = "OFF";
             this.b5.UseVisualStyleBackColor = true;
@@ -176,10 +168,9 @@
             // 
             this.sinlimite.AutoSize = true;
             this.sinlimite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.sinlimite.Location = new System.Drawing.Point(70, 662);
-            this.sinlimite.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.sinlimite.Location = new System.Drawing.Point(49, 397);
             this.sinlimite.Name = "sinlimite";
-            this.sinlimite.Size = new System.Drawing.Size(206, 29);
+            this.sinlimite.Size = new System.Drawing.Size(142, 20);
             this.sinlimite.TabIndex = 57;
             this.sinlimite.Text = "Sin limite de tiempo";
             this.sinlimite.UseVisualStyleBackColor = true;
@@ -188,20 +179,18 @@
             // m
             // 
             this.m.AutoSize = true;
-            this.m.Location = new System.Drawing.Point(709, 632);
-            this.m.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.m.Location = new System.Drawing.Point(496, 379);
             this.m.Name = "m";
-            this.m.Size = new System.Drawing.Size(28, 25);
+            this.m.Size = new System.Drawing.Size(18, 15);
             this.m.TabIndex = 56;
             this.m.Text = "m";
             // 
             // h
             // 
             this.h.AutoSize = true;
-            this.h.Location = new System.Drawing.Point(571, 632);
-            this.h.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.h.Location = new System.Drawing.Point(400, 379);
             this.h.Name = "h";
-            this.h.Size = new System.Drawing.Size(25, 25);
+            this.h.Size = new System.Drawing.Size(16, 15);
             this.h.TabIndex = 55;
             this.h.Text = "H";
             // 
@@ -215,10 +204,9 @@
             "30",
             "40",
             "50"});
-            this.minutos.Location = new System.Drawing.Point(600, 627);
-            this.minutos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.minutos.Location = new System.Drawing.Point(420, 376);
             this.minutos.Name = "minutos";
-            this.minutos.Size = new System.Drawing.Size(98, 33);
+            this.minutos.Size = new System.Drawing.Size(70, 23);
             this.minutos.TabIndex = 54;
             // 
             // horas
@@ -232,20 +220,18 @@
             "5",
             "6",
             "7"});
-            this.horas.Location = new System.Drawing.Point(467, 625);
-            this.horas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.horas.Location = new System.Drawing.Point(327, 375);
             this.horas.Name = "horas";
-            this.horas.Size = new System.Drawing.Size(98, 33);
+            this.horas.Size = new System.Drawing.Size(70, 23);
             this.horas.TabIndex = 53;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(53, 625);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(37, 375);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(204, 29);
+            this.label4.Size = new System.Drawing.Size(124, 18);
             this.label4.TabIndex = 49;
             this.label4.Text = "Limite de tiempo :";
             // 
@@ -253,29 +239,26 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(53, 92);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(37, 55);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(153, 29);
+            this.label5.Size = new System.Drawing.Size(95, 18);
             this.label5.TabIndex = 58;
             this.label5.Text = "Descripción :";
             // 
             // descripcion
             // 
-            this.descripcion.Location = new System.Drawing.Point(254, 92);
-            this.descripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.descripcion.Location = new System.Drawing.Point(178, 55);
             this.descripcion.Multiline = true;
             this.descripcion.Name = "descripcion";
-            this.descripcion.Size = new System.Drawing.Size(513, 127);
+            this.descripcion.Size = new System.Drawing.Size(360, 78);
             this.descripcion.TabIndex = 59;
             // 
             // b3
             // 
             this.b3.Enabled = false;
-            this.b3.Location = new System.Drawing.Point(589, 513);
-            this.b3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b3.Location = new System.Drawing.Point(412, 308);
             this.b3.Name = "b3";
-            this.b3.Size = new System.Drawing.Size(59, 42);
+            this.b3.Size = new System.Drawing.Size(41, 25);
             this.b3.TabIndex = 20;
             this.b3.Text = "OFF";
             this.b3.UseVisualStyleBackColor = true;
@@ -283,10 +266,9 @@
             // 
             // a3
             // 
-            this.a3.Location = new System.Drawing.Point(533, 513);
-            this.a3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.a3.Location = new System.Drawing.Point(373, 308);
             this.a3.Name = "a3";
-            this.a3.Size = new System.Drawing.Size(59, 42);
+            this.a3.Size = new System.Drawing.Size(41, 25);
             this.a3.TabIndex = 21;
             this.a3.Text = "ON";
             this.a3.UseVisualStyleBackColor = true;
@@ -296,10 +278,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(50, 525);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(35, 315);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 29);
+            this.label6.Size = new System.Drawing.Size(103, 18);
             this.label6.TabIndex = 9;
             this.label6.Text = "Errores restan";
             // 
@@ -310,10 +291,9 @@
             "Fácil",
             "Normal",
             "Difícil"});
-            this.dificultad.Location = new System.Drawing.Point(509, 232);
-            this.dificultad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dificultad.Location = new System.Drawing.Point(356, 139);
             this.dificultad.Name = "dificultad";
-            this.dificultad.Size = new System.Drawing.Size(157, 33);
+            this.dificultad.Size = new System.Drawing.Size(111, 23);
             this.dificultad.TabIndex = 60;
             this.dificultad.Text = "Dificultad";
             // 
@@ -321,10 +301,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(50, 333);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(35, 200);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(198, 31);
+            this.label9.Size = new System.Drawing.Size(128, 20);
             this.label9.TabIndex = 61;
             this.label9.Text = "Fecha de apertura";
             // 
@@ -332,39 +311,35 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(50, 380);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(35, 228);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(226, 31);
+            this.label10.Size = new System.Drawing.Size(148, 20);
             this.label10.TabIndex = 62;
             this.label10.Text = "Fecha de finalización";
             // 
             // ini
             // 
             this.ini.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.ini.Location = new System.Drawing.Point(463, 327);
-            this.ini.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ini.Location = new System.Drawing.Point(324, 196);
             this.ini.Name = "ini";
-            this.ini.Size = new System.Drawing.Size(115, 31);
+            this.ini.Size = new System.Drawing.Size(82, 23);
             this.ini.TabIndex = 63;
             // 
             // fin
             // 
             this.fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fin.Location = new System.Drawing.Point(463, 375);
-            this.fin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fin.Location = new System.Drawing.Point(324, 225);
             this.fin.Name = "fin";
-            this.fin.Size = new System.Drawing.Size(115, 31);
+            this.fin.Size = new System.Drawing.Size(82, 23);
             this.fin.TabIndex = 64;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(53, 288);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(37, 173);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 31);
+            this.label11.Size = new System.Drawing.Size(46, 20);
             this.label11.TabIndex = 65;
             this.label11.Text = "Curso";
             // 
@@ -376,10 +351,9 @@
             "Primero",
             "Segundo",
             "Tercero"});
-            this.curso.Location = new System.Drawing.Point(509, 280);
-            this.curso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.curso.Location = new System.Drawing.Point(356, 168);
             this.curso.Name = "curso";
-            this.curso.Size = new System.Drawing.Size(157, 33);
+            this.curso.Size = new System.Drawing.Size(111, 23);
             this.curso.TabIndex = 66;
             this.curso.Text = "Curso";
             // 
@@ -387,10 +361,9 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(51, 422);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(36, 253);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(97, 31);
+            this.label12.Size = new System.Drawing.Size(62, 20);
             this.label12.TabIndex = 67;
             this.label12.Text = "Intentos";
             // 
@@ -404,10 +377,9 @@
             "4",
             "5",
             "6"});
-            this.intentos.Location = new System.Drawing.Point(509, 420);
-            this.intentos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.intentos.Location = new System.Drawing.Point(356, 252);
             this.intentos.Name = "intentos";
-            this.intentos.Size = new System.Drawing.Size(157, 33);
+            this.intentos.Size = new System.Drawing.Size(111, 23);
             this.intentos.TabIndex = 68;
             this.intentos.Text = "Intentos";
             this.intentos.SelectedIndexChanged += new System.EventHandler(this.intentos_SelectedIndexChanged);
@@ -415,27 +387,58 @@
             // hini
             // 
             this.hini.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.hini.Location = new System.Drawing.Point(589, 327);
-            this.hini.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.hini.Location = new System.Drawing.Point(412, 196);
             this.hini.Name = "hini";
-            this.hini.Size = new System.Drawing.Size(97, 31);
+            this.hini.Size = new System.Drawing.Size(69, 23);
             this.hini.TabIndex = 69;
             // 
             // hfin
             // 
             this.hfin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.hfin.Location = new System.Drawing.Point(589, 375);
-            this.hfin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.hfin.Location = new System.Drawing.Point(412, 225);
             this.hfin.Name = "hfin";
-            this.hfin.Size = new System.Drawing.Size(97, 31);
+            this.hfin.Size = new System.Drawing.Size(69, 23);
             this.hfin.TabIndex = 70;
+            // 
+            // comboBoxCT
+            // 
+            this.comboBoxCT.FormattingEnabled = true;
+            this.comboBoxCT.Items.AddRange(new object[] {
+            "Comprensión e Integración",
+            "Aplicación y pensamiento práctico",
+            "Análisis y resolución de problemas",
+            "Innovación, creatividad y emprendimiento",
+            "Diseño y proyecto",
+            "Trabajo en equipo y liderazgo",
+            "Responsabilidad ética",
+            "Comunicación efectiva",
+            "Pensamiento crítico",
+            "Conocimiento de problemas actuales contemporáneos",
+            "Aprendizaje permanente",
+            "Planificación y Gestión del tiempo"});
+            this.comboBoxCT.Location = new System.Drawing.Point(304, 419);
+            this.comboBoxCT.Name = "comboBoxCT";
+            this.comboBoxCT.Size = new System.Drawing.Size(210, 23);
+            this.comboBoxCT.TabIndex = 71;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(34, 423);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(241, 20);
+            this.label7.TabIndex = 72;
+            this.label7.Text = "Elige una Competencia Transversal:";
             // 
             // CrearQuiz
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.ClientSize = new System.Drawing.Size(906, 780);
+            this.ClientSize = new System.Drawing.Size(634, 468);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.comboBoxCT);
             this.Controls.Add(this.hfin);
             this.Controls.Add(this.hini);
             this.Controls.Add(this.intentos);
@@ -469,7 +472,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CrearQuiz";
             this.Text = "CrearQuiz";
             this.ResumeLayout(false);
@@ -511,5 +513,7 @@
         private System.Windows.Forms.ComboBox intentos;
         private System.Windows.Forms.DateTimePicker hini;
         private System.Windows.Forms.DateTimePicker hfin;
+        private System.Windows.Forms.ComboBox comboBoxCT;
+        private System.Windows.Forms.Label label7;
     }
 }

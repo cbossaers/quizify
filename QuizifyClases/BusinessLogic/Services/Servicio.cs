@@ -16,28 +16,12 @@ namespace Quizify.Services
         {
             this.dal = dal;
         }
-        public void AddPreguntaVF(PreguntaVF preguntaVF)
+        public void AddPregunta(dynamic pregunta)
         {
-            try { dal.AddPregunta(preguntaVF); }
+            try { dal.AddPregunta(pregunta); }
             catch (Exception)
             {
-                throw new ServicioException("La pregunta con Id " + preguntaVF.GetId() + " versión: " + preguntaVF.GetVersion() + " ya existe");
-            }
-        }
-        public void AddPreguntaTest(PreguntaTest preguntaTest)
-        {
-            try { dal.AddPregunta(preguntaTest);}
-            catch(Exception) {
-                throw new ServicioException("La pregunta con Id " + preguntaTest.GetId() + " versión: " + preguntaTest.GetVersion() + " ya existe");
-                }
-            
-        }
-        public void AddPreguntaDesarrollo(PreguntaDesarrollo preguntaDesarrollo)
-        {
-            try { dal.AddPregunta(preguntaDesarrollo); }
-            catch (Exception)
-            {
-                throw new ServicioException("La pregunta con Id " + preguntaDesarrollo.GetId() + " versión: " + preguntaDesarrollo.GetVersion() + " ya existe");
+                throw new ServicioException("La pregunta ya existe en la BDD");
             }
         }
         public void addEntidad(dynamic user)
@@ -157,6 +141,20 @@ namespace Quizify.Services
         public bool ExisteCurso(string codigo)
         {
             return dal.ExisteCurso(codigo);
+        }
+
+        public List<string> GetCursosByAutor(dynamic persona)
+        {
+            return dal.GetCursosByAutor(persona);
+        }
+
+        public void EliminarAlumnoDeCurso(string alumno, string curso, string profesor)
+        {
+            try { dal.EliminarAlumnoDeCurso(alumno, curso, profesor); }
+            catch (Exception e)
+            {
+                throw new ServicioException(e.ToString());
+            }
         }
     }
 }

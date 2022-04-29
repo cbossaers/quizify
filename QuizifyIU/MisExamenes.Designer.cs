@@ -39,6 +39,7 @@
             this.tiempo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_ini2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_fin2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.competenciaTransversal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,9 +57,9 @@
             this.curso2,
             this.tiempo2,
             this.fecha_ini2,
-            this.fecha_fin2});
-            this.tablaExamenDisponible.Location = new System.Drawing.Point(17, 118);
-            this.tablaExamenDisponible.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fecha_fin2,
+            this.competenciaTransversal});
+            this.tablaExamenDisponible.Location = new System.Drawing.Point(12, 71);
             this.tablaExamenDisponible.MultiSelect = false;
             this.tablaExamenDisponible.Name = "tablaExamenDisponible";
             this.tablaExamenDisponible.ReadOnly = true;
@@ -66,7 +67,7 @@
             this.tablaExamenDisponible.RowHeadersWidth = 62;
             this.tablaExamenDisponible.RowTemplate.Height = 25;
             this.tablaExamenDisponible.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenDisponible.Size = new System.Drawing.Size(901, 585);
+            this.tablaExamenDisponible.Size = new System.Drawing.Size(631, 351);
             this.tablaExamenDisponible.TabIndex = 0;
             this.tablaExamenDisponible.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaExamenDisponible_CellContentClick);
             this.tablaExamenDisponible.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenDisponible_CellMouseDoubleClick);
@@ -75,10 +76,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(7, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(5, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 48);
+            this.label1.Size = new System.Drawing.Size(113, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Mis Quiz:";
             // 
@@ -86,10 +86,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(13, 80);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(9, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(196, 32);
+            this.label2.Size = new System.Drawing.Size(128, 21);
             this.label2.TabIndex = 4;
             this.label2.Text = "Quiz disponibles:";
             // 
@@ -163,16 +162,21 @@
             this.fecha_fin2.ReadOnly = true;
             this.fecha_fin2.Width = 150;
             // 
+            // competenciaTransversal
+            // 
+            this.competenciaTransversal.HeaderText = "CT";
+            this.competenciaTransversal.Name = "competenciaTransversal";
+            this.competenciaTransversal.ReadOnly = true;
+            // 
             // MisExamenes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 750);
+            this.ClientSize = new System.Drawing.Size(655, 450);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tablaExamenDisponible);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MisExamenes";
             this.Text = "MisExamenes";
             this.Load += new System.EventHandler(this.MisExamenes_Load);
@@ -195,5 +199,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempo2;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_ini2;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_fin2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn competenciaTransversal;
     }
 }

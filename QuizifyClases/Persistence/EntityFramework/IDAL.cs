@@ -34,5 +34,7 @@ namespace Quizify.Persistence {
 
         void SubirRespuestas(List<dynamic> respuestas);
         bool ExisteEntidad(string correo);
+
+        List<string> GetCursosByAutor(dynamic persona);
     }
 }

@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.enunciado = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tipoPregunta = new System.Windows.Forms.ComboBox();
             this.opc0 = new System.Windows.Forms.TextBox();
             this.opc1 = new System.Windows.Forms.TextBox();
@@ -64,6 +63,9 @@
             this.check0 = new System.Windows.Forms.CheckBox();
             this.botonAdd2 = new System.Windows.Forms.Button();
             this.botonBorrar2 = new System.Windows.Forms.Button();
+            this.tema = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ctPregunta = new System.Windows.Forms.ComboBox();
             this.correctaTest.SuspendLayout();
             this.correctaVF.SuspendLayout();
             this.CorrectaMult.SuspendLayout();
@@ -86,15 +88,6 @@
             this.enunciado.Name = "enunciado";
             this.enunciado.Size = new System.Drawing.Size(623, 75);
             this.enunciado.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 121);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 24);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Adjuntar archivo";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // tipoPregunta
             // 
@@ -450,15 +443,58 @@
             this.botonBorrar2.Visible = false;
             this.botonBorrar2.Click += new System.EventHandler(this.BorrarOpc2);
             // 
+            // tema
+            // 
+            this.tema.Location = new System.Drawing.Point(61, 123);
+            this.tema.Multiline = true;
+            this.tema.Name = "tema";
+            this.tema.Size = new System.Drawing.Size(246, 24);
+            this.tema.TabIndex = 36;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(12, 122);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 21);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Tema:";
+            // 
+            // ctPregunta
+            // 
+            this.ctPregunta.FormattingEnabled = true;
+            this.ctPregunta.Items.AddRange(new object[] {
+            "Comprensión e Integración",
+            "Aplicación y pensamiento práctico",
+            "Análisis y resolución de problemas",
+            "Innovación, creatividad y emprendimiento",
+            "Diseño y proyecto",
+            "Trabajo en equipo y liderazgo",
+            "Responsabilidad ética",
+            "Comunicación efectiva",
+            "Pensamiento crítico",
+            "Conocimiento de problemas actuales contemporáneos",
+            "Aprendizaje permanente",
+            "Planificación y Gestión del tiempo"});
+            this.ctPregunta.Location = new System.Drawing.Point(140, 151);
+            this.ctPregunta.Name = "ctPregunta";
+            this.ctPregunta.Size = new System.Drawing.Size(167, 23);
+            this.ctPregunta.TabIndex = 37;
+            this.ctPregunta.Text = "Competencia Transversal";
+            // 
             // CrearPregunta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 450);
+            this.Controls.Add(this.ctPregunta);
+            this.Controls.Add(this.crear);
+            this.Controls.Add(this.tema);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.botonBorrar2);
             this.Controls.Add(this.botonAdd2);
             this.Controls.Add(this.CorrectaMult);
-            this.Controls.Add(this.crear);
             this.Controls.Add(this.dificultad);
             this.Controls.Add(this.correctaVF);
             this.Controls.Add(this.correctaTest);
@@ -475,7 +511,6 @@
             this.Controls.Add(this.opc1);
             this.Controls.Add(this.opc0);
             this.Controls.Add(this.tipoPregunta);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.enunciado);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.RespuestaTxt);
@@ -498,7 +533,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox enunciado;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox tipoPregunta;
         private System.Windows.Forms.TextBox opc0;
         private System.Windows.Forms.TextBox opc1;
@@ -532,5 +566,8 @@
         private System.Windows.Forms.CheckBox check1;
         private System.Windows.Forms.Button botonAdd2;
         private System.Windows.Forms.Button botonBorrar2;
+        private System.Windows.Forms.TextBox tema;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox ctPregunta;
     }
 }

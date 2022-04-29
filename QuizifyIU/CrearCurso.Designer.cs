@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelCrearCurso = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.boxContraseña = new System.Windows.Forms.TextBox();
             this.bVolver = new System.Windows.Forms.Button();
             this.bCrearCurso = new System.Windows.Forms.Button();
             this.maxAlumnos = new System.Windows.Forms.NumericUpDown();
@@ -38,8 +40,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.boxContraseña = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panelCrearCurso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maxAlumnos)).BeginInit();
             this.SuspendLayout();
@@ -62,9 +62,25 @@
             this.panelCrearCurso.Size = new System.Drawing.Size(655, 450);
             this.panelCrearCurso.TabIndex = 0;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(89, 245);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 15);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Contraseña";
+            // 
+            // boxContraseña
+            // 
+            this.boxContraseña.Location = new System.Drawing.Point(291, 245);
+            this.boxContraseña.Name = "boxContraseña";
+            this.boxContraseña.Size = new System.Drawing.Size(160, 23);
+            this.boxContraseña.TabIndex = 10;
+            // 
             // bVolver
             // 
-            this.bVolver.Location = new System.Drawing.Point(254, 323);
+            this.bVolver.Location = new System.Drawing.Point(291, 308);
             this.bVolver.Name = "bVolver";
             this.bVolver.Size = new System.Drawing.Size(75, 23);
             this.bVolver.TabIndex = 9;
@@ -74,7 +90,7 @@
             // 
             // bCrearCurso
             // 
-            this.bCrearCurso.Location = new System.Drawing.Point(376, 323);
+            this.bCrearCurso.Location = new System.Drawing.Point(376, 304);
             this.bCrearCurso.Name = "bCrearCurso";
             this.bCrearCurso.Size = new System.Drawing.Size(75, 27);
             this.bCrearCurso.TabIndex = 8;
@@ -84,10 +100,11 @@
             // 
             // maxAlumnos
             // 
+            this.maxAlumnos.InterceptArrowKeys = false;
             this.maxAlumnos.Location = new System.Drawing.Point(367, 185);
             this.maxAlumnos.Name = "maxAlumnos";
             this.maxAlumnos.Size = new System.Drawing.Size(84, 23);
-            this.maxAlumnos.TabIndex = 7;
+            this.maxAlumnos.TabIndex = 30;
             // 
             // codCursoBox
             // 
@@ -137,22 +154,6 @@
             this.label1.Size = new System.Drawing.Size(54, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
-            // 
-            // boxContraseña
-            // 
-            this.boxContraseña.Location = new System.Drawing.Point(291, 245);
-            this.boxContraseña.Name = "boxContraseña";
-            this.boxContraseña.Size = new System.Drawing.Size(160, 23);
-            this.boxContraseña.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(96, 245);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 15);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Contraseña";
             // 
             // CrearCurso
             // 

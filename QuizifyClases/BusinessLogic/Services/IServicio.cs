@@ -11,9 +11,7 @@ namespace Quizify.Services
 {
     public interface IServicio
     {
-        public void AddPreguntaVF(PreguntaVF preguntaVF);
-        public void AddPreguntaTest(PreguntaTest preguntaTest);
-        public void AddPreguntaDesarrollo(PreguntaDesarrollo preguntaDesarrollo);
+        public void AddPregunta(dynamic pregunta);
         public void addEntidad(dynamic usuario);
         public void AddExamen(Examen examen);
         //Atributos: id, titulo, descrpicion, curso, autor, fecha_creac, fecha_ini, fecha_fin, intentos (int), 
@@ -47,5 +45,7 @@ namespace Quizify.Services
         public void EliminarCurso(string codigo, string profesor);
         public Curso GetCurso(string codigo);
         public bool ExisteCurso(string codigo);
+        public List<string> GetCursosByAutor(dynamic persona);
+        public void EliminarAlumnoDeCurso(string alumno, string curso, string profesor);
     }
 }
