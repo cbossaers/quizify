@@ -362,9 +362,10 @@ namespace QuizifyIU
 
             if (tipo == "test")
             {
-                PreguntaTest preg = servicio.GetPreguntaTestById(id,version);
-                tipoPregunta.Text = "Test";
                 VistaTest();
+                tipoPregunta.Text = "Test";
+                PreguntaTest preg = servicio.GetPreguntaTestById(id,version);
+                opcionCorrecta = preg.GetCorrecta().ToString();
                 tema.Text = preg.GetTema();
                 enunciado.Text = preg.GetEnunciado();
                 int dificul = preg.GetDificultad();
@@ -407,6 +408,7 @@ namespace QuizifyIU
                 tipoPregunta.Text = "VF";
                 VistaVF();
                 PreguntaVF preg = servicio.GetPreguntaVFById(id, version);
+                opcionCorrecta = preg.GetCorrecta().ToString();
                 enunciado.Text = preg.GetEnunciado();
                 tema.Text = preg.GetTema();
                 int dificul = preg.GetDificultad();

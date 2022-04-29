@@ -307,6 +307,19 @@ namespace QuizifyIU
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(button1.Text== "Ocultar indice")
+            {
+                dataGridView1.Visible = false;
+                button1.Text = "Mostrar indice";
+            }
+            else
+            {
+                dataGridView1.Visible = true;
+            }
+        }
+
         private void indice()
         {
             BindingList<object> bindinglist = new BindingList<object>();

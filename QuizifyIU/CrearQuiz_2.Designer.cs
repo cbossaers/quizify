@@ -40,12 +40,14 @@
             this.Puntuacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.editar = new System.Windows.Forms.Button();
+            this.anular = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(36, 415);
+            this.button3.Location = new System.Drawing.Point(12, 415);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(186, 23);
             this.button3.TabIndex = 12;
@@ -77,15 +79,14 @@
             this.Materia,
             this.Puntuacion});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.MenuBar;
-            this.dataGridView1.Location = new System.Drawing.Point(46, 61);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(702, 334);
             this.dataGridView1.TabIndex = 10;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            
             // 
             // id
             // 
@@ -131,7 +132,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(665, 23);
+            this.button1.Location = new System.Drawing.Point(612, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 23);
             this.button1.TabIndex = 9;
@@ -143,17 +144,39 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(46, 26);
+            this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "Nombre del quiz";
+            // 
+            // editar
+            // 
+            this.editar.Location = new System.Drawing.Point(720, 134);
+            this.editar.Name = "editar";
+            this.editar.Size = new System.Drawing.Size(75, 42);
+            this.editar.TabIndex = 13;
+            this.editar.Text = "Editar";
+            this.editar.UseVisualStyleBackColor = true;
+            this.editar.Click += new System.EventHandler(this.editar_Click);
+            // 
+            // anular
+            // 
+            this.anular.Location = new System.Drawing.Point(720, 225);
+            this.anular.Name = "anular";
+            this.anular.Size = new System.Drawing.Size(75, 39);
+            this.anular.TabIndex = 14;
+            this.anular.Text = "Anular";
+            this.anular.UseVisualStyleBackColor = true;
+            this.anular.Click += new System.EventHandler(this.anular_Click);
             // 
             // CrearQuiz_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.anular);
+            this.Controls.Add(this.editar);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.crear);
             this.Controls.Add(this.dataGridView1);
@@ -182,5 +205,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Autor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Puntuacion;
+        private System.Windows.Forms.Button editar;
+        private System.Windows.Forms.Button anular;
     }
 }

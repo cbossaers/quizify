@@ -113,7 +113,10 @@ namespace QuizifyIU
             }
             else
             {
-                Examen examen = servicio.GetExamenById(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
+                
+                    Examen examen = servicio.GetExamenById(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
+                
+                
                 if (examen != null)
                 {
                     this.Hide();
