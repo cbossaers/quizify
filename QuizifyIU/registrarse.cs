@@ -100,7 +100,7 @@ namespace QuizifyIU
             {
                 if (tipoUser.Equals("Profesor"))
                 {
-                    Profesor newProfesor = new Profesor(email, contra, nombre, apellidos, "Ejemplo", 100, 15);
+                    Profesor newProfesor = new Profesor(email, contra, nombre, apellidos);
                     servicio.addEntidad(newProfesor);
                     DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (confirmar == DialogResult.OK) this.Close();

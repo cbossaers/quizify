@@ -11,10 +11,9 @@ using Quizify.Services;
 namespace AppTest
 {
     class Program {
-        
         static void Main(string[] args) {
-            DAL dal = new DAL();
-            Servicio servicio = new Servicio(dal);
+            //DAL dal = new DAL();
+            //Servicio servicio = new Servicio(dal);
 
             //https://en.wikipedia.org/wiki/SQL_injection#Incorrectly_constructed_SQL_statements
             //https://stackoverflow.com/questions/75401/what-are-the-uses-of-using-in-c
@@ -67,35 +66,11 @@ namespace AppTest
 
             //Profesor p1 = new Profesor("f", "f", "f", "f");
             //servicio.addEntidad(p1);
+            
+            DALExamen dal = new DALExamen();
 
-            int a = 10011;
-            int b = 00111;
+            Console.WriteLine(dal.ErroresRestan(2));
 
-            int c = 0;
-
-            int sum = 0;
-            double total = 0.0;
-
-            a *= 2;
-
-            for(int i = 0; i < 5; i++) {
-                
-                if(a % 10 == 2) { total++; }
-
-                c = (a % 10) - (b % 10);
-                if(c < 2) {
-                    sum+=c;
-                }
-
-                a /= 10;
-                b /= 10;
-            }
-
-            if(sum < 0) { sum = 0; }
-
-            total = sum / total;
-
-            Console.WriteLine(total);
         }
     }
 }
