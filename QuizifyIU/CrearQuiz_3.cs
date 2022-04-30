@@ -87,7 +87,7 @@ namespace QuizifyIU
                             ds_tipo = "Test",
                             ds_version = preg.GetVersion(),
                             ds_dificultad = preg.GetDificultad(),
-                            ds_materia = preg.GetDificultad(),
+                            ds_materia = preg.GetTema(),
                             ds_autor = filtros[0]
                         });
 
@@ -103,7 +103,7 @@ namespace QuizifyIU
                             ds_tipo = "VF",
                             ds_version = preg.GetVersion(),
                             ds_dificultad = preg.GetDificultad(),
-                            ds_materia = preg.GetDificultad(),
+                            ds_materia = preg.GetTema(),
                             ds_autor = filtros[0]
                         });
                     }
@@ -135,6 +135,22 @@ namespace QuizifyIU
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
            
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                List<int> lista = examen.GetPreguntasAsociadas();
+                lista.Add(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()));
+                lista.Add(int.Parse(dataGridView1.SelectedCells[3].Value.ToString()));
+                lista.Add(1);
+                examen.SetPreguntasAsociadas(lista);
+                this.Hide();
+                var form2 = new CrearQuiz_2(servicio, usuario, examen);
+                form2.Closed += (s, args) => this.Close();
+                form2.Show();
+            }
         }
     }
 }

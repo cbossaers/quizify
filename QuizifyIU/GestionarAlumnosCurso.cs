@@ -56,7 +56,7 @@ namespace QuizifyIU
                     correo = al.GetCorreo(),
                     nombre = al.GetNombre(),
                     apellidos = al.GetApellidos()
-                }); ;
+                });
 
             }
             tablaAlumnoCurso.DataSource = bindingListAlumnosCurso;

@@ -358,45 +358,73 @@ namespace QuizifyIU
 
         private void editar(int id,int version,string tipo)
         {
-            
-            
+            crear.Enabled = true;
+
             if (tipo == "test")
             {
-                
-                PreguntaTest preg = servicio.GetPreguntaTestById(id,version);
-                tipoPregunta.Text = "Test";
                 VistaTest();
-                dificultad.TabIndex = preg.GetDificultad();
+                tipoPregunta.Text = "Test";
+                PreguntaTest preg = servicio.GetPreguntaTestById(id,version);
+                opcionCorrecta = preg.GetCorrecta().ToString();
+                tema.Text = preg.GetTema();
                 enunciado.Text = preg.GetEnunciado();
-                if(preg.GetOpcA()!= null)
+                int dificul = preg.GetDificultad();
+                int correc = preg.GetCorrecta();
+
+                switch (dificul)
                 {
-                    opc0.Text = preg.GetOpcA();
+                    case (0): dificultad.Text = "Fácil"; break;
+                    case (1): dificultad.Text = "Normal"; break;
+                    case (2): dificultad.Text = "Difícil"; break;
                 }
-                else if(preg.GetOpcB()!= null)
+                switch (correc)  
                 {
-                    opc1.Text = preg.GetOpcB();
-                }else if(preg.GetOpcC()!= null)
-                {
-                    opc2.Text = preg.GetOpcC();
-                }else if(preg.GetOpcD()!= null)
-                {
-                    opc3.Text = preg.GetOpcD();
-                }else if(preg.GetOpcE() != null)
-                {
-                    opc3.Text = preg.GetOpcD();
+                    case (0): correcta0.Checked = true; break;
+                    case (1): correcta1.Checked = true; break;
+                    case (2): correcta2.Checked = true; break;
+                    case (3): correcta3.Checked = true; break;
+                    case (4): correcta4.Checked = true; break;
                 }
 
+                opc0.Text = preg.GetOpcA();
+                opc1.Text = preg.GetOpcB();
+                opc2.Text = preg.GetOpcC();
+
+                if (preg.GetOpcD() != "")
+                 {
+                   opc3.Text = preg.GetOpcD();
+                   opc3.Visible = true; letraD.Visible = true; check3.Visible = true; correcta3.Visible = true;
+                    numeroDeOpciones++;
+                    if (preg.GetOpcE() != "")
+                    {
+                       opc4.Text = preg.GetOpcD();
+                        opc4.Visible = true; letraE.Visible = true; check4.Visible = true; correcta4.Visible = true;
+                        numeroDeOpciones++;
+                    }
+                }
             }
             else if (tipo == "vf")
             {
                 tipoPregunta.Text = "VF";
                 VistaVF();
-                PreguntaVF preg = servicio.GetPreguntaVFById(id,version);
+                PreguntaVF preg = servicio.GetPreguntaVFById(id, version);
+                opcionCorrecta = preg.GetCorrecta().ToString();
                 enunciado.Text = preg.GetEnunciado();
-                dificultad.TabIndex = preg.GetDificultad();
-                
+                tema.Text = preg.GetTema();
+                int dificul = preg.GetDificultad();
+                switch (dificul)
+                {
+                    case (0): dificultad.Text = "Fácil"; break;
+                    case (1): dificultad.Text = "Normal"; break;
+                    case (2): dificultad.Text = "Difícil"; break;
+                }
+                int correc = preg.GetCorrecta();
+                switch (correc)
+                {
+                    case (0): correcta0.Checked = true; break;
+                    case (1): correcta1.Checked = true; break;
+                }
             }
-
         }
     }
 }

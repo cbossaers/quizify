@@ -44,7 +44,7 @@ namespace QuizifyIU
                         ds_tipo = "Test",
                         ds_version = preg.GetVersion(),
                         ds_dificultad = preg.GetDificultad(),
-                        ds_materia = preg.GetDificultad(),
+                        ds_materia = preg.GetTema(),
                         ds_autor = preg.GetAutor()
                     });
 
@@ -61,7 +61,7 @@ namespace QuizifyIU
                         ds_tipo = "VF",
                         ds_version = preg.GetVersion(),
                         ds_dificultad = preg.GetDificultad(),
-                        ds_materia = preg.GetDificultad(),
+                        ds_materia = preg.GetTema(),
                         ds_autor = preg.GetAutor()
                     });
                 }
@@ -81,24 +81,20 @@ namespace QuizifyIU
                 
             
         }
-
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
+            List<int> lista = examen.GetPreguntasAsociadas();
+            lista[e.RowIndex+2]= int.Parse(dataGridView1.SelectedCells[6].Value.ToString());
+            //dataGridView1.SelectedCells[1].Value = lista[e.RowIndex + 2];
+            examen.SetPreguntasAsociadas(lista);
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            /*if (e.ColumnIndex == 0)
-            {
-                string value = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                MessageBox.Show(value);
-            }*/
-        }
-
         private void crear_Click(object sender, EventArgs e)
         {
+            List<int> lista = examen.GetPreguntasAsociadas();
             
+            dataGridView1.SelectedCells[0].Value.ToString();
+
+            examen.SetPreguntasAsociadas(lista);
             servicio.AddExamen(examen);
             MessageBox.Show(this, "Se ha creado el examen", "Éxito",
                                        MessageBoxButtons.OK,
@@ -106,6 +102,19 @@ namespace QuizifyIU
             this.Hide();
             
             
+
+        }
+
+        private void editar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form2 = new CrearPregunta(servicio, usuario, int.Parse(dataGridView1.SelectedCells[0].Value.ToString()), int.Parse(dataGridView1.SelectedCells[3].Value.ToString()), dataGridView1.SelectedCells[2].Value.ToString().ToLower());
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
+        }
+
+        private void anular_Click(object sender, EventArgs e)
+        {
 
         }
     }
