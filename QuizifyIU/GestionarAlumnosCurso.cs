@@ -55,7 +55,7 @@ namespace QuizifyIU
                 {
                     correo = al.GetCorreo(),
                     nombre = al.GetNombre(),
-                    apellidos = al.Getapellidos()
+                    apellidos = al.GetApellidos()
                 }); ;
 
             }

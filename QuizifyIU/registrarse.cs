@@ -107,7 +107,7 @@ namespace QuizifyIU
                 }
                 else if (tipoUser.Equals("Alumno"))
                 {
-                    Alumno newAlumno = new Alumno(email, contra, nombre, apellidos, "Ejemplo");
+                    Alumno newAlumno = new Alumno(email, contra, nombre, apellidos);
                     servicio.addEntidad(newAlumno);
                     DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (confirmar == DialogResult.OK) this.Close();

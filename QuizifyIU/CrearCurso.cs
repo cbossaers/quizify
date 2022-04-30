@@ -59,7 +59,9 @@ namespace QuizifyIU
             }
             else
             {
-                Curso newCurso = new Curso(codigo, nombre, autor, numAl, numMaxAl, fechaCreado, contraseña);
+                //ojo que esto es temporal para hacer el video de CSO!!
+                List<string> a = new List<string>{};
+                Curso newCurso = new Curso(codigo, nombre, autor, numAl, numMaxAl, fechaCreado, contraseña,a);
                 servicio.AddCurso(newCurso);
                 DialogResult confirmar = MessageBox.Show(this, "Tu curso ha sido creado con éxito.", "Curso registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

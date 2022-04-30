@@ -768,10 +768,12 @@ public class DAL : IDAL {
         adapter.Fill(data);
 
         conn.Close();
+        //temporal para el video de CSO!!
+        List<string> a = new List<string>{};
 
         return new Curso(cod, data.Rows[0]["nombre"].ToString(),
             data.Rows[0]["profesor"].ToString(), int.Parse(data.Rows[0]["apuntados"].ToString()), int.Parse(data.Rows[0]["capacidad"].ToString()),
-            DateTime.Parse(data.Rows[0]["fecha_creac"].ToString()), data.Rows[0]["contraseña"].ToString());
+            DateTime.Parse(data.Rows[0]["fecha_creac"].ToString()), data.Rows[0]["contraseña"].ToString(),a);
     }
 
     public bool ExisteCurso(string cod) {
