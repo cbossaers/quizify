@@ -41,7 +41,8 @@ namespace QuizifyIU
                             tiempo = ex.GetTiempo(),
                             fecha_ini = ex.GetFechaIni(),
                             fecha_fin = ex.GetFechaFin(),
-                            competenciaTransversal = ex.GetCompetenciaTransversal()
+                            competenciaTransversal = ex.GetCompetenciaTransversal(),
+                            nota = servicio.GetNota(usuario.correo, ex.GetId())
                         });
                     }
                     else
