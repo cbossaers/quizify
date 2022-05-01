@@ -16,7 +16,7 @@ namespace QuizifyIU
         
         int volver_atras = 0, errores_restan = 0, mostrar_resultados = 0;
         List<int> pregunta = new List<int>();
-        private Servicio servicio;
+        private NuevoServicio servicio;
         private dynamic usuario;
         int tiempo;
         
