@@ -24,14 +24,16 @@ namespace QuizifyIU
 
             user = usuario;
             
-            List<int> lista = servicio.GetExamenes(user);
-            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
+            
+            if (servicio.GetTipoEntidad(user) == "alumno")
             {
+                List<int> lista = servicio.GetExamenesAlumno(user);
                 foreach (int x in lista)
                 {
-                    Examen ex = servicio.GetExamenById(x);
+                    Examen ex = servicio.GetExamen(x);
                     if (ex.GetFechaFin() > DateTime.Now)
                     {
+                        servicio.get(usuario.correo, ex.GetId());
                         bindingListExamenDisponible.Add(new
                         {
 
@@ -42,7 +44,7 @@ namespace QuizifyIU
                             fecha_ini = ex.GetFechaIni(),
                             fecha_fin = ex.GetFechaFin(),
                             competenciaTransversal = ex.GetCompetenciaTransversal(),
-                            nota = servicio.GetNota(usuario.correo, ex.GetId())
+                            
                         });
                     }
                     else
@@ -57,6 +59,7 @@ namespace QuizifyIU
                             fecha_ini = ex.GetFechaIni(),
                             fecha_fin = ex.GetFechaFin(),
                             competenciaTransversal = ex.GetCompetenciaTransversal()
+
                         });
                     }
                 }

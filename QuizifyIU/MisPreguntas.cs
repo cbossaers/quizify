@@ -48,9 +48,9 @@ namespace QuizifyIU
 
             for (int i = 0; i < DTable.Count; i += 2)
             {
-                    if (servicio.GetTipoPregunta(DTable[i]).ToString() == "test")
+                Pregunta2 preg = servicio.GetPregunta(DTable[i], DTable[i + 1]);
+                    if (preg.GetTipo().ToString() == "test")
                     {
-                        PreguntaTest preg = servicio.GetPreguntaTestById(DTable[i], DTable[i + 1]);
                         bindinglist.Add(new
                         {
                             ds_ID = preg.GetId().ToString(),
@@ -63,9 +63,8 @@ namespace QuizifyIU
                         });
 
                     }
-                    else if (servicio.GetTipoPregunta(DTable[i]).ToString() == "vf")
+                    else if (preg.GetTipo().ToString() == "vf")
                     {
-                        PreguntaVF preg = servicio.GetPreguntaVFById(DTable[i], DTable[i + 1]);
                         bindinglist.Add(new
                         {
                             ds_ID = preg.GetId().ToString(),
@@ -76,9 +75,8 @@ namespace QuizifyIU
                             ds_materia = preg.GetTema(),
                             ds_autor = filtros[0]
                         });
-                    }else if(servicio.GetTipoPregunta(DTable[i]).ToString() == "multiple")
-                     {
-                    PreguntaVF preg = servicio.GetPreguntaVFById(DTable[i], DTable[i + 1]);
+                    }else if(preg.GetTipo().ToString() == "mult")
+                     { 
                     bindinglist.Add(new
                     {
                         ds_ID = preg.GetId().ToString(),
