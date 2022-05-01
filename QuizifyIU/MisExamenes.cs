@@ -33,10 +33,9 @@ namespace QuizifyIU
                     Examen ex = servicio.GetExamen(x);
                     if (ex.GetFechaFin() > DateTime.Now)
                     {
-                        servicio.get(usuario.correo, ex.GetId());
                         bindingListExamenDisponible.Add(new
                         {
-
+                            estado = ex.GetEstado(),
                             titulo = ex.GetTitulo(),
                             descripcion = ex.GetDescripcion(),
                             curso = ex.GetCurso(),
@@ -49,9 +48,15 @@ namespace QuizifyIU
                     }
                     else
                     {
+                        string nota = "-";
+                        if(ex.GetEstado() == "Calificado")
+                        {
+                            //get nota
+                        }
                         bindingListExamenFinalizado.Add(new
                         {
-
+                            nota = nota,
+                            estado = ex.GetEstado(),
                             titulo = ex.GetTitulo(),
                             descripcion = ex.GetDescripcion(),
                             curso = ex.GetCurso(),
@@ -68,14 +73,16 @@ namespace QuizifyIU
             }
             else
             {
+                List<int> lista = servicio.GetExamenesProfesor(user);
                 tablaExamenesProfesor.Visible = true;
                 tablaExamenDisponible.Visible = false;
                 tablaExamenFinalizado.Visible = false ;
                 foreach (int x in lista)
                 {
-                    Examen ex = servicio.GetExamenById(x);
+                    Examen ex = servicio.GetExamen(x);
                     bindingListExamenDisponible.Add(new
                     {
+                        estado = ex.GetEstado(),
                         titulo = ex.GetTitulo(),
                         descripcion = ex.GetDescripcion(),
                         curso = ex.GetCurso(),
@@ -101,7 +108,7 @@ namespace QuizifyIU
 
                 for(int i =0; i <7; i++)
                 {
-                    Examen ex = servicio.GetExamenById(i);
+                    Examen ex = servicio.GetExamen(i);
                     if (ex.GetFechaFin() > DateTime.Now)
                     {
                         bindingListExamenDisponible.Add(new
@@ -127,7 +134,7 @@ namespace QuizifyIU
             if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
             {
                 
-                Examen examen = servicio.GetExamenById(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
+                Examen examen = servicio.GetExamen(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
                 if(examen != null)
                 {
                 this.Hide();
@@ -139,7 +146,7 @@ namespace QuizifyIU
             else
             {
                 
-                    Examen examen = servicio.GetExamenById(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
+                    Examen examen = servicio.GetExamen(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
                 
                 
                 if (examen != null)
