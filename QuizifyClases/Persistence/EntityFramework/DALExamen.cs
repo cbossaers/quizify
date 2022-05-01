@@ -250,7 +250,7 @@ public class DALExamen : IDAL2<Examen> {
 
         Examen ex = null;
 
-        for(int i = 0; i < x; i++) {
+        for(int i = 0; i <= x; i++) {
             
             ex = Get(i);
             string estado = "";
@@ -258,7 +258,7 @@ public class DALExamen : IDAL2<Examen> {
             if(ex.GetMostrarResultados() == 1) { estado = "Calificado"; }
             else if(ex.GetFechaIni() > DateTime.Now) { estado = "Inactivo";}
             else if(ex.GetFechaIni() <= DateTime.Now && ex.GetFechaFin() > DateTime.Now) { estado = "Activo"; }
-            else if(ex.GetFechaFin() <= DateTime.Now) { estado = "Finalizado"; }
+            else if(DateTime.Now > ex.GetFechaFin()) { estado = "Finalizado"; }
 
             using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
@@ -303,7 +303,7 @@ public class DALExamen : IDAL2<Examen> {
 
                 using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                    cmd.CommandText = "SELECT nota FROM notas_examanes WHERE alumno = @id_alumno AND examen = @id_ex;"; 
+                    cmd.CommandText = "SELECT nota FROM notas_examenes WHERE alumno = @id_alumno AND examen = @id_ex;"; 
 
                     cmd.Parameters.AddWithValue("@id_alumno", id_alumno);
                     cmd.Parameters.AddWithValue("@id_ex",id_ex);
@@ -386,18 +386,37 @@ public class DALExamen : IDAL2<Examen> {
             }
         }
 
-        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+        if(nota < 0) { nota = 0; }
+        
+        try {
+            using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
-            using(MySqlCommand cmd = conn.CreateCommand()) {
+                using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "INSERT into PSWC.notas_examenes(alumno,examen,nota) VALUES(@correo,@id_ex,@nota);";
+                    cmd.CommandText = "INSERT into PSWC.notas_examenes(alumno,examen,nota) VALUES(@correo,@id_ex,@nota);";
 
-                cmd.Parameters.AddWithValue("@correo", correo);
-                cmd.Parameters.AddWithValue("@id_ex", id_ex);
-                cmd.Parameters.AddWithValue("@nota", nota);
+                    cmd.Parameters.AddWithValue("@correo", correo);
+                    cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                    cmd.Parameters.AddWithValue("@nota", nota);
 
-                conn.Open();
-                cmd.ExecuteNonQuery();
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        } catch (MySql.Data.MySqlClient.MySqlException) {
+            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "UPDATE notas_examenes SET nota = @nota WHERE alumno = @correo AND examen = @id_ex;";
+
+                    cmd.Parameters.AddWithValue("@correo", correo);
+                    cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                    cmd.Parameters.AddWithValue("@nota", nota);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
     }
