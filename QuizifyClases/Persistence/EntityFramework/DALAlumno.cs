@@ -1,11 +1,14 @@
 using MySql.Data.MySqlClient;
 using Quizify.Entities;
+using System.Collections.Generic;
+using Quizify.Persistence;
 
 namespace Quizify.Persistence {
 
 public class DALAlumno : IDAL2<Alumno> {
     static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
+    DALCurso DALCurso = new DALCurso();
     FabricaEntidades fabrica = new FabricaEntidades();
 
     public void Add(Alumno alumno) {
@@ -83,4 +86,36 @@ public class DALAlumno : IDAL2<Alumno> {
             }
         }
     }
+
+    public List<int> GetExamenes(string id) {
+
+        List<int> result = new List<int> {};
+
+        List<string> cursos = DALCurso.GetCursosAlumno(id);
+
+        foreach(string curso in cursos) {
+
+            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "SELECT id FROM examen WHERE curso = @curso";
+
+                    cmd.Parameters.AddWithValue("@curso", curso);
+
+                    conn.Open();
+
+                    using(MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                        while (rdr.Read()) {
+                            result.Add(rdr.GetInt32("id"));
+                        }
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+
 }}

@@ -2,6 +2,7 @@ using System;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using Quizify.Entities;
+using System.Data;
 
 namespace Quizify.Persistence {
 
@@ -9,6 +10,7 @@ public class DALExamen : IDAL2<Examen> {
     static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
     FabricaExamenes fabrica = new FabricaExamenes();
+    DALPregunta DALPregunta = new DALPregunta();
 
     public void Add(Examen ex) {
 
@@ -345,19 +347,54 @@ public class DALExamen : IDAL2<Examen> {
         return restan;
     }
 
-    public void AddPreguntaAExamen(int id_ex, int id_preg, int ver_preg, int puntos) {
+    public void CalcularNotaExamen(int id_ex, string correo) {
+
+        double nota = 0.0;
+        dynamic pregunta = null;
+        int id_preg = 0;
+        int ver_preg = 0;
+        double puntuacion = 0.0;
+        int restan = ErroresRestan(id_ex);
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+            string consulta_lista =  "SELECT * FROM lista_preguntas WHERE id_examen = " + id_ex + ";";
+            string consulta_respuestas = "SELECT * FROM respuestas_examenes WHERE examen = " + id_ex +  " AND alumno = '" + correo + "';";
+            
+            conn.Open();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(consulta_lista, conn);
+            DataTable data = new DataTable();
+            adapter.Fill(data);
+
+            MySqlDataAdapter adapter2 = new MySqlDataAdapter(consulta_respuestas, conn);
+            DataTable data2 = new DataTable();
+            adapter2.Fill(data2);
+
+            conn.Close();
+
+            foreach (DataRow row in data.Rows) { 
+                id_preg = int.Parse(row["id_pregunta"].ToString());
+                ver_preg = int.Parse(row["ver_pregunta"].ToString());
+                puntuacion = double.Parse(row["puntuacion"].ToString());
+
+                foreach (DataRow row2 in data2.Rows) { 
+                    if(id_preg == int.Parse(row2["pregunta"].ToString())) {
+                        pregunta = DALPregunta.Get(id_preg, ver_preg);
+                        nota+=CalcularNotaPregunta(pregunta, int.Parse(row2["respuesta"].ToString()),puntuacion,restan);
+                    }
+                }
+            }
+        }
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "INSERT into lista_preguntas(id_examen,id_pregunta,ver_pregunta,puntuacion) "
-                 + "VALUES(@id_examen,@id_pregunta,@ver_pregunta,@puntuacion);";
+                cmd.CommandText = "INSERT into PSWC.notas_examenes(alumno,examen,nota) VALUES(@correo,@id_ex,@nota);";
 
-                cmd.Parameters.AddWithValue("@id_examen", id_ex);
-                cmd.Parameters.AddWithValue("@id_pregunta", id_preg);
-                cmd.Parameters.AddWithValue("@ver_pregunta", ver_preg);
-                cmd.Parameters.AddWithValue("@puntuacion", puntos);
+                cmd.Parameters.AddWithValue("@correo", correo);
+                cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                cmd.Parameters.AddWithValue("@nota", nota);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();

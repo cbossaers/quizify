@@ -539,7 +539,7 @@ public class DAL : IDAL {
         foreach (DataRow row in data.Rows) { 
             id_preg = int.Parse(row["id_pregunta"].ToString());
             ver_preg = int.Parse(row["ver_pregunta"].ToString());
-            puntuacion = double.Parse(row["ver_pregunta"].ToString());
+            puntuacion = double.Parse(row["puntuacion"].ToString());
 
             foreach (DataRow row2 in data2.Rows) { 
                 if(id_preg == int.Parse(row2["pregunta"].ToString())) {
@@ -549,8 +549,20 @@ public class DAL : IDAL {
             }
         }
 
-        string consulta = "INSERT into PSWC.notas_examenes(alumno,examen,nota) VALUES('" + correo + "','" + id_ex 
-        + "'," + nota + ");";
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "INSERT into PSWC.notas_examenes(alumno,examen,nota) VALUES(@correo,@id_ex,@nota);";
+
+                cmd.Parameters.AddWithValue("@correo", correo);
+                cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                cmd.Parameters.AddWithValue("@nota", nota);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 
     public bool ExisteEntidad(string correo) {

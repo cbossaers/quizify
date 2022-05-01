@@ -1,5 +1,6 @@
 using MySql.Data.MySqlClient;
 using Quizify.Entities;
+using System.Collections.Generic;
 
 namespace Quizify.Persistence {
 
@@ -83,4 +84,31 @@ public class DALProfesor : IDAL2<Profesor> {
             }
         }
     }
+
+    public List<int> GetExamenes(string id) {
+
+        List<int> result = new List<int> {};
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT id FROM examen WHERE autor = @autor";
+
+                cmd.Parameters.AddWithValue("@autor", id);
+
+                conn.Open();
+
+                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                    while (rdr.Read()) {
+                        result.Add(rdr.GetInt32("id"));
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+        
 }}
