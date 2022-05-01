@@ -451,13 +451,14 @@ namespace QuizifyIU
             {
                 tipoPregunta.Text = "VF";
                 VistaVF();
-                PreguntaVF preg = servicio.GetPreguntaVFById(id, version);
-                opcionCorrecta = preg.GetCorrecta().ToString();
+                Pregunta2 preg = servicio.GetPregunta(id, version);
+                List<dynamic> lista = preg.GetParametros();
+                opcionCorrecta = lista[0].ToString();
                 enunciado.Text = preg.GetEnunciado();
                 tema.Text = preg.GetTema();
                 ctPregunta.Text = preg.GetCT();
                 int dificul = preg.GetDificultad();
-                int correc = preg.GetCorrecta();
+                int correc = lista[0];
                 switch (dificul)
                 {
                     case (0): dificultad.Text = "Fácil"; break;
@@ -475,20 +476,21 @@ namespace QuizifyIU
             {
                 VistaMultiple();
                 tipoPregunta.Text = "Selección Multiple";
-                PreguntaTest preg = servicio.GetPreguntaTestById(id, version);
-                opcionCorrecta = preg.GetCorrecta().ToString();
+                Pregunta2 preg = servicio.GetPregunta(id, version);
+                List<dynamic> lista = preg.GetParametros();
+                opcionCorrecta = lista[0].ToString();
                 tema.Text = preg.GetTema();
                 ctPregunta.Text = preg.GetCT();
                 enunciado.Text = preg.GetEnunciado();
                 int dificul = preg.GetDificultad();
-                int correc = preg.GetCorrecta();
+                int correc = lista[0];
                 switch (dificul)
                 {
                     case (0): dificultad.Text = "Fácil"; break;
                     case (1): dificultad.Text = "Normal"; break;
                     case (2): dificultad.Text = "Difícil"; break;
                 }
-                int cont = 0;
+                /*int cont = 0;
                 while(correc>0){
                     if(correc % 10 == 1)
                     {
@@ -503,20 +505,40 @@ namespace QuizifyIU
                     }
                     correc = correc / 10;
                     cont++;
+                }*/
+                int x = lista[0];
+                for(int i = 0; i < 5; i++)
+                {
+                    listaOpCorrecta.Add((x%10).ToString());
+                    x/=10;
+                }
+                for (int i = 0; i < 5; i++)
+                {
+                    int aux = Convert.ToInt32(listaOpCorrecta[i]);
+                    if (aux == 1) {
+                        switch (i)
+                        {
+                            case (0): check0.Checked = true; break;
+                            case (1): check1.Checked = true; break;
+                            case (2): check2.Checked = true; break;
+                            case (3): check3.Checked = true; break;
+                            case (4): check4.Checked = true; break;
+                        }
+                    }
                 }
 
-                opc0.Text = preg.GetOpcA();
-                opc1.Text = preg.GetOpcB();
-                opc2.Text = preg.GetOpcC();
+                opc0.Text = lista[1];
+                opc1.Text = lista[2];
+                opc2.Text = lista[3];
 
-                if (preg.GetOpcD() != "")
+                if (lista[4] != "")
                 {
-                    opc3.Text = preg.GetOpcD();
+                    opc3.Text = lista[4];
                     opc3.Visible = true; letraD.Visible = true; check3.Visible = true;
                     numeroDeOpciones++;
-                    if (preg.GetOpcE() != "")
+                    if (lista[5] != "")
                     {
-                        opc4.Text = preg.GetOpcD();
+                        opc4.Text = lista[5];
                         opc4.Visible = true; letraE.Visible = true; check4.Visible = true; 
                         numeroDeOpciones++;
                     }
@@ -525,9 +547,8 @@ namespace QuizifyIU
             else if(tipo == "desarrollo")
             {
                 VistaDesarrollo();
-                PreguntaTest preg = servicio.GetPreguntaTestById(id, version);
+                Pregunta2 preg = servicio.GetPregunta(id, version);
                 ctPregunta.Text = preg.GetCT();
-                opcionCorrecta = preg.GetCorrecta().ToString();
                 tema.Text = preg.GetTema();
                 ctPregunta.Text = preg.GetCT();
                 enunciado.Text = preg.GetEnunciado();
