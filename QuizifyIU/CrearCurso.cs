@@ -47,24 +47,17 @@ namespace QuizifyIU
         {
             string codigo = codCursoBox.Text;
             string nombre = nombreCursoBox.Text;
-            string autor = usuario.nombre;
-            int numAl = 0;
+            string autor = usuario.GetCorreo();
             int numMaxAl = (int)maxAlumnos.Value;
-            DateTime fechaCreado = DateTime.Now;
             string contraseña = boxContraseña.Text;
 
-            if (servicio.ExisteCurso(codigo))
-            {
-                DialogResult avisoCursoRepe = MessageBox.Show(this, "El curso con el código " + codigo + " ya existe.", "Curso repetido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                //ojo que esto es temporal para hacer el video de CSO!!
-                List<string> a = new List<string>{};
-                Curso newCurso = new Curso(codigo, nombre, autor, numAl, numMaxAl, fechaCreado, contraseña,a);
+            try {
+                Curso newCurso = new Curso(codigo, nombre, autor, 0, numMaxAl, DateTime.Now, contraseña, new List<string>());
+
                 servicio.AddCurso(newCurso);
+
                 DialogResult confirmar = MessageBox.Show(this, "Tu curso ha sido creado con éxito.", "Curso registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            } catch (Exception ex) { DialogResult avisoCursoRepe = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
     }
 }
