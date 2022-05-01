@@ -127,5 +127,8 @@ namespace Quizify.Services
         public void AnularPregunta(int id_ex, int id_preg) {
             examen.AnularPregunta(id_ex,id_preg);
         }
+        public void ActualizarEstadoQuizes() {
+            examen.ActualizarEstadoQuizes();
+        }
     }
 }
