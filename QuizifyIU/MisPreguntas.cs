@@ -49,47 +49,25 @@ namespace QuizifyIU
             for (int i = 0; i < DTable.Count; i += 2)
             {
                 Pregunta2 preg = servicio.GetPregunta(DTable[i], DTable[i + 1]);
-                    if (preg.GetTipo().ToString() == "test")
-                    {
-                        bindinglist.Add(new
-                        {
-                            ds_ID = preg.GetId().ToString(),
-                            ds_enunciado = preg.GetEnunciado(),
-                            ds_tipo = "Test",
-                            ds_version = preg.GetVersion(),
-                            ds_dificultad = preg.GetDificultad(),
-                            ds_materia = preg.GetTema(),
-                            ds_autor = filtros[0]
-                        });
-
-                    }
-                    else if (preg.GetTipo().ToString() == "vf")
-                    {
-                        bindinglist.Add(new
-                        {
-                            ds_ID = preg.GetId().ToString(),
-                            ds_enunciado = preg.GetEnunciado(),
-                            ds_tipo = "VF",
-                            ds_version = preg.GetVersion(),
-                            ds_dificultad = preg.GetDificultad(),
-                            ds_materia = preg.GetTema(),
-                            ds_autor = filtros[0]
-                        });
-                    }else if(preg.GetTipo().ToString() == "mult")
-                     { 
-                    bindinglist.Add(new
-                    {
-                        ds_ID = preg.GetId().ToString(),
-                        ds_enunciado = preg.GetEnunciado(),
-                        ds_tipo = "multiple",
-                        ds_version = preg.GetVersion(),
-                        ds_dificultad = preg.GetDificultad(),
-                        ds_materia = preg.GetTema(),
-                        ds_autor = filtros[0]
-                    });
-
+                string tip = "";
+                switch (preg.GetTipo())
+                {
+                    case ("test"): tip = "Test"; break;
+                    case ("vf"): tip = "VF"; break;
+                    case ("mult"): tip = "Multiple"; break;
+                    case ("des"): tip = "Desarrollo"; break;
                 }
-                    
+
+                bindinglist.Add(new
+                {
+                    ds_ID = preg.GetId().ToString(),
+                    ds_enunciado = preg.GetEnunciado(),
+                    ds_version = preg.GetVersion(),
+                    ds_dificultad = preg.GetDificultad(),
+                    ds_materia = preg.GetTema(),
+                    ds_autor = filtros[0],
+                    ds_tipo = tip
+                });
             }
             tablaPreguntas.DataSource = bindinglist;
         }

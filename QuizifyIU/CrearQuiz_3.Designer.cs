@@ -37,6 +37,13 @@
             this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tema_txt = new System.Windows.Forms.TextBox();
+            this.dificultad_txt = new System.Windows.Forms.ComboBox();
+            this.tipo_txt = new System.Windows.Forms.ComboBox();
+            this.bBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,7 +126,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(590, 53);
+            this.button3.Location = new System.Drawing.Point(602, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(186, 27);
             this.button3.TabIndex = 6;
@@ -127,12 +134,90 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(400, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 17);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Tema";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(186, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 17);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Dificultad";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(9, 48);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 17);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Tipo";
+            // 
+            // tema_txt
+            // 
+            this.tema_txt.Location = new System.Drawing.Point(451, 44);
+            this.tema_txt.Name = "tema_txt";
+            this.tema_txt.Size = new System.Drawing.Size(100, 23);
+            this.tema_txt.TabIndex = 18;
+            // 
+            // dificultad_txt
+            // 
+            this.dificultad_txt.FormattingEnabled = true;
+            this.dificultad_txt.Items.AddRange(new object[] {
+            "Fácil",
+            "Medio",
+            "Difícil"});
+            this.dificultad_txt.Location = new System.Drawing.Point(257, 44);
+            this.dificultad_txt.Name = "dificultad_txt";
+            this.dificultad_txt.Size = new System.Drawing.Size(121, 23);
+            this.dificultad_txt.TabIndex = 17;
+            // 
+            // tipo_txt
+            // 
+            this.tipo_txt.FormattingEnabled = true;
+            this.tipo_txt.Items.AddRange(new object[] {
+            "Test",
+            "VF",
+            "Desarrollo"});
+            this.tipo_txt.Location = new System.Drawing.Point(48, 45);
+            this.tipo_txt.Name = "tipo_txt";
+            this.tipo_txt.Size = new System.Drawing.Size(121, 23);
+            this.tipo_txt.TabIndex = 16;
+            // 
+            // bBuscar
+            // 
+            this.bBuscar.Location = new System.Drawing.Point(568, 44);
+            this.bBuscar.Name = "bBuscar";
+            this.bBuscar.Size = new System.Drawing.Size(75, 23);
+            this.bBuscar.TabIndex = 15;
+            this.bBuscar.Text = "Buscar";
+            this.bBuscar.UseVisualStyleBackColor = true;
+            this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
+            // 
             // CrearQuiz_3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tema_txt);
+            this.Controls.Add(this.dificultad_txt);
+            this.Controls.Add(this.tipo_txt);
+            this.Controls.Add(this.bBuscar);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Name = "CrearQuiz_3";
@@ -140,6 +225,7 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -153,5 +239,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Dificultad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Autor;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tema_txt;
+        private System.Windows.Forms.ComboBox dificultad_txt;
+        private System.Windows.Forms.ComboBox tipo_txt;
+        private System.Windows.Forms.Button bBuscar;
     }
 }

@@ -122,8 +122,7 @@
             this.tablaPreguntas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tablaPreguntas.Size = new System.Drawing.Size(783, 243);
             this.tablaPreguntas.TabIndex = 11;
-            this.tablaPreguntas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaPreguntas_CellContentClick);
-            this.tablaPreguntas.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaPreguntas_CellMouseDoubleClick);
+            
             // 
             // label3
             // 

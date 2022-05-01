@@ -50,30 +50,67 @@ namespace QuizifyIU
 
         public void logUser()
         {
-            try
-            {
-                dynamic user = servicio.GetEntidadById(emailField.Text);
-                if (user.contraseña.Equals(contraField.Text))
-                {
-                    this.Hide();
-                    formportal = new Portal(servicio, formportal, user);
-                    formportal.ShowDialog();
-                }
-                else
-                {
-                    DialogResult answer = MessageBox.Show(this, "Contraseña incorrecta, inténtelo de nuevo.",
-                                                            "Error", MessageBoxButtons.OK,
-                                                            MessageBoxIcon.Exclamation);
-                }
-                
-            }
-            
+            string tip = "";
+            try { tip = servicio.GetTipoEntidad(emailField.Text); }
             catch (Exception ex)
             {
-                DialogResult answer = MessageBox.Show(this, "Este email no está registrado." + ex,
-                                                            "Error", MessageBoxButtons.OK,
-                                                            MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Error);
+                return;
             }
+            if (tip == "alumno")
+            {
+                try
+                {
+                    dynamic user = servicio.GetProfesor(emailField.Text);
+                    if (user.contraseña.Equals(contraField.Text))
+                    {
+                        this.Hide();
+                        formportal = new Portal(servicio, formportal, user);
+                        formportal.ShowDialog();
+                    }
+                    else
+                    {
+                        DialogResult answer = MessageBox.Show(this, "Contraseña incorrecta, inténtelo de nuevo.",
+                                                                "Error", MessageBoxButtons.OK,
+                                                                MessageBoxIcon.Exclamation);
+                    }
+
+                }
+
+                catch (Exception ex)
+                {
+                    DialogResult answer = MessageBox.Show(this, "Este email no está registrado." + ex,
+                                                                "Error", MessageBoxButtons.OK,
+                                                                MessageBoxIcon.Exclamation);
+                }
+            }
+            else if (tip == "profesor")
+                try
+                {   
+                    dynamic user = servicio.GetProfesor(emailField.Text);
+                    if (user.contraseña.Equals(contraField.Text))
+                    {
+                        this.Hide();
+                        formportal = new Portal(servicio, formportal, user);
+                        formportal.ShowDialog();
+                    }
+                    else
+                    {
+                        DialogResult answer = MessageBox.Show(this, "Contraseña incorrecta, inténtelo de nuevo.",
+                                                                "Error", MessageBoxButtons.OK,
+                                                                MessageBoxIcon.Exclamation);
+                    }
+                
+                }
+            
+                catch (Exception ex)
+                {
+                    DialogResult answer = MessageBox.Show(this, "Este email no está registrado." + ex,
+                                                                "Error", MessageBoxButtons.OK,
+                                                                MessageBoxIcon.Exclamation);
+                }
         }
 
     }

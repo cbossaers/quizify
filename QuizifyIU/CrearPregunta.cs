@@ -29,7 +29,6 @@ namespace QuizifyIU
         private Pregunta2 pregunta;
         private int dificultadNum;
         private int id = -1;
-
         Examen examen;
         dynamic usuario;
         
@@ -38,14 +37,13 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             this.usuario = usuario;
-            crearquiz = false;
+            
         }
         public CrearPregunta(NuevoServicio servicio, dynamic usuario,Examen examen)
         {
             InitializeComponent();
             this.servicio = servicio;
-            this.examen = examen;
-            this.crearquiz= true;
+            
             this.usuario = usuario;
         }
         public CrearPregunta(NuevoServicio servicio, dynamic usuario,int id, int version, string tipo)
@@ -53,7 +51,7 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             this.usuario = usuario;
-            mispreguntas = true;
+            
             editar(id,version,tipo); 
         }
 

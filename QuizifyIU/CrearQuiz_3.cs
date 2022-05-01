@@ -20,6 +20,9 @@ namespace QuizifyIU
         private Examen examen;
         public bool crearquiz = false;
         List<int> DTable;
+        string tipo;
+        dynamic dificultad;
+        string tema;
         public CrearQuiz_3(NuevoServicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
@@ -150,6 +153,16 @@ namespace QuizifyIU
                 form2.Closed += (s, args) => this.Close();
                 form2.Show();
             }
+        }
+
+        private void bBuscar_Click(object sender, EventArgs e)
+        {
+            if (tipo_txt.Text == "") { tipo = null; } else { tipo = tipo_txt.Text.ToLower(); }
+            if (dificultad_txt.SelectedIndex == -1) { dificultad = null; } else { dificultad = dificultad_txt.SelectedIndex; }
+            if (tema_txt.Text == "") { tema = null; } else { tema = tema_txt.Text; }
+
+            filtros = new List<dynamic>() { usuario.GetCorreo(), tipo, dificultad, tema };
+            tabla();
         }
     }
 }
