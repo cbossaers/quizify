@@ -95,10 +95,11 @@ namespace QuizifyIU
         {
             indice();
             bloquear();
-            if (servicio.GetTipoPregunta(preguntas_asociadas[cont]) == "test")
+            Pregunta2 preg = servicio.GetPregunta(preguntas_asociadas[cont], preguntas_asociadas[cont + 1]);
+            if (preg.GetTipo() == "test")
             {
                 Test = true;
-                PreguntaTest preg = servicio.GetPreguntaById(preguntas_asociadas[cont], preguntas_asociadas[cont + 1]);
+                
                 enunciado.Text = preg.GetEnunciado().ToString();
                 visible(preg);
                 op_correcta = -1;
@@ -133,7 +134,6 @@ namespace QuizifyIU
             }
             else
             {
-                PreguntaVF preg = servicio.GetPreguntaById(preguntas_asociadas[cont], preguntas_asociadas[cont + 1]);
                 enunciado.Text = preg.GetEnunciado().ToString();
                 Test =false;
                 opc0.Visible = false; letraA.Visible = false; correcta0.Visible = false;
@@ -194,48 +194,34 @@ namespace QuizifyIU
 
         }
 
-        private void visible(PreguntaTest preg)
+        private void visible(Pregunta2 preg)
         {
-            if (preg.GetOpcA() != "")
+            List<dynamic> lista = preg.GetParametros();
+            opc0.Text = lista[1];
+            opc0.Visible = true; letraA.Visible = true; correcta0.Visible = true;
+            opc1.Text = lista[2];
+            opc1.Visible = true; letraB.Visible = true; correcta1.Visible = true;
+            opc2.Text = lista[3];
+            opc2.Visible = true; letraC.Visible = true; correcta2.Visible = true;
+
+            if (lista[4] != "")
             {
-                opc0.Text = preg.GetOpcA().ToString();
-                opc0.Visible = true; letraA.Visible = true; correcta0.Visible = true;
+                opc3.Text = lista[4];
+                opc3.Visible = true; letraD.Visible = true; correcta3.Visible = true;
 
-                if (preg.GetOpcB() != "")
+                if (lista[5] != "")
                 {
-                    opc1.Text = preg.GetOpcB().ToString();
-                    opc1.Visible = true; letraB.Visible = true; correcta1.Visible = true;
-
-                    if (preg.GetOpcC() != "")
-                    {
-                        opc2.Text = preg.GetOpcC().ToString();
-                        opc2.Visible = true; letraC.Visible = true; correcta2.Visible = true;
-
-                        if (preg.GetOpcD() != "")
-                        {
-                            opc3.Text = preg.GetOpcD().ToString();
-                            opc3.Visible = true; letraD.Visible = true; correcta3.Visible = true;
-
-                            if (preg.GetOpcE() != "")
-                            {
-                                opc4.Text = preg.GetOpcE().ToString();
-                                opc4.Visible = true; letraE.Visible = true; correcta4.Visible = true;
-
-                            }
-                            else { opc4.Visible = false; letraE.Visible = false; correcta4.Visible = false; }
-                        }
-                        else { opc3.Visible = false; letraD.Visible = false; correcta3.Visible = false; }
-
-                    }
-                    else { opc2.Visible = false; letraC.Visible = false; correcta2.Visible = false; }
+                    opc4.Text = lista[5];
+                    opc4.Visible = true; letraE.Visible = true; correcta4.Visible = true;
 
                 }
-                else { opc1.Visible = false; letraB.Visible = false; correcta1.Visible = false; }
-
+                else { opc4.Visible = false; letraE.Visible = false; correcta4.Visible = false; }
             }
-            else { opc0.Visible = false; letraA.Visible = false; correcta0.Visible = false; }
+            else { opc3.Visible = false; letraD.Visible = false; correcta3.Visible = false; }
 
             correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
+
+
         }
 
         private void HacerExamen2_Load(object sender, EventArgs e)

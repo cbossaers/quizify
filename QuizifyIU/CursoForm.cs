@@ -19,7 +19,7 @@ namespace QuizifyIU
             this.servicio = servicio;
             usuario = user;
 
-            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
+            if (servicio.GetTipoEntidad(user) == "alumno")
             {
                 bGestionarCurso.Enabled = false;
                 bCrearCurso.Enabled = false;

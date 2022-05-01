@@ -33,10 +33,9 @@ namespace QuizifyIU
                     Examen ex = servicio.GetExamen(x);
                     if (ex.GetFechaFin() > DateTime.Now)
                     {
-                        servicio.get(usuario.correo, ex.GetId());
                         bindingListExamenDisponible.Add(new
                         {
-
+                            estado = ex.GetEstado(),
                             titulo = ex.GetTitulo(),
                             descripcion = ex.GetDescripcion(),
                             curso = ex.GetCurso(),
@@ -49,9 +48,15 @@ namespace QuizifyIU
                     }
                     else
                     {
+                        string nota = "-";
+                        if(ex.GetEstado() == "Calificado")
+                        {
+                            //get nota
+                        }
                         bindingListExamenFinalizado.Add(new
                         {
-
+                            nota = nota,
+                            estado = ex.GetEstado(),
                             titulo = ex.GetTitulo(),
                             descripcion = ex.GetDescripcion(),
                             curso = ex.GetCurso(),
@@ -68,14 +73,17 @@ namespace QuizifyIU
             }
             else
             {
+                List<int> lista = servicio.GetExamenesProfesor(user);
+                calificar.Visible = true;
                 tablaExamenesProfesor.Visible = true;
                 tablaExamenDisponible.Visible = false;
                 tablaExamenFinalizado.Visible = false ;
                 foreach (int x in lista)
                 {
-                    Examen ex = servicio.GetExamenById(x);
+                    Examen ex = servicio.GetExamen(x);
                     bindingListExamenDisponible.Add(new
                     {
+                        estado = ex.GetEstado(),
                         titulo = ex.GetTitulo(),
                         descripcion = ex.GetDescripcion(),
                         curso = ex.GetCurso(),
@@ -97,11 +105,11 @@ namespace QuizifyIU
         {
             BindingList<object> bindingListExamenDisponible = new BindingList<object>();
             //List<int> lista = servicio.GetExamenes();
-            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno"){
+            if (servicio.GetTipoEntidad(user) == "alumno"){
 
                 for(int i =0; i <7; i++)
                 {
-                    Examen ex = servicio.GetExamenById(i);
+                    Examen ex = servicio.GetExamen(i);
                     if (ex.GetFechaFin() > DateTime.Now)
                     {
                         bindingListExamenDisponible.Add(new
@@ -124,10 +132,10 @@ namespace QuizifyIU
 
         private void tablaExamenDisponible_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
+            if (servicio.GetTipoEntidad(user) == "alumno")
             {
                 
-                Examen examen = servicio.GetExamenById(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
+                Examen examen = servicio.GetExamen(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
                 if(examen != null)
                 {
                 this.Hide();
@@ -139,7 +147,7 @@ namespace QuizifyIU
             else
             {
                 
-                    Examen examen = servicio.GetExamenById(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
+                    Examen examen = servicio.GetExamen(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
                 
                 
                 if (examen != null)
@@ -156,6 +164,15 @@ namespace QuizifyIU
         private void MisExamenes_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void EvCalificar(object sender, EventArgs e)
+        {
+            if (tablaExamenesProfesor.SelectedRows != null)
+            {
+                Examen examen = servicio.GetExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
+                //publicar nota
+            }
         }
     }
         

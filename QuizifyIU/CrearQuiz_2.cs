@@ -34,9 +34,9 @@ namespace QuizifyIU
 
             for (int i = 0; i < DTable.Count; i += 3)
             {
-                if (servicio.GetTipoPregunta(DTable[i]).ToString() == "test")
+                Pregunta2 preg = servicio.GetPregunta(DTable[i], DTable[i + 1]);
+                if (preg.GetTipo() == "test")
                 {
-                    PreguntaTest preg = servicio.GetPreguntaTestById(DTable[i], DTable[i + 1]);
                     bindinglist.Add(new
                     {
                         ds_ID = preg.GetId().ToString(),
@@ -51,9 +51,8 @@ namespace QuizifyIU
 
                 }
                 else
-                    if (servicio.GetTipoPregunta(DTable[i]).ToString() == "vf")
+                    if (preg.GetTipo() == "vf")
                 {
-                    PreguntaVF preg = servicio.GetPreguntaVFById(DTable[i], DTable[i + 1]);
                     bindinglist.Add(new
                     {
                         ds_ID = preg.GetId().ToString(),

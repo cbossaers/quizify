@@ -20,7 +20,6 @@ namespace QuizifyIU
         private int numeroDeOpciones = 3;
         private bool cambioDificultad = false;
         private bool cambioTipoPregunta = false;
-        private bool crearquiz = false;
         private FabricaPreguntas fabrica = new FabricaPreguntas();
         private List<dynamic> lista = new List<dynamic> { };
         /*private PreguntaTest preguntaTest;
@@ -33,7 +32,6 @@ namespace QuizifyIU
 
         Examen examen;
         dynamic usuario;
-        bool mispreguntas = false;
         
         public CrearPregunta(NuevoServicio servicio,dynamic usuario)
         {
@@ -407,13 +405,22 @@ namespace QuizifyIU
             {
                 VistaTest();
                 tipoPregunta.Text = "Test";
-                PreguntaTest preg = servicio.GetPreguntaTestById(id,version);
-                opcionCorrecta = preg.GetCorrecta().ToString();
+                Pregunta2 preg;
+                try { preg = servicio.GetPregunta(id, version); }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Error);
+                    return;
+                }
+                List<dynamic> lista = preg.GetParametros();
+                opcionCorrecta = lista[0].ToString();
                 tema.Text = preg.GetTema();
                 ctPregunta.Text = preg.GetCT();
                 enunciado.Text = preg.GetEnunciado();
                 int dificul = preg.GetDificultad();
-                int correc = preg.GetCorrecta();
+                int correc = lista[0];
 
                 switch (dificul)
                 {
@@ -430,18 +437,18 @@ namespace QuizifyIU
                     case (4): correcta4.Checked = true; break;
                 }
 
-                opc0.Text = preg.GetOpcA();
-                opc1.Text = preg.GetOpcB();
-                opc2.Text = preg.GetOpcC();
+                opc0.Text = lista[1];
+                opc1.Text = lista[2];
+                opc2.Text = lista[3];
 
-                if (preg.GetOpcD() != "")
+                if (lista[4] != "")
                  {
-                   opc3.Text = preg.GetOpcD();
-                   opc3.Visible = true; letraD.Visible = true; correcta3.Visible = true;
+                   opc3.Text = lista[4];
+                    opc3.Visible = true; letraD.Visible = true; correcta3.Visible = true;
                     numeroDeOpciones++;
-                    if (preg.GetOpcE() != "")
+                    if (lista[5] != "")
                     {
-                       opc4.Text = preg.GetOpcD();
+                       opc4.Text = lista[5];
                         opc4.Visible = true; letraE.Visible = true; correcta4.Visible = true;
                         numeroDeOpciones++;
                     }
@@ -451,7 +458,15 @@ namespace QuizifyIU
             {
                 tipoPregunta.Text = "VF";
                 VistaVF();
-                Pregunta2 preg = servicio.GetPregunta(id, version);
+                Pregunta2 preg;
+                try { preg = servicio.GetPregunta(id, version); }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Error);
+                    return;
+                }
                 List<dynamic> lista = preg.GetParametros();
                 opcionCorrecta = lista[0].ToString();
                 enunciado.Text = preg.GetEnunciado();
@@ -476,7 +491,15 @@ namespace QuizifyIU
             {
                 VistaMultiple();
                 tipoPregunta.Text = "Selección Multiple";
-                Pregunta2 preg = servicio.GetPregunta(id, version);
+                Pregunta2 preg;
+                try { preg = servicio.GetPregunta(id, version); }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Error);
+                    return;
+                }
                 List<dynamic> lista = preg.GetParametros();
                 opcionCorrecta = lista[0].ToString();
                 tema.Text = preg.GetTema();
@@ -547,7 +570,15 @@ namespace QuizifyIU
             else if(tipo == "desarrollo")
             {
                 VistaDesarrollo();
-                Pregunta2 preg = servicio.GetPregunta(id, version);
+                Pregunta2 preg;
+                try { preg = servicio.GetPregunta(id, version); }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Error);
+                    return;
+                }
                 ctPregunta.Text = preg.GetCT();
                 tema.Text = preg.GetTema();
                 ctPregunta.Text = preg.GetCT();
