@@ -60,6 +60,7 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.calificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenFinalizado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenesProfesor)).BeginInit();
@@ -393,11 +394,23 @@
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             this.dataGridViewTextBoxColumn16.Width = 75;
             // 
+            // calificar
+            // 
+            this.calificar.Location = new System.Drawing.Point(568, 16);
+            this.calificar.Name = "calificar";
+            this.calificar.Size = new System.Drawing.Size(75, 23);
+            this.calificar.TabIndex = 8;
+            this.calificar.Text = "Calificar";
+            this.calificar.UseVisualStyleBackColor = true;
+            this.calificar.Visible = false;
+            this.calificar.Click += new System.EventHandler(this.EvCalificar);
+            // 
             // MisExamenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 450);
+            this.Controls.Add(this.calificar);
             this.Controls.Add(this.tablaExamenFinalizado);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tablaExamenDisponible);
@@ -450,5 +463,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nota;
+        private System.Windows.Forms.Button calificar;
     }
 }

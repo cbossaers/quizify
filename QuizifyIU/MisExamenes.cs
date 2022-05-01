@@ -74,6 +74,7 @@ namespace QuizifyIU
             else
             {
                 List<int> lista = servicio.GetExamenesProfesor(user);
+                calificar.Visible = true;
                 tablaExamenesProfesor.Visible = true;
                 tablaExamenDisponible.Visible = false;
                 tablaExamenFinalizado.Visible = false ;
@@ -163,6 +164,15 @@ namespace QuizifyIU
         private void MisExamenes_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void EvCalificar(object sender, EventArgs e)
+        {
+            if (tablaExamenesProfesor.SelectedRows != null)
+            {
+                Examen examen = servicio.GetExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
+                //publicar nota
+            }
         }
     }
         
