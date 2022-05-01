@@ -20,7 +20,6 @@ namespace QuizifyIU
         private int numeroDeOpciones = 3;
         private bool cambioDificultad = false;
         private bool cambioTipoPregunta = false;
-        private bool crearquiz = false;
         private FabricaPreguntas fabrica = new FabricaPreguntas();
         private List<dynamic> lista = new List<dynamic> { };
         /*private PreguntaTest preguntaTest;
@@ -33,7 +32,6 @@ namespace QuizifyIU
 
         Examen examen;
         dynamic usuario;
-        bool mispreguntas = false;
         
         public CrearPregunta(NuevoServicio servicio,dynamic usuario)
         {
