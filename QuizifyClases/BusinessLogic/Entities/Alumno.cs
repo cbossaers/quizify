@@ -21,6 +21,10 @@ public partial class Alumno : Entidad
     {
         return contraseña;
     }
+    public string GetTipo()
+    {
+        return "alumno";
+    }
 
     public void SetNombre(string nombre)
     {

@@ -67,5 +67,10 @@ public partial class Examen
             get;
             set;
         }
+
+    public string estado {
+        get;
+        set;
+    }
 }
 }

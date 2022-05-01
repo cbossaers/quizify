@@ -18,7 +18,12 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
-            //SOLO los PROFESORES pueden acceder al apartado de Gestionar Curso
+
+            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
+            {
+                bGestionarCurso.Enabled = false;
+                bCrearCurso.Enabled = false;
+            }
         }
 
         private void bCrearCurso_Click(object sender, EventArgs e)

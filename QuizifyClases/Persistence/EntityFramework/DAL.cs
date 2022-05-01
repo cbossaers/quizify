@@ -255,8 +255,7 @@ public class DAL : IDAL {
                         data.Rows[0]["nombre"].ToString(), data.Rows[0]["apellidos"].ToString());
                 case("profesor"):
                     return new Profesor(data.Rows[0]["correo"].ToString(), data.Rows[0]["contraseña"].ToString(), 
-                        data.Rows[0]["nombre"].ToString(), data.Rows[0]["apellidos"].ToString(), data.Rows[0]["curso"].ToString(),
-                        float.Parse(data.Rows[0]["almacenamiento"].ToString()), int.Parse(data.Rows[0]["quizes"].ToString()));
+                        data.Rows[0]["nombre"].ToString(), data.Rows[0]["apellidos"].ToString(),int.Parse(data.Rows[0]["quizes"].ToString()));
                 case("institucion"):
                     return new Institucion(data.Rows[0]["correo"].ToString(), data.Rows[0]["contraseña"].ToString(), 
                         data.Rows[0]["nombre"].ToString(), int.Parse(data.Rows[0]["quizes"].ToString()));
@@ -473,7 +472,7 @@ public class DAL : IDAL {
             DateTime.Parse(data.Rows[0]["fecha_creac"].ToString()), DateTime.Parse(data.Rows[0]["fecha_ini"].ToString()),
             DateTime.Parse(data.Rows[0]["fecha_fin"].ToString()), int.Parse(data.Rows[0]["intentos"].ToString()), 
             int.Parse(data.Rows[0]["volver_atras"].ToString()), int.Parse(data.Rows[0]["errores_restan"].ToString()),
-            int.Parse(data.Rows[0]["mostrar_resultados"].ToString()), preg, data.Rows[0]["CT"].ToString());
+            int.Parse(data.Rows[0]["mostrar_resultados"].ToString()), preg, "Borrador",data.Rows[0]["CT"].ToString());
     }
 
     public List<int> GetListaPreguntas(int id) {
@@ -514,7 +513,7 @@ public class DAL : IDAL {
         }
     }
 
-    public double CalcularNotaExamen(int id_ex, string correo) {
+    public void CalcularNotaExamen(int id_ex, string correo) {
         string consulta_lista =  "SELECT * FROM lista_preguntas WHERE id_examen = " + id_ex + ";";
         string consulta_respuestas = "SELECT * FROM respuestas_examenes WHERE examen = " + id_ex +  " AND alumno = '" + correo + "';";
         int restan = ErroresRestan(id_ex);
@@ -540,7 +539,7 @@ public class DAL : IDAL {
         foreach (DataRow row in data.Rows) { 
             id_preg = int.Parse(row["id_pregunta"].ToString());
             ver_preg = int.Parse(row["ver_pregunta"].ToString());
-            puntuacion = double.Parse(row["ver_pregunta"].ToString());
+            puntuacion = double.Parse(row["puntuacion"].ToString());
 
             foreach (DataRow row2 in data2.Rows) { 
                 if(id_preg == int.Parse(row2["pregunta"].ToString())) {
@@ -550,10 +549,20 @@ public class DAL : IDAL {
             }
         }
 
-        string consulta = "INSERT into PSWC.notas_examenes(alumno,examen,nota) VALUES('" + correo + "','" + id_ex 
-        + "'," + nota + ");";
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
-        return nota;
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "INSERT into PSWC.notas_examenes(alumno,examen,nota) VALUES(@correo,@id_ex,@nota);";
+
+                cmd.Parameters.AddWithValue("@correo", correo);
+                cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                cmd.Parameters.AddWithValue("@nota", nota);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 
     public bool ExisteEntidad(string correo) {
@@ -768,10 +777,12 @@ public class DAL : IDAL {
         adapter.Fill(data);
 
         conn.Close();
+        //temporal para el video de CSO!!
+        List<string> a = new List<string>{};
 
         return new Curso(cod, data.Rows[0]["nombre"].ToString(),
             data.Rows[0]["profesor"].ToString(), int.Parse(data.Rows[0]["apuntados"].ToString()), int.Parse(data.Rows[0]["capacidad"].ToString()),
-            DateTime.Parse(data.Rows[0]["fecha_creac"].ToString()), data.Rows[0]["contraseña"].ToString());
+            DateTime.Parse(data.Rows[0]["fecha_creac"].ToString()), data.Rows[0]["contraseña"].ToString(),a);
     }
 
     public bool ExisteCurso(string cod) {
@@ -843,7 +854,7 @@ public class DAL : IDAL {
         ActualizarEstadoQuizes();
     }
 
-        public List<string> GetCursosByAutor(dynamic persona)
+    public List<string> GetCursosByAutor(dynamic persona)
         {
 
             string tipo = GetTipoEntidad(persona.GetCorreo());
@@ -869,7 +880,7 @@ public class DAL : IDAL {
             return result;
         }
 
-        public double GetNota(string id_alumno, int id_ex) {
+    public double GetNota(string id_alumno, int id_ex) {
 
             double res = 0.0;
 

@@ -20,45 +20,72 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             BindingList<object> bindingListExamenDisponible = new BindingList<object>();
-            
+            BindingList<object> bindingListExamenFinalizado = new BindingList<object>();
 
             user = usuario;
             
             List<int> lista = servicio.GetExamenes(user);
-
-            foreach (int x in lista)
+            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
             {
-                Examen ex = servicio.GetExamenById(x);
-                if(servicio.GetTipoEntidad(user.GetCorreo()) == "alumno" && ex.GetFechaFin() > DateTime.Now)
+                foreach (int x in lista)
                 {
-                    bindingListExamenDisponible.Add(new
+                    Examen ex = servicio.GetExamenById(x);
+                    if (ex.GetFechaFin() > DateTime.Now)
                     {
-                        id = ex.GetId(),
-                        titulo = ex.GetTitulo(),
-                        descripcion = ex.GetDescripcion(),
-                        curso = ex.GetCurso(),
-                        tiempo = ex.GetTiempo(),
-                        fecha_ini = ex.GetFechaIni(),
-                        fecha_fin = ex.GetFechaFin(),
-                        competenciaTransversal = ex.GetCompetenciaTransversal()
-                    });
-                }
-                else if(servicio.GetTipoEntidad(user.GetCorreo()) == "profesor")
-                {
-                    bindingListExamenDisponible.Add(new
+                        bindingListExamenDisponible.Add(new
+                        {
+
+                            titulo = ex.GetTitulo(),
+                            descripcion = ex.GetDescripcion(),
+                            curso = ex.GetCurso(),
+                            tiempo = ex.GetTiempo(),
+                            fecha_ini = ex.GetFechaIni(),
+                            fecha_fin = ex.GetFechaFin(),
+                            competenciaTransversal = ex.GetCompetenciaTransversal(),
+                            nota = servicio.GetNota(usuario.correo, ex.GetId())
+                        });
+                    }
+                    else
                     {
-                        id = ex.GetId(),
-                        titulo = ex.GetTitulo(),
-                        descripcion = ex.GetDescripcion(),
-                        curso = ex.GetCurso(),
-                        tiempo = ex.GetTiempo(),
-                        fecha_ini = ex.GetFechaIni(),
-                        fecha_fin = ex.GetFechaFin(),
-                        competenciaTransversal = ex.GetCompetenciaTransversal()
-                    }) ; ;
+                        bindingListExamenFinalizado.Add(new
+                        {
+
+                            titulo = ex.GetTitulo(),
+                            descripcion = ex.GetDescripcion(),
+                            curso = ex.GetCurso(),
+                            tiempo = ex.GetTiempo(),
+                            fecha_ini = ex.GetFechaIni(),
+                            fecha_fin = ex.GetFechaFin(),
+                            competenciaTransversal = ex.GetCompetenciaTransversal()
+                        });
+                    }
                 }
+                tablaExamenDisponible.DataSource = bindingListExamenDisponible;
+                tablaExamenFinalizado.DataSource = bindingListExamenFinalizado;
             }
-            tablaExamenDisponible.DataSource = bindingListExamenDisponible;
+            else
+            {
+                tablaExamenesProfesor.Visible = true;
+                tablaExamenDisponible.Visible = false;
+                tablaExamenFinalizado.Visible = false ;
+                foreach (int x in lista)
+                {
+                    Examen ex = servicio.GetExamenById(x);
+                    bindingListExamenDisponible.Add(new
+                    {
+                        titulo = ex.GetTitulo(),
+                        descripcion = ex.GetDescripcion(),
+                        curso = ex.GetCurso(),
+                        tiempo = ex.GetTiempo(),
+                        fecha_ini = ex.GetFechaIni(),
+                        fecha_fin = ex.GetFechaFin(),
+                        competenciaTransversal = ex.GetCompetenciaTransversal()
+                    }); 
+                    
+                }
+                tablaExamenesProfesor.DataSource = bindingListExamenDisponible;
+            }
+            
             //alumno();
 
         }
@@ -83,19 +110,13 @@ namespace QuizifyIU
                             tiempo = ex.GetTiempo(),
                             fecha_ini = ex.GetFechaIni(),
                             fecha_fin = ex.GetFechaFin(),
-                            competenciaTransversal = ex.GetCompetenciaTransversal(),
-                            
-                        }) ;
+                            competenciaTransversal = ex.GetCompetenciaTransversal()
+                        }); ;
                     }
                     
                 }
                 tablaExamenDisponible.DataSource = bindingListExamenDisponible;
             }
-        }
-
-        private void tablaExamenDisponible_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void tablaExamenDisponible_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -115,8 +136,9 @@ namespace QuizifyIU
             else
             {
                 
-                Examen examen = servicio.GetExamenById(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
-
+                    Examen examen = servicio.GetExamenById(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
+                
+                
                 if (examen != null)
                 {
                     this.Hide();

@@ -156,5 +156,10 @@ namespace Quizify.Services
                 throw new ServicioException(e.ToString());
             }
         }
+
+        public double GetNota(string id_alumno, int id_ex)
+        {
+            return dal.GetNota(id_alumno, id_ex);
+        }
     }
 }
