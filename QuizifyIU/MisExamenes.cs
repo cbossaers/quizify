@@ -105,7 +105,7 @@ namespace QuizifyIU
         {
             BindingList<object> bindingListExamenDisponible = new BindingList<object>();
             //List<int> lista = servicio.GetExamenes();
-            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno"){
+            if (servicio.GetTipoEntidad(user) == "alumno"){
 
                 for(int i =0; i <7; i++)
                 {
@@ -132,7 +132,7 @@ namespace QuizifyIU
 
         private void tablaExamenDisponible_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
+            if (servicio.GetTipoEntidad(user) == "alumno")
             {
                 
                 Examen examen = servicio.GetExamen(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
