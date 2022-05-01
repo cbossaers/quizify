@@ -21,15 +21,18 @@ namespace AppTest {
 
             NuevoServicio service = new NuevoServicio();
 
-            int x = examen.UltimoIdExamen()+1;
-            Examen Calificado = new Examen(x, "dem21o", "demo", "demo", "patricio@gmail.com", 50, 
-            DateTime.Now, DateTime.Now, DateTime.Now.AddSeconds(30), 1, 1, 1, 1, examen.GetListaPreguntas(0), "", "demo");
+            List<string> res = new List<string>();
+            
+            int x = 1010;
 
-            //service.AddExamen(Calificado);
+            for(int i = 0; i < 5; i++) {
+                res.Add((x%10).ToString());
+                x/=10;
+            }
 
-            //service.ActualizarEstadoQuizes();
-
-            examen.CalcularNotaExamen(0,"alumno@gmail.com");
+            foreach(string s in res) {
+                Console.WriteLine(s);
+            }
         }
     }
 }
