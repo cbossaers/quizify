@@ -297,7 +297,7 @@ public class DALExamen : IDAL2<Examen> {
 
     public double GetNota(string id_alumno, int id_ex) {
 
-            double res = 0.0;
+            double res = -1;
 
             using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
