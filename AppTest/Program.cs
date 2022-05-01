@@ -21,11 +21,7 @@ namespace AppTest {
 
             NuevoServicio service = new NuevoServicio();
 
-            List<int> lista = profesor.GetExamenes("patricio@gmail.com");
-
-            foreach(int x in lista) {
-                Console.WriteLine(x);
-            }
+            
         }
     }
 }

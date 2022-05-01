@@ -122,8 +122,8 @@ public class DALPregunta {
                                 lista.Add(rdr.GetString("opc_a"));
                                 lista.Add(rdr.GetString("opc_b"));
                                 lista.Add(rdr.GetString("opc_c"));
-                                if(rdr.IsDBNull(6)) { lista.Add(rdr.GetString("opc_d")); }
-                                if(rdr.IsDBNull(7)) { lista.Add(rdr.GetString("opc_e")); }
+                                if(rdr["opc_d"] != DBNull.Value) { lista.Add(rdr.GetString("opc_d")); }
+                                if(rdr["opc_e"] != DBNull.Value) { lista.Add(rdr.GetString("opc_e")); }
 
                                 break;
 
@@ -137,8 +137,8 @@ public class DALPregunta {
                                 lista.Add(rdr.GetString("opc_a"));
                                 lista.Add(rdr.GetString("opc_b"));
                                 lista.Add(rdr.GetString("opc_c"));
-                                if(rdr.IsDBNull(6)) { lista.Add(rdr.GetString("opc_d")); }
-                                if(rdr.IsDBNull(7)) { lista.Add(rdr.GetString("opc_e")); }
+                                if(rdr["opc_d"] != DBNull.Value) { lista.Add(rdr.GetString("opc_d")); }
+                                if(rdr["opc_e"] != DBNull.Value) { lista.Add(rdr.GetString("opc_e")); }
 
                                 break;
 
