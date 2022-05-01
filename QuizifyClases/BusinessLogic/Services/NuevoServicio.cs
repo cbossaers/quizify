@@ -130,5 +130,14 @@ namespace Quizify.Services
         public void ActualizarEstadoQuizes() {
             examen.ActualizarEstadoQuizes();
         }
+    
+        //Otros métodos
+        public string GetTipoEntidad(dynamic usuario) {
+            switch(usuario.GetType()) {
+                case("Quizify.Entities.Alumno"): return "alumno";
+                case("Quizify.Entities.Profesor"): return "profesor";
+                default: return "error";
+            }
+        }
     }
 }
