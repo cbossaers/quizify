@@ -134,7 +134,6 @@ namespace QuizifyIU
             }
             else
             {
-                PreguntaVF preg = servicio.GetPreguntaById(preguntas_asociadas[cont], preguntas_asociadas[cont + 1]);
                 enunciado.Text = preg.GetEnunciado().ToString();
                 Test =false;
                 opc0.Visible = false; letraA.Visible = false; correcta0.Visible = false;
