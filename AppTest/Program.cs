@@ -21,7 +21,11 @@ namespace AppTest {
 
             NuevoServicio service = new NuevoServicio();
 
-            
+            int x = examen.UltimoIdExamen()+1;
+            Examen Calificado = new Examen(9, "demo", "demo", "demo", "anton@gmail.com", 50, 
+            DateTime.Now, DateTime.Now, DateTime.Now.AddDays(1), 1, 1, 1, 1, examen.GetListaPreguntas(0), "", "demo");
+
+            service.AddExamen(Calificado);
         }
     }
 }

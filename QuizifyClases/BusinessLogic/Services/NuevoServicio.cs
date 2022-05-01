@@ -102,5 +102,30 @@ namespace Quizify.Services
         public int UltimaVersionPregunta(int id) {
             return pregunta.UltimaVerPregunta(id);
         }
+
+        //Métodos examen
+        public void AddExamen(Examen exam) {
+            try { examen.Add(exam); } 
+            catch(MySql.Data.MySqlClient.MySqlException ex) { 
+                if(ex.Number == 1062) { throw new Exception("Este examen ya existe."); }
+                if(ex.Number == 1452) { throw new Exception("Ese profesor no existe."); }
+                else { throw new Exception("Error de integridad, código: " + ex.Number); }
+            }
+        }
+        public Examen GetExamen(int id) {
+            Examen exam = examen.Get(id);
+            if(exam is null) { throw new Exception("Este examen no existe."); }
+            return exam;
+        }
+        public int UltimoIdExamen() {
+            return examen.UltimoIdExamen();
+        }
+        public void SubirRespuestas(List<dynamic> respuestas) {
+            try { examen.SubirRespuestas(respuestas); }
+            catch(MySql.Data.MySqlClient.MySqlException ex) { throw new Exception("Error de integridad, código: " + ex.Number); }
+        }
+        public void AnularPregunta(int id_ex, int id_preg) {
+            examen.AnularPregunta(id_ex,id_preg);
+        }
     }
 }

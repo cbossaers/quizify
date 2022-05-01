@@ -256,9 +256,9 @@ public class DALExamen : IDAL2<Examen> {
             string estado = "";
 
             if(ex.GetMostrarResultados() == 1) { estado = "Calificado"; }
-            else if(ex.GetFechaIni() < DateTime.Now) { estado = "Inactivo";}
-            else if(ex.GetFechaIni() >= DateTime.Now && ex.GetFechaFin() < DateTime.Now) { estado = "Activo"; }
-            else if(ex.GetFechaFin() >= DateTime.Now) { estado = "Finalizado"; }
+            else if(ex.GetFechaIni() > DateTime.Now) { estado = "Inactivo";}
+            else if(ex.GetFechaIni() <= DateTime.Now && ex.GetFechaFin() < DateTime.Now) { estado = "Activo"; }
+            else if(ex.GetFechaFin() <= DateTime.Now) { estado = "Finalizado"; }
 
             using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
