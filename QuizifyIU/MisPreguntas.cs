@@ -63,8 +63,7 @@ namespace QuizifyIU
                         });
 
                     }
-                    else
-                    if (servicio.GetTipoPregunta(DTable[i]).ToString() == "vf")
+                    else if (servicio.GetTipoPregunta(DTable[i]).ToString() == "vf")
                     {
                         PreguntaVF preg = servicio.GetPreguntaVFById(DTable[i], DTable[i + 1]);
                         bindinglist.Add(new
@@ -77,7 +76,22 @@ namespace QuizifyIU
                             ds_materia = preg.GetTema(),
                             ds_autor = filtros[0]
                         });
-                    }
+                    }else if(servicio.GetTipoPregunta(DTable[i]).ToString() == "multiple")
+                     {
+                    PreguntaVF preg = servicio.GetPreguntaVFById(DTable[i], DTable[i + 1]);
+                    bindinglist.Add(new
+                    {
+                        ds_ID = preg.GetId().ToString(),
+                        ds_enunciado = preg.GetEnunciado(),
+                        ds_tipo = "multiple",
+                        ds_version = preg.GetVersion(),
+                        ds_dificultad = preg.GetDificultad(),
+                        ds_materia = preg.GetTema(),
+                        ds_autor = filtros[0]
+                    });
+
+                }
+                    
             }
             tablaPreguntas.DataSource = bindinglist;
         }

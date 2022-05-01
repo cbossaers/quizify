@@ -90,19 +90,12 @@ namespace QuizifyIU
         }
         private void crear_Click(object sender, EventArgs e)
         {
-            List<int> lista = examen.GetPreguntasAsociadas();
             
-            dataGridView1.SelectedCells[0].Value.ToString();
-
-            examen.SetPreguntasAsociadas(lista);
             servicio.AddExamen(examen);
             MessageBox.Show(this, "Se ha creado el examen", "Éxito",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Information);
             this.Hide();
-            
-            
-
         }
 
         private void editar_Click(object sender, EventArgs e)
