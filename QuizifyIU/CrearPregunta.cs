@@ -507,9 +507,9 @@ namespace QuizifyIU
                     cont++;
                 }*/
                 int x = lista[0];
-                for(int i = 0; i < 5; i++)
+                for(int i = 4; i >= 0; i--)
                 {
-                    listaOpCorrecta.Add((x%10).ToString());
+                    listaOpCorrecta[i] =(x%10).ToString();
                     x/=10;
                 }
                 for (int i = 0; i < 5; i++)
