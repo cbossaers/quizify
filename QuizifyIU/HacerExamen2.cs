@@ -16,7 +16,7 @@ namespace QuizifyIU
     public partial class HacerExamen2 : Form
     {
         private int id= 0,cont =0;
-        private Servicio servicio;
+        private NuevoServicio servicio;
         List<int> preguntas_asociadas = new List<int>();
         List<dynamic> respuestas = new List<dynamic>{ };
         Dictionary<int,int> res = new Dictionary<int, int>();    
@@ -31,7 +31,7 @@ namespace QuizifyIU
 
         Examen examen;
 
-        public HacerExamen2(Servicio servicio, dynamic user,Examen examen)
+        public HacerExamen2(NuevoServicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
             this.servicio = servicio;

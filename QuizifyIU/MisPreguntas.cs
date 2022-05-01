@@ -12,7 +12,7 @@ namespace QuizifyIU
 {
     public partial class MisPreguntas : Form
     {
-        private Servicio servicio;
+        private NuevoServicio servicio;
         dynamic usuario;
         List<dynamic> filtros;
         List<int> DTable;
@@ -20,7 +20,7 @@ namespace QuizifyIU
         dynamic dificultad;
         string tema;
 
-        public MisPreguntas(Servicio servicio,dynamic user)
+        public MisPreguntas(NuevoServicio servicio,dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;

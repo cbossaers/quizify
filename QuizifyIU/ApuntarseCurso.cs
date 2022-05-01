@@ -12,9 +12,9 @@ namespace QuizifyIU
 {
     public partial class ApuntarseCurso : Form
     {
-        private Servicio servicio;
+        private NuevoServicio servicio;
         private dynamic usuario;
-        public ApuntarseCurso(Servicio servicio, dynamic user)
+        public ApuntarseCurso(NuevoServicio servicio, dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;

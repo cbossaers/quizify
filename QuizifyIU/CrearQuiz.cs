@@ -22,7 +22,7 @@ namespace QuizifyIU
         
         private Examen examen;
 
-        public CrearQuiz(Servicio servicio,dynamic user)
+        public CrearQuiz(NuevoServicio servicio,dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
@@ -30,7 +30,7 @@ namespace QuizifyIU
             fin.Text = "23/03/2022";
 
         }
-        public CrearQuiz(Servicio servicio, dynamic user,Examen examen)
+        public CrearQuiz(NuevoServicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
             this.servicio = servicio;

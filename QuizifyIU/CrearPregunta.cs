@@ -33,14 +33,14 @@ namespace QuizifyIU
         dynamic usuario;
         bool mispreguntas = false;
         
-        public CrearPregunta(Servicio servicio,dynamic usuario)
+        public CrearPregunta(NuevoServicio servicio,dynamic usuario)
         {
             InitializeComponent();
             this.servicio = servicio;
             this.usuario = usuario;
             crearquiz = false;
         }
-        public CrearPregunta(Servicio servicio, dynamic usuario,Examen examen)
+        public CrearPregunta(NuevoServicio servicio, dynamic usuario,Examen examen)
         {
             InitializeComponent();
             this.servicio = servicio;
@@ -48,7 +48,7 @@ namespace QuizifyIU
             this.crearquiz= true;
             this.usuario = usuario;
         }
-        public CrearPregunta(Servicio servicio, dynamic usuario,int id, int version, string tipo)
+        public CrearPregunta(NuevoServicio servicio, dynamic usuario,int id, int version, string tipo)
         {
             InitializeComponent();
             this.servicio = servicio;

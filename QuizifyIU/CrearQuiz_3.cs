@@ -15,12 +15,12 @@ namespace QuizifyIU
     {
 
         List<dynamic> filtros;
-        private Servicio servicio;
+        private NuevoServicio servicio;
         private dynamic usuario;
         private Examen examen;
         public bool crearquiz = false;
         List<int> DTable;
-        public CrearQuiz_3(Servicio servicio, dynamic user,Examen examen)
+        public CrearQuiz_3(NuevoServicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
             

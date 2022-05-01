@@ -12,7 +12,7 @@ namespace QuizifyIU
 {
     public partial class registrarse : Form
     {
-        private Servicio servicio;
+        private NuevoServicio servicio;
 
         //Variables para habilitar/deshabilitar el botón "Confirmar"
         private Boolean existeUser = false;
@@ -22,7 +22,7 @@ namespace QuizifyIU
         private Boolean apellidoCorrecto = false;
         private Boolean tipoCorrecto = false;
 
-        public registrarse(Servicio servicio)
+        public registrarse(NuevoServicio servicio)
         {
             InitializeComponent();
             this.servicio = servicio;

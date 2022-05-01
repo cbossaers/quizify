@@ -12,11 +12,11 @@ namespace QuizifyIU
 {
     public partial class GestionarAlumnosCurso : Form
     {
-        private Servicio servicio;
+        private NuevoServicio servicio;
         private Curso curso;
         private GestionarAlumnosCurso control;
         private dynamic usuario;
-        public GestionarAlumnosCurso(Servicio servicio, GestionarAlumnosCurso control, Curso curso, dynamic user)
+        public GestionarAlumnosCurso(NuevoServicio servicio, GestionarAlumnosCurso control, Curso curso, dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
