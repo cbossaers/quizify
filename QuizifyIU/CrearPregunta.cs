@@ -14,7 +14,7 @@ namespace QuizifyIU
 {
     public partial class CrearPregunta : Form
     {
-        private Servicio servicio;
+        private NuevoServicio servicio;
         private string opcionCorrecta;
         private List<string> listaOpCorrecta = new List<String> {"0", "0", "0", "0", "0"};
         private int numeroDeOpciones = 3;
@@ -23,11 +23,13 @@ namespace QuizifyIU
         private bool crearquiz = false;
         private FabricaPreguntas fabrica = new FabricaPreguntas();
         private List<dynamic> lista = new List<dynamic> { };
-        private PreguntaTest preguntaTest;
+        /*private PreguntaTest preguntaTest;
         private PreguntaVF preguntaVF;
         private PreguntaDesarrollo preguntaDesarrollo;
-        private PreguntaMultiple preguntaMultiple;
+        private PreguntaMultiple preguntaMultiple;*/
+        private Pregunta2 pregunta;
         private int dificultadNum;
+        private int id = -1;
 
         Examen examen;
         dynamic usuario;
@@ -153,6 +155,10 @@ namespace QuizifyIU
 
         private void EvCrearPregunta(object sender, EventArgs e)
         {
+            if(id == -1)
+            {
+                int id = servicio.UltimoIdPregunta() + 1;
+            }
             if (enunciado.Text == "")
             {
                 MessageBox.Show(this, "No se ha introducido un enunciado", "Error",
@@ -169,10 +175,18 @@ namespace QuizifyIU
             }
             if(tipoPregunta.Text == "Desarrollo")
             {
-                lista.Add(RespuestaTxt.Text);
                 if (ctPregunta.Text == "Competencia Transversal") ctPregunta.Text = "";
-                preguntaDesarrollo = fabrica.CrearPregunta("desarrollo", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo(), tema.Text, lista, 1, ctPregunta.Text);
-                servicio.AddPregunta(preguntaDesarrollo);
+                pregunta = fabrica.CrearPregunta2(id, servicio.UltimaVersionPregunta(id)+1,
+                    enunciado.Text,"des", dificultadNum, usuario.GetCorreo(), tema.Text, ctPregunta.Text, lista);
+                try { servicio.AddPregunta(pregunta); }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Error);
+                    return;
+                }
+                
 
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
@@ -192,9 +206,17 @@ namespace QuizifyIU
                     if (numeroDeOpciones == 5) lista.Add(opc4.Text);
                 }
                 if (ctPregunta.Text == "Competencia Transversal") ctPregunta.Text = "";
-                preguntaTest = fabrica.CrearPregunta("test", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo() , tema.Text, lista,1, ctPregunta.Text);
-                servicio.AddPregunta(preguntaTest);
-                
+                pregunta = fabrica.CrearPregunta2(id, servicio.UltimaVersionPregunta(id) + 1,
+                    enunciado.Text, "test",dificultadNum, usuario.GetCorreo() , tema.Text, ctPregunta.Text, lista);
+                try { servicio.AddPregunta(pregunta); }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Error);
+                    return;
+                }
+
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Information);
@@ -215,8 +237,16 @@ namespace QuizifyIU
                     if (numeroDeOpciones == 5) lista.Add(opc4.Text);
                 }
                 if (ctPregunta.Text == "Competencia Transversal") ctPregunta.Text = "";
-                preguntaMultiple = fabrica.CrearPregunta("multiple", 12345, enunciado.Text, dificultadNum, usuario.GetCorreo(), tema.Text, lista, 1, ctPregunta.Text);
-                servicio.AddPregunta(preguntaMultiple);
+                pregunta = fabrica.CrearPregunta2(id, servicio.UltimaVersionPregunta(id) + 1,
+                    enunciado.Text, "mult", dificultadNum, usuario.GetCorreo(), tema.Text, ctPregunta.Text, lista);
+                try { servicio.AddPregunta(pregunta); }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Error);
+                    return;
+                }
 
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
@@ -226,15 +256,28 @@ namespace QuizifyIU
             }
             else
             {
+                lista.Add(Convert.ToInt32(opcionCorrecta));
                 if (ctPregunta.Text == "Competencia Transversal") ctPregunta.Text = "";
-                preguntaVF = fabrica.CrearPregunta("vf", 120, enunciado.Text, dificultadNum, usuario.GetCorreo() , tema.Text,lista, 1, ctPregunta.Text);
-                servicio.AddPregunta(preguntaVF);
+                pregunta = fabrica.CrearPregunta2(id, servicio.UltimaVersionPregunta(id) + 1,
+                    enunciado.Text,"vf", dificultadNum, usuario.GetCorreo() , tema.Text, ctPregunta.Text, lista);
+                try { servicio.AddPregunta(pregunta); }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Error);
+                    return;
+                }
                 MessageBox.Show(this, "Se ha creado la pregunta de forma exitosa", "Éxito",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Information);
                 
                 VistaVF();
             }
+            if (id <= servicio.UltimoIdPregunta()) { 
+                //cerrar
+            }
+            id = -1;
         }
 
         private void EvCambiarDificultad(object sender, EventArgs e)
