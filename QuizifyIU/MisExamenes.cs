@@ -48,24 +48,39 @@ namespace QuizifyIU
                     }
                     else
                     {
-                        string nota = "-";
+                        
                         if(ex.GetEstado() == "Calificado")
                         {
-                            //get nota
-                        }
-                        bindingListExamenFinalizado.Add(new
+                            double nota = servicio.GetNota(usuario.GetCorreo(),ex.GetId());
+                            bindingListExamenFinalizado.Add(new
+                            {
+                                nota = nota,
+                                estado = ex.GetEstado(),
+                                titulo = ex.GetTitulo(),
+                                descripcion = ex.GetDescripcion(),
+                                curso = ex.GetCurso(),
+                                tiempo = ex.GetTiempo(),
+                                fecha_ini = ex.GetFechaIni(),
+                                fecha_fin = ex.GetFechaFin(),
+                                competenciaTransversal = ex.GetCompetenciaTransversal()
+                            });
+                        }else
                         {
-                            nota = nota,
-                            estado = ex.GetEstado(),
-                            titulo = ex.GetTitulo(),
-                            descripcion = ex.GetDescripcion(),
-                            curso = ex.GetCurso(),
-                            tiempo = ex.GetTiempo(),
-                            fecha_ini = ex.GetFechaIni(),
-                            fecha_fin = ex.GetFechaFin(),
-                            competenciaTransversal = ex.GetCompetenciaTransversal()
+                            String nota = "-";
+                            bindingListExamenFinalizado.Add(new
+                            {
+                                nota = nota,
+                                estado = ex.GetEstado(),
+                                titulo = ex.GetTitulo(),
+                                descripcion = ex.GetDescripcion(),
+                                curso = ex.GetCurso(),
+                                tiempo = ex.GetTiempo(),
+                                fecha_ini = ex.GetFechaIni(),
+                                fecha_fin = ex.GetFechaFin(),
+                                competenciaTransversal = ex.GetCompetenciaTransversal()
 
-                        });
+                            });
+                        }
                     }
                 }
                 tablaExamenDisponible.DataSource = bindingListExamenDisponible;
@@ -99,19 +114,30 @@ namespace QuizifyIU
         }
         private void tablaExamenDisponible_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Examen examen = servicio.GetExamen(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
-                if(examen != null)
+            try 
+            {
+                Examen examen = servicio.GetExamen(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
+                if (examen != null)
                 {
                     this.Hide();
-                    var form2 = new HacerExamen(servicio, user,examen);
+                    var form2 = new HacerExamen(servicio, user, examen);
                     form2.Closed += (s, args) => this.Close();
                     form2.Show();
                 }
-             
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Error);
+                return;
+            }
         }
         private void tablaExamenesProfesor_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Examen examen = servicio.GetExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
+            try 
+            {
+                Examen examen = servicio.GetExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
                 if (examen != null)
                 {
                     this.Hide();
@@ -119,13 +145,31 @@ namespace QuizifyIU
                     form2.Closed += (s, args) => this.Close();
                     form2.Show();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Error);
+                return;
+            }
         }
         private void EvCalificar(object sender, EventArgs e)
         {
             if (tablaExamenesProfesor.SelectedRows != null)
             {
-                Examen examen = servicio.GetExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
-                //publicar nota
+                try 
+                {
+                    Examen examen = servicio.GetExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
+                    servicio.PublicarNotas(examen.GetId()); 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Error);
+                    return;
+                }
             }
         }
     }
