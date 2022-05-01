@@ -14,9 +14,9 @@ namespace QuizifyIU
 {
     public partial class Principal : Form
     {
-        private Servicio servicio;
+        private NuevoServicio servicio;
         Portal formportal;
-        public Principal(Servicio servicio)
+        public Principal(NuevoServicio servicio)
         {
             InitializeComponent();
             this.servicio = servicio;

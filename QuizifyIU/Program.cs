@@ -16,7 +16,8 @@ namespace QuizifyIU
         [STAThread]
         static void Main()
         {
-            Servicio servicio = new Servicio(new DAL());
+            NuevoServicio servicio = new NuevoServicio();
+            //Servicio servicio = new Servicio(new DAL());
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
