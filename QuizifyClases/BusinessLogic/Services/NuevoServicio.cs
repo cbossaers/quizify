@@ -130,7 +130,12 @@ namespace Quizify.Services
         public void ActualizarEstadoQuizes() {
             examen.ActualizarEstadoQuizes();
         }
-
+        public void PublicarNotas(int ex_id) {
+            examen.PublicarNotas(ex_id);
+        }
+        public double GetNota(string id_alumno, int id_ex) {
+            return examen.GetNota(id_alumno,id_ex);
+        }
     
         //Otros métodos
         public dynamic GetTipoEntidad(string usuario) {
