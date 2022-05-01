@@ -70,7 +70,7 @@ public class DALCurso {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT apuntados,capacidad FROM PSWC.cursos WHERE codigo = @curso AND profesor = @profesor;";
+                cmd.CommandText = "SELECT * FROM cursos WHERE codigo = @curso AND profesor = @profesor;";
 
                 cmd.Parameters.AddWithValue("@curso", curso);
                 cmd.Parameters.AddWithValue("@profesor", profesor);
@@ -79,12 +79,12 @@ public class DALCurso {
 
                 using (MySqlDataReader dr = cmd.ExecuteReader()) {
                     while (dr.Read())
-                    apuntados = int.Parse(dr.GetString("apuntados").ToString());
-                    capacidad = int.Parse(dr.GetString("capacidad").ToString());
+                    apuntados = dr.GetInt32("apuntados");
+                    capacidad = dr.GetInt32("capacidad");
                 }
             }
 
-            if(apuntados >= capacidad) {throw new InvalidOperationException("Ese curso ya está lleno"); }
+            if(apuntados == capacidad) {throw new InvalidOperationException("Ese curso está lleno"); }
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
@@ -104,6 +104,26 @@ public class DALCurso {
     }
 
     public void EliminarAlumnoDeCurso(string alumno, string curso, string profesor) {
+
+        int apuntados = 0;
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT apuntados FROM cursos WHERE codigo = @curso AND profesor = @profesor;";
+
+                cmd.Parameters.AddWithValue("@curso", curso);
+                cmd.Parameters.AddWithValue("@profesor", profesor);
+
+                conn.Open();
+
+                using (MySqlDataReader dr = cmd.ExecuteReader()) {
+                    while (dr.Read())
+                    apuntados = dr.GetInt32("apuntados");
+                }
+            }
+        }
         
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
             
@@ -117,18 +137,18 @@ public class DALCurso {
                 conn.Open();
                 cmd.ExecuteNonQuery();
 
-                AlterarNumeroAlumnos(-1,curso,profesor);
+                AlterarNumeroAlumnos(-1,curso,profesor,apuntados);
             }
         }
     }
 
-     public void AlterarNumeroAlumnos(int tipo_cambio, string codigo_curso, string profesor, int apuntados = 0) {
+     public void AlterarNumeroAlumnos(int tipo_cambio, string codigo_curso, string profesor, int apuntados) {
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "UPDATE PSWC.cursos SET apuntados = @nuevo WHERE codigo = @codigo_curso AND profesor = @profesor;";
+                cmd.CommandText = "UPDATE cursos SET apuntados = @nuevo WHERE codigo = @codigo_curso AND profesor = @profesor;";
 
                 cmd.Parameters.AddWithValue("@nuevo",apuntados + tipo_cambio);
                 cmd.Parameters.AddWithValue("@codigo_curso", codigo_curso);

@@ -19,11 +19,9 @@ namespace AppTest {
             DALExamen examen = new DALExamen();
             DALCurso curso = new DALCurso();
 
-            List<int> lista = examen.GetListaPreguntas(6);
+            NuevoServicio service = new NuevoServicio();
 
-            foreach(int i in lista) {
-                Console.WriteLine(i);
-            }
+            service.AddAlumnoACurso("cesar@gmail.com","ABC","patricio@gmail.com");
         }
     }
 }

@@ -125,7 +125,9 @@ CREATE TABLE cursos (
 CREATE TABLE alumno_curso (
     alumno VARCHAR(256),
     curso VARCHAR(8),
-    PRIMARY KEY (alumno, curso),
+    profesor VARCHAR(256),
+    PRIMARY KEY (alumno, curso, profesor),
     FOREIGN KEY (alumno) REFERENCES alumno(correo) ON DELETE CASCADE,
-    FOREIGN KEY (curso) REFERENCES cursos(codigo) ON DELETE CASCADE
+    FOREIGN KEY (curso) REFERENCES cursos(codigo) ON DELETE CASCADE,
+    FOREIGN KEY (profesor) REFERENCES profesor(correo) ON DELETE CASCADE
 );

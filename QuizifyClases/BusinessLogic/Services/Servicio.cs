@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Data;
-using MySql.Data;
-using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using Quizify.Entities;
 using Quizify.Persistence;
-using System.Text;
 
 namespace Quizify.Services
 {
