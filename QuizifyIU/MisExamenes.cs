@@ -41,7 +41,7 @@ namespace QuizifyIU
                         fecha_ini = ex.GetFechaIni(),
                         fecha_fin = ex.GetFechaFin(),
                         competenciaTransversal = ex.GetCompetenciaTransversal()
-                    }) ;;
+                    });
                 }
                 else if(servicio.GetTipoEntidad(user.GetCorreo()) == "profesor")
                 {
@@ -83,8 +83,9 @@ namespace QuizifyIU
                             tiempo = ex.GetTiempo(),
                             fecha_ini = ex.GetFechaIni(),
                             fecha_fin = ex.GetFechaFin(),
-                            competenciaTransversal = ex.GetCompetenciaTransversal()
-                        }); ;
+                            competenciaTransversal = ex.GetCompetenciaTransversal(),
+                            
+                        }) ;
                     }
                     
                 }
@@ -114,9 +115,8 @@ namespace QuizifyIU
             else
             {
                 
-                    Examen examen = servicio.GetExamenById(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
-                
-                
+                Examen examen = servicio.GetExamenById(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
+
                 if (examen != null)
                 {
                     this.Hide();

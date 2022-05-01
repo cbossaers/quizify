@@ -39,6 +39,7 @@
             this.tiempo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_ini2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_fin2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.competenciaTransversal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +59,7 @@
             this.tiempo2,
             this.fecha_ini2,
             this.fecha_fin2,
+            this.Estado,
             this.competenciaTransversal});
             this.tablaExamenDisponible.Location = new System.Drawing.Point(12, 71);
             this.tablaExamenDisponible.MultiSelect = false;
@@ -162,6 +164,13 @@
             this.fecha_fin2.ReadOnly = true;
             this.fecha_fin2.Width = 150;
             // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
             // competenciaTransversal
             // 
             this.competenciaTransversal.HeaderText = "CT";
@@ -199,6 +208,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempo2;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_ini2;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_fin2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn competenciaTransversal;
     }
 }

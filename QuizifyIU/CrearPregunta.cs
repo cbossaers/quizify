@@ -367,6 +367,7 @@ namespace QuizifyIU
                 PreguntaTest preg = servicio.GetPreguntaTestById(id,version);
                 opcionCorrecta = preg.GetCorrecta().ToString();
                 tema.Text = preg.GetTema();
+                ctPregunta.Text = preg.GetCT();
                 enunciado.Text = preg.GetEnunciado();
                 int dificul = preg.GetDificultad();
                 int correc = preg.GetCorrecta();
@@ -393,12 +394,12 @@ namespace QuizifyIU
                 if (preg.GetOpcD() != "")
                  {
                    opc3.Text = preg.GetOpcD();
-                   opc3.Visible = true; letraD.Visible = true; check3.Visible = true; correcta3.Visible = true;
+                   opc3.Visible = true; letraD.Visible = true; correcta3.Visible = true;
                     numeroDeOpciones++;
                     if (preg.GetOpcE() != "")
                     {
                        opc4.Text = preg.GetOpcD();
-                        opc4.Visible = true; letraE.Visible = true; check4.Visible = true; correcta4.Visible = true;
+                        opc4.Visible = true; letraE.Visible = true; correcta4.Visible = true;
                         numeroDeOpciones++;
                     }
                 }
@@ -411,18 +412,88 @@ namespace QuizifyIU
                 opcionCorrecta = preg.GetCorrecta().ToString();
                 enunciado.Text = preg.GetEnunciado();
                 tema.Text = preg.GetTema();
+                ctPregunta.Text = preg.GetCT();
                 int dificul = preg.GetDificultad();
+                int correc = preg.GetCorrecta();
                 switch (dificul)
                 {
                     case (0): dificultad.Text = "Fácil"; break;
                     case (1): dificultad.Text = "Normal"; break;
                     case (2): dificultad.Text = "Difícil"; break;
                 }
-                int correc = preg.GetCorrecta();
+                
                 switch (correc)
                 {
-                    case (0): correcta0.Checked = true; break;
-                    case (1): correcta1.Checked = true; break;
+                    case (0): verdadero0.Checked = true; break;
+                    case (1): falso1.Checked = true; break;
+                }
+            }
+            else if (tipo == "multiple")
+            {
+                VistaMultiple();
+                tipoPregunta.Text = "Selección Multiple";
+                PreguntaTest preg = servicio.GetPreguntaTestById(id, version);
+                opcionCorrecta = preg.GetCorrecta().ToString();
+                tema.Text = preg.GetTema();
+                ctPregunta.Text = preg.GetCT();
+                enunciado.Text = preg.GetEnunciado();
+                int dificul = preg.GetDificultad();
+                int correc = preg.GetCorrecta();
+                switch (dificul)
+                {
+                    case (0): dificultad.Text = "Fácil"; break;
+                    case (1): dificultad.Text = "Normal"; break;
+                    case (2): dificultad.Text = "Difícil"; break;
+                }
+                int cont = 0;
+                while(correc>0){
+                    if(correc % 10 == 1)
+                    {
+                        switch (cont)
+                        {
+                            case (0): check0.Checked = true; break;
+                            case (1): check0.Checked = true; break;
+                            case (2): check0.Checked = true; break;
+                            case (3): check0.Checked = true; break;
+                            case (4): check0.Checked = true; break;
+                        }
+                    }
+                    correc = correc / 10;
+                    cont++;
+                }
+
+                opc0.Text = preg.GetOpcA();
+                opc1.Text = preg.GetOpcB();
+                opc2.Text = preg.GetOpcC();
+
+                if (preg.GetOpcD() != "")
+                {
+                    opc3.Text = preg.GetOpcD();
+                    opc3.Visible = true; letraD.Visible = true; check3.Visible = true;
+                    numeroDeOpciones++;
+                    if (preg.GetOpcE() != "")
+                    {
+                        opc4.Text = preg.GetOpcD();
+                        opc4.Visible = true; letraE.Visible = true; check4.Visible = true; 
+                        numeroDeOpciones++;
+                    }
+                }
+            }
+            else if(tipo == "desarrollo")
+            {
+                VistaDesarrollo();
+                PreguntaTest preg = servicio.GetPreguntaTestById(id, version);
+                ctPregunta.Text = preg.GetCT();
+                opcionCorrecta = preg.GetCorrecta().ToString();
+                tema.Text = preg.GetTema();
+                ctPregunta.Text = preg.GetCT();
+                enunciado.Text = preg.GetEnunciado();
+                int dificul = preg.GetDificultad();
+                switch (dificul)
+                {
+                    case (0): dificultad.Text = "Fácil"; break;
+                    case (1): dificultad.Text = "Normal"; break;
+                    case (2): dificultad.Text = "Difícil"; break;
                 }
             }
         }
