@@ -25,6 +25,9 @@ namespace Quizify.Services
         public void EliminarAlumno(string id){
             alumno.Eliminar(id);
         }
+        public List<int> GetExamenesAlumno(string al) {
+            return alumno.GetExamenes(al);
+        }
 
         //Métodos Profesor
         public void AddProfesor(Profesor prof) {
@@ -38,6 +41,9 @@ namespace Quizify.Services
         }
         public void EliminarProfesor(string id){
             profesor.Eliminar(id);
+        }
+        public List<int> GetExamenesProfesor(string prof) {
+            return profesor.GetExamenes(prof);
         }
 
         //Métodos Curso

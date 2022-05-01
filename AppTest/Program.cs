@@ -21,7 +21,11 @@ namespace AppTest {
 
             NuevoServicio service = new NuevoServicio();
 
-            service.AddAlumnoACurso("cesar@gmail.com","ABC","patricio@gmail.com");
+            List<int> lista = profesor.GetExamenes("patricio@gmail.com");
+
+            foreach(int x in lista) {
+                Console.WriteLine(x);
+            }
         }
     }
 }
