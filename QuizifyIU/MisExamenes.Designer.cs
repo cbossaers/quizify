@@ -326,6 +326,7 @@
             this.tablaExamenesProfesor.Size = new System.Drawing.Size(633, 390);
             this.tablaExamenesProfesor.TabIndex = 7;
             this.tablaExamenesProfesor.Visible = false;
+            this.tablaExamenesProfesor.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenesProfesor_CellMouseDoubleClick);
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -420,7 +421,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MisExamenes";
             this.Text = "MisExamenes";
-            this.Load += new System.EventHandler(this.MisExamenes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenFinalizado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenesProfesor)).EndInit();

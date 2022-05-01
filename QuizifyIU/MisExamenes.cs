@@ -96,60 +96,22 @@ namespace QuizifyIU
                 }
                 tablaExamenesProfesor.DataSource = bindingListExamenDisponible;
             }
-            
-            //alumno();
-
         }
-
-        private void alumno()
-        {
-            BindingList<object> bindingListExamenDisponible = new BindingList<object>();
-            //List<int> lista = servicio.GetExamenes();
-            if (servicio.GetTipoEntidad(user) == "alumno"){
-
-                for(int i =0; i <7; i++)
-                {
-                    Examen ex = servicio.GetExamen(i);
-                    if (ex.GetFechaFin() > DateTime.Now)
-                    {
-                        bindingListExamenDisponible.Add(new
-                        {
-                            id=i,
-                            titulo = ex.GetTitulo(),
-                            descripcion = ex.GetDescripcion(),
-                            curso = ex.GetCurso(),
-                            tiempo = ex.GetTiempo(),
-                            fecha_ini = ex.GetFechaIni(),
-                            fecha_fin = ex.GetFechaFin(),
-                            competenciaTransversal = ex.GetCompetenciaTransversal()
-                        }); ;
-                    }
-                    
-                }
-                tablaExamenDisponible.DataSource = bindingListExamenDisponible;
-            }
-        }
-
         private void tablaExamenDisponible_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (servicio.GetTipoEntidad(user) == "alumno")
-            {
-                
-                Examen examen = servicio.GetExamen(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
+            Examen examen = servicio.GetExamen(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
                 if(examen != null)
                 {
-                this.Hide();
-                var form2 = new HacerExamen(servicio, user,examen);
-                form2.Closed += (s, args) => this.Close();
-                form2.Show();
+                    this.Hide();
+                    var form2 = new HacerExamen(servicio, user,examen);
+                    form2.Closed += (s, args) => this.Close();
+                    form2.Show();
                 }
-            }
-            else
-            {
-                
-                    Examen examen = servicio.GetExamen(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
-                
-                
+             
+        }
+        private void tablaExamenesProfesor_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Examen examen = servicio.GetExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
                 if (examen != null)
                 {
                     this.Hide();
@@ -157,15 +119,7 @@ namespace QuizifyIU
                     form2.Closed += (s, args) => this.Close();
                     form2.Show();
                 }
-            }
-             
         }
-
-        private void MisExamenes_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void EvCalificar(object sender, EventArgs e)
         {
             if (tablaExamenesProfesor.SelectedRows != null)
