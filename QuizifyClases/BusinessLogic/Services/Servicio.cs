@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using Quizify.Entities;
 using Quizify.Persistence;
@@ -158,4 +158,4 @@ namespace Quizify.Services
             return dal.GetNota(id_alumno, id_ex);
         }
     }
-}
+}*/

@@ -249,7 +249,7 @@ public class DALPregunta {
 
     public int UltimaVerPregunta(int id) {
 
-        int ver = 1;
+        int ver = 0;
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
