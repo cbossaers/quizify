@@ -30,7 +30,7 @@ namespace Quizify.Services
         public string GetTipoEntidad(string correo);
 
         public List<int> GetPreguntas(List<dynamic> filtros);
-        //filtros[autor(el correo), tipo('test','vf','desarrollo'), dificultad(0,1,2), tema(string)] - null si no hay parámetro
+        //filtros[autor(el correo), tipo('test','vf','des','mult'), dificultad(0,1,2), tema(string)] - null si no hay parámetro
         //devuelve lista[id1, ver1, id2, ver2,...]
         public ICollection<dynamic> GetEntidades();
         public List<int> GetExamenes(dynamic persona);

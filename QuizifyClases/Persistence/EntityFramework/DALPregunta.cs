@@ -106,9 +106,8 @@ public class DALPregunta {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT * from pregunta_@tipo WHERE id = @id AND ver = @ver;";
+                cmd.CommandText = "SELECT * from pregunta_" + tipo + " WHERE id = @id AND ver = @ver;";
 
-                cmd.Parameters.AddWithValue("@tipo", tipo);
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("ver", ver);
 
@@ -123,8 +122,8 @@ public class DALPregunta {
                                 lista.Add(rdr.GetString("opc_a"));
                                 lista.Add(rdr.GetString("opc_b"));
                                 lista.Add(rdr.GetString("opc_c"));
-                                lista.Add(rdr.GetString("opc_d"));
-                                lista.Add(rdr.GetString("opc_e"));
+                                if(rdr.IsDBNull(6)) { lista.Add(rdr.GetString("opc_d")); }
+                                if(rdr.IsDBNull(7)) { lista.Add(rdr.GetString("opc_e")); }
 
                                 break;
 
@@ -138,8 +137,8 @@ public class DALPregunta {
                                 lista.Add(rdr.GetString("opc_a"));
                                 lista.Add(rdr.GetString("opc_b"));
                                 lista.Add(rdr.GetString("opc_c"));
-                                lista.Add(rdr.GetString("opc_d"));
-                                lista.Add(rdr.GetString("opc_e"));
+                                if(rdr.IsDBNull(6)) { lista.Add(rdr.GetString("opc_d")); }
+                                if(rdr.IsDBNull(7)) { lista.Add(rdr.GetString("opc_e")); }
 
                                 break;
 
@@ -196,26 +195,19 @@ public class DALPregunta {
 
         List<int> result = new List<int> {};
 
+        string consulta = "SELECT * from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "'";
+
+        if(filtros[1] != null) { consulta = consulta + " " +  "AND tipo= '" + filtros[1] + "'"; }
+        if(filtros[2] != null) { consulta = consulta + " " +  "AND dificultad= " + filtros[2] + ""; }
+        if(filtros[3] != null) { consulta = consulta + " " +  "AND tema= '" + filtros[3] + "'"; }
+
+        consulta = consulta + ";";
+
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT * FROM pregunta WHERE autor = @autor AND tipo = @tipo AND "
-                 + "dificultad = @dif AND tema = @tema";
-
-                cmd.Parameters.AddWithValue("@autor", filtros[0]);
-
-                if(filtros[1] != null) { 
-                    cmd.Parameters.AddWithValue("@tipo", filtros[1]); 
-                } else { cmd.Parameters.AddWithValue("@tipo", "tipo"); }
-
-                if(filtros[1] != null) { 
-                    cmd.Parameters.AddWithValue("@dif", filtros[2]); 
-                } else { cmd.Parameters.AddWithValue("@dif", "dificultad"); }
-
-                if(filtros[1] != null) { 
-                    cmd.Parameters.AddWithValue("@tema", filtros[3]); 
-                } else { cmd.Parameters.AddWithValue("@tema", "tema"); }
+                cmd.CommandText = consulta;
 
                 conn.Open();
 
@@ -257,7 +249,7 @@ public class DALPregunta {
 
     public int UltimaVerPregunta(int id) {
 
-        int ver = 0;
+        int ver = 1;
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
@@ -272,7 +264,7 @@ public class DALPregunta {
                 using(MySqlDataReader rdr = cmd.ExecuteReader()) {
 
                     while (rdr.Read()) {
-                        ver = rdr.GetInt32("id");
+                        ver = rdr.GetInt32("ver");
                     }
                 }
             }
@@ -280,7 +272,7 @@ public class DALPregunta {
     return ver;
     }
 
-    public string GetTipoPregunta<K>(K id) {
+    public string GetTipoPregunta(int id) {
 
         string tipo = "";
 

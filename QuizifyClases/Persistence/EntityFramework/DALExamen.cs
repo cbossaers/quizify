@@ -24,7 +24,7 @@ public class DALExamen : IDAL2<Examen> {
                 + ",volver_atras,errores_restan,mostrar_resultados,fecha_creac,estado,CT) VALUES(@id,@titulo,@descripcion,@autor,"
                 + "@curso,@tiempo,@fecha_ini,@fecha_fin,@intentos,@volver_atras,@errores_restan,@mostrar_resultados,@fecha_creac,@estado,@CT);";
 
-                cmd.Parameters.AddWithValue("@id", ultimoID);
+                cmd.Parameters.AddWithValue("@id", ex.GetId());
                 cmd.Parameters.AddWithValue("@titulo", ex.GetTitulo());
                 cmd.Parameters.AddWithValue("@descripcion", ex.GetDescripcion());
                 cmd.Parameters.AddWithValue("@autor", ex.GetAutor());
@@ -56,10 +56,10 @@ public class DALExamen : IDAL2<Examen> {
                     cmd.CommandText = "INSERT into PSWC.lista_preguntas(id_examen,id_pregunta,ver_pregunta,puntuacion)"
                     + " VALUES(@id_ex,@id_preg,@ver_preg,@puntuacion);";
 
-                    cmd.Parameters.AddWithValue("@id_ex", ultimoID);
-                    cmd.Parameters.AddWithValue("@estado", lista[i]);
-                    cmd.Parameters.AddWithValue("@estado", lista[i+1]);
-                    cmd.Parameters.AddWithValue("@estado", lista[i+2]);
+                    cmd.Parameters.AddWithValue("@id_ex", ex.GetId());
+                    cmd.Parameters.AddWithValue("@id_preg", lista[i]);
+                    cmd.Parameters.AddWithValue("@ver_preg", lista[i+1]);
+                    cmd.Parameters.AddWithValue("@puntuacion", lista[i+2]);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
