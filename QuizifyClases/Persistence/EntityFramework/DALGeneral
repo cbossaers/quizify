@@ -1,0 +1,13 @@
+using Quizify.Persistence;
+
+namespace Quizify.Persistence {
+    public class DALGeneral {
+        DALAlumno alumno = new DALAlumno();
+        DALProfesor profesor = new DALProfesor();
+        DALPregunta pregunta = new DALPregunta();
+        DALExamen examen = new DALExamen();
+        DALCurso curso = new DALCurso();
+
+        
+    }
+}

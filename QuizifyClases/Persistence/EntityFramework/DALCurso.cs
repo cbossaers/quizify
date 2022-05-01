@@ -5,7 +5,7 @@ using Quizify.Entities;
 
 namespace Quizify.Persistence {
 
-public class DALCurso : IDAL2<Curso> {
+public class DALCurso {
    static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
     public void Add(Curso curso) {
@@ -22,7 +22,7 @@ public class DALCurso : IDAL2<Curso> {
                 cmd.Parameters.AddWithValue("@profesor", curso.GetAutor());
                 cmd.Parameters.AddWithValue("@apuntados", 0);
                 cmd.Parameters.AddWithValue("@capacidad", curso.GetMaxAlumnos());
-                cmd.Parameters.AddWithValue("@fecha_creac", curso.GetFechaCreacion().ToString());
+                cmd.Parameters.AddWithValue("@fecha_creac", curso.GetFechaCreacion());
                 cmd.Parameters.AddWithValue("@contraseña", curso.GetContraseña());
 
                 conn.Open();
@@ -31,7 +31,7 @@ public class DALCurso : IDAL2<Curso> {
         }
     }
 
-    public Curso Get<K>(K id) {
+    public Curso Get(string id, string autor) {
 
         Curso curso = null;
 
@@ -39,17 +39,18 @@ public class DALCurso : IDAL2<Curso> {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT * FROM cursos WHERE codigo = @codigo;";
+                cmd.CommandText = "SELECT * FROM cursos WHERE codigo = @codigo AND profesor = @autor;";
 
-                cmd.Parameters.AddWithValue("@codigo", id);        
+                cmd.Parameters.AddWithValue("@codigo", id);     
+                cmd.Parameters.AddWithValue("@autor", autor);     
 
                 conn.Open();
 
                 using(MySqlDataReader rdr = cmd.ExecuteReader()) {
 
                     while (rdr.Read()) {
-                        curso = new Curso(rdr.GetString("codigo"), rdr.GetString("nombre"), rdr.GetString("autor"), rdr.GetInt32("apuntados"),
-                        rdr.GetInt32("capacidad"), DateTime.Parse(rdr.GetString("fecha_creac")), rdr.GetString("contraseña"), GetAlumnosDeCurso(id));
+                        curso = new Curso(rdr.GetString("codigo"), rdr.GetString("nombre"), rdr.GetString("profesor"), rdr.GetInt32("apuntados"),
+                        rdr.GetInt32("capacidad"), DateTime.Parse(rdr.GetString("fecha_creac")), rdr.GetString("contraseña"), GetAlumnosDeCurso(id,autor));
                     }
                 }
             }
@@ -71,8 +72,10 @@ public class DALCurso : IDAL2<Curso> {
 
                 cmd.CommandText = "SELECT apuntados,capacidad FROM PSWC.cursos WHERE codigo = @curso AND profesor = @profesor;";
 
-                cmd.Parameters.AddWithValue("@codigo_curso", curso);
+                cmd.Parameters.AddWithValue("@curso", curso);
                 cmd.Parameters.AddWithValue("@profesor", profesor);
+
+                conn.Open();
 
                 using (MySqlDataReader dr = cmd.ExecuteReader()) {
                     while (dr.Read())
@@ -85,13 +88,14 @@ public class DALCurso : IDAL2<Curso> {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "INSERT into PSWC.alumno_curso(alumno,curso) "
-                    + "VALUES(@alumno,@curso);";
+                cmd.CommandText = "INSERT into PSWC.alumno_curso(alumno,curso,profesor) "
+                    + "VALUES(@alumno,@curso,@profesor);";
 
                 cmd.Parameters.AddWithValue("@alumno", alumno);
                 cmd.Parameters.AddWithValue("@curso", curso);
+                cmd.Parameters.AddWithValue("@profesor", profesor);
 
-                conn.Open();
+                //conn.Open();
                 cmd.ExecuteNonQuery();
 
                 AlterarNumeroAlumnos(1,curso,profesor,apuntados);
@@ -188,7 +192,7 @@ public class DALCurso : IDAL2<Curso> {
         return resultado;
     }
 
-    public List<string> GetAlumnosDeCurso<K>(K codigo) {
+    public List<string> GetAlumnosDeCurso(string codigo, string profesor) {
 
         List<string> resultado = new List<string>{};
 
@@ -196,9 +200,10 @@ public class DALCurso : IDAL2<Curso> {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT alumno FROM cursos WHERE curso = @curso;";
+                cmd.CommandText = "SELECT alumno FROM alumno_curso WHERE curso = @curso AND profesor = @profesor;";
 
-                cmd.Parameters.AddWithValue("@curso", codigo);        
+                cmd.Parameters.AddWithValue("@curso", codigo);
+                cmd.Parameters.AddWithValue("@profesor", profesor);
 
                 conn.Open();
 

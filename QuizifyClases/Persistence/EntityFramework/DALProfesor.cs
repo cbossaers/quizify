@@ -28,13 +28,14 @@ public class DALProfesor : IDAL2<Profesor> {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "INSERT into profesor(correo,contraseña,nombre,apellidos) "
-                 + "VALUES(@correo, @contraseña, @nombre, @apellidos,20);";
+                cmd.CommandText = "INSERT into profesor(correo,contraseña,nombre,apellidos,quizes) "
+                 + "VALUES(@correo, @contraseña, @nombre, @apellidos,@quizes);";
 
                 cmd.Parameters.AddWithValue("@correo", profesor.GetCorreo());
                 cmd.Parameters.AddWithValue("@contraseña", profesor.GetContraseña());
                 cmd.Parameters.AddWithValue("@nombre", profesor.GetNombre());
                 cmd.Parameters.AddWithValue("@apellidos", profesor.GetApellidos());
+                cmd.Parameters.AddWithValue("@quizes", profesor.GetQuizes());
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
