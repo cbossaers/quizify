@@ -62,7 +62,7 @@ namespace Quizify.Services
         }
         public void AddAlumnoACurso(string al, string cur, string prof) {
             try { curso.AddAlumnoACurso(al,cur,prof); }
-            catch(MySql.Data.MySqlClient.MySqlException) { throw new Exception("El alumno seleccionado ya está en este curso, o el curso no existe"); }
+            catch(MySql.Data.MySqlClient.MySqlException ex) { throw new Exception("El alumno seleccionado ya está en este curso, o el curso no existe" + ex.Message.ToString()); }
             catch(InvalidOperationException) { throw new Exception("Ese curso está lleno"); }
         }
         public void EliminarAlumnoDeCurso(string al, string cur, string prof) {

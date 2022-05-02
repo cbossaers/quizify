@@ -63,10 +63,10 @@ public class DALCurso {
 
     public void AddAlumnoACurso(string alumno, string curso, string profesor) {
 
-        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+        int apuntados = 0;
+        int capacidad = 0;
 
-            int apuntados = 0;
-            int capacidad = 0;
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
@@ -78,13 +78,17 @@ public class DALCurso {
                 conn.Open();
 
                 using (MySqlDataReader dr = cmd.ExecuteReader()) {
-                    while (dr.Read())
-                    apuntados = dr.GetInt32("apuntados");
-                    capacidad = dr.GetInt32("capacidad");
+                    while (dr.Read()) {
+                        apuntados = dr.GetInt32("apuntados");
+                        capacidad = dr.GetInt32("capacidad");
+                    }
                 }
             }
+        }
 
-            if(apuntados == capacidad) {throw new InvalidOperationException("Ese curso está lleno"); }
+        if(apuntados >= capacidad) {throw new InvalidOperationException("Ese curso está lleno"); }
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) { 
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
@@ -95,7 +99,7 @@ public class DALCurso {
                 cmd.Parameters.AddWithValue("@curso", curso);
                 cmd.Parameters.AddWithValue("@profesor", profesor);
 
-                //conn.Open();
+                conn.Open();
                 cmd.ExecuteNonQuery();
 
                 AlterarNumeroAlumnos(1,curso,profesor,apuntados);
