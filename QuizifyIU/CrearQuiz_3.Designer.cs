@@ -127,9 +127,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(661, 41);
+            this.button3.Location = new System.Drawing.Point(603, 34);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 27);
+            this.button3.Size = new System.Drawing.Size(185, 40);
             this.button3.TabIndex = 6;
             this.button3.Text = "Agregar pregunta seleccionada";
             this.button3.UseVisualStyleBackColor = true;
@@ -144,6 +144,7 @@
             this.label5.Size = new System.Drawing.Size(39, 17);
             this.label5.TabIndex = 21;
             this.label5.Text = "Tema";
+            this.label5.Visible = false;
             // 
             // label4
             // 
@@ -154,6 +155,7 @@
             this.label4.Size = new System.Drawing.Size(62, 17);
             this.label4.TabIndex = 20;
             this.label4.Text = "Dificultad";
+            this.label4.Visible = false;
             // 
             // label3
             // 
@@ -164,6 +166,7 @@
             this.label3.Size = new System.Drawing.Size(34, 17);
             this.label3.TabIndex = 19;
             this.label3.Text = "Tipo";
+            this.label3.Visible = false;
             // 
             // tema_txt
             // 
@@ -171,6 +174,7 @@
             this.tema_txt.Name = "tema_txt";
             this.tema_txt.Size = new System.Drawing.Size(100, 23);
             this.tema_txt.TabIndex = 18;
+            this.tema_txt.Visible = false;
             // 
             // dificultad_txt
             // 
@@ -183,32 +187,34 @@
             this.dificultad_txt.Name = "dificultad_txt";
             this.dificultad_txt.Size = new System.Drawing.Size(121, 23);
             this.dificultad_txt.TabIndex = 17;
+            this.dificultad_txt.Visible = false;
             // 
             // tipo_txt
             // 
             this.tipo_txt.FormattingEnabled = true;
             this.tipo_txt.Items.AddRange(new object[] {
             "Test",
-            "VF",
-            "Desarrollo"});
+            "VF"});
             this.tipo_txt.Location = new System.Drawing.Point(48, 45);
             this.tipo_txt.Name = "tipo_txt";
             this.tipo_txt.Size = new System.Drawing.Size(121, 23);
             this.tipo_txt.TabIndex = 16;
+            this.tipo_txt.Visible = false;
             // 
             // bBuscar
             // 
-            this.bBuscar.Location = new System.Drawing.Point(568, 44);
+            this.bBuscar.Location = new System.Drawing.Point(451, 15);
             this.bBuscar.Name = "bBuscar";
             this.bBuscar.Size = new System.Drawing.Size(75, 23);
             this.bBuscar.TabIndex = 15;
             this.bBuscar.Text = "Buscar";
             this.bBuscar.UseVisualStyleBackColor = true;
+            this.bBuscar.Visible = false;
             this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(3, 409);
+            this.button1.Location = new System.Drawing.Point(9, 409);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 29);
             this.button1.TabIndex = 22;
