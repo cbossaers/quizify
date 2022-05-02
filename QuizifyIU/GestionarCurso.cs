@@ -78,16 +78,12 @@ namespace QuizifyIU
         {/*
             try
             {
-                string curso = tablaDatoCurso.SelectedRows[0].Cells["Código"].Value.ToString();
+                string curso = tablaDatoCurso.SelectedRows[0].Cells["codigo"].Value.ToString();
                 string profesor = usuario.nombre;
                 DialogResult avisoBorrarCurso = MessageBox.Show(this, "¿Estás seguro de que quieres borrar este curso?",
                                                           "Borrar curso", MessageBoxButtons.OK,
                                                           MessageBoxIcon.Question);
-                if (avisoBorrarCurso == DialogResult.OK)
-                {
-                    servicio.EliminarCurso(curso, profesor);
-                    actualizarTabla();
-                }
+                if (avisoBorrarCurso == DialogResult.OK) servicio.EliminarCurso(curso, profesor);
             }
             catch (Exception ex)
             {
