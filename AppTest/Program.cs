@@ -21,6 +21,7 @@ namespace AppTest {
 
             NuevoServicio service = new NuevoServicio();
             
+            Console.WriteLine(service.GetPuntuacionDePregunta(0,2));
             
             }
         }

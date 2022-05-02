@@ -433,9 +433,10 @@ public class DALExamen : IDAL2<Examen> {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT puntuacion FROM lista_preguntas WHERE id_examen = @examen;";
+                cmd.CommandText = "SELECT puntuacion FROM lista_preguntas WHERE id_examen = @examen AND id_preg = @pregunta;";
 
                 cmd.Parameters.AddWithValue("@examen", id_ex);
+                cmd.Parameters.AddWithValue("@pregunta", id_preg);
 
                 conn.Open();
 
