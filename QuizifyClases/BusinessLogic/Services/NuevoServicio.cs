@@ -78,6 +78,11 @@ namespace Quizify.Services
             return curso.GetAlumnosDeCurso(cur,prof);
         }
 
+        public void EliminarCurso(string cur, string prof)
+        {
+            curso.EliminarCurso(cur, prof);
+        }
+
         //Métodos pregunta
         public void AddPregunta(Pregunta2 preg) {
             try { pregunta.Add(preg); } 
