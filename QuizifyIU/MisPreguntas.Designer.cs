@@ -59,7 +59,7 @@
             // 
             // bBuscar
             // 
-            this.bBuscar.Location = new System.Drawing.Point(656, 93);
+            this.bBuscar.Location = new System.Drawing.Point(538, 93);
             this.bBuscar.Name = "bBuscar";
             this.bBuscar.Size = new System.Drawing.Size(75, 23);
             this.bBuscar.TabIndex = 7;
@@ -74,7 +74,7 @@
             "Test",
             "VF",
             "Desarrollo"});
-            this.tipo_txt.Location = new System.Drawing.Point(98, 94);
+            this.tipo_txt.Location = new System.Drawing.Point(65, 95);
             this.tipo_txt.Name = "tipo_txt";
             this.tipo_txt.Size = new System.Drawing.Size(121, 23);
             this.tipo_txt.TabIndex = 8;
@@ -86,14 +86,14 @@
             "Fácil",
             "Medio",
             "Difícil"});
-            this.dificultad_txt.Location = new System.Drawing.Point(318, 93);
+            this.dificultad_txt.Location = new System.Drawing.Point(260, 95);
             this.dificultad_txt.Name = "dificultad_txt";
             this.dificultad_txt.Size = new System.Drawing.Size(121, 23);
             this.dificultad_txt.TabIndex = 9;
             // 
             // tema_txt
             // 
-            this.tema_txt.Location = new System.Drawing.Point(507, 93);
+            this.tema_txt.Location = new System.Drawing.Point(432, 93);
             this.tema_txt.Name = "tema_txt";
             this.tema_txt.Size = new System.Drawing.Size(100, 23);
             this.tema_txt.TabIndex = 10;
@@ -120,7 +120,7 @@
             this.tablaPreguntas.RowHeadersWidth = 62;
             this.tablaPreguntas.RowTemplate.Height = 25;
             this.tablaPreguntas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaPreguntas.Size = new System.Drawing.Size(783, 243);
+            this.tablaPreguntas.Size = new System.Drawing.Size(601, 243);
             this.tablaPreguntas.TabIndex = 11;
             this.tablaPreguntas.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaPreguntas_CellMouseDoubleClick);
             // 
@@ -191,7 +191,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(58, 97);
+            this.label3.Location = new System.Drawing.Point(25, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 17);
             this.label3.TabIndex = 12;
@@ -201,7 +201,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(250, 95);
+            this.label4.Location = new System.Drawing.Point(192, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 17);
             this.label4.TabIndex = 13;
@@ -211,7 +211,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(462, 95);
+            this.label5.Location = new System.Drawing.Point(387, 99);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 17);
             this.label5.TabIndex = 14;
@@ -221,7 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(655, 450);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -233,6 +233,7 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MisPreguntas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MisPreguntas";
             ((System.ComponentModel.ISupportInitialize)(this.tablaPreguntas)).EndInit();
             this.ResumeLayout(false);
