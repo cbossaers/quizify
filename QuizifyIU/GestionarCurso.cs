@@ -121,7 +121,8 @@ namespace QuizifyIU
                         cod = cu.GetCodigo(),
                         nombre = cu.GetNombre(),
                         numAl = cu.GetNumAlumnos(),
-                        fechaCreacion = cu.GetFechaCreacion()
+                        fechaCreacion = cu.GetFechaCreacion(),
+                        maxAl = cu.GetMaxAlumnos()
                     }); ;
 
                 }

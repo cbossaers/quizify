@@ -30,15 +30,16 @@
         {
             this.panelGestionarCurso = new System.Windows.Forms.Panel();
             this.tablaDatoCurso = new System.Windows.Forms.DataGridView();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numAl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCreado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bAñadir = new System.Windows.Forms.Button();
             this.bEliminar = new System.Windows.Forms.Button();
             this.alumnoBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bVolver = new System.Windows.Forms.Button();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numAl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxAl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelGestionarCurso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaDatoCurso)).BeginInit();
             this.SuspendLayout();
@@ -65,17 +66,64 @@
             this.codigo,
             this.nombre,
             this.numAl,
-            this.fechaCreado});
-            this.tablaDatoCurso.Location = new System.Drawing.Point(48, 65);
+            this.fechaCreado,
+            this.MaxAl});
+            this.tablaDatoCurso.Location = new System.Drawing.Point(40, 65);
             this.tablaDatoCurso.MultiSelect = false;
             this.tablaDatoCurso.Name = "tablaDatoCurso";
             this.tablaDatoCurso.RowHeadersVisible = false;
             this.tablaDatoCurso.RowHeadersWidth = 62;
             this.tablaDatoCurso.RowTemplate.Height = 25;
             this.tablaDatoCurso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaDatoCurso.Size = new System.Drawing.Size(503, 273);
+            this.tablaDatoCurso.Size = new System.Drawing.Size(605, 273);
             this.tablaDatoCurso.TabIndex = 9;
             this.tablaDatoCurso.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaCurso_doble_click);
+            // 
+            // bAñadir
+            // 
+            this.bAñadir.Location = new System.Drawing.Point(145, 368);
+            this.bAñadir.Name = "bAñadir";
+            this.bAñadir.Size = new System.Drawing.Size(75, 23);
+            this.bAñadir.TabIndex = 7;
+            this.bAñadir.Text = "Añadir";
+            this.bAñadir.UseVisualStyleBackColor = true;
+            this.bAñadir.Click += new System.EventHandler(this.bAñadir_Click);
+            // 
+            // bEliminar
+            // 
+            this.bEliminar.Location = new System.Drawing.Point(245, 368);
+            this.bEliminar.Name = "bEliminar";
+            this.bEliminar.Size = new System.Drawing.Size(75, 23);
+            this.bEliminar.TabIndex = 6;
+            this.bEliminar.Text = "Eliminar";
+            this.bEliminar.UseVisualStyleBackColor = true;
+            this.bEliminar.Click += new System.EventHandler(this.bEliminar_Click);
+            // 
+            // alumnoBox
+            // 
+            this.alumnoBox.Location = new System.Drawing.Point(163, 21);
+            this.alumnoBox.Name = "alumnoBox";
+            this.alumnoBox.Size = new System.Drawing.Size(157, 23);
+            this.alumnoBox.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(40, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 15);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Correo del alumno:";
+            // 
+            // bVolver
+            // 
+            this.bVolver.Location = new System.Drawing.Point(40, 368);
+            this.bVolver.Name = "bVolver";
+            this.bVolver.Size = new System.Drawing.Size(75, 23);
+            this.bVolver.TabIndex = 1;
+            this.bVolver.Text = "Volver";
+            this.bVolver.UseVisualStyleBackColor = true;
+            this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
             // codigo
             // 
@@ -102,51 +150,11 @@
             this.fechaCreado.HeaderText = "Fecha creación";
             this.fechaCreado.Name = "fechaCreado";
             // 
-            // bAñadir
+            // MaxAl
             // 
-            this.bAñadir.Location = new System.Drawing.Point(151, 368);
-            this.bAñadir.Name = "bAñadir";
-            this.bAñadir.Size = new System.Drawing.Size(75, 23);
-            this.bAñadir.TabIndex = 7;
-            this.bAñadir.Text = "Añadir";
-            this.bAñadir.UseVisualStyleBackColor = true;
-            this.bAñadir.Click += new System.EventHandler(this.bAñadir_Click);
-            // 
-            // bEliminar
-            // 
-            this.bEliminar.Location = new System.Drawing.Point(256, 368);
-            this.bEliminar.Name = "bEliminar";
-            this.bEliminar.Size = new System.Drawing.Size(75, 23);
-            this.bEliminar.TabIndex = 6;
-            this.bEliminar.Text = "Eliminar";
-            this.bEliminar.UseVisualStyleBackColor = true;
-            this.bEliminar.Click += new System.EventHandler(this.bEliminar_Click);
-            // 
-            // alumnoBox
-            // 
-            this.alumnoBox.Location = new System.Drawing.Point(163, 21);
-            this.alumnoBox.Name = "alumnoBox";
-            this.alumnoBox.Size = new System.Drawing.Size(157, 23);
-            this.alumnoBox.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Correo del alumno:";
-            // 
-            // bVolver
-            // 
-            this.bVolver.Location = new System.Drawing.Point(48, 368);
-            this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(75, 23);
-            this.bVolver.TabIndex = 1;
-            this.bVolver.Text = "Volver";
-            this.bVolver.UseVisualStyleBackColor = true;
-            this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
+            this.MaxAl.DataPropertyName = "maxAl";
+            this.MaxAl.HeaderText = "Nº Máximo Alumnos";
+            this.MaxAl.Name = "MaxAl";
             // 
             // GestionarCurso
             // 
@@ -177,5 +185,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn numAl;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaxAl;
     }
 }
