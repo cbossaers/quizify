@@ -22,20 +22,11 @@ namespace QuizifyIU
             this.servicio = servicio;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        private void label1_Click(object sender, EventArgs e) {}
 
-        }
+        private void biniciarS_Click(object sender, EventArgs e) { logUser(); }
 
-        private void biniciarS_Click(object sender, EventArgs e)
-        {
-            logUser();
-        }
-
-        private void bregistrarse_Click(object sender, EventArgs e)
-        {
-            AbrirFormRegistrarse();
-        }
+        private void bregistrarse_Click(object sender, EventArgs e) { AbrirFormRegistrarse(); }
 
         private void AbrirFormRegistrarse()
         {
@@ -43,74 +34,28 @@ namespace QuizifyIU
             formr.ShowDialog();
         }
 
-        private void Principal_Load(object sender, EventArgs e)
-        {
+        private void Principal_Load(object sender, EventArgs e) {}
 
-        }
+        public void logUser() {
 
-        public void logUser()
-        {
-            string tip = "";
-            try { tip = servicio.GetTipoEntidad(emailField.Text); }
-            catch (Exception ex)
-            {
-                MessageBox.Show(this, ex.Message.ToString(), "Error",
-                                   MessageBoxButtons.OK,
-                                   MessageBoxIcon.Error);
-                return;
-            }
-            if (tip == "alumno")
-            {
-                try
-                {
-                    dynamic user = servicio.GetProfesor(emailField.Text);
-                    if (user.contraseña.Equals(contraField.Text))
-                    {
-                        this.Hide();
-                        formportal = new Portal(servicio, formportal, user);
-                        formportal.ShowDialog();
-                    }
-                    else
-                    {
-                        DialogResult answer = MessageBox.Show(this, "Contraseña incorrecta, inténtelo de nuevo.",
-                                                                "Error", MessageBoxButtons.OK,
-                                                                MessageBoxIcon.Exclamation);
-                    }
+            dynamic user = null;
 
-                }
-
-                catch (Exception ex)
-                {
-                    DialogResult answer = MessageBox.Show(this, "Este email no está registrado." + ex,
-                                                                "Error", MessageBoxButtons.OK,
-                                                                MessageBoxIcon.Exclamation);
+            try { user = servicio.GetAlumno(emailField.Text); } 
+            catch (Exception) {
+                try { user = servicio.GetProfesor(emailField.Text); } 
+                catch (Exception ex) { DialogResult answer = MessageBox.Show(this, "" + ex, 
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else if (tip == "profesor")
-                try
-                {   
-                    dynamic user = servicio.GetProfesor(emailField.Text);
-                    if (user.contraseña.Equals(contraField.Text))
-                    {
-                        this.Hide();
-                        formportal = new Portal(servicio, formportal, user);
-                        formportal.ShowDialog();
-                    }
-                    else
-                    {
-                        DialogResult answer = MessageBox.Show(this, "Contraseña incorrecta, inténtelo de nuevo.",
-                                                                "Error", MessageBoxButtons.OK,
-                                                                MessageBoxIcon.Exclamation);
-                    }
-                
-                }
-            
-                catch (Exception ex)
-                {
-                    DialogResult answer = MessageBox.Show(this, "Este email no está registrado." + ex,
-                                                                "Error", MessageBoxButtons.OK,
-                                                                MessageBoxIcon.Exclamation);
-                }
+
+            if (user.GetContraseña().Equals(contraField.Text)) {
+                this.Hide();
+                formportal = new Portal(servicio, formportal, user);
+                formportal.ShowDialog();
+            } else {
+                DialogResult answer = MessageBox.Show(this, "Contraseña incorrecta",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
     }

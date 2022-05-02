@@ -23,16 +23,7 @@ namespace AppTest {
 
             List<string> res = new List<string>();
             
-            int x = 1010;
-
-            for(int i = 0; i < 5; i++) {
-                res.Add((x%10).ToString());
-                x/=10;
             }
 
-            foreach(string s in res) {
-                Console.WriteLine(s);
-            }
         }
     }
-}
