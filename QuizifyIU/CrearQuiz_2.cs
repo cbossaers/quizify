@@ -111,7 +111,10 @@ namespace QuizifyIU
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            var form2 = new CrearQuiz(servicio, usuario, examen);
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
         }
     }
 }
