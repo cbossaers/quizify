@@ -32,9 +32,9 @@ namespace QuizifyIU
                 {
                     servicio.ActualizarEstadoQuizes();
                     Examen ex = servicio.GetExamen(x);
-                    if (ex.GetEstado() == "Activo")
+                    if (servicio.GetNota(usuario.GetCorreo(), ex.GetId()) == -1)
                     {
-                        if (servicio.GetNota(usuario.GetCorreo(), ex.GetId()) == -1) {
+                        if (ex.GetEstado() == "Activo") {
                             bindingListExamenDisponible.Add(new
                             {
                                 id = ex.GetId(),
@@ -50,6 +50,7 @@ namespace QuizifyIU
                             });
                         }
                     }
+                    //SI NO LOS HAS HECHO TIENEN QUE SALIR AQUI PLS
                     else
                     {  
                         double nota = servicio.GetNota(usuario.GetCorreo(),ex.GetId());
