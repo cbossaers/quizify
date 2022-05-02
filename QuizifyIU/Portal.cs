@@ -39,6 +39,7 @@ namespace QuizifyIU
             fCP.Dock = DockStyle.Fill;
             this.panelContenedor.Controls.Add(fCP);
             this.panelContenedor.Tag = fCP;
+            fCP.BringToFront();
             fCP.Show();
         }
         private void AbrirFormCrearQuiz(object formCrearQuiz)
@@ -50,6 +51,7 @@ namespace QuizifyIU
             fCQ.Dock = DockStyle.Fill;
             this.panelContenedor.Controls.Add(fCQ);
             this.panelContenedor.Tag = fCQ;
+            fCQ.BringToFront();
             fCQ.Show();
         }
         private void AbrirFormMisPreguntas(object formMisPreguntas)
@@ -61,6 +63,7 @@ namespace QuizifyIU
             fMP.Dock = DockStyle.Fill;
             this.panelContenedor.Controls.Add(fMP);
             this.panelContenedor.Tag = fMP;
+            fMP.BringToFront();
             fMP.Show();
         }
         private void AbrirFormMisExamenes(object formMisExamenes)
@@ -72,6 +75,7 @@ namespace QuizifyIU
             fME.Dock = DockStyle.Fill;
             this.panelContenedor.Controls.Add(fME);
             this.panelContenedor.Tag = fME;
+            fME.BringToFront();
             fME.Show();
         }
         private void AbrirFormHacerExamen(object formHacerExamen)
@@ -83,6 +87,7 @@ namespace QuizifyIU
             fHE.Dock = DockStyle.Fill;
             this.panelContenedor.Controls.Add(fHE);
             this.panelContenedor.Tag = fHE;
+            fHE.BringToFront();
             fHE.Show();
         }
 
@@ -95,6 +100,7 @@ namespace QuizifyIU
             fC.Dock = DockStyle.Fill;
             this.panelContenedor.Controls.Add(fC);
             this.panelContenedor.Tag = fC;
+            fC.BringToFront();
             fC.Show();
         }
 
