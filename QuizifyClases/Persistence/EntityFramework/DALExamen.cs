@@ -425,6 +425,32 @@ public class DALExamen : IDAL2<Examen> {
         }
     }
 
+    public int GetPuntuacionDePregunta(int id_ex, int id_preg) {
+
+        int res = 0;
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT puntuacion FROM lista_preguntas WHERE id_examen = @examen;";
+
+                cmd.Parameters.AddWithValue("@examen", id_ex);
+
+                conn.Open();
+
+                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                    while (rdr.Read()) {
+                        res = rdr.GetInt32("puntuacion");
+                    }
+                }
+            }
+        }
+
+        return res;
+    }
+
     /*public List<dynamic> EstadisticasExamen(int id_ex) {
 
         List<double> notas = new List<double>();

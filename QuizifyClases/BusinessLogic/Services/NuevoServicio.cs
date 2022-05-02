@@ -141,6 +141,10 @@ namespace Quizify.Services
         public double GetNota(string id_alumno, int id_ex) {
             return examen.GetNota(id_alumno,id_ex);
         }
+
+        public int GetPuntuacionDePregunta(int id_ex, int id_preg) {
+            return examen.GetPuntuacionDePregunta(id_ex, id_preg);
+        }
     
         //Otros métodos
         public string GetTipoEntidad(string usuario) {
