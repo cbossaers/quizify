@@ -67,6 +67,7 @@ namespace QuizifyIU
             guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
             if(siguiente.Text == "Finalizar examen")
             {
+                indice();
                 respuestas.Add(examen.GetId());
                 respuestas.Add(usuario.GetCorreo());
                 for (int i = 0; i < preguntas_asociadas.Count; i+=3) 
