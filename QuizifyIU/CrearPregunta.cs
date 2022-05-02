@@ -396,13 +396,13 @@ namespace QuizifyIU
         private void editar(int id,int version,string tipo)
         {
             crear.Enabled = true;
-
+            Pregunta2 preg;
             if (tipo == "test")
             {
                 VistaTest();
                 tipoPregunta.Text = "Test";
-                Pregunta2 preg;
-                try { preg = servicio.GetPregunta(id, version); }
+                try { preg = servicio.GetPregunta(id, version);
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(this, ex.Message.ToString(), "Error",
@@ -410,7 +410,7 @@ namespace QuizifyIU
                                        MessageBoxIcon.Error);
                     return;
                 }
-                List<dynamic> lista = preg.GetParametros();
+                lista = preg.GetParametros();
                 opcionCorrecta = lista[0].ToString();
                 tema.Text = preg.GetTema();
                 ctPregunta.Text = preg.GetCT();
@@ -454,7 +454,6 @@ namespace QuizifyIU
             {
                 tipoPregunta.Text = "VF";
                 VistaVF();
-                Pregunta2 preg;
                 try { preg = servicio.GetPregunta(id, version); }
                 catch (Exception ex)
                 {
@@ -487,7 +486,6 @@ namespace QuizifyIU
             {
                 VistaMultiple();
                 tipoPregunta.Text = "Selección Multiple";
-                Pregunta2 preg;
                 try { preg = servicio.GetPregunta(id, version); }
                 catch (Exception ex)
                 {
@@ -566,7 +564,6 @@ namespace QuizifyIU
             else if(tipo == "desarrollo")
             {
                 VistaDesarrollo();
-                Pregunta2 preg;
                 try { preg = servicio.GetPregunta(id, version); }
                 catch (Exception ex)
                 {

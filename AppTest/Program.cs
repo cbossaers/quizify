@@ -20,10 +20,8 @@ namespace AppTest {
             DALCurso curso = new DALCurso();
 
             NuevoServicio service = new NuevoServicio();
-
-            List<string> res = new List<string>();
+            
             
             }
-
         }
     }

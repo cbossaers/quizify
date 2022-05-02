@@ -3,6 +3,8 @@ using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using Quizify.Entities;
 using System.Data;
+using System.Linq;
+
 
 namespace Quizify.Persistence {
 
@@ -10,7 +12,7 @@ public class DALExamen : IDAL2<Examen> {
     static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
     FabricaExamenes fabrica = new FabricaExamenes();
-    DALPregunta DALPregunta = new DALPregunta();
+    DALPregunta dalpreg = new DALPregunta();
 
     public void Add(Examen ex) {
 
@@ -379,7 +381,7 @@ public class DALExamen : IDAL2<Examen> {
 
                 foreach (DataRow row2 in data2.Rows) { 
                     if(id_preg == int.Parse(row2["pregunta"].ToString())) {
-                        pregunta = DALPregunta.Get(id_preg, ver_preg);
+                        pregunta = dalpreg.Get(id_preg, ver_preg);
                         nota+=CalcularNotaPregunta(pregunta, int.Parse(row2["respuesta"].ToString()),puntuacion,restan);
                     }
                 }
@@ -420,5 +422,35 @@ public class DALExamen : IDAL2<Examen> {
             }
         }
     }
+
+    /*public List<dynamic> EstadisticasExamen(int id_ex) {
+
+        List<double> notas = new List<double>();
+        int envios = 0;
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT DISTINCT alumno,nota FROM notas_examenes WHERE examen = @examen";
+
+                cmd.Parameters.AddWithValue("@examen", id_ex);
+
+                conn.Open();
+
+                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                    while (rdr.Read()) {
+                        envios++;
+                        notas.Add(rdr.GetDouble("nota"));
+                    }
+                }
+            }
+        }
+        if(envios > 0) { 
+            return new List<dynamic>{envios, notas.Average(), Math.Sqrt(notas.Average(v=>Math.Pow(v-notas.Average(),2))), notas}; 
+        } else { return new List<dynamic>{envios,0,0,notas}; }
+        
+    }*/
 
 }}

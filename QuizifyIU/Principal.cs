@@ -43,16 +43,17 @@ namespace QuizifyIU
             try { user = servicio.GetAlumno(emailField.Text); } 
             catch (Exception) {
                 try { user = servicio.GetProfesor(emailField.Text); } 
-                catch (Exception ex) { DialogResult answer = MessageBox.Show(this, "Esta persona no está registrada", 
+                catch (Exception) { DialogResult answer = MessageBox.Show(this, "Esta persona no está registrada", 
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
 
-            if (user.GetContraseña().Equals(contraField.Text)) {
-                this.Hide();
+            if (user.GetContraseña().Equals(contraField.Text)) { 
+                this.Hide(); 
                 formportal = new Portal(servicio, formportal, user);
                 formportal.ShowDialog();
+                this.Close();
             } else {
                 DialogResult answer = MessageBox.Show(this, "Contraseña incorrecta",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

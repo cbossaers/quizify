@@ -14,6 +14,12 @@ namespace QuizifyIU
     {
         private NuevoServicio servicio;
         private dynamic usuario;
+
+        //Variables para habilitar/deshabilitar el botón "Crear"
+        private Boolean nombreCorrecto = false;
+        private Boolean codCorrecto = false;
+        private Boolean maxCorrecto = false;
+        private Boolean contraCorrecto = false;
         public CrearCurso(NuevoServicio servicio, dynamic user)
         {
             InitializeComponent();
@@ -33,6 +39,7 @@ namespace QuizifyIU
 
         private void AbrirFormCurso(object formCurso)
         {
+            
             if (this.panelCrearCurso.Controls.Count > 0)
                 this.panelCrearCurso.Controls.RemoveAt(0);
             Form fC = formCurso as Form;
@@ -40,6 +47,7 @@ namespace QuizifyIU
             fC.Dock = DockStyle.Fill;
             this.panelCrearCurso.Controls.Add(fC);
             this.panelCrearCurso.Tag = fC;
+            fC.BringToFront();
             fC.Show();
         }
 
@@ -58,6 +66,46 @@ namespace QuizifyIU
 
                 DialogResult confirmar = MessageBox.Show(this, "Tu curso ha sido creado con éxito.", "Curso registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } catch (Exception ex) { DialogResult avisoCursoRepe = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+        }
+
+        private void nombreCursoBox_TextChanged(object sender, EventArgs e)
+        {
+            bCrearCurso.Enabled = false;
+            string nombre = nombreCursoBox.Text;
+            if (nombre == "") nombreCorrecto = false;
+            else nombreCorrecto = true;
+            if (nombreCorrecto && codCorrecto && maxCorrecto && contraCorrecto)
+                bCrearCurso.Enabled = true;
+        }
+
+        private void codCursoBox_TextChanged(object sender, EventArgs e)
+        {
+            bCrearCurso.Enabled = false;
+            string codigo = codCursoBox.Text;
+            if (codigo == "") codCorrecto = false;
+            else codCorrecto = true;
+            if (nombreCorrecto && codCorrecto && maxCorrecto && contraCorrecto)
+                bCrearCurso.Enabled = true;
+        }
+
+        private void boxContraseña_TextChanged(object sender, EventArgs e)
+        {
+            bCrearCurso.Enabled = false;
+            string contra = boxContraseña.Text;
+            if (contra == "") codCorrecto = false;
+            else contraCorrecto = true;
+            if (nombreCorrecto && codCorrecto && maxCorrecto && contraCorrecto)
+                bCrearCurso.Enabled = true; 
+        }
+
+        private void maxAlumnos_ValueChanged(object sender, EventArgs e)
+        {
+            bCrearCurso.Enabled = false;
+            int valor = (int)maxAlumnos.Value;
+            if (valor == 0) maxCorrecto = false;
+            else maxCorrecto = true;
+            if (nombreCorrecto && codCorrecto && maxCorrecto && contraCorrecto)
+                bCrearCurso.Enabled = true;
         }
     }
 }

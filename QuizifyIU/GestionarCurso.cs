@@ -38,6 +38,7 @@ namespace QuizifyIU
             fC.Dock = DockStyle.Fill;
             this.panelGestionarCurso.Controls.Add(fC);
             this.panelGestionarCurso.Tag = fC;
+            fC.BringToFront();
             fC.Show();
         }
 
