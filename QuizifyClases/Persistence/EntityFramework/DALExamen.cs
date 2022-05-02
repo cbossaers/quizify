@@ -5,13 +5,14 @@ using Quizify.Entities;
 using System.Data;
 using System.Linq;
 
+
 namespace Quizify.Persistence {
 
 public class DALExamen : IDAL2<Examen> {
     static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
     FabricaExamenes fabrica = new FabricaExamenes();
-    DALPregunta DALPregunta = new DALPregunta();
+    DALPregunta dalpreg = new DALPregunta();
 
     public void Add(Examen ex) {
 
@@ -380,7 +381,7 @@ public class DALExamen : IDAL2<Examen> {
 
                 foreach (DataRow row2 in data2.Rows) { 
                     if(id_preg == int.Parse(row2["pregunta"].ToString())) {
-                        pregunta = DALPregunta.Get(id_preg, ver_preg);
+                        pregunta = dalpreg.Get(id_preg, ver_preg);
                         nota+=CalcularNotaPregunta(pregunta, int.Parse(row2["respuesta"].ToString()),puntuacion,restan);
                     }
                 }
@@ -422,7 +423,7 @@ public class DALExamen : IDAL2<Examen> {
         }
     }
 
-    public List<dynamic> EstadisticasExamen(int id_ex) {
+    /*public List<dynamic> EstadisticasExamen(int id_ex) {
 
         List<double> notas = new List<double>();
         int envios = 0;
@@ -450,6 +451,6 @@ public class DALExamen : IDAL2<Examen> {
             return new List<dynamic>{envios, notas.Average(), Math.Sqrt(notas.Average(v=>Math.Pow(v-notas.Average(),2))), notas}; 
         } else { return new List<dynamic>{envios,0,0,notas}; }
         
-    }
+    }*/
 
 }}

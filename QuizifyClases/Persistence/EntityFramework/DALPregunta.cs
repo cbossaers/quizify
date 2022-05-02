@@ -9,7 +9,7 @@ public class DALPregunta {
    static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
    FabricaPreguntas fabrica = new FabricaPreguntas();
-   DALExamen DALExamen = new DALExamen();
+   //DALExamen dalex = new DALExamen();
 
     public void Add(Pregunta2 preg) {
 
@@ -293,11 +293,12 @@ public class DALPregunta {
         return tipo;
     } 
 
-    public List<double> EstadisticasPregunta(int id_ex, int id_preg, int ver_preg) {
+    /*public List<double> EstadisticasPregunta(int id_ex, int id_preg, int ver_preg) {
 
         int envios = 0;
         int aciertos = 0;
         double tasa = 0;
+        Pregunta2 preg = null;
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
@@ -316,7 +317,8 @@ public class DALPregunta {
 
                     while (rdr.Read()) {
                         envios++;
-                        if(DALExamen.CalcularNotaPregunta(Get(id_preg, ver_preg), rdr.GetInt32("respuesta"), 1, 0) >= 1) {
+                        preg = Get(id_preg, ver_preg);
+                        if(dalex.CalcularNotaPregunta(preg, rdr.GetInt32("respuesta"), 1, 0) >= 1) {
                             aciertos++;
                         }
                     }
@@ -327,5 +329,5 @@ public class DALPregunta {
         if(envios > 0) { tasa = aciertos/envios; }
 
         return new List<double> {envios, aciertos, tasa};
-    }
+    }*/
 }}

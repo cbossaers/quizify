@@ -20,20 +20,8 @@ namespace AppTest {
             DALCurso curso = new DALCurso();
 
             NuevoServicio service = new NuevoServicio();
-
-            List<dynamic> lista = examen.EstadisticasExamen(1);
-
-            Console.WriteLine(lista[0]);
-            if(lista[0] > 0) {
-                Console.WriteLine(lista[1]);
-                Console.WriteLine(lista[2]);
-                
-                foreach(double x in lista[3]) {
-                    Console.WriteLine(x);
-                }
-
-                string t = "bfksjd";
+            
+            
             }
         }
     }
-}
