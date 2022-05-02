@@ -15,7 +15,6 @@ namespace QuizifyIU
         private NuevoServicio servicio;
 
         //Variables para habilitar/deshabilitar el botón "Confirmar"
-        private Boolean existeUser = false;
         private Boolean emailCorrecto = false;
         private Boolean nombreCorrecto = false;
         private Boolean contraCorrecto = false;
