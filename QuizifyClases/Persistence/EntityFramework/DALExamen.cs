@@ -18,6 +18,8 @@ public class DALExamen : IDAL2<Examen> {
 
         int ultimoID = UltimoIdExamen();
 
+        try {
+
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
@@ -45,11 +47,42 @@ public class DALExamen : IDAL2<Examen> {
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
+        } } catch(Exception) {
+
+            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "UPDATE examen SET titulo = @titulo, descripcion = @descripcion, autor = @autor, curso = @curso, tiempo = @tiempo, fecha_ini = @fecha_ini, fecha_fin = @fecha_fin, intentos = @intentos, volver_atras = @volver_atras, errores_restan = @errores_restan, mostrar_resultados = @mostrar_resultados, fecha_creac = @fecha_creac, estado = @estado, CT = @CT WHERE id = @id;";
+
+                cmd.Parameters.AddWithValue("@id", ex.GetId());
+                cmd.Parameters.AddWithValue("@titulo", ex.GetTitulo());
+                cmd.Parameters.AddWithValue("@descripcion", ex.GetDescripcion());
+                cmd.Parameters.AddWithValue("@autor", ex.GetAutor());
+                cmd.Parameters.AddWithValue("@curso", ex.GetCurso());
+                cmd.Parameters.AddWithValue("@tiempo", ex.GetTiempo());
+                cmd.Parameters.AddWithValue("@fecha_ini", ex.GetFechaIni().ToString());
+                cmd.Parameters.AddWithValue("@fecha_fin", ex.GetFechaFin().ToString());
+                cmd.Parameters.AddWithValue("@intentos", ex.GetIntentos());
+                cmd.Parameters.AddWithValue("@volver_atras", ex.GetVolverAtras());
+                cmd.Parameters.AddWithValue("@errores_restan", ex.GetErroresRestan());
+                cmd.Parameters.AddWithValue("@mostrar_resultados", ex.GetMostrarResultados());
+                cmd.Parameters.AddWithValue("@fecha_creac", ex.GetFechaCreac().ToString());
+                cmd.Parameters.AddWithValue("@estado", ex.GetEstado());
+                cmd.Parameters.AddWithValue("@CT", ex.GetCompetenciaTransversal());
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         }
 
         List<int> lista = ex.GetPreguntasAsociadas();
 
         for(int i = 0; i < lista.Count; i+=3) {
+
+            try{
 
             using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
@@ -66,10 +99,23 @@ public class DALExamen : IDAL2<Examen> {
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
-            }
-        }
+            }} catch (Exception) {
+                using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
-    }
+                using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "UPDATE lista_preguntas SET puntuacion = @puntuacion WHERE id_examen = @id_ex AND id_pregunta = @id_preg;";
+
+                    cmd.Parameters.AddWithValue("@id_ex", ex.GetId());
+                    cmd.Parameters.AddWithValue("@id_preg", lista[i]);
+                    cmd.Parameters.AddWithValue("@ver_preg", lista[i+1]);
+                    cmd.Parameters.AddWithValue("@puntuacion", lista[i+2]);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+            }
+        }}}}
+
  
     public Examen Get<K>(K id) {
 
