@@ -35,6 +35,7 @@ namespace QuizifyIU
                     {
                         bindingListExamenDisponible.Add(new
                         {
+                            id = ex.GetId(),
                             estado = ex.GetEstado(),
                             titulo = ex.GetTitulo(),
                             descripcion = ex.GetDescripcion(),
@@ -54,6 +55,7 @@ namespace QuizifyIU
                             double nota = servicio.GetNota(usuario.GetCorreo(),ex.GetId());
                             bindingListExamenFinalizado.Add(new
                             {
+                                id = ex.GetId(),
                                 nota = nota,
                                 estado = ex.GetEstado(),
                                 titulo = ex.GetTitulo(),
@@ -69,6 +71,7 @@ namespace QuizifyIU
                             String nota = "-";
                             bindingListExamenFinalizado.Add(new
                             {
+                                id = ex.GetId(),
                                 nota = nota,
                                 estado = ex.GetEstado(),
                                 titulo = ex.GetTitulo(),
@@ -98,6 +101,7 @@ namespace QuizifyIU
                     Examen ex = servicio.GetExamen(x);
                     bindingListExamenDisponible.Add(new
                     {
+                        id = ex.GetId(),
                         estado = ex.GetEstado(),
                         titulo = ex.GetTitulo(),
                         descripcion = ex.GetDescripcion(),
@@ -173,6 +177,7 @@ namespace QuizifyIU
                         Examen ex = servicio.GetExamen(x);
                         bindingListExamenDisponible.Add(new
                         {
+                            id = ex.GetId(),
                             estado = ex.GetEstado(),
                             titulo = ex.GetTitulo(),
                             descripcion = ex.GetDescripcion(),
