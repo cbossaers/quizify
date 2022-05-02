@@ -29,8 +29,8 @@ namespace QuizifyIU
         private void tabla()
         {
             List<int> DTable = examen.GetPreguntasAsociadas();
-            BindingList<object> bindinglist = new BindingList<object>();
 
+            BindingList<object> bindinglist = new BindingList<object>();
 
             for (int i = 0; i < DTable.Count; i += 3)
             {
@@ -50,8 +50,7 @@ namespace QuizifyIU
 
 
                 }
-                else
-                    if (preg.GetTipo() == "vf")
+                else if (preg.GetTipo() == "vf")
                 {
                     bindinglist.Add(new
                     {
@@ -80,13 +79,13 @@ namespace QuizifyIU
                 
             
         }
-        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        /*private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            List<int> lista = examen.GetPreguntasAsociadas();
+            /*List<int> lista = examen.GetPreguntasAsociadas();
             lista[e.RowIndex+2]= int.Parse(dataGridView1.SelectedCells[6].Value.ToString());
             //dataGridView1.SelectedCells[1].Value = lista[e.RowIndex + 2];
             examen.SetPreguntasAsociadas(lista);
-        }
+        }*/
         private void crear_Click(object sender, EventArgs e)
         {
             
@@ -100,12 +99,17 @@ namespace QuizifyIU
         private void editar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var form2 = new CrearPregunta(servicio, usuario, int.Parse(dataGridView1.SelectedCells[0].Value.ToString()), int.Parse(dataGridView1.SelectedCells[3].Value.ToString()), dataGridView1.SelectedCells[2].Value.ToString().ToLower());
+            var form2 = new CrearPregunta(servicio, usuario, servicio.GetPregunta(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()), int.Parse(dataGridView1.SelectedCells[3].Value.ToString());
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }
 
         private void anular_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }

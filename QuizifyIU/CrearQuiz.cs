@@ -19,7 +19,7 @@ namespace QuizifyIU
         private NuevoServicio servicio;
         private dynamic usuario;
         int tiempo;
-        
+        int id = -1;
         private Examen examen;
 
         public CrearQuiz(NuevoServicio servicio,dynamic user)
@@ -37,22 +37,30 @@ namespace QuizifyIU
             usuario = user;
             fin.Text = "23/03/2022";
             this.examen = examen;
-            
+            id= examen.GetId();
+            pregunta = examen.GetPreguntasAsociadas();
             mostrear();
         }
 
         private void mostrear()
         {
-            //int id = 666;
+            
             nombre.Text = examen.GetTitulo();
             descripcion.Text = examen.GetDescripcion();
             curso.Text = examen.GetCurso();
             ini.Text = examen.GetFechaIni().ToString();
             fin.Text = examen.GetFechaFin().ToString();
             intentos.Text = examen.GetIntentos().ToString();
-            dificultad.Text = "Media";
+            if (examen.GetTiempo()==1000)
+            {
+                sinlimite.Checked = true;
+                horas.Enabled = false; minutos.Enabled = false;
+            }
+            else
+            {
+                minutos.Text = examen.GetTiempo().ToString();
+            }
 
-            //DateTimeOffset fecha_inicial = DateTime.Parse(ini.Text +" "+ hini) ;
             if (examen.GetVolverAtras() == 1)
             {
                 a2.Enabled = true;
@@ -68,6 +76,7 @@ namespace QuizifyIU
                 a5.Enabled=true;
                 b5.Enabled=false;
             }
+            comboBoxCT.Text = examen.GetCompetenciaTransversal();
         }
 
         private void sinlimite_CheckedChanged(object sender, EventArgs e)
@@ -79,14 +88,18 @@ namespace QuizifyIU
 
         private void siguiente_Click(object sender, EventArgs e)
         {
-            
-            int id = 666;
+            if (id == -1)
+            {
+                int id = servicio.UltimoIdExamen() + 1 ;
+            }
             string titulo=nombre.Text;
             string descripcio = descripcion.Text;
             string autor = usuario.GetCorreo();
             string cursos = curso.Text;
             if(sinlimite.Checked){ tiempo = 1000; }
-            else {tiempo = int.Parse(horas.Text) * 60 + int.Parse(minutos.Text);}
+            else {
+                if(horas.Text != "") { tiempo = int.Parse(horas.Text) * 60; }
+                tiempo += int.Parse(minutos.Text);}
             int intento = int.Parse(intentos.Text);
             //DateTimeOffset fecha_inicial = DateTime.Parse(ini.Text +" "+ hini) ;
             DateTime fecha_inicial = DateTime.Parse(ini.Text);
@@ -94,9 +107,8 @@ namespace QuizifyIU
             DateTime fecha_actual = DateTime.Now;
             string CT = comboBoxCT.Text;
             String estado = "Borrador";
-            
-            
-            Examen examen = new Examen(id,titulo, descripcio,cursos,autor,tiempo,fecha_actual,fecha_inicial,fecha_finanl,intento, volver_atras, errores_restan, mostrar_resultados,pregunta,estado, CT);
+              
+            Examen examen = new Examen(id,titulo, descripcio,cursos,autor,tiempo,fecha_actual,fecha_inicial,fecha_finanl,intento, volver_atras, errores_restan, 0,pregunta,estado, CT);
 
             this.Hide();
             var form2 = new CrearQuiz_2(servicio, usuario, examen);

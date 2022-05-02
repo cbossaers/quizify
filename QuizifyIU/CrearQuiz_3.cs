@@ -164,5 +164,13 @@ namespace QuizifyIU
             filtros = new List<dynamic>() { usuario.GetCorreo(), tipo, dificultad, tema };
             tabla();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form2 = new CrearQuiz_2(servicio, usuario, examen);
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
+        }
     }
 }

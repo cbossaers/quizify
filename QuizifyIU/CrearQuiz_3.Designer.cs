@@ -44,6 +44,7 @@
             this.dificultad_txt = new System.Windows.Forms.ComboBox();
             this.tipo_txt = new System.Windows.Forms.ComboBox();
             this.bBuscar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,9 +127,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(602, 12);
+            this.button3.Location = new System.Drawing.Point(661, 41);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(186, 27);
+            this.button3.Size = new System.Drawing.Size(127, 27);
             this.button3.TabIndex = 6;
             this.button3.Text = "Agregar pregunta seleccionada";
             this.button3.UseVisualStyleBackColor = true;
@@ -205,12 +206,23 @@
             this.bBuscar.UseVisualStyleBackColor = true;
             this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 409);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 29);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Volver atras";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // CrearQuiz_3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -246,5 +258,6 @@
         private System.Windows.Forms.ComboBox dificultad_txt;
         private System.Windows.Forms.ComboBox tipo_txt;
         private System.Windows.Forms.Button bBuscar;
+        private System.Windows.Forms.Button button1;
     }
 }

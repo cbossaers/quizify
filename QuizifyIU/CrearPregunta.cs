@@ -42,8 +42,7 @@ namespace QuizifyIU
         public CrearPregunta(NuevoServicio servicio, dynamic usuario,Examen examen)
         {
             InitializeComponent();
-            this.servicio = servicio;
-            
+            this.servicio = servicio;            
             this.usuario = usuario;
         }
         public CrearPregunta(NuevoServicio servicio, dynamic usuario,int id, int version, string tipo)
@@ -51,7 +50,6 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             this.usuario = usuario;
-            
             editar(id,version,tipo); 
         }
 

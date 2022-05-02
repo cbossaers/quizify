@@ -54,6 +54,7 @@
             this.button3.Text = "Editar informacion del quiz";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // crear
             // 
@@ -86,7 +87,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(702, 334);
             this.dataGridView1.TabIndex = 10;
-            
             // 
             // id
             // 
