@@ -20,10 +20,12 @@ namespace QuizifyIU
         dynamic dificultad;
         string tema;
         Pregunta2 preg;
+        Portal portal;
 
-        public MisPreguntas(NuevoServicio servicio,dynamic user)
+        public MisPreguntas(NuevoServicio servicio,dynamic user, Portal portal)
         {
             InitializeComponent();
+            this.portal = portal;
             this.servicio = servicio;
             this.usuario = user;
             filtros = new List<dynamic>() { usuario.GetCorreo(), null, null, null };
@@ -89,9 +91,11 @@ namespace QuizifyIU
                                            MessageBoxButtons.OK,
                                            MessageBoxIcon.Error);
             }
-            var form2 = new CrearPregunta(servicio, usuario,preg);
+            /*var form2 = new CrearPregunta(servicio, usuario,preg);
             form2.Closed += (s, args) => this.Close();
-            form2.Show();
+            form2.Show();*/
+            portal.AbrirFormEditarPregunta(servicio, usuario, preg);
+
         }
 
         private void tablaPreguntas_CellContentClick(object sender, DataGridViewCellEventArgs e)
