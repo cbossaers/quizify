@@ -239,9 +239,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(477, 17);
+            this.button1.Location = new System.Drawing.Point(410, 17);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 26);
+            this.button1.Size = new System.Drawing.Size(173, 26);
             this.button1.TabIndex = 60;
             this.button1.Text = "Ocultar indice";
             this.button1.UseVisualStyleBackColor = true;
@@ -250,7 +250,7 @@
             // 
             // borrar_seleccion
             // 
-            this.borrar_seleccion.Location = new System.Drawing.Point(21, 342);
+            this.borrar_seleccion.Location = new System.Drawing.Point(21, 344);
             this.borrar_seleccion.Name = "borrar_seleccion";
             this.borrar_seleccion.Size = new System.Drawing.Size(99, 23);
             this.borrar_seleccion.TabIndex = 61;
@@ -352,6 +352,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Pregunta,
@@ -361,7 +362,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(173, 272);
+            this.dataGridView1.Size = new System.Drawing.Size(173, 393);
             this.dataGridView1.TabIndex = 66;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -383,7 +384,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 450);
+            this.ClientSize = new System.Drawing.Size(607, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.progressBar1);
