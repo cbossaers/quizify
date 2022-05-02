@@ -30,8 +30,9 @@ namespace QuizifyIU
                 List<int> lista = servicio.GetExamenesAlumno(user.GetCorreo());
                 foreach (int x in lista)
                 {
+                    servicio.ActualizarEstadoQuizes();
                     Examen ex = servicio.GetExamen(x);
-                    if (ex.GetFechaFin() > DateTime.Now)
+                    if (servicio.GetNota(usuario.GetCorreo(),ex.GetId()) == -1 && ex.GetEstado() == "Activo")
                     {
                         bindingListExamenDisponible.Add(new
                         {
