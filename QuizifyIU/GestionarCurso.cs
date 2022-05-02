@@ -57,11 +57,11 @@ namespace QuizifyIU
         {
             try
             {
-                string curso = tablaDatoCurso.SelectedRows[0].Cells["Código"].Value.ToString();
+                string curso = tablaDatoCurso.SelectedRows[0].Cells["codigo"].Value.ToString();
                 string alumno = alumnoBox.Text;
                 string profesor = usuario.nombre;
                 Alumno al = servicio.GetAlumno(alumno); //Si no existe el alunmo, lanza la excepcion
-                servicio.AddAlumnoACurso(curso, alumno, profesor);
+                servicio.AddAlumnoACurso(alumno, curso, profesor);
                 Curso objCurso = servicio.GetCurso(curso, profesor);
                 objCurso.GetListaAlumnos().Add(curso);
             } catch (Exception ex)
@@ -111,7 +111,7 @@ namespace QuizifyIU
                         cod = cu.GetCodigo(),
                         nombre = cu.GetNombre(),
                         numAl = cu.GetNumAlumnos(),
-                        fechaCreado = cu.GetFechaCreacion()
+                        fechaCreacion = cu.GetFechaCreacion()
                     }); ;
 
                 }

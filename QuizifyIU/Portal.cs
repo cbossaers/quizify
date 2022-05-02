@@ -131,7 +131,7 @@ namespace QuizifyIU
             this.Hide();
             var form2 = new Principal(servicio);
             form2.Closed += (s, args) => this.Close();
-            form2.Show();
+            form2.ShowDialog();
         }
 
         private void bAjustes_Click(object sender, EventArgs e)
