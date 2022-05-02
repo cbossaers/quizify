@@ -15,7 +15,6 @@ namespace QuizifyIU
         private NuevoServicio servicio;
 
         //Variables para habilitar/deshabilitar el botón "Confirmar"
-        private Boolean existeUser = false;
         private Boolean emailCorrecto = false;
         private Boolean nombreCorrecto = false;
         private Boolean contraCorrecto = false;
@@ -94,10 +93,14 @@ namespace QuizifyIU
 
             if (tipoUser.Equals("Profesor")) {
                 try { servicio.AddProfesor(new Profesor(email, contra, nombre, apellidos)); }
-                catch (Exception ex) { throw new Exception(ex.Message.ToString()); }
+                catch (Exception ex) { DialogResult answer = MessageBox.Show(this, ex.Message.ToString(), 
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return; }
             } else {
                 try { servicio.AddAlumno(new Alumno(email, contra, nombre, apellidos)); }
-                catch (Exception ex) { throw new Exception(ex.Message.ToString()); }
+                catch (Exception ex) { DialogResult answer = MessageBox.Show(this, ex.Message.ToString(), 
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return; }
             }
 
             DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);

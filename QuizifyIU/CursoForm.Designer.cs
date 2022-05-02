@@ -37,9 +37,10 @@
             // 
             // bCrearCurso
             // 
-            this.bCrearCurso.Location = new System.Drawing.Point(452, 330);
+            this.bCrearCurso.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bCrearCurso.Location = new System.Drawing.Point(235, 288);
             this.bCrearCurso.Name = "bCrearCurso";
-            this.bCrearCurso.Size = new System.Drawing.Size(75, 23);
+            this.bCrearCurso.Size = new System.Drawing.Size(196, 53);
             this.bCrearCurso.TabIndex = 4;
             this.bCrearCurso.Text = "Crear curso";
             this.bCrearCurso.UseVisualStyleBackColor = true;
@@ -47,9 +48,10 @@
             // 
             // bGestionarCurso
             // 
-            this.bGestionarCurso.Location = new System.Drawing.Point(289, 330);
+            this.bGestionarCurso.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bGestionarCurso.Location = new System.Drawing.Point(235, 177);
             this.bGestionarCurso.Name = "bGestionarCurso";
-            this.bGestionarCurso.Size = new System.Drawing.Size(121, 23);
+            this.bGestionarCurso.Size = new System.Drawing.Size(196, 52);
             this.bGestionarCurso.TabIndex = 5;
             this.bGestionarCurso.Text = "Gestionar curso";
             this.bGestionarCurso.UseVisualStyleBackColor = true;
@@ -67,9 +69,10 @@
             // 
             // bApuntarse
             // 
-            this.bApuntarse.Location = new System.Drawing.Point(156, 330);
+            this.bApuntarse.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bApuntarse.Location = new System.Drawing.Point(235, 66);
             this.bApuntarse.Name = "bApuntarse";
-            this.bApuntarse.Size = new System.Drawing.Size(101, 23);
+            this.bApuntarse.Size = new System.Drawing.Size(196, 51);
             this.bApuntarse.TabIndex = 6;
             this.bApuntarse.Text = "Apuntarse curso";
             this.bApuntarse.UseVisualStyleBackColor = true;

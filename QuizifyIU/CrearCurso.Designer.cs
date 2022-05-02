@@ -75,8 +75,10 @@
             // 
             this.boxContraseña.Location = new System.Drawing.Point(291, 245);
             this.boxContraseña.Name = "boxContraseña";
+            this.boxContraseña.PasswordChar = '*';
             this.boxContraseña.Size = new System.Drawing.Size(160, 23);
             this.boxContraseña.TabIndex = 10;
+            this.boxContraseña.TextChanged += new System.EventHandler(this.boxContraseña_TextChanged);
             // 
             // bVolver
             // 
@@ -105,6 +107,7 @@
             this.maxAlumnos.Name = "maxAlumnos";
             this.maxAlumnos.Size = new System.Drawing.Size(84, 23);
             this.maxAlumnos.TabIndex = 30;
+            this.maxAlumnos.ValueChanged += new System.EventHandler(this.maxAlumnos_ValueChanged);
             // 
             // codCursoBox
             // 
@@ -112,6 +115,7 @@
             this.codCursoBox.Name = "codCursoBox";
             this.codCursoBox.Size = new System.Drawing.Size(160, 23);
             this.codCursoBox.TabIndex = 5;
+            this.codCursoBox.TextChanged += new System.EventHandler(this.codCursoBox_TextChanged);
             // 
             // nombreCursoBox
             // 
@@ -119,6 +123,7 @@
             this.nombreCursoBox.Name = "nombreCursoBox";
             this.nombreCursoBox.Size = new System.Drawing.Size(160, 23);
             this.nombreCursoBox.TabIndex = 4;
+            this.nombreCursoBox.TextChanged += new System.EventHandler(this.nombreCursoBox_TextChanged);
             // 
             // label4
             // 
