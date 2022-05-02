@@ -61,6 +61,7 @@
             this.codBox.Name = "codBox";
             this.codBox.Size = new System.Drawing.Size(153, 23);
             this.codBox.TabIndex = 2;
+            this.codBox.TextChanged += new System.EventHandler(this.codBox_TextChanged);
             // 
             // contraBox
             // 
@@ -68,6 +69,7 @@
             this.contraBox.Name = "contraBox";
             this.contraBox.Size = new System.Drawing.Size(153, 23);
             this.contraBox.TabIndex = 3;
+            this.contraBox.TextChanged += new System.EventHandler(this.contraBox_TextChanged);
             // 
             // bApuntarse
             // 
@@ -94,6 +96,7 @@
             this.correoProfeBox.Name = "correoProfeBox";
             this.correoProfeBox.Size = new System.Drawing.Size(153, 23);
             this.correoProfeBox.TabIndex = 6;
+            this.correoProfeBox.TextChanged += new System.EventHandler(this.correoProfeBox_TextChanged);
             // 
             // ApuntarseCurso
             // 
