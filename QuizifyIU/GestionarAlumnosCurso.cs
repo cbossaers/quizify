@@ -34,32 +34,47 @@ namespace QuizifyIU
 
         private void eliminarAlumno()
         {
-            string correoAl = tablaAlumnoCurso.SelectedRows[0].Cells["Correo"].Value.ToString();
-            string codCurso = curso.GetCodigo();
-            string profesor = usuario.correo;
-            servicio.EliminarAlumnoDeCurso(correoAl, codCurso, profesor);
-            curso.GetListaAlumnos().Remove(correoAl);
+            try
+            {
+                string codCurso = curso.GetCodigo();
+                string correoAl = tablaAlumnoCurso.SelectedRows[0].Cells["Correo"].Value.ToString();
+                string profesor = usuario.correo;
+                servicio.EliminarAlumnoDeCurso(correoAl, codCurso, profesor);
+                curso.GetListaAlumnos().Remove(correoAl);
+            }
+            catch (Exception ex)
+            {
+                DialogResult aviso = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
+            }
         }
 
         private void actualizarTabla()
         {
-            BindingList<object> bindingListAlumnosCurso = new BindingList<object>();
-
-            List<string> lista = curso.GetListaAlumnos();
-
-            foreach (string x in lista)
+            try
             {
-                Alumno al = servicio.GetEntidadById(x);
+                BindingList<object> bindingListAlumnosCurso = new BindingList<object>();
 
-                bindingListAlumnosCurso.Add(new
+                List<string> lista = curso.GetListaAlumnos();
+
+                foreach (string x in lista)
                 {
-                    correo = al.GetCorreo(),
-                    nombre = al.GetNombre(),
-                    apellidos = al.GetApellidos()
-                });
+                    Alumno al = servicio.GetAlumno(x);
 
+                    bindingListAlumnosCurso.Add(new
+                    {
+                        correo = al.GetCorreo(),
+                        nombre = al.GetNombre(),
+                        apellidos = al.GetApellidos()
+                    });
+
+                }
+                tablaAlumnoCurso.DataSource = bindingListAlumnosCurso;
             }
-            tablaAlumnoCurso.DataSource = bindingListAlumnosCurso;
+            catch(Exception ex)
+            {
+                DialogResult aviso = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
+            }
+            
         }
 
     }

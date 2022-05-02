@@ -33,12 +33,14 @@
             this.codBox = new System.Windows.Forms.TextBox();
             this.contraBox = new System.Windows.Forms.TextBox();
             this.bApuntarse = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.correoProfeBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 44);
+            this.label1.Location = new System.Drawing.Point(35, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 15);
             this.label1.TabIndex = 0;
@@ -47,7 +49,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 101);
+            this.label2.Location = new System.Drawing.Point(35, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 15);
             this.label2.TabIndex = 1;
@@ -55,21 +57,21 @@
             // 
             // codBox
             // 
-            this.codBox.Location = new System.Drawing.Point(166, 44);
+            this.codBox.Location = new System.Drawing.Point(166, 41);
             this.codBox.Name = "codBox";
             this.codBox.Size = new System.Drawing.Size(153, 23);
             this.codBox.TabIndex = 2;
             // 
             // contraBox
             // 
-            this.contraBox.Location = new System.Drawing.Point(166, 98);
+            this.contraBox.Location = new System.Drawing.Point(166, 153);
             this.contraBox.Name = "contraBox";
             this.contraBox.Size = new System.Drawing.Size(153, 23);
             this.contraBox.TabIndex = 3;
             // 
             // bApuntarse
             // 
-            this.bApuntarse.Location = new System.Drawing.Point(244, 176);
+            this.bApuntarse.Location = new System.Drawing.Point(264, 226);
             this.bApuntarse.Name = "bApuntarse";
             this.bApuntarse.Size = new System.Drawing.Size(75, 23);
             this.bApuntarse.TabIndex = 4;
@@ -77,11 +79,29 @@
             this.bApuntarse.UseVisualStyleBackColor = true;
             this.bApuntarse.Click += new System.EventHandler(this.bApuntarse_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(35, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(112, 15);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Correo del profesor:";
+            // 
+            // correoProfeBox
+            // 
+            this.correoProfeBox.Location = new System.Drawing.Point(166, 105);
+            this.correoProfeBox.Name = "correoProfeBox";
+            this.correoProfeBox.Size = new System.Drawing.Size(153, 23);
+            this.correoProfeBox.TabIndex = 6;
+            // 
             // ApuntarseCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 261);
+            this.Controls.Add(this.correoProfeBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.bApuntarse);
             this.Controls.Add(this.contraBox);
             this.Controls.Add(this.codBox);
@@ -101,5 +121,7 @@
         private System.Windows.Forms.TextBox codBox;
         private System.Windows.Forms.TextBox contraBox;
         private System.Windows.Forms.Button bApuntarse;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox correoProfeBox;
     }
 }

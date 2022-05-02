@@ -57,7 +57,6 @@ namespace QuizifyIU
                     case ("mult"): tip = "Multiple"; break;
                     case ("des"): tip = "Desarrollo"; break;
                 }
-
                 bindinglist.Add(new
                 {
                     ds_ID = preg.GetId().ToString(),

@@ -54,25 +54,25 @@ namespace QuizifyIU
 
         private void profeAñadeAlumno()
         {
-            string curso = tablaDatoCurso.SelectedRows[0].Cells["Código"].Value.ToString();
-            string alumno = alumnoBox.Text;
-            string profesor = usuario.nombre;
-            if (servicio.ExisteEntidad(alumno))
+            try
             {
-                servicio.AddAlumnoACurso(alumno, curso, profesor);
-                Curso objCurso = servicio.GetCurso(curso);
-                objCurso.GetListaAlumnos().Add(alumno);
-            }
-            else
+                string curso = tablaDatoCurso.SelectedRows[0].Cells["Código"].Value.ToString();
+                string alumno = alumnoBox.Text;
+                string profesor = usuario.nombre;
+                Alumno al = servicio.GetAlumno(alumno); //Si no existe el alunmo, lanza la excepcion
+                servicio.AddAlumnoACurso(curso, alumno, profesor);
+                Curso objCurso = servicio.GetCurso(curso, profesor);
+                objCurso.GetListaAlumnos().Add(curso);
+            } catch (Exception ex)
             {
-                DialogResult avisoNoExiste = MessageBox.Show(this, "El usuario con correo " + alumno + " no existe.",
+                DialogResult aviso = MessageBox.Show(this, ex.Message.ToString(),
                                                           "Error", MessageBoxButtons.OK,
-                                                          MessageBoxIcon.Exclamation);
+                                                          MessageBoxIcon.Error); return;
             }
         }
 
         private void EliminarCurso()
-        {
+        {/*
             string curso = tablaDatoCurso.SelectedRows[0].Cells["Código"].Value.ToString();
             string profesor = usuario.nombre;
             DialogResult avisoBorrarCurso = MessageBox.Show(this, "¿Estás seguro de que quieres borrar este curso?",
@@ -81,37 +81,44 @@ namespace QuizifyIU
             if (avisoBorrarCurso == DialogResult.OK) { 
                 servicio.EliminarCurso(curso, profesor);
                 actualizarTabla();
-            }
+            }*/
         }
 
         private void tablaCurso_doble_click(object sender, DataGridViewCellEventArgs e)
         {
             string codCurso = tablaDatoCurso.SelectedRows[0].Cells["Código"].Value.ToString();
-            Curso curso = servicio.GetCurso(codCurso);
+            string profe = usuario.correo;
+            Curso curso = servicio.GetCurso(codCurso, profe);
             formGestionarAl = new GestionarAlumnosCurso(servicio, formGestionarAl, curso, usuario);
             formGestionarAl.ShowDialog();
         }
 
         private void actualizarTabla()
         {
-            BindingList<object> bindingListMisCursos = new BindingList<object>();
-
-            List<string> lista = servicio.GetCursosByAutor(usuario);
-
-            foreach (string x in lista)
+            try
             {
-                Curso cu = servicio.GetCurso(x);
+                BindingList<object> bindingListMisCursos = new BindingList<object>();
 
-                bindingListMisCursos.Add(new
+                List<string> lista = servicio.GetCursosProfesor(usuario.correo);
+
+                foreach (string x in lista)
                 {
-                    cod = cu.GetCodigo(),
-                    nombre = cu.GetNombre(),
-                    numAl = cu.GetNumAlumnos(),
-                    fechaCreado = cu.GetFechaCreacion()
-                }); ;
+                    Curso cu = servicio.GetCurso(x, usuario.correo);
 
+                    bindingListMisCursos.Add(new
+                    {
+                        cod = cu.GetCodigo(),
+                        nombre = cu.GetNombre(),
+                        numAl = cu.GetNumAlumnos(),
+                        fechaCreado = cu.GetFechaCreacion()
+                    }); ;
+
+                }
+                tablaDatoCurso.DataSource = bindingListMisCursos;
+            } catch(Exception ex)
+            {
+                DialogResult aviso = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
             }
-            tablaDatoCurso.DataSource = bindingListMisCursos;
         }
     }
 }

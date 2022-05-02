@@ -213,7 +213,6 @@ namespace QuizifyIU
                 {
                     opc4.Text = lista[5];
                     opc4.Visible = true; letraE.Visible = true; correcta4.Visible = true;
-
                 }
                 else { opc4.Visible = false; letraE.Visible = false; correcta4.Visible = false; }
             }

@@ -25,7 +25,7 @@ namespace QuizifyIU
             user = usuario;
             servicio.ActualizarEstadoQuizes();
             
-            if (servicio.GetTipoEntidad(user) == "alumno")
+            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
             {
                 List<int> lista = servicio.GetExamenesAlumno(user);
                 foreach (int x in lista)
