@@ -40,8 +40,7 @@ namespace QuizifyIU
             preguntas_asociadas = examen.GetPreguntasAsociadas();
             counter = examen.tiempo;
             stopwatch.Start();
-            //tiempo_barra();
-            //tiempo();
+            this.examen = examen;
             for(int i = 0; i < preguntas_asociadas.Count; i += 3)
             {
                 res.Add(preguntas_asociadas[i], -1);
