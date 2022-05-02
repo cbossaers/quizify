@@ -152,19 +152,20 @@
             // 
             // editar
             // 
-            this.editar.Location = new System.Drawing.Point(720, 134);
+            this.editar.Location = new System.Drawing.Point(720, 341);
             this.editar.Name = "editar";
             this.editar.Size = new System.Drawing.Size(75, 42);
             this.editar.TabIndex = 13;
             this.editar.Text = "Editar";
             this.editar.UseVisualStyleBackColor = true;
+            this.editar.Visible = false;
             this.editar.Click += new System.EventHandler(this.editar_Click);
             // 
             // anular
             // 
-            this.anular.Location = new System.Drawing.Point(720, 225);
+            this.anular.Location = new System.Drawing.Point(720, 180);
             this.anular.Name = "anular";
-            this.anular.Size = new System.Drawing.Size(75, 39);
+            this.anular.Size = new System.Drawing.Size(75, 46);
             this.anular.TabIndex = 14;
             this.anular.Text = "Anular";
             this.anular.UseVisualStyleBackColor = true;
