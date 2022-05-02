@@ -98,10 +98,10 @@ namespace QuizifyIU
 
         private void editar_Click(object sender, EventArgs e)
         {
-            /*this.Hide();
-            var form2 = new CrearPregunta(servicio, usuario, servicio.GetPregunta(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()), int.Parse(dataGridView1.SelectedCells[3].Value.ToString());
+            this.Hide();
+            var form2 = new CrearPregunta(servicio, usuario, servicio.GetPregunta(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()), int.Parse(dataGridView1.SelectedCells[3].Value.ToString())));
             form2.Closed += (s, args) => this.Close();
-            form2.Show();*/
+            form2.Show();
         }
 
         private void anular_Click(object sender, EventArgs e)
@@ -111,7 +111,10 @@ namespace QuizifyIU
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            var form2 = new CrearQuiz(servicio, usuario, examen);
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
         }
     }
 }

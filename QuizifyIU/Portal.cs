@@ -111,7 +111,7 @@ namespace QuizifyIU
 
         private void bMisPreguntas_Click(object sender, EventArgs e)
         {
-            AbrirFormMisPreguntas(new MisPreguntas(servicio,usuario));
+            AbrirFormMisPreguntas(new MisPreguntas(servicio,usuario, this));
         }
 
         private void bMisExamenes_Click(object sender, EventArgs e)
@@ -131,7 +131,7 @@ namespace QuizifyIU
             this.Hide();
             var form2 = new Principal(servicio);
             form2.Closed += (s, args) => this.Close();
-            form2.Show();
+            form2.ShowDialog();
         }
 
         private void bAjustes_Click(object sender, EventArgs e)
@@ -143,6 +143,18 @@ namespace QuizifyIU
         private void bCrearCurso_Click(object sender, EventArgs e)
         {
             AbrirFormCurso(new CursoForm(servicio, usuario));
+        }
+        public void AbrirFormEditarPregunta(NuevoServicio servicio, Profesor usuario, Pregunta2 pregunta)
+        {
+            Object formCrearPregunta = new CrearPregunta(servicio, usuario, pregunta);
+            if (this.panelContenedor.Controls.Count > 0)
+                this.panelContenedor.Controls.RemoveAt(0);
+            Form fC = formCrearPregunta as Form;
+            fC.TopLevel = false;
+            fC.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(fC);
+            this.panelContenedor.Tag = fC;
+            fC.Show();
         }
     }
 }
