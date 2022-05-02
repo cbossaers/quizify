@@ -61,11 +61,11 @@ namespace QuizifyIU
                 {
                     ds_ID = preg.GetId().ToString(),
                     ds_enunciado = preg.GetEnunciado(),
+                    ds_tipo = tip,
                     ds_version = preg.GetVersion(),
                     ds_dificultad = preg.GetDificultad(),
                     ds_materia = preg.GetTema(),
-                    ds_autor = filtros[0],
-                    ds_tipo = tip
+                    ds_autor = filtros[0]
                 });
             }
             tablaPreguntas.DataSource = bindinglist;
@@ -76,7 +76,22 @@ namespace QuizifyIU
         private void tablaPreguntas_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.Hide();
-            var form2 = new CrearPregunta(servicio, usuario, int.Parse(tablaPreguntas.SelectedCells[0].Value.ToString()), int.Parse(tablaPreguntas.SelectedCells[3].Value.ToString()), tablaPreguntas.SelectedCells[2].Value.ToString().ToLower());
+            DataGridViewRow row = this.tablaPreguntas.Rows[e.RowIndex];
+            int id = int.Parse(tablaPreguntas.SelectedCells[0].Value.ToString());
+            int ver = int.Parse(tablaPreguntas.SelectedCells[3].Value.ToString());
+            try { Pregunta2 preg = servicio.GetPregunta(id, ver);
+                int vers = preg.GetVersion();
+            }
+            catch(Exception ex) {
+                MessageBox.Show(this, ex.Message.ToString(), "Error",
+                                           MessageBoxButtons.OK,
+                                           MessageBoxIcon.Error);
+            }
+            
+            
+            
+           
+            var form2 = new CrearPregunta(servicio, usuario,id, ver, "test");
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }
