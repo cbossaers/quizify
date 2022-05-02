@@ -23,6 +23,7 @@ namespace QuizifyIU
             this.curso = curso;
             usuario = user;
             actualizarTabla();
+            bEliminar.Enabled = false;
         }
 
         private void bEliminar_Click(object sender, EventArgs e)
@@ -73,9 +74,7 @@ namespace QuizifyIU
             catch(Exception ex)
             {
                 DialogResult aviso = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
-            }
-            
+            }   
         }
-
     }
 }

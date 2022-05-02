@@ -59,7 +59,23 @@ public class DALCurso {
         return curso;
     }
 
-    public void Eliminar<K>(K id) {}
+    public void EliminarCurso(string curso, string profesor) {
+        using (MySqlConnection conn = new MySqlConnection(connStr))
+        {
+
+            using (MySqlCommand cmd = conn.CreateCommand())
+            {
+
+                cmd.CommandText = "DELETE FROM cursos WHERE codigo = @curso AND profesor = @profesor;";
+
+                cmd.Parameters.AddWithValue("@curso", curso);
+                cmd.Parameters.AddWithValue("@profesor", profesor);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
 
     public void AddAlumnoACurso(string alumno, string curso, string profesor) {
 

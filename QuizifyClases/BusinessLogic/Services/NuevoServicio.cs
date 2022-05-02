@@ -78,6 +78,11 @@ namespace Quizify.Services
             return curso.GetAlumnosDeCurso(cur,prof);
         }
 
+        public void EliminarCurso(string cur, string prof)
+        {
+            curso.EliminarCurso(cur, prof);
+        }
+
         //Métodos pregunta
         public void AddPregunta(Pregunta2 preg) {
             try { pregunta.Add(preg); } 
@@ -135,6 +140,10 @@ namespace Quizify.Services
         }
         public double GetNota(string id_alumno, int id_ex) {
             return examen.GetNota(id_alumno,id_ex);
+        }
+
+        public int GetPuntuacionDePregunta(int id_ex, int id_preg) {
+            return examen.GetPuntuacionDePregunta(id_ex, id_preg);
         }
     
         //Otros métodos

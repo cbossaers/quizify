@@ -14,6 +14,9 @@ namespace QuizifyIU
     {
         private NuevoServicio servicio;
         private dynamic usuario;
+        private Boolean nombreCorrecto = false;
+        private Boolean codCorrecto = false;
+        private Boolean contraCorrecto = false;
         public ApuntarseCurso(NuevoServicio servicio, dynamic user)
         {
             InitializeComponent();
@@ -47,6 +50,36 @@ namespace QuizifyIU
                 }
             }
             catch (Exception ex) { DialogResult avisoNoExist = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);return; }
+        }
+
+        private void codBox_TextChanged(object sender, EventArgs e)
+        {
+            bApuntarse.Enabled = false;
+            string codigo = codBox.Text;
+            if (codigo == "") codCorrecto = false;
+            else codCorrecto = true;
+            if (nombreCorrecto && codCorrecto && contraCorrecto)
+                bApuntarse.Enabled = true;
+        }
+
+        private void correoProfeBox_TextChanged(object sender, EventArgs e)
+        {
+            bApuntarse.Enabled = false;
+            string profe = correoProfeBox.Text;
+            if (profe == "") codCorrecto = false;
+            else codCorrecto = true;
+            if (nombreCorrecto && codCorrecto && contraCorrecto)
+                bApuntarse.Enabled = true;
+        }
+
+        private void contraBox_TextChanged(object sender, EventArgs e)
+        {
+            bApuntarse.Enabled = false;
+            string contra = contraBox.Text;
+            if (contra == "") codCorrecto = false;
+            else codCorrecto = true;
+            if (nombreCorrecto && codCorrecto && contraCorrecto)
+                bApuntarse.Enabled = true;
         }
     }
 }
