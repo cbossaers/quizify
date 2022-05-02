@@ -178,6 +178,8 @@ public class DALExamen : IDAL2<Examen> {
                 }
             }
         }
+
+        CalcularNotaExamen(respuestas[0], respuestas[1]);
     }
 
     public double CalcularNotaPregunta(Pregunta2 preg, int respuesta, double puntuacion, int resta) {

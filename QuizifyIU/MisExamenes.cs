@@ -27,14 +27,15 @@ namespace QuizifyIU
             
             if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
             {
+                servicio.ActualizarEstadoQuizes();
                 List<int> lista = servicio.GetExamenesAlumno(user.GetCorreo());
                 foreach (int x in lista)
                 {
-                    servicio.ActualizarEstadoQuizes();
+                    
                     Examen ex = servicio.GetExamen(x);
-                    if (ex.GetEstado() == "Activo")
+                    if (servicio.GetNota(usuario.GetCorreo(), ex.GetId()) == -1)
                     {
-                        if (servicio.GetNota(usuario.GetCorreo(), ex.GetId()) == -1) {
+                        if (ex.GetEstado() == "Activo") {
                             bindingListExamenDisponible.Add(new
                             {
                                 id = ex.GetId(),
@@ -50,6 +51,7 @@ namespace QuizifyIU
                             });
                         }
                     }
+                    //SI NO LOS HAS HECHO TIENEN QUE SALIR AQUI PLS
                     else
                     {  
                         double nota = servicio.GetNota(usuario.GetCorreo(),ex.GetId());

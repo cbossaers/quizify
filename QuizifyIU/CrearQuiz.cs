@@ -92,7 +92,7 @@ namespace QuizifyIU
         {
             if (id == -1)
             {
-                int id = servicio.UltimoIdExamen() + 1 ;
+               id = servicio.UltimoIdExamen() + 1 ;
             }
             string titulo=nombre.Text;
             string descripcio = descripcion.Text;
