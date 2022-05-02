@@ -439,12 +439,12 @@ namespace QuizifyIU
                 opc1.Text = lista[2];
                 opc2.Text = lista[3];
 
-                if (lista[4] != "")
+                if (lista.Count>4)
                  {
                    opc3.Text = lista[4];
                     opc3.Visible = true; letraD.Visible = true; correcta3.Visible = true;
                     numeroDeOpciones++;
-                    if (lista[5] != "")
+                    if (lista.Count > 5)
                     {
                        opc4.Text = lista[5];
                         opc4.Visible = true; letraE.Visible = true; correcta4.Visible = true;
@@ -552,12 +552,12 @@ namespace QuizifyIU
                 opc1.Text = lista[2];
                 opc2.Text = lista[3];
 
-                if (lista[4] != "")
+                if (lista.Count > 4)
                 {
                     opc3.Text = lista[4];
                     opc3.Visible = true; letraD.Visible = true; check3.Visible = true;
                     numeroDeOpciones++;
-                    if (lista[5] != "")
+                    if (lista.Count > 5)
                     {
                         opc4.Text = lista[5];
                         opc4.Visible = true; letraE.Visible = true; check4.Visible = true; 
