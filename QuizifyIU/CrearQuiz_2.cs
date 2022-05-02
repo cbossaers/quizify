@@ -49,7 +49,6 @@ namespace QuizifyIU
                         ds_puntuacion = servicio.GetPuntuacionDePregunta(examen.GetId(), preg.GetId())
                     });
 
-
                 }
                 else if (preg.GetTipo() == "vf")
                 {
