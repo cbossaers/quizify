@@ -30,16 +30,16 @@
         {
             this.panelGestionarCurso = new System.Windows.Forms.Panel();
             this.tablaDatoCurso = new System.Windows.Forms.DataGridView();
-            this.bAñadir = new System.Windows.Forms.Button();
-            this.bEliminar = new System.Windows.Forms.Button();
-            this.alumnoBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.bVolver = new System.Windows.Forms.Button();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numAl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaCreado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxAl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bAñadir = new System.Windows.Forms.Button();
+            this.bEliminar = new System.Windows.Forms.Button();
+            this.alumnoBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bVolver = new System.Windows.Forms.Button();
             this.panelGestionarCurso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaDatoCurso)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,7 @@
             // 
             // tablaDatoCurso
             // 
+            this.tablaDatoCurso.AllowUserToAddRows = false;
             this.tablaDatoCurso.AllowUserToResizeColumns = false;
             this.tablaDatoCurso.AllowUserToResizeRows = false;
             this.tablaDatoCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -78,6 +79,37 @@
             this.tablaDatoCurso.Size = new System.Drawing.Size(605, 273);
             this.tablaDatoCurso.TabIndex = 9;
             this.tablaDatoCurso.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaCurso_doble_click);
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "cod";
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 200;
+            // 
+            // numAl
+            // 
+            this.numAl.DataPropertyName = "numAl";
+            this.numAl.HeaderText = "Número alumnos";
+            this.numAl.Name = "numAl";
+            // 
+            // fechaCreado
+            // 
+            this.fechaCreado.DataPropertyName = "fechaCreacion";
+            this.fechaCreado.HeaderText = "Fecha creación";
+            this.fechaCreado.Name = "fechaCreado";
+            // 
+            // MaxAl
+            // 
+            this.MaxAl.DataPropertyName = "maxAl";
+            this.MaxAl.HeaderText = "Nº Máximo Alumnos";
+            this.MaxAl.Name = "MaxAl";
             // 
             // bAñadir
             // 
@@ -124,37 +156,6 @@
             this.bVolver.Text = "Volver";
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
-            // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "cod";
-            this.codigo.HeaderText = "Código";
-            this.codigo.Name = "codigo";
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.Width = 200;
-            // 
-            // numAl
-            // 
-            this.numAl.DataPropertyName = "numAl";
-            this.numAl.HeaderText = "Número alumnos";
-            this.numAl.Name = "numAl";
-            // 
-            // fechaCreado
-            // 
-            this.fechaCreado.DataPropertyName = "fechaCreacion";
-            this.fechaCreado.HeaderText = "Fecha creación";
-            this.fechaCreado.Name = "fechaCreado";
-            // 
-            // MaxAl
-            // 
-            this.MaxAl.DataPropertyName = "maxAl";
-            this.MaxAl.HeaderText = "Nº Máximo Alumnos";
-            this.MaxAl.Name = "MaxAl";
             // 
             // GestionarCurso
             // 
