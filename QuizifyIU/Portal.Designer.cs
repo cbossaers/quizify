@@ -42,10 +42,10 @@
             this.bMisPreguntas = new System.Windows.Forms.Button();
             this.bCrearPregunta = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.foticoBacana = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MenuVertical.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.foticoBacana)).BeginInit();
@@ -114,7 +114,6 @@
             this.bHacerExamen.TabIndex = 4;
             this.bHacerExamen.Text = "Hacer examen";
             this.bHacerExamen.UseVisualStyleBackColor = true;
-            this.bHacerExamen.Visible = false;
             // 
             // bAjustes
             // 
@@ -201,21 +200,15 @@
             this.panelContenedor.TabIndex = 1;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
-            // timer1
+            // foticoBacana
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Tag = "horaPapi";
-            this.timer1.Tick += new System.EventHandler(this.horaCualEs);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Corbel", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(219, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 59);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "QUIZIFY";
+            this.foticoBacana.Image = ((System.Drawing.Image)(resources.GetObject("foticoBacana.Image")));
+            this.foticoBacana.Location = new System.Drawing.Point(181, 111);
+            this.foticoBacana.Name = "foticoBacana";
+            this.foticoBacana.Size = new System.Drawing.Size(280, 236);
+            this.foticoBacana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.foticoBacana.TabIndex = 2;
+            this.foticoBacana.TabStop = false;
             // 
             // label2
             // 
@@ -227,15 +220,21 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "By Softdring";
             // 
-            // foticoBacana
+            // label1
             // 
-            this.foticoBacana.Image = ((System.Drawing.Image)(resources.GetObject("foticoBacana.Image")));
-            this.foticoBacana.Location = new System.Drawing.Point(181, 111);
-            this.foticoBacana.Name = "foticoBacana";
-            this.foticoBacana.Size = new System.Drawing.Size(280, 236);
-            this.foticoBacana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.foticoBacana.TabIndex = 2;
-            this.foticoBacana.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Corbel", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(219, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(197, 59);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "QUIZIFY";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tag = "horaPapi";
+            this.timer1.Tick += new System.EventHandler(this.horaCualEs);
             // 
             // Portal
             // 
