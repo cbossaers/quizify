@@ -152,7 +152,7 @@ namespace QuizifyIU
         {
             if(Editar == false)
             {
-                int id = servicio.UltimoIdPregunta() + 1;
+               id = servicio.UltimoIdPregunta() + 1;
             }
             if (enunciado.Text == "")
             {
