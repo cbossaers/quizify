@@ -57,7 +57,7 @@ namespace QuizifyIU
                 servicio.AddCurso(newCurso);
 
                 DialogResult confirmar = MessageBox.Show(this, "Tu curso ha sido creado con éxito.", "Curso registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } catch (Exception ex) { DialogResult avisoCursoRepe = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            } catch (Exception ex) { DialogResult avisoCursoRepe = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
         }
     }
 }
