@@ -67,7 +67,7 @@ namespace QuizifyIU
             guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
             if(siguiente.Text == "Finalizar examen")
             {
-                respuestas.Add(examen.GetId());//id
+                respuestas.Add(examen.GetId());
                 respuestas.Add(usuario.GetCorreo());
                 for (int i = 0; i < preguntas_asociadas.Count; i+=3) 
                 {
@@ -76,6 +76,7 @@ namespace QuizifyIU
                     respuestas.Add(res[preguntas_asociadas[i]]);
                 }
                 servicio.SubirRespuestas(respuestas);
+                
                 DialogResult answer = MessageBox.Show(this, "examen añadido correctamente.",
                                                             "Exito", MessageBoxButtons.OK,
                                                             MessageBoxIcon.Information);
