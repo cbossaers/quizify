@@ -60,11 +60,10 @@ public class DALCurso {
     }
 
     public void EliminarCurso(string curso, string profesor) {
-        using (MySqlConnection conn = new MySqlConnection(connStr))
-        {
+        
+        using (MySqlConnection conn = new MySqlConnection(connStr)) {
 
-            using (MySqlCommand cmd = conn.CreateCommand())
-            {
+            using (MySqlCommand cmd = conn.CreateCommand()) {
 
                 cmd.CommandText = "DELETE FROM cursos WHERE codigo = @curso AND profesor = @profesor;";
 
