@@ -43,8 +43,9 @@ namespace QuizifyIU
             try { user = servicio.GetAlumno(emailField.Text); } 
             catch (Exception) {
                 try { user = servicio.GetProfesor(emailField.Text); } 
-                catch (Exception ex) { DialogResult answer = MessageBox.Show(this, "" + ex, 
+                catch (Exception ex) { DialogResult answer = MessageBox.Show(this, "Esta persona no está registrada", 
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
                 }
             }
 

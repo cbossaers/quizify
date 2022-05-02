@@ -94,10 +94,10 @@ namespace QuizifyIU
 
             if (tipoUser.Equals("Profesor")) {
                 try { servicio.AddProfesor(new Profesor(email, contra, nombre, apellidos)); }
-                catch (Exception ex) { throw new Exception(""+ex); }
+                catch (Exception ex) { throw new Exception(ex.Message.ToString()); }
             } else {
                 try { servicio.AddAlumno(new Alumno(email, contra, nombre, apellidos)); }
-                catch (Exception ex) { throw new Exception(""+ex); }
+                catch (Exception ex) { throw new Exception(ex.Message.ToString()); }
             }
 
             DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
