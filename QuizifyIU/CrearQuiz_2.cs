@@ -45,7 +45,8 @@ namespace QuizifyIU
                         ds_version = preg.GetVersion(),
                         ds_dificultad = preg.GetDificultad(),
                         ds_materia = preg.GetTema(),
-                        ds_autor = preg.GetAutor()
+                        ds_autor = preg.GetAutor(),
+                        ds_puntuacion = servicio.GetPuntuacionDePregunta(examen.GetId(), preg.GetId())
                     });
 
 
@@ -61,9 +62,9 @@ namespace QuizifyIU
                         ds_dificultad = preg.GetDificultad(),
                         ds_materia = preg.GetTema(),
                         ds_autor = preg.GetAutor(),
-                        
+                        ds_puntuacion = servicio.GetPuntuacionDePregunta(examen.GetId(), preg.GetId())
 
-                    });
+                    }) ;
                 }
 
             }
