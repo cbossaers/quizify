@@ -34,6 +34,7 @@
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numAl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaCreado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxAl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bAñadir = new System.Windows.Forms.Button();
             this.bEliminar = new System.Windows.Forms.Button();
             this.alumnoBox = new System.Windows.Forms.TextBox();
@@ -58,6 +59,7 @@
             // 
             // tablaDatoCurso
             // 
+            this.tablaDatoCurso.AllowUserToAddRows = false;
             this.tablaDatoCurso.AllowUserToResizeColumns = false;
             this.tablaDatoCurso.AllowUserToResizeRows = false;
             this.tablaDatoCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -65,15 +67,16 @@
             this.codigo,
             this.nombre,
             this.numAl,
-            this.fechaCreado});
-            this.tablaDatoCurso.Location = new System.Drawing.Point(48, 65);
+            this.fechaCreado,
+            this.MaxAl});
+            this.tablaDatoCurso.Location = new System.Drawing.Point(40, 65);
             this.tablaDatoCurso.MultiSelect = false;
             this.tablaDatoCurso.Name = "tablaDatoCurso";
             this.tablaDatoCurso.RowHeadersVisible = false;
             this.tablaDatoCurso.RowHeadersWidth = 62;
             this.tablaDatoCurso.RowTemplate.Height = 25;
             this.tablaDatoCurso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaDatoCurso.Size = new System.Drawing.Size(503, 273);
+            this.tablaDatoCurso.Size = new System.Drawing.Size(605, 273);
             this.tablaDatoCurso.TabIndex = 9;
             this.tablaDatoCurso.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaCurso_doble_click);
             // 
@@ -102,9 +105,15 @@
             this.fechaCreado.HeaderText = "Fecha creación";
             this.fechaCreado.Name = "fechaCreado";
             // 
+            // MaxAl
+            // 
+            this.MaxAl.DataPropertyName = "maxAl";
+            this.MaxAl.HeaderText = "Nº Máximo Alumnos";
+            this.MaxAl.Name = "MaxAl";
+            // 
             // bAñadir
             // 
-            this.bAñadir.Location = new System.Drawing.Point(151, 368);
+            this.bAñadir.Location = new System.Drawing.Point(145, 368);
             this.bAñadir.Name = "bAñadir";
             this.bAñadir.Size = new System.Drawing.Size(75, 23);
             this.bAñadir.TabIndex = 7;
@@ -114,7 +123,7 @@
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(256, 368);
+            this.bEliminar.Location = new System.Drawing.Point(245, 368);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(75, 23);
             this.bEliminar.TabIndex = 6;
@@ -132,7 +141,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 24);
+            this.label2.Location = new System.Drawing.Point(40, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 15);
             this.label2.TabIndex = 4;
@@ -140,7 +149,7 @@
             // 
             // bVolver
             // 
-            this.bVolver.Location = new System.Drawing.Point(48, 368);
+            this.bVolver.Location = new System.Drawing.Point(40, 368);
             this.bVolver.Name = "bVolver";
             this.bVolver.Size = new System.Drawing.Size(75, 23);
             this.bVolver.TabIndex = 1;
@@ -177,5 +186,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn numAl;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaxAl;
     }
 }
