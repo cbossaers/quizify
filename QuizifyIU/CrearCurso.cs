@@ -33,6 +33,7 @@ namespace QuizifyIU
 
         private void AbrirFormCurso(object formCurso)
         {
+            
             if (this.panelCrearCurso.Controls.Count > 0)
                 this.panelCrearCurso.Controls.RemoveAt(0);
             Form fC = formCurso as Form;
@@ -40,6 +41,7 @@ namespace QuizifyIU
             fC.Dock = DockStyle.Fill;
             this.panelCrearCurso.Controls.Add(fC);
             this.panelCrearCurso.Tag = fC;
+            fC.BringToFront();
             fC.Show();
         }
 

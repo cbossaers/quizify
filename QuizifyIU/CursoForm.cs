@@ -50,6 +50,7 @@ namespace QuizifyIU
             fCC.Dock = DockStyle.Fill;
             this.panelCurso.Controls.Add(fCC);
             this.panelCurso.Tag = fCC;
+            fCC.BringToFront();
             fCC.Show();
         }
         private void AbrirFormApuntarseCurso()
@@ -66,6 +67,7 @@ namespace QuizifyIU
             fGC.Dock = DockStyle.Fill;
             this.panelCurso.Controls.Add(fGC);
             this.panelCurso.Tag = fGC;
+            fGC.BringToFront();
             fGC.Show();
         }
     }
