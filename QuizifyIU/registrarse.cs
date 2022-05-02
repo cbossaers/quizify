@@ -93,16 +93,15 @@ namespace QuizifyIU
             string tipoUser = tipoUsuario.Text;
 
             if (tipoUser.Equals("Profesor")) {
-                    Profesor newProfesor = new Profesor(email, contra, nombre, apellidos);
-                    servicio.addEntidad(newProfesor);
-                    DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (confirmar == DialogResult.OK) this.Close();
-            } else if (tipoUser.Equals("Alumno")) {
-                    Alumno newAlumno = new Alumno(email, contra, nombre, apellidos);
-                    servicio.addEntidad(newAlumno);
-                    DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (confirmar == DialogResult.OK) this.Close();
+                try { servicio.AddProfesor(new Profesor(email, contra, nombre, apellidos)); }
+                catch (Exception ex) { throw new Exception(ex.Message.ToString()); }
+            } else {
+                try { servicio.AddAlumno(new Alumno(email, contra, nombre, apellidos)); }
+                catch (Exception ex) { throw new Exception(ex.Message.ToString()); }
             }
+
+            DialogResult confirmar = MessageBox.Show(this, "Tu cuenta ha sido registrada con éxito.", "Cuenta registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (confirmar == DialogResult.OK) this.Close();
         }
 
         private void tipoUsuario_SelectedIndexChanged_1(object sender, EventArgs e)
