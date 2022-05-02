@@ -138,9 +138,9 @@ namespace Quizify.Services
         }
     
         //Otros métodos
-        public dynamic GetTipoEntidad(string usuario) {
-            try { return GetAlumno(usuario); } 
-            catch(Exception) { return GetProfesor(usuario); }
+        public string GetTipoEntidad(string usuario) {
+            try { GetAlumno(usuario); return "alumno"; } 
+            catch(Exception) { return "profesor"; }
         }
     }   
 }
