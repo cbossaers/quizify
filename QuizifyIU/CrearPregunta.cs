@@ -28,9 +28,10 @@ namespace QuizifyIU
         private PreguntaMultiple preguntaMultiple;*/
         private Pregunta2 pregunta;
         private int dificultadNum;
-        private int id = -1;
+        private int id;
         Examen examen;
         dynamic usuario;
+        bool Editar = false;
         
         public CrearPregunta(NuevoServicio servicio,dynamic usuario)
         {
@@ -149,7 +150,7 @@ namespace QuizifyIU
 
         private void EvCrearPregunta(object sender, EventArgs e)
         {
-            if(id == -1)
+            if(Editar == false)
             {
                 int id = servicio.UltimoIdPregunta() + 1;
             }
@@ -271,7 +272,7 @@ namespace QuizifyIU
             if (id <= servicio.UltimoIdPregunta()) { 
                 //cerrar
             }
-            id = -1;
+            Editar = false;
         }
 
         private void EvCambiarDificultad(object sender, EventArgs e)
@@ -395,6 +396,8 @@ namespace QuizifyIU
 
         private void editar(Pregunta2 preg)
         {
+            Editar = true;
+            id = preg.GetId();
             crear.Enabled = true;
             string tipo = preg.GetTipo();
             if (tipo == "test")
