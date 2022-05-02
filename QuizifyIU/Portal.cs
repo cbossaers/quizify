@@ -139,12 +139,6 @@ namespace QuizifyIU
             form2.ShowDialog();
         }
 
-        private void bAjustes_Click(object sender, EventArgs e)
-        {
-            DialogResult tobecontinued = MessageBox.Show(this, "Próximamente",
-                                                            "", MessageBoxButtons.OK);
-        }
-
         private void bCrearCurso_Click(object sender, EventArgs e)
         {
             AbrirFormCurso(new CursoForm(servicio, usuario));

@@ -35,7 +35,6 @@
             this.bCrearCurso = new System.Windows.Forms.Button();
             this.nombreIniciado = new System.Windows.Forms.Label();
             this.bHacerExamen = new System.Windows.Forms.Button();
-            this.bAjustes = new System.Windows.Forms.Button();
             this.bSalir = new System.Windows.Forms.Button();
             this.bMisExamenes = new System.Windows.Forms.Button();
             this.bCrearQuiz = new System.Windows.Forms.Button();
@@ -58,7 +57,6 @@
             this.MenuVertical.Controls.Add(this.bCrearCurso);
             this.MenuVertical.Controls.Add(this.nombreIniciado);
             this.MenuVertical.Controls.Add(this.bHacerExamen);
-            this.MenuVertical.Controls.Add(this.bAjustes);
             this.MenuVertical.Controls.Add(this.bSalir);
             this.MenuVertical.Controls.Add(this.bMisExamenes);
             this.MenuVertical.Controls.Add(this.bCrearQuiz);
@@ -114,16 +112,6 @@
             this.bHacerExamen.TabIndex = 4;
             this.bHacerExamen.Text = "Hacer examen";
             this.bHacerExamen.UseVisualStyleBackColor = true;
-            // 
-            // bAjustes
-            // 
-            this.bAjustes.Location = new System.Drawing.Point(106, 414);
-            this.bAjustes.Name = "bAjustes";
-            this.bAjustes.Size = new System.Drawing.Size(35, 23);
-            this.bAjustes.TabIndex = 5;
-            this.bAjustes.Text = "Ajustes";
-            this.bAjustes.UseVisualStyleBackColor = true;
-            this.bAjustes.Click += new System.EventHandler(this.bAjustes_Click);
             // 
             // bSalir
             // 
@@ -259,7 +247,6 @@
 
         private System.Windows.Forms.Panel MenuVertical;
         private System.Windows.Forms.Panel panelContenedor;
-        private System.Windows.Forms.Button bAjustes;
         private System.Windows.Forms.Button bSalir;
         private System.Windows.Forms.Button bMisExamenes;
         private System.Windows.Forms.Button bCrearQuiz;
