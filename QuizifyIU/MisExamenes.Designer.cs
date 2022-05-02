@@ -36,6 +36,7 @@
             this.tablaExamenFinalizado = new System.Windows.Forms.DataGridView();
             this.tablaExamenesProfesor = new System.Windows.Forms.DataGridView();
             this.calificar = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +45,7 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titulo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +62,7 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenFinalizado)).BeginInit();
@@ -74,6 +77,7 @@
             this.tablaExamenDisponible.AllowUserToResizeRows = false;
             this.tablaExamenDisponible.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaExamenDisponible.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn17,
             this.titulo2,
             this.descripcion2,
             this.estado,
@@ -147,6 +151,7 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn18,
             this.Nota});
             this.tablaExamenFinalizado.Location = new System.Drawing.Point(9, 262);
             this.tablaExamenFinalizado.MultiSelect = false;
@@ -167,6 +172,7 @@
             this.tablaExamenesProfesor.AllowUserToResizeRows = false;
             this.tablaExamenesProfesor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaExamenesProfesor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
@@ -198,6 +204,13 @@
             this.calificar.UseVisualStyleBackColor = true;
             this.calificar.Visible = false;
             this.calificar.Click += new System.EventHandler(this.EvCalificar);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -267,6 +280,13 @@
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             this.dataGridViewTextBoxColumn16.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
             // 
             // titulo2
             // 
@@ -339,51 +359,49 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "titulo";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Título";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 90;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "descripcion";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Descripción";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "titulo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Título";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 90;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "estado";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "descripcion";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Descripción";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 90;
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "tiempo";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Tiempo";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "estado";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Estado";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 55;
+            this.dataGridViewTextBoxColumn4.Width = 90;
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "fecha_ini";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Fecha Ini";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "tiempo";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Tiempo";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 80;
+            this.dataGridViewTextBoxColumn5.Width = 55;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "fecha_fin";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Fecha Fin";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "fecha_ini";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Fecha Ini";
             this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -391,20 +409,29 @@
             // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "curso";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Curso";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "fecha_fin";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Fecha Fin";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 60;
+            this.dataGridViewTextBoxColumn7.Width = 80;
             // 
             // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "ct";
-            this.dataGridViewTextBoxColumn8.HeaderText = "CT";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "curso";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Curso";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 75;
+            this.dataGridViewTextBoxColumn8.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "ct";
+            this.dataGridViewTextBoxColumn18.HeaderText = "CT";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Width = 75;
             // 
             // Nota
             // 
@@ -446,14 +473,7 @@
         private System.Windows.Forms.DataGridView tablaExamenFinalizado;
         private System.Windows.Forms.DataGridView tablaExamenesProfesor;
         private System.Windows.Forms.Button calificar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn titulo2;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion2;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
@@ -470,6 +490,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
     }
 }
