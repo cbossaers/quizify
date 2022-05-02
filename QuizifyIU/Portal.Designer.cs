@@ -95,7 +95,7 @@
             // 
             this.nombreIniciado.AutoSize = true;
             this.nombreIniciado.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nombreIniciado.Location = new System.Drawing.Point(2, 64);
+            this.nombreIniciado.Location = new System.Drawing.Point(15, 72);
             this.nombreIniciado.Name = "nombreIniciado";
             this.nombreIniciado.Size = new System.Drawing.Size(53, 18);
             this.nombreIniciado.TabIndex = 6;
