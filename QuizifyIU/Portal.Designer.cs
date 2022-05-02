@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.hora = new System.Windows.Forms.Label();
             this.bCrearCurso = new System.Windows.Forms.Button();
             this.nombreIniciado = new System.Windows.Forms.Label();
             this.bHacerExamen = new System.Windows.Forms.Button();
@@ -39,12 +41,14 @@
             this.bMisPreguntas = new System.Windows.Forms.Button();
             this.bCrearPregunta = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MenuVertical.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.MenuVertical.Controls.Add(this.hora);
             this.MenuVertical.Controls.Add(this.bCrearCurso);
             this.MenuVertical.Controls.Add(this.nombreIniciado);
             this.MenuVertical.Controls.Add(this.bHacerExamen);
@@ -59,6 +63,16 @@
             this.MenuVertical.Name = "MenuVertical";
             this.MenuVertical.Size = new System.Drawing.Size(147, 450);
             this.MenuVertical.TabIndex = 0;
+            // 
+            // hora
+            // 
+            this.hora.AutoSize = true;
+            this.hora.Font = new System.Drawing.Font("Verdana Pro Cond", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.hora.Location = new System.Drawing.Point(39, 18);
+            this.hora.Name = "hora";
+            this.hora.Size = new System.Drawing.Size(57, 28);
+            this.hora.TabIndex = 8;
+            this.hora.Text = "hora";
             // 
             // bCrearCurso
             // 
@@ -76,11 +90,12 @@
             // nombreIniciado
             // 
             this.nombreIniciado.AutoSize = true;
-            this.nombreIniciado.Location = new System.Drawing.Point(41, 33);
+            this.nombreIniciado.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.nombreIniciado.Location = new System.Drawing.Point(2, 64);
             this.nombreIniciado.Name = "nombreIniciado";
-            this.nombreIniciado.Size = new System.Drawing.Size(38, 15);
+            this.nombreIniciado.Size = new System.Drawing.Size(53, 18);
             this.nombreIniciado.TabIndex = 6;
-            this.nombreIniciado.Text = "label1";
+            this.nombreIniciado.Text = "usuario";
             // 
             // bHacerExamen
             // 
@@ -177,6 +192,12 @@
             this.panelContenedor.TabIndex = 1;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tag = "horaPapi";
+            this.timer1.Tick += new System.EventHandler(this.horaCualEs);
+            // 
             // Portal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -206,5 +227,7 @@
         private System.Windows.Forms.Button bHacerExamen;
         private System.Windows.Forms.Label nombreIniciado;
         private System.Windows.Forms.Button bCrearCurso;
+        private System.Windows.Forms.Label hora;
+        private System.Windows.Forms.Timer timer1;
     }
 }

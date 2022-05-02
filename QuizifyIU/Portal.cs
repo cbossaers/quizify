@@ -21,10 +21,9 @@ namespace QuizifyIU
         {
             InitializeComponent();
             this.servicio = servicio;
-            nombreIniciado.Text = user.nombre;
+            nombreIniciado.Text = user.correo;
             usuario = user;
             if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno") { bMisPreguntas.Visible = false; bCrearQuiz.Visible = false; bCrearPregunta.Visible = false; }
-
         }
         private void panelContenedor_Paint(object sender, PaintEventArgs e)
         {
@@ -155,6 +154,11 @@ namespace QuizifyIU
             this.panelContenedor.Controls.Add(fC);
             this.panelContenedor.Tag = fC;
             fC.Show();
+        }
+
+        private void horaCualEs(object sender, EventArgs e)
+        {
+            hora.Text = DateTime.Now.ToString("HH:mm");
         }
     }
 }
