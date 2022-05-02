@@ -25,6 +25,7 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
+            bCrearCurso.Enabled = false;
         }
 
         private void bCrearCurso_Click(object sender, EventArgs e)

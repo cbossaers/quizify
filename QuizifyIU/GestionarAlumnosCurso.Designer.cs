@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.tablaAlumnoCurso = new System.Windows.Forms.DataGridView();
+            this.bEliminar = new System.Windows.Forms.Button();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaAlumnoCurso)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,24 +52,6 @@
             this.tablaAlumnoCurso.Size = new System.Drawing.Size(414, 186);
             this.tablaAlumnoCurso.TabIndex = 0;
             // 
-            // Correo
-            // 
-            this.Correo.HeaderText = "Correo";
-            this.Correo.Name = "Correo";
-            this.Correo.Width = 150;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 110;
-            // 
-            // Apellidos
-            // 
-            this.Apellidos.HeaderText = "Apellidos";
-            this.Apellidos.Name = "Apellidos";
-            this.Apellidos.Width = 150;
-            // 
             // bEliminar
             // 
             this.bEliminar.Location = new System.Drawing.Point(405, 274);
@@ -79,6 +61,27 @@
             this.bEliminar.Text = "Eliminar";
             this.bEliminar.UseVisualStyleBackColor = true;
             this.bEliminar.Click += new System.EventHandler(this.bEliminar_Click);
+            // 
+            // Correo
+            // 
+            this.Correo.DataPropertyName = "correo";
+            this.Correo.HeaderText = "Correo";
+            this.Correo.Name = "Correo";
+            this.Correo.Width = 150;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 110;
+            // 
+            // Apellidos
+            // 
+            this.Apellidos.DataPropertyName = "apellidos";
+            this.Apellidos.HeaderText = "Apellidos";
+            this.Apellidos.Name = "Apellidos";
+            this.Apellidos.Width = 150;
             // 
             // GestionarAlumnosCurso
             // 
@@ -97,9 +100,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView tablaAlumnoCurso;
+        private System.Windows.Forms.Button bEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
-        private System.Windows.Forms.Button bEliminar;
     }
 }
