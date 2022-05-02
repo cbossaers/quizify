@@ -127,10 +127,12 @@ namespace QuizifyIU
                 lista.Add(int.Parse(dataGridView1.SelectedCells[3].Value.ToString()));
                 lista.Add(1);
                 examen.SetPreguntasAsociadas(lista);
+                
                 this.Hide();
                 var form2 = new CrearQuiz_2(servicio, usuario, examen);
                 form2.Closed += (s, args) => this.Close();
                 form2.Show();
+                
             }
         }
 

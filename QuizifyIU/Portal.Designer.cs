@@ -87,7 +87,7 @@
             this.bCrearCurso.Name = "bCrearCurso";
             this.bCrearCurso.Size = new System.Drawing.Size(141, 40);
             this.bCrearCurso.TabIndex = 7;
-            this.bCrearCurso.Text = "Curso";
+            this.bCrearCurso.Text = "Cursos";
             this.bCrearCurso.UseVisualStyleBackColor = true;
             this.bCrearCurso.Click += new System.EventHandler(this.bCrearCurso_Click);
             // 

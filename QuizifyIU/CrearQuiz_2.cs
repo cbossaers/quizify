@@ -22,6 +22,7 @@ namespace QuizifyIU
             usuario = user;
             this.examen = examen;
             label1.Text=examen.titulo.ToString();
+            servicio.AddExamen(examen);
             tabla();
         }
 
