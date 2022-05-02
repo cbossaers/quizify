@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using Quizify.Entities;
 using System.Data;
+using System.Linq;
 
 namespace Quizify.Persistence {
 
@@ -419,6 +420,36 @@ public class DALExamen : IDAL2<Examen> {
                 }
             }
         }
+    }
+
+    public List<dynamic> EstadisticasExamen(int id_ex) {
+
+        List<double> notas = new List<double>();
+        int envios = 0;
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT DISTINCT alumno,nota FROM notas_examenes WHERE examen = @examen";
+
+                cmd.Parameters.AddWithValue("@examen", id_ex);
+
+                conn.Open();
+
+                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                    while (rdr.Read()) {
+                        envios++;
+                        notas.Add(rdr.GetDouble("nota"));
+                    }
+                }
+            }
+        }
+        if(envios > 0) { 
+            return new List<dynamic>{envios, notas.Average(), Math.Sqrt(notas.Average(v=>Math.Pow(v-notas.Average(),2))), notas}; 
+        } else { return new List<dynamic>{envios,0,0,notas}; }
+        
     }
 
 }}
