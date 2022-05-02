@@ -31,6 +31,8 @@ namespace AppTest {
                 foreach(double x in lista[3]) {
                     Console.WriteLine(x);
                 }
+
+                string t = "bfksjd";
             }
         }
     }
