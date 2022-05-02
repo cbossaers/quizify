@@ -45,12 +45,12 @@ namespace QuizifyIU
             this.servicio = servicio;            
             this.usuario = usuario;
         }
-        public CrearPregunta(NuevoServicio servicio, dynamic usuario,int id, int version, string tipo)
+        public CrearPregunta(NuevoServicio servicio, dynamic usuario,Pregunta2 pregunta)
         {
             InitializeComponent();
             this.servicio = servicio;
             this.usuario = usuario;
-            editar(id,version,tipo); 
+            editar(pregunta); 
         }
 
         
@@ -393,23 +393,14 @@ namespace QuizifyIU
             
         }
 
-        private void editar(int id,int version,string tipo)
+        private void editar(Pregunta2 preg)
         {
             crear.Enabled = true;
-            Pregunta2 preg;
+            string tipo = preg.GetTipo();
             if (tipo == "test")
             {
                 VistaTest();
                 tipoPregunta.Text = "Test";
-                try { preg = servicio.GetPregunta(id, version);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, ex.Message.ToString(), "Error",
-                                       MessageBoxButtons.OK,
-                                       MessageBoxIcon.Error);
-                    return;
-                }
                 lista = preg.GetParametros();
                 opcionCorrecta = lista[0].ToString();
                 tema.Text = preg.GetTema();
@@ -454,14 +445,6 @@ namespace QuizifyIU
             {
                 tipoPregunta.Text = "VF";
                 VistaVF();
-                try { preg = servicio.GetPregunta(id, version); }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, ex.Message.ToString(), "Error",
-                                       MessageBoxButtons.OK,
-                                       MessageBoxIcon.Error);
-                    return;
-                }
                 List<dynamic> lista = preg.GetParametros();
                 opcionCorrecta = lista[0].ToString();
                 enunciado.Text = preg.GetEnunciado();
@@ -482,18 +465,10 @@ namespace QuizifyIU
                     case (1): falso1.Checked = true; break;
                 }
             }
-            else if (tipo == "multiple")
+            else if (tipo == "mult")
             {
                 VistaMultiple();
                 tipoPregunta.Text = "Selección Multiple";
-                try { preg = servicio.GetPregunta(id, version); }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, ex.Message.ToString(), "Error",
-                                       MessageBoxButtons.OK,
-                                       MessageBoxIcon.Error);
-                    return;
-                }
                 List<dynamic> lista = preg.GetParametros();
                 opcionCorrecta = lista[0].ToString();
                 tema.Text = preg.GetTema();
@@ -507,7 +482,7 @@ namespace QuizifyIU
                     case (1): dificultad.Text = "Normal"; break;
                     case (2): dificultad.Text = "Difícil"; break;
                 }
-                /*int cont = 0;
+                int cont = 0;
                 while(correc>0){
                     if(correc % 10 == 1)
                     {
@@ -522,7 +497,7 @@ namespace QuizifyIU
                     }
                     correc = correc / 10;
                     cont++;
-                }*/
+                }
                 int x = lista[0];
                 for(int i = 4; i >= 0; i--)
                 {
@@ -561,17 +536,9 @@ namespace QuizifyIU
                     }
                 }
             }
-            else if(tipo == "desarrollo")
+            else if(tipo == "des")
             {
                 VistaDesarrollo();
-                try { preg = servicio.GetPregunta(id, version); }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, ex.Message.ToString(), "Error",
-                                       MessageBoxButtons.OK,
-                                       MessageBoxIcon.Error);
-                    return;
-                }
                 ctPregunta.Text = preg.GetCT();
                 tema.Text = preg.GetTema();
                 ctPregunta.Text = preg.GetCT();

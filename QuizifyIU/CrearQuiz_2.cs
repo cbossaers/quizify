@@ -99,7 +99,7 @@ namespace QuizifyIU
         private void editar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var form2 = new CrearPregunta(servicio, usuario, servicio.GetPregunta(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()), int.Parse(dataGridView1.SelectedCells[3].Value.ToString());
+            var form2 = new CrearPregunta(servicio, usuario, servicio.GetPregunta(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()), int.Parse(dataGridView1.SelectedCells[3].Value.ToString())));
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }

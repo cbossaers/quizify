@@ -19,6 +19,7 @@ namespace QuizifyIU
         string tipo;
         dynamic dificultad;
         string tema;
+        Pregunta2 preg;
 
         public MisPreguntas(NuevoServicio servicio,dynamic user)
         {
@@ -79,7 +80,8 @@ namespace QuizifyIU
             DataGridViewRow row = this.tablaPreguntas.Rows[e.RowIndex];
             int id = int.Parse(tablaPreguntas.SelectedCells[0].Value.ToString());
             int ver = int.Parse(tablaPreguntas.SelectedCells[3].Value.ToString());
-            try { Pregunta2 preg = servicio.GetPregunta(id, ver);
+            
+            try { preg = servicio.GetPregunta(id, ver);
                 int vers = preg.GetVersion();
             }
             catch(Exception ex) {
@@ -87,11 +89,7 @@ namespace QuizifyIU
                                            MessageBoxButtons.OK,
                                            MessageBoxIcon.Error);
             }
-            
-            
-            
-           
-            var form2 = new CrearPregunta(servicio, usuario,id, ver, "test");
+            var form2 = new CrearPregunta(servicio, usuario,preg);
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }
