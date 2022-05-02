@@ -9,6 +9,7 @@ public class DALPregunta {
    static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
    FabricaPreguntas fabrica = new FabricaPreguntas();
+   DALExamen DALExamen = new DALExamen();
 
     public void Add(Pregunta2 preg) {
 
@@ -94,7 +95,6 @@ public class DALPregunta {
             }
         }
     }
-
     public Pregunta2 Get(int id, int ver) {
 
         string tipo = GetTipoPregunta(id);
@@ -173,7 +173,6 @@ public class DALPregunta {
 
         return preg;
     }
-
     public void Eliminar(int id, int ver) {
         
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
@@ -190,7 +189,6 @@ public class DALPregunta {
             }
         }
     }
-
     public List<int> GetPreguntas(List<dynamic> filtros) {
 
         List<int> result = new List<int> {};
@@ -223,7 +221,6 @@ public class DALPregunta {
 
         return result;
     }
-
     public int UltimoIdPregunta() {
 
         int id = 0;
@@ -246,7 +243,6 @@ public class DALPregunta {
         }
     return id;
     }
-
     public int UltimaVerPregunta(int id) {
 
         int ver = 0;
@@ -271,7 +267,6 @@ public class DALPregunta {
         }
     return ver;
     }
-
     public string GetTipoPregunta(int id) {
 
         string tipo = "";
@@ -296,6 +291,41 @@ public class DALPregunta {
         }
 
         return tipo;
-    }
+    } 
 
+    public List<double> EstadisticasPregunta(int id_ex, int id_preg, int ver_preg) {
+
+        int envios = 0;
+        int aciertos = 0;
+        double tasa = 0;
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT * FROM respuestas_examenes WHERE examen = @id_ex " + 
+                "AND pregunta = @id_preg AND ver_pregunta = @ver_preg;";
+
+                cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                cmd.Parameters.AddWithValue("@id_preg", id_preg);
+                cmd.Parameters.AddWithValue("@ver_preg", ver_preg);
+
+                conn.Open();
+
+                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                    while (rdr.Read()) {
+                        envios++;
+                        if(DALExamen.CalcularNotaPregunta(Get(id_preg, ver_preg), rdr.GetInt32("respuesta"), 1, 0) >= 1) {
+                            aciertos++;
+                        }
+                    }
+                }
+            }
+        }
+
+        if(envios > 0) { tasa = aciertos/envios; }
+
+        return new List<double> {envios, aciertos, tasa};
+    }
 }}
