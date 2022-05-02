@@ -60,7 +60,9 @@ namespace QuizifyIU
                         ds_version = preg.GetVersion(),
                         ds_dificultad = preg.GetDificultad(),
                         ds_materia = preg.GetTema(),
-                        ds_autor = preg.GetAutor()
+                        ds_autor = preg.GetAutor(),
+                        
+
                     });
                 }
 
@@ -106,7 +108,8 @@ namespace QuizifyIU
 
         private void anular_Click(object sender, EventArgs e)
         {
-
+            servicio.AnularPregunta(examen.GetId(), int.Parse(dataGridView1.SelectedCells[0].Value.ToString()));
+            tabla();
         }
 
         private void button3_Click(object sender, EventArgs e)
