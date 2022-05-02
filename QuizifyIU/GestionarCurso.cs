@@ -51,6 +51,7 @@ namespace QuizifyIU
         private void bAñadir_Click(object sender, EventArgs e)
         {
             profeAñadeAlumno();
+            actualizarTabla();
         }
 
         private void profeAñadeAlumno()
@@ -59,11 +60,12 @@ namespace QuizifyIU
             {
                 string curso = tablaDatoCurso.SelectedRows[0].Cells["codigo"].Value.ToString();
                 string alumno = alumnoBox.Text;
-                string profesor = usuario.nombre;
+                string profesor = usuario.correo;
                 Alumno al = servicio.GetAlumno(alumno); //Si no existe el alunmo, lanza la excepcion
                 servicio.AddAlumnoACurso(alumno, curso, profesor);
                 Curso objCurso = servicio.GetCurso(curso, profesor);
                 objCurso.GetListaAlumnos().Add(curso);
+                DialogResult confirmar = MessageBox.Show(this, "Alumno añadido con éxito.", "Alumno añadido al curso.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } catch (Exception ex)
             {
                 DialogResult aviso = MessageBox.Show(this, ex.Message.ToString(),
@@ -74,20 +76,28 @@ namespace QuizifyIU
 
         private void EliminarCurso()
         {/*
-            string curso = tablaDatoCurso.SelectedRows[0].Cells["Código"].Value.ToString();
-            string profesor = usuario.nombre;
-            DialogResult avisoBorrarCurso = MessageBox.Show(this, "¿Estás seguro de que quieres borrar este curso?",
+            try
+            {
+                string curso = tablaDatoCurso.SelectedRows[0].Cells["Código"].Value.ToString();
+                string profesor = usuario.nombre;
+                DialogResult avisoBorrarCurso = MessageBox.Show(this, "¿Estás seguro de que quieres borrar este curso?",
                                                           "Borrar curso", MessageBoxButtons.OK,
                                                           MessageBoxIcon.Question);
-            if (avisoBorrarCurso == DialogResult.OK) { 
-                servicio.EliminarCurso(curso, profesor);
-                actualizarTabla();
+                if (avisoBorrarCurso == DialogResult.OK)
+                {
+                    servicio.EliminarCurso(curso, profesor);
+                    actualizarTabla();
+                }
+            }
+            catch (Exception ex)
+            {
+                DialogResult aviso = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
             }*/
         }
 
         private void tablaCurso_doble_click(object sender, DataGridViewCellEventArgs e)
         {
-            string codCurso = tablaDatoCurso.SelectedRows[0].Cells["Código"].Value.ToString();
+            string codCurso = tablaDatoCurso.SelectedRows[0].Cells["codigo"].Value.ToString();
             string profe = usuario.correo;
             Curso curso = servicio.GetCurso(codCurso, profe);
             formGestionarAl = new GestionarAlumnosCurso(servicio, formGestionarAl, curso, usuario);
