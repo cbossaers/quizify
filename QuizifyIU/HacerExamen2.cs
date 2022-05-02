@@ -40,8 +40,7 @@ namespace QuizifyIU
             preguntas_asociadas = examen.GetPreguntasAsociadas();
             counter = examen.tiempo;
             stopwatch.Start();
-            //tiempo_barra();
-            //tiempo();
+            this.examen = examen;
             for(int i = 0; i < preguntas_asociadas.Count; i += 3)
             {
                 res.Add(preguntas_asociadas[i], -1);
@@ -238,39 +237,7 @@ namespace QuizifyIU
             else siguiente.Text = "Siguiente";
         }
         
-        private TimeSpan tiempo()
-        {
-            
-            string s = "24:00:00";
-            string temp = examen.GetTiempo().ToString();
-            if (!string.IsNullOrEmpty(temp))
-                s = temp;
-            TimeSpan a = TimeSpan.Parse(s);
-            return a;
-        }
-
-        private void tiempoRestante_MouseMove(object sender, MouseEventArgs e)
-        {
-            //tiempoRestante.Text=tiempo().ToString();
-            TimeSpan ts = stopwatch.Elapsed;
-            TimeSpan maximo = tiempo();
-            label3.Text = maximo.Subtract(ts).ToString("hh\\:mm\\:ss");
-            //ts.ToString("mm\\:ss\\.ff");
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            label3.Text = tiempo().ToString();
-            TimeSpan ts = stopwatch.Elapsed;
-            TimeSpan maximo = tiempo();
-            label3.Text = maximo.Subtract(ts).ToString("hh\\:mm\\:ss");
-            //ts.ToString("mm\\:ss\\.ff");
-            if (label3.Text == "00:00:00")
-            {
-                
-            }
-        }
+        
 
         private void button3_Click(object sender, EventArgs e)
         {

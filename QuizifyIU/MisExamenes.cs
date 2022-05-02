@@ -32,11 +32,31 @@ namespace QuizifyIU
                 {
                     servicio.ActualizarEstadoQuizes();
                     Examen ex = servicio.GetExamen(x);
-                    if (servicio.GetNota(usuario.GetCorreo(),ex.GetId()) == -1 && ex.GetEstado() == "Activo")
+                    if (ex.GetEstado() == "Activo")
                     {
-                        bindingListExamenDisponible.Add(new
+                        if (servicio.GetNota(usuario.GetCorreo(), ex.GetId()) == -1) {
+                            bindingListExamenDisponible.Add(new
+                            {
+                                id = ex.GetId(),
+                                estado = ex.GetEstado(),
+                                titulo = ex.GetTitulo(),
+                                descripcion = ex.GetDescripcion(),
+                                curso = ex.GetCurso(),
+                                tiempo = ex.GetTiempo(),
+                                fecha_ini = ex.GetFechaIni(),
+                                fecha_fin = ex.GetFechaFin(),
+                                ct = ex.GetCompetenciaTransversal(),
+
+                            });
+                        }
+                    }
+                    else
+                    {  
+                        double nota = servicio.GetNota(usuario.GetCorreo(),ex.GetId());
+                        bindingListExamenFinalizado.Add(new
                         {
                             id = ex.GetId(),
+                            nota = nota,
                             estado = ex.GetEstado(),
                             titulo = ex.GetTitulo(),
                             descripcion = ex.GetDescripcion(),
@@ -44,47 +64,8 @@ namespace QuizifyIU
                             tiempo = ex.GetTiempo(),
                             fecha_ini = ex.GetFechaIni(),
                             fecha_fin = ex.GetFechaFin(),
-                            ct = ex.GetCompetenciaTransversal(),
-                            
-                        });
-                    }
-                    else
-                    {
-                        
-                        if(ex.GetEstado() == "Calificado")
-                        {
-                            double nota = servicio.GetNota(usuario.GetCorreo(),ex.GetId());
-                            bindingListExamenFinalizado.Add(new
-                            {
-                                id = ex.GetId(),
-                                nota = nota,
-                                estado = ex.GetEstado(),
-                                titulo = ex.GetTitulo(),
-                                descripcion = ex.GetDescripcion(),
-                                curso = ex.GetCurso(),
-                                tiempo = ex.GetTiempo(),
-                                fecha_ini = ex.GetFechaIni(),
-                                fecha_fin = ex.GetFechaFin(),
-                                ct = ex.GetCompetenciaTransversal()
-                            });
-                        }else
-                        {
-                            String nota = "-";
-                            bindingListExamenFinalizado.Add(new
-                            {
-                                id = ex.GetId(),
-                                nota = nota,
-                                estado = ex.GetEstado(),
-                                titulo = ex.GetTitulo(),
-                                descripcion = ex.GetDescripcion(),
-                                curso = ex.GetCurso(),
-                                tiempo = ex.GetTiempo(),
-                                fecha_ini = ex.GetFechaIni(),
-                                fecha_fin = ex.GetFechaFin(),
-                                ct = ex.GetCompetenciaTransversal()
-
-                            });
-                        }
+                            ct = ex.GetCompetenciaTransversal()
+                        }); 
                     }
                 }
                 tablaExamenDisponible.DataSource = bindingListExamenDisponible;

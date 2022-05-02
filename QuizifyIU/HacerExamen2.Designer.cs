@@ -155,7 +155,7 @@
             // 
             this.enunciado.AutoSize = true;
             this.enunciado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.enunciado.Location = new System.Drawing.Point(12, 45);
+            this.enunciado.Location = new System.Drawing.Point(12, 64);
             this.enunciado.Name = "enunciado";
             this.enunciado.Size = new System.Drawing.Size(107, 28);
             this.enunciado.TabIndex = 32;
@@ -337,7 +337,7 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(232, 23);
             this.progressBar1.TabIndex = 64;
-            this.progressBar1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tiempoRestante_MouseMove);
+            this.progressBar1.Visible = false;
             // 
             // label3
             // 
@@ -347,6 +347,7 @@
             this.label3.Size = new System.Drawing.Size(38, 15);
             this.label3.TabIndex = 65;
             this.label3.Text = "label3";
+            this.label3.Visible = false;
             // 
             // dataGridView1
             // 
@@ -377,10 +378,6 @@
             this.Contestada.HeaderText = "Contestada";
             this.Contestada.Name = "Contestada";
             this.Contestada.Width = 70;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // HacerExamen2
             // 

@@ -21,13 +21,15 @@ namespace QuizifyIU
         int tiempo;
         int id = -1;
         private Examen examen;
+        DateTime fecha = DateTime.Now.AddDays(1);
 
         public CrearQuiz(NuevoServicio servicio,dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
-            fin.Text = "23/03/2022";
+            
+            fin.Text = "4/05/2022";
 
         }
         public CrearQuiz(NuevoServicio servicio, dynamic user,Examen examen)

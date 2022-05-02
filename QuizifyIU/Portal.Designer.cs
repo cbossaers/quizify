@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Portal));
             this.MenuVertical = new System.Windows.Forms.Panel();
             this.hora = new System.Windows.Forms.Label();
             this.bCrearCurso = new System.Windows.Forms.Button();
@@ -42,7 +43,12 @@
             this.bCrearPregunta = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.foticoBacana = new System.Windows.Forms.PictureBox();
             this.MenuVertical.SuspendLayout();
+            this.panelContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.foticoBacana)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuVertical
@@ -185,6 +191,9 @@
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.White;
+            this.panelContenedor.Controls.Add(this.foticoBacana);
+            this.panelContenedor.Controls.Add(this.label2);
+            this.panelContenedor.Controls.Add(this.label1);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(147, 0);
             this.panelContenedor.Name = "panelContenedor";
@@ -198,6 +207,36 @@
             this.timer1.Tag = "horaPapi";
             this.timer1.Tick += new System.EventHandler(this.horaCualEs);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Corbel", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(219, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(197, 59);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "QUIZIFY";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(262, 361);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 19);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "By Softdring";
+            // 
+            // foticoBacana
+            // 
+            this.foticoBacana.Image = ((System.Drawing.Image)(resources.GetObject("foticoBacana.Image")));
+            this.foticoBacana.Location = new System.Drawing.Point(181, 111);
+            this.foticoBacana.Name = "foticoBacana";
+            this.foticoBacana.Size = new System.Drawing.Size(280, 236);
+            this.foticoBacana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.foticoBacana.TabIndex = 2;
+            this.foticoBacana.TabStop = false;
+            // 
             // Portal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -210,6 +249,9 @@
             this.Text = "Portal";
             this.MenuVertical.ResumeLayout(false);
             this.MenuVertical.PerformLayout();
+            this.panelContenedor.ResumeLayout(false);
+            this.panelContenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.foticoBacana)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -229,5 +271,8 @@
         private System.Windows.Forms.Button bCrearCurso;
         private System.Windows.Forms.Label hora;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox foticoBacana;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
