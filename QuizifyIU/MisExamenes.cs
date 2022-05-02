@@ -27,7 +27,7 @@ namespace QuizifyIU
             
             if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
             {
-                List<int> lista = servicio.GetExamenesAlumno(user);
+                List<int> lista = servicio.GetExamenesAlumno(user.GetCorreo());
                 foreach (int x in lista)
                 {
                     Examen ex = servicio.GetExamen(x);
@@ -42,7 +42,7 @@ namespace QuizifyIU
                             tiempo = ex.GetTiempo(),
                             fecha_ini = ex.GetFechaIni(),
                             fecha_fin = ex.GetFechaFin(),
-                            competenciaTransversal = ex.GetCompetenciaTransversal(),
+                            ct = ex.GetCompetenciaTransversal(),
                             
                         });
                     }
@@ -62,7 +62,7 @@ namespace QuizifyIU
                                 tiempo = ex.GetTiempo(),
                                 fecha_ini = ex.GetFechaIni(),
                                 fecha_fin = ex.GetFechaFin(),
-                                competenciaTransversal = ex.GetCompetenciaTransversal()
+                                ct = ex.GetCompetenciaTransversal()
                             });
                         }else
                         {
@@ -77,7 +77,7 @@ namespace QuizifyIU
                                 tiempo = ex.GetTiempo(),
                                 fecha_ini = ex.GetFechaIni(),
                                 fecha_fin = ex.GetFechaFin(),
-                                competenciaTransversal = ex.GetCompetenciaTransversal()
+                                ct = ex.GetCompetenciaTransversal()
 
                             });
                         }
@@ -88,7 +88,7 @@ namespace QuizifyIU
             }
             else
             {
-                List<int> lista = servicio.GetExamenesProfesor(user);
+                List<int> lista = servicio.GetExamenesProfesor(user.GetCorreo());
                 calificar.Visible = true;
                 tablaExamenesProfesor.Visible = true;
                 tablaExamenDisponible.Visible = false;
@@ -105,7 +105,7 @@ namespace QuizifyIU
                         tiempo = ex.GetTiempo(),
                         fecha_ini = ex.GetFechaIni(),
                         fecha_fin = ex.GetFechaFin(),
-                        competenciaTransversal = ex.GetCompetenciaTransversal()
+                        ct = ex.GetCompetenciaTransversal()
                     }); 
                     
                 }
@@ -163,7 +163,7 @@ namespace QuizifyIU
                     BindingList<object> bindingListExamenDisponible = new BindingList<object>();
                     Examen examen = servicio.GetExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
                     servicio.PublicarNotas(examen.GetId());
-                    List<int> lista = servicio.GetExamenesProfesor(user);
+                    List<int> lista = servicio.GetExamenesProfesor(user.GetCorreo());
                     calificar.Visible = true;
                     tablaExamenesProfesor.Visible = true;
                     tablaExamenDisponible.Visible = false;
@@ -180,7 +180,7 @@ namespace QuizifyIU
                             tiempo = ex.GetTiempo(),
                             fecha_ini = ex.GetFechaIni(),
                             fecha_fin = ex.GetFechaFin(),
-                            competenciaTransversal = ex.GetCompetenciaTransversal()
+                            ct = ex.GetCompetenciaTransversal()
                         });
 
                     }
