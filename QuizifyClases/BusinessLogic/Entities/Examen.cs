@@ -26,12 +26,12 @@ namespace Quizify.Entities
             this.estado = estado;
         }
 
-        public Boolean Anadir_pregunta(Pregunta pregunta)
+        public Boolean Anadir_pregunta(Pregunta2 pregunta)
         {
             return true;
         }
 
-        public Boolean Eliminar_pregunta(Pregunta pregunta)
+        public Boolean Eliminar_pregunta(Pregunta2 pregunta)
         {
             return true;
         } 
