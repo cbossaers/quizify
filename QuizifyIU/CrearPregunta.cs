@@ -170,9 +170,10 @@ namespace QuizifyIU
             }
             if(tipoPregunta.Text == "Desarrollo")
             {
+                List<dynamic> listaDes = new List<dynamic>();
                 if (ctPregunta.Text == "Competencia Transversal") ctPregunta.Text = "";
                 pregunta = fabrica.CrearPregunta2(id, servicio.UltimaVersionPregunta(id)+1,
-                    enunciado.Text,"des", dificultadNum, usuario.GetCorreo(), tema.Text, ctPregunta.Text, lista);
+                    enunciado.Text,"des", dificultadNum, usuario.GetCorreo(), tema.Text, ctPregunta.Text, listaDes);
                 try { servicio.AddPregunta(pregunta); }
                 catch(Exception ex)
                 {

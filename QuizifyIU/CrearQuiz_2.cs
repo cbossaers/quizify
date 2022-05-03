@@ -20,7 +20,7 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
-            this.examen = examen;
+            this.examen = servicio.GetExamen(examen.GetId()); 
             label1.Text=examen.titulo.ToString();
             servicio.AddExamen(examen);
             tabla();
@@ -91,7 +91,7 @@ namespace QuizifyIU
         }*/
         private void crear_Click(object sender, EventArgs e)
         {
-            
+            examen = servicio.GetExamen(examen.GetId());
             servicio.AddExamen(examen);
             MessageBox.Show(this, "Se ha creado el examen", "Éxito",
                                        MessageBoxButtons.OK,

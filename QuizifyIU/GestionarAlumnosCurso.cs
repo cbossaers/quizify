@@ -76,5 +76,33 @@ namespace QuizifyIU
                 DialogResult aviso = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
             }   
         }
+
+        private void tablaAlumnoCurso_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                BindingList<object> bindingListAlumnosCurso = new BindingList<object>();
+
+                List<string> lista = curso.GetListaAlumnos();
+
+                foreach (string x in lista)
+                {
+                    Alumno al = servicio.GetAlumno(x);
+
+                    bindingListAlumnosCurso.Add(new
+                    {
+                        correo = al.GetCorreo(),
+                        nombre = al.GetNombre(),
+                        apellidos = al.GetApellidos()
+                    });
+
+                }
+                tablaAlumnoCurso.DataSource = bindingListAlumnosCurso;
+            }
+            catch (Exception ex)
+            {
+                DialogResult aviso = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
+            }
+        }
     }
 }

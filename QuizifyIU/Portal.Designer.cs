@@ -222,6 +222,7 @@
             this.label2.Size = new System.Drawing.Size(138, 29);
             this.label2.TabIndex = 1;
             this.label2.Text = "By Softdring";
+            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -233,6 +234,7 @@
             this.label1.Size = new System.Drawing.Size(295, 88);
             this.label1.TabIndex = 0;
             this.label1.Text = "QUIZIFY";
+            this.label1.Visible = false;
             // 
             // timer1
             // 
