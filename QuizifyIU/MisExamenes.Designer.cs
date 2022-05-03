@@ -29,22 +29,6 @@
         private void InitializeComponent()
         {
             this.tablaExamenDisponible = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tablaExamenFinalizado = new System.Windows.Forms.DataGridView();
-            this.tablaExamenesProfesor = new System.Windows.Forms.DataGridView();
-            this.calificar = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titulo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +38,11 @@
             this.fecha_fin2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.curso2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.competenciaTransversal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tablaExamenFinalizado = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +53,17 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tablaExamenesProfesor = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.calificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenFinalizado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenesProfesor)).BeginInit();
@@ -86,7 +86,8 @@
             this.fecha_fin2,
             this.curso2,
             this.competenciaTransversal});
-            this.tablaExamenDisponible.Location = new System.Drawing.Point(10, 71);
+            this.tablaExamenDisponible.Location = new System.Drawing.Point(14, 118);
+            this.tablaExamenDisponible.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tablaExamenDisponible.MultiSelect = false;
             this.tablaExamenDisponible.Name = "tablaExamenDisponible";
             this.tablaExamenDisponible.ReadOnly = true;
@@ -94,199 +95,18 @@
             this.tablaExamenDisponible.RowHeadersWidth = 62;
             this.tablaExamenDisponible.RowTemplate.Height = 25;
             this.tablaExamenDisponible.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenDisponible.Size = new System.Drawing.Size(633, 164);
+            this.tablaExamenDisponible.Size = new System.Drawing.Size(834, 273);
             this.tablaExamenDisponible.TabIndex = 0;
             this.tablaExamenDisponible.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenDisponible_CellMouseDoubleClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(5, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 32);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Mis Quiz:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(9, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 21);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Quiz disponibles:";
-            // 
-            // mySqlCommand1
-            // 
-            this.mySqlCommand1.CacheAge = 0;
-            this.mySqlCommand1.Connection = null;
-            this.mySqlCommand1.EnableCaching = false;
-            this.mySqlCommand1.Transaction = null;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(12, 238);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 21);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Quiz finalizados:";
-            // 
-            // tablaExamenFinalizado
-            // 
-            this.tablaExamenFinalizado.AllowUserToAddRows = false;
-            this.tablaExamenFinalizado.AllowUserToDeleteRows = false;
-            this.tablaExamenFinalizado.AllowUserToResizeColumns = false;
-            this.tablaExamenFinalizado.AllowUserToResizeRows = false;
-            this.tablaExamenFinalizado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablaExamenFinalizado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn18,
-            this.Nota});
-            this.tablaExamenFinalizado.Location = new System.Drawing.Point(9, 262);
-            this.tablaExamenFinalizado.MultiSelect = false;
-            this.tablaExamenFinalizado.Name = "tablaExamenFinalizado";
-            this.tablaExamenFinalizado.ReadOnly = true;
-            this.tablaExamenFinalizado.RowHeadersVisible = false;
-            this.tablaExamenFinalizado.RowHeadersWidth = 62;
-            this.tablaExamenFinalizado.RowTemplate.Height = 25;
-            this.tablaExamenFinalizado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenFinalizado.Size = new System.Drawing.Size(634, 176);
-            this.tablaExamenFinalizado.TabIndex = 6;
-            // 
-            // tablaExamenesProfesor
-            // 
-            this.tablaExamenesProfesor.AllowUserToAddRows = false;
-            this.tablaExamenesProfesor.AllowUserToDeleteRows = false;
-            this.tablaExamenesProfesor.AllowUserToResizeColumns = false;
-            this.tablaExamenesProfesor.AllowUserToResizeRows = false;
-            this.tablaExamenesProfesor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablaExamenesProfesor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16});
-            this.tablaExamenesProfesor.Location = new System.Drawing.Point(10, 48);
-            this.tablaExamenesProfesor.MultiSelect = false;
-            this.tablaExamenesProfesor.Name = "tablaExamenesProfesor";
-            this.tablaExamenesProfesor.ReadOnly = true;
-            this.tablaExamenesProfesor.RowHeadersVisible = false;
-            this.tablaExamenesProfesor.RowHeadersWidth = 62;
-            this.tablaExamenesProfesor.RowTemplate.Height = 25;
-            this.tablaExamenesProfesor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenesProfesor.Size = new System.Drawing.Size(633, 390);
-            this.tablaExamenesProfesor.TabIndex = 7;
-            this.tablaExamenesProfesor.Visible = false;
-            this.tablaExamenesProfesor.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenesProfesor_CellMouseDoubleClick);
-            // 
-            // calificar
-            // 
-            this.calificar.Location = new System.Drawing.Point(568, 16);
-            this.calificar.Name = "calificar";
-            this.calificar.Size = new System.Drawing.Size(75, 23);
-            this.calificar.TabIndex = 8;
-            this.calificar.Text = "Calificar";
-            this.calificar.UseVisualStyleBackColor = true;
-            this.calificar.Visible = false;
-            this.calificar.Click += new System.EventHandler(this.EvCalificar);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "titulo";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Título";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "descripcion";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Descripción";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "estado";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "tiempo";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Tiempo";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 55;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "fecha_ini";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Fecha Ini";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "fecha_fin";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Fecha Fin";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "curso";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Curso";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "ct";
-            this.dataGridViewTextBoxColumn16.HeaderText = "CT";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Width = 75;
             // 
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "id";
             this.dataGridViewTextBoxColumn17.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn17.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Width = 150;
             // 
             // titulo2
             // 
@@ -304,11 +124,13 @@
             this.descripcion2.MinimumWidth = 8;
             this.descripcion2.Name = "descripcion2";
             this.descripcion2.ReadOnly = true;
+            this.descripcion2.Width = 150;
             // 
             // estado
             // 
             this.estado.DataPropertyName = "estado";
             this.estado.HeaderText = "Estado";
+            this.estado.MinimumWidth = 8;
             this.estado.Name = "estado";
             this.estado.ReadOnly = true;
             this.estado.Width = 90;
@@ -353,16 +175,89 @@
             // 
             this.competenciaTransversal.DataPropertyName = "ct";
             this.competenciaTransversal.HeaderText = "CT";
+            this.competenciaTransversal.MinimumWidth = 8;
             this.competenciaTransversal.Name = "competenciaTransversal";
             this.competenciaTransversal.ReadOnly = true;
             this.competenciaTransversal.Width = 75;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(7, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 48);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Mis Quiz:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(13, 80);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(196, 32);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Quiz disponibles:";
+            // 
+            // mySqlCommand1
+            // 
+            this.mySqlCommand1.CacheAge = 0;
+            this.mySqlCommand1.Connection = null;
+            this.mySqlCommand1.EnableCaching = false;
+            this.mySqlCommand1.Transaction = null;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(17, 397);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(188, 32);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Quiz finalizados:";
+            // 
+            // tablaExamenFinalizado
+            // 
+            this.tablaExamenFinalizado.AllowUserToAddRows = false;
+            this.tablaExamenFinalizado.AllowUserToDeleteRows = false;
+            this.tablaExamenFinalizado.AllowUserToResizeColumns = false;
+            this.tablaExamenFinalizado.AllowUserToResizeRows = false;
+            this.tablaExamenFinalizado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaExamenFinalizado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn18,
+            this.Nota});
+            this.tablaExamenFinalizado.Location = new System.Drawing.Point(13, 437);
+            this.tablaExamenFinalizado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tablaExamenFinalizado.MultiSelect = false;
+            this.tablaExamenFinalizado.Name = "tablaExamenFinalizado";
+            this.tablaExamenFinalizado.ReadOnly = true;
+            this.tablaExamenFinalizado.RowHeadersVisible = false;
+            this.tablaExamenFinalizado.RowHeadersWidth = 62;
+            this.tablaExamenFinalizado.RowTemplate.Height = 25;
+            this.tablaExamenFinalizado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tablaExamenFinalizado.Size = new System.Drawing.Size(906, 293);
+            this.tablaExamenFinalizado.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
             this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 150;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -380,11 +275,13 @@
             this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 150;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "estado";
             this.dataGridViewTextBoxColumn4.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 90;
@@ -429,6 +326,7 @@
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "ct";
             this.dataGridViewTextBoxColumn18.HeaderText = "CT";
+            this.dataGridViewTextBoxColumn18.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
             this.dataGridViewTextBoxColumn18.Width = 75;
@@ -437,14 +335,140 @@
             // 
             this.Nota.DataPropertyName = "nota";
             this.Nota.HeaderText = "Nota";
+            this.Nota.MinimumWidth = 8;
             this.Nota.Name = "Nota";
             this.Nota.ReadOnly = true;
+            this.Nota.Width = 150;
+            // 
+            // tablaExamenesProfesor
+            // 
+            this.tablaExamenesProfesor.AllowUserToAddRows = false;
+            this.tablaExamenesProfesor.AllowUserToDeleteRows = false;
+            this.tablaExamenesProfesor.AllowUserToResizeColumns = false;
+            this.tablaExamenesProfesor.AllowUserToResizeRows = false;
+            this.tablaExamenesProfesor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaExamenesProfesor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16});
+            this.tablaExamenesProfesor.Location = new System.Drawing.Point(14, 80);
+            this.tablaExamenesProfesor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tablaExamenesProfesor.MultiSelect = false;
+            this.tablaExamenesProfesor.Name = "tablaExamenesProfesor";
+            this.tablaExamenesProfesor.ReadOnly = true;
+            this.tablaExamenesProfesor.RowHeadersVisible = false;
+            this.tablaExamenesProfesor.RowHeadersWidth = 62;
+            this.tablaExamenesProfesor.RowTemplate.Height = 25;
+            this.tablaExamenesProfesor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tablaExamenesProfesor.Size = new System.Drawing.Size(834, 650);
+            this.tablaExamenesProfesor.TabIndex = 7;
+            this.tablaExamenesProfesor.Visible = false;
+            this.tablaExamenesProfesor.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenesProfesor_CellMouseDoubleClick);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 8;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "titulo";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Título";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "descripcion";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Descripción";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "estado";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "tiempo";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Tiempo";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 55;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "fecha_ini";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Fecha Ini";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "fecha_fin";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Fecha Fin";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "curso";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Curso";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "ct";
+            this.dataGridViewTextBoxColumn16.HeaderText = "CT";
+            this.dataGridViewTextBoxColumn16.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 75;
+            // 
+            // calificar
+            // 
+            this.calificar.Location = new System.Drawing.Point(740, 27);
+            this.calificar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.calificar.Name = "calificar";
+            this.calificar.Size = new System.Drawing.Size(107, 38);
+            this.calificar.TabIndex = 8;
+            this.calificar.Text = "Calificar";
+            this.calificar.UseVisualStyleBackColor = true;
+            this.calificar.Visible = false;
+            this.calificar.Click += new System.EventHandler(this.EvCalificar);
             // 
             // MisExamenes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 450);
+            this.ClientSize = new System.Drawing.Size(936, 750);
             this.Controls.Add(this.calificar);
             this.Controls.Add(this.tablaExamenFinalizado);
             this.Controls.Add(this.label1);
@@ -453,6 +477,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MisExamenes";
             this.Text = "MisExamenes";
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).EndInit();

@@ -160,5 +160,10 @@ namespace QuizifyIU
         {
             hora.Text = DateTime.Now.ToString("HH:mm");
         }
+
+        private void bHacerExamen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
