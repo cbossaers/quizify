@@ -29,7 +29,7 @@ namespace QuizifyIU
             this.servicio = servicio;
             usuario = user;
             
-            fin.Text = "4/05/2022";
+            fin.Text = "5/05/2022";
 
         }
         public CrearQuiz(NuevoServicio servicio, dynamic user,Examen examen)

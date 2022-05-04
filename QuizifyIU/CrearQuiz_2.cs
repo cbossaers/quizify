@@ -20,9 +20,8 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
-            this.examen = servicio.GetExamen(examen.GetId()); 
+            this.examen = examen; 
             label1.Text=examen.titulo.ToString();
-            servicio.AddExamen(examen);
             tabla();
         }
 
@@ -32,9 +31,10 @@ namespace QuizifyIU
             List<int> DTable = examen.GetPreguntasAsociadas();
 
             BindingList<object> bindinglist = new BindingList<object>();
-
+            
             for (int i = 0; i < DTable.Count; i += 3)
             {
+                
                 Pregunta2 preg = servicio.GetPregunta(DTable[i], DTable[i + 1]);
                 if (preg.GetTipo() == "test")
                 {
@@ -47,7 +47,7 @@ namespace QuizifyIU
                         ds_dificultad = preg.GetDificultad(),
                         ds_materia = preg.GetTema(),
                         ds_autor = preg.GetAutor(),
-                        ds_puntuacion = servicio.GetPuntuacionDePregunta(examen.GetId(), preg.GetId())
+                        ds_puntuacion = DTable[i+2]
                     });
 
                 }
@@ -62,7 +62,7 @@ namespace QuizifyIU
                         ds_dificultad = preg.GetDificultad(),
                         ds_materia = preg.GetTema(),
                         ds_autor = preg.GetAutor(),
-                        ds_puntuacion = servicio.GetPuntuacionDePregunta(examen.GetId(), preg.GetId())
+                        ds_puntuacion = DTable[i + 2]
 
                     }) ;
                 }
@@ -70,6 +70,8 @@ namespace QuizifyIU
             }
             dataGridView1.DataSource = bindinglist;
         }
+
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -91,7 +93,6 @@ namespace QuizifyIU
         }*/
         private void crear_Click(object sender, EventArgs e)
         {
-            examen = servicio.GetExamen(examen.GetId());
             servicio.AddExamen(examen);
             MessageBox.Show(this, "Se ha creado el examen", "Éxito",
                                        MessageBoxButtons.OK,
@@ -109,16 +110,28 @@ namespace QuizifyIU
 
         private void anular_Click(object sender, EventArgs e)
         {
-            servicio.AnularPregunta(examen.GetId(), int.Parse(dataGridView1.SelectedCells[0].Value.ToString()));
+            /*servicio.AnularPregunta(examen.GetId(), int.Parse(dataGridView1.SelectedCells[0].Value.ToString()));
+            */
+            List<int> lista = examen.GetPreguntasAsociadas();
+            int ide = int.Parse(dataGridView1.SelectedCells[0].Value.ToString());
+            for (int i = 0; i < lista.Count; i += 3)
+            {
+                if(lista[i] == ide )
+                {
+                    lista[i+2] = 0;
+                }
+            }
+            examen.SetPreguntasAsociadas(lista);
             tabla();
         }
+        
 
         private void button3_Click(object sender, EventArgs e)
         {
-            /*this.Hide();
+            this.Hide();
             var form2 = new CrearQuiz(servicio, usuario, examen);
             form2.Closed += (s, args) => this.Close();
-            form2.Show();*/
+            form2.Show();
         }
     }
 }
