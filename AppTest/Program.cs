@@ -20,9 +20,7 @@ namespace AppTest {
             DALCurso curso = new DALCurso();
 
             NuevoServicio service = new NuevoServicio();
-            
-            Console.WriteLine(service.GetPuntuacionDePregunta(0,2));
-            
+
             }
         }
     }
