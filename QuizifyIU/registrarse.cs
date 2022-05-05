@@ -93,9 +93,11 @@ namespace QuizifyIU
 
             if (tipoUser.Equals("Profesor")) {
                 try { servicio.AddProfesor(new Profesor(email, contra, nombre, apellidos)); }
-                catch (Exception ex) { DialogResult answer = MessageBox.Show(this, ex.Message.ToString(), 
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return; }
+                catch (Exception ex) { 
+                    DialogResult answer = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, 
+                        MessageBoxIcon.Exclamation);
+                    return; 
+                }
             } else {
                 try { servicio.AddAlumno(new Alumno(email, contra, nombre, apellidos)); }
                 catch (Exception ex) { DialogResult answer = MessageBox.Show(this, ex.Message.ToString(), 
