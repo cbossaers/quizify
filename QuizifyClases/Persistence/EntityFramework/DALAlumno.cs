@@ -40,7 +40,7 @@ public class DALAlumno {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT * from alumno WHERE correo = @correo;";
+                cmd.CommandText = "SELECT * FROM alumno WHERE correo = @correo;";
 
                 cmd.Parameters.AddWithValue("@correo", id);
 
