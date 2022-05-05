@@ -10,19 +10,6 @@ public class DALProfesor {
     FabricaEntidades fabrica = new FabricaEntidades();
 
     public void Add(Profesor profesor) {
-        
-        using(MySqlConnection conn = new MySqlConnection(connStr)) {
-
-            using(MySqlCommand cmd = conn.CreateCommand()) {
-
-                cmd.CommandText = "INSERT into entidad(correo,tipo) VALUES(@correo,'profesor');";
-
-                cmd.Parameters.AddWithValue("@correo", profesor.GetCorreo());
-
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
@@ -43,7 +30,7 @@ public class DALProfesor {
         }
     }
 
-    public Profesor Get<K>(K id) {
+    public Profesor Get(string id) {
         
         Profesor prof = null;
 
@@ -70,13 +57,13 @@ public class DALProfesor {
         return prof;
     }
 
-    public void Eliminar<K>(K id) {
+    public void Eliminar(string id) {
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "DELETE FROM entidad WHERE correo = @correo;";
+                cmd.CommandText = "DELETE FROM profesor WHERE correo = @correo;";
 
                 cmd.Parameters.AddWithValue("@correo", id);
 

@@ -79,7 +79,7 @@ namespace Quizify.Services
         }
         public void EliminarCurso(string cur, string prof)
         {
-            curso.EliminarCurso(cur, prof);
+            curso.Eliminar(cur, prof);
         }
 
         //Métodos pregunta

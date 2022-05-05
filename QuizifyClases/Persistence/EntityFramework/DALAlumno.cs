@@ -2,6 +2,7 @@ using MySql.Data.MySqlClient;
 using Quizify.Entities;
 using System.Collections.Generic;
 using Quizify.Persistence;
+using System.Data;
 
 namespace Quizify.Persistence {
 
@@ -12,19 +13,6 @@ public class DALAlumno {
     FabricaEntidades fabrica = new FabricaEntidades();
 
     public void Add(Alumno alumno) {
-
-        using(MySqlConnection conn = new MySqlConnection(connStr)) {
-
-            using(MySqlCommand cmd = conn.CreateCommand()) {
-
-                cmd.CommandText = "INSERT into entidad(correo,tipo) VALUES(@correo,'alumno');";
-
-                cmd.Parameters.AddWithValue("@correo", alumno.GetCorreo());
-
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
@@ -44,7 +32,7 @@ public class DALAlumno {
         }
     }
 
-    public Alumno Get<K>(K id) {
+    public Alumno Get(string id) {
 
         Alumno al = null;
 
@@ -71,13 +59,13 @@ public class DALAlumno {
         return al;
     }
 
-    public void Eliminar<K>(K id) {
+    public void Eliminar(string id) {
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "DELETE FROM entidad WHERE correo = @correo;";
+                cmd.CommandText = "DELETE FROM alumno WHERE correo = @correo;";
 
                 cmd.Parameters.AddWithValue("@correo", id);
 
@@ -90,7 +78,6 @@ public class DALAlumno {
     public List<int> GetExamenes(string id) {
 
         List<int> result = new List<int> {};
-
         List<string> cursos = DALCurso.GetCursosAlumno(id);
 
         foreach(string curso in cursos) {
@@ -116,6 +103,23 @@ public class DALAlumno {
         }
 
         return result;
+    }
+
+    public DataTable GetAllAlumnos() {
+        string consulta =  "SELECT * FROM alumno;";
+
+        MySqlConnection conn = new MySqlConnection(connStr);
+
+        conn.Open();
+
+        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+
+        conn.Close();
+
+        return data;
+
     }
 
 }}

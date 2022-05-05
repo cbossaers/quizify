@@ -16,17 +16,19 @@ public class DALExamen {
 
     public void Add(Examen ex) {
 
-        int ultimoID = UltimoIdExamen();
-
-        try {
-
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
                 cmd.CommandText = "INSERT into PSWC.examen(id,titulo,descripcion,autor,curso,tiempo,fecha_ini,fecha_fin,intentos"
-                + ",volver_atras,errores_restan,mostrar_resultados,fecha_creac,estado,CT) VALUES(@id,@titulo,@descripcion,@autor,"
-                + "@curso,@tiempo,@fecha_ini,@fecha_fin,@intentos,@volver_atras,@errores_restan,@mostrar_resultados,@fecha_creac,@estado,@CT);";
+                + ",volver_atras,errores_restan,mostrar_resultados,fecha_creac,estado,CT) "
+
+                +"VALUES(@id,@titulo,@descripcion,@autor,@curso,@tiempo,@fecha_ini,@fecha_fin,@intentos,@volver_atras,@errores_restan,"
+                + "@mostrar_resultados,@fecha_creac,@estado,@CT) "
+
+                + "ON DUPLICATE KEY UPDATE titulo = @titulo, descripcion = @descripcion, autor = @autor, curso = @curso, tiempo = @tiempo,"
+                + "fecha_ini = @fecha_ini, fecha_fin = @fecha_fin, intentos = @intentos, volver_atras = @volver_atras, errores_restan = @errores_restan,"
+                + "mostrar_resultados = @mostrar_resultados, fecha_creac = @fecha_creac, estado = @estado, CT = @CT;";
 
                 cmd.Parameters.AddWithValue("@id", ex.GetId());
                 cmd.Parameters.AddWithValue("@titulo", ex.GetTitulo());
@@ -47,77 +49,14 @@ public class DALExamen {
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
-        } } catch(Exception) {
+        } 
 
-            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+        SubirPreguntas(ex.GetPreguntasAsociadas(), ex.GetId());
 
-            using(MySqlCommand cmd = conn.CreateCommand()) {
-
-                cmd.CommandText = "UPDATE examen SET titulo = @titulo, descripcion = @descripcion, autor = @autor, curso = @curso, tiempo = @tiempo, fecha_ini = @fecha_ini, fecha_fin = @fecha_fin, intentos = @intentos, volver_atras = @volver_atras, errores_restan = @errores_restan, mostrar_resultados = @mostrar_resultados, fecha_creac = @fecha_creac, estado = @estado, CT = @CT WHERE id = @id;";
-
-                cmd.Parameters.AddWithValue("@id", ex.GetId());
-                cmd.Parameters.AddWithValue("@titulo", ex.GetTitulo());
-                cmd.Parameters.AddWithValue("@descripcion", ex.GetDescripcion());
-                cmd.Parameters.AddWithValue("@autor", ex.GetAutor());
-                cmd.Parameters.AddWithValue("@curso", ex.GetCurso());
-                cmd.Parameters.AddWithValue("@tiempo", ex.GetTiempo());
-                cmd.Parameters.AddWithValue("@fecha_ini", ex.GetFechaIni().ToString());
-                cmd.Parameters.AddWithValue("@fecha_fin", ex.GetFechaFin().ToString());
-                cmd.Parameters.AddWithValue("@intentos", ex.GetIntentos());
-                cmd.Parameters.AddWithValue("@volver_atras", ex.GetVolverAtras());
-                cmd.Parameters.AddWithValue("@errores_restan", ex.GetErroresRestan());
-                cmd.Parameters.AddWithValue("@mostrar_resultados", ex.GetMostrarResultados());
-                cmd.Parameters.AddWithValue("@fecha_creac", ex.GetFechaCreac().ToString());
-                cmd.Parameters.AddWithValue("@estado", ex.GetEstado());
-                cmd.Parameters.AddWithValue("@CT", ex.GetCompetenciaTransversal());
-
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
-
-        }
-
-        List<int> lista = ex.GetPreguntasAsociadas();
-
-        for(int i = 0; i < lista.Count; i+=3) {
-
-            try{
-
-            using(MySqlConnection conn = new MySqlConnection(connStr)) {
-
-                using(MySqlCommand cmd = conn.CreateCommand()) {
-
-                    cmd.CommandText = "INSERT into PSWC.lista_preguntas(id_examen,id_pregunta,ver_pregunta,puntuacion)"
-                    + " VALUES(@id_ex,@id_preg,@ver_preg,@puntuacion);";
-
-                    cmd.Parameters.AddWithValue("@id_ex", ex.GetId());
-                    cmd.Parameters.AddWithValue("@id_preg", lista[i]);
-                    cmd.Parameters.AddWithValue("@ver_preg", lista[i+1]);
-                    cmd.Parameters.AddWithValue("@puntuacion", lista[i+2]);
-
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }} catch (Exception) {
-                using(MySqlConnection conn = new MySqlConnection(connStr)) {
-
-                using(MySqlCommand cmd = conn.CreateCommand()) {
-
-                    cmd.CommandText = "UPDATE lista_preguntas SET puntuacion = @puntuacion WHERE id_examen = @id_ex AND id_pregunta = @id_preg;";
-
-                    cmd.Parameters.AddWithValue("@id_ex", ex.GetId());
-                    cmd.Parameters.AddWithValue("@id_preg", lista[i]);
-                    cmd.Parameters.AddWithValue("@ver_preg", lista[i+1]);
-                    cmd.Parameters.AddWithValue("@puntuacion", lista[i+2]);
-
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-            }
-        }}}}
-
+        
+    }
  
-    public Examen Get<K>(K id) {
+    public Examen Get(int id) {
 
         Examen ex = null;
 
@@ -149,7 +88,7 @@ public class DALExamen {
         return ex;
     }
 
-    public void Eliminar<K>(K id) {}
+    public void Eliminar(int id) {}
 
     public int UltimoIdExamen() {
 
@@ -171,10 +110,34 @@ public class DALExamen {
                 }
             }
         }
-    return id;
+
+        return id;
     }
 
-    public List<int> GetListaPreguntas<K>(K id) {
+    public void SubirPreguntas(List<int> lista, int id) {
+
+        for(int i = 0; i < lista.Count; i+=3) {
+
+            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "INSERT into PSWC.lista_preguntas(id_examen,id_pregunta,ver_pregunta,puntuacion)"
+                    + " VALUES(@id_ex,@id_preg,@ver_preg,@puntuacion) ON DUPLICATE KEY UPDATE puntuacion = @puntuacion;";
+
+                    cmd.Parameters.AddWithValue("@id_ex", id);
+                    cmd.Parameters.AddWithValue("@id_preg", lista[i]);
+                    cmd.Parameters.AddWithValue("@ver_preg", lista[i+1]);
+                    cmd.Parameters.AddWithValue("@puntuacion", lista[i+2]);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+    }
+
+    public List<int> GetListaPreguntas(int id) {
 
         List<int> result = new List<int> {};
 
@@ -305,16 +268,16 @@ public class DALExamen {
             ex = Get(i);
             string estado = "";
 
-            if(ex.GetMostrarResultados() == 1) { estado = "Calificado"; }
-            else if(ex.GetFechaIni() > DateTime.Now) { estado = "Inactivo";}
+            if(ex.GetFechaIni() > DateTime.Now) { estado = "Inactivo";}
             else if(ex.GetFechaIni() <= DateTime.Now && ex.GetFechaFin() > DateTime.Now) { estado = "Activo"; }
-            else if(DateTime.Now > ex.GetFechaFin()) { estado = "Finalizado"; }
+            else if(DateTime.Now > ex.GetFechaFin() && ex.GetMostrarResultados() == 0) { estado = "Finalizado"; }
+            else if(ex.GetMostrarResultados() == 1) { estado = "Calificado"; }
 
             using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
                 using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                    cmd.CommandText = "UPDATE PSWC.examen SET estado = @estado WHERE id = @id;";
+                    cmd.CommandText = "UPDATE examen SET estado = @estado WHERE id = @id;";
 
                     cmd.Parameters.AddWithValue("@estado", estado);
                     cmd.Parameters.AddWithValue("@id",i);
@@ -332,9 +295,8 @@ public class DALExamen {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "UPDATE examen SET mostrar_resultados = @mostrar WHERE id = @id;";
+                cmd.CommandText = "UPDATE examen SET mostrar_resultados = 1 WHERE id = @id;";
 
-                cmd.Parameters.AddWithValue("@mostrar", 1);
                 cmd.Parameters.AddWithValue("@id",ex_id);
 
                 conn.Open();
@@ -400,75 +362,74 @@ public class DALExamen {
     public void CalcularNotaExamen(int id_ex, string correo) {
 
         double nota = 0.0;
-        dynamic pregunta = null;
-        int id_preg = 0;
-        int ver_preg = 0;
-        double puntuacion = 0.0;
+        Pregunta2 pregunta = null;
         int restan = ErroresRestan(id_ex);
 
-        using(MySqlConnection conn = new MySqlConnection(connStr)) {
-            string consulta_lista =  "SELECT * FROM lista_preguntas WHERE id_examen = " + id_ex + ";";
-            string consulta_respuestas = "SELECT * FROM respuestas_examenes WHERE examen = " + id_ex +  " AND alumno = '" + correo + "';";
-            
-            conn.Open();
+        List<int> listapreg = GetListaPreguntas(id_ex);
+        List<int> listarespuestas = GetListaRespuestas(id_ex, correo);
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter(consulta_lista, conn);
-            DataTable data = new DataTable();
-            adapter.Fill(data);
+        for(int i = 0; i < listapreg.Count; i+=3) {
 
-            MySqlDataAdapter adapter2 = new MySqlDataAdapter(consulta_respuestas, conn);
-            DataTable data2 = new DataTable();
-            adapter2.Fill(data2);
+            for(int j = 0; j < listarespuestas.Count; j+=2) {
 
-            conn.Close();
+                if(listapreg[i] == listarespuestas[j]) {
 
-            foreach (DataRow row in data.Rows) { 
-                id_preg = int.Parse(row["id_pregunta"].ToString());
-                ver_preg = int.Parse(row["ver_pregunta"].ToString());
-                puntuacion = double.Parse(row["puntuacion"].ToString());
-
-                foreach (DataRow row2 in data2.Rows) { 
-                    if(id_preg == int.Parse(row2["pregunta"].ToString())) {
-                        pregunta = dalpreg.Get(id_preg, ver_preg);
-                        nota+=CalcularNotaPregunta(pregunta, int.Parse(row2["respuesta"].ToString()),puntuacion,restan);
-                    }
+                    pregunta = dalpreg.Get(listapreg[i], listapreg[i+1]);
+                    nota += CalcularNotaPregunta(pregunta, listarespuestas[j+1],listapreg[i+2],restan);
                 }
             }
         }
 
         if(nota < 0) { nota = 0; }
         
-        try {
-            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+        SubirNota(id_ex, correo, nota);
+        
+    }
 
-                using(MySqlCommand cmd = conn.CreateCommand()) {
+    public void SubirNota(int id_ex, string correo, double nota) {
 
-                    cmd.CommandText = "INSERT into PSWC.notas_examenes(alumno,examen,nota) VALUES(@correo,@id_ex,@nota);";
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
-                    cmd.Parameters.AddWithValue("@correo", correo);
-                    cmd.Parameters.AddWithValue("@id_ex", id_ex);
-                    cmd.Parameters.AddWithValue("@nota", nota);
+            using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                }
+                cmd.CommandText = "INSERT into notas_examenes(alumno,examen,nota) VALUES(@correo,@id_ex,@nota) " 
+                + "ON DUPLICATE KEY UPDATE nota = @nota;";
+
+                cmd.Parameters.AddWithValue("@correo", correo);
+                cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                cmd.Parameters.AddWithValue("@nota", nota);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
             }
-        } catch (MySql.Data.MySqlClient.MySqlException) {
-            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+        }
+    }
 
-                using(MySqlCommand cmd = conn.CreateCommand()) {
+    public List<int> GetListaRespuestas(int id_ex, string correo) {
+        List<int> listarespuestas = new List<int>{};
 
-                    cmd.CommandText = "UPDATE notas_examenes SET nota = @nota WHERE alumno = @correo AND examen = @id_ex;";
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+            
+            using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                    cmd.Parameters.AddWithValue("@correo", correo);
-                    cmd.Parameters.AddWithValue("@id_ex", id_ex);
-                    cmd.Parameters.AddWithValue("@nota", nota);
+                cmd.CommandText =  "SELECT * FROM respuestas_examenes WHERE examen = @id_ex AND alumno = @correo';";
 
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                cmd.Parameters.AddWithValue("@correo", correo);
+
+                conn.Open();
+
+                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                    while (rdr.Read()) {
+                        listarespuestas.Add(rdr.GetInt32("pregunta"));
+                        listarespuestas.Add(rdr.GetInt32("respuesta"));
+                    }
                 }
             }
         }
+
+        return listarespuestas;
     }
 
     public int GetPuntuacionDePregunta(int id_ex, int id_preg) {

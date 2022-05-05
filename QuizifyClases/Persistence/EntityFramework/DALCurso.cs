@@ -14,7 +14,7 @@ public class DALCurso {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "INSERT into PSWC.cursos(codigo,nombre,profesor,apuntados,capacidad,fecha_creac,contraseña) "
+                cmd.CommandText = "INSERT into cursos(codigo,nombre,profesor,apuntados,capacidad,fecha_creac,contraseña) "
                     + "VALUES(@codigo, @nombre, @profesor, @apuntados, @capacidad, @fecha_creac, @contraseña);";
 
                 cmd.Parameters.AddWithValue("@codigo", curso.GetCodigo());
@@ -59,7 +59,7 @@ public class DALCurso {
         return curso;
     }
 
-    public void EliminarCurso(string curso, string profesor) {
+    public void Eliminar(string curso, string profesor) {
         
         using (MySqlConnection conn = new MySqlConnection(connStr)) {
 
@@ -107,7 +107,7 @@ public class DALCurso {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "INSERT into PSWC.alumno_curso(alumno,curso,profesor) "
+                cmd.CommandText = "INSERT into alumno_curso(alumno,curso,profesor) "
                     + "VALUES(@alumno,@curso,@profesor);";
 
                 cmd.Parameters.AddWithValue("@alumno", alumno);
@@ -148,7 +148,7 @@ public class DALCurso {
             
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "DELETE FROM PSWC.alumno_curso WHERE alumno = @alumno AND curso = @curso";
+                cmd.CommandText = "DELETE FROM alumno_curso WHERE alumno = @alumno AND curso = @curso";
 
                 cmd.Parameters.AddWithValue("@alumno", alumno);
                 cmd.Parameters.AddWithValue("@curso", curso);
@@ -187,7 +187,7 @@ public class DALCurso {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT * FROM cursos WHERE profesor = @profesor;";
+                cmd.CommandText = "SELECT codigo FROM cursos WHERE profesor = @profesor;";
 
                 cmd.Parameters.AddWithValue("@profesor", profesor);        
 
