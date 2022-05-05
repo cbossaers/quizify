@@ -112,13 +112,18 @@ public class DALAlumno {
 
         conn.Open();
 
-        MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
+        /*MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
         DataTable data = new DataTable();
         adapter.Fill(data);
 
         conn.Close();
 
-        return data;
+        return data;*/
+
+        MySqlCommand cmd = new MySqlCommand(consulta, conn);
+        DataTable dt = new DataTable();
+        dt.Load(cmd.ExecuteReader());
+        return dt;
 
     }
 
