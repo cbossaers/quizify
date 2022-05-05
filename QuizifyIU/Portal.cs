@@ -90,7 +90,6 @@ namespace QuizifyIU
             fHE.BringToFront();
             fHE.Show();
         }
-
         private void AbrirFormCurso(object formCurso)
         {
             if (this.panelContenedor.Controls.Count > 0)
@@ -102,6 +101,29 @@ namespace QuizifyIU
             this.panelContenedor.Tag = fC;
             fC.BringToFront();
             fC.Show();
+        }
+        public void AbrirFormEditarPregunta(NuevoServicio servicio, Profesor usuario, Pregunta2 pregunta)
+        {
+            Object formCrearPregunta = new CrearPregunta(servicio, usuario, pregunta);
+            if (this.panelContenedor.Controls.Count > 0)
+                this.panelContenedor.Controls.RemoveAt(0);
+            Form fC = formCrearPregunta as Form;
+            fC.TopLevel = false;
+            fC.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(fC);
+            this.panelContenedor.Tag = fC;
+            fC.BringToFront();
+            fC.Show();
+        }
+        private void AbrirFormPortalAux()
+        {
+            if (this.panelContenedor.Controls.Count > 0)
+            {
+                this.panelContenedor.Controls.Clear();
+                this.panelContenedor.Controls.Add(titulo1);
+                this.panelContenedor.Controls.Add(titulo2);
+                this.panelContenedor.Controls.Add(foticoBacana);
+            }
         }
 
         private void bCrearPregunta_Click(object sender, EventArgs e)
@@ -124,13 +146,6 @@ namespace QuizifyIU
             AbrirFormMisExamenes(new MisExamenes(servicio,usuario));
         }
 
-        /*private void bHacerExamen_Click(object sender, EventArgs e)
-        {
-            AbrirFormHacerExamen(new HacerExamen(servicio,usuario));
-            /*using (HacerExamen2 ventanaAlta = new HacerExamen2(servicio))
-                ventanaAlta.ShowDialog();
-        }*/
-
         private void bSalir_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -143,27 +158,16 @@ namespace QuizifyIU
         {
             AbrirFormCurso(new CursoForm(servicio, usuario));
         }
-        public void AbrirFormEditarPregunta(NuevoServicio servicio, Profesor usuario, Pregunta2 pregunta)
-        {
-            Object formCrearPregunta = new CrearPregunta(servicio, usuario, pregunta);
-            if (this.panelContenedor.Controls.Count > 0)
-                this.panelContenedor.Controls.RemoveAt(0);
-            Form fC = formCrearPregunta as Form;
-            fC.TopLevel = false;
-            fC.Dock = DockStyle.Fill;
-            this.panelContenedor.Controls.Add(fC);
-            this.panelContenedor.Tag = fC;
-            fC.Show();
-        }
+        
 
         private void horaCualEs(object sender, EventArgs e)
         {
             hora.Text = DateTime.Now.ToString("HH:mm");
         }
 
-        private void bHacerExamen_Click(object sender, EventArgs e)
+        private void bHome_Click(object sender, EventArgs e)
         {
-
+            AbrirFormPortalAux();
         }
     }
 }

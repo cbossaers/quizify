@@ -93,7 +93,7 @@ namespace QuizifyIU
         {
             bCrearCurso.Enabled = false;
             string contra = boxContraseña.Text;
-            if (contra == "") contraCorrecto = false;
+            if (contra == "") codCorrecto = false;
             else contraCorrecto = true;
             if (nombreCorrecto && codCorrecto && maxCorrecto && contraCorrecto)
                 bCrearCurso.Enabled = true; 
