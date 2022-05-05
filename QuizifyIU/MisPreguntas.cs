@@ -21,6 +21,7 @@ namespace QuizifyIU
         string tema;
         Pregunta2 preg;
         Portal portal;
+        DataTable datos;
 
         public MisPreguntas(NuevoServicio servicio,dynamic user, Portal portal)
         {
@@ -31,6 +32,7 @@ namespace QuizifyIU
             filtros = new List<dynamic>() { usuario.GetCorreo(), null, null, null };
             tabla();
         }
+        
 
 
         

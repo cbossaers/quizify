@@ -44,6 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPreguntas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,19 +52,17 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(17, 30);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(12, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(244, 48);
+            this.label2.Size = new System.Drawing.Size(165, 32);
             this.label2.TabIndex = 3;
             this.label2.Text = "Mis Preguntas";
             // 
             // bBuscar
             // 
-            this.bBuscar.Location = new System.Drawing.Point(769, 155);
-            this.bBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bBuscar.Location = new System.Drawing.Point(538, 93);
             this.bBuscar.Name = "bBuscar";
-            this.bBuscar.Size = new System.Drawing.Size(107, 38);
+            this.bBuscar.Size = new System.Drawing.Size(75, 23);
             this.bBuscar.TabIndex = 7;
             this.bBuscar.Text = "Buscar";
             this.bBuscar.UseVisualStyleBackColor = true;
@@ -76,10 +75,9 @@
             "Test",
             "VF",
             "Mult"});
-            this.tipo_txt.Location = new System.Drawing.Point(93, 158);
-            this.tipo_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tipo_txt.Location = new System.Drawing.Point(65, 95);
             this.tipo_txt.Name = "tipo_txt";
-            this.tipo_txt.Size = new System.Drawing.Size(171, 33);
+            this.tipo_txt.Size = new System.Drawing.Size(121, 23);
             this.tipo_txt.TabIndex = 8;
             // 
             // dificultad_txt
@@ -89,18 +87,16 @@
             "Fácil",
             "Medio",
             "Difícil"});
-            this.dificultad_txt.Location = new System.Drawing.Point(371, 158);
-            this.dificultad_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dificultad_txt.Location = new System.Drawing.Point(260, 95);
             this.dificultad_txt.Name = "dificultad_txt";
-            this.dificultad_txt.Size = new System.Drawing.Size(171, 33);
+            this.dificultad_txt.Size = new System.Drawing.Size(121, 23);
             this.dificultad_txt.TabIndex = 9;
             // 
             // tema_txt
             // 
-            this.tema_txt.Location = new System.Drawing.Point(617, 155);
-            this.tema_txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tema_txt.Location = new System.Drawing.Point(432, 93);
             this.tema_txt.Name = "tema_txt";
-            this.tema_txt.Size = new System.Drawing.Size(141, 31);
+            this.tema_txt.Size = new System.Drawing.Size(100, 23);
             this.tema_txt.TabIndex = 10;
             // 
             // tablaPreguntas
@@ -118,15 +114,14 @@
             this.Materia,
             this.Autor});
             this.tablaPreguntas.GridColor = System.Drawing.SystemColors.MenuBar;
-            this.tablaPreguntas.Location = new System.Drawing.Point(17, 232);
-            this.tablaPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tablaPreguntas.Location = new System.Drawing.Point(12, 139);
             this.tablaPreguntas.MultiSelect = false;
             this.tablaPreguntas.Name = "tablaPreguntas";
             this.tablaPreguntas.ReadOnly = true;
             this.tablaPreguntas.RowHeadersWidth = 62;
             this.tablaPreguntas.RowTemplate.Height = 25;
             this.tablaPreguntas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaPreguntas.Size = new System.Drawing.Size(859, 405);
+            this.tablaPreguntas.Size = new System.Drawing.Size(601, 243);
             this.tablaPreguntas.TabIndex = 11;
             this.tablaPreguntas.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaPreguntas_CellMouseDoubleClick);
             // 
@@ -197,10 +192,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(36, 158);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(25, 95);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 28);
+            this.label3.Size = new System.Drawing.Size(34, 17);
             this.label3.TabIndex = 12;
             this.label3.Text = "Tipo";
             // 
@@ -208,10 +202,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(274, 165);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(192, 99);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 28);
+            this.label4.Size = new System.Drawing.Size(62, 17);
             this.label4.TabIndex = 13;
             this.label4.Text = "Dificultad";
             // 
@@ -219,18 +212,24 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(553, 165);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(387, 99);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 28);
+            this.label5.Size = new System.Drawing.Size(39, 17);
             this.label5.TabIndex = 14;
             this.label5.Text = "Tema";
             // 
+            // mySqlCommand1
+            // 
+            this.mySqlCommand1.CacheAge = 0;
+            this.mySqlCommand1.Connection = null;
+            this.mySqlCommand1.EnableCaching = false;
+            this.mySqlCommand1.Transaction = null;
+            // 
             // MisPreguntas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 750);
+            this.ClientSize = new System.Drawing.Size(648, 450);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -241,7 +240,6 @@
             this.Controls.Add(this.bBuscar);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MisPreguntas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MisPreguntas";
@@ -268,5 +266,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Autor;
+        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
     }
 }
