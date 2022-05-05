@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Quizify.Entities;
 using Quizify.Persistence;
+using System.Data;
 
 namespace Quizify.Services
 {
@@ -154,6 +155,10 @@ namespace Quizify.Services
                 try { GetProfesor(usuario); return "profesor"; }
                 catch(Exception ex) { throw new Exception(""+ex); }    
             }
+        }
+
+        public DataTable GetAllAlumnos() {
+            return alumno.GetAllAlumnos();
         }
     }   
 }
