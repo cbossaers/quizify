@@ -93,7 +93,7 @@ namespace QuizifyIU
         {
             bCrearCurso.Enabled = false;
             string contra = boxContraseña.Text;
-            if (contra == "") codCorrecto = false;
+            if (contra == "") contraCorrecto = false;
             else contraCorrecto = true;
             if (nombreCorrecto && codCorrecto && maxCorrecto && contraCorrecto)
                 bCrearCurso.Enabled = true; 
@@ -103,7 +103,7 @@ namespace QuizifyIU
         {
             bCrearCurso.Enabled = false;
             int valor = (int)maxAlumnos.Value;
-            if (valor == 0) maxCorrecto = false;
+            if (valor <= 0) maxCorrecto = false;
             else maxCorrecto = true;
             if (nombreCorrecto && codCorrecto && maxCorrecto && contraCorrecto)
                 bCrearCurso.Enabled = true;
