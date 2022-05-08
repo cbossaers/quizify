@@ -106,25 +106,21 @@ public class DALAlumno {
     }
 
     public DataTable GetAllAlumnos() {
-        string consulta =  "SELECT * FROM alumno;";
 
-        MySqlConnection conn = new MySqlConnection(connStr);
-
-        conn.Open();
-
-        /*MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, conn);
-        DataTable data = new DataTable();
-        adapter.Fill(data);
-
-        conn.Close();
-
-        return data;*/
-
-        MySqlCommand cmd = new MySqlCommand(consulta, conn);
         DataTable dt = new DataTable();
-        dt.Load(cmd.ExecuteReader());
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT * FROM alumno;";
+
+                conn.Open();
+
+                dt.Load(cmd.ExecuteReader());
+            }
+        }
+
         return dt;
-
     }
-
 }}
