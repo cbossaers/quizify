@@ -6,7 +6,7 @@ using Quizify.Entities;
 namespace Quizify.Persistence {
 
 public class DALPregunta {
-   static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
+   static string connStr = "server=88.17.245.158;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
    FabricaPreguntas fabrica = new FabricaPreguntas();
    //DALExamen dalex = new DALExamen();
