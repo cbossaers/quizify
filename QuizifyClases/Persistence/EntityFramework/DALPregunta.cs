@@ -229,7 +229,7 @@ public class DALPregunta {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT id FROM pregunta;";
+                cmd.CommandText = "SELECT id FROM pregunta ORDER BY id DESC LIMIT 1;";
 
                 conn.Open();
 
@@ -251,7 +251,7 @@ public class DALPregunta {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT ver FROM pregunta WHERE id = @id;";
+                cmd.CommandText = "SELECT ver FROM pregunta WHERE id = @id ORDER BY ver DESC LIMIT 1;";
 
                 cmd.Parameters.AddWithValue("@id", id);
 

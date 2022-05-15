@@ -63,9 +63,9 @@
             this.check0 = new System.Windows.Forms.CheckBox();
             this.botonAdd2 = new System.Windows.Forms.Button();
             this.botonBorrar2 = new System.Windows.Forms.Button();
-            this.tema = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ctPregunta = new System.Windows.Forms.ComboBox();
+            this.tema = new System.Windows.Forms.ComboBox();
             this.correctaTest.SuspendLayout();
             this.correctaVF.SuspendLayout();
             this.CorrectaMult.SuspendLayout();
@@ -443,14 +443,6 @@
             this.botonBorrar2.Visible = false;
             this.botonBorrar2.Click += new System.EventHandler(this.BorrarOpc2);
             // 
-            // tema
-            // 
-            this.tema.Location = new System.Drawing.Point(61, 123);
-            this.tema.Multiline = true;
-            this.tema.Name = "tema";
-            this.tema.Size = new System.Drawing.Size(246, 24);
-            this.tema.TabIndex = 36;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -483,15 +475,22 @@
             this.ctPregunta.TabIndex = 37;
             this.ctPregunta.Text = "Competencia Transversal";
             // 
+            // tema
+            // 
+            this.tema.FormattingEnabled = true;
+            this.tema.Location = new System.Drawing.Point(67, 122);
+            this.tema.Name = "tema";
+            this.tema.Size = new System.Drawing.Size(150, 23);
+            this.tema.TabIndex = 38;
+            // 
             // CrearPregunta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(710, 490);
+            this.ClientSize = new System.Drawing.Size(655, 450);
+            this.Controls.Add(this.tema);
             this.Controls.Add(this.ctPregunta);
             this.Controls.Add(this.crear);
-            this.Controls.Add(this.tema);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.botonBorrar2);
             this.Controls.Add(this.botonAdd2);
@@ -567,8 +566,8 @@
         private System.Windows.Forms.CheckBox check1;
         private System.Windows.Forms.Button botonAdd2;
         private System.Windows.Forms.Button botonBorrar2;
-        private System.Windows.Forms.TextBox tema;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox ctPregunta;
+        private System.Windows.Forms.ComboBox tema;
     }
 }

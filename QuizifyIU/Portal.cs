@@ -126,6 +126,19 @@ namespace QuizifyIU
             }
         }
 
+        private void AbrirFormTienda(object formTienda)
+        {
+            if (this.panelContenedor.Controls.Count > 0)
+                this.panelContenedor.Controls.RemoveAt(0);
+            Form fT = formTienda as Form;
+            fT.TopLevel = false;
+            fT.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(fT);
+            this.panelContenedor.Tag = fT;
+            fT.BringToFront();
+            fT.Show();
+        }
+
         private void bCrearPregunta_Click(object sender, EventArgs e)
         {
             AbrirFormCrearPregunta(new CrearPregunta(servicio,usuario));
@@ -168,6 +181,11 @@ namespace QuizifyIU
         private void bHome_Click(object sender, EventArgs e)
         {
             AbrirFormPortalAux();
+        }
+
+        private void bTienda_Click(object sender, EventArgs e)
+        {
+            AbrirFormTienda(new ComprarBono(servicio, usuario));
         }
     }
 }

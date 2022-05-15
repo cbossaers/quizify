@@ -88,7 +88,34 @@ public class DALExamen {
         return ex;
     }
 
-    public void Eliminar(int id) {}
+    public void Eliminar(int id) {
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "DELETE FROM lista_preguntas WHERE id_examen = @id;";
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "DELETE FROM examen WHERE id = @id;";
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
 
     public int UltimoIdExamen() {
 
@@ -98,7 +125,7 @@ public class DALExamen {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT id FROM examen;";
+                cmd.CommandText = "SELECT id FROM examen ORDER BY id DESC LIMIT 1;";
 
                 conn.Open();
 
@@ -145,7 +172,7 @@ public class DALExamen {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT * FROM PSWC.lista_preguntas WHERE id_examen = @id_ex;";
+                cmd.CommandText = "SELECT * FROM PSWC.lista_preguntas WHERE id_examen = @id_ex ORDER BY RAND();";
 
                 cmd.Parameters.AddWithValue("@id_ex", id);
 
@@ -265,27 +292,29 @@ public class DALExamen {
 
         for(int i = 0; i <= x; i++) {
             
-            ex = Get(i);
-            string estado = "";
+            try {
+                ex = Get(i);
+                string estado = "";
 
-            if(ex.GetFechaIni() > DateTime.Now) { estado = "Inactivo";}
-            else if(ex.GetFechaIni() <= DateTime.Now && ex.GetFechaFin() > DateTime.Now) { estado = "Activo"; }
-            else if(DateTime.Now > ex.GetFechaFin() && ex.GetMostrarResultados() == 0) { estado = "Finalizado"; }
-            else if(ex.GetMostrarResultados() == 1) { estado = "Calificado"; }
+                if(ex.GetFechaIni() > DateTime.Now) { estado = "Inactivo";}
+                else if(ex.GetFechaIni() <= DateTime.Now && ex.GetFechaFin() > DateTime.Now) { estado = "Activo"; }
+                else if(DateTime.Now > ex.GetFechaFin() && ex.GetMostrarResultados() == 0) { estado = "Finalizado"; }
+                else if(ex.GetMostrarResultados() == 1) { estado = "Calificado"; }
 
-            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+                using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
-                using(MySqlCommand cmd = conn.CreateCommand()) {
+                    using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                    cmd.CommandText = "UPDATE examen SET estado = @estado WHERE id = @id;";
+                        cmd.CommandText = "UPDATE examen SET estado = @estado WHERE id = @id;";
 
-                    cmd.Parameters.AddWithValue("@estado", estado);
-                    cmd.Parameters.AddWithValue("@id",i);
+                        cmd.Parameters.AddWithValue("@estado", estado);
+                        cmd.Parameters.AddWithValue("@id",i);
 
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-            }
+            } catch(Exception) {}
         }
     }
 
@@ -459,7 +488,7 @@ public class DALExamen {
         return res;
     }
 
-    /*public List<dynamic> EstadisticasExamen(int id_ex) {
+    public List<dynamic> EstadisticasExamen(int id_ex) {
 
         List<double> notas = new List<double>();
         int envios = 0;
@@ -468,7 +497,7 @@ public class DALExamen {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT DISTINCT alumno,nota FROM notas_examenes WHERE examen = @examen";
+                cmd.CommandText = "SELECT alumno,nota FROM notas_examenes WHERE examen = @examen";
 
                 cmd.Parameters.AddWithValue("@examen", id_ex);
 
@@ -485,8 +514,81 @@ public class DALExamen {
         }
         if(envios > 0) { 
             return new List<dynamic>{envios, notas.Average(), Math.Sqrt(notas.Average(v=>Math.Pow(v-notas.Average(),2))), notas}; 
-        } else { return new List<dynamic>{envios,0,0,notas}; }
+        } else { return new List<dynamic>{0,0,0,notas}; }
         
-    }*/
+    }
+
+    public void GenerarExamen(string profesor, string codigo_curso, int num_preguntas, int tiempo, DateTime fechaini, DateTime fechafin,
+    int intentos, int volveratras, int erroresrestan, int mostrarresultados) {
+
+        Random rand = new Random();
+
+        int id = UltimoIdExamen()+1;
+
+        List<int> preguntas = new List<int>{};
+        List<int> versiones = new List<int>{};
+        List<int> final = new List<int>{};
+
+        int aux = 0;
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT DISTINCT id,ver FROM pregunta WHERE tema = @tema AND autor = @autor";
+
+                cmd.Parameters.AddWithValue("@tema", codigo_curso);
+                cmd.Parameters.AddWithValue("@autor", profesor);
+
+                conn.Open();
+
+                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                    while (rdr.Read()) {
+                        preguntas.Add(rdr.GetInt32("id"));
+                        versiones.Add(rdr.GetInt32("ver"));
+                    }
+                }
+            }
+        }
+
+        if(preguntas.Count == 0) { throw new Exception("No existen preguntas del curso seleccionado"); }
+
+        while(preguntas.Count > num_preguntas) {
+            aux = rand.Next(1,preguntas.Count - 1);
+
+            preguntas.RemoveAt(aux);
+            versiones.RemoveAt(aux);
+        }
+
+        for(int i = 0; i < preguntas.Count; i++) {
+            final.Add(preguntas[i]);
+            final.Add(versiones[i]);
+            final.Add(1);
+        }
+
+        Add(fabrica.CrearExamen(id, codigo_curso + ": autoexamen. ID: " + id, "Examen generado automáticamente", 
+        codigo_curso, profesor, tiempo, DateTime.Now, fechaini, fechafin, intentos, volveratras, erroresrestan, 
+        mostrarresultados, final, "Borrador"));
+    }
+
+    public void FinalizarExamen(int id) {
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "UPDATE examen SET fecha_fin = @fecha WHERE id = @id;";
+
+                cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString());
+                cmd.Parameters.AddWithValue("@id", id);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        ActualizarEstadoQuizes();
+    }
 
 }}

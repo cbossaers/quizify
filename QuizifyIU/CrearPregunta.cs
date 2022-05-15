@@ -38,19 +38,21 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             this.usuario = usuario;
-            
+            RellenarCursos();
         }
         public CrearPregunta(NuevoServicio servicio, dynamic usuario,Examen examen)
         {
             InitializeComponent();
             this.servicio = servicio;            
             this.usuario = usuario;
+            RellenarCursos();
         }
         public CrearPregunta(NuevoServicio servicio, dynamic usuario,Pregunta2 pregunta)
         {
             InitializeComponent();
             this.servicio = servicio;
             this.usuario = usuario;
+            RellenarCursos();
             editar(pregunta); 
         }
 
@@ -161,13 +163,6 @@ namespace QuizifyIU
                                    MessageBoxIcon.Error);
                 return;
             }
-            else if (opcionCorrecta == "")
-            {
-                MessageBox.Show(this, "No se ha seleccionado una opción correcta", "Error",
-                                       MessageBoxButtons.OK,
-                                       MessageBoxIcon.Error);
-                return;
-            }
             if(tipoPregunta.Text == "Desarrollo")
             {
                 List<dynamic> listaDes = new List<dynamic>();
@@ -191,7 +186,14 @@ namespace QuizifyIU
             }
             else if (tipoPregunta.Text == "Test")
             {
-                if(ComprobarOpcionesRellenadas(numeroDeOpciones) == false){
+                if (opcionCorrecta == "")
+                {
+                    MessageBox.Show(this, "No se ha seleccionado una opción correcta", "Error",
+                                           MessageBoxButtons.OK,
+                                           MessageBoxIcon.Error);
+                    return;
+                }
+                if (ComprobarOpcionesRellenadas(numeroDeOpciones) == false){
                     return;
                 }
                 else
@@ -221,17 +223,12 @@ namespace QuizifyIU
             }
             else if (tipoPregunta.Text == "Selección Múltiple")
             {
-                if (ComprobarOpcionesRellenadas(numeroDeOpciones) == false)
-                {
-                    return;
-                }
-                else
-                {
-                    lista.Add(Convert.ToInt32(opcionCorrecta));
+                    CraftearStringCorrecta(listaOpCorrecta);
+                    lista.Add(int.Parse(opcionCorrecta));
                     lista.Add(opc0.Text); lista.Add(opc1.Text); lista.Add(opc2.Text);
                     if (numeroDeOpciones == 4) lista.Add(opc3.Text);
                     if (numeroDeOpciones == 5) lista.Add(opc4.Text);
-                }
+                
                 if (ctPregunta.Text == "Competencia Transversal") ctPregunta.Text = "";
                 pregunta = fabrica.CrearPregunta2(id, servicio.UltimaVersionPregunta(id) + 1,
                     enunciado.Text, "mult", dificultadNum, usuario.GetCorreo(), tema.Text, ctPregunta.Text, lista);
@@ -252,7 +249,7 @@ namespace QuizifyIU
             }
             else
             {
-                lista.Add(Convert.ToInt32(opcionCorrecta));
+                lista.Add(int.Parse(opcionCorrecta));
                 if (ctPregunta.Text == "Competencia Transversal") ctPregunta.Text = "";
                 pregunta = fabrica.CrearPregunta2(id, servicio.UltimaVersionPregunta(id) + 1,
                     enunciado.Text,"vf", dificultadNum, usuario.GetCorreo() , tema.Text, ctPregunta.Text, lista);
@@ -322,6 +319,7 @@ namespace QuizifyIU
         }
         public void VistaVF()
         {
+            tipoPregunta.Text = "Verdadero Falso";
             letraA.Visible = false; letraB.Visible = false; letraC.Visible = false; letraD.Visible = false; letraE.Visible = false;
             opc0.Visible = false; opc1.Visible = false; opc2.Visible = false; opc3.Visible = false; opc4.Visible = false;
             verdadero0.Checked = false; falso1.Checked = false;
@@ -332,6 +330,7 @@ namespace QuizifyIU
         }
         public void VistaTest()
         {
+            tipoPregunta.Text = "Test";
             numeroDeOpciones = 3;
             letraA.Visible = true; letraB.Visible = true; letraC.Visible = true; letraD.Visible = false; letraE.Visible = false;
             opc0.Visible = true; opc1.Visible = true; opc2.Visible = true; opc3.Visible = false; opc4.Visible = false;
@@ -346,6 +345,7 @@ namespace QuizifyIU
         }
         public void VistaDesarrollo()
         {
+            tipoPregunta.Text = "Desarrollo";
             RespuestaTxt.Visible = true; RespuestaTxt.Text = "";
             letraA.Visible = false; letraB.Visible = false; letraC.Visible = false; letraD.Visible = false; letraE.Visible = false;
             opc0.Visible = false; opc1.Visible = false; opc2.Visible = false; opc3.Visible = false; opc4.Visible = false;
@@ -355,6 +355,7 @@ namespace QuizifyIU
         }
         public void VistaMultiple()
         {
+            tipoPregunta.Text = "Selección Múltiple";
             numeroDeOpciones = 3;
             letraA.Visible = true; letraB.Visible = true; letraC.Visible = true; letraD.Visible = false; letraE.Visible = false;
             opc0.Visible = true; opc1.Visible = true; opc2.Visible = true; opc3.Visible = false; opc4.Visible=false;
@@ -370,6 +371,7 @@ namespace QuizifyIU
         }
         public void CraftearStringCorrecta(List<string> listilla)
         {
+            opcionCorrecta = "";
             for (int i = 0; i < 5; i++)
             {
                 opcionCorrecta = opcionCorrecta + listilla[i];
@@ -383,18 +385,23 @@ namespace QuizifyIU
             String numero = checkBox.Name.Last().ToString();
             if(checkBox.Checked == true)
             {
-                listaOpCorrecta[Convert.ToInt32(numero)] = "1";
-                CraftearStringCorrecta(listaOpCorrecta);
+                listaOpCorrecta[int.Parse(numero)] = "1";
             }
             else
             {
-                listaOpCorrecta[Convert.ToInt32(numero)] = "0";
-                CraftearStringCorrecta(listaOpCorrecta);
+                listaOpCorrecta[int.Parse(numero)] = "0";
             }
             
             
         }
-
+        private void RellenarCursos()
+        {
+            List<string> curso = servicio.GetCursosProfesor(usuario.GetCorreo());
+            for(int i = 0; i < curso.Count; i++)
+            {
+                tema.Items.Add(curso[i]);
+            }
+        }
         private void editar(Pregunta2 preg)
         {
             Editar = true;
@@ -404,7 +411,6 @@ namespace QuizifyIU
             if (tipo == "test")
             {
                 VistaTest();
-                tipoPregunta.Text = "Test";
                 lista = preg.GetParametros();
                 opcionCorrecta = lista[0].ToString();
                 tema.Text = preg.GetTema();
@@ -447,7 +453,6 @@ namespace QuizifyIU
             }
             else if (tipo == "vf")
             {
-                tipoPregunta.Text = "VF";
                 VistaVF();
                 List<dynamic> lista = preg.GetParametros();
                 opcionCorrecta = lista[0].ToString();
@@ -472,9 +477,8 @@ namespace QuizifyIU
             else if (tipo == "mult")
             {
                 VistaMultiple();
-                tipoPregunta.Text = "Selección Multiple";
+                
                 List<dynamic> lista = preg.GetParametros();
-                opcionCorrecta = lista[0].ToString();
                 tema.Text = preg.GetTema();
                 ctPregunta.Text = preg.GetCT();
                 enunciado.Text = preg.GetEnunciado();
@@ -486,22 +490,6 @@ namespace QuizifyIU
                     case (1): dificultad.Text = "Normal"; break;
                     case (2): dificultad.Text = "Difícil"; break;
                 }
-                int cont = 0;
-                while(correc>0){
-                    if(correc % 10 == 1)
-                    {
-                        switch (cont)
-                        {
-                            case (0): check0.Checked = true; break;
-                            case (1): check0.Checked = true; break;
-                            case (2): check0.Checked = true; break;
-                            case (3): check0.Checked = true; break;
-                            case (4): check0.Checked = true; break;
-                        }
-                    }
-                    correc = correc / 10;
-                    cont++;
-                }
                 int x = lista[0];
                 for(int i = 4; i >= 0; i--)
                 {
@@ -510,7 +498,7 @@ namespace QuizifyIU
                 }
                 for (int i = 0; i < 5; i++)
                 {
-                    int aux = Convert.ToInt32(listaOpCorrecta[i]);
+                    int aux = int.Parse(listaOpCorrecta[i]);
                     if (aux == 1) {
                         switch (i)
                         {
