@@ -37,6 +37,7 @@
             // 
             // bCrearCurso
             // 
+            this.bCrearCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bCrearCurso.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bCrearCurso.Location = new System.Drawing.Point(235, 288);
             this.bCrearCurso.Name = "bCrearCurso";
@@ -48,6 +49,7 @@
             // 
             // bGestionarCurso
             // 
+            this.bGestionarCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bGestionarCurso.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bGestionarCurso.Location = new System.Drawing.Point(235, 177);
             this.bGestionarCurso.Name = "bGestionarCurso";
@@ -62,13 +64,15 @@
             this.panelCurso.Controls.Add(this.bApuntarse);
             this.panelCurso.Controls.Add(this.bCrearCurso);
             this.panelCurso.Controls.Add(this.bGestionarCurso);
+            this.panelCurso.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCurso.Location = new System.Drawing.Point(0, 0);
             this.panelCurso.Name = "panelCurso";
-            this.panelCurso.Size = new System.Drawing.Size(653, 450);
+            this.panelCurso.Size = new System.Drawing.Size(710, 490);
             this.panelCurso.TabIndex = 6;
             // 
             // bApuntarse
             // 
+            this.bApuntarse.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bApuntarse.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bApuntarse.Location = new System.Drawing.Point(235, 66);
             this.bApuntarse.Name = "bApuntarse";
@@ -82,7 +86,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(710, 490);
             this.Controls.Add(this.panelCurso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CursoForm";

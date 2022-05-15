@@ -63,6 +63,16 @@ namespace QuizifyIU.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap expvqmxqaej8ib3copy15942077171594207717__1_ {
+            get {
+                object obj = ResourceManager.GetObject("expvqmxqaej8ib3copy15942077171594207717 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fsfefs {
             get {
                 object obj = ResourceManager.GetObject("fsfefs", resourceCulture);

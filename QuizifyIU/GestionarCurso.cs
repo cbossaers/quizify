@@ -26,7 +26,7 @@ namespace QuizifyIU
 
         private void bVolver_Click(object sender, EventArgs e)
         {
-            AbrirFormCurso(new CursoForm(servicio, usuario));
+            //AbrirFormCurso(new CursoForm(servicio, usuario));
         }
 
         private void AbrirFormCurso(object formCurso)

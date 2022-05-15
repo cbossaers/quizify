@@ -13,11 +13,13 @@ namespace QuizifyIU
     {
         private NuevoServicio servicio;
         private dynamic usuario;
-        public CursoForm(NuevoServicio servicio, dynamic user)
+        private Form1 control;
+        public CursoForm(NuevoServicio servicio, dynamic user,Form1 control)
         {
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
+            this.control = control;
 
             if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
             {
@@ -28,17 +30,29 @@ namespace QuizifyIU
 
         private void bCrearCurso_Click(object sender, EventArgs e)
         {
-            AbrirFormCrearCurso(new CrearCurso(servicio, usuario));
+            
+            this.Hide();
+            var form2 = new CrearCurso(servicio, usuario, control);
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
         }
 
         private void bGestionarCurso_Click(object sender, EventArgs e)
         {
-            AbrirFormGestionarCurso(new GestionarCurso(servicio, usuario));
+            
+            this.Hide();
+            var form2 = new GestionarCurso(servicio, usuario);
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
         }
 
         private void bApuntarse_Click(object sender, EventArgs e)
         {
-            AbrirFormApuntarseCurso();
+            
+            this.Hide();
+            var form2 = new ApuntarseCurso(servicio, usuario);
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
         }
 
         private void AbrirFormCrearCurso(object formCrearCurso)
@@ -53,11 +67,7 @@ namespace QuizifyIU
             fCC.BringToFront();
             fCC.Show();
         }
-        private void AbrirFormApuntarseCurso()
-        {
-            ApuntarseCurso formApuntarse = new ApuntarseCurso(servicio, usuario);
-            formApuntarse.ShowDialog();
-        }
+        
         private void AbrirFormGestionarCurso(object formGestionarCurso)
         {
             if (this.panelCurso.Controls.Count > 0)

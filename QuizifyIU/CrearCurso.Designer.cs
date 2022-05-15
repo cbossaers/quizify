@@ -46,6 +46,7 @@
             // 
             // panelCrearCurso
             // 
+            this.panelCrearCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelCrearCurso.Controls.Add(this.label5);
             this.panelCrearCurso.Controls.Add(this.boxContraseña);
             this.panelCrearCurso.Controls.Add(this.bVolver);
@@ -57,15 +58,15 @@
             this.panelCrearCurso.Controls.Add(this.label3);
             this.panelCrearCurso.Controls.Add(this.label2);
             this.panelCrearCurso.Controls.Add(this.label1);
-            this.panelCrearCurso.Location = new System.Drawing.Point(0, 0);
+            this.panelCrearCurso.Location = new System.Drawing.Point(108, 80);
             this.panelCrearCurso.Name = "panelCrearCurso";
-            this.panelCrearCurso.Size = new System.Drawing.Size(655, 450);
+            this.panelCrearCurso.Size = new System.Drawing.Size(432, 290);
             this.panelCrearCurso.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(89, 245);
+            this.label5.Location = new System.Drawing.Point(38, 175);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 15);
             this.label5.TabIndex = 11;
@@ -73,7 +74,7 @@
             // 
             // boxContraseña
             // 
-            this.boxContraseña.Location = new System.Drawing.Point(291, 245);
+            this.boxContraseña.Location = new System.Drawing.Point(240, 175);
             this.boxContraseña.Name = "boxContraseña";
             this.boxContraseña.PasswordChar = '*';
             this.boxContraseña.Size = new System.Drawing.Size(160, 23);
@@ -82,7 +83,7 @@
             // 
             // bVolver
             // 
-            this.bVolver.Location = new System.Drawing.Point(291, 308);
+            this.bVolver.Location = new System.Drawing.Point(240, 238);
             this.bVolver.Name = "bVolver";
             this.bVolver.Size = new System.Drawing.Size(75, 23);
             this.bVolver.TabIndex = 9;
@@ -92,7 +93,7 @@
             // 
             // bCrearCurso
             // 
-            this.bCrearCurso.Location = new System.Drawing.Point(376, 304);
+            this.bCrearCurso.Location = new System.Drawing.Point(325, 234);
             this.bCrearCurso.Name = "bCrearCurso";
             this.bCrearCurso.Size = new System.Drawing.Size(75, 27);
             this.bCrearCurso.TabIndex = 8;
@@ -103,7 +104,7 @@
             // maxAlumnos
             // 
             this.maxAlumnos.InterceptArrowKeys = false;
-            this.maxAlumnos.Location = new System.Drawing.Point(367, 185);
+            this.maxAlumnos.Location = new System.Drawing.Point(316, 115);
             this.maxAlumnos.Name = "maxAlumnos";
             this.maxAlumnos.Size = new System.Drawing.Size(84, 23);
             this.maxAlumnos.TabIndex = 30;
@@ -111,7 +112,7 @@
             // 
             // codCursoBox
             // 
-            this.codCursoBox.Location = new System.Drawing.Point(291, 137);
+            this.codCursoBox.Location = new System.Drawing.Point(240, 67);
             this.codCursoBox.Name = "codCursoBox";
             this.codCursoBox.Size = new System.Drawing.Size(160, 23);
             this.codCursoBox.TabIndex = 5;
@@ -119,7 +120,7 @@
             // 
             // nombreCursoBox
             // 
-            this.nombreCursoBox.Location = new System.Drawing.Point(291, 89);
+            this.nombreCursoBox.Location = new System.Drawing.Point(240, 19);
             this.nombreCursoBox.Name = "nombreCursoBox";
             this.nombreCursoBox.Size = new System.Drawing.Size(160, 23);
             this.nombreCursoBox.TabIndex = 4;
@@ -128,7 +129,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(99, 232);
+            this.label4.Location = new System.Drawing.Point(48, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 15);
             this.label4.TabIndex = 3;
@@ -136,7 +137,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(89, 185);
+            this.label3.Location = new System.Drawing.Point(38, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 15);
             this.label3.TabIndex = 2;
@@ -145,7 +146,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(89, 140);
+            this.label2.Location = new System.Drawing.Point(38, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 15);
             this.label2.TabIndex = 1;
@@ -154,7 +155,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(89, 89);
+            this.label1.Location = new System.Drawing.Point(38, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 15);
             this.label1.TabIndex = 0;
@@ -164,7 +165,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 450);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(710, 490);
             this.Controls.Add(this.panelCrearCurso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrearCurso";

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Quizify.Entities;
 using Quizify.Services;
 
+
 namespace QuizifyIU
 {
     public partial class MisPreguntas : Form
@@ -20,10 +21,10 @@ namespace QuizifyIU
         dynamic dificultad;
         string tema;
         Pregunta2 preg;
-        Portal portal;
+        Form1 portal;
         DataTable datos;
 
-        public MisPreguntas(NuevoServicio servicio,dynamic user, Portal portal)
+        public MisPreguntas(NuevoServicio servicio,dynamic user, Form1 portal)
         {
             InitializeComponent();
             this.portal = portal;
@@ -96,7 +97,7 @@ namespace QuizifyIU
             /*var form2 = new CrearPregunta(servicio, usuario,preg);
             form2.Closed += (s, args) => this.Close();
             form2.Show();*/
-            portal.AbrirFormEditarPregunta(servicio, usuario, preg);
+            //portal.AbrirFormEditarPregunta(servicio, usuario, preg);
 
         }
 

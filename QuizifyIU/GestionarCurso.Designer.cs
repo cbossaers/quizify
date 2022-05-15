@@ -52,10 +52,9 @@
             this.panelGestionarCurso.Controls.Add(this.alumnoBox);
             this.panelGestionarCurso.Controls.Add(this.label2);
             this.panelGestionarCurso.Controls.Add(this.bVolver);
-            this.panelGestionarCurso.Location = new System.Drawing.Point(-3, -2);
-            this.panelGestionarCurso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelGestionarCurso.Location = new System.Drawing.Point(-2, -1);
             this.panelGestionarCurso.Name = "panelGestionarCurso";
-            this.panelGestionarCurso.Size = new System.Drawing.Size(939, 753);
+            this.panelGestionarCurso.Size = new System.Drawing.Size(657, 452);
             this.panelGestionarCurso.TabIndex = 0;
             // 
             // tablaDatoCurso
@@ -70,15 +69,14 @@
             this.numAl,
             this.fechaCreado,
             this.MaxAl});
-            this.tablaDatoCurso.Location = new System.Drawing.Point(57, 108);
-            this.tablaDatoCurso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tablaDatoCurso.Location = new System.Drawing.Point(40, 65);
             this.tablaDatoCurso.MultiSelect = false;
             this.tablaDatoCurso.Name = "tablaDatoCurso";
             this.tablaDatoCurso.RowHeadersVisible = false;
             this.tablaDatoCurso.RowHeadersWidth = 62;
             this.tablaDatoCurso.RowTemplate.Height = 25;
             this.tablaDatoCurso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaDatoCurso.Size = new System.Drawing.Size(864, 455);
+            this.tablaDatoCurso.Size = new System.Drawing.Size(605, 273);
             this.tablaDatoCurso.TabIndex = 9;
             this.tablaDatoCurso.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaCurso_doble_click);
             // 
@@ -124,10 +122,9 @@
             // 
             // bAñadir
             // 
-            this.bAñadir.Location = new System.Drawing.Point(487, 35);
-            this.bAñadir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bAñadir.Location = new System.Drawing.Point(341, 21);
             this.bAñadir.Name = "bAñadir";
-            this.bAñadir.Size = new System.Drawing.Size(107, 38);
+            this.bAñadir.Size = new System.Drawing.Size(75, 23);
             this.bAñadir.TabIndex = 7;
             this.bAñadir.Text = "Añadir";
             this.bAñadir.UseVisualStyleBackColor = true;
@@ -135,10 +132,9 @@
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(350, 613);
-            this.bEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bEliminar.Location = new System.Drawing.Point(245, 368);
             this.bEliminar.Name = "bEliminar";
-            this.bEliminar.Size = new System.Drawing.Size(107, 38);
+            this.bEliminar.Size = new System.Drawing.Size(75, 23);
             this.bEliminar.TabIndex = 6;
             this.bEliminar.Text = "Eliminar";
             this.bEliminar.UseVisualStyleBackColor = true;
@@ -147,28 +143,25 @@
             // 
             // alumnoBox
             // 
-            this.alumnoBox.Location = new System.Drawing.Point(233, 35);
-            this.alumnoBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.alumnoBox.Location = new System.Drawing.Point(163, 21);
             this.alumnoBox.Name = "alumnoBox";
-            this.alumnoBox.Size = new System.Drawing.Size(223, 31);
+            this.alumnoBox.Size = new System.Drawing.Size(157, 23);
             this.alumnoBox.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 40);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(40, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(164, 25);
+            this.label2.Size = new System.Drawing.Size(109, 15);
             this.label2.TabIndex = 4;
             this.label2.Text = "Correo del alumno:";
             // 
             // bVolver
             // 
-            this.bVolver.Location = new System.Drawing.Point(57, 613);
-            this.bVolver.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bVolver.Location = new System.Drawing.Point(40, 368);
             this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(107, 38);
+            this.bVolver.Size = new System.Drawing.Size(75, 23);
             this.bVolver.TabIndex = 1;
             this.bVolver.Text = "Volver";
             this.bVolver.UseVisualStyleBackColor = true;
@@ -176,12 +169,12 @@
             // 
             // GestionarCurso
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 750);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(655, 450);
             this.Controls.Add(this.panelGestionarCurso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "GestionarCurso";
             this.Text = "GestionarCurso";
             this.panelGestionarCurso.ResumeLayout(false);

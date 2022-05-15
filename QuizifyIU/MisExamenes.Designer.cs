@@ -86,8 +86,7 @@
             this.fecha_fin2,
             this.curso2,
             this.competenciaTransversal});
-            this.tablaExamenDisponible.Location = new System.Drawing.Point(14, 118);
-            this.tablaExamenDisponible.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tablaExamenDisponible.Location = new System.Drawing.Point(10, 71);
             this.tablaExamenDisponible.MultiSelect = false;
             this.tablaExamenDisponible.Name = "tablaExamenDisponible";
             this.tablaExamenDisponible.ReadOnly = true;
@@ -95,7 +94,7 @@
             this.tablaExamenDisponible.RowHeadersWidth = 62;
             this.tablaExamenDisponible.RowTemplate.Height = 25;
             this.tablaExamenDisponible.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenDisponible.Size = new System.Drawing.Size(834, 273);
+            this.tablaExamenDisponible.Size = new System.Drawing.Size(584, 164);
             this.tablaExamenDisponible.TabIndex = 0;
             this.tablaExamenDisponible.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenDisponible_CellMouseDoubleClick);
             // 
@@ -184,10 +183,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(7, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(5, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 48);
+            this.label1.Size = new System.Drawing.Size(113, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Mis Quiz:";
             // 
@@ -195,10 +193,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(13, 80);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(9, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(196, 32);
+            this.label2.Size = new System.Drawing.Size(128, 21);
             this.label2.TabIndex = 4;
             this.label2.Text = "Quiz disponibles:";
             // 
@@ -213,10 +210,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(17, 397);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(12, 238);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(188, 32);
+            this.label3.Size = new System.Drawing.Size(123, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "Quiz finalizados:";
             // 
@@ -238,8 +234,7 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn18,
             this.Nota});
-            this.tablaExamenFinalizado.Location = new System.Drawing.Point(13, 437);
-            this.tablaExamenFinalizado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tablaExamenFinalizado.Location = new System.Drawing.Point(9, 262);
             this.tablaExamenFinalizado.MultiSelect = false;
             this.tablaExamenFinalizado.Name = "tablaExamenFinalizado";
             this.tablaExamenFinalizado.ReadOnly = true;
@@ -247,7 +242,7 @@
             this.tablaExamenFinalizado.RowHeadersWidth = 62;
             this.tablaExamenFinalizado.RowTemplate.Height = 25;
             this.tablaExamenFinalizado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenFinalizado.Size = new System.Drawing.Size(906, 293);
+            this.tablaExamenFinalizado.Size = new System.Drawing.Size(634, 176);
             this.tablaExamenFinalizado.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn1
@@ -357,8 +352,7 @@
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16});
-            this.tablaExamenesProfesor.Location = new System.Drawing.Point(14, 80);
-            this.tablaExamenesProfesor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tablaExamenesProfesor.Location = new System.Drawing.Point(10, 48);
             this.tablaExamenesProfesor.MultiSelect = false;
             this.tablaExamenesProfesor.Name = "tablaExamenesProfesor";
             this.tablaExamenesProfesor.ReadOnly = true;
@@ -366,7 +360,7 @@
             this.tablaExamenesProfesor.RowHeadersWidth = 62;
             this.tablaExamenesProfesor.RowTemplate.Height = 25;
             this.tablaExamenesProfesor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenesProfesor.Size = new System.Drawing.Size(834, 650);
+            this.tablaExamenesProfesor.Size = new System.Drawing.Size(584, 390);
             this.tablaExamenesProfesor.TabIndex = 7;
             this.tablaExamenesProfesor.Visible = false;
             this.tablaExamenesProfesor.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenesProfesor_CellMouseDoubleClick);
@@ -454,10 +448,9 @@
             // 
             // calificar
             // 
-            this.calificar.Location = new System.Drawing.Point(740, 27);
-            this.calificar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.calificar.Location = new System.Drawing.Point(518, 16);
             this.calificar.Name = "calificar";
-            this.calificar.Size = new System.Drawing.Size(107, 38);
+            this.calificar.Size = new System.Drawing.Size(75, 23);
             this.calificar.TabIndex = 8;
             this.calificar.Text = "Calificar";
             this.calificar.UseVisualStyleBackColor = true;
@@ -466,9 +459,10 @@
             // 
             // MisExamenes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 750);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(655, 450);
             this.Controls.Add(this.calificar);
             this.Controls.Add(this.tablaExamenFinalizado);
             this.Controls.Add(this.label1);
@@ -477,7 +471,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MisExamenes";
             this.Text = "MisExamenes";
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).EndInit();

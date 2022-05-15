@@ -45,14 +45,13 @@
             this.Correo,
             this.Nombre,
             this.Apellidos});
-            this.tablaAlumnoCurso.Location = new System.Drawing.Point(94, 102);
-            this.tablaAlumnoCurso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tablaAlumnoCurso.Location = new System.Drawing.Point(66, 61);
             this.tablaAlumnoCurso.MultiSelect = false;
             this.tablaAlumnoCurso.Name = "tablaAlumnoCurso";
             this.tablaAlumnoCurso.RowHeadersVisible = false;
             this.tablaAlumnoCurso.RowHeadersWidth = 62;
             this.tablaAlumnoCurso.RowTemplate.Height = 25;
-            this.tablaAlumnoCurso.Size = new System.Drawing.Size(548, 310);
+            this.tablaAlumnoCurso.Size = new System.Drawing.Size(384, 186);
             this.tablaAlumnoCurso.TabIndex = 0;
             this.tablaAlumnoCurso.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaAlumnoCurso_CellMouseDoubleClick);
             // 
@@ -82,10 +81,9 @@
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(579, 457);
-            this.bEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bEliminar.Location = new System.Drawing.Point(405, 274);
             this.bEliminar.Name = "bEliminar";
-            this.bEliminar.Size = new System.Drawing.Size(107, 38);
+            this.bEliminar.Size = new System.Drawing.Size(75, 23);
             this.bEliminar.TabIndex = 2;
             this.bEliminar.Text = "Eliminar";
             this.bEliminar.UseVisualStyleBackColor = true;
@@ -93,12 +91,12 @@
             // 
             // GestionarAlumnosCurso
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 520);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(569, 312);
             this.Controls.Add(this.bEliminar);
             this.Controls.Add(this.tablaAlumnoCurso);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "GestionarAlumnosCurso";
             this.Text = "GestionarAlumnosCurso";
             ((System.ComponentModel.ISupportInitialize)(this.tablaAlumnoCurso)).EndInit();

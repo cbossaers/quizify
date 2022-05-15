@@ -138,7 +138,7 @@ namespace QuizifyIU
 
         private void bMisPreguntas_Click(object sender, EventArgs e)
         {
-            AbrirFormMisPreguntas(new MisPreguntas(servicio,usuario, this));
+            //AbrirFormMisPreguntas(new MisPreguntas(servicio,usuario, this));
         }
 
         private void bMisExamenes_Click(object sender, EventArgs e)
@@ -156,7 +156,7 @@ namespace QuizifyIU
 
         private void bCrearCurso_Click(object sender, EventArgs e)
         {
-            AbrirFormCurso(new CursoForm(servicio, usuario));
+            //AbrirFormCurso(new CursoForm(servicio, usuario));
         }
         
 

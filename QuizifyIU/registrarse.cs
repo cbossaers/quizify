@@ -116,5 +116,13 @@ namespace QuizifyIU
             if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto && tipoCorrecto)
                 bConfirmar.Enabled = true;
         }
+
+        private void bConfirmar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                registeredUser();
+            }
+        }
     }
 }
