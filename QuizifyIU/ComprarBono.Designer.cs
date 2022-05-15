@@ -133,6 +133,7 @@
             // 
             // numBonos
             // 
+            this.numBonos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.numBonos.FormattingEnabled = true;
             this.numBonos.Items.AddRange(new object[] {
             "10",
@@ -142,7 +143,6 @@
             this.numBonos.Name = "numBonos";
             this.numBonos.Size = new System.Drawing.Size(95, 23);
             this.numBonos.TabIndex = 11;
-            this.numBonos.Text = "5, 10  o 15";
             this.numBonos.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // labelDescuento

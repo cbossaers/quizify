@@ -59,7 +59,7 @@ namespace QuizifyIU
             {
                 DialogResult confirmacion = MessageBox.Show(this, "¡Compra realizada con éxito!",
                 "Compra realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if(confirmacion == DialogResult.Yes)
+                if(confirmacion == DialogResult.OK)
                 {
                     hideAll();
                 }
@@ -99,13 +99,8 @@ namespace QuizifyIU
 
         private void descuentoBox_TextChanged(object sender, EventArgs e)
         {
-            baplicarDescuento.Enabled = false;
             if (descuentoBox.Text == "") descuentoCorrecto = false;
-            else {
-                descuentoCorrecto = true;
-            }
-
-            if (descuentoCorrecto && bonosCorrecto) baplicarDescuento.Enabled = true;
+            else descuentoCorrecto = true;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,8 +108,7 @@ namespace QuizifyIU
             bConfirmar.Enabled = false;
             baplicarDescuento.Enabled = false;
             string bonos = numBonos.Text;
-            if (bonos == "5, 10 o 15") bonosCorrecto = false;
-            else if (bonos == "") bonosCorrecto = false;
+            if (bonos == "") bonosCorrecto = false;
             else
             {
                 bonosCorrecto = true;
@@ -135,7 +129,6 @@ namespace QuizifyIU
                 if (tarjetaCorrecto && titularCorrecto && seguridadCorrecto && bonosCorrecto)
                 {
                     bConfirmar.Enabled = true;
-                    if (descuentoCorrecto) baplicarDescuento.Enabled = true;
                 }
             }
         }
@@ -186,11 +179,10 @@ namespace QuizifyIU
             tarjetaBox.Text = "";
             titularBox.Text = "";
             codSegBox.Text = "";
-            numBonos.Text = "5, 10 o 15";
+            numBonos.Text = "";
             descuentoBox.Text = "";
             labelDescuento.Visible = false;
             notificacionDescuento.Visible = false;
-            baplicarDescuento.Enabled = false;
             bConfirmar.Enabled = false;
         }
     }
