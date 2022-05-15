@@ -154,6 +154,9 @@ namespace Quizify.Services
         public List<dynamic> EstadisticasExamen(int id_ex) {
             return examen.EstadisticasExamen(id_ex);
         } //devuelve {nº envios, nota media, desviación típica, Lista con las notas}
+        public void CancelarExamen(int id) {
+            examen.Eliminar(id);
+        }
     
         //Otros métodos
         public string GetTipoEntidad(string usuario) {

@@ -88,7 +88,34 @@ public class DALExamen {
         return ex;
     }
 
-    public void Eliminar(int id) {}
+    public void Eliminar(int id) {
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "DELETE FROM lista_preguntas WHERE id_examen = @id;";
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "DELETE FROM examen WHERE id = @id;";
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
 
     public int UltimoIdExamen() {
 
