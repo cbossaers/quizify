@@ -13,7 +13,7 @@ namespace AppTest {
         
         static void Main(string[] args) {
 
-            string connStr = "server=88.17.245.158;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
+            //string connStr = "server=88.17.245.158;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
             DALAlumno alumno = new DALAlumno();
             DALProfesor profesor = new DALProfesor();
@@ -26,6 +26,12 @@ namespace AppTest {
             FabricaExamenes fabrica = new FabricaExamenes();
 
             service.GenerarExamen("patricio@gmail.com", "GPR", 3, 30, DateTime.Now.AddDays(2), DateTime.Now.AddDays(17), 2, 0, 1, 0);
+
+            List<dynamic> EstadisticasExa = service.EstadisticasExamen(3);
+
+            for(int i = 0; i < EstadisticasExa[3].Count; i++) {
+                Console.WriteLine(EstadisticasExa[3][i]);
+            }
 
             }
         }

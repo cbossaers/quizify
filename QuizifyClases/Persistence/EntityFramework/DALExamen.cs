@@ -459,7 +459,7 @@ public class DALExamen {
         return res;
     }
 
-    /*public List<dynamic> EstadisticasExamen(int id_ex) {
+    public List<dynamic> EstadisticasExamen(int id_ex) {
 
         List<double> notas = new List<double>();
         int envios = 0;
@@ -468,7 +468,7 @@ public class DALExamen {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT DISTINCT alumno,nota FROM notas_examenes WHERE examen = @examen";
+                cmd.CommandText = "SELECT alumno,nota FROM notas_examenes WHERE examen = @examen";
 
                 cmd.Parameters.AddWithValue("@examen", id_ex);
 
@@ -485,9 +485,9 @@ public class DALExamen {
         }
         if(envios > 0) { 
             return new List<dynamic>{envios, notas.Average(), Math.Sqrt(notas.Average(v=>Math.Pow(v-notas.Average(),2))), notas}; 
-        } else { return new List<dynamic>{envios,0,0,notas}; }
+        } else { return new List<dynamic>{0,0,0,notas}; }
         
-    }*/
+    }
 
     public void GenerarExamen(string profesor, string codigo_curso, int num_preguntas, int tiempo, DateTime fechaini, DateTime fechafin,
     int intentos, int volveratras, int erroresrestan, int mostrarresultados) {

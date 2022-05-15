@@ -151,6 +151,9 @@ namespace Quizify.Services
                 volveratras, erroresrestan, mostrarresultados);
             } catch(Exception e) { throw new Exception(e.ToString()); }
         }
+        public List<dynamic> EstadisticasExamen(int id_ex) {
+            return examen.EstadisticasExamen(id_ex);
+        } //devuelve {nº envios, nota media, desviación típica, Lista con las notas}
     
         //Otros métodos
         public string GetTipoEntidad(string usuario) {
