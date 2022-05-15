@@ -46,6 +46,7 @@
             this.titulo1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.bTienda = new System.Windows.Forms.Button();
             this.MenuVertical.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.foticoBacana)).BeginInit();
@@ -54,6 +55,7 @@
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.MenuVertical.Controls.Add(this.bTienda);
             this.MenuVertical.Controls.Add(this.bHome);
             this.MenuVertical.Controls.Add(this.hora);
             this.MenuVertical.Controls.Add(this.bCrearCurso);
@@ -228,6 +230,19 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // bTienda
+            // 
+            this.bTienda.FlatAppearance.BorderSize = 0;
+            this.bTienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bTienda.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bTienda.Location = new System.Drawing.Point(3, 340);
+            this.bTienda.Name = "bTienda";
+            this.bTienda.Size = new System.Drawing.Size(141, 40);
+            this.bTienda.TabIndex = 10;
+            this.bTienda.Text = "Tienda";
+            this.bTienda.UseVisualStyleBackColor = true;
+            this.bTienda.Click += new System.EventHandler(this.bTienda_Click);
+            // 
             // Portal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -265,5 +280,6 @@
         private System.Windows.Forms.Label titulo1;
         private System.Windows.Forms.Button bHome;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button bTienda;
     }
 }
