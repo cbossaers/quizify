@@ -98,7 +98,7 @@ public class DALExamen {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT id FROM examen;";
+                cmd.CommandText = "SELECT id FROM examen ORDER BY id DESC LIMIT 1;";
 
                 conn.Open();
 
@@ -488,5 +488,60 @@ public class DALExamen {
         } else { return new List<dynamic>{envios,0,0,notas}; }
         
     }*/
+
+    public void GenerarExamen(string profesor, string codigo_curso, int num_preguntas, int tiempo, DateTime fechaini, DateTime fechafin,
+    int intentos, int volveratras, int erroresrestan, int mostrarresultados) {
+
+        Random rand = new Random();
+
+        int id = UltimoIdExamen()+1;
+
+        List<int> preguntas = new List<int>{};
+        List<int> versiones = new List<int>{};
+        List<int> final = new List<int>{};
+
+        int aux = 0;
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT DISTINCT id,ver FROM pregunta WHERE tema = @tema AND autor = @autor";
+
+                cmd.Parameters.AddWithValue("@tema", codigo_curso);
+                cmd.Parameters.AddWithValue("@autor", profesor);
+
+                conn.Open();
+
+                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                    while (rdr.Read()) {
+                        preguntas.Add(rdr.GetInt32("id"));
+                        versiones.Add(rdr.GetInt32("ver"));
+                    }
+                }
+            }
+        }
+
+        if(preguntas.Count == 0) { throw new Exception("No existen preguntas del curso seleccionado"); }
+
+        while(preguntas.Count > num_preguntas) {
+            aux = rand.Next(1,preguntas.Count - 1);
+
+            preguntas.RemoveAt(aux);
+            versiones.RemoveAt(aux);
+        }
+
+        for(int i = 0; i < preguntas.Count; i++) {
+            final.Add(preguntas[i]);
+            final.Add(versiones[i]);
+            final.Add(1);
+        }
+
+        Add(fabrica.CrearExamen(id, codigo_curso + ": autoexamen. ID: " + id, "Examen generado automáticamente", 
+        codigo_curso, profesor, tiempo, DateTime.Now, fechaini, fechafin, intentos, volveratras, erroresrestan, 
+        mostrarresultados, final, "Borrador"));
+
+    }
 
 }}
