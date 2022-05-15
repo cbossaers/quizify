@@ -27,10 +27,10 @@ namespace AppTest {
 
             service.GenerarExamen("patricio@gmail.com", "GPR", 3, 30, DateTime.Now.AddDays(2), DateTime.Now.AddDays(17), 2, 0, 1, 0);
 
-            List<dynamic> EstadisticasExa = service.EstadisticasExamen(3);
+            Examen ex = service.GetExamen(13);
 
-            for(int i = 0; i < EstadisticasExa[3].Count; i++) {
-                Console.WriteLine(EstadisticasExa[3][i]);
+            for(int i = 0; i < ex.GetPreguntasAsociadas().Count; i++) {
+                Console.WriteLine(ex.GetPreguntasAsociadas()[i]);
             }
 
             }

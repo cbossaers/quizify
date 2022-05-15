@@ -145,7 +145,7 @@ public class DALExamen {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT * FROM PSWC.lista_preguntas WHERE id_examen = @id_ex;";
+                cmd.CommandText = "SELECT * FROM PSWC.lista_preguntas WHERE id_examen = @id_ex ORDER BY RAND();";
 
                 cmd.Parameters.AddWithValue("@id_ex", id);
 
