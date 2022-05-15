@@ -34,12 +34,14 @@
             this.codSegBox = new System.Windows.Forms.TextBox();
             this.descuentoBox = new System.Windows.Forms.TextBox();
             this.bConfirmar = new System.Windows.Forms.Button();
-            this.bVolver = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.labelDescuento = new System.Windows.Forms.Label();
+            this.aplicarDescuento = new System.Windows.Forms.Button();
+            this.notificacionDescuento = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -69,17 +71,19 @@
             // 
             // codSegBox
             // 
-            this.codSegBox.Location = new System.Drawing.Point(244, 277);
+            this.codSegBox.Location = new System.Drawing.Point(244, 265);
             this.codSegBox.Name = "codSegBox";
             this.codSegBox.Size = new System.Drawing.Size(181, 23);
             this.codSegBox.TabIndex = 3;
+            this.codSegBox.TextChanged += new System.EventHandler(this.codSegBox_TextChanged);
             // 
             // descuentoBox
             // 
-            this.descuentoBox.Location = new System.Drawing.Point(244, 340);
+            this.descuentoBox.Location = new System.Drawing.Point(244, 332);
             this.descuentoBox.Name = "descuentoBox";
             this.descuentoBox.Size = new System.Drawing.Size(181, 23);
             this.descuentoBox.TabIndex = 4;
+            this.descuentoBox.TextChanged += new System.EventHandler(this.descuentoBox_TextChanged);
             // 
             // bConfirmar
             // 
@@ -90,16 +94,6 @@
             this.bConfirmar.Text = "Comprar";
             this.bConfirmar.UseVisualStyleBackColor = true;
             this.bConfirmar.Click += new System.EventHandler(this.bConfirmar_Click);
-            // 
-            // bVolver
-            // 
-            this.bVolver.Location = new System.Drawing.Point(244, 390);
-            this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(55, 23);
-            this.bVolver.TabIndex = 6;
-            this.bVolver.Text = "Volver";
-            this.bVolver.UseVisualStyleBackColor = true;
-            this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
             // label2
             // 
@@ -113,7 +107,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 280);
+            this.label3.Location = new System.Drawing.Point(58, 268);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 15);
             this.label3.TabIndex = 8;
@@ -122,7 +116,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(58, 343);
+            this.label4.Location = new System.Drawing.Point(58, 335);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(180, 15);
             this.label4.TabIndex = 9;
@@ -148,18 +142,49 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(95, 23);
             this.comboBox1.TabIndex = 11;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // labelDescuento
+            // 
+            this.labelDescuento.AutoSize = true;
+            this.labelDescuento.Location = new System.Drawing.Point(522, 66);
+            this.labelDescuento.Name = "labelDescuento";
+            this.labelDescuento.Size = new System.Drawing.Size(38, 15);
+            this.labelDescuento.TabIndex = 12;
+            this.labelDescuento.Text = "label6";
+            // 
+            // aplicarDescuento
+            // 
+            this.aplicarDescuento.Location = new System.Drawing.Point(476, 331);
+            this.aplicarDescuento.Name = "aplicarDescuento";
+            this.aplicarDescuento.Size = new System.Drawing.Size(115, 23);
+            this.aplicarDescuento.TabIndex = 13;
+            this.aplicarDescuento.Text = "Aplicar descuento";
+            this.aplicarDescuento.UseVisualStyleBackColor = true;
+            this.aplicarDescuento.Click += new System.EventHandler(this.aplicarDescuento_Click);
+            // 
+            // notificacionDescuento
+            // 
+            this.notificacionDescuento.AutoSize = true;
+            this.notificacionDescuento.Location = new System.Drawing.Point(522, 374);
+            this.notificacionDescuento.Name = "notificacionDescuento";
+            this.notificacionDescuento.Size = new System.Drawing.Size(38, 15);
+            this.notificacionDescuento.TabIndex = 14;
+            this.notificacionDescuento.Text = "label6";
             // 
             // ComprarBono
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 450);
+            this.Controls.Add(this.notificacionDescuento);
+            this.Controls.Add(this.aplicarDescuento);
+            this.Controls.Add(this.labelDescuento);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.bVolver);
             this.Controls.Add(this.bConfirmar);
             this.Controls.Add(this.descuentoBox);
             this.Controls.Add(this.codSegBox);
@@ -182,11 +207,13 @@
         private System.Windows.Forms.TextBox codSegBox;
         private System.Windows.Forms.TextBox descuentoBox;
         private System.Windows.Forms.Button bConfirmar;
-        private System.Windows.Forms.Button bVolver;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label labelDescuento;
+        private System.Windows.Forms.Button aplicarDescuento;
+        private System.Windows.Forms.Label notificacionDescuento;
     }
 }
