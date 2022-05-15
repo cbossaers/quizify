@@ -38,9 +38,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.numBonos = new System.Windows.Forms.ComboBox();
             this.labelDescuento = new System.Windows.Forms.Label();
-            this.aplicarDescuento = new System.Windows.Forms.Button();
+            this.baplicarDescuento = new System.Windows.Forms.Button();
             this.notificacionDescuento = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -131,42 +131,43 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Elige el número de bonos que quieres comprar:";
             // 
-            // comboBox1
+            // numBonos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.numBonos.FormattingEnabled = true;
+            this.numBonos.Items.AddRange(new object[] {
             "10",
             "50",
             "100"});
-            this.comboBox1.Location = new System.Drawing.Point(330, 66);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(95, 23);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.numBonos.Location = new System.Drawing.Point(330, 66);
+            this.numBonos.Name = "numBonos";
+            this.numBonos.Size = new System.Drawing.Size(95, 23);
+            this.numBonos.TabIndex = 11;
+            this.numBonos.Text = "5, 10  o 15";
+            this.numBonos.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // labelDescuento
             // 
             this.labelDescuento.AutoSize = true;
-            this.labelDescuento.Location = new System.Drawing.Point(522, 66);
+            this.labelDescuento.Location = new System.Drawing.Point(454, 69);
             this.labelDescuento.Name = "labelDescuento";
-            this.labelDescuento.Size = new System.Drawing.Size(38, 15);
+            this.labelDescuento.Size = new System.Drawing.Size(121, 15);
             this.labelDescuento.TabIndex = 12;
-            this.labelDescuento.Text = "label6";
+            this.labelDescuento.Text = "hola soy el descuento";
             // 
-            // aplicarDescuento
+            // baplicarDescuento
             // 
-            this.aplicarDescuento.Location = new System.Drawing.Point(476, 331);
-            this.aplicarDescuento.Name = "aplicarDescuento";
-            this.aplicarDescuento.Size = new System.Drawing.Size(115, 23);
-            this.aplicarDescuento.TabIndex = 13;
-            this.aplicarDescuento.Text = "Aplicar descuento";
-            this.aplicarDescuento.UseVisualStyleBackColor = true;
-            this.aplicarDescuento.Click += new System.EventHandler(this.aplicarDescuento_Click);
+            this.baplicarDescuento.Location = new System.Drawing.Point(476, 331);
+            this.baplicarDescuento.Name = "baplicarDescuento";
+            this.baplicarDescuento.Size = new System.Drawing.Size(115, 23);
+            this.baplicarDescuento.TabIndex = 13;
+            this.baplicarDescuento.Text = "Aplicar descuento";
+            this.baplicarDescuento.UseVisualStyleBackColor = true;
+            this.baplicarDescuento.Click += new System.EventHandler(this.aplicarDescuento_Click);
             // 
             // notificacionDescuento
             // 
             this.notificacionDescuento.AutoSize = true;
-            this.notificacionDescuento.Location = new System.Drawing.Point(522, 374);
+            this.notificacionDescuento.Location = new System.Drawing.Point(476, 378);
             this.notificacionDescuento.Name = "notificacionDescuento";
             this.notificacionDescuento.Size = new System.Drawing.Size(38, 15);
             this.notificacionDescuento.TabIndex = 14;
@@ -178,9 +179,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 450);
             this.Controls.Add(this.notificacionDescuento);
-            this.Controls.Add(this.aplicarDescuento);
+            this.Controls.Add(this.baplicarDescuento);
             this.Controls.Add(this.labelDescuento);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.numBonos);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -211,9 +212,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox numBonos;
         private System.Windows.Forms.Label labelDescuento;
-        private System.Windows.Forms.Button aplicarDescuento;
+        private System.Windows.Forms.Button baplicarDescuento;
         private System.Windows.Forms.Label notificacionDescuento;
     }
 }
