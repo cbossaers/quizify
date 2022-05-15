@@ -9,7 +9,7 @@ using System.Linq;
 namespace Quizify.Persistence {
 
 public class DALExamen {
-    static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
+    static string connStr = "server=88.17.245.158;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
     FabricaExamenes fabrica = new FabricaExamenes();
     DALPregunta dalpreg = new DALPregunta();
@@ -98,7 +98,7 @@ public class DALExamen {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT id FROM examen;";
+                cmd.CommandText = "SELECT id FROM examen ORDER BY id DESC LIMIT 1;";
 
                 conn.Open();
 
@@ -459,7 +459,7 @@ public class DALExamen {
         return res;
     }
 
-    /*public List<dynamic> EstadisticasExamen(int id_ex) {
+    public List<dynamic> EstadisticasExamen(int id_ex) {
 
         List<double> notas = new List<double>();
         int envios = 0;
@@ -468,7 +468,7 @@ public class DALExamen {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT DISTINCT alumno,nota FROM notas_examenes WHERE examen = @examen";
+                cmd.CommandText = "SELECT alumno,nota FROM notas_examenes WHERE examen = @examen";
 
                 cmd.Parameters.AddWithValue("@examen", id_ex);
 
@@ -485,8 +485,63 @@ public class DALExamen {
         }
         if(envios > 0) { 
             return new List<dynamic>{envios, notas.Average(), Math.Sqrt(notas.Average(v=>Math.Pow(v-notas.Average(),2))), notas}; 
-        } else { return new List<dynamic>{envios,0,0,notas}; }
+        } else { return new List<dynamic>{0,0,0,notas}; }
         
-    }*/
+    }
+
+    public void GenerarExamen(string profesor, string codigo_curso, int num_preguntas, int tiempo, DateTime fechaini, DateTime fechafin,
+    int intentos, int volveratras, int erroresrestan, int mostrarresultados) {
+
+        Random rand = new Random();
+
+        int id = UltimoIdExamen()+1;
+
+        List<int> preguntas = new List<int>{};
+        List<int> versiones = new List<int>{};
+        List<int> final = new List<int>{};
+
+        int aux = 0;
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT DISTINCT id,ver FROM pregunta WHERE tema = @tema AND autor = @autor";
+
+                cmd.Parameters.AddWithValue("@tema", codigo_curso);
+                cmd.Parameters.AddWithValue("@autor", profesor);
+
+                conn.Open();
+
+                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                    while (rdr.Read()) {
+                        preguntas.Add(rdr.GetInt32("id"));
+                        versiones.Add(rdr.GetInt32("ver"));
+                    }
+                }
+            }
+        }
+
+        if(preguntas.Count == 0) { throw new Exception("No existen preguntas del curso seleccionado"); }
+
+        while(preguntas.Count > num_preguntas) {
+            aux = rand.Next(1,preguntas.Count - 1);
+
+            preguntas.RemoveAt(aux);
+            versiones.RemoveAt(aux);
+        }
+
+        for(int i = 0; i < preguntas.Count; i++) {
+            final.Add(preguntas[i]);
+            final.Add(versiones[i]);
+            final.Add(1);
+        }
+
+        Add(fabrica.CrearExamen(id, codigo_curso + ": autoexamen. ID: " + id, "Examen generado automáticamente", 
+        codigo_curso, profesor, tiempo, DateTime.Now, fechaini, fechafin, intentos, volveratras, erroresrestan, 
+        mostrarresultados, final, "Borrador"));
+
+    }
 
 }}

@@ -144,6 +144,16 @@ namespace Quizify.Services
         public int GetPuntuacionDePregunta(int id_ex, int id_preg) {
             return examen.GetPuntuacionDePregunta(id_ex, id_preg);
         }
+        public void GenerarExamen(string profesor, string codigo_curso, int num_preguntas, int tiempo, DateTime fechaini, DateTime fechafin,
+        int intentos, int volveratras, int erroresrestan, int mostrarresultados) {
+            try {
+                examen.GenerarExamen(profesor, codigo_curso, num_preguntas, tiempo, fechaini, fechafin, intentos, 
+                volveratras, erroresrestan, mostrarresultados);
+            } catch(Exception e) { throw new Exception(e.ToString()); }
+        }
+        public List<dynamic> EstadisticasExamen(int id_ex) {
+            return examen.EstadisticasExamen(id_ex);
+        } //devuelve {nº envios, nota media, desviación típica, Lista con las notas}
     
         //Otros métodos
         public string GetTipoEntidad(string usuario) {
@@ -153,7 +163,7 @@ namespace Quizify.Services
             }
             catch(Exception) { 
                 try { GetProfesor(usuario); return "profesor"; }
-                catch(Exception ex) { throw new Exception(""+ex); }    
+                catch(Exception e) { throw new Exception(e.ToString()); }    
             }
         }
 

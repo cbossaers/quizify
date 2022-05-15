@@ -6,7 +6,7 @@ using Quizify.Entities;
 namespace Quizify.Persistence {
 
 public class DALPregunta {
-   static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
+   static string connStr = "server=88.17.245.158;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
    FabricaPreguntas fabrica = new FabricaPreguntas();
    //DALExamen dalex = new DALExamen();
@@ -229,7 +229,7 @@ public class DALPregunta {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT id FROM pregunta;";
+                cmd.CommandText = "SELECT id FROM pregunta ORDER BY id DESC LIMIT 1;";
 
                 conn.Open();
 
@@ -251,7 +251,7 @@ public class DALPregunta {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT ver FROM pregunta WHERE id = @id;";
+                cmd.CommandText = "SELECT ver FROM pregunta WHERE id = @id ORDER BY ver DESC LIMIT 1;";
 
                 cmd.Parameters.AddWithValue("@id", id);
 

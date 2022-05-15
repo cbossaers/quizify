@@ -7,7 +7,7 @@ using System.Data;
 namespace Quizify.Persistence {
 
 public class DALAlumno {
-    static string connStr = "server=88.17.27.246;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
+    static string connStr = "server=88.17.245.158;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
     DALCurso DALCurso = new DALCurso();
     FabricaEntidades fabrica = new FabricaEntidades();
