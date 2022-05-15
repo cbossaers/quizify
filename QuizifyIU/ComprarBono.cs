@@ -30,12 +30,16 @@ namespace QuizifyIU
             this.servicio = servicio;
             usuario = user;
 
+            baplicarDescuento.Enabled = false;
+            bConfirmar.Enabled = false;
             notificacionDescuento.Visible = false;
-
-            //Generador automático de códigos de descuento (solo hay descuentos martes y jueves)
-            DayOfWeek day = DateTime.Now.DayOfWeek;
+            //labelDescuento.Visible = false;
+            labelDescuento.Text = "DESCUENTO DE HOY: " + codDescuento;
+            labelDescuento.Visible = true;
+            //Generador automático de códigos de descuento (solo hay descuentos martes y viernes)
+            /*DayOfWeek day = DateTime.Now.DayOfWeek;
             string dayToday = " " + day.ToString();
-            if ((dayToday == DayOfWeek.Tuesday.ToString()) || (dayToday == DayOfWeek.Thursday.ToString()))
+            if ((dayToday == DayOfWeek.Tuesday.ToString()) || (dayToday == DayOfWeek.Friday.ToString()))
             {
                 if (servicio.GetTipoEntidad(usuario.GetCorreo()) == "profesor")
                 {
@@ -43,15 +47,23 @@ namespace QuizifyIU
                     labelDescuento.Visible = true;
                 }
                 else labelDescuento.Visible = false;
-            }
-            else labelDescuento.Visible = false;
+            }*/
         }
 
         private void bConfirmar_Click(object sender, EventArgs e)
         {
-            /*
-             * 1. Comprobar que el titular de la tarjeta es el profesor que ha logeado
-             */
+            //AÑADIR LA CANTIDAD DE BONOS ELEGIDOS A LA CUENTA DEL PROFESOR
+            DialogResult aviso = MessageBox.Show(this, "¿Desea finalizar la compra de " + numBonos.Text + " por el precio de " + precio + " €?", 
+                "Confirmar compra", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(aviso == DialogResult.Yes)
+            {
+                DialogResult confirmacion = MessageBox.Show(this, "¡Compra realizada con éxito!",
+                "Compra realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(confirmacion == DialogResult.Yes)
+                {
+                    hideAll();
+                }
+            }
         }
 
         private void tarjetaBox_TextChanged(object sender, EventArgs e)
@@ -84,13 +96,27 @@ namespace QuizifyIU
             if (tarjetaCorrecto && titularCorrecto && seguridadCorrecto && bonosCorrecto)
                 bConfirmar.Enabled = true;
         }
+
+        private void descuentoBox_TextChanged(object sender, EventArgs e)
+        {
+            baplicarDescuento.Enabled = false;
+            if (descuentoBox.Text == "") descuentoCorrecto = false;
+            else {
+                descuentoCorrecto = true;
+            }
+
+            if (descuentoCorrecto && bonosCorrecto) baplicarDescuento.Enabled = true;
+        }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             bConfirmar.Enabled = false;
-            aplicarDescuento.Enabled = false;
-            string bonos = codSegBox.Text;
-            if (bonos == "") bonosCorrecto = false;
-            else {
+            baplicarDescuento.Enabled = false;
+            string bonos = numBonos.Text;
+            if (bonos == "5, 10 o 15") bonosCorrecto = false;
+            else if (bonos == "") bonosCorrecto = false;
+            else
+            {
                 bonosCorrecto = true;
                 switch (bonos)
                 {
@@ -100,47 +126,72 @@ namespace QuizifyIU
                     case "50":
                         precio = 100.0;
                         break;
-                    case "100":
+                    default:
+                        //100 bonos
                         precio = 150.0;
                         break;
-                    default:
-                        precio = 0.0;
-                        break;
+                }
+
+                if (tarjetaCorrecto && titularCorrecto && seguridadCorrecto && bonosCorrecto)
+                {
+                    bConfirmar.Enabled = true;
+                    if (descuentoCorrecto) baplicarDescuento.Enabled = true;
                 }
             }
-
-            if(bonosCorrecto && descuentoCorrecto) aplicarDescuento.Enabled = true;
-            if (tarjetaCorrecto && titularCorrecto && seguridadCorrecto && bonosCorrecto)
-                bConfirmar.Enabled = true;
         }
 
-        private void descuentoBox_TextChanged(object sender, EventArgs e)
-        {
-            aplicarDescuento.Enabled = false;
-            if (descuentoBox.Text == "") descuentoCorrecto = false;
-            else descuentoCorrecto = true;
-            if (descuentoCorrecto && bonosCorrecto) aplicarDescuento.Enabled = true;
-        }
-
-        private static Random random = new Random();
+        
+        private static readonly Random random = new Random();
         private static string GeneradorDescuento(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
+        /*
+        private static string GeneradorDescuento(int length)
+        {
+            StringBuilder str_build = new StringBuilder();
+            Random random = new Random();
+
+            char letra;
+            
+            for(int i = 0; i<length; i++)
+            {
+                double flt = random.NextDouble();
+                int shift = Convert.ToInt32(Math.Floor(25 * flt));
+                letra = Convert.ToChar(shift + 65);
+                str_build.Append(letra);
+            }
+            return str_build.ToString();
+        }*/
+
         private void aplicarDescuento_Click(object sender, EventArgs e)
         {
             if (codDescuento == descuentoBox.Text) {
                 precio = precio - (precio * 0.2);
-                aplicarDescuento.Enabled = false;
+                baplicarDescuento.Enabled = false;
                 notificacionDescuento.Visible = true;
                 notificacionDescuento.Text = "¡Descuento del 20% aplicado!";
+                descuentoBox.Enabled = false;
             }
             else
             {
                 DialogResult aviso = MessageBox.Show(this, "El código introducido es incorrecto. Introduzca de correctamente el código de descuento.", "Código descuento incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void hideAll()
+        {
+            tarjetaBox.Text = "";
+            titularBox.Text = "";
+            codSegBox.Text = "";
+            numBonos.Text = "5, 10 o 15";
+            descuentoBox.Text = "";
+            labelDescuento.Visible = false;
+            notificacionDescuento.Visible = false;
+            baplicarDescuento.Enabled = false;
+            bConfirmar.Enabled = false;
         }
     }
 }
