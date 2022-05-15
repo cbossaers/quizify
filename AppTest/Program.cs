@@ -25,13 +25,9 @@ namespace AppTest {
 
             FabricaExamenes fabrica = new FabricaExamenes();
 
-            service.GenerarExamen("patricio@gmail.com", "GPR", 3, 30, DateTime.Now.AddDays(2), DateTime.Now.AddDays(17), 2, 0, 1, 0);
+            //service.GenerarExamen("patricio@gmail.com", "GPR", 3, 30, DateTime.Now.AddDays(2), DateTime.Now.AddDays(17), 2, 0, 1, 0);
 
-            Examen ex = service.GetExamen(13);
-
-            for(int i = 0; i < ex.GetPreguntasAsociadas().Count; i++) {
-                Console.WriteLine(ex.GetPreguntasAsociadas()[i]);
-            }
+            service.FinalizarExamen(12);
 
             }
         }

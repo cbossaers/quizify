@@ -292,27 +292,29 @@ public class DALExamen {
 
         for(int i = 0; i <= x; i++) {
             
-            ex = Get(i);
-            string estado = "";
+            try {
+                ex = Get(i);
+                string estado = "";
 
-            if(ex.GetFechaIni() > DateTime.Now) { estado = "Inactivo";}
-            else if(ex.GetFechaIni() <= DateTime.Now && ex.GetFechaFin() > DateTime.Now) { estado = "Activo"; }
-            else if(DateTime.Now > ex.GetFechaFin() && ex.GetMostrarResultados() == 0) { estado = "Finalizado"; }
-            else if(ex.GetMostrarResultados() == 1) { estado = "Calificado"; }
+                if(ex.GetFechaIni() > DateTime.Now) { estado = "Inactivo";}
+                else if(ex.GetFechaIni() <= DateTime.Now && ex.GetFechaFin() > DateTime.Now) { estado = "Activo"; }
+                else if(DateTime.Now > ex.GetFechaFin() && ex.GetMostrarResultados() == 0) { estado = "Finalizado"; }
+                else if(ex.GetMostrarResultados() == 1) { estado = "Calificado"; }
 
-            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+                using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
-                using(MySqlCommand cmd = conn.CreateCommand()) {
+                    using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                    cmd.CommandText = "UPDATE examen SET estado = @estado WHERE id = @id;";
+                        cmd.CommandText = "UPDATE examen SET estado = @estado WHERE id = @id;";
 
-                    cmd.Parameters.AddWithValue("@estado", estado);
-                    cmd.Parameters.AddWithValue("@id",i);
+                        cmd.Parameters.AddWithValue("@estado", estado);
+                        cmd.Parameters.AddWithValue("@id",i);
 
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-            }
+            } catch(Exception) {}
         }
     }
 
@@ -568,7 +570,25 @@ public class DALExamen {
         Add(fabrica.CrearExamen(id, codigo_curso + ": autoexamen. ID: " + id, "Examen generado automáticamente", 
         codigo_curso, profesor, tiempo, DateTime.Now, fechaini, fechafin, intentos, volveratras, erroresrestan, 
         mostrarresultados, final, "Borrador"));
+    }
 
+    public void FinalizarExamen(int id) {
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "UPDATE examen SET fecha_fin = @fecha WHERE id = @id;";
+
+                cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString());
+                cmd.Parameters.AddWithValue("@id", id);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        ActualizarEstadoQuizes();
     }
 
 }}

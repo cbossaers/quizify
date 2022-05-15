@@ -157,6 +157,9 @@ namespace Quizify.Services
         public void CancelarExamen(int id) {
             examen.Eliminar(id);
         }
+        public void FinalizarExamen(int id) {
+            examen.FinalizarExamen(id);
+        }
     
         //Otros métodos
         public string GetTipoEntidad(string usuario) {
