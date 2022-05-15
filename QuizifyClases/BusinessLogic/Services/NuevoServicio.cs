@@ -172,7 +172,6 @@ namespace Quizify.Services
                 catch(Exception e) { throw new Exception(e.ToString()); }    
             }
         }
-
         public DataTable GetAllAlumnos() {
             return alumno.GetAllAlumnos();
         }
