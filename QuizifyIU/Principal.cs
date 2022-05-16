@@ -17,7 +17,7 @@ namespace QuizifyIU
     public partial class Principal : Form
     {
         private NuevoServicio servicio;
-        Form1 formportal;
+        private Form1 formportal;
 
         private int borderSize = 2;
         private Size formSize;

@@ -31,10 +31,10 @@ namespace QuizifyIU
         private void bCrearCurso_Click(object sender, EventArgs e)
         {
             
-            this.Hide();
+            /*this.Hide();
             var form2 = new CrearCurso(servicio, usuario, control);
             form2.Closed += (s, args) => this.Close();
-            form2.Show();
+            form2.Show();*/
         }
 
         private void bGestionarCurso_Click(object sender, EventArgs e)
@@ -48,11 +48,11 @@ namespace QuizifyIU
 
         private void bApuntarse_Click(object sender, EventArgs e)
         {
-            
-            this.Hide();
+            control.apuntarseCurso();
+            /*this.Hide();
             var form2 = new ApuntarseCurso(servicio, usuario);
             form2.Closed += (s, args) => this.Close();
-            form2.Show();
+            form2.Show();*/
         }
 
         private void AbrirFormCrearCurso(object formCrearCurso)
