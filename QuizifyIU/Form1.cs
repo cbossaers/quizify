@@ -106,6 +106,7 @@ namespace QuizifyIU
                 panelMenu.Width = 100;
                 btnHome.Visible = false;
                 btnMenu.Dock = DockStyle.Top;
+                btnMenu.IconChar = FontAwesome.Sharp.IconChar.AngleRight;
                 foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
                 {
                     menuButton.Text = "";
@@ -118,6 +119,7 @@ namespace QuizifyIU
                 panelMenu.Width = 230;
                 btnHome.Visible = true;
                 btnMenu.Dock = DockStyle.None;
+                btnMenu.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
                 foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
                 {
                     menuButton.Text = "   " + menuButton.Tag.ToString();
@@ -373,5 +375,7 @@ namespace QuizifyIU
             }
             base.WndProc(ref m);
         }
+
+        
     }
 }

@@ -28,23 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.bBuscar = new System.Windows.Forms.Button();
             this.tipo_txt = new System.Windows.Forms.ComboBox();
             this.dificultad_txt = new System.Windows.Forms.ComboBox();
             this.tema_txt = new System.Windows.Forms.TextBox();
-            this.tablaPreguntas = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enunciado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            this.tablaPreguntas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPreguntas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,95 +94,6 @@
             this.tema_txt.Size = new System.Drawing.Size(100, 23);
             this.tema_txt.TabIndex = 10;
             // 
-            // tablaPreguntas
-            // 
-            this.tablaPreguntas.AllowUserToAddRows = false;
-            this.tablaPreguntas.AllowUserToDeleteRows = false;
-            this.tablaPreguntas.BackgroundColor = System.Drawing.SystemColors.MenuBar;
-            this.tablaPreguntas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablaPreguntas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.enunciado,
-            this.dataGridViewTextBoxColumn1,
-            this.Version,
-            this.dataGridViewTextBoxColumn2,
-            this.Materia,
-            this.Autor});
-            this.tablaPreguntas.GridColor = System.Drawing.SystemColors.MenuBar;
-            this.tablaPreguntas.Location = new System.Drawing.Point(12, 139);
-            this.tablaPreguntas.MultiSelect = false;
-            this.tablaPreguntas.Name = "tablaPreguntas";
-            this.tablaPreguntas.ReadOnly = true;
-            this.tablaPreguntas.RowHeadersWidth = 62;
-            this.tablaPreguntas.RowTemplate.Height = 25;
-            this.tablaPreguntas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaPreguntas.Size = new System.Drawing.Size(601, 243);
-            this.tablaPreguntas.TabIndex = 11;
-            this.tablaPreguntas.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaPreguntas_CellMouseDoubleClick);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ds_ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 60;
-            // 
-            // enunciado
-            // 
-            this.enunciado.DataPropertyName = "ds_enunciado";
-            this.enunciado.HeaderText = "Enunciado";
-            this.enunciado.MinimumWidth = 8;
-            this.enunciado.Name = "enunciado";
-            this.enunciado.ReadOnly = true;
-            this.enunciado.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ds_tipo";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Tipo";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // Version
-            // 
-            this.Version.DataPropertyName = "ds_version";
-            this.Version.HeaderText = "Versión";
-            this.Version.MinimumWidth = 8;
-            this.Version.Name = "Version";
-            this.Version.ReadOnly = true;
-            this.Version.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ds_dificultad";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Dificultad";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // Materia
-            // 
-            this.Materia.DataPropertyName = "ds_materia";
-            this.Materia.HeaderText = "Materia";
-            this.Materia.MinimumWidth = 8;
-            this.Materia.Name = "Materia";
-            this.Materia.ReadOnly = true;
-            this.Materia.Width = 150;
-            // 
-            // Autor
-            // 
-            this.Autor.DataPropertyName = "ds_autor";
-            this.Autor.HeaderText = "Autor";
-            this.Autor.MinimumWidth = 8;
-            this.Autor.Name = "Autor";
-            this.Autor.ReadOnly = true;
-            this.Autor.Width = 200;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -225,16 +131,54 @@
             this.mySqlCommand1.EnableCaching = false;
             this.mySqlCommand1.Transaction = null;
             // 
+            // tablaPreguntas
+            // 
+            this.tablaPreguntas.AllowUserToAddRows = false;
+            this.tablaPreguntas.AllowUserToDeleteRows = false;
+            this.tablaPreguntas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.tablaPreguntas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.tablaPreguntas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.tablaPreguntas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tablaPreguntas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tablaPreguntas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaPreguntas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.tablaPreguntas.ColumnHeadersHeight = 26;
+            this.tablaPreguntas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tablaPreguntas.EnableHeadersVisualStyles = false;
+            this.tablaPreguntas.GridColor = System.Drawing.Color.White;
+            this.tablaPreguntas.Location = new System.Drawing.Point(6, 139);
+            this.tablaPreguntas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tablaPreguntas.Name = "tablaPreguntas";
+            this.tablaPreguntas.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(166)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.tablaPreguntas.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.tablaPreguntas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tablaPreguntas.Size = new System.Drawing.Size(691, 240);
+            this.tablaPreguntas.TabIndex = 15;
+            this.tablaPreguntas.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaPreguntas_CellMouseDoubleClick);
+            // 
             // MisPreguntas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(648, 450);
+            this.ClientSize = new System.Drawing.Size(710, 490);
+            this.Controls.Add(this.tablaPreguntas);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.tablaPreguntas);
             this.Controls.Add(this.tema_txt);
             this.Controls.Add(this.dificultad_txt);
             this.Controls.Add(this.tipo_txt);
@@ -256,17 +200,10 @@
         private System.Windows.Forms.ComboBox tipo_txt;
         private System.Windows.Forms.ComboBox dificultad_txt;
         private System.Windows.Forms.TextBox tema_txt;
-        private System.Windows.Forms.DataGridView tablaPreguntas;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn enunciado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Version;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Autor;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private System.Windows.Forms.DataGridView tablaPreguntas;
     }
 }

@@ -62,6 +62,7 @@
             this.hfin = new System.Windows.Forms.DateTimePicker();
             this.comboBoxCT = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -434,12 +435,22 @@
             this.label7.TabIndex = 72;
             this.label7.Text = "Elige una Competencia Transversal:";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(556, 310);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(90, 15);
+            this.label13.TabIndex = 73;
+            this.label13.Text = "Es recuperación";
+            // 
             // CrearQuiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(710, 490);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBoxCT);
             this.Controls.Add(this.hfin);
@@ -519,5 +530,6 @@
         private System.Windows.Forms.DateTimePicker hfin;
         private System.Windows.Forms.ComboBox comboBoxCT;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label13;
     }
 }
