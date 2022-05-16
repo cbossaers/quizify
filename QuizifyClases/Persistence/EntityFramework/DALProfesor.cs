@@ -82,7 +82,7 @@ public class DALProfesor {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT id FROM examen WHERE autor = @autor";
+                cmd.CommandText = "SELECT * FROM examen WHERE autor = @autor";
 
                 cmd.Parameters.AddWithValue("@autor", id);
 
