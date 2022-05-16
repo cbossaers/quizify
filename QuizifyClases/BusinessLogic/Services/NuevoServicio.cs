@@ -32,6 +32,9 @@ namespace Quizify.Services
         public DataTable GetExamenesAlumnoNoActivos(string al) {
             return alumno.GetExamenesNoActivos(al);
         }
+        public (DataTable, DataTable) GetExamenesAlumno (string al) {
+            return alumno.GetExamenes(al);
+        }
 
         //Métodos Profesor
         public void AddProfesor(Profesor prof) {

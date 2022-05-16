@@ -125,6 +125,46 @@ public class DALAlumno {
         return dt;
     }
 
+    public (DataTable, DataTable) GetExamenes(string id) {
+
+        List<string> cursos = DALCurso.GetCursosAlumno(id);
+        DataTable dtact = new DataTable();
+        DataTable dtnoact = new DataTable();
+
+        foreach(string curso in cursos) {
+
+            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "SELECT * FROM examen WHERE curso = @curso AND estado = 'Activo'";
+
+                    cmd.Parameters.AddWithValue("@curso", curso);
+
+                    conn.Open();
+
+                    dtact.Load(cmd.ExecuteReader());
+
+                    conn.Close();
+                    
+
+                    cmd.CommandText = "SELECT * FROM examen WHERE curso = @curso AND estado NOT LIKE 'Activo'";
+
+                    cmd.Parameters.AddWithValue("@curso", curso);
+
+                    conn.Open();
+
+                    dtnoact.Load(cmd.ExecuteReader());
+
+                    conn.Close();
+
+                }
+            } 
+        }
+
+        return (dtact, dtnoact);
+    }
+
     public DataTable GetAllAlumnos() {
 
         DataTable dt = new DataTable();
