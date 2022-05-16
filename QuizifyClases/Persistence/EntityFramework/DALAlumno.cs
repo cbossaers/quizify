@@ -10,6 +10,7 @@ public class DALAlumno {
     static string connStr = "server=88.17.245.158;user=GrupoC;database=PSWC;port=3306;password=GrupoC";
 
     DALCurso DALCurso = new DALCurso();
+    DALExamen DALExamen = new DALExamen();
     FabricaEntidades fabrica = new FabricaEntidades();
 
     public void Add(Alumno alumno) {
@@ -80,6 +81,7 @@ public class DALAlumno {
         List<string> cursos = DALCurso.GetCursosAlumno(id);
         DataTable dtact = new DataTable();
         DataTable dtnoact = new DataTable();
+        DataTable dtnota = new DataTable();
 
         foreach(string curso in cursos) {
 
@@ -107,7 +109,19 @@ public class DALAlumno {
             } 
         }
 
-        return (dtact, dtnoact);
+        return (dtact, GetNotas(id,dtnoact));
+    }
+
+    public DataTable GetNotas(string id_al, DataTable dt) {
+
+        dt.Columns.Add("nota", typeof(System.Double));
+
+        foreach(DataRow row in dt.Rows) {
+
+            row["nota"] = DALExamen.GetNota(id_al, int.Parse(row["id"].ToString()));
+        }
+
+        return dt;
     }
 
     public DataTable GetAllAlumnos() {

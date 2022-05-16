@@ -339,7 +339,7 @@ public class DALExamen {
 
     public double GetNota(string id_alumno, int id_ex) {
 
-            double res = -1;
+            double res = 0;
 
             using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
