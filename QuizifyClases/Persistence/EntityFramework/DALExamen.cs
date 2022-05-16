@@ -291,30 +291,31 @@ public class DALExamen {
         Examen ex = null;
 
         for(int i = 0; i <= x; i++) {
-            
-            try {
+
                 ex = Get(i);
                 string estado = "";
 
-                if(ex.GetFechaIni() > DateTime.Now) { estado = "Inactivo";}
-                else if(ex.GetFechaIni() <= DateTime.Now && ex.GetFechaFin() > DateTime.Now) { estado = "Activo"; }
-                else if(DateTime.Now > ex.GetFechaFin() && ex.GetMostrarResultados() == 0) { estado = "Finalizado"; }
-                else if(ex.GetMostrarResultados() == 1) { estado = "Calificado"; }
+                if(ex != null) {
+                    if(ex.GetFechaIni() > DateTime.Now) { estado = "Inactivo";}
+                    else if(ex.GetFechaIni() <= DateTime.Now && ex.GetFechaFin() > DateTime.Now) { estado = "Activo"; }
+                    else if(DateTime.Now > ex.GetFechaFin() && ex.GetMostrarResultados() == 0) { estado = "Finalizado"; }
+                    else if(ex.GetMostrarResultados() == 1) { estado = "Calificado"; }
 
-                using(MySqlConnection conn = new MySqlConnection(connStr)) {
+                    using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
-                    using(MySqlCommand cmd = conn.CreateCommand()) {
+                        using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                        cmd.CommandText = "UPDATE examen SET estado = @estado WHERE id = @id;";
+                            cmd.CommandText = "UPDATE examen SET estado = @estado WHERE id = @id;";
 
-                        cmd.Parameters.AddWithValue("@estado", estado);
-                        cmd.Parameters.AddWithValue("@id",i);
+                            cmd.Parameters.AddWithValue("@estado", estado);
+                            cmd.Parameters.AddWithValue("@id",i);
 
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                        }
                     }
                 }
-            } catch(Exception) {}
+            
         }
     }
 
