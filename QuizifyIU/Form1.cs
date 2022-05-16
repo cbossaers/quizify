@@ -279,7 +279,7 @@ namespace QuizifyIU
             DisableButton();
             leftBorderBtn.Visible = false;
             iconoForm.IconChar = IconChar.Home;
-            iconoForm.IconColor = Color.MediumPurple;
+            iconoForm.IconColor = Color.FromArgb(98, 102, 244);
             labelTitle.Text = "Home";
         }
 

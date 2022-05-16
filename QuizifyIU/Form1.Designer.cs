@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.Home = new FontAwesome.Sharp.IconButton();
             this.CerrarSesion = new FontAwesome.Sharp.IconButton();
             this.Estadisticas = new FontAwesome.Sharp.IconButton();
             this.Cursos = new FontAwesome.Sharp.IconButton();
@@ -37,6 +36,7 @@
             this.Mispreguntas = new FontAwesome.Sharp.IconButton();
             this.CrearPregunta = new FontAwesome.Sharp.IconButton();
             this.CrearQuiz = new FontAwesome.Sharp.IconButton();
+            this.Home = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Label();
             this.btnMenu = new FontAwesome.Sharp.IconButton();
@@ -58,7 +58,6 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
-            this.panelMenu.Controls.Add(this.Home);
             this.panelMenu.Controls.Add(this.CerrarSesion);
             this.panelMenu.Controls.Add(this.Estadisticas);
             this.panelMenu.Controls.Add(this.Cursos);
@@ -66,6 +65,7 @@
             this.panelMenu.Controls.Add(this.Mispreguntas);
             this.panelMenu.Controls.Add(this.CrearPregunta);
             this.panelMenu.Controls.Add(this.CrearQuiz);
+            this.panelMenu.Controls.Add(this.Home);
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -74,31 +74,6 @@
             this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 17);
             this.panelMenu.Size = new System.Drawing.Size(230, 573);
             this.panelMenu.TabIndex = 0;
-            // 
-            // Home
-            // 
-            this.Home.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Home.FlatAppearance.BorderSize = 0;
-            this.Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Home.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Home.ForeColor = System.Drawing.Color.White;
-            this.Home.IconChar = FontAwesome.Sharp.IconChar.Home;
-            this.Home.IconColor = System.Drawing.Color.White;
-            this.Home.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Home.IconSize = 30;
-            this.Home.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Home.Location = new System.Drawing.Point(0, 411);
-            this.Home.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Home.Name = "Home";
-            this.Home.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.Home.Size = new System.Drawing.Size(230, 57);
-            this.Home.TabIndex = 8;
-            this.Home.Tag = "Home";
-            this.Home.Text = "    Home";
-            this.Home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Home.UseVisualStyleBackColor = true;
-            this.Home.Click += new System.EventHandler(this.btnHome1_Click);
             // 
             // CerrarSesion
             // 
@@ -137,7 +112,7 @@
             this.Estadisticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Estadisticas.IconSize = 30;
             this.Estadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Estadisticas.Location = new System.Drawing.Point(0, 354);
+            this.Estadisticas.Location = new System.Drawing.Point(0, 411);
             this.Estadisticas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Estadisticas.Name = "Estadisticas";
             this.Estadisticas.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -162,14 +137,14 @@
             this.Cursos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Cursos.IconSize = 30;
             this.Cursos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Cursos.Location = new System.Drawing.Point(0, 297);
+            this.Cursos.Location = new System.Drawing.Point(0, 354);
             this.Cursos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Cursos.Name = "Cursos";
             this.Cursos.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.Cursos.Size = new System.Drawing.Size(230, 57);
             this.Cursos.TabIndex = 5;
             this.Cursos.Tag = "Cursos";
-            this.Cursos.Text = "     Cursos";
+            this.Cursos.Text = "    Cursos";
             this.Cursos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Cursos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Cursos.UseVisualStyleBackColor = true;
@@ -187,7 +162,7 @@
             this.Misexamenes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Misexamenes.IconSize = 30;
             this.Misexamenes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Misexamenes.Location = new System.Drawing.Point(0, 240);
+            this.Misexamenes.Location = new System.Drawing.Point(0, 297);
             this.Misexamenes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Misexamenes.Name = "Misexamenes";
             this.Misexamenes.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -212,7 +187,7 @@
             this.Mispreguntas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Mispreguntas.IconSize = 30;
             this.Mispreguntas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Mispreguntas.Location = new System.Drawing.Point(0, 183);
+            this.Mispreguntas.Location = new System.Drawing.Point(0, 240);
             this.Mispreguntas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Mispreguntas.Name = "Mispreguntas";
             this.Mispreguntas.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -237,7 +212,7 @@
             this.CrearPregunta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CrearPregunta.IconSize = 30;
             this.CrearPregunta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CrearPregunta.Location = new System.Drawing.Point(0, 126);
+            this.CrearPregunta.Location = new System.Drawing.Point(0, 183);
             this.CrearPregunta.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CrearPregunta.Name = "CrearPregunta";
             this.CrearPregunta.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -262,7 +237,7 @@
             this.CrearQuiz.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CrearQuiz.IconSize = 30;
             this.CrearQuiz.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CrearQuiz.Location = new System.Drawing.Point(0, 69);
+            this.CrearQuiz.Location = new System.Drawing.Point(0, 126);
             this.CrearQuiz.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CrearQuiz.Name = "CrearQuiz";
             this.CrearQuiz.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -274,6 +249,31 @@
             this.CrearQuiz.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.CrearQuiz.UseVisualStyleBackColor = true;
             this.CrearQuiz.Click += new System.EventHandler(this.CrearQuiz_Click);
+            // 
+            // Home
+            // 
+            this.Home.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Home.FlatAppearance.BorderSize = 0;
+            this.Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Home.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Home.ForeColor = System.Drawing.Color.White;
+            this.Home.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.Home.IconColor = System.Drawing.Color.White;
+            this.Home.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Home.IconSize = 30;
+            this.Home.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Home.Location = new System.Drawing.Point(0, 69);
+            this.Home.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Home.Name = "Home";
+            this.Home.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.Home.Size = new System.Drawing.Size(230, 57);
+            this.Home.TabIndex = 8;
+            this.Home.Tag = "Home";
+            this.Home.Text = "    Home";
+            this.Home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Home.UseVisualStyleBackColor = true;
+            this.Home.Click += new System.EventHandler(this.btnHome1_Click);
             // 
             // panel1
             // 
@@ -352,12 +352,12 @@
             // 
             this.labelTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTitle.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelTitle.Location = new System.Drawing.Point(57, 23);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(48, 17);
+            this.labelTitle.Size = new System.Drawing.Size(54, 20);
             this.labelTitle.TabIndex = 5;
             this.labelTitle.Text = "Home";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
