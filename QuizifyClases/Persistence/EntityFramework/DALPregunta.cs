@@ -2,6 +2,7 @@ using System;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using Quizify.Entities;
+using System.Data;
 
 namespace Quizify.Persistence {
 
@@ -189,9 +190,10 @@ public class DALPregunta {
             }
         }
     }
-    public List<int> GetPreguntas(List<dynamic> filtros) {
+    public DataTable GetPreguntas(List<dynamic> filtros) {
 
         List<int> result = new List<int> {};
+        DataTable dt = new DataTable();
 
         string consulta = "SELECT * from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "'";
 
@@ -209,17 +211,11 @@ public class DALPregunta {
 
                 conn.Open();
 
-                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
-
-                    while (rdr.Read()) {
-                        result.Add(rdr.GetInt32("id"));
-                        result.Add(rdr.GetInt32("ver"));
-                    }
-                }
+                dt.Load(cmd.ExecuteReader());
             }
         }
 
-        return result;
+        return dt;
     }
     public int UltimoIdPregunta() {
 

@@ -98,7 +98,7 @@ namespace Quizify.Services
         public void EliminarPregunta(int id, int ver) {
             pregunta.Eliminar(id, ver);
         }
-        public List<int> GetPreguntas(List<dynamic> filtros) {
+        public DataTable GetPreguntas(List<dynamic> filtros) {
             return pregunta.GetPreguntas(filtros); 
         }
         public int UltimoIdPregunta() {
