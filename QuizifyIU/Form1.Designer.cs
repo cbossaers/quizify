@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.Home = new FontAwesome.Sharp.IconButton();
             this.CerrarSesion = new FontAwesome.Sharp.IconButton();
             this.Estadisticas = new FontAwesome.Sharp.IconButton();
             this.Cursos = new FontAwesome.Sharp.IconButton();
@@ -58,7 +58,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
-            this.panelMenu.Controls.Add(this.iconButton1);
+            this.panelMenu.Controls.Add(this.Home);
             this.panelMenu.Controls.Add(this.CerrarSesion);
             this.panelMenu.Controls.Add(this.Estadisticas);
             this.panelMenu.Controls.Add(this.Cursos);
@@ -75,29 +75,30 @@
             this.panelMenu.Size = new System.Drawing.Size(230, 573);
             this.panelMenu.TabIndex = 0;
             // 
-            // iconButton1
+            // Home
             // 
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ChartLine;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 411);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(230, 57);
-            this.iconButton1.TabIndex = 8;
-            this.iconButton1.Tag = "Estadisticas";
-            this.iconButton1.Text = "    Estadisticas";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.Home.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Home.FlatAppearance.BorderSize = 0;
+            this.Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Home.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Home.ForeColor = System.Drawing.Color.White;
+            this.Home.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.Home.IconColor = System.Drawing.Color.White;
+            this.Home.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Home.IconSize = 30;
+            this.Home.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Home.Location = new System.Drawing.Point(0, 411);
+            this.Home.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Home.Name = "Home";
+            this.Home.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.Home.Size = new System.Drawing.Size(230, 57);
+            this.Home.TabIndex = 8;
+            this.Home.Tag = "Home";
+            this.Home.Text = "    Home";
+            this.Home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Home.UseVisualStyleBackColor = true;
+            this.Home.Click += new System.EventHandler(this.btnHome1_Click);
             // 
             // CerrarSesion
             // 
@@ -498,7 +499,7 @@
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btnMenu;
         private System.Windows.Forms.Label btnHome;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton Home;
         private Controles_extra.label obs;
     }
 }

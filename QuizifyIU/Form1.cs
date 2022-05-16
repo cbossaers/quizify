@@ -47,11 +47,8 @@ namespace QuizifyIU
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-        }
 
-        private void obs_(object sender, EventArgs e)
-        {
-            CollapseMenu();
+            ActivateButton(Home, RGBColors.color3);
         }
 
         public void abrirNieto(Form childForm)
@@ -324,6 +321,15 @@ namespace QuizifyIU
         private void btnHome_Click(object sender, EventArgs e)
         {
             Reset();
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+        }
+        private void btnHome1_Click(object sender, EventArgs e)
+        {
+            Reset();
+            ActivateButton(sender, RGBColors.color3);
             if (currentChildForm != null)
             {
                 currentChildForm.Close();
