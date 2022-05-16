@@ -29,20 +29,15 @@ namespace QuizifyIU
             
             this.servicio = servicio;
             this.usuario = user;
-            //filtros[0] = usuario.nombre;
             filtros = new List<dynamic>() { usuario.GetCorreo(), null, null, null };
             this.examen = examen;
-            DTable = servicio.GetPreguntas(filtros);
+            //DTable = servicio.GetPreguntas(filtros);
             tabla();
             crearquiz = false;
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -51,11 +46,7 @@ namespace QuizifyIU
             form2.Show();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             tabla();
@@ -136,11 +127,7 @@ namespace QuizifyIU
             }
         }
 
-        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-           
-        }
-
+        
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (dataGridView1.Rows.Count > 0)

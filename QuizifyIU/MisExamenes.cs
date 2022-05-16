@@ -14,7 +14,7 @@ namespace QuizifyIU
     {
         private NuevoServicio servicio;
         dynamic user;
-
+        private ValueTuple<DataTable, DataTable> tupla;
         public MisExamenes(NuevoServicio servicio, dynamic usuario)
         {
             InitializeComponent();
@@ -23,64 +23,23 @@ namespace QuizifyIU
             BindingList<object> bindingListExamenFinalizado = new BindingList<object>();
 
             user = usuario;
-            servicio.ActualizarEstadoQuizes();
+            //servicio.ActualizarEstadoQuizes();
             
             if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
             {
-                servicio.ActualizarEstadoQuizes();
-                List<int> lista = servicio.GetExamenesAlumno(user.GetCorreo());
-                foreach (int x in lista)
-                {
-                    
-                    Examen ex = servicio.GetExamen(x);
-                    if (servicio.GetNota(usuario.GetCorreo(), ex.GetId()) == -1)
-                    {
-                        if (ex.GetEstado() == "Activo") {
-                            bindingListExamenDisponible.Add(new
-                            {
-                                id = ex.GetId(),
-                                estado = ex.GetEstado(),
-                                titulo = ex.GetTitulo(),
-                                descripcion = ex.GetDescripcion(),
-                                curso = ex.GetCurso(),
-                                tiempo = ex.GetTiempo(),
-                                fecha_ini = ex.GetFechaIni(),
-                                fecha_fin = ex.GetFechaFin(),
-                                ct = ex.GetCompetenciaTransversal(),
-
-                            });
-                        }
-                    }
-                    //SI NO LOS HAS HECHO TIENEN QUE SALIR AQUI PLS
-                    else
-                    {  
-                        double nota = servicio.GetNota(usuario.GetCorreo(),ex.GetId());
-                        bindingListExamenFinalizado.Add(new
-                        {
-                            id = ex.GetId(),
-                            nota = nota,
-                            estado = ex.GetEstado(),
-                            titulo = ex.GetTitulo(),
-                            descripcion = ex.GetDescripcion(),
-                            curso = ex.GetCurso(),
-                            tiempo = ex.GetTiempo(),
-                            fecha_ini = ex.GetFechaIni(),
-                            fecha_fin = ex.GetFechaFin(),
-                            ct = ex.GetCompetenciaTransversal()
-                        }); 
-                    }
-                }
-                tablaExamenDisponible.DataSource = bindingListExamenDisponible;
-                tablaExamenFinalizado.DataSource = bindingListExamenFinalizado;
+                tupla = servicio.GetExamenesAlumno(user.GetCorreo());
+                tablaExamenDisponible.DataSource = tupla.Item1;
+                tablaExamenFinalizado.DataSource = tupla.Item2;
             }
             else
             {
-                List<int> lista = servicio.GetExamenesProfesor(user.GetCorreo());
+                //List<int> lista = servicio.GetExamenesProfesor(user.GetCorreo());
                 calificar.Visible = true;
                 tablaExamenesProfesor.Visible = true;
                 tablaExamenDisponible.Visible = false;
-                tablaExamenFinalizado.Visible = false ;
-                foreach (int x in lista)
+                tablaExamenFinalizado.Visible = false;
+
+                /*foreach (int x in lista)
                 {
                     Examen ex = servicio.GetExamen(x);
                     bindingListExamenDisponible.Add(new
@@ -96,8 +55,10 @@ namespace QuizifyIU
                         ct = ex.GetCompetenciaTransversal()
                     }); 
                     
-                }
-                tablaExamenesProfesor.DataSource = bindingListExamenDisponible;
+                }*/
+                tablaExamenesProfesor.DataSource = servicio.GetExamenesProfesor(user.GetCorreo());
+                
+                
             }
         }
         private void tablaExamenDisponible_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -184,6 +145,8 @@ namespace QuizifyIU
                 }
             }
         }
+
+        
     }
         
 }

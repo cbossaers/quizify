@@ -37,6 +37,7 @@
             this.CrearPregunta = new FontAwesome.Sharp.IconButton();
             this.CrearQuiz = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHome = new System.Windows.Forms.Label();
             this.btnMenu = new FontAwesome.Sharp.IconButton();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.iconoForm = new FontAwesome.Sharp.IconPictureBox();
@@ -45,7 +46,6 @@
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.btnHome = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
@@ -76,7 +76,7 @@
             this.CerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.CerrarSesion.FlatAppearance.BorderSize = 0;
             this.CerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CerrarSesion.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CerrarSesion.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CerrarSesion.ForeColor = System.Drawing.Color.White;
             this.CerrarSesion.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.CerrarSesion.IconColor = System.Drawing.Color.White;
@@ -101,7 +101,7 @@
             this.Estadisticas.Dock = System.Windows.Forms.DockStyle.Top;
             this.Estadisticas.FlatAppearance.BorderSize = 0;
             this.Estadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Estadisticas.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Estadisticas.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Estadisticas.ForeColor = System.Drawing.Color.White;
             this.Estadisticas.IconChar = FontAwesome.Sharp.IconChar.ChartLine;
             this.Estadisticas.IconColor = System.Drawing.Color.White;
@@ -126,7 +126,7 @@
             this.Cursos.Dock = System.Windows.Forms.DockStyle.Top;
             this.Cursos.FlatAppearance.BorderSize = 0;
             this.Cursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cursos.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Cursos.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Cursos.ForeColor = System.Drawing.Color.White;
             this.Cursos.IconChar = FontAwesome.Sharp.IconChar.GraduationCap;
             this.Cursos.IconColor = System.Drawing.Color.White;
@@ -140,7 +140,7 @@
             this.Cursos.Size = new System.Drawing.Size(230, 57);
             this.Cursos.TabIndex = 5;
             this.Cursos.Tag = "Cursos";
-            this.Cursos.Text = "    Cursos";
+            this.Cursos.Text = "     Cursos";
             this.Cursos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Cursos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Cursos.UseVisualStyleBackColor = true;
@@ -151,7 +151,7 @@
             this.Misexamenes.Dock = System.Windows.Forms.DockStyle.Top;
             this.Misexamenes.FlatAppearance.BorderSize = 0;
             this.Misexamenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Misexamenes.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Misexamenes.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Misexamenes.ForeColor = System.Drawing.Color.White;
             this.Misexamenes.IconChar = FontAwesome.Sharp.IconChar.Clipboard;
             this.Misexamenes.IconColor = System.Drawing.Color.White;
@@ -176,7 +176,7 @@
             this.Mispreguntas.Dock = System.Windows.Forms.DockStyle.Top;
             this.Mispreguntas.FlatAppearance.BorderSize = 0;
             this.Mispreguntas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Mispreguntas.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Mispreguntas.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Mispreguntas.ForeColor = System.Drawing.Color.White;
             this.Mispreguntas.IconChar = FontAwesome.Sharp.IconChar.Question;
             this.Mispreguntas.IconColor = System.Drawing.Color.White;
@@ -201,7 +201,7 @@
             this.CrearPregunta.Dock = System.Windows.Forms.DockStyle.Top;
             this.CrearPregunta.FlatAppearance.BorderSize = 0;
             this.CrearPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrearPregunta.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CrearPregunta.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CrearPregunta.ForeColor = System.Drawing.Color.White;
             this.CrearPregunta.IconChar = FontAwesome.Sharp.IconChar.Pen;
             this.CrearPregunta.IconColor = System.Drawing.Color.White;
@@ -226,7 +226,7 @@
             this.CrearQuiz.Dock = System.Windows.Forms.DockStyle.Top;
             this.CrearQuiz.FlatAppearance.BorderSize = 0;
             this.CrearQuiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrearQuiz.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CrearQuiz.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CrearQuiz.ForeColor = System.Drawing.Color.White;
             this.CrearQuiz.IconChar = FontAwesome.Sharp.IconChar.Edit;
             this.CrearQuiz.IconColor = System.Drawing.Color.White;
@@ -240,7 +240,7 @@
             this.CrearQuiz.Size = new System.Drawing.Size(230, 57);
             this.CrearQuiz.TabIndex = 1;
             this.CrearQuiz.Tag = "Crear Quiz";
-            this.CrearQuiz.Text = "   Crear Quiz";
+            this.CrearQuiz.Text = "    Crear Quiz";
             this.CrearQuiz.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CrearQuiz.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.CrearQuiz.UseVisualStyleBackColor = true;
@@ -256,6 +256,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 69);
             this.panel1.TabIndex = 0;
+            // 
+            // btnHome
+            // 
+            this.btnHome.AutoSize = true;
+            this.btnHome.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHome.ForeColor = System.Drawing.Color.Snow;
+            this.btnHome.Location = new System.Drawing.Point(36, 18);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(106, 32);
+            this.btnHome.TabIndex = 4;
+            this.btnHome.Text = "Quizify";
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // btnMenu
             // 
@@ -388,18 +400,6 @@
             this.panelDesktop.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.panelDesktop.Size = new System.Drawing.Size(754, 504);
             this.panelDesktop.TabIndex = 2;
-            // 
-            // btnHome
-            // 
-            this.btnHome.AutoSize = true;
-            this.btnHome.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnHome.ForeColor = System.Drawing.Color.Snow;
-            this.btnHome.Location = new System.Drawing.Point(36, 18);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(106, 32);
-            this.btnHome.TabIndex = 4;
-            this.btnHome.Text = "Quizify";
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // Form1
             // 

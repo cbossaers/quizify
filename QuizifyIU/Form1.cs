@@ -48,8 +48,12 @@ namespace QuizifyIU
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
+        public void apuntarseCurso()
+        {
+            abrirNieto(new ApuntarseCurso(servicio, usuario));
+        }
 
-        public void abrirNieto(Form childForm)
+        private void abrirNieto(Form childForm)
         {
             //open only form
             if (currentChildForm != null)
