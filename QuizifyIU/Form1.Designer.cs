@@ -420,11 +420,11 @@
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(230, 69);
+            this.panelDesktop.Location = new System.Drawing.Point(230, 0);
             this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.panelDesktop.Size = new System.Drawing.Size(754, 504);
+            this.panelDesktop.Size = new System.Drawing.Size(754, 573);
             this.panelDesktop.TabIndex = 2;
             // 
             // Form1
@@ -432,8 +432,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 573);
-            this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitleBar);
+            this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelMenu);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MinimumSize = new System.Drawing.Size(950, 566);
