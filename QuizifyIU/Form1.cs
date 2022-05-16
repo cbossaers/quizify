@@ -11,6 +11,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Quizify.Entities;
+
 
 namespace QuizifyIU
 {
@@ -45,6 +47,11 @@ namespace QuizifyIU
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        }
+
+        private void obs_(object sender, EventArgs e)
+        {
+            CollapseMenu();
         }
 
         public void abrirNieto(Form childForm)

@@ -47,10 +47,12 @@
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.obs = new QuizifyIU.Controles_extra.label();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoForm)).BeginInit();
+            this.panelDesktop.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -419,6 +421,7 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.panelDesktop.Controls.Add(this.obs);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(230, 69);
             this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -426,6 +429,28 @@
             this.panelDesktop.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.panelDesktop.Size = new System.Drawing.Size(754, 504);
             this.panelDesktop.TabIndex = 2;
+            // 
+            // obs
+            // 
+            this.obs.BackColor = System.Drawing.SystemColors.Window;
+            this.obs.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.obs.BorderFocusColor = System.Drawing.Color.DarkSlateBlue;
+            this.obs.BorderRadius = 12;
+            this.obs.BorderSize = 2;
+            this.obs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.obs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.obs.Location = new System.Drawing.Point(286, 186);
+            this.obs.Margin = new System.Windows.Forms.Padding(4);
+            this.obs.Multiline = false;
+            this.obs.Name = "obs";
+            this.obs.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.obs.PasswordChar = false;
+            this.obs.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.obs.PlaceholderText = "";
+            this.obs.Size = new System.Drawing.Size(250, 31);
+            this.obs.TabIndex = 0;
+            this.obs.Texts = "";
+            this.obs.UnderlinedStyle = false;
             // 
             // Form1
             // 
@@ -447,6 +472,7 @@
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoForm)).EndInit();
+            this.panelDesktop.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -472,6 +498,7 @@
         private FontAwesome.Sharp.IconButton btnMenu;
         private System.Windows.Forms.Label btnHome;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private Controles_extra.label obs;
     }
 }
 
