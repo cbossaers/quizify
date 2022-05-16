@@ -35,16 +35,12 @@
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.emailField = new QuizifyIU.Controles_extra.label();
+            this.contraField = new QuizifyIU.Controles_extra.label();
             this.bregistrarse = new System.Windows.Forms.Label();
             this.biniciarS = new QuizifyIU.Controles_extra.Botones_fancy();
             this.label7 = new System.Windows.Forms.Label();
-            this.contraField = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.emailField = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -148,16 +144,12 @@
             // 
             // panelDesktop
             // 
+            this.panelDesktop.Controls.Add(this.emailField);
+            this.panelDesktop.Controls.Add(this.contraField);
             this.panelDesktop.Controls.Add(this.bregistrarse);
             this.panelDesktop.Controls.Add(this.biniciarS);
             this.panelDesktop.Controls.Add(this.label7);
-            this.panelDesktop.Controls.Add(this.contraField);
-            this.panelDesktop.Controls.Add(this.label6);
-            this.panelDesktop.Controls.Add(this.emailField);
-            this.panelDesktop.Controls.Add(this.label5);
             this.panelDesktop.Controls.Add(this.label4);
-            this.panelDesktop.Controls.Add(this.label3);
-            this.panelDesktop.Controls.Add(this.label2);
             this.panelDesktop.Controls.Add(this.label8);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(0, 45);
@@ -165,15 +157,60 @@
             this.panelDesktop.Size = new System.Drawing.Size(483, 350);
             this.panelDesktop.TabIndex = 19;
             // 
+            // emailField
+            // 
+            this.emailField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
+            this.emailField.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.emailField.BorderFocusColor = System.Drawing.Color.DarkSlateBlue;
+            this.emailField.BorderRadius = 12;
+            this.emailField.BorderSize = 2;
+            this.emailField.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.emailField.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.emailField.Location = new System.Drawing.Point(150, 96);
+            this.emailField.Margin = new System.Windows.Forms.Padding(4);
+            this.emailField.Multiline = false;
+            this.emailField.Name = "emailField";
+            this.emailField.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.emailField.PasswordChar = false;
+            this.emailField.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.emailField.PlaceholderText = "Email";
+            this.emailField.Size = new System.Drawing.Size(204, 31);
+            this.emailField.TabIndex = 1;
+            this.emailField.Texts = "";
+            this.emailField.UnderlinedStyle = false;
+            // 
+            // contraField
+            // 
+            this.contraField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
+            this.contraField.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.contraField.BorderFocusColor = System.Drawing.Color.DarkSlateBlue;
+            this.contraField.BorderRadius = 12;
+            this.contraField.BorderSize = 2;
+            this.contraField.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.contraField.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.contraField.Location = new System.Drawing.Point(150, 161);
+            this.contraField.Margin = new System.Windows.Forms.Padding(4);
+            this.contraField.Multiline = false;
+            this.contraField.Name = "contraField";
+            this.contraField.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.contraField.PasswordChar = true;
+            this.contraField.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.contraField.PlaceholderText = "Contraseña";
+            this.contraField.Size = new System.Drawing.Size(204, 31);
+            this.contraField.TabIndex = 2;
+            this.contraField.Texts = "";
+            this.contraField.UnderlinedStyle = false;
+            this.contraField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.biniciarS_KeyPress);
+            // 
             // bregistrarse
             // 
             this.bregistrarse.AutoSize = true;
             this.bregistrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bregistrarse.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.bregistrarse.Location = new System.Drawing.Point(293, 275);
+            this.bregistrarse.Location = new System.Drawing.Point(293, 277);
             this.bregistrarse.Name = "bregistrarse";
             this.bregistrarse.Size = new System.Drawing.Size(70, 15);
-            this.bregistrarse.TabIndex = 29;
+            this.bregistrarse.TabIndex = 4;
             this.bregistrarse.Text = "Registrarse";
             this.bregistrarse.Click += new System.EventHandler(this.bregistrarse_Click);
             // 
@@ -188,10 +225,10 @@
             this.biniciarS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.biniciarS.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.biniciarS.ForeColor = System.Drawing.Color.White;
-            this.biniciarS.Location = new System.Drawing.Point(178, 219);
+            this.biniciarS.Location = new System.Drawing.Point(172, 221);
             this.biniciarS.Name = "biniciarS";
             this.biniciarS.Size = new System.Drawing.Size(157, 30);
-            this.biniciarS.TabIndex = 27;
+            this.biniciarS.TabIndex = 3;
             this.biniciarS.Text = "Iniciar sesión";
             this.biniciarS.TextColor = System.Drawing.Color.White;
             this.biniciarS.UseVisualStyleBackColor = false;
@@ -209,79 +246,15 @@
             this.label7.TabIndex = 26;
             this.label7.Text = "Iniciar sesión";
             // 
-            // contraField
-            // 
-            this.contraField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
-            this.contraField.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.contraField.Location = new System.Drawing.Point(170, 169);
-            this.contraField.Name = "contraField";
-            this.contraField.Size = new System.Drawing.Size(178, 16);
-            this.contraField.TabIndex = 20;
-            this.contraField.UseSystemPasswordChar = true;
-            this.contraField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.biniciarS_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label6.ForeColor = System.Drawing.Color.DarkGray;
-            this.label6.Location = new System.Drawing.Point(166, 177);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(187, 15);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "———————————————";
-            // 
-            // emailField
-            // 
-            this.emailField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
-            this.emailField.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailField.Location = new System.Drawing.Point(170, 108);
-            this.emailField.Name = "emailField";
-            this.emailField.Size = new System.Drawing.Size(178, 16);
-            this.emailField.TabIndex = 19;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.ForeColor = System.Drawing.Color.DarkGray;
-            this.label5.Location = new System.Drawing.Point(166, 116);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 15);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "———————————————";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(131, 275);
+            this.label4.Location = new System.Drawing.Point(131, 277);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(155, 15);
             this.label4.TabIndex = 23;
             this.label4.Text = "¿No tienes cuenta todavía?";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(85, 171);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 15);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Contraseña";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(85, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 15);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Email";
             // 
             // label8
             // 
@@ -290,11 +263,11 @@
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.label8.Location = new System.Drawing.Point(283, 284);
+            this.label8.Location = new System.Drawing.Point(289, 286);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 15);
+            this.label8.Size = new System.Drawing.Size(79, 15);
             this.label8.TabIndex = 28;
-            this.label8.Text = "———————";
+            this.label8.Text = "——————";
             // 
             // Principal
             // 
@@ -331,13 +304,9 @@
         private System.Windows.Forms.Label bregistrarse;
         private Controles_extra.Botones_fancy biniciarS;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox contraField;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox emailField;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;
+        private Controles_extra.label contraField;
+        private Controles_extra.label emailField;
     }
 }

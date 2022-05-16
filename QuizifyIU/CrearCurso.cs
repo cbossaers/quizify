@@ -14,18 +14,18 @@ namespace QuizifyIU
     {
         private NuevoServicio servicio;
         private dynamic usuario;
-        private Form1 control;
+        
 
         //Variables para habilitar/deshabilitar el botón "Crear"
         private Boolean nombreCorrecto = false;
         private Boolean codCorrecto = false;
         private Boolean maxCorrecto = false;
         private Boolean contraCorrecto = false;
-        public CrearCurso(NuevoServicio servicio, dynamic user,Form1 control)
+
+        public CrearCurso(NuevoServicio servicio, dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
-            this.control = control; 
             usuario = user;
             bCrearCurso.Enabled = false;
         }
@@ -37,7 +37,7 @@ namespace QuizifyIU
 
         private void bVolver_Click(object sender, EventArgs e)
         {
-            AbrirFormCurso(new CursoForm(servicio, usuario,control));
+            AbrirFormCurso(new CursoForm(servicio, usuario));
         }
 
         private void AbrirFormCurso(object formCurso)
