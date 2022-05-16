@@ -13,11 +13,6 @@ namespace Quizify.Entities {
 
         public static string TextoNotif = "";
 
-        private event EventHandler TextChanged;
-
-        
-        
-
         public void test() {
 
         new Thread(() => {
