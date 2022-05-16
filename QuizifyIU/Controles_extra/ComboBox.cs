@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace QuizifyIU.Controles_extra
 {
     [DefaultEvent("OnSelectedIndexChanged")]
-    class ComboBox : UserControl
+    class ComboBox// : UserControl
     {
         /*//Fields
         private Color backColor = Color.WhiteSmoke;
