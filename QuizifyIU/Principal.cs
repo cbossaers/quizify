@@ -17,7 +17,7 @@ namespace QuizifyIU
     public partial class Principal : Form
     {
         private NuevoServicio servicio;
-        private Form1 formportal;
+        public static Form1 formportal;
 
         private int borderSize = 2;
         private Size formSize;
@@ -43,18 +43,18 @@ namespace QuizifyIU
 
             dynamic user = null;
 
-            try { user = servicio.GetAlumno(emailField.Text); } 
+            try { user = servicio.GetAlumno(emailField.Texts); } 
             catch (Exception) {
-                try { user = servicio.GetProfesor(emailField.Text); } 
+                try { user = servicio.GetProfesor(emailField.Texts); } 
                 catch (Exception) { DialogResult answer = MessageBox.Show(this, "Esta persona no está registrada", 
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
 
-            if (user.GetContraseña().Equals(contraField.Text)) { 
+            if (user.GetContraseña().Equals(contraField.Texts)) { 
                 this.Hide(); 
-                formportal = new Form1(servicio, formportal, user);
+                formportal = new Form1(servicio,user);
                 formportal.ShowDialog();
                 this.Close();
             } else {

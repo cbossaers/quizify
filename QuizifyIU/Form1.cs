@@ -18,8 +18,7 @@ namespace QuizifyIU
     {
         private NuevoServicio servicio;
         private dynamic usuario;
-        private Form1 control;
-
+        
         
         private int borderSize = 2;
         private Size formSize; 
@@ -27,17 +26,17 @@ namespace QuizifyIU
         private Panel leftBorderBtn;
         private Form currentChildForm;
 
-        public Form1(NuevoServicio servicio, Form1 control, dynamic user)
+        public Form1(NuevoServicio servicio, dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
             //nombreIniciado.Text = user.correo;
             usuario = user;
-            this.control = control;
+            
             //CollapseMenu();
             this.Padding = new Padding(borderSize);//Border size
             this.BackColor = Color.FromArgb(98, 102, 244);//Border color
-
+            
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7,57);
             panelMenu.Controls.Add(leftBorderBtn);
@@ -48,12 +47,7 @@ namespace QuizifyIU
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
-        public void apuntarseCurso()
-        {
-            abrirNieto(new ApuntarseCurso(servicio, usuario));
-        }
-
-        private void abrirNieto(Form childForm)
+        public void abrirNieto(Form childForm)
         {
             //open only form
             if (currentChildForm != null)
@@ -356,7 +350,7 @@ namespace QuizifyIU
         private void Cursos_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new CursoForm(servicio, usuario, control));
+            OpenChildForm(new CursoForm(servicio, usuario));
         }
 
         private void Estadisticas_Click(object sender, EventArgs e)
