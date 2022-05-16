@@ -75,9 +75,9 @@ public class DALAlumno {
         }
     }
 
-    public List<int> GetExamenes(string id) {
+    public DataTable GetExamenes(string id) {
 
-        List<int> result = new List<int> {};
+        /*List<int> result = new List<int> {};
         List<string> cursos = DALCurso.GetCursosAlumno(id);
 
         foreach(string curso in cursos) {
@@ -102,7 +102,29 @@ public class DALAlumno {
             }
         }
 
-        return result;
+        return result;*/
+
+        List<string> cursos = DALCurso.GetCursosAlumno(id);
+         DataTable dt = new DataTable();
+
+        foreach(string curso in cursos) {
+
+            using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = cmd.CommandText = "SELECT * FROM examen WHERE curso = @curso";
+
+                    cmd.Parameters.AddWithValue("@curso", curso);
+
+                    conn.Open();
+
+                    dt.Load(cmd.ExecuteReader());
+                }
+            } 
+        }
+
+        return dt;
     }
 
     public DataTable GetAllAlumnos() {

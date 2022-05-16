@@ -26,7 +26,7 @@ namespace Quizify.Services
         public void EliminarAlumno(string id){
             alumno.Eliminar(id);
         }
-        public List<int> GetExamenesAlumno(string al) {
+        public DataTable GetExamenesAlumno(string al) {
             return alumno.GetExamenes(al);
         }
 
