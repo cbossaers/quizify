@@ -86,7 +86,7 @@ public class DALAlumno {
 
                 using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                    cmd.CommandText = cmd.CommandText = "SELECT * FROM examen WHERE curso = @curso AND estado = Activo";
+                    cmd.CommandText = cmd.CommandText = "SELECT * FROM examen WHERE curso = @curso AND estado = 'Activo'";
 
                     cmd.Parameters.AddWithValue("@curso", curso);
 
@@ -111,7 +111,7 @@ public class DALAlumno {
 
                 using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                    cmd.CommandText = cmd.CommandText = "SELECT * FROM examen WHERE curso = @curso AND estado NOT LIKE Activo";
+                    cmd.CommandText = cmd.CommandText = "SELECT * FROM examen WHERE curso = @curso AND estado NOT LIKE 'Activo'";
 
                     cmd.Parameters.AddWithValue("@curso", curso);
 
