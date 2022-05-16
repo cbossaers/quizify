@@ -27,7 +27,9 @@ namespace AppTest {
 
             //service.GenerarExamen("patricio@gmail.com", "GPR", 3, 30, DateTime.Now.AddDays(2), DateTime.Now.AddDays(17), 2, 0, 1, 0);
 
-            service.FinalizarExamen(12);
+            DataTable x = service.GetExamenesProfesor("x");
+
+            Console.WriteLine(x.Rows[1]);
 
             }
         }
