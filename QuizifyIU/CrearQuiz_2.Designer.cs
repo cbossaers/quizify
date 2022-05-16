@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
             this.crear = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,19 +41,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.editar = new System.Windows.Forms.Button();
             this.anular = new System.Windows.Forms.Button();
+            this.bVolver = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(12, 415);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(186, 23);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Editar informacion del quiz";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // crear
             // 
@@ -80,7 +69,7 @@
             this.Materia,
             this.Puntuacion});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.MenuBar;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 69);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
@@ -132,7 +121,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(612, 12);
+            this.button1.Location = new System.Drawing.Point(612, 32);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 23);
             this.button1.TabIndex = 9;
@@ -144,7 +133,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 23);
+            this.label1.Location = new System.Drawing.Point(12, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 20);
             this.label1.TabIndex = 7;
@@ -152,7 +141,7 @@
             // 
             // editar
             // 
-            this.editar.Location = new System.Drawing.Point(720, 341);
+            this.editar.Location = new System.Drawing.Point(720, 361);
             this.editar.Name = "editar";
             this.editar.Size = new System.Drawing.Size(75, 42);
             this.editar.TabIndex = 13;
@@ -163,7 +152,7 @@
             // 
             // anular
             // 
-            this.anular.Location = new System.Drawing.Point(720, 180);
+            this.anular.Location = new System.Drawing.Point(720, 200);
             this.anular.Name = "anular";
             this.anular.Size = new System.Drawing.Size(75, 46);
             this.anular.TabIndex = 14;
@@ -171,15 +160,31 @@
             this.anular.UseVisualStyleBackColor = true;
             this.anular.Click += new System.EventHandler(this.anular_Click);
             // 
+            // bVolver
+            // 
+            this.bVolver.FlatAppearance.BorderSize = 0;
+            this.bVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bVolver.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.bVolver.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.bVolver.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bVolver.IconSize = 30;
+            this.bVolver.Location = new System.Drawing.Point(1, 3);
+            this.bVolver.Name = "bVolver";
+            this.bVolver.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.bVolver.Size = new System.Drawing.Size(78, 38);
+            this.bVolver.TabIndex = 18;
+            this.bVolver.UseVisualStyleBackColor = true;
+            this.bVolver.Click += new System.EventHandler(this.button3_Click);
+            // 
             // CrearQuiz_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(813, 451);
+            this.Controls.Add(this.bVolver);
             this.Controls.Add(this.anular);
             this.Controls.Add(this.editar);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.crear);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
@@ -194,8 +199,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button crear;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
@@ -209,5 +212,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Puntuacion;
         private System.Windows.Forms.Button editar;
         private System.Windows.Forms.Button anular;
+        private FontAwesome.Sharp.IconButton bVolver;
     }
 }

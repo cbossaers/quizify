@@ -37,21 +37,7 @@ namespace QuizifyIU
 
         private void bVolver_Click(object sender, EventArgs e)
         {
-            AbrirFormCurso(new CursoForm(servicio, usuario));
-        }
-
-        private void AbrirFormCurso(object formCurso)
-        {
-            
-            if (this.panelCrearCurso.Controls.Count > 0)
-                this.panelCrearCurso.Controls.RemoveAt(0);
-            Form fC = formCurso as Form;
-            fC.TopLevel = false;
-            fC.Dock = DockStyle.Fill;
-            this.panelCrearCurso.Controls.Add(fC);
-            this.panelCrearCurso.Tag = fC;
-            fC.BringToFront();
-            fC.Show();
+            Principal.formportal.abrirNieto(new CursoForm(servicio, usuario));
         }
 
         private void registrarCurso()

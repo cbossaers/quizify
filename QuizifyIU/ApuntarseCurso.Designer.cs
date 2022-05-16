@@ -35,12 +35,14 @@
             this.bApuntarse = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.correoProfeBox = new System.Windows.Forms.TextBox();
+            this.bVolver = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 44);
+            this.label1.Location = new System.Drawing.Point(172, 129);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 15);
             this.label1.TabIndex = 0;
@@ -48,8 +50,9 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 156);
+            this.label2.Location = new System.Drawing.Point(172, 241);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 15);
             this.label2.TabIndex = 1;
@@ -57,7 +60,8 @@
             // 
             // codBox
             // 
-            this.codBox.Location = new System.Drawing.Point(166, 41);
+            this.codBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.codBox.Location = new System.Drawing.Point(303, 126);
             this.codBox.Name = "codBox";
             this.codBox.Size = new System.Drawing.Size(153, 23);
             this.codBox.TabIndex = 2;
@@ -65,7 +69,8 @@
             // 
             // contraBox
             // 
-            this.contraBox.Location = new System.Drawing.Point(166, 153);
+            this.contraBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.contraBox.Location = new System.Drawing.Point(303, 238);
             this.contraBox.Name = "contraBox";
             this.contraBox.Size = new System.Drawing.Size(153, 23);
             this.contraBox.TabIndex = 3;
@@ -73,7 +78,8 @@
             // 
             // bApuntarse
             // 
-            this.bApuntarse.Location = new System.Drawing.Point(264, 226);
+            this.bApuntarse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bApuntarse.Location = new System.Drawing.Point(401, 311);
             this.bApuntarse.Name = "bApuntarse";
             this.bApuntarse.Size = new System.Drawing.Size(75, 23);
             this.bApuntarse.TabIndex = 4;
@@ -83,8 +89,9 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 105);
+            this.label3.Location = new System.Drawing.Point(172, 190);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 15);
             this.label3.TabIndex = 5;
@@ -92,11 +99,27 @@
             // 
             // correoProfeBox
             // 
-            this.correoProfeBox.Location = new System.Drawing.Point(166, 105);
+            this.correoProfeBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.correoProfeBox.Location = new System.Drawing.Point(303, 190);
             this.correoProfeBox.Name = "correoProfeBox";
             this.correoProfeBox.Size = new System.Drawing.Size(153, 23);
             this.correoProfeBox.TabIndex = 6;
             this.correoProfeBox.TextChanged += new System.EventHandler(this.correoProfeBox_TextChanged);
+            // 
+            // bVolver
+            // 
+            this.bVolver.FlatAppearance.BorderSize = 0;
+            this.bVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bVolver.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.bVolver.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.bVolver.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bVolver.IconSize = 30;
+            this.bVolver.Location = new System.Drawing.Point(4, 12);
+            this.bVolver.Name = "bVolver";
+            this.bVolver.Size = new System.Drawing.Size(78, 38);
+            this.bVolver.TabIndex = 17;
+            this.bVolver.UseVisualStyleBackColor = true;
+            this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
             // ApuntarseCurso
             // 
@@ -104,6 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(694, 451);
+            this.Controls.Add(this.bVolver);
             this.Controls.Add(this.correoProfeBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.bApuntarse);
@@ -127,5 +151,6 @@
         private System.Windows.Forms.Button bApuntarse;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox correoProfeBox;
+        private FontAwesome.Sharp.IconButton bVolver;
     }
 }

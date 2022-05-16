@@ -33,6 +33,7 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bEliminar = new System.Windows.Forms.Button();
+            this.bVolver = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.tablaAlumnoCurso)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             this.Correo,
             this.Nombre,
             this.Apellidos});
-            this.tablaAlumnoCurso.Location = new System.Drawing.Point(66, 61);
+            this.tablaAlumnoCurso.Location = new System.Drawing.Point(152, 128);
             this.tablaAlumnoCurso.MultiSelect = false;
             this.tablaAlumnoCurso.Name = "tablaAlumnoCurso";
             this.tablaAlumnoCurso.RowHeadersVisible = false;
@@ -81,7 +82,7 @@
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(405, 274);
+            this.bEliminar.Location = new System.Drawing.Point(491, 341);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(75, 23);
             this.bEliminar.TabIndex = 2;
@@ -89,12 +90,28 @@
             this.bEliminar.UseVisualStyleBackColor = true;
             this.bEliminar.Click += new System.EventHandler(this.bEliminar_Click);
             // 
+            // bVolver
+            // 
+            this.bVolver.FlatAppearance.BorderSize = 0;
+            this.bVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bVolver.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.bVolver.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.bVolver.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bVolver.IconSize = 30;
+            this.bVolver.Location = new System.Drawing.Point(12, 12);
+            this.bVolver.Name = "bVolver";
+            this.bVolver.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.bVolver.Size = new System.Drawing.Size(78, 38);
+            this.bVolver.TabIndex = 19;
+            this.bVolver.UseVisualStyleBackColor = true;
+            // 
             // GestionarAlumnosCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(569, 312);
+            this.ClientSize = new System.Drawing.Size(694, 451);
+            this.Controls.Add(this.bVolver);
             this.Controls.Add(this.bEliminar);
             this.Controls.Add(this.tablaAlumnoCurso);
             this.Name = "GestionarAlumnosCurso";
@@ -111,5 +128,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
+        private FontAwesome.Sharp.IconButton bVolver;
     }
 }

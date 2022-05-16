@@ -31,7 +31,6 @@
             this.panelCrearCurso = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.boxContraseña = new System.Windows.Forms.TextBox();
-            this.bVolver = new System.Windows.Forms.Button();
             this.bCrearCurso = new System.Windows.Forms.Button();
             this.maxAlumnos = new System.Windows.Forms.NumericUpDown();
             this.codCursoBox = new System.Windows.Forms.TextBox();
@@ -40,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.b = new FontAwesome.Sharp.IconButton();
             this.panelCrearCurso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maxAlumnos)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +49,6 @@
             this.panelCrearCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelCrearCurso.Controls.Add(this.label5);
             this.panelCrearCurso.Controls.Add(this.boxContraseña);
-            this.panelCrearCurso.Controls.Add(this.bVolver);
             this.panelCrearCurso.Controls.Add(this.bCrearCurso);
             this.panelCrearCurso.Controls.Add(this.maxAlumnos);
             this.panelCrearCurso.Controls.Add(this.codCursoBox);
@@ -80,16 +79,6 @@
             this.boxContraseña.Size = new System.Drawing.Size(160, 23);
             this.boxContraseña.TabIndex = 10;
             this.boxContraseña.TextChanged += new System.EventHandler(this.boxContraseña_TextChanged);
-            // 
-            // bVolver
-            // 
-            this.bVolver.Location = new System.Drawing.Point(240, 238);
-            this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(75, 23);
-            this.bVolver.TabIndex = 9;
-            this.bVolver.Text = "Volver";
-            this.bVolver.UseVisualStyleBackColor = true;
-            this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
             // bCrearCurso
             // 
@@ -161,6 +150,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
+            // b
+            // 
+            this.b.FlatAppearance.BorderSize = 0;
+            this.b.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.b.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.b.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.b.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.b.IconSize = 30;
+            this.b.Location = new System.Drawing.Point(4, 12);
+            this.b.Name = "b";
+            this.b.Size = new System.Drawing.Size(78, 38);
+            this.b.TabIndex = 18;
+            this.b.UseVisualStyleBackColor = true;
+            this.b.Click += new System.EventHandler(this.bVolver_Click);
+            // 
             // CrearCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -168,6 +172,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(710, 490);
+            this.Controls.Add(this.b);
             this.Controls.Add(this.panelCrearCurso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrearCurso";
@@ -190,8 +195,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button bVolver;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox boxContraseña;
+        private FontAwesome.Sharp.IconButton b;
     }
 }

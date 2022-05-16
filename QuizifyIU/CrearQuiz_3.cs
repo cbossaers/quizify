@@ -154,12 +154,9 @@ namespace QuizifyIU
             tabla();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void bVolver_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var form2 = new CrearQuiz_2(servicio, usuario, examen);
-            form2.Closed += (s, args) => this.Close();
-            form2.Show();
+            Principal.formportal.abrirNieto(new CrearQuiz_2(servicio, usuario, examen));
         }
     }
 }

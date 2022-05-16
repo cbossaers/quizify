@@ -42,7 +42,7 @@ namespace QuizifyIU
                 {
                     servicio.AddAlumnoACurso(alumno, codigo, profe);
                     DialogResult apuntadoCorrecto = MessageBox.Show(this, "Has sido apuntado correctamente al curso con código " + codigo + ".", "Alumno apuntado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (apuntadoCorrecto == DialogResult.OK) this.Close();
+                    if (apuntadoCorrecto == DialogResult.OK) Principal.formportal.abrirNieto(new CursoForm(servicio, usuario));
                 }
                 else
                 {
@@ -80,6 +80,11 @@ namespace QuizifyIU
             else codCorrecto = true;
             if (nombreCorrecto && codCorrecto && contraCorrecto)
                 bApuntarse.Enabled = true;
+        }
+
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+            Principal.formportal.abrirNieto(new CursoForm(servicio, usuario));
         }
     }
 }

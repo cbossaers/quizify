@@ -81,7 +81,7 @@ namespace QuizifyIU
                 DialogResult answer = MessageBox.Show(this, "examen añadido correctamente.",
                                                             "Exito", MessageBoxButtons.OK,
                                                             MessageBoxIcon.Information);
-                this.Close();
+                Principal.formportal.abrirNieto(new MisExamenes(servicio, usuario));
             }
             else
             {

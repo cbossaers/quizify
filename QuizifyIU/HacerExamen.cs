@@ -39,20 +39,7 @@ namespace QuizifyIU
 
         private void empezar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var form2 = new HacerExamen2(servicio, usuario,examen);
-            form2.Closed += (s, args) => this.Close();
-            form2.Show();
-            
-            /*control.GetContainerControl()
-
-            control.Controls.RemoveAt(0);
-            Form fHE = new HacerExamen(servicio, control) as Form;
-            fHE.TopLevel = false;
-            fHE.Dock = DockStyle.Fill;
-            control.Controls.Add(fHE);
-            //this.panelContenedor.Tag = fHE;
-            fHE.Show();*/
+            Principal.formportal.abrirNieto(new HacerExamen2(servicio, usuario, examen));
         }
         private void rellenar()
         {

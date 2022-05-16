@@ -44,7 +44,7 @@
             this.dificultad_txt = new System.Windows.Forms.ComboBox();
             this.tipo_txt = new System.Windows.Forms.ComboBox();
             this.bBuscar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bVolver = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +62,7 @@
             this.Materia,
             this.Autor});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.MenuBar;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 87);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 107);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -125,7 +125,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(603, 34);
+            this.button3.Location = new System.Drawing.Point(603, 54);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(185, 40);
             this.button3.TabIndex = 6;
@@ -137,7 +137,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(400, 46);
+            this.label5.Location = new System.Drawing.Point(400, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 17);
             this.label5.TabIndex = 21;
@@ -148,7 +148,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(186, 46);
+            this.label4.Location = new System.Drawing.Point(186, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 17);
             this.label4.TabIndex = 20;
@@ -159,7 +159,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(9, 48);
+            this.label3.Location = new System.Drawing.Point(9, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 17);
             this.label3.TabIndex = 19;
@@ -168,7 +168,7 @@
             // 
             // tema_txt
             // 
-            this.tema_txt.Location = new System.Drawing.Point(451, 44);
+            this.tema_txt.Location = new System.Drawing.Point(451, 64);
             this.tema_txt.Name = "tema_txt";
             this.tema_txt.Size = new System.Drawing.Size(100, 23);
             this.tema_txt.TabIndex = 18;
@@ -181,7 +181,7 @@
             "Fácil",
             "Medio",
             "Difícil"});
-            this.dificultad_txt.Location = new System.Drawing.Point(257, 44);
+            this.dificultad_txt.Location = new System.Drawing.Point(257, 64);
             this.dificultad_txt.Name = "dificultad_txt";
             this.dificultad_txt.Size = new System.Drawing.Size(121, 23);
             this.dificultad_txt.TabIndex = 17;
@@ -193,7 +193,7 @@
             this.tipo_txt.Items.AddRange(new object[] {
             "Test",
             "VF"});
-            this.tipo_txt.Location = new System.Drawing.Point(48, 45);
+            this.tipo_txt.Location = new System.Drawing.Point(48, 65);
             this.tipo_txt.Name = "tipo_txt";
             this.tipo_txt.Size = new System.Drawing.Size(121, 23);
             this.tipo_txt.TabIndex = 16;
@@ -201,7 +201,7 @@
             // 
             // bBuscar
             // 
-            this.bBuscar.Location = new System.Drawing.Point(451, 15);
+            this.bBuscar.Location = new System.Drawing.Point(451, 24);
             this.bBuscar.Name = "bBuscar";
             this.bBuscar.Size = new System.Drawing.Size(75, 23);
             this.bBuscar.TabIndex = 15;
@@ -210,15 +210,21 @@
             this.bBuscar.Visible = false;
             this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
             // 
-            // button1
+            // bVolver
             // 
-            this.button1.Location = new System.Drawing.Point(9, 409);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 29);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Volver atras";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.bVolver.FlatAppearance.BorderSize = 0;
+            this.bVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bVolver.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.bVolver.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.bVolver.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bVolver.IconSize = 30;
+            this.bVolver.Location = new System.Drawing.Point(2, 2);
+            this.bVolver.Name = "bVolver";
+            this.bVolver.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.bVolver.Size = new System.Drawing.Size(78, 38);
+            this.bVolver.TabIndex = 23;
+            this.bVolver.UseVisualStyleBackColor = true;
+            this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
             // CrearQuiz_3
             // 
@@ -226,7 +232,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bVolver);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -262,6 +268,6 @@
         private System.Windows.Forms.ComboBox dificultad_txt;
         private System.Windows.Forms.ComboBox tipo_txt;
         private System.Windows.Forms.Button bBuscar;
-        private System.Windows.Forms.Button button1;
+        private FontAwesome.Sharp.IconButton bVolver;
     }
 }

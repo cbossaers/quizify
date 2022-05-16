@@ -432,6 +432,7 @@
             // 
             // obs
             // 
+            this.obs.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.obs.BackColor = System.Drawing.SystemColors.Window;
             this.obs.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.obs.BorderFocusColor = System.Drawing.Color.DarkSlateBlue;
@@ -439,7 +440,7 @@
             this.obs.BorderSize = 2;
             this.obs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.obs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.obs.Location = new System.Drawing.Point(286, 186);
+            this.obs.Location = new System.Drawing.Point(241, 228);
             this.obs.Margin = new System.Windows.Forms.Padding(4);
             this.obs.Multiline = false;
             this.obs.Name = "obs";

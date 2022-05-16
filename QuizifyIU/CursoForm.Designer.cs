@@ -32,6 +32,7 @@
             this.bGestionarCurso = new System.Windows.Forms.Button();
             this.panelCurso = new System.Windows.Forms.Panel();
             this.bApuntarse = new System.Windows.Forms.Button();
+            this.bVolver = new FontAwesome.Sharp.IconButton();
             this.panelCurso.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,7 +40,7 @@
             // 
             this.bCrearCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bCrearCurso.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bCrearCurso.Location = new System.Drawing.Point(235, 288);
+            this.bCrearCurso.Location = new System.Drawing.Point(241, 304);
             this.bCrearCurso.Name = "bCrearCurso";
             this.bCrearCurso.Size = new System.Drawing.Size(196, 53);
             this.bCrearCurso.TabIndex = 4;
@@ -51,7 +52,7 @@
             // 
             this.bGestionarCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bGestionarCurso.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bGestionarCurso.Location = new System.Drawing.Point(235, 177);
+            this.bGestionarCurso.Location = new System.Drawing.Point(241, 193);
             this.bGestionarCurso.Name = "bGestionarCurso";
             this.bGestionarCurso.Size = new System.Drawing.Size(196, 52);
             this.bGestionarCurso.TabIndex = 5;
@@ -61,6 +62,7 @@
             // 
             // panelCurso
             // 
+            this.panelCurso.Controls.Add(this.bVolver);
             this.panelCurso.Controls.Add(this.bApuntarse);
             this.panelCurso.Controls.Add(this.bCrearCurso);
             this.panelCurso.Controls.Add(this.bGestionarCurso);
@@ -74,13 +76,28 @@
             // 
             this.bApuntarse.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bApuntarse.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bApuntarse.Location = new System.Drawing.Point(235, 66);
+            this.bApuntarse.Location = new System.Drawing.Point(241, 82);
             this.bApuntarse.Name = "bApuntarse";
             this.bApuntarse.Size = new System.Drawing.Size(196, 51);
             this.bApuntarse.TabIndex = 6;
             this.bApuntarse.Text = "Apuntarse curso";
             this.bApuntarse.UseVisualStyleBackColor = true;
             this.bApuntarse.Click += new System.EventHandler(this.bApuntarse_Click);
+            // 
+            // bVolver
+            // 
+            this.bVolver.FlatAppearance.BorderSize = 0;
+            this.bVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bVolver.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.bVolver.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.bVolver.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bVolver.IconSize = 30;
+            this.bVolver.Location = new System.Drawing.Point(12, 12);
+            this.bVolver.Name = "bVolver";
+            this.bVolver.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.bVolver.Size = new System.Drawing.Size(78, 38);
+            this.bVolver.TabIndex = 19;
+            this.bVolver.UseVisualStyleBackColor = true;
             // 
             // CursoForm
             // 
@@ -102,5 +119,6 @@
         private System.Windows.Forms.Button bGestionarCurso;
         private System.Windows.Forms.Panel panelCurso;
         private System.Windows.Forms.Button bApuntarse;
+        private FontAwesome.Sharp.IconButton bVolver;
     }
 }

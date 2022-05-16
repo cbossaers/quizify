@@ -45,37 +45,11 @@ namespace QuizifyIU
 
         private void tabla()
         {
-            /*DTable = ;
-            BindingList<object> bindinglist = new BindingList<object>();
-
-            for (int i = 0; i < DTable.Count; i += 2)
-            {
-                Pregunta2 preg = servicio.GetPregunta(DTable[i], DTable[i + 1]);
-                string tip = "";
-                switch (preg.GetTipo())
-                {
-                    case ("test"): tip = "Test"; break;
-                    case ("vf"): tip = "VF"; break;
-                    case ("mult"): tip = "Multiple"; break;
-                    case ("des"): tip = "Desarrollo"; break;
-                }
-                bindinglist.Add(new
-                {
-                    ds_ID = preg.GetId().ToString(),
-                    ds_enunciado = preg.GetEnunciado(),
-                    ds_tipo = tip,
-                    ds_version = preg.GetVersion(),
-                    ds_dificultad = preg.GetDificultad(),
-                    ds_materia = preg.GetTema(),
-                    ds_autor = filtros[0]
-                });
-            }*/
             tablaPreguntas.DataSource = servicio.GetPreguntas(filtros);
         }
 
         private void tablaPreguntas_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            this.Hide();
             DataGridViewRow row = this.tablaPreguntas.Rows[e.RowIndex];
             int id = int.Parse(tablaPreguntas.SelectedCells[0].Value.ToString());
             int ver = int.Parse(tablaPreguntas.SelectedCells[3].Value.ToString());
@@ -88,11 +62,7 @@ namespace QuizifyIU
                                            MessageBoxButtons.OK,
                                            MessageBoxIcon.Error);
             }
-            /*var form2 = new CrearPregunta(servicio, usuario,preg);
-            form2.Closed += (s, args) => this.Close();
-            form2.Show();*/
-            //portal.AbrirFormEditarPregunta(servicio, usuario, preg);
-
+            Principal.formportal.abrirNieto(new CrearPregunta(servicio, usuario, preg));
         }
     }
 }

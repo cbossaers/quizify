@@ -40,12 +40,14 @@
             this.alumnoBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bVolver = new System.Windows.Forms.Button();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panelGestionarCurso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaDatoCurso)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGestionarCurso
             // 
+            this.panelGestionarCurso.Controls.Add(this.iconButton1);
             this.panelGestionarCurso.Controls.Add(this.tablaDatoCurso);
             this.panelGestionarCurso.Controls.Add(this.bAñadir);
             this.panelGestionarCurso.Controls.Add(this.bEliminar);
@@ -54,7 +56,7 @@
             this.panelGestionarCurso.Controls.Add(this.bVolver);
             this.panelGestionarCurso.Location = new System.Drawing.Point(-2, -1);
             this.panelGestionarCurso.Name = "panelGestionarCurso";
-            this.panelGestionarCurso.Size = new System.Drawing.Size(657, 452);
+            this.panelGestionarCurso.Size = new System.Drawing.Size(710, 490);
             this.panelGestionarCurso.TabIndex = 0;
             // 
             // tablaDatoCurso
@@ -69,7 +71,7 @@
             this.numAl,
             this.fechaCreado,
             this.MaxAl});
-            this.tablaDatoCurso.Location = new System.Drawing.Point(40, 65);
+            this.tablaDatoCurso.Location = new System.Drawing.Point(68, 103);
             this.tablaDatoCurso.MultiSelect = false;
             this.tablaDatoCurso.Name = "tablaDatoCurso";
             this.tablaDatoCurso.RowHeadersVisible = false;
@@ -122,7 +124,7 @@
             // 
             // bAñadir
             // 
-            this.bAñadir.Location = new System.Drawing.Point(341, 21);
+            this.bAñadir.Location = new System.Drawing.Point(369, 59);
             this.bAñadir.Name = "bAñadir";
             this.bAñadir.Size = new System.Drawing.Size(75, 23);
             this.bAñadir.TabIndex = 7;
@@ -132,7 +134,7 @@
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(245, 368);
+            this.bEliminar.Location = new System.Drawing.Point(273, 406);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(75, 23);
             this.bEliminar.TabIndex = 6;
@@ -143,7 +145,7 @@
             // 
             // alumnoBox
             // 
-            this.alumnoBox.Location = new System.Drawing.Point(163, 21);
+            this.alumnoBox.Location = new System.Drawing.Point(191, 59);
             this.alumnoBox.Name = "alumnoBox";
             this.alumnoBox.Size = new System.Drawing.Size(157, 23);
             this.alumnoBox.TabIndex = 5;
@@ -151,7 +153,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 24);
+            this.label2.Location = new System.Drawing.Point(68, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 15);
             this.label2.TabIndex = 4;
@@ -159,7 +161,7 @@
             // 
             // bVolver
             // 
-            this.bVolver.Location = new System.Drawing.Point(40, 368);
+            this.bVolver.Location = new System.Drawing.Point(68, 406);
             this.bVolver.Name = "bVolver";
             this.bVolver.Size = new System.Drawing.Size(75, 23);
             this.bVolver.TabIndex = 1;
@@ -167,12 +169,27 @@
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.Location = new System.Drawing.Point(3, 13);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.iconButton1.Size = new System.Drawing.Size(78, 38);
+            this.iconButton1.TabIndex = 19;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
             // GestionarCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(655, 450);
+            this.ClientSize = new System.Drawing.Size(710, 490);
             this.Controls.Add(this.panelGestionarCurso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarCurso";
@@ -198,5 +215,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn numAl;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreado;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxAl;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

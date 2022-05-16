@@ -33,32 +33,11 @@ namespace QuizifyIU
             }
             else
             {
-                //List<int> lista = servicio.GetExamenesProfesor(user.GetCorreo());
                 calificar.Visible = true;
                 tablaExamenesProfesor.Visible = true;
                 tablaExamenDisponible.Visible = false;
                 tablaExamenFinalizado.Visible = false;
-
-                /*foreach (int x in lista)
-                {
-                    Examen ex = servicio.GetExamen(x);
-                    bindingListExamenDisponible.Add(new
-                    {
-                        id = ex.GetId(),
-                        estado = ex.GetEstado(),
-                        titulo = ex.GetTitulo(),
-                        descripcion = ex.GetDescripcion(),
-                        curso = ex.GetCurso(),
-                        tiempo = ex.GetTiempo(),
-                        fecha_ini = ex.GetFechaIni(),
-                        fecha_fin = ex.GetFechaFin(),
-                        ct = ex.GetCompetenciaTransversal()
-                    }); 
-                    
-                }*/
                 tablaExamenesProfesor.DataSource = servicio.GetExamenesProfesor(user.GetCorreo());
-                
-                
             }
         }
         private void tablaExamenDisponible_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -68,10 +47,7 @@ namespace QuizifyIU
                 Examen examen = servicio.GetExamen(int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString()));
                 if (examen != null)
                 {
-                    this.Hide();
-                    var form2 = new HacerExamen(servicio, user, examen);
-                    form2.Closed += (s, args) => this.Close();
-                    form2.Show();
+                    Principal.formportal.abrirNieto(new HacerExamen(servicio, user, examen));
                 }
             }
             catch (Exception ex)
@@ -89,10 +65,7 @@ namespace QuizifyIU
                 Examen examen = servicio.GetExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
                 if (examen != null)
                 {
-                    this.Hide();
-                    var form2 = new CrearQuiz(servicio, user, examen);
-                    form2.Closed += (s, args) => this.Close();
-                    form2.Show();
+                    Principal.formportal.abrirNieto(new CrearQuiz(servicio, user, examen));
                 }
             }
             catch (Exception ex)
@@ -145,8 +118,6 @@ namespace QuizifyIU
                 }
             }
         }
-
-        
     }
         
 }
