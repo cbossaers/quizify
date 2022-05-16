@@ -520,7 +520,7 @@ public class DALExamen {
     }
 
     public void GenerarExamen(string profesor, string codigo_curso, int num_preguntas, int tiempo, DateTime fechaini, DateTime fechafin,
-    int intentos, int volveratras, int erroresrestan, int mostrarresultados) {
+    int intentos, int volveratras, int erroresrestan, int mostrarresultados, bool esrecu) {
 
         Random rand = new Random();
 
@@ -531,6 +531,8 @@ public class DALExamen {
         List<int> final = new List<int>{};
 
         int aux = 0;
+        string titulo = codigo_curso + ": autoexamen. ID: " + id;
+        string descripcion = "Examen generado automáticamente";
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
@@ -568,9 +570,13 @@ public class DALExamen {
             final.Add(1);
         }
 
-        Add(fabrica.CrearExamen(id, codigo_curso + ": autoexamen. ID: " + id, "Examen generado automáticamente", 
-        codigo_curso, profesor, tiempo, DateTime.Now, fechaini, fechafin, intentos, volveratras, erroresrestan, 
-        mostrarresultados, final, "Borrador"));
+        if(esrecu) {
+            titulo = codigo_curso + ": recuperación. ID: " + id;
+            descripcion = "Examen de recuperación generado automáticamente";
+        }
+
+        Add(fabrica.CrearExamen(id, titulo, descripcion, codigo_curso, profesor, tiempo, DateTime.Now, fechaini, fechafin, 
+        intentos, volveratras, erroresrestan, mostrarresultados, final, "Borrador"));
     }
 
     public void FinalizarExamen(int id) {

@@ -195,7 +195,7 @@ public class DALPregunta {
         List<int> result = new List<int> {};
         DataTable dt = new DataTable();
 
-        string consulta = "SELECT * from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "'";
+        string consulta = "SELECT id,ver,enunciado,tipo,dificultad,tema,CT from PSWC.pregunta" + " WHERE autor= '" + filtros[0] + "'";
 
         if(filtros[1] != null) { consulta = consulta + " " +  "AND tipo= '" + filtros[1] + "'"; }
         if(filtros[2] != null) { consulta = consulta + " " +  "AND dificultad= " + filtros[2] + ""; }
