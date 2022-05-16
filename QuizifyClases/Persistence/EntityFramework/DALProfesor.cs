@@ -1,6 +1,7 @@
 using MySql.Data.MySqlClient;
 using Quizify.Entities;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Quizify.Persistence {
 
@@ -73,9 +74,9 @@ public class DALProfesor {
         }
     }
 
-    public List<int> GetExamenes(string id) {
+    public DataTable GetExamenes(string id) {
 
-        List<int> result = new List<int> {};
+        DataTable dt = new DataTable();
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
@@ -87,16 +88,11 @@ public class DALProfesor {
 
                 conn.Open();
 
-                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
-
-                    while (rdr.Read()) {
-                        result.Add(rdr.GetInt32("id"));
-                    }
-                }
+                dt.Load(cmd.ExecuteReader());
             }
         }
 
-        return result;
+        return dt;
     }
         
 }}

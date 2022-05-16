@@ -26,12 +26,6 @@ namespace Quizify.Services
         public void EliminarAlumno(string id){
             alumno.Eliminar(id);
         }
-        public DataTable GetExamenesAlumnoActivos(string al) {
-            return alumno.GetExamenesActivos(al);
-        }
-        public DataTable GetExamenesAlumnoNoActivos(string al) {
-            return alumno.GetExamenesNoActivos(al);
-        }
         public (DataTable, DataTable) GetExamenesAlumno (string al) {
             return alumno.GetExamenes(al);
         }
@@ -49,7 +43,7 @@ namespace Quizify.Services
         public void EliminarProfesor(string id){
             profesor.Eliminar(id);
         }
-        public List<int> GetExamenesProfesor(string prof) {
+        public DataTable GetExamenesProfesor(string prof) {
             return profesor.GetExamenes(prof);
         }
 

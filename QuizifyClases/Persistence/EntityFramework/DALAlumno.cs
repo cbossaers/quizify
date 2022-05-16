@@ -75,56 +75,6 @@ public class DALAlumno {
         }
     }
 
-    public DataTable GetExamenesActivos(string id) {
-
-        List<string> cursos = DALCurso.GetCursosAlumno(id);
-        DataTable dt = new DataTable();
-
-        foreach(string curso in cursos) {
-
-            using(MySqlConnection conn = new MySqlConnection(connStr)) {
-
-                using(MySqlCommand cmd = conn.CreateCommand()) {
-
-                    cmd.CommandText = cmd.CommandText = "SELECT * FROM examen WHERE curso = @curso AND estado = 'Activo'";
-
-                    cmd.Parameters.AddWithValue("@curso", curso);
-
-                    conn.Open();
-
-                    dt.Load(cmd.ExecuteReader());
-                }
-            } 
-        }
-
-        return dt;
-    }
-
-    public DataTable GetExamenesNoActivos(string id) {
-
-        List<string> cursos = DALCurso.GetCursosAlumno(id);
-        DataTable dt = new DataTable();
-
-        foreach(string curso in cursos) {
-
-            using(MySqlConnection conn = new MySqlConnection(connStr)) {
-
-                using(MySqlCommand cmd = conn.CreateCommand()) {
-
-                    cmd.CommandText = cmd.CommandText = "SELECT * FROM examen WHERE curso = @curso AND estado NOT LIKE 'Activo'";
-
-                    cmd.Parameters.AddWithValue("@curso", curso);
-
-                    conn.Open();
-
-                    dt.Load(cmd.ExecuteReader());
-                }
-            } 
-        }
-
-        return dt;
-    }
-
     public (DataTable, DataTable) GetExamenes(string id) {
 
         List<string> cursos = DALCurso.GetCursosAlumno(id);
@@ -150,14 +100,9 @@ public class DALAlumno {
 
                     cmd.CommandText = "SELECT * FROM examen WHERE curso = @curso AND estado NOT LIKE 'Activo'";
 
-                    cmd.Parameters.AddWithValue("@curso", curso);
-
                     conn.Open();
 
                     dtnoact.Load(cmd.ExecuteReader());
-
-                    conn.Close();
-
                 }
             } 
         }
