@@ -29,6 +29,7 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             this.ActiveControl = emailField;
+            servicio.Observar();
         }
 
         private void biniciarS_Click(object sender, EventArgs e) { logUser(); }
