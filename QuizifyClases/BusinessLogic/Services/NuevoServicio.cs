@@ -161,6 +161,10 @@ namespace Quizify.Services
         public void FinalizarExamen(int id) {
             examen.FinalizarExamen(id);
         }
+        public DataTable GetExamenByDificultad(List<dynamic> filtros)
+        {
+            return examen.GetExamenesByDificultad(filtros);
+        }
     
         //Otros métodos
         public string GetTipoEntidad(string usuario) {

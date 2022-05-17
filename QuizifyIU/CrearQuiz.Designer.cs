@@ -290,6 +290,7 @@
             // 
             // dificultad
             // 
+            this.dificultad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dificultad.FormattingEnabled = true;
             this.dificultad.Items.AddRange(new object[] {
             "Fácil",
@@ -299,7 +300,6 @@
             this.dificultad.Name = "dificultad";
             this.dificultad.Size = new System.Drawing.Size(111, 23);
             this.dificultad.TabIndex = 60;
-            this.dificultad.Text = "Dificultad";
             // 
             // label9
             // 

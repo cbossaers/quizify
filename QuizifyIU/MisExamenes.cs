@@ -15,6 +15,7 @@ namespace QuizifyIU
         private NuevoServicio servicio;
         dynamic user;
         private ValueTuple<DataTable, DataTable> tupla;
+        List<dynamic> filtros;
         public MisExamenes(NuevoServicio servicio, dynamic usuario)
         {
             InitializeComponent();
@@ -103,7 +104,8 @@ namespace QuizifyIU
                             tiempo = ex.GetTiempo(),
                             fecha_ini = ex.GetFechaIni(),
                             fecha_fin = ex.GetFechaFin(),
-                            ct = ex.GetCompetenciaTransversal()
+                            ct = ex.GetCompetenciaTransversal(),
+                            dificultad = ex.GetDificultad()
                         });
 
                     }
@@ -117,6 +119,18 @@ namespace QuizifyIU
                     return;
                 }
             }
+        }
+
+        private void tunometecabra_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string dificultad = tunometecabra.Text;
+            if (tunometecabra.SelectedIndex == -1) { dificultad = ""; } else { dificultad = tunometecabra.SelectedIndex.ToString(); }
+            filtros = new List<dynamic>() { dificultad };
+            tabla();
+        }
+        private void tabla()
+        {
+            tablaExamenesProfesor.DataSource = servicio.GetPreguntas(filtros);
         }
     }
         
