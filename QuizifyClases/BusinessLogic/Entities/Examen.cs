@@ -6,7 +6,7 @@ namespace Quizify.Entities
     public partial class Examen
     {
         public Examen(int id, string titulo, string descripcion, string curso, string autor, int Tiempo, DateTime fecha_creac, DateTime fecha_ini,
-            DateTime fecha_fin, int intentos, int volver_atras, int errores_restan, int mostrar_resultados, List<int> preguntas, string estado, string CT)
+            DateTime fecha_fin, int intentos, int volver_atras, int errores_restan, int mostrar_resultados, List<int> preguntas, string estado, string CT, string dificultad)
         {
             this.ID = id;
             this.titulo = titulo;
@@ -24,6 +24,7 @@ namespace Quizify.Entities
             this.preguntas_asociadas = preguntas;
             this.competenciaTransversal = CT;
             this.estado = estado;
+            this.dificultad = dificultad;
         }
 
         public Boolean Anadir_pregunta(Pregunta2 pregunta)
@@ -114,6 +115,10 @@ namespace Quizify.Entities
             return estado;
         }
 
+        public string GetDificultad()
+        {
+            return dificultad;
+        }
 
         public void SetId(int id)
         {
@@ -187,6 +192,10 @@ namespace Quizify.Entities
 
         public void SetEstado(string estado) {
             this.estado = estado;
+        }
+
+        public void SetDificultad(string dificultad) {
+            this.dificultad = dificultad;
         }
     }
 }

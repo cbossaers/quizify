@@ -109,8 +109,9 @@ namespace QuizifyIU
             DateTime fecha_actual = DateTime.Now;
             string CT = comboBoxCT.Text;
             String estado = "Borrador";
+            string difi = dificultad.Text;
               
-            Examen examen = new Examen(id,titulo, descripcio,cursos,autor,tiempo,fecha_actual,fecha_inicial,fecha_finanl,intento, volver_atras, errores_restan, 0,pregunta,estado, CT);
+            Examen examen = new Examen(id,titulo, descripcio,cursos,autor,tiempo,fecha_actual,fecha_inicial,fecha_finanl,intento, volver_atras, errores_restan, 0,pregunta,estado, CT, difi);
 
             Principal.formportal.abrirNieto(new CrearQuiz_2(servicio, usuario, examen));  
         }

@@ -164,6 +164,10 @@ namespace Quizify.Services
         public void CalcularNotaExamen(int id_ex, string correo) {
             examen.CalcularNotaExamen(id_ex, correo);
         }
+        public DataTable GetExamenByDificultad(List<dynamic> filtros)
+        {
+            return examen.GetExamenesByDificultad(filtros);
+        }
     
         //Otros métodos
         public string GetTipoEntidad(string usuario) {
