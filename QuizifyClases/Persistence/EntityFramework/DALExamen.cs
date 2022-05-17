@@ -21,14 +21,14 @@ namespace Quizify.Persistence {
                 using (MySqlCommand cmd = conn.CreateCommand()) {
 
                     cmd.CommandText = "INSERT into PSWC.examen(id,titulo,descripcion,autor,curso,tiempo,fecha_ini,fecha_fin,intentos"
-                    + ",volver_atras,errores_restan,mostrar_resultados,fecha_creac,estado,CT) "
+                    + ",volver_atras,errores_restan,mostrar_resultados,fecha_creac,estado,CT,dificultad) "
 
                     + "VALUES(@id,@titulo,@descripcion,@autor,@curso,@tiempo,@fecha_ini,@fecha_fin,@intentos,@volver_atras,@errores_restan,"
-                    + "@mostrar_resultados,@fecha_creac,@estado,@CT) "
+                    + "@mostrar_resultados,@fecha_creac,@estado,@CT,@dificultad) "
 
                     + "ON DUPLICATE KEY UPDATE titulo = @titulo, descripcion = @descripcion, autor = @autor, curso = @curso, tiempo = @tiempo,"
                     + "fecha_ini = @fecha_ini, fecha_fin = @fecha_fin, intentos = @intentos, volver_atras = @volver_atras, errores_restan = @errores_restan,"
-                    + "mostrar_resultados = @mostrar_resultados, fecha_creac = @fecha_creac, estado = @estado, CT = @CT;";
+                    + "mostrar_resultados = @mostrar_resultados, fecha_creac = @fecha_creac, estado = @estado, CT = @CT, dificultad = @dificultad;";
 
                     cmd.Parameters.AddWithValue("@id", ex.GetId());
                     cmd.Parameters.AddWithValue("@titulo", ex.GetTitulo());
@@ -45,6 +45,7 @@ namespace Quizify.Persistence {
                     cmd.Parameters.AddWithValue("@fecha_creac", ex.GetFechaCreac().ToString());
                     cmd.Parameters.AddWithValue("@estado", ex.GetEstado());
                     cmd.Parameters.AddWithValue("@CT", ex.GetCompetenciaTransversal());
+                    cmd.Parameters.AddWithValue("@dificultad", ex.GetDificultad());
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -79,7 +80,7 @@ namespace Quizify.Persistence {
                             rdr.GetString("autor"), rdr.GetInt32("tiempo"), DateTime.Parse(rdr.GetString("fecha_creac")),
                             DateTime.Parse(rdr.GetString("fecha_ini")), DateTime.Parse(rdr.GetString("fecha_fin")), rdr.GetInt32("intentos"),
                             rdr.GetInt32("volver_atras"), rdr.GetInt32("errores_restan"), rdr.GetInt32("mostrar_resultados"), lista,
-                            rdr.GetString("estado"), rdr.GetString("CT"));
+                            rdr.GetString("estado"), rdr.GetString("CT"), rdr.GetString("dificultad"));
                         }
                     }
                 }
