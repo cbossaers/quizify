@@ -28,13 +28,15 @@ namespace AppTest {
             FabricaExamenes fabrica = new FabricaExamenes();
 
             //service.GenerarExamen("patricio@gmail.com", "GPR", 3, 30, DateTime.Now.AddDays(2), DateTime.Now.AddDays(17), 2, 0, 1, 0);
-            List<dynamic> filtros = new List<dynamic>() { "x", null, null, null };
-            DataTable x = service.GetPreguntas(filtros);
+            //List<dynamic> filtros = new List<dynamic>() { "x", null, null, null };
+            //DataTable x = service.GetPreguntas(filtros);
 
-            obs.test();
+            //obs.test();
 
-            Console.WriteLine(x.Rows[1]["enunciado"]);
-            Console.WriteLine(x.Rows[2]["id"]);
+            //Console.WriteLine(x.Rows[1]["enunciado"]);
+            //Console.WriteLine(x.Rows[2]["id"]);
+
+            service.CalcularNotaExamen(5, "c");
         }
         }
     }

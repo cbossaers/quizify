@@ -161,6 +161,9 @@ namespace Quizify.Services
         public void FinalizarExamen(int id) {
             examen.FinalizarExamen(id);
         }
+        public void CalcularNotaExamen(int id_ex, string correo) {
+            examen.CalcularNotaExamen(id_ex, correo);
+        }
     
         //Otros métodos
         public string GetTipoEntidad(string usuario) {

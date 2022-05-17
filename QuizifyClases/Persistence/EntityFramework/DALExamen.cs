@@ -394,6 +394,7 @@ public class DALExamen {
         double nota = 0.0;
         Pregunta2 pregunta = null;
         int restan = ErroresRestan(id_ex);
+        double aux = 0.0;
 
         List<int> listapreg = GetListaPreguntas(id_ex);
         List<int> listarespuestas = GetListaRespuestas(id_ex, correo);
@@ -405,7 +406,26 @@ public class DALExamen {
                 if(listapreg[i] == listarespuestas[j]) {
 
                     pregunta = dalpreg.Get(listapreg[i], listapreg[i+1]);
-                    nota += CalcularNotaPregunta(pregunta, listarespuestas[j+1],listapreg[i+2],restan);
+                    aux = CalcularNotaPregunta(pregunta, listarespuestas[j+1],listapreg[i+2],restan);
+                    nota += aux;
+
+                    using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                        using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                            cmd.CommandText = "INSERT INTO notas_pregunta(id_ex,id_preg,ver_preg,alumno,nota) " +
+                            "VALUES(@id_ex,@id_preg,@ver_preg,@alumno,@nota) ON DUPLICATE KEY UPDATE nota = @nota";
+
+                            cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                            cmd.Parameters.AddWithValue("@id_preg", listapreg[i]);
+                            cmd.Parameters.AddWithValue("@ver_preg", listapreg[i+1]);
+                            cmd.Parameters.AddWithValue("@alumno", correo);
+                            cmd.Parameters.AddWithValue("@nota", aux);
+
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
                 }
             }
         }
@@ -442,7 +462,7 @@ public class DALExamen {
             
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText =  "SELECT * FROM respuestas_examenes WHERE examen = @id_ex AND alumno = @correo';";
+                cmd.CommandText =  "SELECT * FROM respuestas_examenes WHERE examen = @id_ex AND alumno = @correo;";
 
                 cmd.Parameters.AddWithValue("@id_ex", id_ex);
                 cmd.Parameters.AddWithValue("@correo", correo);
