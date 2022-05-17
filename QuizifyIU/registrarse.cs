@@ -45,7 +45,7 @@ namespace QuizifyIU
         private void emailBox_TextChanged(object sender, EventArgs e)
         {
             bConfirmar.Enabled = false;
-            string email = emailBox.Text;
+            string email = emailBox.Texts;
             if (email == "") emailCorrecto = false;
             else emailCorrecto = true;
             if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto && tipoCorrecto)
@@ -55,7 +55,7 @@ namespace QuizifyIU
         private void nombreBox_TextChanged(object sender, EventArgs e)
         {
             bConfirmar.Enabled = false;
-            string nombre = nombreBox.Text;
+            string nombre = nombreBox.Texts;
             if (nombre == "") nombreCorrecto = false;
             else nombreCorrecto = true;
             if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto && tipoCorrecto)
@@ -65,7 +65,7 @@ namespace QuizifyIU
         private void apellidosBox_TextChanged(object sender, EventArgs e)
         {
             bConfirmar.Enabled = false;
-            string apellidos = apellidosBox.Text;
+            string apellidos = apellidosBox.Texts;
             if (apellidos == "") apellidoCorrecto = false;
             else apellidoCorrecto = true;
             if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto && tipoCorrecto)
@@ -76,7 +76,7 @@ namespace QuizifyIU
         private void contraBox_TextChanged(object sender, EventArgs e)
         {
             bConfirmar.Enabled = false;
-            string contra = contraBox.Text;
+            string contra = contraBox.Texts;
             if (contra == "") contraCorrecto = false;
             else contraCorrecto = true;
             if (emailCorrecto && nombreCorrecto && apellidoCorrecto && contraCorrecto && tipoCorrecto)
@@ -85,10 +85,10 @@ namespace QuizifyIU
 
         public void registeredUser()
         {
-            string nombre = nombreBox.Text;
-            string apellidos = apellidosBox.Text;
-            string email = emailBox.Text;
-            string contra = contraBox.Text;
+            string nombre = nombreBox.Texts;
+            string apellidos = apellidosBox.Texts;
+            string email = emailBox.Texts;
+            string contra = contraBox.Texts;
             string tipoUser = tipoUsuario.Text;
 
             if (tipoUser.Equals("Profesor")) {
@@ -124,5 +124,7 @@ namespace QuizifyIU
                 registeredUser();
             }
         }
+
+        
     }
 }

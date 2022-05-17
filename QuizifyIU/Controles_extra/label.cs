@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace QuizifyIU.Controles_extra
 {
+    [DefaultEvent("_TextChanged")]
     public partial class label : UserControl
     {
         //Fields
@@ -23,6 +24,9 @@ namespace QuizifyIU.Controles_extra
         private string placeholderText = "";
         private bool isPlaceholder = false;
         private bool isPasswordChar = false;
+
+        //Default Event
+        public event EventHandler _TextChanged;
 
         public label()
         {
@@ -317,11 +321,9 @@ namespace QuizifyIU.Controles_extra
         }
         #endregion
 
-        [DefaultEvent("_TextChanged")]
-        public partial class RJTextBox : UserControl
-        {
-            //Default Event
-            public event EventHandler _TextChanged;
+        
+        
+            
 
             //TextBox-> TextChanged event
             private void textBox1_TextChanged(object sender, EventArgs e)
@@ -329,7 +331,7 @@ namespace QuizifyIU.Controles_extra
                 if (_TextChanged != null)
                     _TextChanged.Invoke(sender, e);
             }
-        }
+        
 
         private void textBox1_Enter(object sender, EventArgs e)
         {

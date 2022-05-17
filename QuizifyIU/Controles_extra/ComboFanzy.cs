@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Text;
 using System.Windows.Controls;
 using System.Windows.Forms;
-
-
 
 namespace QuizifyIU.Controles_extra
 {
     [DefaultEvent("OnSelectedIndexChanged")]
-    class ComboBox// : UserControl
+    class ComboFanzy// : UserControl
     {
         /*//Fields
         private Color backColor = Color.WhiteSmoke;
@@ -31,7 +25,7 @@ namespace QuizifyIU.Controles_extra
         public event EventHandler OnSelectedIndexChanged;//Default event
 
         //Constructor
-        public ComboBox()
+        public ComboFanzy()
         {
             cmbList = new ComboBox();
             lblText = new Label();
@@ -80,7 +74,6 @@ namespace QuizifyIU.Controles_extra
             this.ResumeLayout();
             AdjustComboBoxDimensions();
         }
-
         //Private methods
         private void AdjustComboBoxDimensions()
         {
@@ -123,7 +116,6 @@ namespace QuizifyIU.Controles_extra
             //Refresh text
             lblText.Text = cmbList.Text;
         }
-
         //-> Draw icon
         private void Icon_Paint(object sender, PaintEventArgs e)
         {
@@ -253,7 +245,6 @@ namespace QuizifyIU.Controles_extra
                     cmbList.DropDownStyle = value;
             }
         }
-
         //Properties
         //-> Data
         [Category("RJ Code - Data")]
@@ -344,7 +335,6 @@ namespace QuizifyIU.Controles_extra
             get { return cmbList.ValueMember; }
             set { cmbList.ValueMember = value; }
         }
-
         //->Attach label events to user control event
         private void Surface_MouseLeave(object sender, EventArgs e)
         {
@@ -356,13 +346,12 @@ namespace QuizifyIU.Controles_extra
             this.OnMouseEnter(e);
         }
         //::::+
-
         //Overridden methods
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
             AdjustComboBoxDimensions();
         }*/
-
     }
 }
+
