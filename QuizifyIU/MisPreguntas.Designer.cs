@@ -158,7 +158,7 @@
             this.tablaPreguntas.Name = "tablaPreguntas";
             this.tablaPreguntas.ReadOnly = true;
             this.tablaPreguntas.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;

@@ -53,6 +53,33 @@ namespace QuizifyIU
 
             observ = new Observador();
             observ.test(this);
+
+            dataGridView1.Visible = false;
+            noti2.Visible = false;
+            noti1.Visible = false;
+            bellN.Visible = true;
+            numnoti.Visible = true;
+        }
+
+        private void notificacciones()
+        {
+            DataTable dt = new DataTable();
+            dt.Clear();
+            dt.Columns.Add("ID");
+            DataRow _ravi = dt.NewRow();
+            _ravi["ID"] = "Notificacción_1";
+            dt.Rows.Add(_ravi);
+            DataRow _ravi2 = dt.NewRow();
+            _ravi2["ID"] = "algo muy largo y dificil";
+            dt.Rows.Add(_ravi2);
+
+            dataGridView1.DataSource = dt;
+
+            bellN.Visible = false;
+            numnoti.Visible = false;
+            noti1.Visible = true;
+            noti2.Visible = true;
+            dataGridView1.Visible = true;
         }
 
         public void abrirNieto(Form childForm)
@@ -390,6 +417,15 @@ namespace QuizifyIU
         public void obsc(string x)
         {
             obs.Texts = x;
+        }
+
+        private void noti1_Click(object sender, EventArgs e)
+        {
+            if(noti2.Visible == false)
+            {
+                notificacciones();
+            }
+            else { dataGridView1.Visible = false; noti2.Visible = false; bellN.Visible = true; noti1.Visible = false; numnoti.Visible = true; } 
         }
     }
 }

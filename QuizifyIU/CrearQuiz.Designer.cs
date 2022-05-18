@@ -43,7 +43,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.descripcion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.dificultad = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.ini = new System.Windows.Forms.DateTimePicker();
@@ -60,6 +59,7 @@
             this.toggle_button1 = new QuizifyIU.Controles_extra.Toggle_button();
             this.toggle_button2 = new QuizifyIU.Controles_extra.Toggle_button();
             this.toggle_button3 = new QuizifyIU.Controles_extra.Toggle_button();
+            this.dificultad = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -219,19 +219,6 @@
             this.label6.Size = new System.Drawing.Size(103, 18);
             this.label6.TabIndex = 9;
             this.label6.Text = "Errores restan";
-            // 
-            // dificultad
-            // 
-            this.dificultad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dificultad.FormattingEnabled = true;
-            this.dificultad.Items.AddRange(new object[] {
-            "Fácil",
-            "Normal",
-            "Difícil"});
-            this.dificultad.Location = new System.Drawing.Point(356, 139);
-            this.dificultad.Name = "dificultad";
-            this.dificultad.Size = new System.Drawing.Size(111, 23);
-            this.dificultad.TabIndex = 60;
             // 
             // label9
             // 
@@ -423,12 +410,27 @@
             this.toggle_button3.Visible = false;
             this.toggle_button3.CheckedChanged += new System.EventHandler(this.toggle_button3_CheckedChanged);
             // 
+            // dificultad
+            // 
+            this.dificultad.FormattingEnabled = true;
+            this.dificultad.Items.AddRange(new object[] {
+            "Ejemplo",
+            "Primero",
+            "Segundo",
+            "Tercero"});
+            this.dificultad.Location = new System.Drawing.Point(356, 139);
+            this.dificultad.Name = "dificultad";
+            this.dificultad.Size = new System.Drawing.Size(111, 23);
+            this.dificultad.TabIndex = 77;
+            this.dificultad.Text = "Normal";
+            // 
             // CrearQuiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(710, 490);
+            this.Controls.Add(this.dificultad);
             this.Controls.Add(this.toggle_button3);
             this.Controls.Add(this.toggle_button2);
             this.Controls.Add(this.toggle_button1);
@@ -445,7 +447,6 @@
             this.Controls.Add(this.ini);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dificultad);
             this.Controls.Add(this.descripcion);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.sinlimite);
@@ -487,7 +488,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox descripcion;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox dificultad;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker ini;
@@ -504,5 +504,6 @@
         private Controles_extra.Toggle_button toggle_button1;
         private Controles_extra.Toggle_button toggle_button2;
         private Controles_extra.Toggle_button toggle_button3;
+        private System.Windows.Forms.ComboBox dificultad;
     }
 }

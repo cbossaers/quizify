@@ -24,7 +24,7 @@ namespace QuizifyIU
             BindingList<object> bindingListExamenFinalizado = new BindingList<object>();
 
             user = usuario;
-            servicio.ActualizarEstadoQuizes();
+            //servicio.ActualizarEstadoQuizes();
             
             if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
             {

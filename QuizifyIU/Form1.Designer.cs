@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.CerrarSesion = new FontAwesome.Sharp.IconButton();
             this.Estadisticas = new FontAwesome.Sharp.IconButton();
@@ -47,12 +50,19 @@
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.numnoti = new System.Windows.Forms.Label();
+            this.bellN = new System.Windows.Forms.PictureBox();
             this.obs = new QuizifyIU.Controles_extra.label();
+            this.noti1 = new FontAwesome.Sharp.IconButton();
+            this.noti2 = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoForm)).BeginInit();
             this.panelDesktop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bellN)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -422,7 +432,12 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.panelDesktop.Controls.Add(this.dataGridView1);
+            this.panelDesktop.Controls.Add(this.numnoti);
+            this.panelDesktop.Controls.Add(this.bellN);
             this.panelDesktop.Controls.Add(this.obs);
+            this.panelDesktop.Controls.Add(this.noti1);
+            this.panelDesktop.Controls.Add(this.noti2);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(230, 69);
             this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -430,6 +445,72 @@
             this.panelDesktop.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.panelDesktop.Size = new System.Drawing.Size(754, 504);
             this.panelDesktop.TabIndex = 2;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeight = 26;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.ColumnHeadersVisible = false;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.White;
+            this.dataGridView1.Location = new System.Drawing.Point(475, 77);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(275, 156);
+            this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.Visible = false;
+            // 
+            // numnoti
+            // 
+            this.numnoti.AutoSize = true;
+            this.numnoti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
+            this.numnoti.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.numnoti.ForeColor = System.Drawing.Color.White;
+            this.numnoti.Location = new System.Drawing.Point(681, 19);
+            this.numnoti.Name = "numnoti";
+            this.numnoti.Size = new System.Drawing.Size(14, 15);
+            this.numnoti.TabIndex = 18;
+            this.numnoti.Text = "1";
+            this.numnoti.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.numnoti.Click += new System.EventHandler(this.noti1_Click);
+            // 
+            // bellN
+            // 
+            this.bellN.Image = ((System.Drawing.Image)(resources.GetObject("bellN.Image")));
+            this.bellN.Location = new System.Drawing.Point(673, 12);
+            this.bellN.Name = "bellN";
+            this.bellN.Size = new System.Drawing.Size(30, 30);
+            this.bellN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bellN.TabIndex = 17;
+            this.bellN.TabStop = false;
+            this.bellN.Click += new System.EventHandler(this.noti1_Click);
             // 
             // obs
             // 
@@ -454,6 +535,53 @@
             this.obs.Texts = "";
             this.obs.UnderlinedStyle = false;
             // 
+            // noti1
+            // 
+            this.noti1.BackColor = System.Drawing.Color.Transparent;
+            this.noti1.FlatAppearance.BorderSize = 0;
+            this.noti1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noti1.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.noti1.ForeColor = System.Drawing.Color.Black;
+            this.noti1.IconChar = FontAwesome.Sharp.IconChar.Bell;
+            this.noti1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
+            this.noti1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.noti1.IconSize = 35;
+            this.noti1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.noti1.Location = new System.Drawing.Point(654, 3);
+            this.noti1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.noti1.Name = "noti1";
+            this.noti1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 5);
+            this.noti1.Size = new System.Drawing.Size(69, 61);
+            this.noti1.TabIndex = 13;
+            this.noti1.Tag = "Home";
+            this.noti1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.noti1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.noti1.UseVisualStyleBackColor = false;
+            this.noti1.Click += new System.EventHandler(this.noti1_Click);
+            // 
+            // noti2
+            // 
+            this.noti2.FlatAppearance.BorderSize = 0;
+            this.noti2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noti2.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.noti2.ForeColor = System.Drawing.Color.Black;
+            this.noti2.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
+            this.noti2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
+            this.noti2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.noti2.IconSize = 25;
+            this.noti2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.noti2.Location = new System.Drawing.Point(659, 45);
+            this.noti2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.noti2.Name = "noti2";
+            this.noti2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.noti2.Size = new System.Drawing.Size(59, 51);
+            this.noti2.TabIndex = 14;
+            this.noti2.Tag = "Home";
+            this.noti2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.noti2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.noti2.UseVisualStyleBackColor = true;
+            this.noti2.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -476,6 +604,9 @@
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoForm)).EndInit();
             this.panelDesktop.ResumeLayout(false);
+            this.panelDesktop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bellN)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -502,6 +633,11 @@
         private System.Windows.Forms.Label btnHome;
         private FontAwesome.Sharp.IconButton Home;
         private Controles_extra.label obs;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private FontAwesome.Sharp.IconButton noti1;
+        private FontAwesome.Sharp.IconButton noti2;
+        private System.Windows.Forms.PictureBox bellN;
+        private System.Windows.Forms.Label numnoti;
     }
 }
 

@@ -69,7 +69,7 @@ namespace QuizifyIU
             DateTime fecha_finanl = fin.Value.AddHours(hfin.Value.Hour).AddMinutes(hfin.Value.Minute);
             DateTime fecha_actual = DateTime.Now;
             string CT = comboBoxCT.Text;
-            String estado = "Borrador";
+            String estado = "Inactivo";
             string difi = dificultad.Text;
               
             Examen examen = new Examen(id,titulo, descripcio,cursos,autor,tiempo,fecha_actual,fecha_inicial,fecha_finanl,intento, volver_atras, errores_restan, 0,pregunta,estado, difi, CT);
