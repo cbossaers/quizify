@@ -65,5 +65,9 @@ namespace QuizifyIU
             }else { label6.Text = "Se le mostraran las soluciones al finalizar el examen"; }
         }
 
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

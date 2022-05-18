@@ -271,6 +271,7 @@ namespace QuizifyIU
             else
             {
                 dataGridView1.Visible = true;
+                button1.Text = "Ocultar indice";
             }
         }
 
@@ -294,8 +295,9 @@ namespace QuizifyIU
                 }
                 else { _ravi["Contestada"] = "○"; }
                 cuen += 3;
+                dt.Rows.Add(_ravi);
             }
-            dataGridView1.DataSource = bindinglist;
+            dataGridView1.DataSource = dt;
         }
         
     }

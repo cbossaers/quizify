@@ -239,13 +239,12 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(440, 13);
+            this.button1.Location = new System.Drawing.Point(467, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(223, 26);
             this.button1.TabIndex = 60;
             this.button1.Text = "Ocultar indice";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // borrar_seleccion
@@ -371,7 +370,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(442, 45);
+            this.dataGridView1.Location = new System.Drawing.Point(467, 45);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;

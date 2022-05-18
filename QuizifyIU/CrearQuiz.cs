@@ -65,8 +65,8 @@ namespace QuizifyIU
                 tiempo += int.Parse(minutos.Text);}
             int intento = int.Parse(intentos.Text);
             //DateTimeOffset fecha_inicial = DateTime.Parse(ini.Text +" "+ hini) ;
-            DateTime fecha_inicial = ini.Value.AddHours(hini.Value.Hour).AddMinutes(hini.Value.Minute) ;
-            DateTime fecha_finanl = fin.Value.AddHours(hfin.Value.Hour).AddMinutes(hfin.Value.Minute);
+            DateTime fecha_inicial = new DateTime(ini.Value.Year, ini.Value.Month, ini.Value.Day, hini.Value.Hour, hini.Value.Minute, hini.Value.Second);
+            DateTime fecha_finanl = new DateTime(fin.Value.Year, fin.Value.Month, fin.Value.Day, hfin.Value.Hour, hfin.Value.Minute, hfin.Value.Second);
             DateTime fecha_actual = DateTime.Now;
             string CT = comboBoxCT.Text;
             String estado = "Inactivo";

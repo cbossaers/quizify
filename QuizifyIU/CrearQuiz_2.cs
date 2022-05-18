@@ -70,6 +70,16 @@ namespace QuizifyIU
 
         private void crear_Click(object sender, EventArgs e)
         {
+            puntuaciones();
+            servicio.AddExamen(examen);
+            MessageBox.Show(this, "Se ha creado el examen", "Éxito",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Information);
+            this.Hide();
+        }
+
+        private void puntuaciones()
+        {
             List<int> lista = examen.GetPreguntasAsociadas();
             int cont = 0;
             for (int i = 0; i < lista.Count; i += 3)
@@ -78,11 +88,6 @@ namespace QuizifyIU
                 cont++;
             }
             examen.SetPreguntasAsociadas(lista);
-            servicio.AddExamen(examen);
-            MessageBox.Show(this, "Se ha creado el examen", "Éxito",
-                                       MessageBoxButtons.OK,
-                                       MessageBoxIcon.Information);
-            this.Hide();
         }
 
         private void anular_Click(object sender, EventArgs e)
@@ -106,10 +111,12 @@ namespace QuizifyIU
 
         private void button3_Click(object sender, EventArgs e)
         {
+            puntuaciones();
             Principal.formportal.abrirNieto(new CrearQuiz(servicio, usuario, examen));
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            puntuaciones();
             Principal.formportal.abrirNieto(new CrearQuiz_3(servicio, usuario, examen));
         }
     }

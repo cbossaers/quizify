@@ -52,7 +52,8 @@ namespace QuizifyIU
                 }
             }
 
-            if (user.GetContraseña().Equals(contraField.Texts)) { 
+            if (user.GetContraseña().Equals(contraField.Texts)) {
+                servicio.HiloEstadoQuizes();
                 this.Hide(); 
                 formportal = new Form1(servicio,user);
                 formportal.ShowDialog();

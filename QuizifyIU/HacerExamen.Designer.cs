@@ -207,6 +207,7 @@
             this.bVolver.Size = new System.Drawing.Size(78, 38);
             this.bVolver.TabIndex = 19;
             this.bVolver.UseVisualStyleBackColor = true;
+            this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
             // HacerExamen
             // 
