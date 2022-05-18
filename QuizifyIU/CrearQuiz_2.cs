@@ -71,9 +71,11 @@ namespace QuizifyIU
         private void crear_Click(object sender, EventArgs e)
         {
             List<int> lista = examen.GetPreguntasAsociadas();
+            int cont = 0;
             for (int i = 0; i < lista.Count; i += 3)
             {
-                lista[i + 2] = int.Parse(dataGridView1.SelectedCells[7].Value.ToString());
+                lista[i + 2] = int.Parse(dataGridView1.Rows[cont].Cells[7].Value.ToString());
+                cont++;
             }
             examen.SetPreguntasAsociadas(lista);
             servicio.AddExamen(examen);

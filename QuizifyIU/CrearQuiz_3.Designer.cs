@@ -45,9 +45,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(603, 54);
+            this.button3.Location = new System.Drawing.Point(663, 216);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(185, 40);
+            this.button3.Size = new System.Drawing.Size(136, 40);
             this.button3.TabIndex = 6;
             this.button3.Text = "Agregar pregunta seleccionada";
             this.button3.UseVisualStyleBackColor = true;
@@ -121,7 +121,7 @@
             // 
             // bBuscar
             // 
-            this.bBuscar.Location = new System.Drawing.Point(451, 24);
+            this.bBuscar.Location = new System.Drawing.Point(587, 62);
             this.bBuscar.Name = "bBuscar";
             this.bBuscar.Size = new System.Drawing.Size(75, 23);
             this.bBuscar.TabIndex = 15;
@@ -181,7 +181,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(726, 282);
+            this.dataGridView1.Size = new System.Drawing.Size(665, 282);
             this.dataGridView1.TabIndex = 25;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 

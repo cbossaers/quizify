@@ -98,18 +98,16 @@ namespace QuizifyIU
             if (examen.GetVolverAtras() == 1)
             {
                 toggle_button1.Checked = true;
-                toggle_button1.Checked = false;
             }
             if (examen.GetErroresRestan() == 1)
             {
                 toggle_button2.Checked = true;
-                toggle_button2.Checked = false;
             }
             if (examen.GetMostrarResultados() == 1)
             {
                 toggle_button3.Checked = true;
-                toggle_button3.Checked = false;
             }
+            dificultad.Text = examen.GetDificultad();
             comboBoxCT.Text = examen.GetCompetenciaTransversal();
         }
 

@@ -206,7 +206,9 @@ namespace QuizifyIU.Controles_extra
             }
             set
             {
-                textBox1.Text = value;
+                try{textBox1.Text = value;
+                }
+                catch (Exception) { }
                 SetPlaceholder();
             }
         }
