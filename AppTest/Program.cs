@@ -21,7 +21,7 @@ namespace AppTest {
             DALExamen examen = new DALExamen();
             DALCurso curso = new DALCurso();
 
-            Observador obs = new Observador();
+            //Observador obs = new Observador();
 
             NuevoServicio service = new NuevoServicio();
 

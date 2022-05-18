@@ -608,7 +608,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bellN)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
