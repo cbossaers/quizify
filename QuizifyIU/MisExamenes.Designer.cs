@@ -131,7 +131,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.tablaExamenesProfesor.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.tablaExamenesProfesor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenesProfesor.Size = new System.Drawing.Size(644, 390);
+            this.tablaExamenesProfesor.Size = new System.Drawing.Size(687, 420);
             this.tablaExamenesProfesor.TabIndex = 9;
             this.tablaExamenesProfesor.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenesProfesor_CellMouseDoubleClick);
             // 

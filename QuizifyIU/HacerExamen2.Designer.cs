@@ -50,28 +50,32 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.borrar_seleccion = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.correcta0 = new System.Windows.Forms.RadioButton();
             this.correcta1 = new System.Windows.Forms.RadioButton();
             this.correcta2 = new System.Windows.Forms.RadioButton();
             this.correcta3 = new System.Windows.Forms.RadioButton();
             this.correcta4 = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.correctaVF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // correctaVF
             // 
             this.correctaVF.Controls.Add(this.falso1);
             this.correctaVF.Controls.Add(this.verdadero0);
-            this.correctaVF.Location = new System.Drawing.Point(-7, 166);
+            this.correctaVF.Location = new System.Drawing.Point(3, 138);
             this.correctaVF.Name = "correctaVF";
-            this.correctaVF.Size = new System.Drawing.Size(355, 100);
+            this.correctaVF.Size = new System.Drawing.Size(355, 140);
             this.correctaVF.TabIndex = 49;
             this.correctaVF.Visible = false;
             // 
@@ -79,12 +83,12 @@
             // 
             this.falso1.AutoSize = true;
             this.falso1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.falso1.Location = new System.Drawing.Point(211, 34);
+            this.falso1.Location = new System.Drawing.Point(49, 78);
             this.falso1.Name = "falso1";
-            this.falso1.Size = new System.Drawing.Size(74, 32);
+            this.falso1.Size = new System.Drawing.Size(79, 32);
             this.falso1.TabIndex = 1;
             this.falso1.TabStop = true;
-            this.falso1.Text = "Falso";
+            this.falso1.Text = " Falso";
             this.falso1.UseVisualStyleBackColor = true;
             this.falso1.CheckedChanged += new System.EventHandler(this.correct);
             // 
@@ -94,10 +98,10 @@
             this.verdadero0.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.verdadero0.Location = new System.Drawing.Point(49, 34);
             this.verdadero0.Name = "verdadero0";
-            this.verdadero0.Size = new System.Drawing.Size(121, 32);
+            this.verdadero0.Size = new System.Drawing.Size(126, 32);
             this.verdadero0.TabIndex = 0;
             this.verdadero0.TabStop = true;
-            this.verdadero0.Text = "Verdadero";
+            this.verdadero0.Text = " Verdadero";
             this.verdadero0.UseVisualStyleBackColor = true;
             this.verdadero0.CheckedChanged += new System.EventHandler(this.correct);
             // 
@@ -155,7 +159,7 @@
             // 
             this.enunciado.AutoSize = true;
             this.enunciado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.enunciado.Location = new System.Drawing.Point(12, 64);
+            this.enunciado.Location = new System.Drawing.Point(21, 57);
             this.enunciado.Name = "enunciado";
             this.enunciado.Size = new System.Drawing.Size(107, 28);
             this.enunciado.TabIndex = 32;
@@ -209,7 +213,7 @@
             // 
             // siguiente
             // 
-            this.siguiente.Location = new System.Drawing.Point(102, 415);
+            this.siguiente.Location = new System.Drawing.Point(109, 413);
             this.siguiente.Name = "siguiente";
             this.siguiente.Size = new System.Drawing.Size(75, 23);
             this.siguiente.TabIndex = 57;
@@ -219,7 +223,7 @@
             // 
             // anterior
             // 
-            this.anterior.Location = new System.Drawing.Point(21, 415);
+            this.anterior.Location = new System.Drawing.Point(28, 413);
             this.anterior.Name = "anterior";
             this.anterior.Size = new System.Drawing.Size(75, 23);
             this.anterior.TabIndex = 58;
@@ -229,7 +233,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(183, 415);
+            this.button3.Location = new System.Drawing.Point(190, 413);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 59;
@@ -239,9 +243,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(467, 12);
+            this.button1.Location = new System.Drawing.Point(28, 10);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(223, 26);
+            this.button1.Size = new System.Drawing.Size(238, 26);
             this.button1.TabIndex = 60;
             this.button1.Text = "Ocultar indice";
             this.button1.UseVisualStyleBackColor = true;
@@ -249,23 +253,13 @@
             // 
             // borrar_seleccion
             // 
-            this.borrar_seleccion.Location = new System.Drawing.Point(21, 344);
+            this.borrar_seleccion.Location = new System.Drawing.Point(21, 413);
             this.borrar_seleccion.Name = "borrar_seleccion";
             this.borrar_seleccion.Size = new System.Drawing.Size(99, 23);
             this.borrar_seleccion.TabIndex = 61;
             this.borrar_seleccion.Text = "Borrar selección";
             this.borrar_seleccion.UseVisualStyleBackColor = true;
             this.borrar_seleccion.Click += new System.EventHandler(this.borrar_seleccion_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(250, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 62;
-            this.label1.Text = "label1";
-            this.label1.Visible = false;
             // 
             // correcta0
             // 
@@ -320,19 +314,9 @@
             this.correcta4.Visible = false;
             this.correcta4.CheckedChanged += new System.EventHandler(this.correct);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(311, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 63;
-            this.label2.Text = "label2";
-            this.label2.Visible = false;
-            // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 19);
+            this.progressBar1.Location = new System.Drawing.Point(21, 13);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(232, 23);
             this.progressBar1.TabIndex = 64;
@@ -341,7 +325,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(106, 23);
+            this.label3.Location = new System.Drawing.Point(112, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 15);
             this.label3.TabIndex = 65;
@@ -370,8 +354,9 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(467, 45);
+            this.dataGridView1.Location = new System.Drawing.Point(28, 43);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -383,9 +368,53 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(223, 393);
+            this.dataGridView1.Size = new System.Drawing.Size(238, 364);
             this.dataGridView1.TabIndex = 67;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(303, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(303, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 15);
+            this.label2.TabIndex = 69;
+            this.label2.Text = "label2";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.siguiente);
+            this.panel1.Controls.Add(this.anterior);
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Location = new System.Drawing.Point(409, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(282, 452);
+            this.panel1.TabIndex = 70;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.enunciado);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.progressBar1);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(694, 100);
+            this.panel2.TabIndex = 72;
             // 
             // HacerExamen2
             // 
@@ -393,33 +422,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(694, 451);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.correctaVF);
             this.Controls.Add(this.borrar_seleccion);
             this.Controls.Add(this.correcta4);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.correcta3);
             this.Controls.Add(this.correcta0);
             this.Controls.Add(this.correcta2);
             this.Controls.Add(this.correcta1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.anterior);
-            this.Controls.Add(this.siguiente);
             this.Controls.Add(this.opc1);
             this.Controls.Add(this.opc4);
             this.Controls.Add(this.opc3);
             this.Controls.Add(this.opc0);
-            this.Controls.Add(this.correctaVF);
             this.Controls.Add(this.letraE);
             this.Controls.Add(this.letraD);
             this.Controls.Add(this.letraC);
             this.Controls.Add(this.opc2);
             this.Controls.Add(this.letraB);
             this.Controls.Add(this.letraA);
-            this.Controls.Add(this.enunciado);
+            this.Controls.Add(this.panel2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "HacerExamen2";
@@ -431,6 +452,9 @@
             this.correctaVF.ResumeLayout(false);
             this.correctaVF.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,16 +480,18 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button borrar_seleccion;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton correcta0;
         private System.Windows.Forms.RadioButton correcta1;
         private System.Windows.Forms.RadioButton correcta2;
         private System.Windows.Forms.RadioButton correcta3;
         private System.Windows.Forms.RadioButton correcta4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

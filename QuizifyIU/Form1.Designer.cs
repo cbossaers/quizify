@@ -84,7 +84,7 @@
             this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 17);
-            this.panelMenu.Size = new System.Drawing.Size(230, 600);
+            this.panelMenu.Size = new System.Drawing.Size(230, 628);
             this.panelMenu.TabIndex = 0;
             // 
             // tienda
@@ -124,7 +124,7 @@
             this.CerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CerrarSesion.IconSize = 30;
             this.CerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CerrarSesion.Location = new System.Drawing.Point(0, 531);
+            this.CerrarSesion.Location = new System.Drawing.Point(0, 559);
             this.CerrarSesion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CerrarSesion.Name = "CerrarSesion";
             this.CerrarSesion.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -470,7 +470,7 @@
             this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.panelDesktop.Size = new System.Drawing.Size(754, 531);
+            this.panelDesktop.Size = new System.Drawing.Size(754, 559);
             this.panelDesktop.TabIndex = 2;
             // 
             // dataGridView1
@@ -549,7 +549,7 @@
             this.obs.BorderSize = 2;
             this.obs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.obs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.obs.Location = new System.Drawing.Point(241, 241);
+            this.obs.Location = new System.Drawing.Point(241, 255);
             this.obs.Margin = new System.Windows.Forms.Padding(4);
             this.obs.Multiline = false;
             this.obs.Name = "obs";
@@ -613,14 +613,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 600);
+            this.ClientSize = new System.Drawing.Size(984, 628);
             this.ControlBox = false;
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MinimumSize = new System.Drawing.Size(950, 566);
+            this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Resize += new System.EventHandler(this.Form1_Resize);

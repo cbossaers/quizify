@@ -14,7 +14,7 @@ namespace QuizifyIU
     public partial class CrearQuiz : Form
     {
         
-        int volver_atras = 0, errores_restan = 0, mostrar_resultados = 0;
+        int volver_atras = 0, errores_restan = 0, mostrar_resultados = 0, recu = 0;
         List<int> pregunta = new List<int>();
         private NuevoServicio servicio;
         private dynamic usuario;
@@ -28,18 +28,32 @@ namespace QuizifyIU
             this.servicio = servicio;
             usuario = user;
             fin.Value = DateTime.Now.AddDays(1);
-            
+            setear_cursos();
+
         }
         public CrearQuiz(NuevoServicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
-            fin.Value = DateTime.Now.AddDays(1);
+            //fin.Value = DateTime.Now.AddDays(1);
+            setear_cursos();
             this.examen = examen;
             id= examen.GetId();
             pregunta = examen.GetPreguntasAsociadas();
+            rela.Visible = false;
+            recuperación.Visible = false;
             mostrear();
+        }
+
+        private void setear_cursos()
+        {
+            List<string> list = servicio.GetCursosProfesor(usuario.GetCorreo());
+            curso.Items.Clear();
+            foreach (string s in list)
+            {
+                curso.Items.Add(s);
+            }
         }
 
         private void sinlimite_CheckedChanged(object sender, EventArgs e)
@@ -59,7 +73,7 @@ namespace QuizifyIU
             string descripcio = descripcion.Text;
             string autor = usuario.GetCorreo();
             string cursos = curso.Text;
-            if(sinlimite.Checked){ tiempo = 1000; }
+            if(sinlimite.Checked){ tiempo = 999; }
             else {
                 if(horas.Text != "") { tiempo = int.Parse(horas.Text) * 60; }
                 tiempo += int.Parse(minutos.Text);}
@@ -123,6 +137,15 @@ namespace QuizifyIU
                 volver_atras = 1;
             }
             else { volver_atras = 0; }
+        }
+
+        private void recuperación_CheckedChanged(object sender, EventArgs e)
+        {
+            if (toggle_button1.Checked)
+            {
+                recu = 1;
+            }
+            else { recu = 0; }
         }
 
         private void toggle_button2_CheckedChanged(object sender, EventArgs e)

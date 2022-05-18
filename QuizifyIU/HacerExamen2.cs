@@ -298,6 +298,11 @@ namespace QuizifyIU
                 dt.Rows.Add(_ravi);
             }
             dataGridView1.DataSource = dt;
+            if (cont != 0)
+            {
+                dataGridView1.Rows[cont/3].Selected = true;
+            }
+            
         }
         
     }
