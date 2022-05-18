@@ -22,7 +22,7 @@ namespace Quizify.Entities {
             int aux2 = 0;
             Thread.CurrentThread.IsBackground = true; 
 
-            for(int i = 0; i < 99999; i++) {
+            while(true) {
                 System.Threading.Thread.Sleep(5000);
                 aux2 = dalex.UltimoIdExamen();
                 if(aux2 > aux) {

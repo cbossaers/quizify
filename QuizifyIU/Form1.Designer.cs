@@ -476,7 +476,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconoForm)).EndInit();
             this.panelDesktop.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion
