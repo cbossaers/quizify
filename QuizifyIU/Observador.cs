@@ -5,6 +5,8 @@ using Quizify.Entities;
 using System.Threading;
 using System.IO;
 using Quizify.Persistence;
+using QuizifyIU;
+using Quizify.Services;
 
 namespace Quizify.Entities {
     public class Observador {
@@ -13,7 +15,7 @@ namespace Quizify.Entities {
 
         public static string TextoNotif = "";
 
-        public void test() {
+        public void test(Form1 form) {
 
         new Thread(() => {
             int aux = dalex.UltimoIdExamen();
@@ -25,6 +27,7 @@ namespace Quizify.Entities {
                 aux2 = dalex.UltimoIdExamen();
                 if(aux2 > aux) {
                     TextoNotif = dalex.Get(aux2).titulo;
+                    form.obsc(TextoNotif);
                 }
                 aux = aux2;
             }

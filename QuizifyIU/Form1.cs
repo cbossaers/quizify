@@ -27,6 +27,7 @@ namespace QuizifyIU
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+        private Observador observ;
 
         public Form1(NuevoServicio servicio, dynamic user)
         {
@@ -49,6 +50,9 @@ namespace QuizifyIU
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
             ActivateButton(Home, RGBColors.color3);
+
+            observ = new Observador();
+            observ.test(this);
         }
 
         public void abrirNieto(Form childForm)
@@ -381,6 +385,11 @@ namespace QuizifyIU
             var form2 = new Principal(servicio);
             form2.Closed += (s, args) => this.Close();
             form2.ShowDialog();
+        }
+
+        public void obsc(string x)
+        {
+            obs.Texts = x;
         }
     }
 }
