@@ -12,6 +12,7 @@ namespace Quizify.Services
         DALPregunta pregunta = new DALPregunta();
         DALExamen examen = new DALExamen();
         DALCurso curso = new DALCurso();
+        Hilos hilos = new Hilos();
 
         //Métodos Alumno
         public void AddAlumno(Alumno al) {
@@ -182,6 +183,9 @@ namespace Quizify.Services
         public DataTable GetAllAlumnos() {
             return alumno.GetAllAlumnos();
         }
-    
+        public void HiloEstadoQuizes() {
+            hilos.HiloEstadoQuizes();
+        }
+        
     }   
 }
