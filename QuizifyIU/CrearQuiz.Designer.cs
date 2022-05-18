@@ -34,10 +34,6 @@
             this.nombre = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.siguiente = new System.Windows.Forms.Button();
-            this.a2 = new System.Windows.Forms.Button();
-            this.b2 = new System.Windows.Forms.Button();
-            this.a5 = new System.Windows.Forms.Button();
-            this.b5 = new System.Windows.Forms.Button();
             this.sinlimite = new System.Windows.Forms.CheckBox();
             this.m = new System.Windows.Forms.Label();
             this.h = new System.Windows.Forms.Label();
@@ -46,8 +42,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.descripcion = new System.Windows.Forms.TextBox();
-            this.b3 = new System.Windows.Forms.Button();
-            this.a3 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dificultad = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -63,6 +57,9 @@
             this.comboBoxCT = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.toggle_button1 = new QuizifyIU.Controles_extra.Toggle_button();
+            this.toggle_button2 = new QuizifyIU.Controles_extra.Toggle_button();
+            this.toggle_button3 = new QuizifyIU.Controles_extra.Toggle_button();
             this.SuspendLayout();
             // 
             // label1
@@ -123,50 +120,6 @@
             this.siguiente.Text = "Siguiente";
             this.siguiente.UseVisualStyleBackColor = true;
             this.siguiente.Click += new System.EventHandler(this.siguiente_Click);
-            // 
-            // a2
-            // 
-            this.a2.Location = new System.Drawing.Point(373, 278);
-            this.a2.Name = "a2";
-            this.a2.Size = new System.Drawing.Size(41, 25);
-            this.a2.TabIndex = 19;
-            this.a2.Text = "ON";
-            this.a2.UseVisualStyleBackColor = true;
-            this.a2.Click += new System.EventHandler(this.a2_Click);
-            // 
-            // b2
-            // 
-            this.b2.Enabled = false;
-            this.b2.Location = new System.Drawing.Point(412, 278);
-            this.b2.Name = "b2";
-            this.b2.Size = new System.Drawing.Size(41, 25);
-            this.b2.TabIndex = 18;
-            this.b2.Text = "OFF";
-            this.b2.UseVisualStyleBackColor = true;
-            this.b2.Click += new System.EventHandler(this.b2_Click);
-            // 
-            // a5
-            // 
-            this.a5.Location = new System.Drawing.Point(373, 341);
-            this.a5.Name = "a5";
-            this.a5.Size = new System.Drawing.Size(41, 25);
-            this.a5.TabIndex = 25;
-            this.a5.Text = "ON";
-            this.a5.UseVisualStyleBackColor = true;
-            this.a5.Visible = false;
-            this.a5.Click += new System.EventHandler(this.a5_Click);
-            // 
-            // b5
-            // 
-            this.b5.Enabled = false;
-            this.b5.Location = new System.Drawing.Point(412, 341);
-            this.b5.Name = "b5";
-            this.b5.Size = new System.Drawing.Size(41, 25);
-            this.b5.TabIndex = 24;
-            this.b5.Text = "OFF";
-            this.b5.UseVisualStyleBackColor = true;
-            this.b5.Visible = false;
-            this.b5.Click += new System.EventHandler(this.b5_Click);
             // 
             // sinlimite
             // 
@@ -256,27 +209,6 @@
             this.descripcion.Name = "descripcion";
             this.descripcion.Size = new System.Drawing.Size(360, 78);
             this.descripcion.TabIndex = 59;
-            // 
-            // b3
-            // 
-            this.b3.Enabled = false;
-            this.b3.Location = new System.Drawing.Point(412, 308);
-            this.b3.Name = "b3";
-            this.b3.Size = new System.Drawing.Size(41, 25);
-            this.b3.TabIndex = 20;
-            this.b3.Text = "OFF";
-            this.b3.UseVisualStyleBackColor = true;
-            this.b3.Click += new System.EventHandler(this.b3_Click);
-            // 
-            // a3
-            // 
-            this.a3.Location = new System.Drawing.Point(373, 308);
-            this.a3.Name = "a3";
-            this.a3.Size = new System.Drawing.Size(41, 25);
-            this.a3.TabIndex = 21;
-            this.a3.Text = "ON";
-            this.a3.UseVisualStyleBackColor = true;
-            this.a3.Click += new System.EventHandler(this.a3_Click);
             // 
             // label6
             // 
@@ -443,6 +375,53 @@
             this.label13.Size = new System.Drawing.Size(90, 15);
             this.label13.TabIndex = 73;
             this.label13.Text = "Es recuperación";
+            this.label13.Visible = false;
+            // 
+            // toggle_button1
+            // 
+            this.toggle_button1.AutoSize = true;
+            this.toggle_button1.Location = new System.Drawing.Point(383, 284);
+            this.toggle_button1.MinimumSize = new System.Drawing.Size(45, 22);
+            this.toggle_button1.Name = "toggle_button1";
+            this.toggle_button1.OffBackColor = System.Drawing.Color.Gray;
+            this.toggle_button1.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.toggle_button1.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.toggle_button1.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.toggle_button1.Size = new System.Drawing.Size(45, 22);
+            this.toggle_button1.TabIndex = 74;
+            this.toggle_button1.UseVisualStyleBackColor = true;
+            this.toggle_button1.CheckedChanged += new System.EventHandler(this.toggle_button1_CheckedChanged);
+            // 
+            // toggle_button2
+            // 
+            this.toggle_button2.AutoSize = true;
+            this.toggle_button2.Location = new System.Drawing.Point(383, 313);
+            this.toggle_button2.MinimumSize = new System.Drawing.Size(45, 22);
+            this.toggle_button2.Name = "toggle_button2";
+            this.toggle_button2.OffBackColor = System.Drawing.Color.Gray;
+            this.toggle_button2.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.toggle_button2.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.toggle_button2.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.toggle_button2.Size = new System.Drawing.Size(45, 22);
+            this.toggle_button2.TabIndex = 75;
+            this.toggle_button2.UseVisualStyleBackColor = true;
+            this.toggle_button2.CheckedChanged += new System.EventHandler(this.toggle_button2_CheckedChanged);
+            // 
+            // toggle_button3
+            // 
+            this.toggle_button3.AutoSize = true;
+            this.toggle_button3.Location = new System.Drawing.Point(383, 341);
+            this.toggle_button3.MinimumSize = new System.Drawing.Size(45, 22);
+            this.toggle_button3.Name = "toggle_button3";
+            this.toggle_button3.OffBackColor = System.Drawing.Color.Gray;
+            this.toggle_button3.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.toggle_button3.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.toggle_button3.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.toggle_button3.Size = new System.Drawing.Size(45, 22);
+            this.toggle_button3.TabIndex = 76;
+            this.toggle_button3.UseVisualStyleBackColor = true;
+            this.toggle_button3.Visible = false;
+            this.toggle_button3.CheckedChanged += new System.EventHandler(this.toggle_button3_CheckedChanged);
             // 
             // CrearQuiz
             // 
@@ -450,6 +429,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(710, 490);
+            this.Controls.Add(this.toggle_button3);
+            this.Controls.Add(this.toggle_button2);
+            this.Controls.Add(this.toggle_button1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBoxCT);
@@ -472,12 +454,6 @@
             this.Controls.Add(this.minutos);
             this.Controls.Add(this.horas);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.a5);
-            this.Controls.Add(this.b5);
-            this.Controls.Add(this.a3);
-            this.Controls.Add(this.b3);
-            this.Controls.Add(this.a2);
-            this.Controls.Add(this.b2);
             this.Controls.Add(this.siguiente);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
@@ -502,10 +478,6 @@
         private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button siguiente;
-        private System.Windows.Forms.Button a2;
-        private System.Windows.Forms.Button b2;
-        private System.Windows.Forms.Button a5;
-        private System.Windows.Forms.Button b5;
         private System.Windows.Forms.CheckBox sinlimite;
         private System.Windows.Forms.Label m;
         private System.Windows.Forms.Label h;
@@ -514,8 +486,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox descripcion;
-        private System.Windows.Forms.Button b3;
-        private System.Windows.Forms.Button a3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox dificultad;
         private System.Windows.Forms.Label label9;
@@ -531,5 +501,8 @@
         private System.Windows.Forms.ComboBox comboBoxCT;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label13;
+        private Controles_extra.Toggle_button toggle_button1;
+        private Controles_extra.Toggle_button toggle_button2;
+        private Controles_extra.Toggle_button toggle_button3;
     }
 }

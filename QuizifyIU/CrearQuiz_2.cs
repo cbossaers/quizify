@@ -29,70 +29,53 @@ namespace QuizifyIU
         private void tabla()
         {
             List<int> DTable = examen.GetPreguntasAsociadas();
-
-            BindingList<object> bindinglist = new BindingList<object>();
-            
+            DataTable dt = new DataTable();
+            dt.Clear();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Versión");
+            dt.Columns.Add("Enunciado");
+            dt.Columns.Add("Dificultad");
+            dt.Columns.Add("Tipo");
+            dt.Columns.Add("Autor");
+            dt.Columns.Add("Materia");
+            dt.Columns.Add("Puntuación");
             for (int i = 0; i < DTable.Count; i += 3)
             {
-                
                 Pregunta2 preg = servicio.GetPregunta(DTable[i], DTable[i + 1]);
-                if (preg.GetTipo() == "test")
+
+                DataRow _ravi = dt.NewRow();
+                _ravi["ID"] = preg.GetId().ToString();
+                _ravi["Versión"] = preg.GetVersion();
+                _ravi["Enunciado"] = preg.GetEnunciado();
+                _ravi["Autor"] = preg.GetAutor();
+                _ravi["Materia"] = preg.GetTema();
+                _ravi["Puntuación"] = DTable[i + 2];
+                switch (preg.GetDificultad())
                 {
-                    bindinglist.Add(new
-                    {
-                        ds_ID = preg.GetId().ToString(),
-                        ds_enunciado = preg.GetEnunciado(),
-                        ds_tipo = "Test",
-                        ds_version = preg.GetVersion(),
-                        ds_dificultad = preg.GetDificultad(),
-                        ds_materia = preg.GetTema(),
-                        ds_autor = preg.GetAutor(),
-                        ds_puntuacion = DTable[i+2]
-                    });
-
+                    case (0): _ravi["Dificultad"] = "Fácil"; break;
+                    case (1): _ravi["Dificultad"] = "Normal"; break;
+                    case (2): _ravi["Dificultad"] = "Difícil"; break;
                 }
-                else if (preg.GetTipo() == "vf")
+                switch (preg.GetTipo())
                 {
-                    bindinglist.Add(new
-                    {
-                        ds_ID = preg.GetId().ToString(),
-                        ds_enunciado = preg.GetEnunciado(),
-                        ds_tipo = "VF",
-                        ds_version = preg.GetVersion(),
-                        ds_dificultad = preg.GetDificultad(),
-                        ds_materia = preg.GetTema(),
-                        ds_autor = preg.GetAutor(),
-                        ds_puntuacion = DTable[i + 2]
-
-                    }) ;
+                    case ("test"): _ravi["Tipo"] = "Test"; break;
+                    case ("vf"): _ravi["Tipo"] = "VF"; break;
+                    case ("mult"): _ravi["Tipo"] = "Multi"; break;
+                    case ("des"): _ravi["Tipo"] = "Desarrollo"; break;
                 }
-
+                dt.Rows.Add(_ravi);
             }
-            dataGridView1.DataSource = bindinglist;
+            dataGridView1.DataSource = dt;
         }
 
-        
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-                this.Hide();
-                var form2 = new CrearQuiz_3(servicio, usuario, examen);
-                form2.Closed += (s, args) => this.Close();
-                form2.Show();
-            
-                
-            
-        }
-        /*private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            /*List<int> lista = examen.GetPreguntasAsociadas();
-            lista[e.RowIndex+2]= int.Parse(dataGridView1.SelectedCells[6].Value.ToString());
-            //dataGridView1.SelectedCells[1].Value = lista[e.RowIndex + 2];
-            examen.SetPreguntasAsociadas(lista);
-        }*/
         private void crear_Click(object sender, EventArgs e)
         {
+            List<int> lista = examen.GetPreguntasAsociadas();
+            for (int i = 0; i < lista.Count; i += 3)
+            {
+                lista[i + 2] = int.Parse(dataGridView1.SelectedCells[7].Value.ToString());
+            }
+            examen.SetPreguntasAsociadas(lista);
             servicio.AddExamen(examen);
             MessageBox.Show(this, "Se ha creado el examen", "Éxito",
                                        MessageBoxButtons.OK,
@@ -100,18 +83,8 @@ namespace QuizifyIU
             this.Hide();
         }
 
-        private void editar_Click(object sender, EventArgs e)
-        {
-           /* this.Hide();
-            var form2 = new CrearPregunta(servicio, usuario, servicio.GetPregunta(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()), int.Parse(dataGridView1.SelectedCells[3].Value.ToString())));
-            form2.Closed += (s, args) => this.Close();
-            form2.Show();*/
-        }
-
         private void anular_Click(object sender, EventArgs e)
         {
-            /*servicio.AnularPregunta(examen.GetId(), int.Parse(dataGridView1.SelectedCells[0].Value.ToString()));
-            */
             List<int> lista = examen.GetPreguntasAsociadas();
             int ide = int.Parse(dataGridView1.SelectedCells[0].Value.ToString());
             for (int i = 0; i < lista.Count; i += 3)
@@ -124,11 +97,18 @@ namespace QuizifyIU
             examen.SetPreguntasAsociadas(lista);
             tabla();
         }
-        
+        private void editar_Click(object sender, EventArgs e)
+        {
+            Principal.formportal.abrirNieto(new CrearPregunta(servicio, usuario, servicio.GetPregunta(int.Parse(dataGridView1.SelectedCells[0].Value.ToString()), int.Parse(dataGridView1.SelectedCells[3].Value.ToString()))));
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Principal.formportal.abrirNieto(new CrearQuiz(servicio, usuario, examen));
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Principal.formportal.abrirNieto(new CrearQuiz_3(servicio, usuario, examen));
         }
     }
 }

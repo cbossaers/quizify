@@ -126,7 +126,7 @@
             this.bVolver.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.bVolver.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bVolver.IconSize = 30;
-            this.bVolver.Location = new System.Drawing.Point(-1, 16);
+            this.bVolver.Location = new System.Drawing.Point(-1, 11);
             this.bVolver.Name = "bVolver";
             this.bVolver.Size = new System.Drawing.Size(78, 38);
             this.bVolver.TabIndex = 16;
@@ -173,7 +173,7 @@
             this.nombreBox.PlaceholderText = "";
             this.nombreBox.Size = new System.Drawing.Size(182, 31);
             this.nombreBox.TabIndex = 18;
-            this.nombreBox.Text = "";
+            this.nombreBox.Texts = "";
             this.nombreBox.UnderlinedStyle = false;
             this.nombreBox._TextChanged += new System.EventHandler(this.nombreBox_TextChanged);
             // 

@@ -21,64 +21,25 @@ namespace QuizifyIU
         int tiempo;
         int id = -1;
         private Examen examen;
-        DateTime fecha = DateTime.Now.AddDays(1);
 
         public CrearQuiz(NuevoServicio servicio,dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
+            fin.Value = DateTime.Now.AddDays(1);
             
-            fin.Text = "5/05/2022";
-
         }
         public CrearQuiz(NuevoServicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
-            fin.Text = "23/03/2022";
+            fin.Value = DateTime.Now.AddDays(1);
             this.examen = examen;
             id= examen.GetId();
             pregunta = examen.GetPreguntasAsociadas();
             mostrear();
-        }
-
-        private void mostrear()
-        {
-            
-            nombre.Text = examen.GetTitulo();
-            descripcion.Text = examen.GetDescripcion();
-            curso.Text = examen.GetCurso();
-            ini.Text = examen.GetFechaIni().ToString();
-            fin.Text = examen.GetFechaFin().ToString();
-            intentos.Text = examen.GetIntentos().ToString();
-            if (examen.GetTiempo()==1000)
-            {
-                sinlimite.Checked = true;
-                horas.Enabled = false; minutos.Enabled = false;
-            }
-            else
-            {
-                minutos.Text = examen.GetTiempo().ToString();
-            }
-
-            if (examen.GetVolverAtras() == 1)
-            {
-                a2.Enabled = true;
-                b2.Enabled = false;
-            }
-            if(examen.GetErroresRestan() == 1)
-            {
-                a3.Enabled = true;
-                b3.Enabled = false;
-            }
-            if(examen.GetMostrarResultados() == 1)
-            {
-                a5.Enabled=true;
-                b5.Enabled=false;
-            }
-            comboBoxCT.Text = examen.GetCompetenciaTransversal();
         }
 
         private void sinlimite_CheckedChanged(object sender, EventArgs e)
@@ -115,39 +76,41 @@ namespace QuizifyIU
 
             Principal.formportal.abrirNieto(new CrearQuiz_2(servicio, usuario, examen));  
         }
-
-        private void a3_Click(object sender, EventArgs e)
+        private void mostrear()
         {
-            a3.Enabled = false;
-            b3.Enabled = true;
-            b3.Focus();
-            errores_restan = 1;
-        }
 
-        private void b3_Click(object sender, EventArgs e)
-        {
-            b3.Enabled = false;
-            a3.Enabled = true;
-            a3.Focus();
-            errores_restan = 0;
-        }
+            nombre.Text = examen.GetTitulo();
+            descripcion.Text = examen.GetDescripcion();
+            curso.Text = examen.GetCurso();
+            ini.Text = examen.GetFechaIni().ToString();
+            fin.Text = examen.GetFechaFin().ToString();
+            intentos.Text = examen.GetIntentos().ToString();
+            if (examen.GetTiempo() == 1000)
+            {
+                sinlimite.Checked = true;
+                horas.Enabled = false; minutos.Enabled = false;
+            }
+            else
+            {
+                minutos.Text = examen.GetTiempo().ToString();
+            }
 
-        
-
-        private void a5_Click(object sender, EventArgs e)
-        {
-            a5.Enabled = false;
-            b5.Enabled = true;
-            b5.Focus();
-            mostrar_resultados = 1;
-        }
-
-        private void b5_Click(object sender, EventArgs e)
-        {
-            b5.Enabled = false;
-            a5.Enabled = true;
-            a5.Focus();
-            mostrar_resultados = 0;
+            if (examen.GetVolverAtras() == 1)
+            {
+                toggle_button1.Checked = true;
+                toggle_button1.Checked = false;
+            }
+            if (examen.GetErroresRestan() == 1)
+            {
+                toggle_button2.Checked = true;
+                toggle_button2.Checked = false;
+            }
+            if (examen.GetMostrarResultados() == 1)
+            {
+                toggle_button3.Checked = true;
+                toggle_button3.Checked = false;
+            }
+            comboBoxCT.Text = examen.GetCompetenciaTransversal();
         }
 
         private void intentos_SelectedIndexChanged(object sender, EventArgs e)
@@ -155,23 +118,31 @@ namespace QuizifyIU
             siguiente.Enabled = true;
         }
 
-        private void a2_Click(object sender, EventArgs e)
+        private void toggle_button1_CheckedChanged(object sender, EventArgs e)
         {
-            
-            a2.Enabled = false;
-            b2.Enabled = true;
-            b2.Focus();
-            volver_atras = 1;
+            if (toggle_button1.Checked)
+            {
+                volver_atras = 1;
+            }
+            else { volver_atras = 0; }
         }
 
-        private void b2_Click(object sender, EventArgs e)
+        private void toggle_button2_CheckedChanged(object sender, EventArgs e)
         {
-            b2.Enabled = false;
-            a2.Enabled = true;
-            a2.Focus();
-            volver_atras = 0;
+            if (toggle_button1.Checked)
+            {
+                errores_restan = 1;
+            }
+            else { errores_restan = 0; }
         }
 
-
+        private void toggle_button3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (toggle_button1.Checked)
+            {
+                mostrar_resultados = 1;
+            }
+            else { mostrar_resultados = 0; }
+        }
     }
 }

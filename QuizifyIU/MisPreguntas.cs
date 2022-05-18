@@ -52,7 +52,7 @@ namespace QuizifyIU
         {
             DataGridViewRow row = this.tablaPreguntas.Rows[e.RowIndex];
             int id = int.Parse(tablaPreguntas.SelectedCells[0].Value.ToString());
-            int ver = int.Parse(tablaPreguntas.SelectedCells[3].Value.ToString());
+            int ver = int.Parse(tablaPreguntas.SelectedCells[1].Value.ToString());
             
             try { preg = servicio.GetPregunta(id, ver);
                 int vers = preg.GetVersion();
