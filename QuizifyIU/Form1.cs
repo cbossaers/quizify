@@ -396,6 +396,11 @@ namespace QuizifyIU
             ActivateButton(sender, RGBColors.color3);
             OpenChildForm(new CursoForm(servicio, usuario));
         }
+        private void tienda_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color3);
+            OpenChildForm(new ComprarBono(servicio, usuario));
+        }
 
         private void Estadisticas_Click(object sender, EventArgs e)
         {
@@ -427,5 +432,7 @@ namespace QuizifyIU
             }
             else { dataGridView1.Visible = false; noti2.Visible = false; bellN.Visible = true; noti1.Visible = false; numnoti.Visible = true; } 
         }
+
+        
     }
 }
