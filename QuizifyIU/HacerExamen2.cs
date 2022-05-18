@@ -274,28 +274,25 @@ namespace QuizifyIU
             }
         }
 
+        
+
         private void indice()
         {
             BindingList<object> bindinglist = new BindingList<object>();
+            DataTable dt = new DataTable();
+            
+            dt.Columns.Add("Pregunta");
+            dt.Columns.Add("Contestada");
             int cuen = 0;
             for (int i = 1; i <= res.Count; i++)
             {
+                DataRow _ravi = dt.NewRow();
+                _ravi["Pregunta"] = "Pregunta " + i.ToString();
                 if (res[preguntas_asociadas[cuen]] != -1)
                 {
-                    bindinglist.Add(new
-                    {
-                        ds_pregunta = "Pregunta " + i.ToString(),
-                        ds_contestada = "◉",
-                    });
+                    _ravi["Contestada"] = "◉";
                 }
-                else
-                {
-                    bindinglist.Add(new
-                    {
-                        ds_pregunta = "Pregunta " + i.ToString(),
-                        ds_contestada = "○"
-                    });
-                }
+                else { _ravi["Contestada"] = "○"; }
                 cuen += 3;
             }
             dataGridView1.DataSource = bindinglist;
