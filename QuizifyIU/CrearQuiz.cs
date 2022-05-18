@@ -65,8 +65,8 @@ namespace QuizifyIU
                 tiempo += int.Parse(minutos.Text);}
             int intento = int.Parse(intentos.Text);
             //DateTimeOffset fecha_inicial = DateTime.Parse(ini.Text +" "+ hini) ;
-            DateTime fecha_inicial = DateTime.Parse(ini.Text);
-            DateTime fecha_finanl = DateTime.Parse(fin.Text);
+            DateTime fecha_inicial = ini.Value.AddHours(hini.Value.Hour).AddMinutes(hini.Value.Minute) ;
+            DateTime fecha_finanl = fin.Value.AddHours(hfin.Value.Hour).AddMinutes(hfin.Value.Minute);
             DateTime fecha_actual = DateTime.Now;
             string CT = comboBoxCT.Text;
             String estado = "Borrador";
