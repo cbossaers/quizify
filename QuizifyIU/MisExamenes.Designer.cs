@@ -121,6 +121,7 @@
             this.tablaExamenesProfesor.Location = new System.Drawing.Point(10, 48);
             this.tablaExamenesProfesor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tablaExamenesProfesor.Name = "tablaExamenesProfesor";
+            this.tablaExamenesProfesor.ReadOnly = true;
             this.tablaExamenesProfesor.RowHeadersVisible = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
@@ -159,6 +160,7 @@
             this.tablaExamenDisponible.Location = new System.Drawing.Point(10, 71);
             this.tablaExamenDisponible.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tablaExamenDisponible.Name = "tablaExamenDisponible";
+            this.tablaExamenDisponible.ReadOnly = true;
             this.tablaExamenDisponible.RowHeadersVisible = false;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
@@ -197,6 +199,7 @@
             this.tablaExamenFinalizado.Location = new System.Drawing.Point(9, 262);
             this.tablaExamenFinalizado.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tablaExamenFinalizado.Name = "tablaExamenFinalizado";
+            this.tablaExamenFinalizado.ReadOnly = true;
             this.tablaExamenFinalizado.RowHeadersVisible = false;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));

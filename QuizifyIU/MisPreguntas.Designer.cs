@@ -156,6 +156,7 @@
             this.tablaPreguntas.Location = new System.Drawing.Point(6, 139);
             this.tablaPreguntas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tablaPreguntas.Name = "tablaPreguntas";
+            this.tablaPreguntas.ReadOnly = true;
             this.tablaPreguntas.RowHeadersVisible = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
