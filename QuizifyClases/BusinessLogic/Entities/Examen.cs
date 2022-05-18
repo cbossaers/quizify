@@ -6,7 +6,7 @@ namespace Quizify.Entities
     public partial class Examen
     {
         public Examen(int id, string titulo, string descripcion, string curso, string autor, int Tiempo, DateTime fecha_creac, DateTime fecha_ini,
-            DateTime fecha_fin, int intentos, int volver_atras, int errores_restan, int mostrar_resultados, List<int> preguntas, string estado, string CT, string dificultad)
+            DateTime fecha_fin, int intentos, int volver_atras, int errores_restan, int mostrar_resultados, List<int> preguntas, string estado, string dificultad, string CT)
         {
             this.ID = id;
             this.titulo = titulo;

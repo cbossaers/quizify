@@ -12,7 +12,6 @@ namespace Quizify.Services
         DALPregunta pregunta = new DALPregunta();
         DALExamen examen = new DALExamen();
         DALCurso curso = new DALCurso();
-        Observador observador = new Observador();
 
         //Métodos Alumno
         public void AddAlumno(Alumno al) {
@@ -146,10 +145,10 @@ namespace Quizify.Services
             return examen.GetPuntuacionDePregunta(id_ex, id_preg);
         }
         public void GenerarExamen(string profesor, string codigo_curso, int num_preguntas, int tiempo, DateTime fechaini, DateTime fechafin,
-        int intentos, int volveratras, int erroresrestan, int mostrarresultados, bool esrecu) {
+        int intentos, int volveratras, int erroresrestan, int mostrarresultados, bool esrecu, string dific) {
             try {
                 examen.GenerarExamen(profesor, codigo_curso, num_preguntas, tiempo, fechaini, fechafin, intentos, 
-                volveratras, erroresrestan, mostrarresultados, esrecu);
+                volveratras, erroresrestan, mostrarresultados, esrecu, dific);
             } catch(Exception e) { throw new Exception(e.ToString()); }
         }
         public List<dynamic> EstadisticasExamen(int id_ex) {
@@ -182,9 +181,6 @@ namespace Quizify.Services
         }
         public DataTable GetAllAlumnos() {
             return alumno.GetAllAlumnos();
-        }
-        public void Observar() {
-            observador.test();
         }
     
     }   

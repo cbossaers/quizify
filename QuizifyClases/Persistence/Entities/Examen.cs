@@ -73,10 +73,9 @@ public partial class Examen
         set;
     }
 
-    public string dificultad
-        {
+    public string dificultad {
             get;
             set;
-        }
+    }
 }
 }

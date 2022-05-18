@@ -80,7 +80,7 @@ namespace Quizify.Persistence {
                             rdr.GetString("autor"), rdr.GetInt32("tiempo"), DateTime.Parse(rdr.GetString("fecha_creac")),
                             DateTime.Parse(rdr.GetString("fecha_ini")), DateTime.Parse(rdr.GetString("fecha_fin")), rdr.GetInt32("intentos"),
                             rdr.GetInt32("volver_atras"), rdr.GetInt32("errores_restan"), rdr.GetInt32("mostrar_resultados"), lista,
-                            rdr.GetString("estado"), rdr.GetString("CT"), rdr.GetString("dificultad"));
+                            rdr.GetString("estado"), rdr.GetString("dificultad"), rdr.GetString("CT"));
                         }
                     }
                 }
@@ -542,7 +542,7 @@ namespace Quizify.Persistence {
         }
 
         public void GenerarExamen(string profesor, string codigo_curso, int num_preguntas, int tiempo, DateTime fechaini, DateTime fechafin,
-        int intentos, int volveratras, int erroresrestan, int mostrarresultados, bool esrecu) {
+        int intentos, int volveratras, int erroresrestan, int mostrarresultados, bool esrecu, string dific) {
 
             Random rand = new Random();
 
@@ -598,7 +598,7 @@ namespace Quizify.Persistence {
             }
 
             Add(fabrica.CrearExamen(id, titulo, descripcion, codigo_curso, profesor, tiempo, DateTime.Now, fechaini, fechafin,
-            intentos, volveratras, erroresrestan, mostrarresultados, final, "Borrador"));
+            intentos, volveratras, erroresrestan, mostrarresultados, final, "Borrador", dific));
         }
 
         public void FinalizarExamen(int id) {
