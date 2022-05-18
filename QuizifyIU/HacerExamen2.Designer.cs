@@ -62,18 +62,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.CorrectaMult = new System.Windows.Forms.Panel();
+            this.check3 = new System.Windows.Forms.CheckBox();
+            this.check2 = new System.Windows.Forms.CheckBox();
+            this.check1 = new System.Windows.Forms.CheckBox();
+            this.check0 = new System.Windows.Forms.CheckBox();
+            this.check4 = new System.Windows.Forms.CheckBox();
             this.correctaVF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.CorrectaMult.SuspendLayout();
             this.SuspendLayout();
             // 
             // correctaVF
             // 
             this.correctaVF.Controls.Add(this.falso1);
             this.correctaVF.Controls.Add(this.verdadero0);
-            this.correctaVF.Location = new System.Drawing.Point(3, 138);
+            this.correctaVF.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.correctaVF.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.correctaVF.Location = new System.Drawing.Point(3, 152);
             this.correctaVF.Name = "correctaVF";
             this.correctaVF.Size = new System.Drawing.Size(355, 140);
             this.correctaVF.TabIndex = 49;
@@ -83,7 +90,7 @@
             // 
             this.falso1.AutoSize = true;
             this.falso1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.falso1.Location = new System.Drawing.Point(49, 78);
+            this.falso1.Location = new System.Drawing.Point(44, 78);
             this.falso1.Name = "falso1";
             this.falso1.Size = new System.Drawing.Size(79, 32);
             this.falso1.TabIndex = 1;
@@ -96,7 +103,7 @@
             // 
             this.verdadero0.AutoSize = true;
             this.verdadero0.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.verdadero0.Location = new System.Drawing.Point(49, 34);
+            this.verdadero0.Location = new System.Drawing.Point(44, 32);
             this.verdadero0.Name = "verdadero0";
             this.verdadero0.Size = new System.Drawing.Size(126, 32);
             this.verdadero0.TabIndex = 0;
@@ -108,9 +115,11 @@
             // letraE
             // 
             this.letraE.AutoSize = true;
-            this.letraE.Location = new System.Drawing.Point(21, 309);
+            this.letraE.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.letraE.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.letraE.Location = new System.Drawing.Point(25, 323);
             this.letraE.Name = "letraE";
-            this.letraE.Size = new System.Drawing.Size(13, 15);
+            this.letraE.Size = new System.Drawing.Size(15, 15);
             this.letraE.TabIndex = 45;
             this.letraE.Text = "E";
             this.letraE.Visible = false;
@@ -118,9 +127,11 @@
             // letraD
             // 
             this.letraD.AutoSize = true;
-            this.letraD.Location = new System.Drawing.Point(21, 261);
+            this.letraD.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.letraD.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.letraD.Location = new System.Drawing.Point(25, 275);
             this.letraD.Name = "letraD";
-            this.letraD.Size = new System.Drawing.Size(15, 15);
+            this.letraD.Size = new System.Drawing.Size(16, 15);
             this.letraD.TabIndex = 44;
             this.letraD.Text = "D";
             this.letraD.Visible = false;
@@ -128,9 +139,11 @@
             // letraC
             // 
             this.letraC.AutoSize = true;
-            this.letraC.Location = new System.Drawing.Point(21, 212);
+            this.letraC.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.letraC.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.letraC.Location = new System.Drawing.Point(25, 226);
             this.letraC.Name = "letraC";
-            this.letraC.Size = new System.Drawing.Size(15, 15);
+            this.letraC.Size = new System.Drawing.Size(16, 15);
             this.letraC.TabIndex = 43;
             this.letraC.Text = "C";
             this.letraC.Visible = false;
@@ -138,9 +151,11 @@
             // letraB
             // 
             this.letraB.AutoSize = true;
-            this.letraB.Location = new System.Drawing.Point(21, 163);
+            this.letraB.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.letraB.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.letraB.Location = new System.Drawing.Point(25, 177);
             this.letraB.Name = "letraB";
-            this.letraB.Size = new System.Drawing.Size(14, 15);
+            this.letraB.Size = new System.Drawing.Size(15, 15);
             this.letraB.TabIndex = 42;
             this.letraB.Text = "B";
             this.letraB.Visible = false;
@@ -148,7 +163,9 @@
             // letraA
             // 
             this.letraA.AutoSize = true;
-            this.letraA.Location = new System.Drawing.Point(21, 118);
+            this.letraA.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.letraA.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.letraA.Location = new System.Drawing.Point(25, 132);
             this.letraA.Name = "letraA";
             this.letraA.Size = new System.Drawing.Size(15, 15);
             this.letraA.TabIndex = 41;
@@ -158,55 +175,65 @@
             // enunciado
             // 
             this.enunciado.AutoSize = true;
-            this.enunciado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.enunciado.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.enunciado.Location = new System.Drawing.Point(21, 57);
             this.enunciado.Name = "enunciado";
-            this.enunciado.Size = new System.Drawing.Size(107, 28);
+            this.enunciado.Size = new System.Drawing.Size(115, 30);
             this.enunciado.TabIndex = 32;
             this.enunciado.Text = "Enunciado:";
             // 
             // opc0
             // 
             this.opc0.AutoSize = true;
-            this.opc0.Location = new System.Drawing.Point(68, 117);
+            this.opc0.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.opc0.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.opc0.Location = new System.Drawing.Point(72, 131);
             this.opc0.Name = "opc0";
-            this.opc0.Size = new System.Drawing.Size(38, 15);
+            this.opc0.Size = new System.Drawing.Size(41, 15);
             this.opc0.TabIndex = 52;
             this.opc0.Text = "label2";
             // 
             // opc1
             // 
             this.opc1.AutoSize = true;
-            this.opc1.Location = new System.Drawing.Point(68, 162);
+            this.opc1.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.opc1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.opc1.Location = new System.Drawing.Point(72, 176);
             this.opc1.Name = "opc1";
-            this.opc1.Size = new System.Drawing.Size(38, 15);
+            this.opc1.Size = new System.Drawing.Size(41, 15);
             this.opc1.TabIndex = 53;
             this.opc1.Text = "label2";
             // 
             // opc2
             // 
             this.opc2.AutoSize = true;
-            this.opc2.Location = new System.Drawing.Point(68, 211);
+            this.opc2.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.opc2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.opc2.Location = new System.Drawing.Point(72, 225);
             this.opc2.Name = "opc2";
-            this.opc2.Size = new System.Drawing.Size(38, 15);
+            this.opc2.Size = new System.Drawing.Size(41, 15);
             this.opc2.TabIndex = 54;
             this.opc2.Text = "label2";
             // 
             // opc3
             // 
             this.opc3.AutoSize = true;
-            this.opc3.Location = new System.Drawing.Point(68, 259);
+            this.opc3.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.opc3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.opc3.Location = new System.Drawing.Point(72, 274);
             this.opc3.Name = "opc3";
-            this.opc3.Size = new System.Drawing.Size(38, 15);
+            this.opc3.Size = new System.Drawing.Size(41, 15);
             this.opc3.TabIndex = 55;
             this.opc3.Text = "label3";
             // 
             // opc4
             // 
             this.opc4.AutoSize = true;
-            this.opc4.Location = new System.Drawing.Point(68, 308);
+            this.opc4.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.opc4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.opc4.Location = new System.Drawing.Point(72, 322);
             this.opc4.Name = "opc4";
-            this.opc4.Size = new System.Drawing.Size(38, 15);
+            this.opc4.Size = new System.Drawing.Size(41, 15);
             this.opc4.TabIndex = 56;
             this.opc4.Text = "label4";
             this.opc4.Visible = false;
@@ -264,8 +291,9 @@
             // correcta0
             // 
             this.correcta0.AutoSize = true;
-            this.correcta0.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.correcta0.Location = new System.Drawing.Point(42, 119);
+            this.correcta0.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.correcta0.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.correcta0.Location = new System.Drawing.Point(46, 133);
             this.correcta0.Name = "correcta0";
             this.correcta0.Size = new System.Drawing.Size(14, 13);
             this.correcta0.TabIndex = 19;
@@ -275,7 +303,9 @@
             // correcta1
             // 
             this.correcta1.AutoSize = true;
-            this.correcta1.Location = new System.Drawing.Point(41, 164);
+            this.correcta1.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.correcta1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.correcta1.Location = new System.Drawing.Point(45, 178);
             this.correcta1.Name = "correcta1";
             this.correcta1.Size = new System.Drawing.Size(14, 13);
             this.correcta1.TabIndex = 21;
@@ -285,7 +315,9 @@
             // correcta2
             // 
             this.correcta2.AutoSize = true;
-            this.correcta2.Location = new System.Drawing.Point(41, 211);
+            this.correcta2.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.correcta2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.correcta2.Location = new System.Drawing.Point(45, 226);
             this.correcta2.Name = "correcta2";
             this.correcta2.Size = new System.Drawing.Size(14, 13);
             this.correcta2.TabIndex = 22;
@@ -295,7 +327,9 @@
             // correcta3
             // 
             this.correcta3.AutoSize = true;
-            this.correcta3.Location = new System.Drawing.Point(41, 262);
+            this.correcta3.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.correcta3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.correcta3.Location = new System.Drawing.Point(45, 277);
             this.correcta3.Name = "correcta3";
             this.correcta3.Size = new System.Drawing.Size(14, 13);
             this.correcta3.TabIndex = 23;
@@ -306,7 +340,9 @@
             // correcta4
             // 
             this.correcta4.AutoSize = true;
-            this.correcta4.Location = new System.Drawing.Point(40, 311);
+            this.correcta4.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.correcta4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.correcta4.Location = new System.Drawing.Point(44, 324);
             this.correcta4.Name = "correcta4";
             this.correcta4.Size = new System.Drawing.Size(14, 13);
             this.correcta4.TabIndex = 24;
@@ -398,23 +434,71 @@
             this.panel1.Controls.Add(this.anterior);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Location = new System.Drawing.Point(409, 0);
+            this.panel1.Location = new System.Drawing.Point(415, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(282, 452);
+            this.panel1.Size = new System.Drawing.Size(276, 452);
             this.panel1.TabIndex = 70;
             // 
-            // panel2
+            // CorrectaMult
             // 
-            this.panel2.Controls.Add(this.enunciado);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.progressBar1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(694, 100);
-            this.panel2.TabIndex = 72;
+            this.CorrectaMult.Controls.Add(this.check3);
+            this.CorrectaMult.Controls.Add(this.check2);
+            this.CorrectaMult.Controls.Add(this.check1);
+            this.CorrectaMult.Controls.Add(this.check0);
+            this.CorrectaMult.Controls.Add(this.check4);
+            this.CorrectaMult.Location = new System.Drawing.Point(30, 117);
+            this.CorrectaMult.Name = "CorrectaMult";
+            this.CorrectaMult.Size = new System.Drawing.Size(45, 245);
+            this.CorrectaMult.TabIndex = 71;
+            this.CorrectaMult.Visible = false;
+            // 
+            // check3
+            // 
+            this.check3.AutoSize = true;
+            this.check3.Location = new System.Drawing.Point(16, 159);
+            this.check3.Name = "check3";
+            this.check3.Size = new System.Drawing.Size(15, 14);
+            this.check3.TabIndex = 3;
+            this.check3.UseVisualStyleBackColor = true;
+            this.check3.Visible = false;
+            // 
+            // check2
+            // 
+            this.check2.AutoSize = true;
+            this.check2.Location = new System.Drawing.Point(16, 110);
+            this.check2.Name = "check2";
+            this.check2.Size = new System.Drawing.Size(15, 14);
+            this.check2.TabIndex = 2;
+            this.check2.UseVisualStyleBackColor = true;
+            // 
+            // check1
+            // 
+            this.check1.AutoSize = true;
+            this.check1.Location = new System.Drawing.Point(16, 62);
+            this.check1.Name = "check1";
+            this.check1.Size = new System.Drawing.Size(15, 14);
+            this.check1.TabIndex = 1;
+            this.check1.UseVisualStyleBackColor = true;
+            // 
+            // check0
+            // 
+            this.check0.AutoSize = true;
+            this.check0.Location = new System.Drawing.Point(16, 15);
+            this.check0.Name = "check0";
+            this.check0.Size = new System.Drawing.Size(15, 14);
+            this.check0.TabIndex = 0;
+            this.check0.UseVisualStyleBackColor = true;
+            this.check0.CheckedChanged += new System.EventHandler(this.check0_CheckedChanged);
+            // 
+            // check4
+            // 
+            this.check4.AutoSize = true;
+            this.check4.Location = new System.Drawing.Point(16, 207);
+            this.check4.Name = "check4";
+            this.check4.Size = new System.Drawing.Size(15, 14);
+            this.check4.TabIndex = 4;
+            this.check4.UseVisualStyleBackColor = true;
+            this.check4.Visible = false;
             // 
             // HacerExamen2
             // 
@@ -422,9 +506,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(694, 451);
+            this.Controls.Add(this.enunciado);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.correctaVF);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.borrar_seleccion);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.correcta4);
             this.Controls.Add(this.correcta3);
             this.Controls.Add(this.correcta0);
@@ -440,7 +529,7 @@
             this.Controls.Add(this.opc2);
             this.Controls.Add(this.letraB);
             this.Controls.Add(this.letraA);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.CorrectaMult);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "HacerExamen2";
@@ -448,13 +537,12 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.HacerExamen2_Load);
             this.correctaVF.ResumeLayout(false);
             this.correctaVF.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.CorrectaMult.ResumeLayout(false);
+            this.CorrectaMult.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -492,6 +580,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel CorrectaMult;
+        private System.Windows.Forms.CheckBox check3;
+        private System.Windows.Forms.CheckBox check2;
+        private System.Windows.Forms.CheckBox check1;
+        private System.Windows.Forms.CheckBox check0;
+        private System.Windows.Forms.CheckBox check4;
     }
 }

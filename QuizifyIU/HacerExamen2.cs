@@ -19,9 +19,14 @@ namespace QuizifyIU
         private NuevoServicio servicio;
         List<int> preguntas_asociadas = new List<int>();
         List<dynamic> respuestas = new List<dynamic>{ };
-        Dictionary<int,int> res = new Dictionary<int, int>();    
+        Dictionary<int,dynamic> res = new Dictionary<int, dynamic>();    
         private int op_correcta = -1;
-        Boolean Test = false;
+
+        private bool Test = false;
+        private bool vf = false;
+        private bool mult = false;
+        private bool desarrollo = false;
+
         private Alumno usuario;
         int counter;
         int minutes;
@@ -30,6 +35,9 @@ namespace QuizifyIU
         Stopwatch stopwatch = new Stopwatch();
 
         Examen examen;
+
+        private List<string> listaOpCorrecta = new List<String> { "0", "0", "0", "0", "0" };
+        private string opcionCorrecta;
 
         public HacerExamen2(NuevoServicio servicio, dynamic user,Examen examen)
         {
@@ -55,7 +63,7 @@ namespace QuizifyIU
 
         private void anterior_Click(object sender, EventArgs e)
         {
-            
+            if (mult) { CraftearStringCorrecta(listaOpCorrecta); op_correcta = int.Parse(opcionCorrecta); }
             guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
             cont -=3;
             
@@ -64,6 +72,7 @@ namespace QuizifyIU
 
         private void siguiete_Click(object sender, EventArgs e)
         {
+            if(mult){ CraftearStringCorrecta(listaOpCorrecta); op_correcta = int.Parse(opcionCorrecta); }
             guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
             if(siguiente.Text == "Finalizar examen")
             {
@@ -96,7 +105,9 @@ namespace QuizifyIU
         {
             indice();
             bloquear();
+            Test = false; mult=false; desarrollo = false;vf=false;
             Pregunta2 preg = servicio.GetPregunta(preguntas_asociadas[cont], preguntas_asociadas[cont + 1]);
+            listaOpCorrecta = new List<String> { "0", "0", "0", "0", "0" };
             if (preg.GetTipo() == "test")
             {
                 Test = true;
@@ -104,14 +115,13 @@ namespace QuizifyIU
                 enunciado.Text = preg.GetEnunciado().ToString();
                 visible(preg);
                 op_correcta = -1;
-                correctaVF.Visible = false;
-                label1.Text = res.ContainsKey(preguntas_asociadas[cont]).ToString();
-                
+                correctaVF.Visible = false;            
                 
                 if (res.ContainsKey(preguntas_asociadas[cont]) && res[preguntas_asociadas[cont]] !=-1) 
                 {
-                    res.TryGetValue(preguntas_asociadas[cont], out op_correcta);
-
+                    dynamic prov;
+                    res.TryGetValue(preguntas_asociadas[cont], out prov);
+                    op_correcta = prov;
                     switch (op_correcta)
                     {  
                         case 0 : correcta0.Checked = true; 
@@ -133,8 +143,9 @@ namespace QuizifyIU
                 else {correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false; }
 
             }
-            else
+            else if(preg.GetTipo() == "vf")
             {
+                vf = true;
                 enunciado.Text = preg.GetEnunciado().ToString();
                 Test =false;
                 opc0.Visible = false; letraA.Visible = false; correcta0.Visible = false;
@@ -149,13 +160,63 @@ namespace QuizifyIU
                 op_correcta = -1;
                 if (res.ContainsKey(preguntas_asociadas[cont]) && res[preguntas_asociadas[cont]] != -1)
                 {
-                    res.TryGetValue(preguntas_asociadas[cont], out op_correcta);
+                    dynamic prov;
+                    res.TryGetValue(preguntas_asociadas[cont], out prov);
+                    op_correcta = prov;
                     if (op_correcta == 0 ) verdadero0.Checked = true; 
                     else if(op_correcta == 1) falso1.Checked = true;
-                    
                     label1.Text = op_correcta.ToString();
                 }
               
+            }else if(preg.GetTipo() == "mult")
+            {
+                opc0.Visible = false; letraA.Visible = false; correcta0.Visible = false;
+                opc1.Visible = false; letraB.Visible = false; correcta1.Visible = false;
+                opc2.Visible = false; letraC.Visible = false; correcta2.Visible = false;
+                opc3.Visible = false; letraD.Visible = false; correcta3.Visible = false;
+                opc4.Visible = false; letraE.Visible = false; correcta4.Visible = false;
+                opc0.Text = ""; opc1.Text = ""; opc2.Text = ""; opc3.Text = ""; opc4.Text = "";
+                correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
+                correctaVF.Visible = true;
+                verdadero0.Checked = false; falso1.Checked = false;
+                op_correcta = -1;
+                mult = true;
+                CorrectaMult.Visible = true;
+                enunciado.Text = preg.GetEnunciado().ToString();
+                visible(preg);
+                op_correcta = -1;
+                correctaVF.Visible = false;
+
+                if (res.ContainsKey(preguntas_asociadas[cont]) && res[preguntas_asociadas[cont]] != -1)
+                {
+                    List<dynamic> lista = preg.GetParametros();
+                    int x = lista[0];
+                    for (int i = 4; i >= 0; i--)
+                    {
+                        listaOpCorrecta[i] = (x % 10).ToString();
+                        x /= 10;
+                    }
+                    for (int i = 0; i < 5; i++)
+                    {
+                        int aux = int.Parse(listaOpCorrecta[i]);
+                        if (aux == 1)
+                        {
+                            switch (i)
+                            {
+                                case (0): check0.Checked = true; break;
+                                case (1): check1.Checked = true; break;
+                                case (2): check2.Checked = true; break;
+                                case (3): check3.Checked = true; break;
+                                case (4): check4.Checked = true; break;
+                            }
+                        }
+                    }
+                    label1.Text = opcionCorrecta.ToString();
+                }
+            }
+            else
+            {
+                desarrollo = true;
             }
 
         }
@@ -163,20 +224,16 @@ namespace QuizifyIU
         private void correct(object sender, EventArgs e)
         {
             RadioButton radioButton = (RadioButton)sender;
-            if (Test)
-            {
+            
                 op_correcta = radioButton.Name.Last();
-            }
-            else op_correcta = radioButton.Name.Last();
-            switch (op_correcta)
-            {
-                case 48: op_correcta=0; break;
-                case 49: op_correcta = 1; break;
-                case 50: op_correcta = 2 ; break;
-                case 51: op_correcta = 3; break;
-                case 52: op_correcta = 4; break;
-            }
-
+                switch (op_correcta)
+                {
+                    case 48: op_correcta = 0; break;
+                    case 49: op_correcta = 1; break;
+                    case 50: op_correcta = 2; break;
+                    case 51: op_correcta = 3; break;
+                    case 52: op_correcta = 4; break;
+                }
             label1.Text = op_correcta.ToString();
 
         }
@@ -215,21 +272,12 @@ namespace QuizifyIU
                     opc4.Text = lista[5];
                     opc4.Visible = true; letraE.Visible = true; correcta4.Visible = true;
                 }
-                else { opc4.Visible = false; letraE.Visible = false; correcta4.Visible = false; }
+                else { opc4.Visible = false; letraE.Visible = false; correcta4.Visible = false; listaOpCorrecta[4] = "0"; }
             }
-            else { opc3.Visible = false; letraD.Visible = false; correcta3.Visible = false; }
+            else { opc3.Visible = false; letraD.Visible = false; correcta3.Visible = false; listaOpCorrecta[3] = "0"; }
 
             correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
-
-
-        }
-
-        private void HacerExamen2_Load(object sender, EventArgs e)
-        {
-            /* minutes = examen.tiempo; //countdown time
-             start = DateTime.UtcNow; // Use UtcNow instead of Now
-             endTime = start.AddMinutes(minutes); //endTime is a member, not a local variable
-            //timer1.Enabled = true;*/
+            check0.Checked=false; check1.Checked=false; check2.Checked=false; check3.Checked=false; check4.Checked=false;
         }
 
         public void bloquear()
@@ -243,6 +291,7 @@ namespace QuizifyIU
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (mult) { CraftearStringCorrecta(listaOpCorrecta); op_correcta = int.Parse(opcionCorrecta); }
             guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
             indice();
         }
@@ -253,6 +302,7 @@ namespace QuizifyIU
             {
                 if(dataGridView1.SelectedCells[0].Value.ToString().Equals("Pregunta "+ (i+1).ToString()))
                 {
+                    if (mult) { CraftearStringCorrecta(listaOpCorrecta); op_correcta = int.Parse(opcionCorrecta); }
                     guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
                     cont = i*3 ;
                     interfaz();
@@ -275,7 +325,19 @@ namespace QuizifyIU
             }
         }
 
-        
+        private void check0_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            String numero = checkBox.Name.Last().ToString();
+            if (checkBox.Checked == true)
+            {
+                listaOpCorrecta[int.Parse(numero)] = "1";
+            }
+            else
+            {
+                listaOpCorrecta[int.Parse(numero)] = "0";
+            }
+        }
 
         private void indice()
         {
@@ -304,6 +366,14 @@ namespace QuizifyIU
             }
             
         }
-        
+        public void CraftearStringCorrecta(List<string> listilla)
+        {
+            opcionCorrecta = "";
+            for (int i = 0; i < 5; i++)
+            {
+                opcionCorrecta = opcionCorrecta + listilla[i];
+            }
+        }
+
     }
 }
