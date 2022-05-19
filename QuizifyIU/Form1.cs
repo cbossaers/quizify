@@ -20,6 +20,7 @@ namespace QuizifyIU
     {
         private NuevoServicio servicio;
         private dynamic usuario;
+        public static DataTable notificaciones;
         
         
         private int borderSize = 2;
