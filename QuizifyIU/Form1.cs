@@ -28,7 +28,7 @@ namespace QuizifyIU
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
-        private Observador observ;
+
 
         public Form1(NuevoServicio servicio, dynamic user)
         {
@@ -52,16 +52,13 @@ namespace QuizifyIU
 
             ActivateButton(Home, RGBColors.color3);
 
-            observ = new Observador();
-            observ.test(this);
-
             dataGridView1.Visible = false;
             noti2.Visible = false;
             noti1.Visible = false;
             bellN.Visible = true;
             numnoti.Visible = true;
         }
-        private void setNotificaciones(DataTable notificaciones)
+        public void setNotificaciones(DataTable notificaciones)
         {
             numnoti.Text = notificaciones.Rows.Count.ToString();
             dataGridView1.DataSource = notificaciones;
