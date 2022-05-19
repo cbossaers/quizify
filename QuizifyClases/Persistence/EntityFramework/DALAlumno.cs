@@ -146,6 +146,7 @@ public class DALAlumno {
     public DataTable GetNotificaciones(string correo) {
 
         DataTable dt = new DataTable();
+        DataTable dt2 = new DataTable();
 
         using(MySqlConnection conn = new MySqlConnection(connStr)) {
 
@@ -161,6 +162,23 @@ public class DALAlumno {
             }
         }
 
-        return dt;
+        foreach(DataRow row in dt.Rows) {
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT texto FROM notificaciones WHERE id = @id;";
+
+                cmd.Parameters.AddWithValue("@id", row["id_notif"]);
+
+                conn.Open();
+
+                dt2.Load(cmd.ExecuteReader());
+            }
+        }
+        }
+
+        return dt2;
     }
 }}

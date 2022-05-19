@@ -21,7 +21,9 @@ namespace QuizifyIU
         private NuevoServicio servicio;
         private dynamic usuario;
         public static DataTable notificaciones;
-        
+        private Observador observador = new Observador();
+        public static Notificaciones objeto_notif;
+        HiloNotificaciones x = new HiloNotificaciones();
         
         private int borderSize = 2;
         private Size formSize; 
@@ -57,15 +59,22 @@ namespace QuizifyIU
             noti1.Visible = false;
             bellN.Visible = true;
             numnoti.Visible = true;
+
+            objeto_notif  = new Notificaciones(this);
+            objeto_notif.Subscribe(observador);
+            x.HiloGetNotificaciones(usuario.GetCorreo(),this);
+            
         }
-        public void setNotificaciones(DataTable notificaciones)
+        public void setNotificaciones(DataTable notifs)
         {
-            numnoti.Text = notificaciones.Rows.Count.ToString();
-            dataGridView1.DataSource = notificaciones;
+            notificaciones = notifs;
         }
 
         private void notificacciones()
         {
+            numnoti.Text = notificaciones.Rows.Count.ToString();
+            dataGridView1.DataSource = notificaciones;
+
             bellN.Visible = false;
             numnoti.Visible = false;
             noti1.Visible = true;
@@ -414,6 +423,10 @@ namespace QuizifyIU
         public void obsc(string x)
         {
             obs.Texts = x;
+        }
+
+        public void LlamarDataFetch(DataTable dt) {
+            objeto_notif.DataFetch(dt);
         }
 
         private void noti1_Click(object sender, EventArgs e)
