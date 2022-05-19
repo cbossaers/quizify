@@ -7,6 +7,7 @@ namespace Quizify.Entities
     public class Hilos {
 
         DALExamen dalex = new DALExamen();
+        DALAlumno dalal = new DALAlumno();
 
         public void HiloEstadoQuizes(){
             new Thread(() => {
@@ -19,5 +20,15 @@ namespace Quizify.Entities
         }).Start();
         }
 
+        public void HiloGetNotificaciones(string correo) {
+            new Thread(() => {
+            Thread.CurrentThread.IsBackground = true; 
+
+            while(true) {
+                System.Threading.Thread.Sleep(2000);
+                dalal.GetNotificaciones(correo);
+            }
+        }).Start();
+        }
     }
 }

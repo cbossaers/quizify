@@ -10,8 +10,7 @@ namespace QuizifyIU {
         Form1 form = Principal.formportal;
         
         public void TransmitirNotificaciones(DataTable dt) {
-            Form1 form = new Form1();
-            form.setNotificaciones(DataTable);
+            form.setNotificaciones(dt);
         }
     }
 }

@@ -142,4 +142,25 @@ public class DALAlumno {
 
         return dt;
     }
+
+    public DataTable GetNotificaciones(string correo) {
+
+        DataTable dt = new DataTable();
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT id_notif FROM alumno_notif WHERE id_al = @alumno;";
+
+                cmd.Parameters.AddWithValue("@alumno", correo);
+
+                conn.Open();
+
+                dt.Load(cmd.ExecuteReader());
+            }
+        }
+
+        return dt;
+    }
 }}
