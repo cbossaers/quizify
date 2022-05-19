@@ -5,11 +5,13 @@ using Quizify.Entities;
 using Quizify.Services;
 
 namespace QuizifyIU {
-
+    
     public class Observador : IObserver<Notificaciones> {
-
+        Form1 form = Principal.formportal;
+        
         public void TransmitirNotificaciones(DataTable dt) {
             Form1 form = new Form1();
+            form.setNotificaciones(DataTable);
         }
     }
 }
