@@ -43,8 +43,6 @@ namespace QuizifyIU
             this.examen = examen;
             id= examen.GetId();
             pregunta = examen.GetPreguntasAsociadas();
-            rela.Visible = false;
-            recuperación.Visible = false;
             mostrear();
         }
 
@@ -164,6 +162,55 @@ namespace QuizifyIU
                 volver_atras = 1;
             }
             else { volver_atras = 0; }
+        }
+
+        private void automatico_Click(object sender, EventArgs e)
+        {
+            if (profe.GetQuizes() == 0)
+            {
+                DialogResult noQuedanQuizes = MessageBox.Show(this, "Necesitas bonos para poder crear un examen. Accede a la tienda para poder comprar más bonos", "¡No te quedan bonos!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (id == -1) { id = servicio.UltimoIdExamen() + 1; }
+
+                string titulo = nombre.Text;
+                string descripcio = descripcion.Text;
+                string autor = usuario.GetCorreo();
+                string cursos = curso.Text;
+                int intento = 1;
+                tiempo = 0;
+                if (sinlimite.Checked) { tiempo = 999; }
+                else
+                {
+                    if (horas.Text != "") { tiempo = int.Parse(horas.Text) * 60; }
+                    try { tiempo += int.Parse(minutos.Text); }
+                    catch (Exception)
+                    {
+                        DialogResult answer = MessageBox.Show(this, "Formato de tiempo incorrecto",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                }
+                try { intento = int.Parse(intentos.Text); }
+                catch (Exception)
+                {
+                    DialogResult answer = MessageBox.Show(this, "Formato de intentos incorrecto",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                //DateTimeOffset fecha_inicial = DateTime.Parse(ini.Text +" "+ hini) ;
+                DateTime fecha_inicial = new DateTime(ini.Value.Year, ini.Value.Month, ini.Value.Day, hini.Value.Hour, hini.Value.Minute, hini.Value.Second);
+                DateTime fecha_finanl = new DateTime(fin.Value.Year, fin.Value.Month, fin.Value.Day, hfin.Value.Hour, hfin.Value.Minute, hfin.Value.Second);
+                DateTime fecha_actual = DateTime.Now;
+                string CT = comboBoxCT.Text;
+                String estado = "Inactivo";
+                string difi = dificultad.Text;
+
+                servicio.AlterarBonos(profe.GetCorreo(), -1);
+                servicio.GenerarExamen(autor, cursos, 8, tiempo, fecha_inicial, fecha_finanl, intento, volver_atras, errores_restan, mostrar_resultados,false, difi);
+            }
         }
 
         private void recuperación_CheckedChanged(object sender, EventArgs e)

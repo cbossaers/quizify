@@ -68,7 +68,7 @@ namespace QuizifyIU
                 return;
             }
         }
-
+        
         private void ActualizarNotificaciones(){
             numnoti.Text = notificaciones.Rows.Count.ToString();
             dataGridView1.DataSource = notificaciones;
@@ -76,6 +76,7 @@ namespace QuizifyIU
 
         private void notificacciones()
         {
+            //this.dataGridView1.Columns[0].Visible=false;
             bellN.Visible = false;
             numnoti.Visible = false;
             noti1.Visible = true;
@@ -438,7 +439,8 @@ namespace QuizifyIU
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int id = int.Parse(dataGridView1.SelectedCells[1].Value.ToString());
+            int id = int.Parse(dataGridView1.SelectedCells[0].Value.ToString());
+            servicio.EliminarNotificacion(id, usuario.GetCorreo());
 
         }
     }

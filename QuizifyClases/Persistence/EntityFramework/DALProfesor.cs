@@ -137,7 +137,7 @@ public class DALProfesor {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "UPDATE profesor SET quizes = @quizes WHERE correo = profesor";
+                cmd.CommandText = "UPDATE profesor SET quizes = @quizes WHERE correo = @correo";
 
                 cmd.Parameters.AddWithValue("@correo", profesor);
                 cmd.Parameters.AddWithValue("@quizes", bonos_actuales + bonos);
