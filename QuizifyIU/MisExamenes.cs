@@ -130,7 +130,7 @@ namespace QuizifyIU
         }
         private void tabla()
         {
-            tablaExamenesProfesor.DataSource = servicio.GetPreguntas(filtros);
+            tablaExamenesProfesor.DataSource = servicio.GetExamenByDificultad(filtros);
         }
     }
         

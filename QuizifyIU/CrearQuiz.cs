@@ -21,12 +21,14 @@ namespace QuizifyIU
         int tiempo;
         int id = -1;
         private Examen examen;
+        private Profesor profe;
 
         public CrearQuiz(NuevoServicio servicio,dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
+            profe = servicio.GetProfesor(usuario.correo);
             fin.Value = DateTime.Now.AddDays(1);
             setear_cursos();
 
@@ -65,38 +67,55 @@ namespace QuizifyIU
 
         private void siguiente_Click(object sender, EventArgs e)
         {
-            if (id == -1) { id = servicio.UltimoIdExamen() + 1 ; }
+            if (profe.GetQuizes() == 0)
+            {
+                DialogResult noQuedanQuizes = MessageBox.Show(this, "Necesitas bonos para poder crear un examen. Accede a la tienda para poder comprar más bonos", "¡No te quedan bonos!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (id == -1) { id = servicio.UltimoIdExamen() + 1; }
 
-            string titulo=nombre.Text;
-            string descripcio = descripcion.Text;
-            string autor = usuario.GetCorreo();
-            string cursos = curso.Text;
-            int intento = 1;
-            tiempo = 0;
-            if(sinlimite.Checked){ tiempo = 999; }
-            else {
-                if(horas.Text != "") { tiempo = int.Parse(horas.Text) * 60; }
-                try { tiempo += int.Parse(minutos.Text);} 
-                catch(Exception) { DialogResult answer = MessageBox.Show(this, "Formato de tiempo incorrecto", 
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return; }
+                string titulo = nombre.Text;
+                string descripcio = descripcion.Text;
+                string autor = usuario.GetCorreo();
+                string cursos = curso.Text;
+                int intento = 1;
+                tiempo = 0;
+                if (sinlimite.Checked) { tiempo = 999; }
+                else
+                {
+                    if (horas.Text != "") { tiempo = int.Parse(horas.Text) * 60; }
+                    try { tiempo += int.Parse(minutos.Text); }
+                    catch (Exception)
+                    {
+                        DialogResult answer = MessageBox.Show(this, "Formato de tiempo incorrecto",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
                 }
-            try { intento = int.Parse(intentos.Text); }
-            catch(Exception) { DialogResult answer = MessageBox.Show(this, "Formato de intentos incorrecto", 
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return; }
-            //DateTimeOffset fecha_inicial = DateTime.Parse(ini.Text +" "+ hini) ;
-            DateTime fecha_inicial = new DateTime(ini.Value.Year, ini.Value.Month, ini.Value.Day, hini.Value.Hour, hini.Value.Minute, hini.Value.Second);
-            DateTime fecha_finanl = new DateTime(fin.Value.Year, fin.Value.Month, fin.Value.Day, hfin.Value.Hour, hfin.Value.Minute, hfin.Value.Second);
-            DateTime fecha_actual = DateTime.Now;
-            string CT = comboBoxCT.Text;
-            String estado = "Inactivo";
-            string difi = dificultad.Text;
-        
-            
-            Examen examen = new Examen(id,titulo, descripcio,cursos,autor,tiempo,fecha_actual,fecha_inicial,fecha_finanl,intento, volver_atras, errores_restan, 0,pregunta,estado, difi, CT);
+                try { intento = int.Parse(intentos.Text); }
+                catch (Exception)
+                {
+                    DialogResult answer = MessageBox.Show(this, "Formato de intentos incorrecto",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                //DateTimeOffset fecha_inicial = DateTime.Parse(ini.Text +" "+ hini) ;
+                DateTime fecha_inicial = new DateTime(ini.Value.Year, ini.Value.Month, ini.Value.Day, hini.Value.Hour, hini.Value.Minute, hini.Value.Second);
+                DateTime fecha_finanl = new DateTime(fin.Value.Year, fin.Value.Month, fin.Value.Day, hfin.Value.Hour, hfin.Value.Minute, hfin.Value.Second);
+                DateTime fecha_actual = DateTime.Now;
+                string CT = comboBoxCT.Text;
+                String estado = "Inactivo";
+                string difi = dificultad.Text;
 
-            Principal.formportal.abrirNieto(new CrearQuiz_2(servicio, usuario, examen)); 
+                int bonos = profe.GetQuizes() - 1;
+                servicio.AlterarBonos(profe.correo, bonos);
+
+                Examen examen = new Examen(id, titulo, descripcio, cursos, autor, tiempo, fecha_actual, fecha_inicial, fecha_finanl, intento, volver_atras, errores_restan, 0, pregunta, estado, difi, CT);
+
+                Principal.formportal.abrirNieto(new CrearQuiz_2(servicio, usuario, examen));
+            }
             
         }
         private void mostrear()
