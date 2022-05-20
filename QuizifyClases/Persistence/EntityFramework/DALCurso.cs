@@ -264,7 +264,7 @@ public class DALCurso {
 
                 using (MySqlCommand cmd = conn.CreateCommand()) {
 
-                    cmd.CommandText = "DELETE FROM alumno_curso WHERE alumno = @alumno AND curso = @curso AND profesor = @profesor";
+                    cmd.CommandText = "DELETE FROM alumno_curso WHERE alumno = @alumno AND curso = @curso AND profesor = @profesor;";
 
                     cmd.Parameters.AddWithValue("@alumno", alumno);
                     cmd.Parameters.AddWithValue("@curso", codigo_curso);
