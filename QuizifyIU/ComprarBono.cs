@@ -34,11 +34,9 @@ namespace QuizifyIU
             baplicarDescuento.Enabled = false;
             bConfirmar.Enabled = false;
             notificacionDescuento.Visible = false;
-            //labelDescuento.Visible = false;
-            labelDescuento.Text = "DESCUENTO DE HOY: " + codDescuento;
-            labelDescuento.Visible = true;
+            labelDescuento.Visible = false;
             //Generador automático de códigos de descuento (solo hay descuentos martes y viernes)
-            /*DayOfWeek day = DateTime.Now.DayOfWeek;
+            DayOfWeek day = DateTime.Now.DayOfWeek;
             string dayToday = " " + day.ToString();
             if ((dayToday == DayOfWeek.Tuesday.ToString()) || (dayToday == DayOfWeek.Friday.ToString()))
             {
@@ -48,7 +46,7 @@ namespace QuizifyIU
                     labelDescuento.Visible = true;
                 }
                 else labelDescuento.Visible = false;
-            }*/
+            }
         }
 
         private void bConfirmar_Click(object sender, EventArgs e)
