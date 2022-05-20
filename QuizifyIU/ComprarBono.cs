@@ -58,8 +58,7 @@ namespace QuizifyIU
             if(aviso == DialogResult.Yes)
             {
                 Profesor profe = servicio.GetProfesor(usuario.correo);
-                int compra = profe.GetQuizes() + Int32.Parse(numBonos.Text);
-                servicio.AlterarBonos(profe.correo, compra);
+                servicio.AlterarBonos(profe.correo, Int32.Parse(numBonos.Text));
                 DialogResult confirmacion = MessageBox.Show(this, "¡Compra realizada con éxito!",
                 "Compra realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if(confirmacion == DialogResult.OK)
