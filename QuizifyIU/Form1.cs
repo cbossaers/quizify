@@ -436,6 +436,10 @@ namespace QuizifyIU
             else { dataGridView1.Visible = false; noti2.Visible = false; bellN.Visible = true; noti1.Visible = false; numnoti.Visible = true; } 
         }
 
-        
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int id = int.Parse(dataGridView1.SelectedCells[1].Value.ToString());
+
+        }
     }
 }
