@@ -202,7 +202,8 @@ namespace Quizify.Persistence {
                     using (MySqlCommand cmd = conn.CreateCommand()) {
 
                         cmd.CommandText = "INSERT into respuestas_examenes(examen,alumno,pregunta,ver_pregunta,respuesta) "
-                        + "VALUES(@examen,@alumno,@pregunta,@ver_pregunta,@respuesta);";
+                        + "VALUES(@examen,@alumno,@pregunta,@ver_pregunta,@respuesta) "
+                        + "ON DUPLICATE KEY UPDATE respuesta = @respuesta";
 
                         cmd.Parameters.AddWithValue("@examen", respuestas[0]);
                         cmd.Parameters.AddWithValue("@alumno", respuestas[1]);
@@ -535,6 +536,9 @@ namespace Quizify.Persistence {
                     }
                 }
             }
+            
+            notas.Sort();
+
             if (envios > 0) {
                 return new List<dynamic> { envios, notas.Average(), Math.Sqrt(notas.Average(v => Math.Pow(v - notas.Average(), 2))), notas };
             } else { return new List<dynamic> { 0, 0, 0, notas }; }
