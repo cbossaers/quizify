@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panelGestionarCurso = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.bVolver = new FontAwesome.Sharp.IconButton();
             this.tablaDatoCurso = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,40 +40,39 @@
             this.bEliminar = new System.Windows.Forms.Button();
             this.alumnoBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.bVolver = new System.Windows.Forms.Button();
             this.panelGestionarCurso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaDatoCurso)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGestionarCurso
             // 
-            this.panelGestionarCurso.Controls.Add(this.iconButton1);
+            this.panelGestionarCurso.Controls.Add(this.bVolver);
             this.panelGestionarCurso.Controls.Add(this.tablaDatoCurso);
             this.panelGestionarCurso.Controls.Add(this.bAñadir);
             this.panelGestionarCurso.Controls.Add(this.bEliminar);
             this.panelGestionarCurso.Controls.Add(this.alumnoBox);
             this.panelGestionarCurso.Controls.Add(this.label2);
-            this.panelGestionarCurso.Controls.Add(this.bVolver);
             this.panelGestionarCurso.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGestionarCurso.Location = new System.Drawing.Point(0, 0);
             this.panelGestionarCurso.Name = "panelGestionarCurso";
             this.panelGestionarCurso.Size = new System.Drawing.Size(730, 531);
             this.panelGestionarCurso.TabIndex = 0;
             // 
-            // iconButton1
+            // bVolver
             // 
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.Location = new System.Drawing.Point(3, 13);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(78, 38);
-            this.iconButton1.TabIndex = 19;
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.bVolver.FlatAppearance.BorderSize = 0;
+            this.bVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bVolver.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.bVolver.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.bVolver.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bVolver.IconSize = 30;
+            this.bVolver.Location = new System.Drawing.Point(3, 13);
+            this.bVolver.Name = "bVolver";
+            this.bVolver.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.bVolver.Size = new System.Drawing.Size(78, 38);
+            this.bVolver.TabIndex = 19;
+            this.bVolver.UseVisualStyleBackColor = true;
+            this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
             // tablaDatoCurso
             // 
@@ -150,7 +149,7 @@
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(273, 406);
+            this.bEliminar.Location = new System.Drawing.Point(68, 392);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(75, 23);
             this.bEliminar.TabIndex = 6;
@@ -175,16 +174,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Correo del alumno:";
             // 
-            // bVolver
-            // 
-            this.bVolver.Location = new System.Drawing.Point(68, 406);
-            this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(75, 23);
-            this.bVolver.TabIndex = 1;
-            this.bVolver.Text = "Volver";
-            this.bVolver.UseVisualStyleBackColor = true;
-            this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
-            // 
             // GestionarCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -205,7 +194,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelGestionarCurso;
-        private System.Windows.Forms.Button bVolver;
         private System.Windows.Forms.TextBox alumnoBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bEliminar;
@@ -216,6 +204,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn numAl;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreado;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxAl;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton bVolver;
     }
 }

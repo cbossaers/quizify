@@ -128,5 +128,6 @@ namespace QuizifyIU
                 DialogResult aviso = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
             }
         }
+
     }
 }
