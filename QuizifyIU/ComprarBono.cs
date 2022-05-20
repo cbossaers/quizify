@@ -1,4 +1,5 @@
-﻿using Quizify.Services;
+﻿using Quizify.Entities;
+using Quizify.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,11 +53,13 @@ namespace QuizifyIU
 
         private void bConfirmar_Click(object sender, EventArgs e)
         {
-            //AÑADIR LA CANTIDAD DE BONOS ELEGIDOS A LA CUENTA DEL PROFESOR
             DialogResult aviso = MessageBox.Show(this, "¿Desea finalizar la compra de " + numBonos.Text + " por el precio de " + precio + " €?", 
                 "Confirmar compra", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(aviso == DialogResult.Yes)
             {
+                Profesor profe = servicio.GetProfesor(usuario.correo);
+                int compra = profe.GetQuizes() + Int32.Parse(numBonos.Text);
+                servicio.AlterarBonos(profe.correo, compra);
                 DialogResult confirmacion = MessageBox.Show(this, "¡Compra realizada con éxito!",
                 "Compra realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if(confirmacion == DialogResult.OK)

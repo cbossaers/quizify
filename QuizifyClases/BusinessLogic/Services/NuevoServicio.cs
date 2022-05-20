@@ -48,6 +48,11 @@ namespace Quizify.Services
             return profesor.GetExamenes(prof);
         }
 
+        public void AlterarBonos(string id, int bonos)
+        {
+            profesor.AlterarBonos(id, bonos);
+        }
+
         //Métodos Curso
         public void AddCurso(Curso cur) {
             try { curso.Add(cur); } 
