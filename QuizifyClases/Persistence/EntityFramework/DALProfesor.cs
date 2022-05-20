@@ -94,5 +94,58 @@ public class DALProfesor {
 
         return dt;
     }
-        
+    public void EnviarMensaje(string curso, string profesor, string mensaje) {
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "INSERT INTO notificaciones(texto,curso,profesor) VALUES(@texto,@curso,@profesor);";
+
+                cmd.Parameters.AddWithValue("@texto", curso + ": " + mensaje);
+                cmd.Parameters.AddWithValue("@curso", curso);
+                cmd.Parameters.AddWithValue("@profesor", profesor);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
+
+    public void AlterarBonos(string profesor, int bonos) {
+
+        int bonos_actuales = 0;
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT quizes FROM profesor WHERE correo = @correo";
+
+                cmd.Parameters.AddWithValue("@correo", profesor);
+
+                conn.Open();
+                
+                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                    while (rdr.Read()) { bonos_actuales = rdr.GetInt32("quizes"); }
+                }
+            }
+        }
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "UPDATE profesor SET quizes = @quizes WHERE correo = profesor";
+
+                cmd.Parameters.AddWithValue("@correo", profesor);
+                cmd.Parameters.AddWithValue("@quizes", bonos_actuales + bonos);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
+
 }}

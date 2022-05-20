@@ -168,7 +168,7 @@ public class DALAlumno {
 
             using(MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText = "SELECT texto FROM notificaciones WHERE id = @id;";
+                cmd.CommandText = "SELECT id,texto FROM notificaciones WHERE id = @id;";
 
                 cmd.Parameters.AddWithValue("@id", row["id_notif"]);
 
