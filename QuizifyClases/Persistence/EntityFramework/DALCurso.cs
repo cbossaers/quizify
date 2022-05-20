@@ -257,5 +257,23 @@ public class DALCurso {
 
         return resultado;
     }
+
+    public void BorrarseDeCurso(string alumno, string codigo_curso, string profesor) {
+
+        using (MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using (MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "DELETE FROM alumno_curso WHERE alumno = @alumno AND curso = @curso AND profesor = @profesor";
+
+                    cmd.Parameters.AddWithValue("@alumno", alumno);
+                    cmd.Parameters.AddWithValue("@curso", codigo_curso);
+                    cmd.Parameters.AddWithValue("@profesor", profesor);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+    }
 }
 }
