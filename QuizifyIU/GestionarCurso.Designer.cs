@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelGestionarCurso = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.tablaDatoCurso = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,7 +41,6 @@
             this.alumnoBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bVolver = new System.Windows.Forms.Button();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panelGestionarCurso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaDatoCurso)).BeginInit();
             this.SuspendLayout();
@@ -54,10 +54,26 @@
             this.panelGestionarCurso.Controls.Add(this.alumnoBox);
             this.panelGestionarCurso.Controls.Add(this.label2);
             this.panelGestionarCurso.Controls.Add(this.bVolver);
-            this.panelGestionarCurso.Location = new System.Drawing.Point(-2, -1);
+            this.panelGestionarCurso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGestionarCurso.Location = new System.Drawing.Point(0, 0);
             this.panelGestionarCurso.Name = "panelGestionarCurso";
-            this.panelGestionarCurso.Size = new System.Drawing.Size(710, 490);
+            this.panelGestionarCurso.Size = new System.Drawing.Size(730, 531);
             this.panelGestionarCurso.TabIndex = 0;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.Location = new System.Drawing.Point(3, 13);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.iconButton1.Size = new System.Drawing.Size(78, 38);
+            this.iconButton1.TabIndex = 19;
+            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // tablaDatoCurso
             // 
@@ -169,27 +185,12 @@
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
-            // iconButton1
-            // 
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.Location = new System.Drawing.Point(3, 13);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(78, 38);
-            this.iconButton1.TabIndex = 19;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
             // GestionarCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(710, 490);
+            this.ClientSize = new System.Drawing.Size(730, 531);
             this.Controls.Add(this.panelGestionarCurso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarCurso";

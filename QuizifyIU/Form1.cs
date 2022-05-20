@@ -115,7 +115,7 @@ namespace QuizifyIU
         }
 
         //Overridden methods
-        protected override void WndProc(ref Message m)
+        /*protected override void WndProc(ref Message m)
         {
             const int WM_NCCALCSIZE = 0x0083;//Standar Title Bar - Snap Window
             const int WM_SYSCOMMAND = 0x0112;
@@ -202,7 +202,7 @@ namespace QuizifyIU
                     this.Size = formSize;
             }
             base.WndProc(ref m);
-        }
+        }*/
 
         //Private methods
         private void AdjustForm()

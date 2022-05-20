@@ -42,7 +42,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(172, 129);
+            this.label1.Location = new System.Drawing.Point(160, 129);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 15);
             this.label1.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(172, 241);
+            this.label2.Location = new System.Drawing.Point(160, 241);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 15);
             this.label2.TabIndex = 1;
@@ -61,7 +61,7 @@
             // codBox
             // 
             this.codBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.codBox.Location = new System.Drawing.Point(303, 126);
+            this.codBox.Location = new System.Drawing.Point(291, 126);
             this.codBox.Name = "codBox";
             this.codBox.Size = new System.Drawing.Size(153, 23);
             this.codBox.TabIndex = 2;
@@ -70,7 +70,7 @@
             // contraBox
             // 
             this.contraBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.contraBox.Location = new System.Drawing.Point(303, 238);
+            this.contraBox.Location = new System.Drawing.Point(291, 238);
             this.contraBox.Name = "contraBox";
             this.contraBox.Size = new System.Drawing.Size(153, 23);
             this.contraBox.TabIndex = 3;
@@ -79,7 +79,7 @@
             // bApuntarse
             // 
             this.bApuntarse.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bApuntarse.Location = new System.Drawing.Point(401, 311);
+            this.bApuntarse.Location = new System.Drawing.Point(389, 311);
             this.bApuntarse.Name = "bApuntarse";
             this.bApuntarse.Size = new System.Drawing.Size(75, 23);
             this.bApuntarse.TabIndex = 4;
@@ -91,7 +91,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(172, 190);
+            this.label3.Location = new System.Drawing.Point(160, 190);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 15);
             this.label3.TabIndex = 5;
@@ -100,7 +100,7 @@
             // correoProfeBox
             // 
             this.correoProfeBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.correoProfeBox.Location = new System.Drawing.Point(303, 190);
+            this.correoProfeBox.Location = new System.Drawing.Point(291, 190);
             this.correoProfeBox.Name = "correoProfeBox";
             this.correoProfeBox.Size = new System.Drawing.Size(153, 23);
             this.correoProfeBox.TabIndex = 6;
@@ -126,7 +126,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(694, 451);
+            this.ClientSize = new System.Drawing.Size(714, 492);
             this.Controls.Add(this.bVolver);
             this.Controls.Add(this.correoProfeBox);
             this.Controls.Add(this.label3);

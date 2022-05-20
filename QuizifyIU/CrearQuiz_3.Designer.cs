@@ -45,7 +45,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(663, 216);
+            this.button3.Location = new System.Drawing.Point(501, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(136, 40);
             this.button3.TabIndex = 6;
@@ -168,7 +168,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 100);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 102);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -190,7 +190,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(714, 492);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bVolver);
             this.Controls.Add(this.label5);

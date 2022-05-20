@@ -79,7 +79,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(12, 238);
+            this.label3.Location = new System.Drawing.Point(9, 272);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 21);
             this.label3.TabIndex = 5;
@@ -131,7 +131,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.tablaExamenesProfesor.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.tablaExamenesProfesor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenesProfesor.Size = new System.Drawing.Size(687, 420);
+            this.tablaExamenesProfesor.Size = new System.Drawing.Size(687, 460);
             this.tablaExamenesProfesor.TabIndex = 9;
             this.tablaExamenesProfesor.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenesProfesor_CellMouseDoubleClick);
             // 
@@ -170,7 +170,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.tablaExamenDisponible.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.tablaExamenDisponible.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenDisponible.Size = new System.Drawing.Size(633, 164);
+            this.tablaExamenDisponible.Size = new System.Drawing.Size(707, 185);
             this.tablaExamenDisponible.TabIndex = 10;
             this.tablaExamenDisponible.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenDisponible_CellMouseDoubleClick);
             // 
@@ -196,7 +196,7 @@
             this.tablaExamenFinalizado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tablaExamenFinalizado.EnableHeadersVisualStyles = false;
             this.tablaExamenFinalizado.GridColor = System.Drawing.Color.White;
-            this.tablaExamenFinalizado.Location = new System.Drawing.Point(9, 262);
+            this.tablaExamenFinalizado.Location = new System.Drawing.Point(13, 294);
             this.tablaExamenFinalizado.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tablaExamenFinalizado.Name = "tablaExamenFinalizado";
             this.tablaExamenFinalizado.ReadOnly = true;
@@ -209,7 +209,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
             this.tablaExamenFinalizado.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.tablaExamenFinalizado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenFinalizado.Size = new System.Drawing.Size(634, 176);
+            this.tablaExamenFinalizado.Size = new System.Drawing.Size(684, 199);
             this.tablaExamenFinalizado.TabIndex = 11;
             // 
             // tunometecabra
@@ -231,15 +231,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(710, 490);
+            this.ClientSize = new System.Drawing.Size(730, 531);
             this.Controls.Add(this.tunometecabra);
             this.Controls.Add(this.calificar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tablaExamenDisponible);
             this.Controls.Add(this.tablaExamenFinalizado);
-            this.Controls.Add(this.tablaExamenesProfesor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.tablaExamenDisponible);
+            this.Controls.Add(this.tablaExamenesProfesor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MisExamenes";
             this.Text = "MisExamenes";
