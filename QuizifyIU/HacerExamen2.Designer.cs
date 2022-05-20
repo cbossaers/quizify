@@ -68,6 +68,7 @@
             this.check1 = new System.Windows.Forms.CheckBox();
             this.check0 = new System.Windows.Forms.CheckBox();
             this.check4 = new System.Windows.Forms.CheckBox();
+            this.RespuestaTxt = new System.Windows.Forms.TextBox();
             this.correctaVF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -461,6 +462,7 @@
             this.check3.TabIndex = 3;
             this.check3.UseVisualStyleBackColor = true;
             this.check3.Visible = false;
+            this.check3.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
             // 
             // check2
             // 
@@ -470,6 +472,7 @@
             this.check2.Size = new System.Drawing.Size(15, 14);
             this.check2.TabIndex = 2;
             this.check2.UseVisualStyleBackColor = true;
+            this.check2.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
             // 
             // check1
             // 
@@ -479,6 +482,7 @@
             this.check1.Size = new System.Drawing.Size(15, 14);
             this.check1.TabIndex = 1;
             this.check1.UseVisualStyleBackColor = true;
+            this.check1.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
             // 
             // check0
             // 
@@ -488,7 +492,7 @@
             this.check0.Size = new System.Drawing.Size(15, 14);
             this.check0.TabIndex = 0;
             this.check0.UseVisualStyleBackColor = true;
-            this.check0.CheckedChanged += new System.EventHandler(this.check0_CheckedChanged);
+            this.check0.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
             // 
             // check4
             // 
@@ -499,6 +503,16 @@
             this.check4.TabIndex = 4;
             this.check4.UseVisualStyleBackColor = true;
             this.check4.Visible = false;
+            this.check4.CheckedChanged += new System.EventHandler(this.EvMarcarCorrectaM);
+            // 
+            // RespuestaTxt
+            // 
+            this.RespuestaTxt.Location = new System.Drawing.Point(3, 117);
+            this.RespuestaTxt.Multiline = true;
+            this.RespuestaTxt.Name = "RespuestaTxt";
+            this.RespuestaTxt.Size = new System.Drawing.Size(406, 256);
+            this.RespuestaTxt.TabIndex = 72;
+            this.RespuestaTxt.Visible = false;
             // 
             // HacerExamen2
             // 
@@ -509,7 +523,6 @@
             this.Controls.Add(this.enunciado);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.correctaVF);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.borrar_seleccion);
@@ -529,7 +542,9 @@
             this.Controls.Add(this.opc2);
             this.Controls.Add(this.letraB);
             this.Controls.Add(this.letraA);
+            this.Controls.Add(this.RespuestaTxt);
             this.Controls.Add(this.CorrectaMult);
+            this.Controls.Add(this.correctaVF);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "HacerExamen2";
@@ -586,5 +601,6 @@
         private System.Windows.Forms.CheckBox check1;
         private System.Windows.Forms.CheckBox check0;
         private System.Windows.Forms.CheckBox check4;
+        private System.Windows.Forms.TextBox RespuestaTxt;
     }
 }

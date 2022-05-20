@@ -449,9 +449,9 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(12, 122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 21);
+            this.label2.Size = new System.Drawing.Size(54, 21);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Tema:";
+            this.label2.Text = "Curso:";
             // 
             // ctPregunta
             // 
