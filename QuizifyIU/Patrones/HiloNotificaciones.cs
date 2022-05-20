@@ -20,5 +20,9 @@ namespace QuizifyIU
             var thread2 = new System.Threading.Thread(threadParameters);
             thread2.Start();
         }
+
+        public void Abort() {
+            this.Abort();
+        }
     }
 }

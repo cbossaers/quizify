@@ -602,7 +602,7 @@ namespace Quizify.Persistence {
             }
 
             Add(fabrica.CrearExamen(id, titulo, descripcion, codigo_curso, profesor, tiempo, DateTime.Now, fechaini, fechafin,
-            intentos, volveratras, erroresrestan, mostrarresultados, final, "Borrador", dific));
+            intentos, volveratras, erroresrestan, mostrarresultados, final, "Inactivo", dific));
         }
 
         public void FinalizarExamen(int id) {
