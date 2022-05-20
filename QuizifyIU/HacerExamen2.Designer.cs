@@ -557,7 +557,7 @@
             // 
             // RespuestaTxt
             // 
-            this.RespuestaTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.RespuestaTxt.BackColor = System.Drawing.Color.White;
             this.RespuestaTxt.Location = new System.Drawing.Point(19, 117);
             this.RespuestaTxt.Multiline = true;
             this.RespuestaTxt.Name = "RespuestaTxt";

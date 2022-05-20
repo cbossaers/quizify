@@ -92,9 +92,9 @@
             // 
             this.descripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.descripcion.AutoSize = true;
-            this.descripcion.Location = new System.Drawing.Point(3, 12);
+            this.descripcion.Location = new System.Drawing.Point(3, 10);
             this.descripcion.Name = "descripcion";
-            this.descripcion.Size = new System.Drawing.Size(550, 16);
+            this.descripcion.Size = new System.Drawing.Size(550, 19);
             this.descripcion.TabIndex = 1;
             this.descripcion.Text = "Descricpción e indicacciones";
             // 
@@ -108,7 +108,7 @@
             this.tableLayoutPanel1.Controls.Add(this.descripcion, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 3);
-            this.tableLayoutPanel1.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tableLayoutPanel1.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(71, 132);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -125,9 +125,9 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 172);
+            this.label6.Location = new System.Drawing.Point(3, 171);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(550, 16);
+            this.label6.Size = new System.Drawing.Size(550, 19);
             this.label6.TabIndex = 5;
             this.label6.Text = "Funcionalidades activas";
             // 
@@ -135,9 +135,9 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 52);
+            this.label3.Location = new System.Drawing.Point(3, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(550, 16);
+            this.label3.Size = new System.Drawing.Size(550, 19);
             this.label3.TabIndex = 2;
             this.label3.Text = "Funcionalidades activas";
             // 
@@ -145,9 +145,9 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 92);
+            this.label4.Location = new System.Drawing.Point(3, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(550, 16);
+            this.label4.Size = new System.Drawing.Size(550, 19);
             this.label4.TabIndex = 3;
             this.label4.Text = "Funcionalidades activas";
             // 
@@ -155,9 +155,9 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 132);
+            this.label5.Location = new System.Drawing.Point(3, 130);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(550, 16);
+            this.label5.Size = new System.Drawing.Size(550, 19);
             this.label5.TabIndex = 4;
             this.label5.Text = "Funcionalidades activas";
             // 
@@ -178,10 +178,10 @@
             // 
             this.nombre_quiz.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nombre_quiz.AutoSize = true;
-            this.nombre_quiz.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.nombre_quiz.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.nombre_quiz.Location = new System.Drawing.Point(288, 69);
             this.nombre_quiz.Name = "nombre_quiz";
-            this.nombre_quiz.Size = new System.Drawing.Size(105, 20);
+            this.nombre_quiz.Size = new System.Drawing.Size(121, 24);
             this.nombre_quiz.TabIndex = 5;
             this.nombre_quiz.Text = "Nombre quiz";
             // 
@@ -208,8 +208,10 @@
             this.empezar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(143)))), ((int)(((byte)(245)))));
             this.empezar.BorderRadius = 10;
             this.empezar.BorderSize = 0;
+            this.empezar.Enabled = false;
             this.empezar.FlatAppearance.BorderSize = 0;
             this.empezar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.empezar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.empezar.ForeColor = System.Drawing.Color.Transparent;
             this.empezar.Location = new System.Drawing.Point(73, 403);
             this.empezar.Name = "empezar";

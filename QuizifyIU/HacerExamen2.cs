@@ -77,7 +77,7 @@ namespace QuizifyIU
         {
             if (mult) { CraftearStringCorrecta(listaOpCorrecta); op_correcta = int.Parse(opcionCorrecta); }
             if (!desarrollo) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
-            else { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], opcionCorrecta); }
+            else { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
             cont -= 3;
             interfaz();
         }
@@ -86,7 +86,7 @@ namespace QuizifyIU
         {
             if (mult) { CraftearStringCorrecta(listaOpCorrecta); op_correcta = int.Parse(opcionCorrecta); }
             if (!desarrollo) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
-            else { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], opcionCorrecta); }
+            else { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
             if (siguiente.Text == "Finalizar examen")
             {
                 List<dynamic> respuestas = new List<dynamic> { };
@@ -123,7 +123,7 @@ namespace QuizifyIU
         {
             if (mult) { CraftearStringCorrecta(listaOpCorrecta); op_correcta = int.Parse(opcionCorrecta); }
             if (!desarrollo) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
-            else { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], opcionCorrecta); }
+            else { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
             indice();
         }
 
@@ -177,12 +177,16 @@ namespace QuizifyIU
 
             }else if (preg.GetTipo() == "des")
             {
+                dynamic prov;
+                res.TryGetValue(preguntas_asociadas[cont], out prov);
+                label1.Text = prov.ToString();
                 VistaDesarrollo();
                 opcionCorrecta = "";
                 desarrollo = true;
-                if (res.ContainsKey(preguntas_asociadas[cont]) && res[preguntas_asociadas[cont]] != -1)
+                string pre = res[preguntas_asociadas[cont]].ToString();
+                if (!pre.Equals("-1") && !pre.Equals(""))
                 {
-                    dynamic prov;
+
                     res.TryGetValue(preguntas_asociadas[cont], out prov);
                     opcionCorrecta = prov;
                     RespuestaTxt.Text = opcionCorrecta;
@@ -376,7 +380,8 @@ namespace QuizifyIU
             {
                 DataRow _ravi = dt.NewRow();
                 _ravi["Pregunta"] = "Pregunta " + i.ToString();
-                if (res[preguntas_asociadas[cuen]] != -1 && res[preguntas_asociadas[cuen]] != 00000)
+                string pre = res[preguntas_asociadas[cuen]].ToString();
+                if (pre.Equals("-1")  && pre.Equals("00000") || !pre.Equals(""))
                 {
                     _ravi["Contestada"] = "◉";
                 }
