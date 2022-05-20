@@ -68,13 +68,20 @@ namespace QuizifyIU
         public void setNotificaciones(DataTable notifs)
         {
             notificaciones = notifs;
+
+            if (InvokeRequired) {
+                this.Invoke(new Action(() => ActualizarNotificaciones()));
+                return;
+            }
+        }
+
+        private void ActualizarNotificaciones(){
+            numnoti.Text = notificaciones.Rows.Count.ToString();
+            dataGridView1.DataSource = notificaciones;
         }
 
         private void notificacciones()
         {
-            numnoti.Text = notificaciones.Rows.Count.ToString();
-            dataGridView1.DataSource = notificaciones;
-
             bellN.Visible = false;
             numnoti.Visible = false;
             noti1.Visible = true;

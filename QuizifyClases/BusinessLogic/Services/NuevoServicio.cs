@@ -30,6 +30,9 @@ namespace Quizify.Services
         public (DataTable, DataTable) GetExamenesAlumno (string al) {
             return alumno.GetExamenes(al);
         }
+        public void EliminarNotificacion(int id_notif, string correo) {
+            alumno.EliminarNotificacion(id_notif,correo);
+        }
 
         //Métodos Profesor
         public void AddProfesor(Profesor prof) {
@@ -46,6 +49,9 @@ namespace Quizify.Services
         }
         public DataTable GetExamenesProfesor(string prof) {
             return profesor.GetExamenes(prof);
+        }
+        public void EnviarMensaje(string mensaje, string curso, string prof) {
+            profesor.EnviarMensaje(curso,prof,mensaje);
         }
 
         //Métodos Curso

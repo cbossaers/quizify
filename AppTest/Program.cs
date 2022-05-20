@@ -25,6 +25,7 @@ namespace AppTest {
 
             FabricaExamenes fabrica = new FabricaExamenes();
 
+            service.EnviarMensaje("Recordad que la tarea se cierra mañana", "x","x");
         }
         }
     }
