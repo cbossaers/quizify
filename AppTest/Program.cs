@@ -25,16 +25,7 @@ namespace AppTest {
 
             FabricaExamenes fabrica = new FabricaExamenes();
 
-            var subject = new Sujeto();
-            var observerA = new Predicado();
-            subject.Attach(observerA);
-
-            subject.SomeBusinessLogic();
-
-            subject.Detach(observerA);
-
-            subject.SomeBusinessLogic();
-
+            service.EnviarMensaje("Recordad que la tarea se cierra mañana", "x","x");
         }
         }
     }

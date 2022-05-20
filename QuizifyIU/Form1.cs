@@ -1,17 +1,11 @@
 ﻿using FontAwesome.Sharp;
 using Quizify.Services;
-using QuizifyIU;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Quizify.Entities;
 
 
 namespace QuizifyIU
@@ -20,14 +14,17 @@ namespace QuizifyIU
     {
         private NuevoServicio servicio;
         private dynamic usuario;
-        
+        public static DataTable notificaciones;
+        private Observador observador = new Observador();
+        public static Notificaciones objeto_notif;
+        HiloNotificaciones x = new HiloNotificaciones();
         
         private int borderSize = 2;
         private Size formSize; 
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
-        private Observador observ;
+
 
         public Form1(NuevoServicio servicio, dynamic user)
         {
@@ -51,34 +48,39 @@ namespace QuizifyIU
 
             ActivateButton(Home, RGBColors.color3);
 
-            observ = new Observador();
-            observ.test(this);
-
             dataGridView1.Visible = false;
             noti2.Visible = false;
             noti1.Visible = false;
             bellN.Visible = true;
             numnoti.Visible = true;
+
+            objeto_notif  = new Notificaciones(this);
+            objeto_notif.Subscribe(observador);
+            x.HiloGetNotificaciones(usuario.GetCorreo(),this);
+            
+        }
+        public void setNotificaciones(DataTable notifs)
+        {
+            notificaciones = notifs;
+
+            if (InvokeRequired) {
+                this.Invoke(new Action(() => ActualizarNotificaciones()));
+                return;
+            }
+        }
+
+        private void ActualizarNotificaciones(){
+            numnoti.Text = notificaciones.Rows.Count.ToString();
+            dataGridView1.DataSource = notificaciones;
         }
 
         private void notificacciones()
         {
-            DataTable dt = new DataTable();
-            dt.Clear();
-            dt.Columns.Add("ID");
-            DataRow _ravi = dt.NewRow();
-            _ravi["ID"] = "Notificacción_1";
-            dt.Rows.Add(_ravi);
-            DataRow _ravi2 = dt.NewRow();
-            _ravi2["ID"] = "algo muy largo y dificil";
-            dt.Rows.Add(_ravi2);
-
-            dataGridView1.DataSource = dt;
-
             bellN.Visible = false;
             numnoti.Visible = false;
             noti1.Visible = true;
             noti2.Visible = true;
+
             dataGridView1.Visible = true;
         }
 
@@ -405,10 +407,7 @@ namespace QuizifyIU
         private void Estadisticas_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
+            OpenChildForm(new ComprarBono(servicio, usuario));
         }
 
         private void CerrarSesion_Click(object sender, EventArgs e)
@@ -422,6 +421,10 @@ namespace QuizifyIU
         public void obsc(string x)
         {
             obs.Texts = x;
+        }
+
+        public void LlamarDataFetch(DataTable dt) {
+            objeto_notif.DataFetch(dt);
         }
 
         private void noti1_Click(object sender, EventArgs e)

@@ -30,6 +30,9 @@ namespace Quizify.Services
         public (DataTable, DataTable) GetExamenesAlumno (string al) {
             return alumno.GetExamenes(al);
         }
+        public void EliminarNotificacion(int id_notif, string correo) {
+            alumno.EliminarNotificacion(id_notif,correo);
+        }
 
         //Métodos Profesor
         public void AddProfesor(Profesor prof) {
@@ -46,6 +49,9 @@ namespace Quizify.Services
         }
         public DataTable GetExamenesProfesor(string prof) {
             return profesor.GetExamenes(prof);
+        }
+        public void EnviarMensaje(string mensaje, string curso, string prof) {
+            profesor.EnviarMensaje(curso,prof,mensaje);
         }
 
         public void AlterarBonos(string id, int bonos)
@@ -120,7 +126,7 @@ namespace Quizify.Services
             catch(MySql.Data.MySqlClient.MySqlException ex) { 
                 if(ex.Number == 1062) { throw new Exception("Este examen ya existe."); }
                 if(ex.Number == 1452) { throw new Exception("Ese profesor no existe."); }
-                else { throw new Exception("Error de integridad, código: " + ex.Number); }
+                else { throw new Exception("Error de integridad, código: " + ex); }
             }
         }
         public Examen GetExamen(int id) {
@@ -191,6 +197,5 @@ namespace Quizify.Services
         public void HiloEstadoQuizes() {
             hilos.HiloEstadoQuizes();
         }
-        
     }   
 }

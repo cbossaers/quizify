@@ -47,7 +47,7 @@ namespace QuizifyIU
             this.usuario = usuario;
             RellenarCursos();
         }
-        public CrearPregunta(NuevoServicio servicio, dynamic usuario,Pregunta2 pregunta)
+        public CrearPregunta(NuevoServicio servicio, dynamic usuario, Pregunta2 pregunta)
         {
             InitializeComponent();
             this.servicio = servicio;
@@ -533,7 +533,6 @@ namespace QuizifyIU
                 VistaDesarrollo();
                 ctPregunta.Text = preg.GetCT();
                 tema.Text = preg.GetTema();
-                ctPregunta.Text = preg.GetCT();
                 enunciado.Text = preg.GetEnunciado();
                 int dificul = preg.GetDificultad();
                 switch (dificul)

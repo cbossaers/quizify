@@ -94,24 +94,5 @@ public class DALProfesor {
 
         return dt;
     }
-
-    public void AlterarBonos(string id, int bonos)
-    {
-        using (MySqlConnection conn = new MySqlConnection(connStr))
-        {
-
-            using (MySqlCommand cmd = conn.CreateCommand())
-            {
-
-                cmd.CommandText = "UPDATE profesor SET quizes = @quizes WHERE correo = @correo;";
-
-                cmd.Parameters.AddWithValue("@correo", id);
-                cmd.Parameters.AddWithValue("@quizes", bonos);
-                
-                conn.Open();
-            }
-        }
-    }
-
-    }
-}
+        
+}}

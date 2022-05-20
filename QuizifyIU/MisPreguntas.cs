@@ -54,9 +54,7 @@ namespace QuizifyIU
             int id = int.Parse(tablaPreguntas.SelectedCells[0].Value.ToString());
             int ver = int.Parse(tablaPreguntas.SelectedCells[1].Value.ToString());
             
-            try { preg = servicio.GetPregunta(id, ver);
-                int vers = preg.GetVersion();
-            }
+            try { preg = servicio.GetPregunta(id, ver); }
             catch(Exception ex) {
                 MessageBox.Show(this, ex.Message.ToString(), "Error",
                                            MessageBoxButtons.OK,

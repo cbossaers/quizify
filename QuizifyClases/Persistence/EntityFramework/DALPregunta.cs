@@ -87,6 +87,15 @@ public class DALPregunta {
                         break;
 
                     case("des"):
+
+                        cmd.CommandText = "INSERT into pregunta_des(id,ver,descripcion) VALUES(@id,@ver,@descripcion);";
+
+                        if(preg.GetParametros().Count < 1) { preg.GetParametros().Add(""); }
+
+                        cmd.Parameters.AddWithValue("@id", preg.GetId());
+                        cmd.Parameters.AddWithValue("@ver", preg.GetVersion());
+                        cmd.Parameters.AddWithValue("@descripcion", preg.GetParametros()[0]);
+
                         break;
 
                 }
@@ -144,6 +153,8 @@ public class DALPregunta {
                                 break;
 
                             case("des"):
+                                lista.Add(rdr.GetString("descripcion"));
+
                                 break;
                     }
                 }

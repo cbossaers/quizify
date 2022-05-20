@@ -142,4 +142,60 @@ public class DALAlumno {
 
         return dt;
     }
+
+    public DataTable GetNotificaciones(string correo) {
+
+        DataTable dt = new DataTable();
+        DataTable dt2 = new DataTable();
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT id_notif FROM alumno_notif WHERE id_al = @alumno;";
+
+                cmd.Parameters.AddWithValue("@alumno", correo);
+
+                conn.Open();
+
+                dt.Load(cmd.ExecuteReader());
+            }
+        }
+
+        foreach(DataRow row in dt.Rows) {
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "SELECT texto FROM notificaciones WHERE id = @id;";
+
+                cmd.Parameters.AddWithValue("@id", row["id_notif"]);
+
+                conn.Open();
+
+                dt2.Load(cmd.ExecuteReader());
+            }
+        }
+        }
+
+        return dt2;
+    }
+
+    public void EliminarNotificacion(int id_notif, string correo) {
+
+        using(MySqlConnection conn = new MySqlConnection(connStr)) {
+
+            using(MySqlCommand cmd = conn.CreateCommand()) {
+
+                cmd.CommandText = "DELETE FROM alumno_notif WHERE id_al = @id_al AND id_notif = @id_notif;";
+
+                cmd.Parameters.AddWithValue("@id_al", correo);
+                cmd.Parameters.AddWithValue("@id_notif", id_notif);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
 }}

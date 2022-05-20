@@ -496,7 +496,7 @@
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(475, 77);
+            this.dataGridView1.Location = new System.Drawing.Point(462, 77);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -510,7 +510,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(275, 156);
+            this.dataGridView1.Size = new System.Drawing.Size(288, 255);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.Visible = false;
             // 
@@ -522,9 +522,8 @@
             this.numnoti.ForeColor = System.Drawing.Color.White;
             this.numnoti.Location = new System.Drawing.Point(681, 19);
             this.numnoti.Name = "numnoti";
-            this.numnoti.Size = new System.Drawing.Size(14, 15);
+            this.numnoti.Size = new System.Drawing.Size(0, 15);
             this.numnoti.TabIndex = 18;
-            this.numnoti.Text = "1";
             this.numnoti.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.numnoti.Click += new System.EventHandler(this.noti1_Click);
             // 
@@ -549,7 +548,7 @@
             this.obs.BorderSize = 2;
             this.obs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.obs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.obs.Location = new System.Drawing.Point(241, 255);
+            this.obs.Location = new System.Drawing.Point(229, 26);
             this.obs.Margin = new System.Windows.Forms.Padding(4);
             this.obs.Multiline = false;
             this.obs.Name = "obs";

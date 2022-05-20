@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using Quizify.Persistence;
+using System.Data;
 
 namespace Quizify.Entities
 {
@@ -18,6 +19,5 @@ namespace Quizify.Entities
             }
         }).Start();
         }
-
     }
 }

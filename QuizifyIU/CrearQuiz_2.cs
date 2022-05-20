@@ -119,6 +119,28 @@ namespace QuizifyIU
             puntuaciones();
             Principal.formportal.abrirNieto(new CrearQuiz_3(servicio, usuario, examen));
         }
+
+        private void borrar_Click(object sender, EventArgs e)
+        {
+            List<int> lista = examen.GetPreguntasAsociadas();
+            if (lista.Count>0)
+            {
+                List<int> lista2 = new List<int>();
+                int ide = int.Parse(dataGridView1.SelectedCells[0].Value.ToString());
+                int ver = int.Parse(dataGridView1.SelectedCells[1].Value.ToString());
+                for (int i = 0; i < lista.Count; i += 3)
+                {
+                    if (lista[i] == ide && lista[i + 1] == ver) { }
+                    else
+                    {
+                        lista2.Add(lista[i]); lista2.Add(lista[i + 1]); lista2.Add(lista[i + 2]);
+                    }
+                }
+                examen.SetPreguntasAsociadas(lista2);
+                tabla();
+            }
+
+        }
     }
 }
 
