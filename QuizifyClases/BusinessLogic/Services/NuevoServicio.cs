@@ -94,6 +94,9 @@ namespace Quizify.Services
         {
             curso.Eliminar(cur, prof);
         }
+        public void BorrarseDeCurso(string alumno, string codigo_curso, string profesor) {
+            curso.BorrarseDeCurso(alumno, codigo_curso, profesor);
+        }
 
         //Métodos pregunta
         public void AddPregunta(Pregunta2 preg) {
