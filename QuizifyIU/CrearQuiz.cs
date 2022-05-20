@@ -21,14 +21,14 @@ namespace QuizifyIU
         int tiempo;
         int id = -1;
         private Examen examen;
-        private Profesor profe;
 
-        public CrearQuiz(NuevoServicio servicio,dynamic user)
+
+        public CrearQuiz(NuevoServicio servicio, dynamic user)
         {
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
-            profe = servicio.GetProfesor(usuario.correo);
+            
             fin.Value = DateTime.Now.AddDays(1);
             setear_cursos();
 
@@ -65,7 +65,7 @@ namespace QuizifyIU
 
         private void siguiente_Click(object sender, EventArgs e)
         {
-            if (profe.GetQuizes() == 0)
+            if (usuario.GetQuizes() == 0)
             {
                 DialogResult noQuedanQuizes = MessageBox.Show(this, "Necesitas bonos para poder crear un examen. Accede a la tienda para poder comprar más bonos", "¡No te quedan bonos!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -107,7 +107,7 @@ namespace QuizifyIU
                 String estado = "Inactivo";
                 string difi = dificultad.Text;
 
-                servicio.AlterarBonos(profe.GetCorreo(), -1);
+                servicio.AlterarBonos(usuario.GetCorreo(), -1);
 
                 Examen examen = new Examen(id, titulo, descripcio, cursos, autor, tiempo, fecha_actual, fecha_inicial, fecha_finanl, intento, volver_atras, errores_restan, 0, pregunta, estado, difi, CT);
 
@@ -166,7 +166,7 @@ namespace QuizifyIU
 
         private void automatico_Click(object sender, EventArgs e)
         {
-            if (profe.GetQuizes() == 0)
+            if (usuario.GetQuizes() == 0)
             {
                 DialogResult noQuedanQuizes = MessageBox.Show(this, "Necesitas bonos para poder crear un examen. Accede a la tienda para poder comprar más bonos", "¡No te quedan bonos!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -205,10 +205,9 @@ namespace QuizifyIU
                 DateTime fecha_finanl = new DateTime(fin.Value.Year, fin.Value.Month, fin.Value.Day, hfin.Value.Hour, hfin.Value.Minute, hfin.Value.Second);
                 DateTime fecha_actual = DateTime.Now;
                 string CT = comboBoxCT.Text;
-                String estado = "Inactivo";
                 string difi = dificultad.Text;
 
-                servicio.AlterarBonos(profe.GetCorreo(), -1);
+                servicio.AlterarBonos(usuario.GetCorreo(), -1);
                 servicio.GenerarExamen(autor, cursos, 8, tiempo, fecha_inicial, fecha_finanl, intento, volver_atras, errores_restan, mostrar_resultados,false, difi);
             }
         }
