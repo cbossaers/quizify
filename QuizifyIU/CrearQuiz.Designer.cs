@@ -393,7 +393,6 @@
             // 
             // automatico
             // 
-            this.automatico.Enabled = false;
             this.automatico.Location = new System.Drawing.Point(422, 493);
             this.automatico.Name = "automatico";
             this.automatico.Size = new System.Drawing.Size(108, 28);

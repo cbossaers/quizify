@@ -70,7 +70,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(483, 45);
+            this.panel1.Size = new System.Drawing.Size(499, 45);
             this.panel1.TabIndex = 8;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -95,7 +95,7 @@
             this.btnMinimize.IconColor = System.Drawing.Color.Black;
             this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimize.IconSize = 25;
-            this.btnMinimize.Location = new System.Drawing.Point(395, 2);
+            this.btnMinimize.Location = new System.Drawing.Point(411, 2);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -114,7 +114,7 @@
             this.btnMaximize.IconColor = System.Drawing.Color.Black;
             this.btnMaximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximize.IconSize = 25;
-            this.btnMaximize.Location = new System.Drawing.Point(423, 2);
+            this.btnMaximize.Location = new System.Drawing.Point(439, 2);
             this.btnMaximize.Margin = new System.Windows.Forms.Padding(0);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Padding = new System.Windows.Forms.Padding(4, 6, 4, 3);
@@ -133,7 +133,7 @@
             this.btnClose.IconColor = System.Drawing.Color.White;
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClose.IconSize = 20;
-            this.btnClose.Location = new System.Drawing.Point(453, 2);
+            this.btnClose.Location = new System.Drawing.Point(469, 2);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Padding = new System.Windows.Forms.Padding(4, 6, 4, 3);
@@ -154,7 +154,7 @@
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(0, 45);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(483, 350);
+            this.panelDesktop.Size = new System.Drawing.Size(499, 389);
             this.panelDesktop.TabIndex = 19;
             // 
             // emailField
@@ -277,6 +277,7 @@
             this.ClientSize = new System.Drawing.Size(483, 395);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(499, 434);
             this.Name = "Principal";
             this.Opacity = 0.95D;
