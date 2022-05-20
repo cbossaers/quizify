@@ -94,23 +94,5 @@ public class DALProfesor {
 
         return dt;
     }
-
-    public void EnviarMensaje(string curso, string profesor, string mensaje) {
-
-        using(MySqlConnection conn = new MySqlConnection(connStr)) {
-
-            using(MySqlCommand cmd = conn.CreateCommand()) {
-
-                cmd.CommandText = "INSERT INTO notificaciones(texto,curso,profesor) VALUES(@texto,@curso,@profesor);";
-
-                cmd.Parameters.AddWithValue("@texto", curso + ": " + mensaje);
-                cmd.Parameters.AddWithValue("@curso", curso);
-                cmd.Parameters.AddWithValue("@profesor", profesor);
-
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
-    }
         
 }}
