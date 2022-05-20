@@ -109,8 +109,7 @@ namespace QuizifyIU
                 String estado = "Inactivo";
                 string difi = dificultad.Text;
 
-                int bonos = profe.GetQuizes() - 1;
-                servicio.AlterarBonos(profe.correo, bonos);
+                servicio.AlterarBonos(profe.GetCorreo(), -1);
 
                 Examen examen = new Examen(id, titulo, descripcio, cursos, autor, tiempo, fecha_actual, fecha_inicial, fecha_finanl, intento, volver_atras, errores_restan, 0, pregunta, estado, difi, CT);
 
