@@ -620,8 +620,6 @@ namespace Quizify.Persistence {
                     cmd.ExecuteNonQuery();
                 }
             }
-
-            ActualizarEstadoQuizes();
         }
 
         public DataTable GetExamenesByDificultad(List<dynamic> filtros)
@@ -645,6 +643,22 @@ namespace Quizify.Persistence {
             }
 
             return dt;
+        }
+
+        public void EliminarPreguntaDeExamen(int id_ex, int id_preg) {
+            using (MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using (MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "DELETE FROM lista_preguntas WHERE id_examen = @id_ex AND id_pregunta = @id_preg";
+
+                    cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                    cmd.Parameters.AddWithValue("@id_preg", id_preg);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

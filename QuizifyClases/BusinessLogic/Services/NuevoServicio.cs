@@ -179,6 +179,9 @@ namespace Quizify.Services
         {
             return examen.GetExamenesByDificultad(filtros);
         }
+        public void EliminarPreguntaDeExamen(int id_ex, int id_preg) {
+            examen.EliminarPreguntaDeExamen(id_ex,id_preg);
+        }
     
         //Otros métodos
         public string GetTipoEntidad(string usuario) {
