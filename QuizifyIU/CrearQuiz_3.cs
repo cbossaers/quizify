@@ -39,7 +39,7 @@ namespace QuizifyIU
                 {
                     for (int j = 0; j < examen.GetPreguntasAsociadas().Count; j += 3)
                     {
-                        if (int.Parse(datos.Rows[i]["id"].ToString()) == examen.GetPreguntasAsociadas()[j] && int.Parse(datos.Rows[i]["ver"].ToString()) == examen.GetPreguntasAsociadas()[j + 1])
+                        if (int.Parse(datos.Rows[i]["id"].ToString()) == examen.GetPreguntasAsociadas()[j])
                         {
                             datos.Rows[i].Delete();
                             break;

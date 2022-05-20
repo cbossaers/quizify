@@ -18,7 +18,7 @@ namespace QuizifyIU
         private int id = 0, cont = 0;
         private NuevoServicio servicio;
         List<int> preguntas_asociadas = new List<int>();
-        List<dynamic> respuestas = new List<dynamic> { };
+        
         Dictionary<int, dynamic> res = new Dictionary<int, dynamic>();
         private int op_correcta = -1;
 
@@ -33,7 +33,7 @@ namespace QuizifyIU
         Examen examen;
 
         private List<string> listaOpCorrecta = new List<String> { "0", "0", "0", "0", "0" };
-        private string opcionCorrecta;
+        private string opcionCorrecta="";
 
         private void guardar(int id, int version, dynamic correcta)
         {
@@ -88,6 +88,7 @@ namespace QuizifyIU
             else { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], opcionCorrecta); }
             if (siguiente.Text == "Finalizar examen")
             {
+                List<dynamic> respuestas = new List<dynamic> { };
                 indice();
                 respuestas.Add(examen.GetId());
                 respuestas.Add(usuario.GetCorreo());
@@ -95,8 +96,14 @@ namespace QuizifyIU
                 {
                     respuestas.Add(preguntas_asociadas[i]);
                     respuestas.Add(preguntas_asociadas[i + 1]);
-                    respuestas.Add(res[preguntas_asociadas[i]]);
+                    respuestas.Add(res[preguntas_asociadas[i]].ToString());
                 }
+                /*string p="";
+                foreach(dynamic m in respuestas)
+                {
+                    p+= m.ToString();
+                }
+                label1.Text = p;*/
                 servicio.SubirRespuestas(respuestas);
 
                 DialogResult answer = MessageBox.Show(this, "examen añadido correctamente.",
@@ -283,7 +290,7 @@ namespace QuizifyIU
             opcionCorrecta = "";
             for (int i = 0; i < 5; i++)
             {
-                opcionCorrecta = opcionCorrecta + listilla[i];
+                opcionCorrecta += listilla[i];
             }
         }
 
