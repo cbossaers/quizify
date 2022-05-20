@@ -13,8 +13,8 @@ namespace QuizifyIU
         public void HiloGetNotificaciones(string correo, Form1 aux) {
             var threadParameters = new System.Threading.ThreadStart(delegate { 
                 while(true) {
-                    System.Threading.Thread.Sleep(2000);
                     aux.LlamarDataFetch(dalal.GetNotificaciones(correo));
+                    System.Threading.Thread.Sleep(3000);
                 } 
             });
             var thread2 = new System.Threading.Thread(threadParameters);
