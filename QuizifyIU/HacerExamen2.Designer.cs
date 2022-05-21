@@ -69,13 +69,12 @@
             this.check4 = new System.Windows.Forms.CheckBox();
             this.RespuestaTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.fondo = new System.Windows.Forms.PictureBox();
             this.borrar_seleccion = new QuizifyIU.Controles_extra.Botones_fancy();
+            this.label5 = new System.Windows.Forms.Label();
             this.correctaVF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.CorrectaMult.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fondo)).BeginInit();
             this.SuspendLayout();
             // 
             // correctaVF
@@ -85,7 +84,7 @@
             this.correctaVF.Controls.Add(this.verdadero0);
             this.correctaVF.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.correctaVF.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.correctaVF.Location = new System.Drawing.Point(1, 27);
+            this.correctaVF.Location = new System.Drawing.Point(30, 150);
             this.correctaVF.Name = "correctaVF";
             this.correctaVF.Size = new System.Drawing.Size(165, 140);
             this.correctaVF.TabIndex = 49;
@@ -496,7 +495,6 @@
             this.CorrectaMult.Controls.Add(this.check1);
             this.CorrectaMult.Controls.Add(this.check0);
             this.CorrectaMult.Controls.Add(this.check4);
-            this.CorrectaMult.Controls.Add(this.correctaVF);
             this.CorrectaMult.Location = new System.Drawing.Point(30, 117);
             this.CorrectaMult.Name = "CorrectaMult";
             this.CorrectaMult.Size = new System.Drawing.Size(45, 245);
@@ -576,15 +574,6 @@
             this.label4.TabIndex = 73;
             this.label4.Text = "——————————————————————————————";
             // 
-            // fondo
-            // 
-            this.fondo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.fondo.Location = new System.Drawing.Point(12, 104);
-            this.fondo.Name = "fondo";
-            this.fondo.Size = new System.Drawing.Size(407, 264);
-            this.fondo.TabIndex = 76;
-            this.fondo.TabStop = false;
-            // 
             // borrar_seleccion
             // 
             this.borrar_seleccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
@@ -604,12 +593,23 @@
             this.borrar_seleccion.UseVisualStyleBackColor = false;
             this.borrar_seleccion.Click += new System.EventHandler(this.borrar_seleccion_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(253, 67);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 15);
+            this.label5.TabIndex = 77;
+            this.label5.Text = "label5";
+            // 
             // HacerExamen2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(714, 492);
+            this.Controls.Add(this.correctaVF);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.borrar_seleccion);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.enunciado);
@@ -635,7 +635,6 @@
             this.Controls.Add(this.letraA);
             this.Controls.Add(this.CorrectaMult);
             this.Controls.Add(this.RespuestaTxt);
-            this.Controls.Add(this.fondo);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "HacerExamen2";
@@ -649,7 +648,6 @@
             this.panel1.ResumeLayout(false);
             this.CorrectaMult.ResumeLayout(false);
             this.CorrectaMult.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fondo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -697,5 +695,6 @@
         private Controles_extra.Botones_fancy siguiente;
         private Controles_extra.Botones_fancy button3;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }

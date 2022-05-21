@@ -75,18 +75,18 @@ namespace QuizifyIU
 
         private void anterior_Click(object sender, EventArgs e)
         {
-            if (mult) { CraftearStringCorrecta(listaOpCorrecta); op_correcta = int.Parse(opcionCorrecta); }
-            if (!desarrollo) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
-            else { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
+            if (mult) { CraftearStringCorrecta(listaOpCorrecta); guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], opcionCorrecta); }
+            if (!desarrollo && !mult) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
+            else if (desarrollo) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
             cont -= 3;
             interfaz();
         }
 
         private void siguiete_Click(object sender, EventArgs e)
         {
-            if (mult) { CraftearStringCorrecta(listaOpCorrecta); op_correcta = int.Parse(opcionCorrecta); }
-            if (!desarrollo) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
-            else { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
+            if (mult) { CraftearStringCorrecta(listaOpCorrecta); guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], opcionCorrecta); }
+            if (!desarrollo && !mult) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
+            else if (desarrollo) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
             if (siguiente.Text == "Finalizar examen")
             {
                 List<dynamic> respuestas = new List<dynamic> { };
@@ -121,17 +121,33 @@ namespace QuizifyIU
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (mult) { CraftearStringCorrecta(listaOpCorrecta); op_correcta = int.Parse(opcionCorrecta); }
-            if (!desarrollo) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
-            else { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
+            if (mult) { CraftearStringCorrecta(listaOpCorrecta); guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], opcionCorrecta); }
+            if (!desarrollo && !mult) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
+            else if (desarrollo) {  guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
             indice();
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            for (int i = 0; i < res.Count; i++)
+            {
+                if (dataGridView1.SelectedCells[0].Value.ToString().Equals("Pregunta " + (i + 1).ToString()))
+                {
+                    if (mult) { CraftearStringCorrecta(listaOpCorrecta); guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], opcionCorrecta); }
+                    if (!desarrollo && !mult) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
+                    else if (desarrollo) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
+                    cont = i * 3;
+                    interfaz();
+
+                }
+            }
+        }
         private void borrar_seleccion_Click(object sender, EventArgs e)
         {
             verdadero0.Checked = false; falso1.Checked = false; correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
             check0.Checked = false; check1.Checked = false; check2.Checked = false; check3.Checked = false; check4.Checked = false;
             op_correcta = -1;
+            opcionCorrecta = "-1";
         }
 
         private void CambiaTipoPregunta(Pregunta2 preg)
@@ -142,7 +158,7 @@ namespace QuizifyIU
             listaOpCorrecta = new List<String> { "0", "0", "0", "0", "0" };
             enunciado.Text = preg.GetEnunciado().ToString();
             op_correcta = -1;
-            opcionCorrecta = "";
+            opcionCorrecta = "00000";
             if (preg.GetTipo() == "test")
             {
                 VistaTest();
@@ -181,10 +197,9 @@ namespace QuizifyIU
                 res.TryGetValue(preguntas_asociadas[cont], out prov);
                 label1.Text = prov.ToString();
                 VistaDesarrollo();
-                opcionCorrecta = "";
                 desarrollo = true;
                 string pre = res[preguntas_asociadas[cont]].ToString();
-                if (!pre.Equals("-1") && !pre.Equals(""))
+                if (!pre.Equals("-1") && !pre.Equals("") && !pre.Equals("00000"))
                 {
 
                     res.TryGetValue(preguntas_asociadas[cont], out prov);
@@ -199,12 +214,13 @@ namespace QuizifyIU
                 List<dynamic> lista = preg.GetParametros();
                 visible(preg);
                 op_correcta = -1;
-                if (res.ContainsKey(preguntas_asociadas[cont]) && res[preguntas_asociadas[cont]] != -1)
-                {
+                opcionCorrecta = "00000";
+                string pre = res[preguntas_asociadas[cont]].ToString();
+                if (!pre.Equals("-1") && !pre.Equals("00000")) {
                     dynamic prov;
                     res.TryGetValue(preguntas_asociadas[cont], out prov);
-                    op_correcta = prov;
-                    
+                    op_correcta = int.Parse(prov);
+
                     int x = op_correcta;
                     for (int i = 4; i >= 0; i--)
                     {
@@ -225,8 +241,9 @@ namespace QuizifyIU
                                 case (4): check4.Checked = true; break;
                             }
                         }
+
                     }
-                }
+                }                    
             }
             else
             {
@@ -265,7 +282,6 @@ namespace QuizifyIU
             correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
             correctaVF.Visible = false; CorrectaMult.Visible = false;
             RespuestaTxt.Visible = false;
-            opcionCorrecta = "";
         }
         public void VistaDesarrollo()
         {
@@ -288,7 +304,7 @@ namespace QuizifyIU
             RespuestaTxt.Visible = false;
             correcta0.Visible = false; correcta1.Visible = false; correcta2.Visible = false; correcta3.Visible = false; correcta4.Visible = false;
 
-            opcionCorrecta = "";
+            opcionCorrecta = "00000";
             for (int i = 0; i < 5; i++) { listaOpCorrecta[i] = "0"; }
         }
         public void CraftearStringCorrecta(List<string> listilla)
@@ -322,20 +338,7 @@ namespace QuizifyIU
             else siguiente.Text = "Siguiente";
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            for (int i = 0; i < res.Count; i++)
-            {
-                if (dataGridView1.SelectedCells[0].Value.ToString().Equals("Pregunta " + (i + 1).ToString()))
-                {
-                    if (mult) { CraftearStringCorrecta(listaOpCorrecta); op_correcta = int.Parse(opcionCorrecta); }
-                    guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
-                    cont = i * 3;
-                    interfaz();
-
-                }
-            }
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -381,7 +384,7 @@ namespace QuizifyIU
                 DataRow _ravi = dt.NewRow();
                 _ravi["Pregunta"] = "Pregunta " + i.ToString();
                 string pre = res[preguntas_asociadas[cuen]].ToString();
-                if (pre.Equals("-1")  && pre.Equals("00000") || !pre.Equals(""))
+                if (!pre.Equals("-1")  && !pre.Equals("00000") && !pre.Equals(""))
                 {
                     _ravi["Contestada"] = "◉";
                 }
@@ -394,7 +397,6 @@ namespace QuizifyIU
             {
                 dataGridView1.Rows[cont / 3].Selected = true;
             }
-
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
