@@ -47,47 +47,47 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(58, 141);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 15);
+            this.label1.Size = new System.Drawing.Size(134, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Número de tarjeta:";
             // 
             // tarjetaBox
             // 
-            this.tarjetaBox.Location = new System.Drawing.Point(244, 138);
+            this.tarjetaBox.Location = new System.Drawing.Point(289, 138);
             this.tarjetaBox.Name = "tarjetaBox";
-            this.tarjetaBox.Size = new System.Drawing.Size(181, 23);
+            this.tarjetaBox.Size = new System.Drawing.Size(207, 23);
             this.tarjetaBox.TabIndex = 1;
             this.tarjetaBox.TextChanged += new System.EventHandler(this.tarjetaBox_TextChanged);
             // 
             // titularBox
             // 
-            this.titularBox.Location = new System.Drawing.Point(244, 204);
+            this.titularBox.Location = new System.Drawing.Point(289, 207);
             this.titularBox.Name = "titularBox";
-            this.titularBox.Size = new System.Drawing.Size(181, 23);
+            this.titularBox.Size = new System.Drawing.Size(207, 23);
             this.titularBox.TabIndex = 2;
             this.titularBox.TextChanged += new System.EventHandler(this.titularBox_TextChanged);
             // 
             // codSegBox
             // 
-            this.codSegBox.Location = new System.Drawing.Point(244, 265);
+            this.codSegBox.Location = new System.Drawing.Point(289, 268);
             this.codSegBox.Name = "codSegBox";
-            this.codSegBox.Size = new System.Drawing.Size(181, 23);
+            this.codSegBox.Size = new System.Drawing.Size(207, 23);
             this.codSegBox.TabIndex = 3;
             this.codSegBox.TextChanged += new System.EventHandler(this.codSegBox_TextChanged);
             // 
             // descuentoBox
             // 
-            this.descuentoBox.Location = new System.Drawing.Point(244, 332);
+            this.descuentoBox.Location = new System.Drawing.Point(289, 335);
             this.descuentoBox.Name = "descuentoBox";
-            this.descuentoBox.Size = new System.Drawing.Size(181, 23);
+            this.descuentoBox.Size = new System.Drawing.Size(207, 23);
             this.descuentoBox.TabIndex = 4;
-            this.descuentoBox.TextChanged += new System.EventHandler(this.descuentoBox_TextChanged);
             // 
             // bConfirmar
             // 
-            this.bConfirmar.Location = new System.Drawing.Point(358, 390);
+            this.bConfirmar.Location = new System.Drawing.Point(429, 388);
             this.bConfirmar.Name = "bConfirmar";
             this.bConfirmar.Size = new System.Drawing.Size(67, 23);
             this.bConfirmar.TabIndex = 5;
@@ -98,36 +98,40 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(58, 207);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 15);
+            this.label2.Size = new System.Drawing.Size(138, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "Titular de la tarjeta:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(58, 268);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 15);
+            this.label3.Size = new System.Drawing.Size(152, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Código de seguridad:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(58, 335);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(180, 15);
+            this.label4.Size = new System.Drawing.Size(226, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Código de descuento (opcional):";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(58, 66);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(256, 15);
+            this.label5.Size = new System.Drawing.Size(337, 21);
             this.label5.TabIndex = 10;
             this.label5.Text = "Elige el número de bonos que quieres comprar:";
             // 
@@ -139,7 +143,7 @@
             "10",
             "50",
             "100"});
-            this.numBonos.Location = new System.Drawing.Point(330, 66);
+            this.numBonos.Location = new System.Drawing.Point(401, 68);
             this.numBonos.Name = "numBonos";
             this.numBonos.Size = new System.Drawing.Size(95, 23);
             this.numBonos.TabIndex = 11;
@@ -148,15 +152,16 @@
             // labelDescuento
             // 
             this.labelDescuento.AutoSize = true;
-            this.labelDescuento.Location = new System.Drawing.Point(454, 69);
+            this.labelDescuento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDescuento.Location = new System.Drawing.Point(491, 19);
             this.labelDescuento.Name = "labelDescuento";
-            this.labelDescuento.Size = new System.Drawing.Size(121, 15);
+            this.labelDescuento.Size = new System.Drawing.Size(159, 21);
             this.labelDescuento.TabIndex = 12;
             this.labelDescuento.Text = "hola soy el descuento";
             // 
             // baplicarDescuento
             // 
-            this.baplicarDescuento.Location = new System.Drawing.Point(476, 331);
+            this.baplicarDescuento.Location = new System.Drawing.Point(549, 335);
             this.baplicarDescuento.Name = "baplicarDescuento";
             this.baplicarDescuento.Size = new System.Drawing.Size(115, 23);
             this.baplicarDescuento.TabIndex = 13;
@@ -167,7 +172,7 @@
             // notificacionDescuento
             // 
             this.notificacionDescuento.AutoSize = true;
-            this.notificacionDescuento.Location = new System.Drawing.Point(476, 378);
+            this.notificacionDescuento.Location = new System.Drawing.Point(549, 377);
             this.notificacionDescuento.Name = "notificacionDescuento";
             this.notificacionDescuento.Size = new System.Drawing.Size(38, 15);
             this.notificacionDescuento.TabIndex = 14;

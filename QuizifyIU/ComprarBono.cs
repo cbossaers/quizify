@@ -21,7 +21,6 @@ namespace QuizifyIU
         private Boolean titularCorrecto = false;
         private Boolean seguridadCorrecto = false;
         private Boolean bonosCorrecto = false;
-        private Boolean descuentoCorrecto = false;
         private string codDescuento = GeneradorDescuento(6);
         private double precio = 0.0;
 
@@ -30,14 +29,13 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
-
-            baplicarDescuento.Enabled = false;
             bConfirmar.Enabled = false;
             notificacionDescuento.Visible = false;
             labelDescuento.Visible = false;
+
             //Generador automático de códigos de descuento (solo hay descuentos martes y viernes)
             DayOfWeek day = DateTime.Now.DayOfWeek;
-            string dayToday = " " + day.ToString();
+            string dayToday = "" + day.ToString();
             if ((dayToday == DayOfWeek.Tuesday.ToString()) || (dayToday == DayOfWeek.Friday.ToString()))
             {
                 if (servicio.GetTipoEntidad(usuario.GetCorreo()) == "profesor")
@@ -95,12 +93,6 @@ namespace QuizifyIU
             else seguridadCorrecto = true;
             if (tarjetaCorrecto && titularCorrecto && seguridadCorrecto && bonosCorrecto)
                 bConfirmar.Enabled = true;
-        }
-
-        private void descuentoBox_TextChanged(object sender, EventArgs e)
-        {
-            if (descuentoBox.Text == "") descuentoCorrecto = false;
-            else descuentoCorrecto = true;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -181,6 +173,7 @@ namespace QuizifyIU
             codSegBox.Text = "";
             numBonos.Text = "";
             descuentoBox.Text = "";
+            descuentoBox.Enabled = false;
             labelDescuento.Visible = false;
             notificacionDescuento.Visible = false;
             bConfirmar.Enabled = false;
