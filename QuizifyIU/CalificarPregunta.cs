@@ -17,6 +17,11 @@ namespace QuizifyIU
         private ValueTuple<DataTable> tupla;
         private DataTable preguntas;
         private int examen;
+        private int idex;
+        private int idpreg;
+        private int vers;
+        private string alumno;
+        double puntuacion;
         public CalificarPregunta(NuevoServicio servicio, dynamic usuario, int examen)
         {
             InitializeComponent();
@@ -36,10 +41,17 @@ namespace QuizifyIU
         private void EvPonerNota(object sender, DataGridViewCellMouseEventArgs e)
         {
             respuesta.Visible = true; nota.Visible = true; respuestabox.Visible = true; notabox.Visible = true; PonerNota.Visible = true;
-            tablaExamenesProfesor.Visible = false;
+            tablaExamenesProfesor.Visible = false; notaMax.Visible = true;
             try
             {
+                idex = int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString());
+                idpreg = int.Parse(tablaExamenesProfesor.SelectedCells[2].Value.ToString());
+                vers = int.Parse(tablaExamenesProfesor.SelectedCells[3].Value.ToString());
+                alumno = tablaExamenesProfesor.SelectedCells[1].Value.ToString();
                 respuestabox.Text = tablaExamenesProfesor.SelectedCells[4].Value.ToString();
+                puntuacion = servicio.GetPuntuacionDePregunta(idex, idpreg);
+                notaMax.Text = "Nota máxima: " + puntuacion.ToString();
+                notabox.Text = servicio.GetNotaPregunta(idex,idpreg,alumno).ToString();
             }
             catch (Exception ex)
             {
@@ -52,22 +64,18 @@ namespace QuizifyIU
 
         private void EvPonerNota(object sender, EventArgs e)
         {
-            int idex = int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString());
-            int idpreg = int.Parse(tablaExamenesProfesor.SelectedCells[2].Value.ToString());
-            int vers = int.Parse(tablaExamenesProfesor.SelectedCells[3].Value.ToString());
-            string alumno = tablaExamenesProfesor.SelectedCells[1].Value.ToString();
-            double puntuacion;
+            
             double notaReal;
             try
             {
-                puntuacion = servicio.GetPuntuacionDePregunta(idex, idpreg);
+                
                 notaReal = double.Parse(notabox.Text);
                 if (notaReal >= 0 && notaReal <= puntuacion)
                 {
                     servicio.CalificarDesarrollo(idex, idpreg, vers, alumno, notaReal);
                     servicio.CalcularNotaExamen(idex, alumno);
                     respuesta.Visible = false; nota.Visible = false; respuestabox.Visible = false; notabox.Visible = false; PonerNota.Visible = false;
-                    tablaExamenesProfesor.Visible = true;
+                    tablaExamenesProfesor.Visible = true; notaMax.Visible = false;
                 }
                 else
                 {
