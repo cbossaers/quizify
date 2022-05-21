@@ -125,14 +125,15 @@ namespace QuizifyIU
 
         private void tunometecabra_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string dificultad = tunometecabra.Text;
-            if (tunometecabra.SelectedIndex == -1) { dificultad = ""; } else { dificultad = tunometecabra.SelectedIndex.ToString(); }
+            string dificultad;
+            if (tunometecabra.SelectedIndex == -1) { dificultad = ""; } else { dificultad = tunometecabra.Text; }
             filtros = new List<dynamic>() { dificultad };
             tabla();
         }
         private void tabla()
         {
-            tablaExamenesProfesor.DataSource = servicio.GetExamenByDificultad(filtros);
+            if(servicio.GetTipoEntidad(user.GetCorreo()) == "alumno") tablaExamenDisponible.DataSource = servicio.GetExamenByDificultad(filtros);
+            else tablaExamenesProfesor.DataSource = servicio.GetExamenByDificultad(filtros);
         }
         private void EvPonerNota(object sender, EventArgs e)
         {
