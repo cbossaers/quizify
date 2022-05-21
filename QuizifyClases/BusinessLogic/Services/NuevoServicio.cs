@@ -53,7 +53,6 @@ namespace Quizify.Services
         public void EnviarMensaje(string mensaje, string curso, string prof) {
             profesor.EnviarMensaje(curso,prof,mensaje);
         }
-
         public void AlterarBonos(string id, int bonos)
         {
             profesor.AlterarBonos(id, bonos);
