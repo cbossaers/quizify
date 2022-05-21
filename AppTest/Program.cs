@@ -24,18 +24,6 @@ namespace AppTest {
             NuevoServicio service = new NuevoServicio();
 
             FabricaExamenes fabrica = new FabricaExamenes();
-
-            DataTable lista = service.GetPreguntasDesarrolloExamen(21);
-
-            foreach(DataRow row in lista.Rows) {
-                Console.WriteLine(row["examen"]);
-                Console.WriteLine(row["alumno"]);
-                Console.WriteLine(row["pregunta"]);
-                Console.WriteLine(row["ver_pregunta"]);
-                Console.WriteLine(row["respuesta"]);
-
-                service.CalificarDesarrollo(21,24,1,"c",0.33);
-            }
-        }
         }
     }
+}
