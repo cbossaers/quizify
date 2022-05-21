@@ -781,7 +781,7 @@ namespace Quizify.Persistence {
                     using (MySqlDataReader rdr = cmd.ExecuteReader()) {
 
                         while (rdr.Read()) {
-                            res = rdr.GetDouble("puntuacion");
+                            res = rdr.GetDouble("nota");
                         }
                     }
                 }
