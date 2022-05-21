@@ -763,6 +763,5 @@ namespace Quizify.Persistence {
                 }
             }
         }
-
     }
 }
