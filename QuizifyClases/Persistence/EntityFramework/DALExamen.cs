@@ -773,7 +773,7 @@ namespace Quizify.Persistence {
                     cmd.CommandText = "SELECT nota FROM notas_pregunta WHERE id_ex = @examen AND id_preg = @pregunta AND alumno = @alumno;";
 
                     cmd.Parameters.AddWithValue("@id_ex", id_ex);
-                    cmd.Parameters.AddWithValue("@id_preg", id_preg);
+                    cmd.Parameters.AddWithValue("@pregunta", id_preg);
                     cmd.Parameters.AddWithValue("@alumno", alumno);
 
                     conn.Open();
