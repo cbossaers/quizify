@@ -73,7 +73,7 @@
             // 
             // editar
             // 
-            this.editar.Location = new System.Drawing.Point(652, 234);
+            this.editar.Location = new System.Drawing.Point(647, 234);
             this.editar.Name = "editar";
             this.editar.Size = new System.Drawing.Size(75, 42);
             this.editar.TabIndex = 13;
@@ -84,7 +84,7 @@
             // 
             // anular
             // 
-            this.anular.Location = new System.Drawing.Point(652, 144);
+            this.anular.Location = new System.Drawing.Point(648, 144);
             this.anular.Name = "anular";
             this.anular.Size = new System.Drawing.Size(75, 46);
             this.anular.TabIndex = 14;
@@ -147,7 +147,7 @@
             // 
             // borrar
             // 
-            this.borrar.Location = new System.Drawing.Point(652, 296);
+            this.borrar.Location = new System.Drawing.Point(647, 296);
             this.borrar.Name = "borrar";
             this.borrar.Size = new System.Drawing.Size(75, 42);
             this.borrar.TabIndex = 20;
@@ -160,7 +160,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(739, 451);
+            this.ClientSize = new System.Drawing.Size(714, 492);
             this.Controls.Add(this.borrar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bVolver);

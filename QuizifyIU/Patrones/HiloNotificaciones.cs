@@ -14,11 +14,15 @@ namespace QuizifyIU
             var threadParameters = new System.Threading.ThreadStart(delegate { 
                 while(true) {
                     aux.LlamarDataFetch(dalal.GetNotificaciones(correo));
-                    System.Threading.Thread.Sleep(3000);
+                    System.Threading.Thread.Sleep(500);
                 } 
             });
             var thread2 = new System.Threading.Thread(threadParameters);
             thread2.Start();
+        }
+
+        public void Abort() {
+            this.Abort();
         }
     }
 }

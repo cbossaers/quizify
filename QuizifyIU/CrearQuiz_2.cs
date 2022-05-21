@@ -15,6 +15,7 @@ namespace QuizifyIU
         private NuevoServicio servicio;
         private dynamic usuario;
         private Examen examen;
+        
         public CrearQuiz_2(NuevoServicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
@@ -130,7 +131,11 @@ namespace QuizifyIU
                 int ver = int.Parse(dataGridView1.SelectedCells[1].Value.ToString());
                 for (int i = 0; i < lista.Count; i += 3)
                 {
-                    if (lista[i] == ide && lista[i + 1] == ver) { }
+                    if (lista[i] == ide && lista[i + 1] == ver) {
+                        try {
+                            if (servicio.GetExamen(examen.GetId()) != null) { servicio.EliminarPreguntaDeExamen(examen.GetId(), ide);}; 
+                        } catch {}
+                    }
                     else
                     {
                         lista2.Add(lista[i]); lista2.Add(lista[i + 1]); lista2.Add(lista[i + 2]);

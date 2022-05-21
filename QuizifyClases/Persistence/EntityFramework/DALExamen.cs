@@ -203,12 +203,12 @@ namespace Quizify.Persistence {
 
                         cmd.CommandText = "INSERT into respuestas_examenes(examen,alumno,pregunta,ver_pregunta,respuesta) "
                         + "VALUES(@examen,@alumno,@pregunta,@ver_pregunta,@respuesta) "
-                        + "ON DUPLICATE KEY UPDATE respuesta = @respuesta";
+                        + "ON DUPLICATE KEY UPDATE respuesta = @respuesta;";
 
-                        cmd.Parameters.AddWithValue("@examen", respuestas[0]);
-                        cmd.Parameters.AddWithValue("@alumno", respuestas[1]);
-                        cmd.Parameters.AddWithValue("@pregunta", respuestas[i]);
-                        cmd.Parameters.AddWithValue("@ver_pregunta", respuestas[i + 1]);
+                        cmd.Parameters.AddWithValue("@examen", int.Parse(respuestas[0].ToString()));
+                        cmd.Parameters.AddWithValue("@alumno", respuestas[1].ToString());
+                        cmd.Parameters.AddWithValue("@pregunta", int.Parse(respuestas[i].ToString()));
+                        cmd.Parameters.AddWithValue("@ver_pregunta", int.Parse(respuestas[i + 1].ToString()));
                         cmd.Parameters.AddWithValue("@respuesta", respuestas[i + 2].ToString());
 
                         conn.Open();
@@ -222,6 +222,8 @@ namespace Quizify.Persistence {
 
         public double CalcularNotaPregunta(Pregunta2 preg, int respuesta, double puntuacion, int resta) {
             string tipo = preg.GetTipo();
+            if(tipo == "des") { return 0; }
+
             int correcta = preg.GetParametros()[0];
 
             if (respuesta == -1) { return 0; }
@@ -242,6 +244,7 @@ namespace Quizify.Persistence {
                     } else return 0;
 
                 case ("mult"):
+                    int aux = respuesta;
                     int a = correcta * 2;
                     int c = 0;
                     int sum = 0;
@@ -250,11 +253,12 @@ namespace Quizify.Persistence {
                     for (int i = 0; i < 5; i++) {
                         if (a % 10 == 2) { total++; }
 
-                        c = (a % 10) - (respuesta % 10);
+                        c = (a % 10) - (aux % 10);
                         if (c < 2) { sum += c; }
 
                         a /= 10;
-                        respuesta /= 10;
+                        
+                        aux /= 10;
                     }
 
                     if (sum < 0) { sum = 0; }
@@ -262,9 +266,6 @@ namespace Quizify.Persistence {
                     total = sum / total;
 
                     return total * puntuacion;
-
-                case ("des"):
-                    return 0;
             }
 
             return 0;
@@ -399,7 +400,7 @@ namespace Quizify.Persistence {
         double aux = 0.0;
 
             List<int> listapreg = GetListaPreguntas(id_ex);
-            List<int> listarespuestas = GetListaRespuestas(id_ex, correo);
+            List<dynamic> listarespuestas = GetListaRespuestas(id_ex, correo);
 
             for (int i = 0; i < listapreg.Count; i += 3) {
 
@@ -408,7 +409,9 @@ namespace Quizify.Persistence {
                     if (listapreg[i] == listarespuestas[j]) {
 
                     pregunta = dalpreg.Get(listapreg[i], listapreg[i+1]);
-                    aux = CalcularNotaPregunta(pregunta, listarespuestas[j+1],listapreg[i+2],restan);
+                    if(pregunta.GetTipo() == "des") { aux = 0; }
+                    else { aux = CalcularNotaPregunta(pregunta, int.Parse(listarespuestas[j+1]) ,listapreg[i+2],restan); }
+                    
                     nota += aux;
 
                     using(MySqlConnection conn = new MySqlConnection(connStr)) {
@@ -456,16 +459,14 @@ namespace Quizify.Persistence {
             }
         }
 
-        public List<int> GetListaRespuestas(int id_ex, string correo) {
-            List<int> listarespuestas = new List<int> { };
+        public List<dynamic> GetListaRespuestas(int id_ex, string correo) {
+            List<dynamic> listarespuestas = new List<dynamic> { };
 
             using (MySqlConnection conn = new MySqlConnection(connStr)) {
                 
                 using (MySqlCommand cmd = conn.CreateCommand()) {
 
-                cmd.CommandText =  "SELECT * FROM respuestas_examenes WHERE examen = @id_ex AND alumno = @correo;";
-
-                    cmd.CommandText = "SELECT * FROM respuestas_examenes WHERE examen = @id_ex AND alumno = @correo';";
+                    cmd.CommandText = "SELECT * FROM respuestas_examenes WHERE examen = @id_ex AND alumno = @correo;";
 
                     cmd.Parameters.AddWithValue("@id_ex", id_ex);
                     cmd.Parameters.AddWithValue("@correo", correo);
@@ -476,7 +477,7 @@ namespace Quizify.Persistence {
 
                         while (rdr.Read()) {
                             listarespuestas.Add(rdr.GetInt32("pregunta"));
-                            listarespuestas.Add(rdr.GetInt32("respuesta"));
+                            listarespuestas.Add(rdr.GetString("respuesta"));
                         }
                     }
                 }
@@ -545,6 +546,65 @@ namespace Quizify.Persistence {
 
         }
 
+        public DataTable EstadisticasExamenPreguntas(int id_ex) {
+            List<int> pregs = GetListaPreguntas(id_ex);
+            List<double> notas; 
+            int aciertos = 0;
+
+            DataTable dt = new DataTable(); 
+            dt.Clear();
+            dt.Columns.Add("Pregunta");
+            dt.Columns.Add("Versión");
+            dt.Columns.Add("Envíos");
+            dt.Columns.Add("Aciertos");
+            dt.Columns.Add("Ratio");
+
+            DataRow _ravi;
+
+            for(int i = 0; i < pregs.Count; i+=3) {
+
+                _ravi = dt.NewRow();
+
+                notas = new List<double>();
+
+                _ravi["Pregunta"] = pregs[i];
+                _ravi["Versión"] = pregs[i+1];
+
+                using (MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                    using (MySqlCommand cmd = conn.CreateCommand()) {
+
+                        cmd.CommandText = "SELECT nota FROM notas_pregunta WHERE id_ex = @examen AND id_preg = @id_preg;";
+
+                        cmd.Parameters.AddWithValue("@examen", id_ex);
+                        cmd.Parameters.AddWithValue("@id_preg", pregs[i]);
+
+                        conn.Open();
+
+                        using (MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                            while (rdr.Read()) {
+                                notas.Add(rdr.GetDouble("nota"));
+                            }
+                        }
+                    }
+                }
+
+                _ravi["Envíos"] = notas.Count;
+
+                foreach(double nota in notas) {
+                    if(nota == pregs[i+2]) { aciertos++; }
+                }
+
+                _ravi["Aciertos"] = aciertos;
+                _ravi["Ratio"] = aciertos/notas.Count;
+
+                dt.Rows.Add(_ravi);
+            }
+
+            return dt;
+        }
+
         public void GenerarExamen(string profesor, string codigo_curso, int num_preguntas, int tiempo, DateTime fechaini, DateTime fechafin,
         int intentos, int volveratras, int erroresrestan, int mostrarresultados, bool esrecu, string dific) {
 
@@ -602,7 +662,7 @@ namespace Quizify.Persistence {
             }
 
             Add(fabrica.CrearExamen(id, titulo, descripcion, codigo_curso, profesor, tiempo, DateTime.Now, fechaini, fechafin,
-            intentos, volveratras, erroresrestan, mostrarresultados, final, "Borrador", dific));
+            intentos, volveratras, erroresrestan, mostrarresultados, final, "Inactivo", dific));
         }
 
         public void FinalizarExamen(int id) {
@@ -620,8 +680,6 @@ namespace Quizify.Persistence {
                     cmd.ExecuteNonQuery();
                 }
             }
-
-            ActualizarEstadoQuizes();
         }
 
         public DataTable GetExamenesByDificultad(List<dynamic> filtros)
@@ -645,6 +703,65 @@ namespace Quizify.Persistence {
             }
 
             return dt;
+        }
+
+        public void EliminarPreguntaDeExamen(int id_ex, int id_preg) {
+            using (MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using (MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "DELETE FROM lista_preguntas WHERE id_examen = @id_ex AND id_pregunta = @id_preg;";
+
+                    cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                    cmd.Parameters.AddWithValue("@id_preg", id_preg);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public DataTable GetPreguntasDesarrolloExamen(int id_ex) {
+
+            DataTable dt = new DataTable();
+
+            using (MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using (MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "SELECT * FROM respuestas_examenes WHERE examen = @id_ex AND pregunta IN " 
+                    + "(SELECT id FROM pregunta WHERE tipo = 'des');";
+
+                    cmd.Parameters.AddWithValue("@id_ex", id_ex);
+
+                    conn.Open();
+
+                    dt.Load(cmd.ExecuteReader());
+                }
+            }
+
+            return dt;
+        }
+
+        public void CalificarDesarrollo(int id_ex, int id_preg, int ver_preg, string alumno, double nota) {
+            using (MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using (MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "UPDATE notas_pregunta SET nota = @nota WHERE id_ex = @id_ex AND id_preg = @id_preg "
+                    + "AND ver_preg = @ver_preg AND alumno = @alumno;";
+
+                    cmd.Parameters.AddWithValue("@nota", nota);
+                    cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                    cmd.Parameters.AddWithValue("@id_preg", id_preg);
+                    cmd.Parameters.AddWithValue("@ver_preg", ver_preg);
+                    cmd.Parameters.AddWithValue("@alumno", alumno);
+
+                    conn.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

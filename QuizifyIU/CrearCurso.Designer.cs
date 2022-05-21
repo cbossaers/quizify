@@ -57,7 +57,7 @@
             this.panelCrearCurso.Controls.Add(this.label3);
             this.panelCrearCurso.Controls.Add(this.label2);
             this.panelCrearCurso.Controls.Add(this.label1);
-            this.panelCrearCurso.Location = new System.Drawing.Point(108, 80);
+            this.panelCrearCurso.Location = new System.Drawing.Point(118, 100);
             this.panelCrearCurso.Name = "panelCrearCurso";
             this.panelCrearCurso.Size = new System.Drawing.Size(432, 290);
             this.panelCrearCurso.TabIndex = 0;
@@ -171,7 +171,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(710, 490);
+            this.ClientSize = new System.Drawing.Size(730, 531);
             this.Controls.Add(this.b);
             this.Controls.Add(this.panelCrearCurso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

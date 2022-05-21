@@ -31,8 +31,8 @@
             this.bCrearCurso = new System.Windows.Forms.Button();
             this.bGestionarCurso = new System.Windows.Forms.Button();
             this.panelCurso = new System.Windows.Forms.Panel();
-            this.bApuntarse = new System.Windows.Forms.Button();
             this.bVolver = new FontAwesome.Sharp.IconButton();
+            this.bApuntarse = new System.Windows.Forms.Button();
             this.panelCurso.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,18 +72,6 @@
             this.panelCurso.Size = new System.Drawing.Size(710, 490);
             this.panelCurso.TabIndex = 6;
             // 
-            // bApuntarse
-            // 
-            this.bApuntarse.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bApuntarse.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bApuntarse.Location = new System.Drawing.Point(241, 82);
-            this.bApuntarse.Name = "bApuntarse";
-            this.bApuntarse.Size = new System.Drawing.Size(196, 51);
-            this.bApuntarse.TabIndex = 6;
-            this.bApuntarse.Text = "Apuntarse curso";
-            this.bApuntarse.UseVisualStyleBackColor = true;
-            this.bApuntarse.Click += new System.EventHandler(this.bApuntarse_Click);
-            // 
             // bVolver
             // 
             this.bVolver.FlatAppearance.BorderSize = 0;
@@ -98,6 +86,18 @@
             this.bVolver.Size = new System.Drawing.Size(78, 38);
             this.bVolver.TabIndex = 19;
             this.bVolver.UseVisualStyleBackColor = true;
+            // 
+            // bApuntarse
+            // 
+            this.bApuntarse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bApuntarse.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bApuntarse.Location = new System.Drawing.Point(241, 82);
+            this.bApuntarse.Name = "bApuntarse";
+            this.bApuntarse.Size = new System.Drawing.Size(196, 51);
+            this.bApuntarse.TabIndex = 6;
+            this.bApuntarse.Text = "Apuntarse curso";
+            this.bApuntarse.UseVisualStyleBackColor = true;
+            this.bApuntarse.Click += new System.EventHandler(this.bApuntarse_Click);
             // 
             // CursoForm
             // 

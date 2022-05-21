@@ -110,7 +110,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(694, 451);
+            this.ClientSize = new System.Drawing.Size(714, 492);
             this.Controls.Add(this.bVolver);
             this.Controls.Add(this.bEliminar);
             this.Controls.Add(this.tablaAlumnoCurso);

@@ -56,10 +56,8 @@
             this.toggle_button2 = new QuizifyIU.Controles_extra.Toggle_button();
             this.toggle_button3 = new QuizifyIU.Controles_extra.Toggle_button();
             this.dificultad = new System.Windows.Forms.ComboBox();
-            this.rela = new System.Windows.Forms.Label();
-            this.recuperación = new QuizifyIU.Controles_extra.Toggle_button();
             this.label15 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.automatico = new System.Windows.Forms.Button();
             this.hfin = new System.Windows.Forms.DateTimePicker();
             this.hini = new System.Windows.Forms.DateTimePicker();
             this.intentos = new System.Windows.Forms.TextBox();
@@ -382,32 +380,6 @@
             this.dificultad.TabIndex = 77;
             this.dificultad.Text = "Normal";
             // 
-            // rela
-            // 
-            this.rela.AutoSize = true;
-            this.rela.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rela.Location = new System.Drawing.Point(35, 452);
-            this.rela.Name = "rela";
-            this.rela.Size = new System.Drawing.Size(116, 18);
-            this.rela.TabIndex = 78;
-            this.rela.Text = "Es recuperación";
-            // 
-            // recuperación
-            // 
-            this.recuperación.AutoSize = true;
-            this.recuperación.Location = new System.Drawing.Point(385, 452);
-            this.recuperación.MinimumSize = new System.Drawing.Size(45, 22);
-            this.recuperación.Name = "recuperación";
-            this.recuperación.OffBackColor = System.Drawing.Color.Gray;
-            this.recuperación.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.recuperación.OnBackColor = System.Drawing.Color.MediumSlateBlue;
-            this.recuperación.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.recuperación.Size = new System.Drawing.Size(45, 22);
-            this.recuperación.TabIndex = 79;
-            this.recuperación.UseVisualStyleBackColor = true;
-            this.recuperación.Visible = false;
-            this.recuperación.CheckedChanged += new System.EventHandler(this.recuperación_CheckedChanged);
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -419,15 +391,15 @@
             this.label15.Text = "Rellenar lista de preguntas";
             this.label15.Visible = false;
             // 
-            // button1
+            // automatico
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(422, 493);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 28);
-            this.button1.TabIndex = 82;
-            this.button1.Text = "Automatiamente";
-            this.button1.UseVisualStyleBackColor = true;
+            this.automatico.Location = new System.Drawing.Point(422, 493);
+            this.automatico.Name = "automatico";
+            this.automatico.Size = new System.Drawing.Size(108, 28);
+            this.automatico.TabIndex = 82;
+            this.automatico.Text = "Automatiamente";
+            this.automatico.UseVisualStyleBackColor = true;
+            this.automatico.Click += new System.EventHandler(this.automatico_Click);
             // 
             // hfin
             // 
@@ -462,12 +434,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(710, 530);
+            this.ClientSize = new System.Drawing.Size(730, 531);
             this.Controls.Add(this.intentos);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.automatico);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.recuperación);
-            this.Controls.Add(this.rela);
             this.Controls.Add(this.dificultad);
             this.Controls.Add(this.toggle_button3);
             this.Controls.Add(this.toggle_button2);
@@ -537,10 +507,8 @@
         private Controles_extra.Toggle_button toggle_button2;
         private Controles_extra.Toggle_button toggle_button3;
         private System.Windows.Forms.ComboBox dificultad;
-        private System.Windows.Forms.Label rela;
-        private Controles_extra.Toggle_button recuperación;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button automatico;
         private System.Windows.Forms.DateTimePicker hfin;
         private System.Windows.Forms.DateTimePicker hini;
         private System.Windows.Forms.TextBox intentos;

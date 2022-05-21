@@ -57,6 +57,7 @@
             this.obs = new QuizifyIU.Controles_extra.label();
             this.noti1 = new FontAwesome.Sharp.IconButton();
             this.noti2 = new FontAwesome.Sharp.IconButton();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
@@ -494,10 +495,13 @@
             this.dataGridView1.ColumnHeadersHeight = 26;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.ColumnHeadersVisible = false;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id});
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
             this.dataGridView1.Location = new System.Drawing.Point(462, 77);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -513,6 +517,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(288, 255);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.Visible = false;
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
             // numnoti
             // 
@@ -608,6 +613,14 @@
             this.noti2.UseVisualStyleBackColor = true;
             this.noti2.Visible = false;
             // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -665,6 +678,7 @@
         private System.Windows.Forms.PictureBox bellN;
         private System.Windows.Forms.Label numnoti;
         private FontAwesome.Sharp.IconButton tienda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }
 

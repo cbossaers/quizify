@@ -94,6 +94,9 @@ namespace Quizify.Services
         {
             curso.Eliminar(cur, prof);
         }
+        public void BorrarseDeCurso(string alumno, string codigo_curso, string profesor) {
+            curso.BorrarseDeCurso(alumno, codigo_curso, profesor);
+        }
 
         //Métodos pregunta
         public void AddPregunta(Pregunta2 preg) {
@@ -179,7 +182,20 @@ namespace Quizify.Services
         {
             return examen.GetExamenesByDificultad(filtros);
         }
-    
+        public void EliminarPreguntaDeExamen(int id_ex, int id_preg) {
+            examen.EliminarPreguntaDeExamen(id_ex,id_preg);
+        }
+        public DataTable EstadisticasExamenPreguntas(int id_ex) {
+            return examen.EstadisticasExamenPreguntas(id_ex);
+        }
+        public DataTable GetPreguntasDesarrolloExamen(int id_ex) {
+            return examen.GetPreguntasDesarrolloExamen(id_ex);
+        }
+        public void CalificarDesarrollo(int id_ex, int id_preg, int ver_preg, string alumno, double nota) {
+            examen.CalificarDesarrollo(id_ex, id_preg, ver_preg, alumno, nota);
+        }
+
+
         //Otros métodos
         public string GetTipoEntidad(string usuario) {
             try { 

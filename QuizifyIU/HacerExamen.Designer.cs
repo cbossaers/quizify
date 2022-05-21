@@ -38,9 +38,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.empezar = new System.Windows.Forms.Button();
             this.nombre_quiz = new System.Windows.Forms.Label();
             this.bVolver = new FontAwesome.Sharp.IconButton();
+            this.empezar = new QuizifyIU.Controles_extra.Botones_fancy();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -92,14 +92,15 @@
             // 
             this.descripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.descripcion.AutoSize = true;
-            this.descripcion.Location = new System.Drawing.Point(3, 12);
+            this.descripcion.Location = new System.Drawing.Point(3, 10);
             this.descripcion.Name = "descripcion";
-            this.descripcion.Size = new System.Drawing.Size(550, 15);
+            this.descripcion.Size = new System.Drawing.Size(550, 19);
             this.descripcion.TabIndex = 1;
             this.descripcion.Text = "Descricpción e indicacciones";
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 4);
@@ -107,7 +108,8 @@
             this.tableLayoutPanel1.Controls.Add(this.descripcion, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(46, 116);
+            this.tableLayoutPanel1.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(71, 132);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -123,9 +125,9 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 173);
+            this.label6.Location = new System.Drawing.Point(3, 171);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(550, 15);
+            this.label6.Size = new System.Drawing.Size(550, 19);
             this.label6.TabIndex = 5;
             this.label6.Text = "Funcionalidades activas";
             // 
@@ -133,9 +135,9 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 52);
+            this.label3.Location = new System.Drawing.Point(3, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(550, 15);
+            this.label3.Size = new System.Drawing.Size(550, 19);
             this.label3.TabIndex = 2;
             this.label3.Text = "Funcionalidades activas";
             // 
@@ -143,9 +145,9 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 92);
+            this.label4.Location = new System.Drawing.Point(3, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(550, 15);
+            this.label4.Size = new System.Drawing.Size(550, 19);
             this.label4.TabIndex = 3;
             this.label4.Text = "Funcionalidades activas";
             // 
@@ -153,43 +155,33 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 132);
+            this.label5.Location = new System.Drawing.Point(3, 130);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(550, 15);
+            this.label5.Size = new System.Drawing.Size(550, 19);
             this.label5.TabIndex = 4;
             this.label5.Text = "Funcionalidades activas";
             // 
             // checkBox1
             // 
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(46, 346);
+            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBox1.Location = new System.Drawing.Point(75, 358);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(146, 19);
+            this.checkBox1.Size = new System.Drawing.Size(160, 21);
             this.checkBox1.TabIndex = 3;
             this.checkBox1.Text = "Clausula de veracidad*";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // empezar
-            // 
-            this.empezar.Enabled = false;
-            this.empezar.Location = new System.Drawing.Point(43, 394);
-            this.empezar.Name = "empezar";
-            this.empezar.Size = new System.Drawing.Size(114, 23);
-            this.empezar.TabIndex = 4;
-            this.empezar.Text = "Empezar examen";
-            this.empezar.UseVisualStyleBackColor = true;
-            this.empezar.Click += new System.EventHandler(this.empezar_Click);
-            // 
             // nombre_quiz
             // 
-            this.nombre_quiz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nombre_quiz.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nombre_quiz.AutoSize = true;
-            this.nombre_quiz.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nombre_quiz.Location = new System.Drawing.Point(263, 57);
+            this.nombre_quiz.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.nombre_quiz.Location = new System.Drawing.Point(288, 69);
             this.nombre_quiz.Name = "nombre_quiz";
-            this.nombre_quiz.Size = new System.Drawing.Size(101, 21);
+            this.nombre_quiz.Size = new System.Drawing.Size(121, 24);
             this.nombre_quiz.TabIndex = 5;
             this.nombre_quiz.Text = "Nombre quiz";
             // 
@@ -209,15 +201,36 @@
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
+            // empezar
+            // 
+            this.empezar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(121)))), ((int)(((byte)(243)))));
+            this.empezar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(121)))), ((int)(((byte)(243)))));
+            this.empezar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(143)))), ((int)(((byte)(245)))));
+            this.empezar.BorderRadius = 10;
+            this.empezar.BorderSize = 0;
+            this.empezar.Enabled = false;
+            this.empezar.FlatAppearance.BorderSize = 0;
+            this.empezar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.empezar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.empezar.ForeColor = System.Drawing.Color.Transparent;
+            this.empezar.Location = new System.Drawing.Point(73, 403);
+            this.empezar.Name = "empezar";
+            this.empezar.Size = new System.Drawing.Size(136, 32);
+            this.empezar.TabIndex = 70;
+            this.empezar.Text = "Empezar examen";
+            this.empezar.TextColor = System.Drawing.Color.Transparent;
+            this.empezar.UseVisualStyleBackColor = false;
+            this.empezar.Click += new System.EventHandler(this.empezar_Click);
+            // 
             // HacerExamen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(710, 490);
+            this.ClientSize = new System.Drawing.Size(730, 531);
+            this.Controls.Add(this.empezar);
             this.Controls.Add(this.bVolver);
             this.Controls.Add(this.nombre_quiz);
-            this.Controls.Add(this.empezar);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -244,8 +257,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button empezar;
         private System.Windows.Forms.Label nombre_quiz;
         private FontAwesome.Sharp.IconButton bVolver;
+        private Controles_extra.Botones_fancy empezar;
     }
 }

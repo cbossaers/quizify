@@ -25,7 +25,15 @@ namespace AppTest {
 
             FabricaExamenes fabrica = new FabricaExamenes();
 
-            service.EnviarMensaje("Recordad que la tarea se cierra mañana", "x","x");
+            DataTable lista = service.GetPreguntasDesarrolloExamen(21);
+
+            foreach(DataRow row in lista.Rows) {
+                Console.WriteLine(row["examen"]);
+                Console.WriteLine(row["alumno"]);
+                Console.WriteLine(row["pregunta"]);
+                Console.WriteLine(row["ver_pregunta"]);
+                Console.WriteLine(row["respuesta"]);
+            }
         }
         }
     }

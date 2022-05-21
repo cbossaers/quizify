@@ -38,6 +38,8 @@ namespace QuizifyIU
                 tablaExamenesProfesor.Visible = true;
                 tablaExamenDisponible.Visible = false;
                 tablaExamenFinalizado.Visible = false;
+                label2.Visible = false;
+                label3.Visible=false;
                 tablaExamenesProfesor.DataSource = servicio.GetExamenesProfesor(user.GetCorreo());
             }
         }
