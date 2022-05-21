@@ -224,7 +224,8 @@
             this.tunometecabra.Items.AddRange(new object[] {
             "Fácil",
             "Normal",
-            "Difícil"});
+            "Difícil",
+            "Todos"});
             this.tunometecabra.Location = new System.Drawing.Point(379, 16);
             this.tunometecabra.Name = "tunometecabra";
             this.tunometecabra.Size = new System.Drawing.Size(121, 23);
