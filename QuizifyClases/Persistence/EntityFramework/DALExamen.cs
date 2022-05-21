@@ -336,7 +336,6 @@ namespace Quizify.Persistence {
                     cmd.ExecuteNonQuery();
                 }
             }
-
             ActualizarEstadoQuizes();
         }
 
