@@ -25,14 +25,14 @@ namespace AppTest {
 
             FabricaExamenes fabrica = new FabricaExamenes();
 
-            DataTable lista = service.EstadisticasExamenPreguntas(21);
+            DataTable lista = service.GetPreguntasDesarrolloExamen(21);
 
             foreach(DataRow row in lista.Rows) {
-                Console.WriteLine(row["Pregunta"]);
-                Console.WriteLine(row["Versión"]);
-                Console.WriteLine(row["Envíos"]);
-                Console.WriteLine(row["Aciertos"]);
-                Console.WriteLine(row["Ratio"]);
+                Console.WriteLine(row["examen"]);
+                Console.WriteLine(row["alumno"]);
+                Console.WriteLine(row["pregunta"]);
+                Console.WriteLine(row["ver_pregunta"]);
+                Console.WriteLine(row["respuesta"]);
             }
         }
         }

@@ -720,5 +720,49 @@ namespace Quizify.Persistence {
                 }
             }
         }
+
+        public DataTable GetPreguntasDesarrolloExamen(int id_ex) {
+
+            DataTable dt = new DataTable();
+
+            using (MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using (MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "SELECT * FROM respuestas_examenes WHERE examen = @id_ex AND pregunta IN " 
+                    + "(SELECT id FROM pregunta WHERE tipo = 'des');";
+
+                    cmd.Parameters.AddWithValue("@id_ex", id_ex);
+
+                    conn.Open();
+
+                    dt.Load(cmd.ExecuteReader());
+                }
+            }
+
+            return dt;
+        }
+
+        public void CalificarDesarrollo(int id_ex, int id_preg, int ver_preg, string alumno, double nota) {
+            using (MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using (MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "UPDATE notas_pregunta SET nota = @nota WHERE id_ex = @id_ex AND id_preg = @id_preg "
+                    + "AND ver_preg = @ver_preg AND alumno = @alumno;";
+
+                    cmd.Parameters.AddWithValue("@nota", nota);
+                    cmd.Parameters.AddWithValue("@id_ex", id_ex);
+                    cmd.Parameters.AddWithValue("@id_preg", id_preg);
+                    cmd.Parameters.AddWithValue("@ver_preg", ver_preg);
+                    cmd.Parameters.AddWithValue("@alumno", alumno);
+
+                    conn.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
     }
 }

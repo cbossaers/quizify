@@ -188,6 +188,13 @@ namespace Quizify.Services
         public DataTable EstadisticasExamenPreguntas(int id_ex) {
             return examen.EstadisticasExamenPreguntas(id_ex);
         }
+        public DataTable GetPreguntasDesarrolloExamen(int id_ex) {
+            return examen.GetPreguntasDesarrolloExamen(id_ex);
+        }
+        public void CalificarDesarrollo(int id_ex, int id_preg, int ver_preg, string alumno, double nota) {
+            examen.CalificarDesarrollo(id_ex, id_preg, ver_preg, alumno, nota);
+        }
+
 
         //Otros métodos
         public string GetTipoEntidad(string usuario) {
