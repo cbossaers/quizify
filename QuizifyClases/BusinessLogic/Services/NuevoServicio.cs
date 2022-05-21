@@ -185,7 +185,10 @@ namespace Quizify.Services
         public void EliminarPreguntaDeExamen(int id_ex, int id_preg) {
             examen.EliminarPreguntaDeExamen(id_ex,id_preg);
         }
-    
+        public DataTable EstadisticasExamenPreguntas(int id_ex) {
+            return examen.EstadisticasExamenPreguntas(id_ex);
+        }
+
         //Otros métodos
         public string GetTipoEntidad(string usuario) {
             try { 

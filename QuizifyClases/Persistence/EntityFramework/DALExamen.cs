@@ -546,6 +546,65 @@ namespace Quizify.Persistence {
 
         }
 
+        public DataTable EstadisticasExamenPreguntas(int id_ex) {
+            List<int> pregs = GetListaPreguntas(id_ex);
+            List<double> notas; 
+            int aciertos = 0;
+
+            DataTable dt = new DataTable(); 
+            dt.Clear();
+            dt.Columns.Add("Pregunta");
+            dt.Columns.Add("Versión");
+            dt.Columns.Add("Envíos");
+            dt.Columns.Add("Aciertos");
+            dt.Columns.Add("Ratio");
+
+            DataRow _ravi;
+
+            for(int i = 0; i < pregs.Count; i+=3) {
+
+                _ravi = dt.NewRow();
+
+                notas = new List<double>();
+
+                _ravi["Pregunta"] = pregs[i];
+                _ravi["Versión"] = pregs[i+1];
+
+                using (MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                    using (MySqlCommand cmd = conn.CreateCommand()) {
+
+                        cmd.CommandText = "SELECT nota FROM notas_pregunta WHERE id_ex = @examen AND id_preg = @id_preg;";
+
+                        cmd.Parameters.AddWithValue("@examen", id_ex);
+                        cmd.Parameters.AddWithValue("@id_preg", pregs[i]);
+
+                        conn.Open();
+
+                        using (MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                            while (rdr.Read()) {
+                                notas.Add(rdr.GetDouble("nota"));
+                            }
+                        }
+                    }
+                }
+
+                _ravi["Envíos"] = notas.Count;
+
+                foreach(double nota in notas) {
+                    if(nota == pregs[i+2]) { aciertos++; }
+                }
+
+                _ravi["Aciertos"] = aciertos;
+                _ravi["Ratio"] = aciertos/notas.Count;
+
+                dt.Rows.Add(_ravi);
+            }
+
+            return dt;
+        }
+
         public void GenerarExamen(string profesor, string codigo_curso, int num_preguntas, int tiempo, DateTime fechaini, DateTime fechafin,
         int intentos, int volveratras, int erroresrestan, int mostrarresultados, bool esrecu, string dific) {
 

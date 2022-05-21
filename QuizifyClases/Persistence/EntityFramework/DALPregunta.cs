@@ -299,42 +299,4 @@ public class DALPregunta {
 
         return tipo;
     } 
-
-    /*public List<double> EstadisticasPregunta(int id_ex, int id_preg, int ver_preg) {
-
-        int envios = 0;
-        int aciertos = 0;
-        double tasa = 0;
-        Pregunta2 preg = null;
-
-        using(MySqlConnection conn = new MySqlConnection(connStr)) {
-
-            using(MySqlCommand cmd = conn.CreateCommand()) {
-
-                cmd.CommandText = "SELECT * FROM respuestas_examenes WHERE examen = @id_ex " + 
-                "AND pregunta = @id_preg AND ver_pregunta = @ver_preg;";
-
-                cmd.Parameters.AddWithValue("@id_ex", id_ex);
-                cmd.Parameters.AddWithValue("@id_preg", id_preg);
-                cmd.Parameters.AddWithValue("@ver_preg", ver_preg);
-
-                conn.Open();
-
-                using(MySqlDataReader rdr = cmd.ExecuteReader()) {
-
-                    while (rdr.Read()) {
-                        envios++;
-                        preg = Get(id_preg, ver_preg);
-                        if(dalex.CalcularNotaPregunta(preg, rdr.GetInt32("respuesta"), 1, 0) >= 1) {
-                            aciertos++;
-                        }
-                    }
-                }
-            }
-        }
-
-        if(envios > 0) { tasa = aciertos/envios; }
-
-        return new List<double> {envios, aciertos, tasa};
-    }*/
 }}
