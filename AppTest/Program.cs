@@ -33,6 +33,8 @@ namespace AppTest {
                 Console.WriteLine(row["pregunta"]);
                 Console.WriteLine(row["ver_pregunta"]);
                 Console.WriteLine(row["respuesta"]);
+
+                service.CalificarDesarrollo(21,24,1,"c",0.33);
             }
         }
         }

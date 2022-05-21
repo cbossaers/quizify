@@ -53,10 +53,10 @@ namespace QuizifyIU
         private void EvPonerNota(object sender, EventArgs e)
         {
             int idex = int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString());
-            int idpreg = int.Parse(tablaExamenesProfesor.SelectedCells[1].Value.ToString());
-            int vers = int.Parse(tablaExamenesProfesor.SelectedCells[2].Value.ToString());
-            string alumno = tablaExamenesProfesor.SelectedCells[3].Value.ToString();
-            int puntuacion;
+            int idpreg = int.Parse(tablaExamenesProfesor.SelectedCells[2].Value.ToString());
+            int vers = int.Parse(tablaExamenesProfesor.SelectedCells[3].Value.ToString());
+            string alumno = tablaExamenesProfesor.SelectedCells[1].Value.ToString();
+            double puntuacion;
             double notaReal;
             try
             {
@@ -68,8 +68,6 @@ namespace QuizifyIU
                     servicio.CalcularNotaExamen(idex, alumno);
                     respuesta.Visible = false; nota.Visible = false; respuestabox.Visible = false; notabox.Visible = false; PonerNota.Visible = false;
                     tablaExamenesProfesor.Visible = true;
-                    preguntas = servicio.GetPreguntasDesarrolloExamen(examen);
-                    tablaExamenesProfesor.DataSource = preguntas;
                 }
                 else
                 {

@@ -155,7 +155,7 @@ namespace Quizify.Services
         public double GetNota(string id_alumno, int id_ex) {
             return examen.GetNota(id_alumno,id_ex);
         }
-        public int GetPuntuacionDePregunta(int id_ex, int id_preg) {
+        public double GetPuntuacionDePregunta(int id_ex, int id_preg) {
             return examen.GetPuntuacionDePregunta(id_ex, id_preg);
         }
         public void GenerarExamen(string profesor, string codigo_curso, int num_preguntas, int tiempo, DateTime fechaini, DateTime fechafin,

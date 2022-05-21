@@ -485,9 +485,9 @@ namespace Quizify.Persistence {
             return listarespuestas;
         }
 
-        public int GetPuntuacionDePregunta(int id_ex, int id_preg) {
+        public double GetPuntuacionDePregunta(int id_ex, int id_preg) {
 
-            int res = 0;
+            double res = 0;
 
             using (MySqlConnection conn = new MySqlConnection(connStr)) {
 
@@ -503,7 +503,7 @@ namespace Quizify.Persistence {
                     using (MySqlDataReader rdr = cmd.ExecuteReader()) {
 
                         while (rdr.Read()) {
-                            res = rdr.GetInt32("puntuacion");
+                            res = rdr.GetDouble("puntuacion");
                         }
                     }
                 }
