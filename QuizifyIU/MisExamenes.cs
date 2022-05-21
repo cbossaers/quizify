@@ -123,23 +123,24 @@ namespace QuizifyIU
             }
         }
 
-        private void tunometecabra_SelectedIndexChanged(object sender, EventArgs e)
+        private void dificultadBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string dificultad;
-            if (tunometecabra.SelectedIndex == -1)
+            if (dificultadBox.SelectedIndex == -1)
             {
                 dificultad = "";
                 filtros = new List<dynamic>() { dificultad };
                 tabla();
             }
-            else if (tunometecabra.Text == "Todos") resetTabla();
+            else if (dificultadBox.Text == "Todos") resetTabla();
             else
             {
-                dificultad = tunometecabra.Text;
+                dificultad = dificultadBox.Text;
                 filtros = new List<dynamic>() { dificultad };
                 tabla();
             }
         }
+
         private void tabla()
         {
             if(servicio.GetTipoEntidad(user.GetCorreo()) == "alumno") tablaExamenDisponible.DataSource = servicio.GetExamenByDificultad(filtros);
