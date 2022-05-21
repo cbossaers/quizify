@@ -33,6 +33,11 @@ namespace QuizifyIU
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tablaExamenesProfesor = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.respuesta = new System.Windows.Forms.Label();
+            this.nota = new System.Windows.Forms.Label();
+            this.respuestabox = new System.Windows.Forms.TextBox();
+            this.notabox = new System.Windows.Forms.TextBox();
+            this.PonerNota = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenesProfesor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,17 +91,71 @@ namespace QuizifyIU
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.EvAtras);
             // 
+            // respuesta
+            // 
+            this.respuesta.AutoSize = true;
+            this.respuesta.Location = new System.Drawing.Point(34, 107);
+            this.respuesta.Name = "respuesta";
+            this.respuesta.Size = new System.Drawing.Size(76, 20);
+            this.respuesta.TabIndex = 12;
+            this.respuesta.Text = "Respuesta";
+            this.respuesta.Visible = false;
+            // 
+            // nota
+            // 
+            this.nota.AutoSize = true;
+            this.nota.Location = new System.Drawing.Point(71, 305);
+            this.nota.Name = "nota";
+            this.nota.Size = new System.Drawing.Size(39, 20);
+            this.nota.TabIndex = 13;
+            this.nota.Text = "nota";
+            this.nota.Visible = false;
+            // 
+            // respuestabox
+            // 
+            this.respuestabox.Location = new System.Drawing.Point(154, 93);
+            this.respuestabox.Multiline = true;
+            this.respuestabox.Name = "respuestabox";
+            this.respuestabox.Size = new System.Drawing.Size(598, 167);
+            this.respuestabox.TabIndex = 14;
+            this.respuestabox.Visible = false;
+            // 
+            // notabox
+            // 
+            this.notabox.Location = new System.Drawing.Point(145, 302);
+            this.notabox.Name = "notabox";
+            this.notabox.Size = new System.Drawing.Size(125, 27);
+            this.notabox.TabIndex = 15;
+            this.notabox.Visible = false;
+            // 
+            // PonerNota
+            // 
+            this.PonerNota.Location = new System.Drawing.Point(637, 296);
+            this.PonerNota.Name = "PonerNota";
+            this.PonerNota.Size = new System.Drawing.Size(94, 29);
+            this.PonerNota.TabIndex = 16;
+            this.PonerNota.Text = "Poner Nota";
+            this.PonerNota.UseVisualStyleBackColor = true;
+            this.PonerNota.Visible = false;
+            this.PonerNota.Click += new System.EventHandler(this.EvPonerNota);
+            // 
             // CalificarPregunta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 609);
+            this.Controls.Add(this.PonerNota);
+            this.Controls.Add(this.notabox);
+            this.Controls.Add(this.respuestabox);
+            this.Controls.Add(this.nota);
+            this.Controls.Add(this.respuesta);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tablaExamenesProfesor);
             this.Name = "CalificarPregunta";
             this.Text = "CalificarPregunta";
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenesProfesor)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -104,5 +163,10 @@ namespace QuizifyIU
 
         private System.Windows.Forms.DataGridView tablaExamenesProfesor;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label respuesta;
+        private System.Windows.Forms.Label nota;
+        private System.Windows.Forms.TextBox respuestabox;
+        private System.Windows.Forms.TextBox notabox;
+        private System.Windows.Forms.Button PonerNota;
     }
 }

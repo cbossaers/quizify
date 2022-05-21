@@ -134,6 +134,23 @@ namespace QuizifyIU
         {
             tablaExamenesProfesor.DataSource = servicio.GetExamenByDificultad(filtros);
         }
+        private void EvPonerNota(object sender, EventArgs e)
+        {
+            if (tablaExamenesProfesor.SelectedRows != null)
+            {
+                //dsatatable.rows.count == 0
+                DataTable preguntasDes = servicio.GetPreguntasDesarrolloExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
+                if (preguntasDes.Rows.Count == 0)
+                {
+                    MessageBox.Show(this, "Este examen no tiene preguntas de desarrollo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    Principal.formportal.abrirNieto(new CalificarPregunta(servicio, user, int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString())));
+                }
+            }
+        }
     }
         
 }

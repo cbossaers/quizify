@@ -43,6 +43,7 @@
             this.tablaExamenDisponible = new System.Windows.Forms.DataGridView();
             this.tablaExamenFinalizado = new System.Windows.Forms.DataGridView();
             this.tunometecabra = new System.Windows.Forms.ComboBox();
+            this.puntuar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenesProfesor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenFinalizado)).BeginInit();
@@ -52,9 +53,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(5, 7);
+            this.label1.Location = new System.Drawing.Point(6, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 32);
+            this.label1.Size = new System.Drawing.Size(141, 41);
             this.label1.TabIndex = 2;
             this.label1.Text = "Mis Quiz:";
             // 
@@ -62,9 +63,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(9, 48);
+            this.label2.Location = new System.Drawing.Point(10, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 21);
+            this.label2.Size = new System.Drawing.Size(161, 28);
             this.label2.TabIndex = 4;
             this.label2.Text = "Quiz disponibles:";
             // 
@@ -79,17 +80,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(9, 272);
+            this.label3.Location = new System.Drawing.Point(10, 363);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 21);
+            this.label3.Size = new System.Drawing.Size(154, 28);
             this.label3.TabIndex = 5;
             this.label3.Text = "Quiz finalizados:";
             // 
             // calificar
             // 
-            this.calificar.Location = new System.Drawing.Point(518, 16);
+            this.calificar.Location = new System.Drawing.Point(592, 21);
+            this.calificar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.calificar.Name = "calificar";
-            this.calificar.Size = new System.Drawing.Size(75, 23);
+            this.calificar.Size = new System.Drawing.Size(86, 31);
             this.calificar.TabIndex = 8;
             this.calificar.Text = "Calificar";
             this.calificar.UseVisualStyleBackColor = true;
@@ -118,11 +120,12 @@
             this.tablaExamenesProfesor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tablaExamenesProfesor.EnableHeadersVisualStyles = false;
             this.tablaExamenesProfesor.GridColor = System.Drawing.Color.White;
-            this.tablaExamenesProfesor.Location = new System.Drawing.Point(10, 48);
-            this.tablaExamenesProfesor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tablaExamenesProfesor.Location = new System.Drawing.Point(11, 64);
+            this.tablaExamenesProfesor.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tablaExamenesProfesor.Name = "tablaExamenesProfesor";
             this.tablaExamenesProfesor.ReadOnly = true;
             this.tablaExamenesProfesor.RowHeadersVisible = false;
+            this.tablaExamenesProfesor.RowHeadersWidth = 51;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -131,7 +134,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.tablaExamenesProfesor.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.tablaExamenesProfesor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenesProfesor.Size = new System.Drawing.Size(687, 460);
+            this.tablaExamenesProfesor.Size = new System.Drawing.Size(785, 613);
             this.tablaExamenesProfesor.TabIndex = 9;
             this.tablaExamenesProfesor.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenesProfesor_CellMouseDoubleClick);
             // 
@@ -157,11 +160,12 @@
             this.tablaExamenDisponible.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tablaExamenDisponible.EnableHeadersVisualStyles = false;
             this.tablaExamenDisponible.GridColor = System.Drawing.Color.White;
-            this.tablaExamenDisponible.Location = new System.Drawing.Point(10, 71);
-            this.tablaExamenDisponible.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tablaExamenDisponible.Location = new System.Drawing.Point(11, 95);
+            this.tablaExamenDisponible.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tablaExamenDisponible.Name = "tablaExamenDisponible";
             this.tablaExamenDisponible.ReadOnly = true;
             this.tablaExamenDisponible.RowHeadersVisible = false;
+            this.tablaExamenDisponible.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -170,7 +174,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.tablaExamenDisponible.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.tablaExamenDisponible.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenDisponible.Size = new System.Drawing.Size(707, 185);
+            this.tablaExamenDisponible.Size = new System.Drawing.Size(808, 247);
             this.tablaExamenDisponible.TabIndex = 10;
             this.tablaExamenDisponible.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaExamenDisponible_CellMouseDoubleClick);
             // 
@@ -196,11 +200,12 @@
             this.tablaExamenFinalizado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tablaExamenFinalizado.EnableHeadersVisualStyles = false;
             this.tablaExamenFinalizado.GridColor = System.Drawing.Color.White;
-            this.tablaExamenFinalizado.Location = new System.Drawing.Point(13, 294);
-            this.tablaExamenFinalizado.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tablaExamenFinalizado.Location = new System.Drawing.Point(15, 392);
+            this.tablaExamenFinalizado.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tablaExamenFinalizado.Name = "tablaExamenFinalizado";
             this.tablaExamenFinalizado.ReadOnly = true;
             this.tablaExamenFinalizado.RowHeadersVisible = false;
+            this.tablaExamenFinalizado.RowHeadersWidth = 51;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -209,7 +214,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
             this.tablaExamenFinalizado.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.tablaExamenFinalizado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenFinalizado.Size = new System.Drawing.Size(684, 199);
+            this.tablaExamenFinalizado.Size = new System.Drawing.Size(782, 265);
             this.tablaExamenFinalizado.TabIndex = 11;
             // 
             // tunometecabra
@@ -220,18 +225,31 @@
             "Fácil",
             "Normal",
             "Difícil"});
-            this.tunometecabra.Location = new System.Drawing.Point(166, 12);
+            this.tunometecabra.Location = new System.Drawing.Point(190, 16);
+            this.tunometecabra.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tunometecabra.Name = "tunometecabra";
-            this.tunometecabra.Size = new System.Drawing.Size(121, 23);
+            this.tunometecabra.Size = new System.Drawing.Size(138, 28);
             this.tunometecabra.TabIndex = 12;
             this.tunometecabra.SelectedIndexChanged += new System.EventHandler(this.tunometecabra_SelectedIndexChanged);
             // 
+            // puntuar
+            // 
+            this.puntuar.Location = new System.Drawing.Point(701, 21);
+            this.puntuar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.puntuar.Name = "puntuar";
+            this.puntuar.Size = new System.Drawing.Size(86, 31);
+            this.puntuar.TabIndex = 13;
+            this.puntuar.Text = "Puntuar";
+            this.puntuar.UseVisualStyleBackColor = true;
+            this.puntuar.Click += new System.EventHandler(this.EvPonerNota);
+            // 
             // MisExamenes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(730, 531);
+            this.ClientSize = new System.Drawing.Size(834, 708);
+            this.Controls.Add(this.puntuar);
             this.Controls.Add(this.tunometecabra);
             this.Controls.Add(this.calificar);
             this.Controls.Add(this.label1);
@@ -241,6 +259,7 @@
             this.Controls.Add(this.tablaExamenDisponible);
             this.Controls.Add(this.tablaExamenesProfesor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MisExamenes";
             this.Text = "MisExamenes";
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenesProfesor)).EndInit();
@@ -261,5 +280,6 @@
         private System.Windows.Forms.DataGridView tablaExamenDisponible;
         private System.Windows.Forms.DataGridView tablaExamenFinalizado;
         private System.Windows.Forms.ComboBox tunometecabra;
+        private System.Windows.Forms.Button puntuar;
     }
 }
