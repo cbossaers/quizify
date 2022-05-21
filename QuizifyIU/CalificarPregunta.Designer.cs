@@ -38,6 +38,7 @@ namespace QuizifyIU
             this.respuestabox = new System.Windows.Forms.TextBox();
             this.notabox = new System.Windows.Forms.TextBox();
             this.PonerNota = new System.Windows.Forms.Button();
+            this.notaMax = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenesProfesor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,8 +64,8 @@ namespace QuizifyIU
             this.tablaExamenesProfesor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tablaExamenesProfesor.EnableHeadersVisualStyles = false;
             this.tablaExamenesProfesor.GridColor = System.Drawing.Color.White;
-            this.tablaExamenesProfesor.Location = new System.Drawing.Point(9, 70);
-            this.tablaExamenesProfesor.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.tablaExamenesProfesor.Location = new System.Drawing.Point(8, 52);
+            this.tablaExamenesProfesor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tablaExamenesProfesor.Name = "tablaExamenesProfesor";
             this.tablaExamenesProfesor.ReadOnly = true;
             this.tablaExamenesProfesor.RowHeadersVisible = false;
@@ -77,15 +78,16 @@ namespace QuizifyIU
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.tablaExamenesProfesor.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.tablaExamenesProfesor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaExamenesProfesor.Size = new System.Drawing.Size(785, 526);
+            this.tablaExamenesProfesor.Size = new System.Drawing.Size(687, 394);
             this.tablaExamenesProfesor.TabIndex = 10;
             this.tablaExamenesProfesor.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.EvPonerNota);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(34, 25);
+            this.button1.Location = new System.Drawing.Point(30, 19);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.Size = new System.Drawing.Size(82, 22);
             this.button1.TabIndex = 11;
             this.button1.Text = "Atrás";
             this.button1.UseVisualStyleBackColor = true;
@@ -94,9 +96,9 @@ namespace QuizifyIU
             // respuesta
             // 
             this.respuesta.AutoSize = true;
-            this.respuesta.Location = new System.Drawing.Point(34, 107);
+            this.respuesta.Location = new System.Drawing.Point(30, 80);
             this.respuesta.Name = "respuesta";
-            this.respuesta.Size = new System.Drawing.Size(76, 20);
+            this.respuesta.Size = new System.Drawing.Size(60, 15);
             this.respuesta.TabIndex = 12;
             this.respuesta.Text = "Respuesta";
             this.respuesta.Visible = false;
@@ -104,46 +106,59 @@ namespace QuizifyIU
             // nota
             // 
             this.nota.AutoSize = true;
-            this.nota.Location = new System.Drawing.Point(71, 305);
+            this.nota.Location = new System.Drawing.Point(62, 229);
             this.nota.Name = "nota";
-            this.nota.Size = new System.Drawing.Size(39, 20);
+            this.nota.Size = new System.Drawing.Size(31, 15);
             this.nota.TabIndex = 13;
             this.nota.Text = "nota";
             this.nota.Visible = false;
             // 
             // respuestabox
             // 
-            this.respuestabox.Location = new System.Drawing.Point(154, 93);
+            this.respuestabox.Location = new System.Drawing.Point(135, 70);
+            this.respuestabox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.respuestabox.Multiline = true;
             this.respuestabox.Name = "respuestabox";
-            this.respuestabox.Size = new System.Drawing.Size(598, 167);
+            this.respuestabox.Size = new System.Drawing.Size(524, 126);
             this.respuestabox.TabIndex = 14;
             this.respuestabox.Visible = false;
             // 
             // notabox
             // 
-            this.notabox.Location = new System.Drawing.Point(145, 302);
+            this.notabox.Location = new System.Drawing.Point(127, 226);
+            this.notabox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.notabox.Name = "notabox";
-            this.notabox.Size = new System.Drawing.Size(125, 27);
+            this.notabox.Size = new System.Drawing.Size(65, 23);
             this.notabox.TabIndex = 15;
             this.notabox.Visible = false;
             // 
             // PonerNota
             // 
-            this.PonerNota.Location = new System.Drawing.Point(637, 296);
+            this.PonerNota.Location = new System.Drawing.Point(557, 222);
+            this.PonerNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PonerNota.Name = "PonerNota";
-            this.PonerNota.Size = new System.Drawing.Size(94, 29);
+            this.PonerNota.Size = new System.Drawing.Size(82, 22);
             this.PonerNota.TabIndex = 16;
             this.PonerNota.Text = "Poner Nota";
             this.PonerNota.UseVisualStyleBackColor = true;
             this.PonerNota.Visible = false;
             this.PonerNota.Click += new System.EventHandler(this.EvPonerNota);
             // 
+            // notaMax
+            // 
+            this.notaMax.AutoSize = true;
+            this.notaMax.Location = new System.Drawing.Point(215, 229);
+            this.notaMax.Name = "notaMax";
+            this.notaMax.Size = new System.Drawing.Size(0, 15);
+            this.notaMax.TabIndex = 17;
+            this.notaMax.Visible = false;
+            // 
             // CalificarPregunta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 609);
+            this.ClientSize = new System.Drawing.Size(703, 457);
+            this.Controls.Add(this.notaMax);
             this.Controls.Add(this.PonerNota);
             this.Controls.Add(this.notabox);
             this.Controls.Add(this.respuestabox);
@@ -151,6 +166,7 @@ namespace QuizifyIU
             this.Controls.Add(this.respuesta);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tablaExamenesProfesor);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CalificarPregunta";
             this.Text = "CalificarPregunta";
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenesProfesor)).EndInit();
@@ -168,5 +184,6 @@ namespace QuizifyIU
         private System.Windows.Forms.TextBox respuestabox;
         private System.Windows.Forms.TextBox notabox;
         private System.Windows.Forms.Button PonerNota;
+        private System.Windows.Forms.Label notaMax;
     }
 }

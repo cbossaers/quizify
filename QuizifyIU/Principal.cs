@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Quizify.Entities;
 using Quizify.Services;
-
+using QuizifyClases.BusinessLogic.Entities;
 
 namespace QuizifyIU
 {
@@ -45,7 +45,7 @@ namespace QuizifyIU
 
             try { user = servicio.GetAlumno(emailField.Texts); } 
             catch (Exception) {
-                try { user = servicio.GetProfesor(emailField.Texts); } 
+                try { user = servicio.GetProfesor(emailField.Texts); Singleton.getInstancia(); } 
                 catch (Exception) { DialogResult answer = MessageBox.Show(this, "Esta persona no está registrada", 
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;

@@ -193,7 +193,9 @@ namespace Quizify.Services
         public void CalificarDesarrollo(int id_ex, int id_preg, int ver_preg, string alumno, double nota) {
             examen.CalificarDesarrollo(id_ex, id_preg, ver_preg, alumno, nota);
         }
-
+        public double GetNotaPregunta(int id_ex, int id_preg, string alumno) {
+            return examen.GetNotaPregunta(id_ex,id_preg,alumno);
+        }
 
         //Otros métodos
         public string GetTipoEntidad(string usuario) {

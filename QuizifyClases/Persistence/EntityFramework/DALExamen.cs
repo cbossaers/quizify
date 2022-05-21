@@ -762,5 +762,32 @@ namespace Quizify.Persistence {
                 }
             }
         }
+    
+        public double GetNotaPregunta(int id_ex, int id_preg, string alumno) {
+            double res = 0;
+
+            using (MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using (MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "SELECT nota FROM notas_pregunta WHERE id_ex = @examen AND id_preg = @pregunta AND alumno = @alumno;";
+
+                    cmd.Parameters.AddWithValue("@examen", id_ex);
+                    cmd.Parameters.AddWithValue("@pregunta", id_preg);
+                    cmd.Parameters.AddWithValue("@alumno", alumno);
+
+                    conn.Open();
+
+                    using (MySqlDataReader rdr = cmd.ExecuteReader()) {
+
+                        while (rdr.Read()) {
+                            res = rdr.GetDouble("nota");
+                        }
+                    }
+                }
+            }
+
+            return res;
+        }
     }
 }
