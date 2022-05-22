@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelGestionarCurso = new System.Windows.Forms.Panel();
-            this.bVolver = new FontAwesome.Sharp.IconButton();
             this.tablaDatoCurso = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numAl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaCreado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxAl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bVolver = new FontAwesome.Sharp.IconButton();
             this.bAñadir = new System.Windows.Forms.Button();
             this.bEliminar = new System.Windows.Forms.Button();
             this.alumnoBox = new System.Windows.Forms.TextBox();
@@ -46,8 +48,8 @@
             // 
             // panelGestionarCurso
             // 
-            this.panelGestionarCurso.Controls.Add(this.bVolver);
             this.panelGestionarCurso.Controls.Add(this.tablaDatoCurso);
+            this.panelGestionarCurso.Controls.Add(this.bVolver);
             this.panelGestionarCurso.Controls.Add(this.bAñadir);
             this.panelGestionarCurso.Controls.Add(this.bEliminar);
             this.panelGestionarCurso.Controls.Add(this.alumnoBox);
@@ -57,6 +59,97 @@
             this.panelGestionarCurso.Name = "panelGestionarCurso";
             this.panelGestionarCurso.Size = new System.Drawing.Size(730, 531);
             this.panelGestionarCurso.TabIndex = 0;
+            // 
+            // tablaDatoCurso
+            // 
+            this.tablaDatoCurso.AllowUserToAddRows = false;
+            this.tablaDatoCurso.AllowUserToDeleteRows = false;
+            this.tablaDatoCurso.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.tablaDatoCurso.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.tablaDatoCurso.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.tablaDatoCurso.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tablaDatoCurso.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tablaDatoCurso.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaDatoCurso.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.tablaDatoCurso.ColumnHeadersHeight = 26;
+            this.tablaDatoCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tablaDatoCurso.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigo,
+            this.nombre,
+            this.numAl,
+            this.fechaCreado,
+            this.MaxAl});
+            this.tablaDatoCurso.EnableHeadersVisualStyles = false;
+            this.tablaDatoCurso.GridColor = System.Drawing.Color.White;
+            this.tablaDatoCurso.Location = new System.Drawing.Point(68, 103);
+            this.tablaDatoCurso.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tablaDatoCurso.Name = "tablaDatoCurso";
+            this.tablaDatoCurso.ReadOnly = true;
+            this.tablaDatoCurso.RowHeadersVisible = false;
+            this.tablaDatoCurso.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(166)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.tablaDatoCurso.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.tablaDatoCurso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tablaDatoCurso.Size = new System.Drawing.Size(658, 273);
+            this.tablaDatoCurso.TabIndex = 20;
+            this.tablaDatoCurso.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaCurso_doble_click);
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "cod";
+            this.codigo.HeaderText = "Código";
+            this.codigo.MinimumWidth = 8;
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Width = 79;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 8;
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 85;
+            // 
+            // numAl
+            // 
+            this.numAl.DataPropertyName = "numAl";
+            this.numAl.HeaderText = "Número alumnos";
+            this.numAl.MinimumWidth = 8;
+            this.numAl.Name = "numAl";
+            this.numAl.ReadOnly = true;
+            this.numAl.Width = 146;
+            // 
+            // fechaCreado
+            // 
+            this.fechaCreado.DataPropertyName = "fechaCreacion";
+            this.fechaCreado.HeaderText = "Fecha creación";
+            this.fechaCreado.MinimumWidth = 8;
+            this.fechaCreado.Name = "fechaCreado";
+            this.fechaCreado.ReadOnly = true;
+            this.fechaCreado.Width = 133;
+            // 
+            // MaxAl
+            // 
+            this.MaxAl.DataPropertyName = "maxAl";
+            this.MaxAl.HeaderText = "Nº Máximo Alumnos";
+            this.MaxAl.MinimumWidth = 8;
+            this.MaxAl.Name = "MaxAl";
+            this.MaxAl.ReadOnly = true;
+            this.MaxAl.Width = 166;
             // 
             // bVolver
             // 
@@ -73,69 +166,6 @@
             this.bVolver.TabIndex = 19;
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
-            // 
-            // tablaDatoCurso
-            // 
-            this.tablaDatoCurso.AllowUserToAddRows = false;
-            this.tablaDatoCurso.AllowUserToResizeColumns = false;
-            this.tablaDatoCurso.AllowUserToResizeRows = false;
-            this.tablaDatoCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablaDatoCurso.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codigo,
-            this.nombre,
-            this.numAl,
-            this.fechaCreado,
-            this.MaxAl});
-            this.tablaDatoCurso.Location = new System.Drawing.Point(68, 103);
-            this.tablaDatoCurso.MultiSelect = false;
-            this.tablaDatoCurso.Name = "tablaDatoCurso";
-            this.tablaDatoCurso.RowHeadersVisible = false;
-            this.tablaDatoCurso.RowHeadersWidth = 62;
-            this.tablaDatoCurso.RowTemplate.Height = 25;
-            this.tablaDatoCurso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaDatoCurso.Size = new System.Drawing.Size(605, 273);
-            this.tablaDatoCurso.TabIndex = 9;
-            this.tablaDatoCurso.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaCurso_doble_click);
-            // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "cod";
-            this.codigo.HeaderText = "Código";
-            this.codigo.MinimumWidth = 8;
-            this.codigo.Name = "codigo";
-            this.codigo.Width = 150;
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.MinimumWidth = 8;
-            this.nombre.Name = "nombre";
-            this.nombre.Width = 200;
-            // 
-            // numAl
-            // 
-            this.numAl.DataPropertyName = "numAl";
-            this.numAl.HeaderText = "Número alumnos";
-            this.numAl.MinimumWidth = 8;
-            this.numAl.Name = "numAl";
-            this.numAl.Width = 150;
-            // 
-            // fechaCreado
-            // 
-            this.fechaCreado.DataPropertyName = "fechaCreacion";
-            this.fechaCreado.HeaderText = "Fecha creación";
-            this.fechaCreado.MinimumWidth = 8;
-            this.fechaCreado.Name = "fechaCreado";
-            this.fechaCreado.Width = 150;
-            // 
-            // MaxAl
-            // 
-            this.MaxAl.DataPropertyName = "maxAl";
-            this.MaxAl.HeaderText = "Nº Máximo Alumnos";
-            this.MaxAl.MinimumWidth = 8;
-            this.MaxAl.Name = "MaxAl";
-            this.MaxAl.Width = 150;
             // 
             // bAñadir
             // 
@@ -198,12 +228,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bEliminar;
         private System.Windows.Forms.Button bAñadir;
-        private System.Windows.Forms.DataGridView tablaDatoCurso;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn numAl;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreado;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxAl;
         private FontAwesome.Sharp.IconButton bVolver;
+        private System.Windows.Forms.DataGridView tablaDatoCurso;
     }
 }

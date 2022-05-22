@@ -34,7 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,16 +49,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenDisponible)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenFinalizado)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(5, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 32);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Mis Quiz:";
             // 
             // label2
             // 
@@ -227,7 +216,7 @@
             "Normal",
             "Difícil",
             "Todos"});
-            this.dificultadBox.Location = new System.Drawing.Point(379, 16);
+            this.dificultadBox.Location = new System.Drawing.Point(170, 14);
             this.dificultadBox.Name = "dificultadBox";
             this.dificultadBox.Size = new System.Drawing.Size(121, 23);
             this.dificultadBox.TabIndex = 12;
@@ -247,7 +236,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(223, 16);
+            this.label4.Location = new System.Drawing.Point(14, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(150, 21);
             this.label4.TabIndex = 14;
@@ -255,7 +244,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(142, 12);
+            this.button1.Location = new System.Drawing.Point(419, 16);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 15;
@@ -274,7 +263,6 @@
             this.Controls.Add(this.puntuar);
             this.Controls.Add(this.dificultadBox);
             this.Controls.Add(this.calificar);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tablaExamenFinalizado);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -292,7 +280,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private System.Windows.Forms.Label label3;

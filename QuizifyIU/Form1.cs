@@ -18,14 +18,14 @@ namespace QuizifyIU
         private Observador observador = new Observador();
         public static Notificaciones objeto_notif;
         HiloNotificaciones x = new HiloNotificaciones();
-        
+        public static CrearQuiz crear;
+
         private int borderSize = 2;
         private Size formSize; 
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
         private bool alumno = false;
-        public static CrearQuiz crear;
 
         public Form1(NuevoServicio servicio, dynamic user)
         {
@@ -308,6 +308,10 @@ namespace QuizifyIU
             ActivateButton(sender, RGBColors.color3);
             crear = new CrearQuiz(servicio, usuario);
             OpenChildForm(crear);
+        }
+        public CrearQuiz getCrear()
+        {
+            return crear;
         }
 
         private void CrearPregunta_Click(object sender, EventArgs e)

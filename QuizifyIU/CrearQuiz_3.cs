@@ -49,17 +49,6 @@ namespace QuizifyIU
             }
             dataGridView1.DataSource = datos;
         }
-
-        private void bBuscar_Click(object sender, EventArgs e)
-        {
-            if (tipo_txt.Text == "") { tipo = null; } else { tipo = tipo_txt.Text.ToLower(); }
-            if (dificultad_txt.SelectedIndex == -1) { dificultad = null; } else { dificultad = dificultad_txt.SelectedIndex; }
-            if (tema_txt.Text == "") { tema = null; } else { tema = tema_txt.Text; }
-
-            filtros = new List<dynamic>() { usuario.GetCorreo(), tipo, dificultad, tema };
-            tabla();
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             añadir_pregunta();

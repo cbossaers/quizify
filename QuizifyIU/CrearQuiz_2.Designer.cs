@@ -160,7 +160,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(714, 492);
+            this.ClientSize = new System.Drawing.Size(724, 492);
             this.Controls.Add(this.borrar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bVolver);

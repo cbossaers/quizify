@@ -168,7 +168,8 @@ namespace QuizifyIU
 
         private void automatico_Click(object sender, EventArgs e)
         {
-            Principal.formportal.abrirNieto(new num_preg());
+            num_preg preg = new num_preg();
+            preg.ShowDialog();
         }
         public void auto(int f) {
             if (usuario.GetQuizes() == 0)

@@ -28,61 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tablaAlumnoCurso = new System.Windows.Forms.DataGridView();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bEliminar = new System.Windows.Forms.Button();
             this.bVolver = new FontAwesome.Sharp.IconButton();
+            this.tablaAlumnoCurso = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablaAlumnoCurso)).BeginInit();
             this.SuspendLayout();
             // 
-            // tablaAlumnoCurso
-            // 
-            this.tablaAlumnoCurso.AllowUserToAddRows = false;
-            this.tablaAlumnoCurso.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.tablaAlumnoCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablaAlumnoCurso.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Correo,
-            this.Nombre,
-            this.Apellidos});
-            this.tablaAlumnoCurso.Location = new System.Drawing.Point(152, 128);
-            this.tablaAlumnoCurso.MultiSelect = false;
-            this.tablaAlumnoCurso.Name = "tablaAlumnoCurso";
-            this.tablaAlumnoCurso.RowHeadersVisible = false;
-            this.tablaAlumnoCurso.RowHeadersWidth = 62;
-            this.tablaAlumnoCurso.RowTemplate.Height = 25;
-            this.tablaAlumnoCurso.Size = new System.Drawing.Size(384, 186);
-            this.tablaAlumnoCurso.TabIndex = 0;
-            this.tablaAlumnoCurso.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaAlumnoCurso_CellMouseDoubleClick);
-            // 
-            // Correo
-            // 
-            this.Correo.DataPropertyName = "correo";
-            this.Correo.HeaderText = "Correo";
-            this.Correo.MinimumWidth = 8;
-            this.Correo.Name = "Correo";
-            this.Correo.Width = 150;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 8;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 110;
-            // 
-            // Apellidos
-            // 
-            this.Apellidos.DataPropertyName = "apellidos";
-            this.Apellidos.HeaderText = "Apellidos";
-            this.Apellidos.MinimumWidth = 8;
-            this.Apellidos.Name = "Apellidos";
-            this.Apellidos.Width = 150;
-            // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(491, 341);
+            this.bEliminar.Location = new System.Drawing.Point(311, 345);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(75, 23);
             this.bEliminar.TabIndex = 2;
@@ -105,6 +64,74 @@
             this.bVolver.TabIndex = 19;
             this.bVolver.UseVisualStyleBackColor = true;
             // 
+            // tablaAlumnoCurso
+            // 
+            this.tablaAlumnoCurso.AllowUserToAddRows = false;
+            this.tablaAlumnoCurso.AllowUserToDeleteRows = false;
+            this.tablaAlumnoCurso.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.tablaAlumnoCurso.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.tablaAlumnoCurso.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.tablaAlumnoCurso.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tablaAlumnoCurso.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tablaAlumnoCurso.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaAlumnoCurso.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.tablaAlumnoCurso.ColumnHeadersHeight = 26;
+            this.tablaAlumnoCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tablaAlumnoCurso.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.tablaAlumnoCurso.EnableHeadersVisualStyles = false;
+            this.tablaAlumnoCurso.GridColor = System.Drawing.Color.White;
+            this.tablaAlumnoCurso.Location = new System.Drawing.Point(152, 128);
+            this.tablaAlumnoCurso.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tablaAlumnoCurso.Name = "tablaAlumnoCurso";
+            this.tablaAlumnoCurso.ReadOnly = true;
+            this.tablaAlumnoCurso.RowHeadersVisible = false;
+            this.tablaAlumnoCurso.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(166)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.tablaAlumnoCurso.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.tablaAlumnoCurso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tablaAlumnoCurso.Size = new System.Drawing.Size(384, 211);
+            this.tablaAlumnoCurso.TabIndex = 20;
+            this.tablaAlumnoCurso.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tablaAlumnoCurso_CellMouseDoubleClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "correo";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Correo";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 78;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "nombre";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 85;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "apellidos";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Apellidos";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 90;
+            // 
             // GestionarAlumnosCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -122,12 +149,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView tablaAlumnoCurso;
         private System.Windows.Forms.Button bEliminar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
         private FontAwesome.Sharp.IconButton bVolver;
+        private System.Windows.Forms.DataGridView tablaAlumnoCurso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

@@ -17,7 +17,13 @@ namespace QuizifyIU
 
         private void botones_fancy1_Click(object sender, EventArgs e)
         {
-            Principal.formportal.;
+            Principal.formportal.getCrear().auto(int.Parse(preguntas.Texts));
+            this.Close();
+        }
+
+        private void botones_fancy2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

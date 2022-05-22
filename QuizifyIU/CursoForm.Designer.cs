@@ -33,11 +33,11 @@
             this.bCrearCurso = new System.Windows.Forms.Button();
             this.bGestionarCurso = new System.Windows.Forms.Button();
             this.panelCurso = new System.Windows.Forms.Panel();
+            this.miscursos = new System.Windows.Forms.Label();
             this.bVolver = new FontAwesome.Sharp.IconButton();
             this.bApuntarse = new System.Windows.Forms.Button();
             this.dataGridview1 = new System.Windows.Forms.DataGridView();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            this.miscursos = new System.Windows.Forms.Label();
             this.panelCurso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridview1)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +80,16 @@
             this.panelCurso.Size = new System.Drawing.Size(710, 490);
             this.panelCurso.TabIndex = 6;
             // 
+            // miscursos
+            // 
+            this.miscursos.AutoSize = true;
+            this.miscursos.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.miscursos.Location = new System.Drawing.Point(282, 20);
+            this.miscursos.Name = "miscursos";
+            this.miscursos.Size = new System.Drawing.Size(119, 30);
+            this.miscursos.TabIndex = 33;
+            this.miscursos.Text = "Mis Cursos:";
+            // 
             // bVolver
             // 
             this.bVolver.FlatAppearance.BorderSize = 0;
@@ -88,7 +98,7 @@
             this.bVolver.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.bVolver.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bVolver.IconSize = 30;
-            this.bVolver.Location = new System.Drawing.Point(12, 12);
+            this.bVolver.Location = new System.Drawing.Point(4, 4);
             this.bVolver.Name = "bVolver";
             this.bVolver.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.bVolver.Size = new System.Drawing.Size(78, 38);
@@ -153,16 +163,6 @@
             this.mySqlCommand1.Connection = null;
             this.mySqlCommand1.EnableCaching = false;
             this.mySqlCommand1.Transaction = null;
-            // 
-            // miscursos
-            // 
-            this.miscursos.AutoSize = true;
-            this.miscursos.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.miscursos.Location = new System.Drawing.Point(282, 20);
-            this.miscursos.Name = "miscursos";
-            this.miscursos.Size = new System.Drawing.Size(119, 30);
-            this.miscursos.TabIndex = 33;
-            this.miscursos.Text = "Mis Cursos:";
             // 
             // CursoForm
             // 

@@ -16,6 +16,7 @@ namespace QuizifyIU
         dynamic user;
         private ValueTuple<DataTable, DataTable> tupla;
         List<dynamic> filtros;
+        private bool alumno=false;
         public MisExamenes(NuevoServicio servicio, dynamic usuario)
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace QuizifyIU
                 tupla = servicio.GetExamenesAlumno(user.GetCorreo());
                 tablaExamenDisponible.DataSource = tupla.Item1;
                 tablaExamenFinalizado.DataSource = tupla.Item2;
+                alumno=true;
             }
             else
             {
@@ -178,7 +180,14 @@ namespace QuizifyIU
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Principal.formportal.abrirNieto(new Estadisticas(servicio, user, int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString())));
+            if (alumno)
+            {
+                Principal.formportal.abrirNieto(new Estadisticas(servicio, user, int.Parse(tablaExamenDisponible.SelectedCells[0].Value.ToString())));
+            }
+            else
+            {
+                Principal.formportal.abrirNieto(new Estadisticas(servicio, user, int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString())));
+            }
         }
     }
         
