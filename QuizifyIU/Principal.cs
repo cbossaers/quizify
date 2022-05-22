@@ -16,8 +16,9 @@ namespace QuizifyIU
 {
     public partial class Principal : Form
     {
-        private NuevoServicio servicio;
+        public static NuevoServicio servicio;
         public static Form1 formportal;
+        public static dynamic user;
 
         private int borderSize = 2;
         private Size formSize;
@@ -27,7 +28,7 @@ namespace QuizifyIU
         public Principal(NuevoServicio servicio)
         {
             InitializeComponent();
-            this.servicio = servicio;
+            Principal.servicio = servicio;
             this.ActiveControl = emailField;
         }
 
@@ -41,7 +42,7 @@ namespace QuizifyIU
 
         public void logUser() {
 
-            dynamic user = null;
+             user = null;
 
             try { user = servicio.GetAlumno(emailField.Texts); } 
             catch (Exception) {

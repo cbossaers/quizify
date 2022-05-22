@@ -32,6 +32,16 @@ namespace QuizifyIU
             this.usuario = user;
             filtros = new List<dynamic>() { usuario.GetCorreo(), null, null, null };
             tabla();
+            setearcusos();
+        }
+
+        private void setearcusos()
+        {
+            List<string> curso = servicio.GetCursosProfesor(usuario.GetCorreo());
+            for (int i = 0; i < curso.Count; i++)
+            {
+                tema_txt.Items.Add(curso[i]);
+            }
         }
 
         private void bBuscar_Click_1(object sender, EventArgs e)
@@ -45,7 +55,9 @@ namespace QuizifyIU
 
         private void tabla()
         {
-            tablaPreguntas.DataSource = servicio.GetPreguntas(filtros);
+            DataTable dt = servicio.GetPreguntas(filtros);
+            dt.Columns["tema"].ColumnName="Curso";
+            tablaPreguntas.DataSource = dt;
         }
 
         private void tablaPreguntas_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -62,5 +74,7 @@ namespace QuizifyIU
             }
             Principal.formportal.abrirNieto(new CrearPregunta(servicio, usuario, preg));
         }
+
+        
     }
 }

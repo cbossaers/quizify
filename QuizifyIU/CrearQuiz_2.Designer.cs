@@ -73,7 +73,7 @@
             // 
             // editar
             // 
-            this.editar.Location = new System.Drawing.Point(647, 234);
+            this.editar.Location = new System.Drawing.Point(647, 244);
             this.editar.Name = "editar";
             this.editar.Size = new System.Drawing.Size(75, 42);
             this.editar.TabIndex = 13;
@@ -147,7 +147,7 @@
             // 
             // borrar
             // 
-            this.borrar.Location = new System.Drawing.Point(647, 296);
+            this.borrar.Location = new System.Drawing.Point(647, 196);
             this.borrar.Name = "borrar";
             this.borrar.Size = new System.Drawing.Size(75, 42);
             this.borrar.TabIndex = 20;

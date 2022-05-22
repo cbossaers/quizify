@@ -113,7 +113,7 @@
             // 
             // siguiente
             // 
-            this.siguiente.Location = new System.Drawing.Point(306, 493);
+            this.siguiente.Location = new System.Drawing.Point(352, 487);
             this.siguiente.Name = "siguiente";
             this.siguiente.Size = new System.Drawing.Size(105, 28);
             this.siguiente.TabIndex = 15;
@@ -389,11 +389,10 @@
             this.label15.Size = new System.Drawing.Size(181, 18);
             this.label15.TabIndex = 81;
             this.label15.Text = "Rellenar lista de preguntas";
-            this.label15.Visible = false;
             // 
             // automatico
             // 
-            this.automatico.Location = new System.Drawing.Point(422, 493);
+            this.automatico.Location = new System.Drawing.Point(472, 487);
             this.automatico.Name = "automatico";
             this.automatico.Size = new System.Drawing.Size(108, 28);
             this.automatico.TabIndex = 82;

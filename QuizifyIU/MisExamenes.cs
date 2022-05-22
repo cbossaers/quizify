@@ -175,6 +175,11 @@ namespace QuizifyIU
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Principal.formportal.abrirNieto(new Estadisticas(servicio, user, int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString())));
+        }
     }
         
 }

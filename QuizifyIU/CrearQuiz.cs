@@ -31,6 +31,7 @@ namespace QuizifyIU
             
             fin.Value = DateTime.Now.AddDays(1);
             setear_cursos();
+            
 
         }
         public CrearQuiz(NuevoServicio servicio, dynamic user,Examen examen)
@@ -42,6 +43,7 @@ namespace QuizifyIU
             setear_cursos();
             this.examen = examen;
             id= examen.GetId();
+            automatico.Visible = false;
             pregunta = examen.GetPreguntasAsociadas();
             mostrear();
         }

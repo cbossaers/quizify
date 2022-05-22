@@ -34,7 +34,6 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.tienda = new FontAwesome.Sharp.IconButton();
             this.CerrarSesion = new FontAwesome.Sharp.IconButton();
-            this.Estadisticas = new FontAwesome.Sharp.IconButton();
             this.Cursos = new FontAwesome.Sharp.IconButton();
             this.Misexamenes = new FontAwesome.Sharp.IconButton();
             this.Mispreguntas = new FontAwesome.Sharp.IconButton();
@@ -52,12 +51,12 @@
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numnoti = new System.Windows.Forms.Label();
             this.bellN = new System.Windows.Forms.PictureBox();
             this.obs = new QuizifyIU.Controles_extra.label();
             this.noti1 = new FontAwesome.Sharp.IconButton();
             this.noti2 = new FontAwesome.Sharp.IconButton();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
@@ -72,7 +71,6 @@
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
             this.panelMenu.Controls.Add(this.tienda);
             this.panelMenu.Controls.Add(this.CerrarSesion);
-            this.panelMenu.Controls.Add(this.Estadisticas);
             this.panelMenu.Controls.Add(this.Cursos);
             this.panelMenu.Controls.Add(this.Misexamenes);
             this.panelMenu.Controls.Add(this.Mispreguntas);
@@ -100,7 +98,7 @@
             this.tienda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.tienda.IconSize = 30;
             this.tienda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tienda.Location = new System.Drawing.Point(0, 468);
+            this.tienda.Location = new System.Drawing.Point(0, 411);
             this.tienda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tienda.Name = "tienda";
             this.tienda.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -137,31 +135,6 @@
             this.CerrarSesion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.CerrarSesion.UseVisualStyleBackColor = true;
             this.CerrarSesion.Click += new System.EventHandler(this.CerrarSesion_Click);
-            // 
-            // Estadisticas
-            // 
-            this.Estadisticas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Estadisticas.FlatAppearance.BorderSize = 0;
-            this.Estadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Estadisticas.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Estadisticas.ForeColor = System.Drawing.Color.White;
-            this.Estadisticas.IconChar = FontAwesome.Sharp.IconChar.ChartLine;
-            this.Estadisticas.IconColor = System.Drawing.Color.White;
-            this.Estadisticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Estadisticas.IconSize = 30;
-            this.Estadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Estadisticas.Location = new System.Drawing.Point(0, 411);
-            this.Estadisticas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Estadisticas.Name = "Estadisticas";
-            this.Estadisticas.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.Estadisticas.Size = new System.Drawing.Size(230, 57);
-            this.Estadisticas.TabIndex = 6;
-            this.Estadisticas.Tag = "Estadisticas";
-            this.Estadisticas.Text = "    Estadisticas";
-            this.Estadisticas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Estadisticas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Estadisticas.UseVisualStyleBackColor = true;
-            this.Estadisticas.Click += new System.EventHandler(this.Estadisticas_Click);
             // 
             // Cursos
             // 
@@ -519,6 +492,14 @@
             this.dataGridView1.Visible = false;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 5;
+            // 
             // numnoti
             // 
             this.numnoti.AutoSize = true;
@@ -613,14 +594,6 @@
             this.noti2.UseVisualStyleBackColor = true;
             this.noti2.Visible = false;
             // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 5;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -656,7 +629,6 @@
         private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.Panel panelDesktop;
         private FontAwesome.Sharp.IconButton CerrarSesion;
-        private FontAwesome.Sharp.IconButton Estadisticas;
         private FontAwesome.Sharp.IconButton Cursos;
         private FontAwesome.Sharp.IconButton Misexamenes;
         private FontAwesome.Sharp.IconButton Mispreguntas;

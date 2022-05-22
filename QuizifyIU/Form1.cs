@@ -24,6 +24,7 @@ namespace QuizifyIU
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+        private bool alumno = false;
 
 
         public Form1(NuevoServicio servicio, dynamic user)
@@ -32,7 +33,12 @@ namespace QuizifyIU
             this.servicio = servicio;
             //nombreIniciado.Text = user.correo;
             usuario = user;
-            
+            dataGridView1.Visible = false;
+            noti2.Visible = false;
+            noti1.Visible = false;
+            bellN.Visible = true;
+            numnoti.Visible = true;
+            ver(user);
             //CollapseMenu();
             this.Padding = new Padding(borderSize);//Border size
             this.BackColor = Color.FromArgb(98, 102, 244);//Border color
@@ -48,16 +54,32 @@ namespace QuizifyIU
 
             ActivateButton(Home, RGBColors.color3);
 
-            dataGridView1.Visible = false;
-            noti2.Visible = false;
-            noti1.Visible = false;
-            bellN.Visible = true;
-            numnoti.Visible = true;
+
 
             objeto_notif  = new Notificaciones(this);
             objeto_notif.Subscribe(observador);
             x.HiloGetNotificaciones(usuario.GetCorreo(),this);
             
+        }
+        private void ver(dynamic user)
+        {
+            
+            if (servicio.GetTipoEntidad(Principal.user.GetCorreo()) == "alumno")
+            {
+                alumno = true;
+                panelMenu.Controls.Clear();
+                this.panelMenu.Controls.Add(this.CerrarSesion);
+                this.panelMenu.Controls.Add(this.Cursos);
+                this.panelMenu.Controls.Add(this.Misexamenes);
+                this.panelMenu.Controls.Add(this.Home);
+                this.panelMenu.Controls.Add(this.panel1);
+            }
+            else
+            {
+                abrirNieto(new Home_profesor(servicio,usuario));
+                bellN.Visible = false;
+                numnoti.Visible = false;
+            }
         }
         public void setNotificaciones(DataTable notifs)
         {
@@ -269,6 +291,7 @@ namespace QuizifyIU
             {
                 currentChildForm.Close();
             }
+            if (!alumno) { abrirNieto(new Home_profesor(servicio, usuario)); }
         }
         private void btnHome1_Click(object sender, EventArgs e)
         {
@@ -277,7 +300,7 @@ namespace QuizifyIU
             if (currentChildForm != null)
             {
                 currentChildForm.Close();
-            }
+            }if(!alumno){abrirNieto(new Home_profesor(servicio, usuario)); }
         }
 
         private void CrearQuiz_Click(object sender, EventArgs e)
