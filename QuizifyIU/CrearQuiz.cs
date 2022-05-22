@@ -168,6 +168,9 @@ namespace QuizifyIU
 
         private void automatico_Click(object sender, EventArgs e)
         {
+            Principal.formportal.abrirNieto(new num_preg());
+        }
+        public void auto(int f) {
             if (usuario.GetQuizes() == 0)
             {
                 DialogResult noQuedanQuizes = MessageBox.Show(this, "Necesitas bonos para poder crear un examen. Accede a la tienda para poder comprar más bonos", "¡No te quedan bonos!",
@@ -210,7 +213,7 @@ namespace QuizifyIU
                 string difi = dificultad.Text;
 
                 servicio.AlterarBonos(usuario.GetCorreo(), -1);
-                servicio.GenerarExamen(autor, cursos, 8, tiempo, fecha_inicial, fecha_finanl, intento, volver_atras, errores_restan, mostrar_resultados,false, difi);
+                servicio.GenerarExamen(autor, cursos, f, tiempo, fecha_inicial, fecha_finanl, intento, volver_atras, errores_restan, mostrar_resultados, false, difi);
             }
         }
 

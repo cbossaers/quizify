@@ -25,7 +25,7 @@ namespace QuizifyIU
         private Panel leftBorderBtn;
         private Form currentChildForm;
         private bool alumno = false;
-
+        public static CrearQuiz crear;
 
         public Form1(NuevoServicio servicio, dynamic user)
         {
@@ -306,7 +306,8 @@ namespace QuizifyIU
         private void CrearQuiz_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new CrearQuiz(servicio, usuario));
+            crear = new CrearQuiz(servicio, usuario);
+            OpenChildForm(crear);
         }
 
         private void CrearPregunta_Click(object sender, EventArgs e)

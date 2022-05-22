@@ -17,7 +17,7 @@ namespace QuizifyIU
 
         private void botones_fancy1_Click(object sender, EventArgs e)
         {
-            preguntas.Texts
+            Principal.formportal.;
         }
     }
 }
