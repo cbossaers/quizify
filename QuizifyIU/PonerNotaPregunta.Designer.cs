@@ -38,42 +38,45 @@ namespace QuizifyIU
             // 
             // respuesta
             // 
-            this.respuesta.Location = new System.Drawing.Point(40, 72);
+            this.respuesta.Location = new System.Drawing.Point(35, 54);
+            this.respuesta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.respuesta.Multiline = true;
             this.respuesta.Name = "respuesta";
-            this.respuesta.Size = new System.Drawing.Size(695, 257);
+            this.respuesta.Size = new System.Drawing.Size(609, 194);
             this.respuesta.TabIndex = 0;
             // 
             // nota
             // 
-            this.nota.Location = new System.Drawing.Point(563, 26);
+            this.nota.Location = new System.Drawing.Point(493, 20);
+            this.nota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nota.Name = "nota";
-            this.nota.Size = new System.Drawing.Size(72, 27);
+            this.nota.Size = new System.Drawing.Size(64, 23);
             this.nota.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 33);
+            this.label1.Location = new System.Drawing.Point(35, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 20);
+            this.label1.Size = new System.Drawing.Size(63, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Respuesta:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(512, 29);
+            this.label2.Location = new System.Drawing.Point(448, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 20);
+            this.label2.Size = new System.Drawing.Size(36, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nota:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(657, 24);
+            this.button1.Location = new System.Drawing.Point(575, 18);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 29);
+            this.button1.Size = new System.Drawing.Size(68, 22);
             this.button1.TabIndex = 4;
             this.button1.Text = "calificar";
             this.button1.UseVisualStyleBackColor = true;
@@ -81,14 +84,16 @@ namespace QuizifyIU
             // 
             // PonerNotaPregunta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 363);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(700, 272);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nota);
             this.Controls.Add(this.respuesta);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PonerNotaPregunta";
             this.Text = "PonerNotaPregunta";
             this.ResumeLayout(false);
