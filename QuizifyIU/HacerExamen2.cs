@@ -4,12 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Threading.Tasks;
-using System.Diagnostics;
+using System.Timers;
+
 
 namespace QuizifyIU
 {
@@ -35,6 +33,9 @@ namespace QuizifyIU
         private List<string> listaOpCorrecta = new List<String> { "0", "0", "0", "0", "0" };
         private string opcionCorrecta="";
 
+        private static System.Timers.Timer t;
+        private static int elapsed;
+
         private void guardar(int id, int version, dynamic correcta)
         {
             if (res.ContainsKey(id)) res[id] = correcta;
@@ -42,7 +43,6 @@ namespace QuizifyIU
 
         }
         
-
         public HacerExamen2(NuevoServicio servicio, dynamic user, Examen examen)
         {
             InitializeComponent();
@@ -63,6 +63,8 @@ namespace QuizifyIU
 
             label1.Text = preguntas_asociadas[cont].ToString();
             label1.Text = preguntas_asociadas[cont + 1].ToString();
+
+            SetTimer();
         }
 
         private void interfaz()
@@ -468,6 +470,27 @@ namespace QuizifyIU
 
                 correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
             }
+        }
+
+        private void SetTimer() {
+            t = new System.Timers.Timer(1000);
+            minutes = examen.GetTiempo();
+            if (InvokeRequired) {
+                this.Invoke(new Action(() => intermediario()));
+                return;
+            }
+
+            t.AutoReset = true;
+            t.Enabled = true;
+        }
+
+        private void intermediario() {
+            t.Elapsed += OnTimedEvent;
+        }
+
+        private void OnTimedEvent(Object source, ElapsedEventArgs e) {
+            elapsed++;
+            label5.Text = (TimeSpan.FromMinutes(minutes) - TimeSpan.FromSeconds(elapsed)).ToString();  
         }
     }
 }

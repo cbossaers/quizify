@@ -596,7 +596,8 @@ namespace Quizify.Persistence {
                 }
 
                 _ravi["Aciertos"] = aciertos;
-                _ravi["Ratio"] = aciertos/notas.Count;
+                if(notas.Count > 0) { _ravi["Ratio"] =  aciertos/notas.Count; }
+                else _ravi["Ratio"] = 0;
 
                 dt.Rows.Add(_ravi);
             }
