@@ -36,16 +36,16 @@ namespace QuizifyIU
 
             for(int i = 0; i < grafico.Count; i++) {
                 double t = grafico[i];
-                if(t <= 1) { uno++; }
-                if(t <= 2) { dos++; }
-                if(t <= 3) { tres++; }
-                if(t <= 4) {cuatro++; }
-                if(t <= 5) {cinco++; }
-                if (t <= 6) { seis++; }
-                if (t <= 7) { siete++; }
-                if (t <= 8) { ocho++; }
-                if (t <= 9) { nueve++; }
-                if (t <= 10) { diez++; }
+                if(t <= 1) { uno++; continue; }
+                if(t <= 2) { dos++; continue; }
+                if(t <= 3) { tres++; continue; }
+                if(t <= 4) {cuatro++; continue; }
+                if(t <= 5) {cinco++; continue; }
+                if (t <= 6) { seis++; continue; }
+                if (t <= 7) { siete++; continue; }
+                if (t <= 8) { ocho++; continue; }
+                if (t <= 9) { nueve++; continue; }
+                if (t <= 10) { diez++; continue; }
             }
             int max = grafico.Count;
             progress_bar_fancy1.Maximum = max;
@@ -70,7 +70,6 @@ namespace QuizifyIU
             progress_bar_fancy9.Value = nueve;
             progress_bar_fancy10.Value = diez;
 
-            
         }
     }
 }
