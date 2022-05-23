@@ -25,6 +25,9 @@ namespace QuizifyIU
         private Panel leftBorderBtn;
         private Form currentChildForm;
         private bool alumno = false;
+        private TimeSpan ts = DateTime.Now.TimeOfDay;
+        private System.Windows.Forms.Timer timer2;
+        string formattedTimespan;
         
 
         public Form1(NuevoServicio servicio, dynamic user)
@@ -59,7 +62,20 @@ namespace QuizifyIU
             x.HiloGetNotificaciones(usuario.GetCorreo(),this);
             CambiarIdioma();
 
+            timer2 = new System.Windows.Forms.Timer();
+            timer2.Tick += new EventHandler(timer2_Tick);
+            timer2.Interval = 1000; // 1 second
+            timer2.Start();
+            formattedTimespan = ts.ToString("hh\\:mm");
+            lbTiempo.Text = formattedTimespan;
         }
+
+        private void timer2_Tick(object sender, EventArgs e) {
+            ts = DateTime.Now.TimeOfDay;
+            formattedTimespan = ts.ToString("hh\\:mm");
+            lbTiempo.Text = formattedTimespan;
+        }
+
         private void ver(dynamic user)
         {
             
