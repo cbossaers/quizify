@@ -261,11 +261,10 @@ namespace Quizify.Persistence {
 
         public double CalcularNotaPregunta(Pregunta2 preg, int respuesta, double puntuacion, int resta) {
             string tipo = preg.GetTipo();
+            if (respuesta == -1) { return 0; }
             if(tipo == "des") { return 0; }
 
             int correcta = preg.GetParametros()[0];
-
-            if (respuesta == -1) { return 0; }
 
             switch (tipo) {
                 case ("test"):
@@ -375,7 +374,21 @@ namespace Quizify.Persistence {
                     cmd.ExecuteNonQuery();
                 }
             }
-            ActualizarEstadoQuizes();
+
+            using (MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using (MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "INSERT INTO notificaciones(texto,curso,profesor) VALUES(@texto,@curso,@profesor);";
+
+                    cmd.Parameters.AddWithValue("@texto", Get(ex_id).GetCurso() + ": Nota del examen " + ex_id + " publicada");
+                    cmd.Parameters.AddWithValue("@curso", Get(ex_id).GetCurso());
+                    cmd.Parameters.AddWithValue("@profesor", Get(ex_id).GetAutor());
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public double GetNota(string id_alumno, int id_ex) {
@@ -471,14 +484,16 @@ namespace Quizify.Persistence {
                     }
                 }
             }
+        }
 
-            if (nota < 0) { nota = 0; }
+        if (nota < 0) { nota = 0; }
 
-            SubirNota(id_ex, correo, nota);
-
-        }}
+        SubirNota(id_ex, correo, nota);
+        }
 
         public void SubirNota(int id_ex, string correo, double nota) {
+
+            if(Get(id_ex).mostrar_resultados == 0) { nota = 0; }
 
             using (MySqlConnection conn = new MySqlConnection(connStr)) {
 
