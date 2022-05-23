@@ -32,6 +32,7 @@
             this.enviar = new QuizifyIU.Controles_extra.Botones_fancy();
             this.nombre_quiz = new System.Windows.Forms.Label();
             this.cursos = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // mensaje
@@ -44,7 +45,7 @@
             this.mensaje.BorderSize = 2;
             this.mensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mensaje.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.mensaje.Location = new System.Drawing.Point(127, 92);
+            this.mensaje.Location = new System.Drawing.Point(145, 146);
             this.mensaje.Margin = new System.Windows.Forms.Padding(4);
             this.mensaje.Multiline = true;
             this.mensaje.Name = "mensaje";
@@ -68,7 +69,7 @@
             this.enviar.FlatAppearance.BorderSize = 0;
             this.enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enviar.ForeColor = System.Drawing.Color.White;
-            this.enviar.Location = new System.Drawing.Point(397, 234);
+            this.enviar.Location = new System.Drawing.Point(415, 288);
             this.enviar.Name = "enviar";
             this.enviar.Size = new System.Drawing.Size(150, 40);
             this.enviar.TabIndex = 1;
@@ -82,7 +83,7 @@
             this.nombre_quiz.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nombre_quiz.AutoSize = true;
             this.nombre_quiz.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nombre_quiz.Location = new System.Drawing.Point(97, 37);
+            this.nombre_quiz.Location = new System.Drawing.Point(115, 91);
             this.nombre_quiz.Name = "nombre_quiz";
             this.nombre_quiz.Size = new System.Drawing.Size(330, 24);
             this.nombre_quiz.TabIndex = 6;
@@ -92,10 +93,21 @@
             // 
             this.cursos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cursos.FormattingEnabled = true;
-            this.cursos.Location = new System.Drawing.Point(426, 41);
+            this.cursos.Location = new System.Drawing.Point(444, 95);
             this.cursos.Name = "cursos";
             this.cursos.Size = new System.Drawing.Size(121, 23);
             this.cursos.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(12, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 24);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Bienvenido, ";
             // 
             // Home_profesor
             // 
@@ -103,6 +115,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(714, 492);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cursos);
             this.Controls.Add(this.nombre_quiz);
             this.Controls.Add(this.enviar);
@@ -120,5 +133,6 @@
         private Controles_extra.Botones_fancy enviar;
         private System.Windows.Forms.Label nombre_quiz;
         private System.Windows.Forms.ComboBox cursos;
+        private System.Windows.Forms.Label label3;
     }
 }

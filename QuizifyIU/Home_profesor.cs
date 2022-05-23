@@ -20,6 +20,7 @@ namespace QuizifyIU
             InitializeComponent();
             setearcusos();
             CambiarIdioma();
+            label3.Text = "Bienvenido, " + Principal.user.GetCorreo();
         }
         private void setearcusos()
         {

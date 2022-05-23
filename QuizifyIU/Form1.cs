@@ -69,6 +69,7 @@ namespace QuizifyIU
             
             if (servicio.GetTipoEntidad(Principal.user.GetCorreo()) == "alumno")
             {
+                label3.Text = "Bienvenido, " + Principal.user.GetCorreo();
                 alumno = true;
                 panelMenu.Controls.Clear();
                 this.panelMenu.Controls.Add(this.CerrarSesion);

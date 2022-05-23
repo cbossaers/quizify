@@ -113,7 +113,7 @@
             // 
             // siguiente
             // 
-            this.siguiente.Location = new System.Drawing.Point(301, 476);
+            this.siguiente.Location = new System.Drawing.Point(359, 476);
             this.siguiente.Name = "siguiente";
             this.siguiente.Size = new System.Drawing.Size(105, 28);
             this.siguiente.TabIndex = 15;
@@ -392,7 +392,7 @@
             // 
             // automatico
             // 
-            this.automatico.Location = new System.Drawing.Point(421, 476);
+            this.automatico.Location = new System.Drawing.Point(479, 476);
             this.automatico.Name = "automatico";
             this.automatico.Size = new System.Drawing.Size(108, 28);
             this.automatico.TabIndex = 82;

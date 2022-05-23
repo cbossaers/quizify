@@ -27,7 +27,7 @@ namespace QuizifyIU
             {
                 if (servicio.GetExamen(examen.GetId()) != null) { editar.Visible = false; };
             }
-            catch { }
+            catch { anular.Visible = false; }
             tabla();
         }
 

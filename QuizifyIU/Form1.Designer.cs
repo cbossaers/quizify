@@ -50,11 +50,13 @@
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.lbTiempo = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numnoti = new System.Windows.Forms.Label();
-            this.bellN = new System.Windows.Forms.PictureBox();
             this.noti1 = new FontAwesome.Sharp.IconButton();
+            this.bellN = new System.Windows.Forms.PictureBox();
             this.noti2 = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -432,10 +434,12 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.panelDesktop.Controls.Add(this.lbTiempo);
+            this.panelDesktop.Controls.Add(this.label3);
             this.panelDesktop.Controls.Add(this.dataGridView1);
             this.panelDesktop.Controls.Add(this.numnoti);
-            this.panelDesktop.Controls.Add(this.bellN);
             this.panelDesktop.Controls.Add(this.noti1);
+            this.panelDesktop.Controls.Add(this.bellN);
             this.panelDesktop.Controls.Add(this.noti2);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(230, 69);
@@ -444,6 +448,28 @@
             this.panelDesktop.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.panelDesktop.Size = new System.Drawing.Size(754, 559);
             this.panelDesktop.TabIndex = 2;
+            // 
+            // lbTiempo
+            // 
+            this.lbTiempo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbTiempo.AutoSize = true;
+            this.lbTiempo.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbTiempo.Location = new System.Drawing.Point(149, 16);
+            this.lbTiempo.Name = "lbTiempo";
+            this.lbTiempo.Size = new System.Drawing.Size(115, 24);
+            this.lbTiempo.TabIndex = 27;
+            this.lbTiempo.Text = "Bienvenido, ";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(20, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 24);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Bienvenido, ";
             // 
             // dataGridView1
             // 
@@ -470,7 +496,7 @@
             this.id});
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(384, 77);
+            this.dataGridView1.Location = new System.Drawing.Point(409, 77);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -485,7 +511,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(366, 255);
+            this.dataGridView1.Size = new System.Drawing.Size(366, 465);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.Visible = false;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
@@ -500,27 +526,16 @@
             // 
             // numnoti
             // 
-            this.numnoti.AutoSize = true;
+            this.numnoti.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numnoti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
             this.numnoti.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.numnoti.ForeColor = System.Drawing.Color.White;
-            this.numnoti.Location = new System.Drawing.Point(681, 19);
+            this.numnoti.Location = new System.Drawing.Point(680, 23);
             this.numnoti.Name = "numnoti";
-            this.numnoti.Size = new System.Drawing.Size(0, 15);
+            this.numnoti.Size = new System.Drawing.Size(17, 15);
             this.numnoti.TabIndex = 18;
-            this.numnoti.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.numnoti.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.numnoti.Click += new System.EventHandler(this.noti1_Click);
-            // 
-            // bellN
-            // 
-            this.bellN.Image = ((System.Drawing.Image)(resources.GetObject("bellN.Image")));
-            this.bellN.Location = new System.Drawing.Point(673, 12);
-            this.bellN.Name = "bellN";
-            this.bellN.Size = new System.Drawing.Size(30, 30);
-            this.bellN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bellN.TabIndex = 17;
-            this.bellN.TabStop = false;
-            this.bellN.Click += new System.EventHandler(this.noti1_Click);
             // 
             // noti1
             // 
@@ -532,9 +547,9 @@
             this.noti1.IconChar = FontAwesome.Sharp.IconChar.Bell;
             this.noti1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
             this.noti1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.noti1.IconSize = 35;
+            this.noti1.IconSize = 40;
             this.noti1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.noti1.Location = new System.Drawing.Point(654, 3);
+            this.noti1.Location = new System.Drawing.Point(652, 4);
             this.noti1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.noti1.Name = "noti1";
             this.noti1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 5);
@@ -545,6 +560,17 @@
             this.noti1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.noti1.UseVisualStyleBackColor = false;
             this.noti1.Click += new System.EventHandler(this.noti1_Click);
+            // 
+            // bellN
+            // 
+            this.bellN.Image = ((System.Drawing.Image)(resources.GetObject("bellN.Image")));
+            this.bellN.Location = new System.Drawing.Point(666, 11);
+            this.bellN.Name = "bellN";
+            this.bellN.Size = new System.Drawing.Size(45, 36);
+            this.bellN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bellN.TabIndex = 17;
+            this.bellN.TabStop = false;
+            this.bellN.Click += new System.EventHandler(this.noti1_Click);
             // 
             // noti2
             // 
@@ -625,6 +651,8 @@
         private System.Windows.Forms.Label numnoti;
         private FontAwesome.Sharp.IconButton tienda;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbTiempo;
     }
 }
 

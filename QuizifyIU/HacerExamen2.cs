@@ -162,21 +162,7 @@ namespace QuizifyIU
             indice();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            for (int i = 0; i < res.Count; i++)
-            {
-                if (dataGridView1.SelectedCells[0].Value.ToString().Equals("Pregunta " + (i + 1).ToString()))
-                {
-                    if (mult) { CraftearStringCorrecta(listaOpCorrecta); guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], opcionCorrecta); }
-                    if (!desarrollo && !mult) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
-                    else if (desarrollo) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
-                    cont = i * 3;
-                    interfaz();
 
-                }
-            }
-        }
         private void borrar_seleccion_Click(object sender, EventArgs e)
         {
             verdadero0.Checked = false; falso1.Checked = false; correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
@@ -436,15 +422,23 @@ namespace QuizifyIU
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            for (int i = 0; i < res.Count; i++)
-            {
-                if (dataGridView1.SelectedCells[0].Value.ToString().Equals("Pregunta " + (i + 1).ToString()))
-                {
-                    if (mult) { CraftearStringCorrecta(listaOpCorrecta); op_correcta = int.Parse(opcionCorrecta); }
-                    guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta);
-                    cont = i * 3;
-                    interfaz();
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (examen.GetVolverAtras() == 1)
+            {
+                for (int i = 0; i < res.Count; i++)
+                {
+                    if (dataGridView1.SelectedCells[0].Value.ToString().Equals("Pregunta " + (i + 1).ToString()))
+                    {
+                        if (mult) { CraftearStringCorrecta(listaOpCorrecta); guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], opcionCorrecta); }
+                        if (!desarrollo && !mult) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
+                        else if (desarrollo) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
+                        cont = i * 3;
+                        interfaz();
+                    }
                 }
             }
         }

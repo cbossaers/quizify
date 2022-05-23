@@ -67,7 +67,7 @@ namespace QuizifyIU
 
         private void bVolver_Click(object sender, EventArgs e)
         {
-
+            Principal.formportal.abrirNieto(new MisExamenes(servicio, usuario));
         }
     }
 }

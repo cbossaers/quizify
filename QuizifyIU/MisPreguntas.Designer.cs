@@ -69,7 +69,8 @@
             this.tipo_txt.Items.AddRange(new object[] {
             "Test",
             "VF",
-            "Mult"});
+            "Mult",
+            "Des"});
             this.tipo_txt.Location = new System.Drawing.Point(65, 95);
             this.tipo_txt.Name = "tipo_txt";
             this.tipo_txt.Size = new System.Drawing.Size(121, 23);
