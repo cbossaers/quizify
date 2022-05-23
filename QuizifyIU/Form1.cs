@@ -57,9 +57,12 @@ namespace QuizifyIU
 
             ActivateButton(Home, RGBColors.color3);
 
-            objeto_notif  = new Notificaciones(this);
-            objeto_notif.Subscribe(observador); 
-            x.HiloGetNotificaciones(usuario.GetCorreo(),this);
+            
+            if(servicio.GetTipoEntidad(usuario.GetCorreo()) == "alumno") {
+                objeto_notif  = new Notificaciones(this);
+                objeto_notif.Subscribe(observador); 
+                x.HiloGetNotificaciones(usuario.GetCorreo(),this); 
+            }
             CambiarIdioma();
 
             timer2 = new System.Windows.Forms.Timer();
