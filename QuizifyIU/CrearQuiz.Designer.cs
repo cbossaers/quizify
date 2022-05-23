@@ -470,7 +470,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrearQuiz";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CrearQuiz";
+            this.Text = "Crear Quiz";
             this.ResumeLayout(false);
             this.PerformLayout();
 

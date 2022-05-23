@@ -190,7 +190,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MisPreguntas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MisPreguntas";
+            this.Text = "Mis Preguntas";
             ((System.ComponentModel.ISupportInitialize)(this.tablaPreguntas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
