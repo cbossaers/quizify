@@ -751,11 +751,11 @@ namespace Quizify.Persistence {
                     cmd.CommandText = "UPDATE notas_pregunta SET nota = @nota WHERE id_ex = @id_ex AND id_preg = @id_preg "
                     + "AND ver_preg = @ver_preg AND alumno = @alumno;";
 
-                    cmd.Parameters.AddWithValue("@nota", nota);
                     cmd.Parameters.AddWithValue("@id_ex", id_ex);
                     cmd.Parameters.AddWithValue("@id_preg", id_preg);
                     cmd.Parameters.AddWithValue("@ver_preg", ver_preg);
                     cmd.Parameters.AddWithValue("@alumno", alumno);
+                    cmd.Parameters.AddWithValue("@nota", nota);
 
                     conn.Open();
 

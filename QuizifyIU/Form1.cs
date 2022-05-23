@@ -281,6 +281,7 @@ namespace QuizifyIU
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            Environment.Exit(Environment.ExitCode);
             Application.Exit();
         }
 
