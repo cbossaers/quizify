@@ -34,6 +34,11 @@ namespace Quizify.Services
             alumno.EliminarNotificacion(id_notif,correo);
         }
 
+        public (DataTable, DataTable) GetExamenesByDificultadAlumno(string al, string dificultad)
+        {
+            return alumno.GetExamenesByDificultadAlumno(al, dificultad);
+        }
+
         //Métodos Profesor
         public void AddProfesor(Profesor prof) {
             try { profesor.Add(prof); } 

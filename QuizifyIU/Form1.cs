@@ -381,7 +381,7 @@ namespace QuizifyIU
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int id = int.Parse(dataGridView1.SelectedCells[0].Value.ToString());
+            int id = int.Parse(dataGridView1.SelectedCells[1].Value.ToString());
             servicio.EliminarNotificacion(id, usuario.GetCorreo());
 
         }
