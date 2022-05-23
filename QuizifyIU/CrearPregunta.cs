@@ -56,7 +56,6 @@ namespace QuizifyIU
             this.usuario = usuario;
             RellenarCursos();
             editar(pregunta);
-            CambiarIdioma();
         }
         private void CambiarIdioma()
         {
@@ -433,9 +432,12 @@ namespace QuizifyIU
             id = preg.GetId();
             crear.Enabled = true;
             string tipo = preg.GetTipo();
+            ctPregunta.Text = preg.GetCT();
+
             if (tipo == "test")
             {
                 VistaTest();
+                tipoPregunta.Text = "Test";
                 lista = preg.GetParametros();
                 opcionCorrecta = lista[0].ToString();
                 tema.Text = preg.GetTema();
@@ -443,6 +445,8 @@ namespace QuizifyIU
                 enunciado.Text = preg.GetEnunciado();
                 int dificul = preg.GetDificultad();
                 int correc = lista[0];
+
+
 
                 switch (dificul)
                 {
@@ -479,6 +483,7 @@ namespace QuizifyIU
             else if (tipo == "vf")
             {
                 VistaVF();
+                tipoPregunta.Text = "VF";
                 List<dynamic> lista = preg.GetParametros();
                 opcionCorrecta = lista[0].ToString();
                 enunciado.Text = preg.GetEnunciado();
@@ -502,7 +507,7 @@ namespace QuizifyIU
             else if (tipo == "mult")
             {
                 VistaMultiple();
-                
+                tipoPregunta.Text = "Selección Múltiple";
                 List<dynamic> lista = preg.GetParametros();
                 tema.Text = preg.GetTema();
                 ctPregunta.Text = preg.GetCT();
@@ -556,6 +561,7 @@ namespace QuizifyIU
             else if(tipo == "des")
             {
                 VistaDesarrollo();
+                tipoPregunta.Text = "Desarrollo";
                 ctPregunta.Text = preg.GetCT();
                 tema.Text = preg.GetTema();
                 enunciado.Text = preg.GetEnunciado();
