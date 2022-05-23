@@ -35,6 +35,8 @@
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.idioma = new QuizifyIU.Controles_extra.Toggle_button();
             this.emailField = new QuizifyIU.Controles_extra.label();
             this.contraField = new QuizifyIU.Controles_extra.label();
@@ -145,6 +147,8 @@
             // 
             // panelDesktop
             // 
+            this.panelDesktop.Controls.Add(this.label3);
+            this.panelDesktop.Controls.Add(this.label2);
             this.panelDesktop.Controls.Add(this.idioma);
             this.panelDesktop.Controls.Add(this.emailField);
             this.panelDesktop.Controls.Add(this.contraField);
@@ -159,16 +163,34 @@
             this.panelDesktop.Size = new System.Drawing.Size(499, 389);
             this.panelDesktop.TabIndex = 19;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(277, 333);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(22, 15);
+            this.label3.TabIndex = 79;
+            this.label3.Text = "EN";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(201, 333);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 15);
+            this.label2.TabIndex = 78;
+            this.label2.Text = "ES";
+            // 
             // idioma
             // 
             this.idioma.AutoSize = true;
-            this.idioma.Location = new System.Drawing.Point(232, 330);
+            this.idioma.Location = new System.Drawing.Point(226, 330);
             this.idioma.MinimumSize = new System.Drawing.Size(45, 22);
             this.idioma.Name = "idioma";
             this.idioma.OffBackColor = System.Drawing.Color.Gray;
-            this.idioma.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.idioma.OffToggleColor = System.Drawing.Color.White;
             this.idioma.OnBackColor = System.Drawing.Color.MediumSlateBlue;
-            this.idioma.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.idioma.OnToggleColor = System.Drawing.Color.White;
             this.idioma.Size = new System.Drawing.Size(45, 22);
             this.idioma.TabIndex = 77;
             this.idioma.UseVisualStyleBackColor = true;
@@ -327,5 +349,7 @@
         private Controles_extra.label contraField;
         private Controles_extra.label emailField;
         private Controles_extra.Toggle_button idioma;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

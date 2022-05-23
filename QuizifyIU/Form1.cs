@@ -61,7 +61,8 @@ namespace QuizifyIU
             if(servicio.GetTipoEntidad(usuario.GetCorreo()) == "alumno") {
                 objeto_notif  = new Notificaciones(this);
                 objeto_notif.Subscribe(observador); 
-                x.HiloGetNotificaciones(usuario.GetCorreo(),this); 
+                x.HiloGetNotificaciones(usuario.GetCorreo(),this);
+                fondo_prof.Visible = false;
             }
             CambiarIdioma();
 

@@ -50,6 +50,7 @@
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.fondo_prof = new FontAwesome.Sharp.IconPictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
@@ -66,6 +67,7 @@
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoForm)).BeginInit();
             this.panelDesktop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fondo_prof)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bellN)).BeginInit();
@@ -438,6 +440,7 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.panelDesktop.Controls.Add(this.fondo_prof);
             this.panelDesktop.Controls.Add(this.label2);
             this.panelDesktop.Controls.Add(this.label1);
             this.panelDesktop.Controls.Add(this.iconPictureBox1);
@@ -456,6 +459,21 @@
             this.panelDesktop.Size = new System.Drawing.Size(754, 559);
             this.panelDesktop.TabIndex = 2;
             // 
+            // fondo_prof
+            // 
+            this.fondo_prof.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.fondo_prof.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fondo_prof.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.fondo_prof.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.fondo_prof.IconColor = System.Drawing.SystemColors.ControlText;
+            this.fondo_prof.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.fondo_prof.IconSize = 559;
+            this.fondo_prof.Location = new System.Drawing.Point(20, 0);
+            this.fondo_prof.Name = "fondo_prof";
+            this.fondo_prof.Size = new System.Drawing.Size(734, 559);
+            this.fondo_prof.TabIndex = 31;
+            this.fondo_prof.TabStop = false;
+            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -463,9 +481,9 @@
             this.label2.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(71, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 20);
+            this.label2.Size = new System.Drawing.Size(68, 20);
             this.label2.TabIndex = 30;
-            this.label2.Text = "La hora actual es ";
+            this.label2.Text = "Son las ";
             // 
             // label1
             // 
@@ -497,7 +515,7 @@
             this.lbTiempo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTiempo.AutoSize = true;
             this.lbTiempo.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbTiempo.Location = new System.Drawing.Point(209, 58);
+            this.lbTiempo.Location = new System.Drawing.Point(137, 59);
             this.lbTiempo.Name = "lbTiempo";
             this.lbTiempo.Size = new System.Drawing.Size(99, 20);
             this.lbTiempo.TabIndex = 27;
@@ -662,6 +680,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconoForm)).EndInit();
             this.panelDesktop.ResumeLayout(false);
             this.panelDesktop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fondo_prof)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bellN)).EndInit();
@@ -701,6 +720,7 @@
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconPictureBox fondo_prof;
     }
 }
 

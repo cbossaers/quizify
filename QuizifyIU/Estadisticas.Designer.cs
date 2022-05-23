@@ -107,7 +107,7 @@
             this.label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label.Location = new System.Drawing.Point(142, 69);
+            this.label.Location = new System.Drawing.Point(142, 66);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(121, 24);
             this.label.TabIndex = 12;
@@ -118,7 +118,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(142, 102);
+            this.label1.Location = new System.Drawing.Point(142, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 24);
             this.label1.TabIndex = 13;
@@ -129,7 +129,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(142, 136);
+            this.label2.Location = new System.Drawing.Point(142, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 24);
             this.label2.TabIndex = 14;
@@ -165,7 +165,7 @@
             this.progress_bar_fancy2.Maximum = 10;
             this.progress_bar_fancy2.Name = "progress_bar_fancy2";
             this.progress_bar_fancy2.ShowMaximun = false;
-            this.progress_bar_fancy2.ShowValue = QuizifyIU.Controles_extra.TextPosition.None;
+            this.progress_bar_fancy2.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy2.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy2.SliderColor = System.Drawing.Color.RoyalBlue;
             this.progress_bar_fancy2.SliderHeight = 6;
@@ -185,7 +185,7 @@
             this.progress_bar_fancy3.Maximum = 10;
             this.progress_bar_fancy3.Name = "progress_bar_fancy3";
             this.progress_bar_fancy3.ShowMaximun = false;
-            this.progress_bar_fancy3.ShowValue = QuizifyIU.Controles_extra.TextPosition.None;
+            this.progress_bar_fancy3.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy3.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy3.SliderColor = System.Drawing.Color.RoyalBlue;
             this.progress_bar_fancy3.SliderHeight = 6;
@@ -205,7 +205,7 @@
             this.progress_bar_fancy4.Maximum = 10;
             this.progress_bar_fancy4.Name = "progress_bar_fancy4";
             this.progress_bar_fancy4.ShowMaximun = true;
-            this.progress_bar_fancy4.ShowValue = QuizifyIU.Controles_extra.TextPosition.None;
+            this.progress_bar_fancy4.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy4.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy4.SliderColor = System.Drawing.Color.RoyalBlue;
             this.progress_bar_fancy4.SliderHeight = 6;
@@ -225,7 +225,7 @@
             this.progress_bar_fancy5.Maximum = 10;
             this.progress_bar_fancy5.Name = "progress_bar_fancy5";
             this.progress_bar_fancy5.ShowMaximun = false;
-            this.progress_bar_fancy5.ShowValue = QuizifyIU.Controles_extra.TextPosition.None;
+            this.progress_bar_fancy5.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy5.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy5.SliderColor = System.Drawing.Color.RoyalBlue;
             this.progress_bar_fancy5.SliderHeight = 6;
@@ -245,7 +245,7 @@
             this.progress_bar_fancy6.Maximum = 10;
             this.progress_bar_fancy6.Name = "progress_bar_fancy6";
             this.progress_bar_fancy6.ShowMaximun = false;
-            this.progress_bar_fancy6.ShowValue = QuizifyIU.Controles_extra.TextPosition.None;
+            this.progress_bar_fancy6.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy6.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy6.SliderColor = System.Drawing.Color.RoyalBlue;
             this.progress_bar_fancy6.SliderHeight = 6;
@@ -265,7 +265,7 @@
             this.progress_bar_fancy7.Maximum = 10;
             this.progress_bar_fancy7.Name = "progress_bar_fancy7";
             this.progress_bar_fancy7.ShowMaximun = false;
-            this.progress_bar_fancy7.ShowValue = QuizifyIU.Controles_extra.TextPosition.None;
+            this.progress_bar_fancy7.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy7.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy7.SliderColor = System.Drawing.Color.RoyalBlue;
             this.progress_bar_fancy7.SliderHeight = 6;
@@ -285,7 +285,7 @@
             this.progress_bar_fancy8.Maximum = 10;
             this.progress_bar_fancy8.Name = "progress_bar_fancy8";
             this.progress_bar_fancy8.ShowMaximun = false;
-            this.progress_bar_fancy8.ShowValue = QuizifyIU.Controles_extra.TextPosition.None;
+            this.progress_bar_fancy8.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy8.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy8.SliderColor = System.Drawing.Color.RoyalBlue;
             this.progress_bar_fancy8.SliderHeight = 6;
@@ -305,7 +305,7 @@
             this.progress_bar_fancy9.Maximum = 10;
             this.progress_bar_fancy9.Name = "progress_bar_fancy9";
             this.progress_bar_fancy9.ShowMaximun = false;
-            this.progress_bar_fancy9.ShowValue = QuizifyIU.Controles_extra.TextPosition.None;
+            this.progress_bar_fancy9.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy9.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy9.SliderColor = System.Drawing.Color.RoyalBlue;
             this.progress_bar_fancy9.SliderHeight = 6;
@@ -325,7 +325,7 @@
             this.progress_bar_fancy10.Maximum = 10;
             this.progress_bar_fancy10.Name = "progress_bar_fancy10";
             this.progress_bar_fancy10.ShowMaximun = false;
-            this.progress_bar_fancy10.ShowValue = QuizifyIU.Controles_extra.TextPosition.None;
+            this.progress_bar_fancy10.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy10.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy10.SliderColor = System.Drawing.Color.RoyalBlue;
             this.progress_bar_fancy10.SliderHeight = 6;
@@ -347,7 +347,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(25, 69);
+            this.label3.Location = new System.Drawing.Point(25, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 24);
             this.label3.TabIndex = 25;
@@ -358,7 +358,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(25, 136);
+            this.label4.Location = new System.Drawing.Point(25, 133);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 24);
             this.label4.TabIndex = 27;
@@ -369,7 +369,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(25, 102);
+            this.label5.Location = new System.Drawing.Point(25, 99);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 24);
             this.label5.TabIndex = 26;
@@ -480,7 +480,7 @@
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(25, 185);
+            this.label15.Location = new System.Drawing.Point(12, 232);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(138, 24);
             this.label15.TabIndex = 39;
@@ -491,7 +491,7 @@
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(169, 185);
+            this.label16.Location = new System.Drawing.Point(156, 232);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(23, 24);
             this.label16.TabIndex = 38;

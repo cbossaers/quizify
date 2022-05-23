@@ -47,7 +47,7 @@
             this.mensaje.BorderSize = 2;
             this.mensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mensaje.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.mensaje.Location = new System.Drawing.Point(145, 175);
+            this.mensaje.Location = new System.Drawing.Point(142, 180);
             this.mensaje.Margin = new System.Windows.Forms.Padding(4);
             this.mensaje.Multiline = true;
             this.mensaje.Name = "mensaje";
@@ -71,7 +71,7 @@
             this.enviar.FlatAppearance.BorderSize = 0;
             this.enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enviar.ForeColor = System.Drawing.Color.White;
-            this.enviar.Location = new System.Drawing.Point(415, 317);
+            this.enviar.Location = new System.Drawing.Point(412, 322);
             this.enviar.Name = "enviar";
             this.enviar.Size = new System.Drawing.Size(150, 40);
             this.enviar.TabIndex = 1;
@@ -85,7 +85,7 @@
             this.nombre_quiz.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nombre_quiz.AutoSize = true;
             this.nombre_quiz.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nombre_quiz.Location = new System.Drawing.Point(115, 120);
+            this.nombre_quiz.Location = new System.Drawing.Point(112, 125);
             this.nombre_quiz.Name = "nombre_quiz";
             this.nombre_quiz.Size = new System.Drawing.Size(330, 24);
             this.nombre_quiz.TabIndex = 6;
@@ -95,7 +95,7 @@
             // 
             this.cursos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cursos.FormattingEnabled = true;
-            this.cursos.Location = new System.Drawing.Point(444, 124);
+            this.cursos.Location = new System.Drawing.Point(441, 129);
             this.cursos.Name = "cursos";
             this.cursos.Size = new System.Drawing.Size(121, 23);
             this.cursos.TabIndex = 7;
@@ -118,16 +118,16 @@
             this.label2.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(12, 57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 20);
+            this.label2.Size = new System.Drawing.Size(68, 20);
             this.label2.TabIndex = 32;
-            this.label2.Text = "La hora actual es ";
+            this.label2.Text = "Son las ";
             // 
             // lbTiempo
             // 
             this.lbTiempo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTiempo.AutoSize = true;
             this.lbTiempo.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbTiempo.Location = new System.Drawing.Point(150, 57);
+            this.lbTiempo.Location = new System.Drawing.Point(77, 57);
             this.lbTiempo.Name = "lbTiempo";
             this.lbTiempo.Size = new System.Drawing.Size(99, 20);
             this.lbTiempo.TabIndex = 31;
