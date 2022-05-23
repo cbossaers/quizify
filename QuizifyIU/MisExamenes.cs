@@ -145,7 +145,11 @@ namespace QuizifyIU
 
         private void tabla()
         {
-            if(servicio.GetTipoEntidad(user.GetCorreo()) == "alumno") tablaExamenDisponible.DataSource = servicio.GetExamenByDificultad(filtros);
+            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
+            {
+                tupla = servicio.GetExamenesByDificultadAlumno(user.GetCorreo(), dificultadBox.Text);
+                tablaExamenDisponible.DataSource = tupla.Item1;
+            }
             else tablaExamenesProfesor.DataSource = servicio.GetExamenByDificultad(filtros);
         }
 
@@ -155,7 +159,6 @@ namespace QuizifyIU
             {
                 tupla = servicio.GetExamenesAlumno(user.GetCorreo());
                 tablaExamenDisponible.DataSource = tupla.Item1;
-                tablaExamenFinalizado.DataSource = tupla.Item2;
             }
             else tablaExamenesProfesor.DataSource = servicio.GetExamenesProfesor(user.GetCorreo());
         }

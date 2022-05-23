@@ -200,4 +200,48 @@ public class DALAlumno {
             }
         }
     }
-}}
+
+    public (DataTable, DataTable) GetExamenesByDificultadAlumno(string id, string dificultad)
+    {
+
+        List<string> cursos = DALCurso.GetCursosAlumno(id);
+        DataTable dtact = new DataTable();
+        DataTable dtnoact = new DataTable();
+        DataTable dtnota = new DataTable();
+
+        foreach (string curso in cursos)
+        {
+
+            using (MySqlConnection conn = new MySqlConnection(connStr))
+            {
+
+                using (MySqlCommand cmd = conn.CreateCommand())
+                {
+
+                    cmd.CommandText = "SELECT id,titulo,curso,tiempo,fecha_fin,CT,dificultad FROM examen WHERE curso = @curso AND estado = 'Activo' AND dificultad = @dificultad AND id NOT IN (SELECT examen FROM notas_examenes WHERE alumno = @alumno)";
+
+                    cmd.Parameters.AddWithValue("@curso", curso);
+                    cmd.Parameters.AddWithValue("@alumno", id);
+                    cmd.Parameters.AddWithValue("@dificultad", dificultad);
+
+                    conn.Open();
+
+                    dtact.Load(cmd.ExecuteReader());
+
+                    conn.Close();
+
+
+                    cmd.CommandText = "SELECT id,titulo,curso,estado,CT,dificultad FROM examen WHERE (curso = @curso AND estado NOT LIKE 'Activo') OR (id IN ("
+                    + "SELECT examen FROM notas_examenes WHERE alumno = @alumno));";
+
+                    conn.Open();
+
+                    dtnoact.Load(cmd.ExecuteReader());
+                }
+            }
+        }
+
+        return (dtact, GetNotas(id, dtnoact));
+    }
+    }
+}
