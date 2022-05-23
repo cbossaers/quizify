@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using System.Timers;
+using System.Diagnostics;
 
 
 namespace QuizifyIU
@@ -26,15 +26,13 @@ namespace QuizifyIU
         private bool desarrollo = false;
 
         private Alumno usuario;
-        int counter;
-        int minutes;
+        public static int minutes;
         Examen examen;
+        private System.Windows.Forms.Timer timer2; 
+        private int counter;
 
         private List<string> listaOpCorrecta = new List<String> { "0", "0", "0", "0", "0" };
         private string opcionCorrecta="";
-
-        private static System.Timers.Timer t;
-        private static int elapsed;
 
         private void guardar(int id, int version, dynamic correcta)
         {
@@ -64,7 +62,44 @@ namespace QuizifyIU
             label1.Text = preguntas_asociadas[cont].ToString();
             label1.Text = preguntas_asociadas[cont + 1].ToString();
 
-            SetTimer();
+            minutes = examen.GetTiempo();
+            counter = minutes*60;
+
+            timer2 = new System.Windows.Forms.Timer();
+            timer2.Tick += new EventHandler(timer2_Tick);
+            timer2.Interval = 1000; // 1 second
+            timer2.Start();
+            label5.Text = TimeSpan.FromSeconds(counter).ToString();
+            }
+
+        private void timer2_Tick(object sender, EventArgs e) {
+            counter--;
+            if (counter == 300) {
+                MessageBox.Show(this, "Quedan 5 minutos", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            } else if (counter == 0) {
+                timer2.Stop();
+                MessageBox.Show(this, "Se ha acabado el tiempo", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                FinalizarPorTimer();
+            }
+            label5.Text = TimeSpan.FromSeconds(counter).ToString();
+        }
+        private void FinalizarPorTimer() {
+            List<dynamic> respuestas = new List<dynamic> { };
+                indice();
+                respuestas.Add(examen.GetId());
+                respuestas.Add(usuario.GetCorreo());
+                for (int i = 0; i < preguntas_asociadas.Count; i += 3)
+                {
+                    respuestas.Add(preguntas_asociadas[i]);
+                    respuestas.Add(preguntas_asociadas[i + 1]);
+                    respuestas.Add(res[preguntas_asociadas[i]].ToString());
+                }
+                servicio.SubirRespuestas(respuestas);
+
+                DialogResult answer = MessageBox.Show(this, "examen añadido correctamente.",
+                                                            "Exito", MessageBoxButtons.OK,
+                                                            MessageBoxIcon.Information);
+                Principal.formportal.abrirNieto(new MisExamenes(servicio, usuario));
         }
 
         private void interfaz()
@@ -101,12 +136,6 @@ namespace QuizifyIU
                     respuestas.Add(preguntas_asociadas[i + 1]);
                     respuestas.Add(res[preguntas_asociadas[i]].ToString());
                 }
-                /*string p="";
-                foreach(dynamic m in respuestas)
-                {
-                    p+= m.ToString();
-                }
-                label1.Text = p;*/
                 servicio.SubirRespuestas(respuestas);
 
                 DialogResult answer = MessageBox.Show(this, "examen añadido correctamente.",
@@ -470,27 +499,6 @@ namespace QuizifyIU
 
                 correcta0.Checked = false; correcta1.Checked = false; correcta2.Checked = false; correcta3.Checked = false; correcta4.Checked = false;
             }
-        }
-
-        private void SetTimer() {
-            t = new System.Timers.Timer(1000);
-            minutes = examen.GetTiempo();
-            if (InvokeRequired) {
-                this.Invoke(new Action(() => intermediario()));
-                return;
-            }
-
-            t.AutoReset = true;
-            t.Enabled = true;
-        }
-
-        private void intermediario() {
-            t.Elapsed += OnTimedEvent;
-        }
-
-        private void OnTimedEvent(Object source, ElapsedEventArgs e) {
-            elapsed++;
-            label5.Text = (TimeSpan.FromMinutes(minutes) - TimeSpan.FromSeconds(elapsed)).ToString();  
         }
     }
 }
