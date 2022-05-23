@@ -90,30 +90,11 @@ namespace QuizifyIU
                     BindingList<object> bindingListExamenDisponible = new BindingList<object>();
                     Examen examen = servicio.GetExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
                     servicio.PublicarNotas(examen.GetId());
-                    List<int> lista = servicio.GetExamenesProfesor(user.GetCorreo());
                     calificar.Visible = true;
                     tablaExamenesProfesor.Visible = true;
                     tablaExamenDisponible.Visible = false;
                     tablaExamenFinalizado.Visible = false;
-                    foreach (int x in lista)
-                    {
-                        Examen ex = servicio.GetExamen(x);
-                        bindingListExamenDisponible.Add(new
-                        {
-                            id = ex.GetId(),
-                            estado = ex.GetEstado(),
-                            titulo = ex.GetTitulo(),
-                            descripcion = ex.GetDescripcion(),
-                            curso = ex.GetCurso(),
-                            tiempo = ex.GetTiempo(),
-                            fecha_ini = ex.GetFechaIni(),
-                            fecha_fin = ex.GetFechaFin(),
-                            ct = ex.GetCompetenciaTransversal(),
-                            dificultad = ex.GetDificultad()
-                        });
-
-                    }
-                    tablaExamenesProfesor.DataSource = bindingListExamenDisponible;
+                    tablaExamenesProfesor.DataSource = servicio.GetExamenesProfesor(user.GetCorreo());
                 }
                 catch (Exception ex)
                 {
