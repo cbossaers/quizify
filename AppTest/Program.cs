@@ -28,23 +28,6 @@ namespace AppTest {
             NuevoServicio service = new NuevoServicio();
 
             FabricaExamenes fabrica = new FabricaExamenes();
-
-            SetTimer();
-
-            t.Stop();
-            t.Dispose();
-        }
-
-        public static void OnTimedEvent(Object source, ElapsedEventArgs e) {
-            elapsed++;
-        }
-
-        public static void SetTimer() {
-            t = new Timer(1000);
-            t.Elapsed += OnTimedEvent;
-
-            t.AutoReset = true;
-            t.Enabled = true;
         }
     }
     
