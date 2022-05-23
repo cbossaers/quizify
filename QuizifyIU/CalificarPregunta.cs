@@ -22,6 +22,7 @@ namespace QuizifyIU
         private int vers;
         private string alumno;
         double puntuacion;
+        private double notaReal;
         public CalificarPregunta(NuevoServicio servicio, dynamic usuario, int examen)
         {
             InitializeComponent();
@@ -65,11 +66,10 @@ namespace QuizifyIU
         private void EvPonerNota(object sender, EventArgs e)
         {
             
-            double notaReal;
+            
             try
             {
-                
-                notaReal = double.Parse(notabox.Text);
+                notaReal = double.Parse(notabox.Text.ToString());
                 if (notaReal >= 0 && notaReal <= puntuacion)
                 {
                     servicio.CalificarDesarrollo(idex, idpreg, vers, alumno, notaReal);

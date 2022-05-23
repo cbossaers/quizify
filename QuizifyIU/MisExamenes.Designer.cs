@@ -114,6 +114,7 @@
             this.tablaExamenesProfesor.GridColor = System.Drawing.Color.White;
             this.tablaExamenesProfesor.Location = new System.Drawing.Point(10, 48);
             this.tablaExamenesProfesor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tablaExamenesProfesor.MultiSelect = false;
             this.tablaExamenesProfesor.Name = "tablaExamenesProfesor";
             this.tablaExamenesProfesor.ReadOnly = true;
             this.tablaExamenesProfesor.RowHeadersVisible = false;
@@ -154,6 +155,7 @@
             this.tablaExamenDisponible.GridColor = System.Drawing.Color.White;
             this.tablaExamenDisponible.Location = new System.Drawing.Point(10, 71);
             this.tablaExamenDisponible.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tablaExamenDisponible.MultiSelect = false;
             this.tablaExamenDisponible.Name = "tablaExamenDisponible";
             this.tablaExamenDisponible.ReadOnly = true;
             this.tablaExamenDisponible.RowHeadersVisible = false;
@@ -194,6 +196,7 @@
             this.tablaExamenFinalizado.GridColor = System.Drawing.Color.White;
             this.tablaExamenFinalizado.Location = new System.Drawing.Point(13, 294);
             this.tablaExamenFinalizado.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tablaExamenFinalizado.MultiSelect = false;
             this.tablaExamenFinalizado.Name = "tablaExamenFinalizado";
             this.tablaExamenFinalizado.ReadOnly = true;
             this.tablaExamenFinalizado.RowHeadersVisible = false;

@@ -13,6 +13,10 @@ namespace QuizifyIU
     {
         private NuevoServicio servicio;
         private dynamic usuario;
+
+        private TimeSpan ts = DateTime.Now.TimeOfDay;
+        private System.Windows.Forms.Timer timer2;
+        string formattedTimespan;
         public Home_profesor(NuevoServicio servicio,dynamic usuario)
         {
             this.servicio = servicio;
@@ -21,6 +25,19 @@ namespace QuizifyIU
             setearcusos();
             CambiarIdioma();
             label3.Text = "Bienvenido, " + Principal.user.GetCorreo();
+            timer2 = new System.Windows.Forms.Timer();
+            timer2.Tick += new EventHandler(timer2_Tick);
+            timer2.Interval = 1000; // 1 second
+            timer2.Start();
+            formattedTimespan = ts.ToString("hh\\:mm");
+            lbTiempo.Text = formattedTimespan;
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            ts = DateTime.Now.TimeOfDay;
+            formattedTimespan = ts.ToString("hh\\:mm");
+            lbTiempo.Text = formattedTimespan;
         }
         private void setearcusos()
         {

@@ -36,11 +36,11 @@ namespace QuizifyIU
             this.servicio = servicio;
             //nombreIniciado.Text = user.correo;
             usuario = user;
-            dataGridView1.Visible = false;
+            /*dataGridView1.Visible = false;
             noti2.Visible = false;
             noti1.Visible = false;
             bellN.Visible = true;
-            numnoti.Visible = true;
+            numnoti.Visible = true;*/
             ver(user);
             //CollapseMenu();
             this.Padding = new Padding(borderSize);//Border size
