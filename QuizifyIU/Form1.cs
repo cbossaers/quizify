@@ -7,7 +7,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-
 namespace QuizifyIU
 {
     public partial class Form1 : Form
@@ -55,13 +54,10 @@ namespace QuizifyIU
 
             ActivateButton(Home, RGBColors.color3);
 
-
-
             objeto_notif  = new Notificaciones(this);
             objeto_notif.Subscribe(observador);
             x.HiloGetNotificaciones(usuario.GetCorreo(),this);
             CambiarIdioma();
-
 
         }
         private void ver(dynamic user)
@@ -358,8 +354,9 @@ namespace QuizifyIU
         {
             this.Hide();
             var form2 = new Principal(servicio);
-            form2.Closed += (s, args) => this.Close();
+            //form2.Closed += (s, args) => this.Close();
             form2.ShowDialog();
+            this.Close();
         }
 
         public void obsc(string x)
