@@ -28,7 +28,7 @@ namespace QuizifyIU
             InitializeComponent();
             this.servicio = servicio;
             usuario = user;
-            
+            this.ActiveControl = nombre;
             fin.Value = DateTime.Now.AddDays(1);
             setear_cursos();
             
@@ -37,6 +37,7 @@ namespace QuizifyIU
         public CrearQuiz(NuevoServicio servicio, dynamic user,Examen examen)
         {
             InitializeComponent();
+            this.ActiveControl = nombre;
             this.servicio = servicio;
             usuario = user;
             //fin.Value = DateTime.Now.AddDays(1);

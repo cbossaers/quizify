@@ -257,6 +257,7 @@ namespace QuizifyIU
             panelDesktop.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+            childForm.Focus();
             labelTitle.Text = childForm.Text;
         }
         private void Reset()
@@ -328,6 +329,7 @@ namespace QuizifyIU
             ActivateButton(sender, RGBColors.color3);
             crear = new CrearQuiz(servicio, usuario);
             OpenChildForm(crear);
+
         }
         public CrearQuiz getCrear()
         {

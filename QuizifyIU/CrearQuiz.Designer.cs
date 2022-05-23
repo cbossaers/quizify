@@ -98,7 +98,7 @@
             this.nombre.Location = new System.Drawing.Point(178, 30);
             this.nombre.Name = "nombre";
             this.nombre.Size = new System.Drawing.Size(360, 23);
-            this.nombre.TabIndex = 4;
+            this.nombre.TabIndex = 1;
             // 
             // label8
             // 
@@ -116,7 +116,7 @@
             this.siguiente.Location = new System.Drawing.Point(359, 476);
             this.siguiente.Name = "siguiente";
             this.siguiente.Size = new System.Drawing.Size(105, 28);
-            this.siguiente.TabIndex = 15;
+            this.siguiente.TabIndex = 10;
             this.siguiente.Text = "Manualmente";
             this.siguiente.UseVisualStyleBackColor = true;
             this.siguiente.Click += new System.EventHandler(this.siguiente_Click);
@@ -164,7 +164,7 @@
             this.minutos.Location = new System.Drawing.Point(422, 291);
             this.minutos.Name = "minutos";
             this.minutos.Size = new System.Drawing.Size(70, 23);
-            this.minutos.TabIndex = 54;
+            this.minutos.TabIndex = 8;
             // 
             // horas
             // 
@@ -208,7 +208,7 @@
             this.descripcion.Multiline = true;
             this.descripcion.Name = "descripcion";
             this.descripcion.Size = new System.Drawing.Size(360, 78);
-            this.descripcion.TabIndex = 59;
+            this.descripcion.TabIndex = 2;
             // 
             // label6
             // 
@@ -246,7 +246,7 @@
             this.ini.Location = new System.Drawing.Point(324, 203);
             this.ini.Name = "ini";
             this.ini.Size = new System.Drawing.Size(82, 23);
-            this.ini.TabIndex = 63;
+            this.ini.TabIndex = 5;
             // 
             // fin
             // 
@@ -254,7 +254,7 @@
             this.fin.Location = new System.Drawing.Point(324, 232);
             this.fin.Name = "fin";
             this.fin.Size = new System.Drawing.Size(82, 23);
-            this.fin.TabIndex = 64;
+            this.fin.TabIndex = 6;
             // 
             // label11
             // 
@@ -277,7 +277,7 @@
             this.curso.Location = new System.Drawing.Point(356, 175);
             this.curso.Name = "curso";
             this.curso.Size = new System.Drawing.Size(111, 23);
-            this.curso.TabIndex = 66;
+            this.curso.TabIndex = 4;
             this.curso.Text = "Curso";
             // 
             // label12
@@ -294,22 +294,22 @@
             // 
             this.comboBoxCT.FormattingEnabled = true;
             this.comboBoxCT.Items.AddRange(new object[] {
-            "Comprensión e Integración",
-            "Aplicación y pensamiento práctico",
             "Análisis y resolución de problemas",
-            "Innovación, creatividad y emprendimiento",
-            "Diseño y proyecto",
-            "Trabajo en equipo y liderazgo",
-            "Responsabilidad ética",
-            "Comunicación efectiva",
-            "Pensamiento crítico",
-            "Conocimiento de problemas actuales contemporáneos",
+            "Aplicación y pensamiento práctico",
             "Aprendizaje permanente",
-            "Planificación y Gestión del tiempo"});
+            "Comprensión e Integración",
+            "Comunicación efectiva",
+            "Conocimiento de problemas actuales contemporáneos",
+            "Diseño y proyecto",
+            "Innovación, creatividad y emprendimiento",
+            "Pensamiento crítico",
+            "Planificación y Gestión del tiempo",
+            "Responsabilidad ética",
+            "Trabajo en equipo y liderazgo"});
             this.comboBoxCT.Location = new System.Drawing.Point(306, 334);
             this.comboBoxCT.Name = "comboBoxCT";
             this.comboBoxCT.Size = new System.Drawing.Size(210, 23);
-            this.comboBoxCT.TabIndex = 71;
+            this.comboBoxCT.TabIndex = 9;
             // 
             // label7
             // 
@@ -332,7 +332,7 @@
             this.toggle_button1.OnBackColor = System.Drawing.Color.MediumSlateBlue;
             this.toggle_button1.OnToggleColor = System.Drawing.Color.WhiteSmoke;
             this.toggle_button1.Size = new System.Drawing.Size(45, 22);
-            this.toggle_button1.TabIndex = 74;
+            this.toggle_button1.TabIndex = 10;
             this.toggle_button1.UseVisualStyleBackColor = true;
             this.toggle_button1.CheckedChanged += new System.EventHandler(this.toggle_button1_CheckedChanged);
             // 
@@ -347,7 +347,7 @@
             this.toggle_button2.OnBackColor = System.Drawing.Color.MediumSlateBlue;
             this.toggle_button2.OnToggleColor = System.Drawing.Color.WhiteSmoke;
             this.toggle_button2.Size = new System.Drawing.Size(45, 22);
-            this.toggle_button2.TabIndex = 75;
+            this.toggle_button2.TabIndex = 11;
             this.toggle_button2.UseVisualStyleBackColor = true;
             this.toggle_button2.CheckedChanged += new System.EventHandler(this.toggle_button2_CheckedChanged);
             // 
@@ -362,7 +362,7 @@
             this.toggle_button3.OnBackColor = System.Drawing.Color.MediumSlateBlue;
             this.toggle_button3.OnToggleColor = System.Drawing.Color.WhiteSmoke;
             this.toggle_button3.Size = new System.Drawing.Size(45, 22);
-            this.toggle_button3.TabIndex = 76;
+            this.toggle_button3.TabIndex = 12;
             this.toggle_button3.UseVisualStyleBackColor = true;
             this.toggle_button3.Visible = false;
             this.toggle_button3.CheckedChanged += new System.EventHandler(this.toggle_button3_CheckedChanged);
@@ -377,7 +377,7 @@
             this.dificultad.Location = new System.Drawing.Point(356, 146);
             this.dificultad.Name = "dificultad";
             this.dificultad.Size = new System.Drawing.Size(111, 23);
-            this.dificultad.TabIndex = 77;
+            this.dificultad.TabIndex = 3;
             this.dificultad.Text = "Normal";
             // 
             // label15
@@ -395,7 +395,7 @@
             this.automatico.Location = new System.Drawing.Point(479, 476);
             this.automatico.Name = "automatico";
             this.automatico.Size = new System.Drawing.Size(108, 28);
-            this.automatico.TabIndex = 82;
+            this.automatico.TabIndex = 11;
             this.automatico.Text = "Automatiamente";
             this.automatico.UseVisualStyleBackColor = true;
             this.automatico.Click += new System.EventHandler(this.automatico_Click);
@@ -423,7 +423,7 @@
             this.intentos.Location = new System.Drawing.Point(357, 261);
             this.intentos.Name = "intentos";
             this.intentos.Size = new System.Drawing.Size(100, 23);
-            this.intentos.TabIndex = 83;
+            this.intentos.TabIndex = 7;
             this.intentos.Text = "1";
             this.intentos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.intentos.TextChanged += new System.EventHandler(this.intentos_SelectedIndexChanged);
