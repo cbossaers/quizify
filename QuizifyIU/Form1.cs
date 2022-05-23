@@ -26,6 +26,7 @@ namespace QuizifyIU
         private Panel leftBorderBtn;
         private Form currentChildForm;
         private bool alumno = false;
+        
 
         public Form1(NuevoServicio servicio, dynamic user)
         {
@@ -59,7 +60,9 @@ namespace QuizifyIU
             objeto_notif  = new Notificaciones(this);
             objeto_notif.Subscribe(observador);
             x.HiloGetNotificaciones(usuario.GetCorreo(),this);
-            
+            CambiarIdioma();
+
+
         }
         private void ver(dynamic user)
         {
@@ -381,6 +384,19 @@ namespace QuizifyIU
             int id = int.Parse(dataGridView1.SelectedCells[0].Value.ToString());
             servicio.EliminarNotificacion(id, usuario.GetCorreo());
 
+        }
+        private void CambiarIdioma()
+        {
+            if(Principal.ingles == true)
+            {
+                CrearQuiz.Text = "Create Quiz"; CrearPregunta.Text = "Create Question"; Mispreguntas.Text = "My Questions";
+                Misexamenes.Text = "My Quizzes"; Cursos.Text = "My Courses"; tienda.Text = "Shop"; CerrarSesion.Text = "Log Out";
+            }
+            else
+            {
+                CrearQuiz.Text = "Crear Quiz"; CrearPregunta.Text = "Crear Pregunta"; Mispreguntas.Text = "Mis Preguntas";
+                Misexamenes.Text = "Mis Quizzes"; Cursos.Text = "Mis Cursos"; tienda.Text = "Tienda"; CerrarSesion.Text = "Cerrar Sesión";
+            }
         }
     }
 }

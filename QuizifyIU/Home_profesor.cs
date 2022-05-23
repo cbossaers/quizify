@@ -19,6 +19,7 @@ namespace QuizifyIU
             this.usuario = usuario;
             InitializeComponent();
             setearcusos();
+            CambiarIdioma();
         }
         private void setearcusos()
         {
@@ -32,6 +33,19 @@ namespace QuizifyIU
         private void enviar_Click(object sender, EventArgs e)
         {
             servicio.EnviarMensaje(mensaje.Texts, cursos.Text, usuario.GetCorreo());
+        }
+        private void CambiarIdioma()
+        {
+            if (Principal.ingles == true)
+            {
+                nombre_quiz.Text = "Message for course students";
+                enviar.Text = "Send Message";
+            }
+            else
+            {
+                nombre_quiz.Text = "Mensaje para los alumnos del curso";
+                enviar.Text = "Enviar Mensaje";
+            }
         }
     }
 }

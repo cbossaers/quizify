@@ -39,6 +39,7 @@ namespace QuizifyIU
             this.servicio = servicio;
             this.usuario = usuario;
             RellenarCursos();
+            CambiarIdioma();
         }
         public CrearPregunta(NuevoServicio servicio, dynamic usuario,Examen examen)
         {
@@ -46,6 +47,7 @@ namespace QuizifyIU
             this.servicio = servicio;            
             this.usuario = usuario;
             RellenarCursos();
+            CambiarIdioma();
         }
         public CrearPregunta(NuevoServicio servicio, dynamic usuario, Pregunta2 pregunta)
         {
@@ -53,10 +55,31 @@ namespace QuizifyIU
             this.servicio = servicio;
             this.usuario = usuario;
             RellenarCursos();
-            editar(pregunta); 
+            editar(pregunta);
+            CambiarIdioma();
         }
+        private void CambiarIdioma()
+        {
+            if (Principal.ingles == true)
+            {
+                label1.Text = "Statement"; label2.Text = "Course"; botonAdd.Text = "Add"; botonAdd2.Text = "Add"; botonBorrar.Text = "Delete"; botonBorrar2.Text = "Delete";
+                verdadero0.Text = "True"; falso1.Text = "False"; crear.Text = "Create"; tipoPregunta.Text = "Type of Question";
+                tipoPregunta.Items.Clear(); tipoPregunta.Items.Add("Test"); tipoPregunta.Items.Add("True False"); tipoPregunta.Items.Add("Essay");
+                tipoPregunta.Items.Add("Multiple Choice");
+                dificultad.Text = "Difficulty";
+                dificultad.Items.Clear(); dificultad.Items.Add("Easy"); dificultad.Items.Add("Normal"); dificultad.Items.Add("Hard");
 
-        
+            }
+            else
+            {
+                label1.Text = "Enunciado"; label2.Text = "Curso"; botonAdd.Text = "Añadir"; botonAdd2.Text = "Añadir"; botonBorrar.Text = "Borrar"; botonBorrar2.Text = "Borrar";
+                verdadero0.Text = "Verdadero"; falso1.Text = "Falso"; crear.Text = "Crear"; tipoPregunta.Text = "Tipo de Pregunta";
+                tipoPregunta.Items.Clear(); tipoPregunta.Items.Add("Test"); tipoPregunta.Items.Add("Verdadero Falso"); tipoPregunta.Items.Add("Desarrollo");
+                tipoPregunta.Items.Add("Selección Múltiple");
+                dificultad.Text = "Dificultad";
+                dificultad.Items.Clear(); dificultad.Items.Add("Fácil"); dificultad.Items.Add("Normal"); dificultad.Items.Add("Difícil");
+            }
+        }
 
         private void CambiaTipoPregunta(object sender, EventArgs e)
         {
@@ -66,11 +89,11 @@ namespace QuizifyIU
             {
                 VistaTest();
             }
-            else if (tipoPregunta.Text == "Desarrollo")
+            else if (tipoPregunta.Text == "Desarrollo" || tipoPregunta.Text == "Essay")
             {
                 VistaDesarrollo();
             }
-            else if (tipoPregunta.Text == "Selección Múltiple")
+            else if (tipoPregunta.Text == "Selección Múltiple" || tipoPregunta.Text == "Multiple Choice")
             {
                 VistaMultiple();
             }
@@ -163,7 +186,7 @@ namespace QuizifyIU
                                    MessageBoxIcon.Error);
                 return;
             }
-            if(tipoPregunta.Text == "Desarrollo")
+            if(tipoPregunta.Text == "Desarrollo" || tipoPregunta.Text == "Multiple Choice")
             {
                 List<dynamic> listaDes = new List<dynamic>{RespuestaTxt.Text.ToString()};
                 if (ctPregunta.Text == "Competencia Transversal") ctPregunta.Text = "";
@@ -221,7 +244,7 @@ namespace QuizifyIU
                 
                 VistaTest();
             }
-            else if (tipoPregunta.Text == "Selección Múltiple")
+            else if (tipoPregunta.Text == "Selección Múltiple" || tipoPregunta.Text == "Multiple Choice")
             {
                     CraftearStringCorrecta(listaOpCorrecta);
                     lista.Add(int.Parse(opcionCorrecta));
@@ -280,6 +303,8 @@ namespace QuizifyIU
                 case("Fácil"): dificultadNum = 0; break;
                 case ("Normal"): dificultadNum = 1; break;
                 case ("Difícil"): dificultadNum = 2; break;
+                case ("Easy"): dificultadNum = 0; break;
+                case ("Hard"): dificultadNum = 2; break;
             }
             //lista.Add(dificultadNum);
             cambioDificultad = true;

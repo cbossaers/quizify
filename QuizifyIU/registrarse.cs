@@ -25,6 +25,7 @@ namespace QuizifyIU
         {
             InitializeComponent();
             this.servicio = servicio;
+            CambiarIdioma();
         }
 
         private void registrarse_Load(object sender, EventArgs e)
@@ -91,7 +92,7 @@ namespace QuizifyIU
             string contra = contraBox.Texts;
             string tipoUser = tipoUsuario.Text;
 
-            if (tipoUser.Equals("Profesor")) {
+            if (tipoUser.Equals("Profesor") || tipoUser.Equals("Teacher")) {
                 try { servicio.AddProfesor(new Profesor(email, contra, nombre, apellidos)); }
                 catch (Exception ex) { 
                     DialogResult answer = MessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.OK, 
@@ -124,7 +125,21 @@ namespace QuizifyIU
                 registeredUser();
             }
         }
-
+        private void CambiarIdioma()
+        {
+            if(Principal.ingles == true)
+            {
+                label7.Text = "Sign in"; label2.Text = "Name"; label5.Text = "Last name"; label3.Text = "Password"; label6.Text = "User type";
+                bConfirmar.Text = "Sign in"; tipoUsuario.Text = "Choose a user type";
+                tipoUsuario.Items.Clear(); tipoUsuario.Items.Add("Student"); tipoUsuario.Items.Add("Teacher"); 
+            }
+            else
+            {
+                label7.Text = "Registro"; label2.Text = "Nombre"; label5.Text = "Apellidos"; label3.Text = "Contraseña"; label6.Text = "Tipo de usuario";
+                bConfirmar.Text = "Registrarse"; tipoUsuario.Text = "Elige un tipo de usuario";
+                tipoUsuario.Items.Clear(); tipoUsuario.Items.Add("Alumno"); tipoUsuario.Items.Add("Profesor"); 
+            }
+        }
         
     }
 }

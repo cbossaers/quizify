@@ -35,6 +35,7 @@
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.idioma = new QuizifyIU.Controles_extra.Toggle_button();
             this.emailField = new QuizifyIU.Controles_extra.label();
             this.contraField = new QuizifyIU.Controles_extra.label();
             this.bregistrarse = new System.Windows.Forms.Label();
@@ -144,6 +145,7 @@
             // 
             // panelDesktop
             // 
+            this.panelDesktop.Controls.Add(this.idioma);
             this.panelDesktop.Controls.Add(this.emailField);
             this.panelDesktop.Controls.Add(this.contraField);
             this.panelDesktop.Controls.Add(this.bregistrarse);
@@ -156,6 +158,21 @@
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(499, 389);
             this.panelDesktop.TabIndex = 19;
+            // 
+            // idioma
+            // 
+            this.idioma.AutoSize = true;
+            this.idioma.Location = new System.Drawing.Point(232, 330);
+            this.idioma.MinimumSize = new System.Drawing.Size(45, 22);
+            this.idioma.Name = "idioma";
+            this.idioma.OffBackColor = System.Drawing.Color.Gray;
+            this.idioma.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.idioma.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.idioma.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.idioma.Size = new System.Drawing.Size(45, 22);
+            this.idioma.TabIndex = 77;
+            this.idioma.UseVisualStyleBackColor = true;
+            this.idioma.CheckedChanged += new System.EventHandler(this.EvCambiarIdioma);
             // 
             // emailField
             // 
@@ -274,7 +291,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(483, 395);
+            this.ClientSize = new System.Drawing.Size(499, 434);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -309,5 +326,6 @@
         private System.Windows.Forms.Label label8;
         private Controles_extra.label contraField;
         private Controles_extra.label emailField;
+        private Controles_extra.Toggle_button idioma;
     }
 }

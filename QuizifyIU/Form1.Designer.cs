@@ -91,7 +91,7 @@
             this.tienda.Dock = System.Windows.Forms.DockStyle.Top;
             this.tienda.FlatAppearance.BorderSize = 0;
             this.tienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tienda.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tienda.ForeColor = System.Drawing.Color.White;
             this.tienda.IconChar = FontAwesome.Sharp.IconChar.Shopify;
             this.tienda.IconColor = System.Drawing.Color.White;
@@ -116,7 +116,7 @@
             this.CerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.CerrarSesion.FlatAppearance.BorderSize = 0;
             this.CerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CerrarSesion.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CerrarSesion.ForeColor = System.Drawing.Color.White;
             this.CerrarSesion.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.CerrarSesion.IconColor = System.Drawing.Color.White;
@@ -141,7 +141,7 @@
             this.Cursos.Dock = System.Windows.Forms.DockStyle.Top;
             this.Cursos.FlatAppearance.BorderSize = 0;
             this.Cursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cursos.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Cursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Cursos.ForeColor = System.Drawing.Color.White;
             this.Cursos.IconChar = FontAwesome.Sharp.IconChar.GraduationCap;
             this.Cursos.IconColor = System.Drawing.Color.White;
@@ -166,7 +166,7 @@
             this.Misexamenes.Dock = System.Windows.Forms.DockStyle.Top;
             this.Misexamenes.FlatAppearance.BorderSize = 0;
             this.Misexamenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Misexamenes.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Misexamenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Misexamenes.ForeColor = System.Drawing.Color.White;
             this.Misexamenes.IconChar = FontAwesome.Sharp.IconChar.Clipboard;
             this.Misexamenes.IconColor = System.Drawing.Color.White;
@@ -191,7 +191,7 @@
             this.Mispreguntas.Dock = System.Windows.Forms.DockStyle.Top;
             this.Mispreguntas.FlatAppearance.BorderSize = 0;
             this.Mispreguntas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Mispreguntas.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Mispreguntas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Mispreguntas.ForeColor = System.Drawing.Color.White;
             this.Mispreguntas.IconChar = FontAwesome.Sharp.IconChar.Question;
             this.Mispreguntas.IconColor = System.Drawing.Color.White;
@@ -216,7 +216,7 @@
             this.CrearPregunta.Dock = System.Windows.Forms.DockStyle.Top;
             this.CrearPregunta.FlatAppearance.BorderSize = 0;
             this.CrearPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrearPregunta.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CrearPregunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CrearPregunta.ForeColor = System.Drawing.Color.White;
             this.CrearPregunta.IconChar = FontAwesome.Sharp.IconChar.Pen;
             this.CrearPregunta.IconColor = System.Drawing.Color.White;
@@ -241,7 +241,7 @@
             this.CrearQuiz.Dock = System.Windows.Forms.DockStyle.Top;
             this.CrearQuiz.FlatAppearance.BorderSize = 0;
             this.CrearQuiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrearQuiz.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CrearQuiz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CrearQuiz.ForeColor = System.Drawing.Color.White;
             this.CrearQuiz.IconChar = FontAwesome.Sharp.IconChar.Edit;
             this.CrearQuiz.IconColor = System.Drawing.Color.White;
@@ -266,7 +266,7 @@
             this.Home.Dock = System.Windows.Forms.DockStyle.Top;
             this.Home.FlatAppearance.BorderSize = 0;
             this.Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Home.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Home.ForeColor = System.Drawing.Color.White;
             this.Home.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.Home.IconColor = System.Drawing.Color.White;
@@ -363,12 +363,12 @@
             // 
             this.labelTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelTitle.Location = new System.Drawing.Point(57, 23);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(54, 20);
+            this.labelTitle.Size = new System.Drawing.Size(52, 20);
             this.labelTitle.TabIndex = 5;
             this.labelTitle.Text = "Home";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -552,7 +552,7 @@
             this.noti1.BackColor = System.Drawing.Color.Transparent;
             this.noti1.FlatAppearance.BorderSize = 0;
             this.noti1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.noti1.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.noti1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.noti1.ForeColor = System.Drawing.Color.Black;
             this.noti1.IconChar = FontAwesome.Sharp.IconChar.Bell;
             this.noti1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
@@ -575,7 +575,7 @@
             // 
             this.noti2.FlatAppearance.BorderSize = 0;
             this.noti2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.noti2.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.noti2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.noti2.ForeColor = System.Drawing.Color.Black;
             this.noti2.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
             this.noti2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(102)))), ((int)(((byte)(244)))));
