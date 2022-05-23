@@ -39,7 +39,6 @@ namespace QuizifyIU
             this.PonerNota = new System.Windows.Forms.Button();
             this.notaMax = new System.Windows.Forms.Label();
             this.button1 = new FontAwesome.Sharp.IconButton();
-            this.label1 = new QuizifyIU.Controles_extra.label();
             ((System.ComponentModel.ISupportInitialize)(this.tablaExamenesProfesor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +104,7 @@ namespace QuizifyIU
             // 
             // respuestabox
             // 
+            this.respuestabox.Enabled = false;
             this.respuestabox.Location = new System.Drawing.Point(135, 70);
             this.respuestabox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.respuestabox.Multiline = true;
@@ -158,35 +158,12 @@ namespace QuizifyIU
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.EvAtras);
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.Window;
-            this.label1.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.label1.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.label1.BorderRadius = 0;
-            this.label1.BorderSize = 2;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(120, 322);
-            this.label1.Margin = new System.Windows.Forms.Padding(4);
-            this.label1.Multiline = false;
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.label1.PasswordChar = false;
-            this.label1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.label1.PlaceholderText = "";
-            this.label1.Size = new System.Drawing.Size(186, 31);
-            this.label1.TabIndex = 19;
-            this.label1.Texts = "";
-            this.label1.UnderlinedStyle = false;
-            // 
             // CalificarPregunta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(703, 457);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.notaMax);
             this.Controls.Add(this.PonerNota);
@@ -214,6 +191,5 @@ namespace QuizifyIU
         private System.Windows.Forms.Button PonerNota;
         private System.Windows.Forms.Label notaMax;
         private FontAwesome.Sharp.IconButton button1;
-        private Controles_extra.label label1;
     }
 }
