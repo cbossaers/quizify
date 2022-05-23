@@ -33,6 +33,7 @@ namespace QuizifyIU
                 tablaExamenDisponible.DataSource = tupla.Item1;
                 tablaExamenFinalizado.DataSource = tupla.Item2;
                 alumno=true;
+                puntuar.Visible = false; calificar.Visible = false; finalizar.Visible = false; cancelar.Visible = false;
             }
             else
             {
@@ -172,6 +173,19 @@ namespace QuizifyIU
             {
                 Principal.formportal.abrirNieto(new Estadisticas(servicio, user, int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString())));
             }
+        }
+
+        private void EvFinalizar(object sender, EventArgs e)
+        {
+            servicio.FinalizarExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
+            tablaExamenesProfesor.DataSource = servicio.GetExamenesProfesor(user.GetCorreo());
+
+        }
+
+        private void EvCancelar(object sender, EventArgs e)
+        {
+            servicio.CancelarExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
+            tablaExamenesProfesor.DataSource = servicio.GetExamenesProfesor(user.GetCorreo());
         }
     }
         
