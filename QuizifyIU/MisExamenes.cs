@@ -33,6 +33,9 @@ namespace QuizifyIU
                 tablaExamenDisponible.DataSource = tupla.Item1;
                 tablaExamenFinalizado.DataSource = tupla.Item2;
                 alumno=true;
+                button1.Visible = false;
+                puntuar.Visible = false;
+                
             }
             else
             {

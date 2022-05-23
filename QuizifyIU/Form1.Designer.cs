@@ -54,7 +54,6 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numnoti = new System.Windows.Forms.Label();
             this.bellN = new System.Windows.Forms.PictureBox();
-            this.obs = new QuizifyIU.Controles_extra.label();
             this.noti1 = new FontAwesome.Sharp.IconButton();
             this.noti2 = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
@@ -436,7 +435,6 @@
             this.panelDesktop.Controls.Add(this.dataGridView1);
             this.panelDesktop.Controls.Add(this.numnoti);
             this.panelDesktop.Controls.Add(this.bellN);
-            this.panelDesktop.Controls.Add(this.obs);
             this.panelDesktop.Controls.Add(this.noti1);
             this.panelDesktop.Controls.Add(this.noti2);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -472,7 +470,7 @@
             this.id});
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(462, 77);
+            this.dataGridView1.Location = new System.Drawing.Point(384, 77);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -487,7 +485,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(288, 255);
+            this.dataGridView1.Size = new System.Drawing.Size(366, 255);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.Visible = false;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
@@ -523,29 +521,6 @@
             this.bellN.TabIndex = 17;
             this.bellN.TabStop = false;
             this.bellN.Click += new System.EventHandler(this.noti1_Click);
-            // 
-            // obs
-            // 
-            this.obs.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.obs.BackColor = System.Drawing.SystemColors.Window;
-            this.obs.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.obs.BorderFocusColor = System.Drawing.Color.DarkSlateBlue;
-            this.obs.BorderRadius = 12;
-            this.obs.BorderSize = 2;
-            this.obs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.obs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.obs.Location = new System.Drawing.Point(229, 26);
-            this.obs.Margin = new System.Windows.Forms.Padding(4);
-            this.obs.Multiline = false;
-            this.obs.Name = "obs";
-            this.obs.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.obs.PasswordChar = false;
-            this.obs.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.obs.PlaceholderText = "";
-            this.obs.Size = new System.Drawing.Size(250, 31);
-            this.obs.TabIndex = 0;
-            this.obs.Texts = "";
-            this.obs.UnderlinedStyle = false;
             // 
             // noti1
             // 
@@ -643,7 +618,6 @@
         private FontAwesome.Sharp.IconButton btnMenu;
         private System.Windows.Forms.Label btnHome;
         private FontAwesome.Sharp.IconButton Home;
-        private Controles_extra.label obs;
         private System.Windows.Forms.DataGridView dataGridView1;
         private FontAwesome.Sharp.IconButton noti1;
         private FontAwesome.Sharp.IconButton noti2;

@@ -363,7 +363,7 @@ namespace QuizifyIU
 
         public void obsc(string x)
         {
-            obs.Texts = x;
+            //obs.Texts = x;
         }
 
         public void LlamarDataFetch(DataTable dt) {
