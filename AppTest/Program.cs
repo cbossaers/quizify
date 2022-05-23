@@ -32,6 +32,7 @@ namespace AppTest {
             List<int> listaex = new List<int>() {1, 1, 1, 2, 1, 1, 3, 1, 1};
             
             //service.AddExamen(new Examen(examen.UltimoIdExamen()+1, "demo", "demo", "PSW", "patricio@gmail.com", 50, DateTime.Now, DateTime.Now, DateTime.Now.AddDays(1), 1, 1, 1, 0, listaex, "Inactivo", "Normal", ""));
+            service.CalcularNotaExamen(3,"cristian@gmail.com");
             //service.AddExamen(new Examen(examen.UltimoIdExamen(), "demo", "demo", "PSW", "patricio@gmail.com", 50, DateTime.Now, DateTime.Now, DateTime.Now.AddDays(1), 1, 1, 1, 0, listaex, "Inactivo", "Normal", ""));
         }
     }
