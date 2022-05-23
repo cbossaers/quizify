@@ -374,6 +374,21 @@ namespace Quizify.Persistence {
                     cmd.ExecuteNonQuery();
                 }
             }
+
+            using (MySqlConnection conn = new MySqlConnection(connStr)) {
+
+                using (MySqlCommand cmd = conn.CreateCommand()) {
+
+                    cmd.CommandText = "INSERT INTO notificaciones(texto,curso,profesor) VALUES(@texto,@curso,@profesor);";
+
+                    cmd.Parameters.AddWithValue("@texto", Get(ex_id).GetCurso() + ": Nota del examen " + ex_id + " publicada");
+                    cmd.Parameters.AddWithValue("@curso", Get(ex_id).GetCurso());
+                    cmd.Parameters.AddWithValue("@profesor", Get(ex_id).GetAutor());
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public double GetNota(string id_alumno, int id_ex) {
