@@ -310,6 +310,7 @@ namespace Quizify.Persistence {
             return 0;
         }
 
+
         public void AnularPregunta(int id_ex, int id_preg) {
 
             using (MySqlConnection conn = new MySqlConnection(connStr)) {
@@ -447,7 +448,7 @@ namespace Quizify.Persistence {
                     if (listapreg[i] == listarespuestas[j]) {
 
                     pregunta = dalpreg.Get(listapreg[i], listapreg[i+1]);
-                    if(pregunta.GetTipo() == "des") { aux = 0; }
+                    if(pregunta.GetTipo() == "des") { aux = GetNotaPregunta(id_ex,pregunta.GetId(),correo); }
                     else { aux = CalcularNotaPregunta(pregunta, int.Parse(listarespuestas[j+1]) ,listapreg[i+2],restan); }
                     
                     nota += aux;
