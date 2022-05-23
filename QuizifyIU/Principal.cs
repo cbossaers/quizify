@@ -24,6 +24,7 @@ namespace QuizifyIU
         private Size formSize;
 
         private Form currentChildForm;
+        public static bool ingles;
 
         public Principal(NuevoServicio servicio)
         {
@@ -142,6 +143,21 @@ namespace QuizifyIU
             if (e.KeyChar == (char)Keys.Enter)
             {
                 logUser();
+            }
+        }
+        private void EvCambiarIdioma(object sender, EventArgs e)
+        {
+            if (idioma.Checked == true)
+            {
+                ingles = true;
+                label1.Text = "Welcome to Quizify"; label7.Text = "Log In"; contraField.PlaceholderText = "Password"; biniciarS.Text = "Log In";
+                label4.Text = "You dont have an acount yet?"; bregistrarse.Text = "Sign in";
+            }
+            else
+            {
+                ingles = false;
+                label1.Text = "Bienvenido a Quizify"; label7.Text = "Iniciar sesión"; contraField.PlaceholderText = "Contraseña"; biniciarS.Text = "Iniciar sesión";
+                label4.Text = "¿No tienes cuenta todavía?"; bregistrarse.Text = "Registrarse";
             }
         }
     }

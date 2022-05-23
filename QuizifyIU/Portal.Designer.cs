@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Portal));
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.bTienda = new System.Windows.Forms.Button();
             this.bHome = new System.Windows.Forms.Button();
             this.hora = new System.Windows.Forms.Label();
             this.bCrearCurso = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.titulo1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.bTienda = new System.Windows.Forms.Button();
             this.MenuVertical.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.foticoBacana)).BeginInit();
@@ -71,6 +71,19 @@
             this.MenuVertical.Size = new System.Drawing.Size(147, 449);
             this.MenuVertical.TabIndex = 0;
             // 
+            // bTienda
+            // 
+            this.bTienda.FlatAppearance.BorderSize = 0;
+            this.bTienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bTienda.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bTienda.Location = new System.Drawing.Point(3, 340);
+            this.bTienda.Name = "bTienda";
+            this.bTienda.Size = new System.Drawing.Size(141, 40);
+            this.bTienda.TabIndex = 10;
+            this.bTienda.Text = "Tienda";
+            this.bTienda.UseVisualStyleBackColor = true;
+            this.bTienda.Click += new System.EventHandler(this.bTienda_Click);
+            // 
             // bHome
             // 
             this.bHome.Location = new System.Drawing.Point(77, 410);
@@ -84,10 +97,10 @@
             // hora
             // 
             this.hora.AutoSize = true;
-            this.hora.Font = new System.Drawing.Font("Verdana Pro Cond", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.hora.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.hora.Location = new System.Drawing.Point(39, 18);
             this.hora.Name = "hora";
-            this.hora.Size = new System.Drawing.Size(57, 28);
+            this.hora.Size = new System.Drawing.Size(61, 29);
             this.hora.TabIndex = 8;
             this.hora.Text = "hora";
             // 
@@ -229,19 +242,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // bTienda
-            // 
-            this.bTienda.FlatAppearance.BorderSize = 0;
-            this.bTienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bTienda.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bTienda.Location = new System.Drawing.Point(3, 340);
-            this.bTienda.Name = "bTienda";
-            this.bTienda.Size = new System.Drawing.Size(141, 40);
-            this.bTienda.TabIndex = 10;
-            this.bTienda.Text = "Tienda";
-            this.bTienda.UseVisualStyleBackColor = true;
-            this.bTienda.Click += new System.EventHandler(this.bTienda_Click);
             // 
             // Portal
             // 

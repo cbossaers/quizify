@@ -90,30 +90,11 @@ namespace QuizifyIU
                     BindingList<object> bindingListExamenDisponible = new BindingList<object>();
                     Examen examen = servicio.GetExamen(int.Parse(tablaExamenesProfesor.SelectedCells[0].Value.ToString()));
                     servicio.PublicarNotas(examen.GetId());
-                    List<int> lista = servicio.GetExamenesProfesor(user.GetCorreo());
                     calificar.Visible = true;
                     tablaExamenesProfesor.Visible = true;
                     tablaExamenDisponible.Visible = false;
                     tablaExamenFinalizado.Visible = false;
-                    foreach (int x in lista)
-                    {
-                        Examen ex = servicio.GetExamen(x);
-                        bindingListExamenDisponible.Add(new
-                        {
-                            id = ex.GetId(),
-                            estado = ex.GetEstado(),
-                            titulo = ex.GetTitulo(),
-                            descripcion = ex.GetDescripcion(),
-                            curso = ex.GetCurso(),
-                            tiempo = ex.GetTiempo(),
-                            fecha_ini = ex.GetFechaIni(),
-                            fecha_fin = ex.GetFechaFin(),
-                            ct = ex.GetCompetenciaTransversal(),
-                            dificultad = ex.GetDificultad()
-                        });
-
-                    }
-                    tablaExamenesProfesor.DataSource = bindingListExamenDisponible;
+                    tablaExamenesProfesor.DataSource = servicio.GetExamenesProfesor(user.GetCorreo());
                 }
                 catch (Exception ex)
                 {
@@ -145,7 +126,11 @@ namespace QuizifyIU
 
         private void tabla()
         {
-            if(servicio.GetTipoEntidad(user.GetCorreo()) == "alumno") tablaExamenDisponible.DataSource = servicio.GetExamenByDificultad(filtros);
+            if (servicio.GetTipoEntidad(user.GetCorreo()) == "alumno")
+            {
+                tupla = servicio.GetExamenesByDificultadAlumno(user.GetCorreo(), dificultadBox.Text);
+                tablaExamenDisponible.DataSource = tupla.Item1;
+            }
             else tablaExamenesProfesor.DataSource = servicio.GetExamenByDificultad(filtros);
         }
 
@@ -155,7 +140,6 @@ namespace QuizifyIU
             {
                 tupla = servicio.GetExamenesAlumno(user.GetCorreo());
                 tablaExamenDisponible.DataSource = tupla.Item1;
-                tablaExamenFinalizado.DataSource = tupla.Item2;
             }
             else tablaExamenesProfesor.DataSource = servicio.GetExamenesProfesor(user.GetCorreo());
         }
