@@ -28,6 +28,8 @@ namespace AppTest {
             NuevoServicio service = new NuevoServicio();
 
             FabricaExamenes fabrica = new FabricaExamenes();
+
+            service.CalificarDesarrollo(21,24,1,"c",0.5);
         }
     }
     

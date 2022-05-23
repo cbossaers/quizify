@@ -310,6 +310,57 @@ namespace Quizify.Persistence {
             return 0;
         }
 
+        public double CalcularNotaPreguntaEspecial(Pregunta2 preg, int respuesta, double puntuacion, int resta, int id_ex, string al) {
+            string tipo = preg.GetTipo();
+            if(tipo == "des") { return GetNotaPregunta(id_ex,preg.GetId(),al); }
+
+            int correcta = preg.GetParametros()[0];
+
+            if (respuesta == -1) { return 0; }
+
+            switch (tipo) {
+                case ("test"):
+                    if (respuesta == correcta) {
+                        return puntuacion;
+                    } else if (resta == 1) {
+                        return -puntuacion / (preg.GetParametros().Count - 2);
+                    } else return 0;
+
+                case ("vf"):
+                    if (respuesta == correcta) {
+                        return puntuacion;
+                    } else if (resta == 1) {
+                        return -puntuacion;
+                    } else return 0;
+
+                case ("mult"):
+                    int aux = respuesta;
+                    int a = correcta * 2;
+                    int c = 0;
+                    int sum = 0;
+                    double total = 0.0;
+
+                    for (int i = 0; i < 5; i++) {
+                        if (a % 10 == 2) { total++; }
+
+                        c = (a % 10) - (aux % 10);
+                        if (c < 2) { sum += c; }
+
+                        a /= 10;
+                        
+                        aux /= 10;
+                    }
+
+                    if (sum < 0) { sum = 0; }
+
+                    total = sum / total;
+
+                    return total * puntuacion;
+            }
+
+            return 0;
+        }
+
         public void AnularPregunta(int id_ex, int id_preg) {
 
             using (MySqlConnection conn = new MySqlConnection(connStr)) {
@@ -447,7 +498,7 @@ namespace Quizify.Persistence {
                     if (listapreg[i] == listarespuestas[j]) {
 
                     pregunta = dalpreg.Get(listapreg[i], listapreg[i+1]);
-                    if(pregunta.GetTipo() == "des") { aux = 0; }
+                    if(pregunta.GetTipo() == "des") { aux = GetNotaPregunta(id_ex,pregunta.GetId(),correo); }
                     else { aux = CalcularNotaPregunta(pregunta, int.Parse(listarespuestas[j+1]) ,listapreg[i+2],restan); }
                     
                     nota += aux;
