@@ -47,12 +47,25 @@ namespace QuizifyIU
 
             try { user = servicio.GetAlumno(emailField.Texts); } 
             catch (Exception) {
-                try { user = servicio.GetProfesor(emailField.Texts); Singleton.getInstancia(); } 
+                try { user = servicio.GetProfesor(emailField.Texts); } 
                 catch (Exception) { DialogResult answer = MessageBox.Show(this, "Esta persona no está registrada", 
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
+
+            /*
+            try
+            {
+                Singleton.Login(user);
+                Singleton s1 = Singleton.getInstancia();
+                Singleton.Logout();
+            }
+            catch (Exception e)
+            {
+                DialogResult aviso = MessageBox.Show(this, e.Message,
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }*/
 
             if (user.GetContraseña().Equals(contraField.Texts)) {
                 servicio.HiloEstadoQuizes();
