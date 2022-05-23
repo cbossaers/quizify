@@ -84,6 +84,10 @@ namespace QuizifyIU
             label5.Text = TimeSpan.FromSeconds(counter).ToString();
         }
         private void FinalizarPorTimer() {
+            if (mult) { CraftearStringCorrecta(listaOpCorrecta); guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], opcionCorrecta); }
+            if (!desarrollo && !mult) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], op_correcta); }
+            else if (desarrollo) { guardar(preguntas_asociadas[cont], preguntas_asociadas[cont + 1], RespuestaTxt.Text); }
+
             List<dynamic> respuestas = new List<dynamic> { };
                 indice();
                 respuestas.Add(examen.GetId());
