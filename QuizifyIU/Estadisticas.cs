@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace QuizifyIU
 {
@@ -69,7 +70,6 @@ namespace QuizifyIU
             progress_bar_fancy8.Value = ocho;
             progress_bar_fancy9.Value = nueve;
             progress_bar_fancy10.Value = diez;
-
         }
     }
 }
