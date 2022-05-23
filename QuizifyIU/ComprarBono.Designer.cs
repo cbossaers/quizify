@@ -200,7 +200,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ComprarBono";
-            this.Text = "ComprarBono";
+            this.Text = "Comprar Bono";
             this.ResumeLayout(false);
             this.PerformLayout();
 

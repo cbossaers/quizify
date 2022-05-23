@@ -176,7 +176,7 @@
             this.Controls.Add(this.panelCrearCurso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrearCurso";
-            this.Text = "CrearCurso";
+            this.Text = "Crear Curso";
             this.panelCrearCurso.ResumeLayout(false);
             this.panelCrearCurso.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maxAlumnos)).EndInit();

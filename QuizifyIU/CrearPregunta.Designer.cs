@@ -518,7 +518,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrearPregunta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CrearPregunta";
+            this.Text = "Crear Pregunta";
             this.correctaTest.ResumeLayout(false);
             this.correctaTest.PerformLayout();
             this.correctaVF.ResumeLayout(false);

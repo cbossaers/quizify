@@ -41,7 +41,7 @@
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(330, 345);
+            this.bEliminar.Location = new System.Drawing.Point(338, 346);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(75, 23);
             this.bEliminar.TabIndex = 2;
@@ -90,7 +90,7 @@
             this.dataGridViewTextBoxColumn3});
             this.tablaAlumnoCurso.EnableHeadersVisualStyles = false;
             this.tablaAlumnoCurso.GridColor = System.Drawing.Color.White;
-            this.tablaAlumnoCurso.Location = new System.Drawing.Point(171, 128);
+            this.tablaAlumnoCurso.Location = new System.Drawing.Point(179, 129);
             this.tablaAlumnoCurso.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tablaAlumnoCurso.Name = "tablaAlumnoCurso";
             this.tablaAlumnoCurso.ReadOnly = true;
