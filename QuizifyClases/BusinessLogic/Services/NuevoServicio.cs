@@ -133,7 +133,7 @@ namespace Quizify.Services
             catch(MySql.Data.MySqlClient.MySqlException ex) { 
                 if(ex.Number == 1062) { throw new Exception("Este examen ya existe."); }
                 if(ex.Number == 1452) { throw new Exception("Ese profesor no existe."); }
-                else { throw new Exception("Error de integridad, código: " + ex); }
+                else { throw new Exception("Error de integridad, código: " + ex.Number); }
             }
         }
         public Examen GetExamen(int id) {

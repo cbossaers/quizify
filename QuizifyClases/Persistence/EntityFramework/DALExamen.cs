@@ -20,8 +20,8 @@ namespace Quizify.Persistence {
 
                 using (MySqlCommand cmd = conn.CreateCommand()) {
 
-                    cmd.CommandText = "INSERT into PSWC.examen(id,titulo,descripcion,autor,curso,tiempo,fecha_ini,fecha_fin,intentos"
-                    + ",volver_atras,errores_restan,mostrar_resultados,fecha_creac,estado,CT,dificultad) "
+                    cmd.CommandText = "INSERT into PSWC.examen(id,titulo,descripcion,autor,curso,tiempo,fecha_ini,fecha_fin,intentos,"
+                    + "volver_atras,errores_restan,mostrar_resultados,fecha_creac,estado,CT,dificultad) "
 
                     + "VALUES(@id,@titulo,@descripcion,@autor,@curso,@tiempo,@fecha_ini,@fecha_fin,@intentos,@volver_atras,@errores_restan,"
                     + "@mostrar_resultados,@fecha_creac,@estado,@CT,@dificultad) "
@@ -309,8 +309,7 @@ namespace Quizify.Persistence {
 
             return 0;
         }
-
-
+        
         public void AnularPregunta(int id_ex, int id_preg) {
 
             using (MySqlConnection conn = new MySqlConnection(connStr)) {
