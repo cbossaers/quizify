@@ -23,7 +23,6 @@ namespace QuizifyIU
             this.curso = curso;
             usuario = user;
             actualizarTabla();
-            bEliminar.Enabled = false;
         }
 
         private void bEliminar_Click(object sender, EventArgs e)

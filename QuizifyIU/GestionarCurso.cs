@@ -97,7 +97,7 @@ namespace QuizifyIU
             string profe = usuario.correo;
             Curso curso = servicio.GetCurso(codCurso, profe);
             formGestionarAl = new GestionarAlumnosCurso(servicio, formGestionarAl, curso, usuario);
-            formGestionarAl.ShowDialog();
+            Principal.formportal.abrirNieto(formGestionarAl);
         }
 
         private void actualizarTabla()
@@ -129,5 +129,6 @@ namespace QuizifyIU
             }
         }
 
+        
     }
 }

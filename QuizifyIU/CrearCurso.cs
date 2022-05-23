@@ -19,7 +19,7 @@ namespace QuizifyIU
         //Variables para habilitar/deshabilitar el botón "Crear"
         private Boolean nombreCorrecto = false;
         private Boolean codCorrecto = false;
-        private Boolean maxCorrecto = false;
+        private Boolean maxCorrecto = true;
         private Boolean contraCorrecto = false;
 
         public CrearCurso(NuevoServicio servicio, dynamic user)
@@ -89,12 +89,7 @@ namespace QuizifyIU
 
         private void maxAlumnos_ValueChanged(object sender, EventArgs e)
         {
-            bCrearCurso.Enabled = false;
-            int valor = (int)maxAlumnos.Value;
-            if (valor <= 0) maxCorrecto = false;
-            else maxCorrecto = true;
-            if (nombreCorrecto && codCorrecto && maxCorrecto && contraCorrecto)
-                bCrearCurso.Enabled = true;
+
         }
     }
 }

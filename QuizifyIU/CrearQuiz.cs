@@ -218,7 +218,7 @@ namespace QuizifyIU
                     servicio.GenerarExamen(autor, cursos, f, tiempo, fecha_inicial, fecha_finanl, intento, volver_atras, errores_restan, mostrar_resultados, false, difi);
                 } catch {
                     MessageBox.Show(this, "Error en la creción del examen", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error); return;
                 }
 
                 MessageBox.Show(this, "Examen creado correctamente", "Exito",

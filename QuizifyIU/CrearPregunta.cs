@@ -344,7 +344,7 @@ namespace QuizifyIU
         }
         public void VistaVF()
         {
-            tipoPregunta.Text = "Verdadero Falso";
+            tipoPregunta.Text = "Verdadero Falso"; enunciado.Text = "";
             letraA.Visible = false; letraB.Visible = false; letraC.Visible = false; letraD.Visible = false; letraE.Visible = false;
             opc0.Visible = false; opc1.Visible = false; opc2.Visible = false; opc3.Visible = false; opc4.Visible = false;
             verdadero0.Checked = false; falso1.Checked = false;
@@ -355,7 +355,7 @@ namespace QuizifyIU
         }
         public void VistaTest()
         {
-            tipoPregunta.Text = "Test";
+            tipoPregunta.Text = "Test"; enunciado.Text = "";
             numeroDeOpciones = 3;
             letraA.Visible = true; letraB.Visible = true; letraC.Visible = true; letraD.Visible = false; letraE.Visible = false;
             opc0.Visible = true; opc1.Visible = true; opc2.Visible = true; opc3.Visible = false; opc4.Visible = false;
@@ -370,7 +370,7 @@ namespace QuizifyIU
         }
         public void VistaDesarrollo()
         {
-            tipoPregunta.Text = "Desarrollo";
+            tipoPregunta.Text = "Desarrollo"; enunciado.Text = "";
             RespuestaTxt.Visible = true; RespuestaTxt.Text = "";
             letraA.Visible = false; letraB.Visible = false; letraC.Visible = false; letraD.Visible = false; letraE.Visible = false;
             opc0.Visible = false; opc1.Visible = false; opc2.Visible = false; opc3.Visible = false; opc4.Visible = false;
@@ -380,7 +380,7 @@ namespace QuizifyIU
         }
         public void VistaMultiple()
         {
-            tipoPregunta.Text = "Selección Múltiple";
+            tipoPregunta.Text = "Selección Múltiple"; enunciado.Text = "";
             numeroDeOpciones = 3;
             letraA.Visible = true; letraB.Visible = true; letraC.Visible = true; letraD.Visible = false; letraE.Visible = false;
             opc0.Visible = true; opc1.Visible = true; opc2.Visible = true; opc3.Visible = false; opc4.Visible=false;

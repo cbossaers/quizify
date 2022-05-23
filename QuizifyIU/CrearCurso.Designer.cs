@@ -97,6 +97,11 @@
             this.maxAlumnos.Name = "maxAlumnos";
             this.maxAlumnos.Size = new System.Drawing.Size(84, 23);
             this.maxAlumnos.TabIndex = 30;
+            this.maxAlumnos.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.maxAlumnos.ValueChanged += new System.EventHandler(this.maxAlumnos_ValueChanged);
             // 
             // codCursoBox

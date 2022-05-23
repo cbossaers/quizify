@@ -126,10 +126,10 @@
             // 
             this.lbTiempo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTiempo.AutoSize = true;
-            this.lbTiempo.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbTiempo.Location = new System.Drawing.Point(150, 55);
+            this.lbTiempo.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbTiempo.Location = new System.Drawing.Point(150, 57);
             this.lbTiempo.Name = "lbTiempo";
-            this.lbTiempo.Size = new System.Drawing.Size(115, 24);
+            this.lbTiempo.Size = new System.Drawing.Size(99, 20);
             this.lbTiempo.TabIndex = 31;
             this.lbTiempo.Text = "Bienvenido, ";
             // 

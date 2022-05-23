@@ -104,6 +104,7 @@
             this.tablaDatoCurso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tablaDatoCurso.Size = new System.Drawing.Size(658, 273);
             this.tablaDatoCurso.TabIndex = 20;
+            this.tablaDatoCurso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaCurso_doble_click);
             this.tablaDatoCurso.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaCurso_doble_click);
             // 
             // codigo
