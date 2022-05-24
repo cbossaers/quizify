@@ -98,7 +98,7 @@ namespace QuizifyIU
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             bConfirmar.Enabled = false;
-            baplicarDescuento.Enabled = false;
+            //baplicarDescuento.Enabled = true;
             string bonos = numBonos.Text;
             if (bonos == "") bonosCorrecto = false;
             else
