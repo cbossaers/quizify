@@ -54,7 +54,7 @@ namespace QuizifyIU
 
         private void codBox_TextChanged(object sender, EventArgs e)
         {
-            bApuntarse.Enabled = false;
+            bApuntarse.Enabled = true;
             string codigo = codBox.Text;
             if (codigo == "") codCorrecto = false;
             else codCorrecto = true;
@@ -64,7 +64,7 @@ namespace QuizifyIU
 
         private void correoProfeBox_TextChanged(object sender, EventArgs e)
         {
-            bApuntarse.Enabled = false;
+            bApuntarse.Enabled = true;
             string profe = correoProfeBox.Text;
             if (profe == "") codCorrecto = false;
             else codCorrecto = true;
@@ -74,7 +74,7 @@ namespace QuizifyIU
 
         private void contraBox_TextChanged(object sender, EventArgs e)
         {
-            bApuntarse.Enabled = false;
+            bApuntarse.Enabled = true;
             string contra = contraBox.Text;
             if (contra == "") codCorrecto = false;
             else codCorrecto = true;
