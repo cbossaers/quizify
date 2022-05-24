@@ -164,7 +164,7 @@
             this.progress_bar_fancy2.Location = new System.Drawing.Point(455, 74);
             this.progress_bar_fancy2.Maximum = 10;
             this.progress_bar_fancy2.Name = "progress_bar_fancy2";
-            this.progress_bar_fancy2.ShowMaximun = false;
+            this.progress_bar_fancy2.ShowMaximun = true;
             this.progress_bar_fancy2.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy2.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy2.SliderColor = System.Drawing.Color.RoyalBlue;
@@ -184,7 +184,7 @@
             this.progress_bar_fancy3.Location = new System.Drawing.Point(455, 90);
             this.progress_bar_fancy3.Maximum = 10;
             this.progress_bar_fancy3.Name = "progress_bar_fancy3";
-            this.progress_bar_fancy3.ShowMaximun = false;
+            this.progress_bar_fancy3.ShowMaximun = true;
             this.progress_bar_fancy3.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy3.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy3.SliderColor = System.Drawing.Color.RoyalBlue;
@@ -224,7 +224,7 @@
             this.progress_bar_fancy5.Location = new System.Drawing.Point(455, 124);
             this.progress_bar_fancy5.Maximum = 10;
             this.progress_bar_fancy5.Name = "progress_bar_fancy5";
-            this.progress_bar_fancy5.ShowMaximun = false;
+            this.progress_bar_fancy5.ShowMaximun = true;
             this.progress_bar_fancy5.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy5.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy5.SliderColor = System.Drawing.Color.RoyalBlue;
@@ -244,7 +244,7 @@
             this.progress_bar_fancy6.Location = new System.Drawing.Point(455, 140);
             this.progress_bar_fancy6.Maximum = 10;
             this.progress_bar_fancy6.Name = "progress_bar_fancy6";
-            this.progress_bar_fancy6.ShowMaximun = false;
+            this.progress_bar_fancy6.ShowMaximun = true;
             this.progress_bar_fancy6.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy6.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy6.SliderColor = System.Drawing.Color.RoyalBlue;
@@ -264,7 +264,7 @@
             this.progress_bar_fancy7.Location = new System.Drawing.Point(455, 156);
             this.progress_bar_fancy7.Maximum = 10;
             this.progress_bar_fancy7.Name = "progress_bar_fancy7";
-            this.progress_bar_fancy7.ShowMaximun = false;
+            this.progress_bar_fancy7.ShowMaximun = true;
             this.progress_bar_fancy7.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy7.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy7.SliderColor = System.Drawing.Color.RoyalBlue;
@@ -284,7 +284,7 @@
             this.progress_bar_fancy8.Location = new System.Drawing.Point(455, 172);
             this.progress_bar_fancy8.Maximum = 10;
             this.progress_bar_fancy8.Name = "progress_bar_fancy8";
-            this.progress_bar_fancy8.ShowMaximun = false;
+            this.progress_bar_fancy8.ShowMaximun = true;
             this.progress_bar_fancy8.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy8.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy8.SliderColor = System.Drawing.Color.RoyalBlue;
@@ -304,7 +304,7 @@
             this.progress_bar_fancy9.Location = new System.Drawing.Point(455, 188);
             this.progress_bar_fancy9.Maximum = 10;
             this.progress_bar_fancy9.Name = "progress_bar_fancy9";
-            this.progress_bar_fancy9.ShowMaximun = false;
+            this.progress_bar_fancy9.ShowMaximun = true;
             this.progress_bar_fancy9.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy9.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy9.SliderColor = System.Drawing.Color.RoyalBlue;
@@ -324,7 +324,7 @@
             this.progress_bar_fancy10.Location = new System.Drawing.Point(455, 204);
             this.progress_bar_fancy10.Maximum = 10;
             this.progress_bar_fancy10.Name = "progress_bar_fancy10";
-            this.progress_bar_fancy10.ShowMaximun = false;
+            this.progress_bar_fancy10.ShowMaximun = true;
             this.progress_bar_fancy10.ShowValue = QuizifyIU.Controles_extra.TextPosition.Right;
             this.progress_bar_fancy10.Size = new System.Drawing.Size(161, 15);
             this.progress_bar_fancy10.SliderColor = System.Drawing.Color.RoyalBlue;
@@ -480,7 +480,7 @@
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(12, 232);
+            this.label15.Location = new System.Drawing.Point(15, 216);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(138, 24);
             this.label15.TabIndex = 39;
@@ -491,7 +491,7 @@
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(156, 232);
+            this.label16.Location = new System.Drawing.Point(159, 216);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(23, 24);
             this.label16.TabIndex = 38;
