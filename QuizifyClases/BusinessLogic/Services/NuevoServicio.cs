@@ -14,6 +14,14 @@ namespace Quizify.Services
         DALCurso curso = new DALCurso();
         Hilos hilos = new Hilos();
 
+
+        private static NuevoServicio service;
+        public static NuevoServicio getServicio()
+        {
+            if (service == null) service = new NuevoServicio();
+            return service;
+        }
+
         //Métodos Alumno
         public void AddAlumno(Alumno al) {
             try { alumno.Add(al); } 

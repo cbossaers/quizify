@@ -16,7 +16,8 @@ namespace QuizifyIU
         [STAThread]
         static void Main()
         {
-            NuevoServicio servicio = new NuevoServicio();
+            //NuevoServicio servicio = new NuevoServicio();
+            NuevoServicio servicio = NuevoServicio.getServicio();
             //Servicio servicio = new Servicio(new DAL());
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
