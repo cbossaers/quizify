@@ -146,6 +146,7 @@ namespace QuizifyIU
                                                             "Exito", MessageBoxButtons.OK,
                                                             MessageBoxIcon.Information);
                 Principal.formportal.abrirNieto(new MisExamenes(servicio, usuario));
+                timer2.Stop();
             }
             else
             {
