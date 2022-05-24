@@ -594,7 +594,7 @@ namespace Quizify.Persistence {
             notas.Sort();
 
             if (envios > 0) {
-                return new List<dynamic> { envios, notas.Average(), Math.Sqrt(notas.Average(v => Math.Pow(v - notas.Average(), 2))), notas };
+                return new List<dynamic> { envios, Math.Round(double.Parse(notas.Average().ToString())).ToString(), Math.Sqrt(notas.Average(v => Math.Pow(v - notas.Average(), 2))), notas };
             } else { return new List<dynamic> { 0, 0, 0, notas }; }
 
         }
