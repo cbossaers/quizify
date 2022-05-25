@@ -5,6 +5,7 @@ namespace GUI_EN_CONSTRUCCION
         public Form1()
         {
             InitializeComponent();
+            
         }
     }
 }
