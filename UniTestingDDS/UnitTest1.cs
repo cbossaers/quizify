@@ -36,9 +36,9 @@ namespace UniTestingDDS
         public void TestProfesor() {
             string correo = RandomString(16);
 
-            Alumno al = fabricaent.CrearEntidad("profesor", correo, "contraseña", "nombre", "apellido");
+            Profesor al = fabricaent.CrearEntidad("profesor", correo, "contraseña", "nombre", "apellido");
 
-            serv.AddAlumno(al);
+            serv.AddProfesor(al);
             
             Assert.AreEqual(correo, serv.GetProfesor(correo).GetCorreo());
         }
@@ -64,10 +64,10 @@ namespace UniTestingDDS
             Pregunta2 des = fpreg.CrearPregunta2(ultimoid+4,1,enunciado,"des",1,"patricio@gmail.com","PSW","",paramdes);
             serv.AddPregunta(des);
             
-            Assert.AreEqual(test, serv.GetPregunta(ultimoid+1,1));
-            Assert.AreEqual(vf, serv.GetPregunta(ultimoid+2,1));
-            Assert.AreEqual(mult, serv.GetPregunta(ultimoid+3,1));
-            Assert.AreEqual(des, serv.GetPregunta(ultimoid+4,1));
+            Assert.AreEqual(test.GetId(), serv.GetPregunta(ultimoid+1,1).GetId());
+            Assert.AreEqual(vf.GetId(), serv.GetPregunta(ultimoid+2,1).GetId());
+            Assert.AreEqual(mult.GetId(), serv.GetPregunta(ultimoid+3,1).GetId());
+            Assert.AreEqual(des.GetId(), serv.GetPregunta(ultimoid+4,1).GetId());
         }
     }
 }
