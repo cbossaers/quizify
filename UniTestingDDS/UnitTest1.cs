@@ -23,7 +23,7 @@ namespace UniTestingDDS
 
         [TestMethod]
         public void TestAlumno() {
-            string correo = RandomString(16);
+            string correo = RandomString(6) + "@" + RandomString(6) + ".com";
 
             Alumno al = fabricaent.CrearEntidad("alumno", correo, "contraseña", "nombre", "apellido");
 
@@ -34,7 +34,7 @@ namespace UniTestingDDS
 
         [TestMethod]
         public void TestProfesor() {
-            string correo = RandomString(16);
+            string correo = RandomString(6) + "@" + RandomString(6) + ".com";
 
             Profesor al = fabricaent.CrearEntidad("profesor", correo, "contraseña", "nombre", "apellido");
 
