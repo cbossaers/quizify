@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace Quizify.Entities
 {
     public class FabricaEntidades

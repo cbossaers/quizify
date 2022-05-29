@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Quizify.Entities;
 using Quizify.Persistence;
 using System.Data;
+using Quizify;
 
 namespace Quizify.Services
 {
@@ -13,7 +14,7 @@ namespace Quizify.Services
         DALExamen examen = new DALExamen();
         DALCurso curso = new DALCurso();
         Hilos hilos = new Hilos();
-
+        Fachada fachada = new Fachada();
 
         private static NuevoServicio service;
         public static NuevoServicio getServicio()
@@ -36,7 +37,7 @@ namespace Quizify.Services
             alumno.Eliminar(id);
         }
         public (DataTable, DataTable) GetExamenesAlumno (string al) {
-            return alumno.GetExamenes(al);
+            return fachada.GetExamenesAlumno(al);
         }
         public void EliminarNotificacion(int id_notif, string correo) {
             alumno.EliminarNotificacion(id_notif,correo);
@@ -61,7 +62,7 @@ namespace Quizify.Services
             profesor.Eliminar(id);
         }
         public DataTable GetExamenesProfesor(string prof) {
-            return profesor.GetExamenes(prof);
+            return fachada.GetExamenesProfesor(prof);
         }
         public void EnviarMensaje(string mensaje, string curso, string prof) {
             profesor.EnviarMensaje(curso,prof,mensaje);
@@ -174,7 +175,7 @@ namespace Quizify.Services
         public void GenerarExamen(string profesor, string codigo_curso, int num_preguntas, int tiempo, DateTime fechaini, DateTime fechafin,
         int intentos, int volveratras, int erroresrestan, int mostrarresultados, bool esrecu, string dific) {
             try {
-                examen.GenerarExamen(profesor, codigo_curso, num_preguntas, tiempo, fechaini, fechafin, intentos, 
+                fachada.GenerarExamen(profesor, codigo_curso, num_preguntas, tiempo, fechaini, fechafin, intentos, 
                 volveratras, erroresrestan, mostrarresultados, esrecu, dific);
             } catch(Exception e) { throw new Exception(e.ToString()); }
         }
@@ -188,7 +189,7 @@ namespace Quizify.Services
             examen.FinalizarExamen(id);
         }
         public void CalcularNotaExamen(int id_ex, string correo) {
-            examen.CalcularNotaExamen(id_ex, correo);
+            fachada.CalcularNotaExamen(id_ex, correo);
         }
         public DataTable GetExamenByDificultad(List<dynamic> filtros)
         {
@@ -198,7 +199,7 @@ namespace Quizify.Services
             examen.EliminarPreguntaDeExamen(id_ex,id_preg);
         }
         public DataTable EstadisticasExamenPreguntas(int id_ex) {
-            return examen.EstadisticasExamenPreguntas(id_ex);
+            return fachada.EstadisticasExamenPreguntas(id_ex);
         }
         public DataTable GetPreguntasDesarrolloExamen(int id_ex) {
             return examen.GetPreguntasDesarrolloExamen(id_ex);

@@ -48,7 +48,7 @@ namespace UniTestingDDS
             string enunciado = RandomString(16);
             int ultimoid = serv.UltimoIdPregunta();
 
-            List<dynamic> paramtest = new List<dynamic>{1,"hola","hola2","hola3"};
+            List<dynamic> paramtest = new List<dynamic>{1,RandomString(6),RandomString(6),RandomString(6)};
             Pregunta2 test = fpreg.CrearPregunta2(ultimoid+1,1,enunciado,"test",1,"patricio@gmail.com","PSW","",paramtest);
             serv.AddPregunta(test);
 
@@ -56,7 +56,7 @@ namespace UniTestingDDS
             Pregunta2 vf = fpreg.CrearPregunta2(ultimoid+2,1,enunciado,"vf",1,"patricio@gmail.com","PSW","",paramvf);
             serv.AddPregunta(vf);
 
-            List<dynamic> parammult = new List<dynamic>{101,"hola","hola2","hola3"};
+            List<dynamic> parammult = new List<dynamic>{101,RandomString(6),RandomString(6),RandomString(6)};
             Pregunta2 mult = fpreg.CrearPregunta2(ultimoid+3,1,enunciado,"mult",1,"patricio@gmail.com","PSW","",parammult);
             serv.AddPregunta(mult);
 
@@ -68,6 +68,19 @@ namespace UniTestingDDS
             Assert.AreEqual(vf.GetId(), serv.GetPregunta(ultimoid+2,1).GetId());
             Assert.AreEqual(mult.GetId(), serv.GetPregunta(ultimoid+3,1).GetId());
             Assert.AreEqual(des.GetId(), serv.GetPregunta(ultimoid+4,1).GetId());
+        }
+
+        [TestMethod]
+        public void TestExamen() {
+            List<int> lista = new List<int>{11,1,3,12,1,6,13,1,6,14,1,2,15,1,2,16,1,7,17,1,4};
+            int x = serv.UltimoIdExamen()+1;
+
+            Examen ex = fex.CrearExamen(x,RandomString(6),RandomString(16),"PSW","patricio@gmail.com",
+            60,System.DateTime.Now,System.DateTime.Now.AddDays(1),System.DateTime.Now.AddDays(12),5,1,0,0,lista,"Borrador","Normal");
+
+            serv.AddExamen(ex);
+
+            Assert.AreEqual(ex.GetTitulo(),serv.GetExamen(x).GetTitulo());
         }
     }
 }
