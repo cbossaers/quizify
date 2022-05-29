@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Quizify.Services;
+using Quizify.Entities;
 
 namespace QuizifyIU
 {
@@ -17,6 +18,7 @@ namespace QuizifyIU
 
         private Form currentChildForm;
         public static bool ingles;
+        public Singleton singleton = new Singleton();
 
         public Principal(NuevoServicio servicio)
         {
@@ -37,9 +39,9 @@ namespace QuizifyIU
 
              user = null;
 
-            try { user = servicio.GetAlumno(emailField.Texts); } 
+            try { user = singleton.GetAlumno(emailField.Texts); } 
             catch (Exception) {
-                try { user = servicio.GetProfesor(emailField.Texts); } 
+                try { user = singleton.GetProfesor(emailField.Texts); } 
                 catch (Exception) { DialogResult answer = MessageBox.Show(this, "Esta persona no está registrada", 
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
