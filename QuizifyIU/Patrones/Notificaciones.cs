@@ -7,11 +7,8 @@ namespace QuizifyIU {
     public partial class Notificaciones{
 
         public DataTable pila { get; set; }
-
         public List<Observador> suscriptores { get; set; }
-
         public Form1 portal { get; set; }
-
         public Notificaciones(Form1 portal) {
             pila = new DataTable();
             suscriptores = new List<Observador>();
