@@ -16,6 +16,7 @@ namespace Quizify.Entities
             this.fechaCreacion = fechaCreacion;
             this.contraseña = contraseña;
             this.listaAl = listaAlumnos;
+            
         }
 
         public string GetCodigo()
