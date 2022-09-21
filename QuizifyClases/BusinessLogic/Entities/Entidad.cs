@@ -11,6 +11,7 @@ namespace Quizify.Entities
         public string GetCorreo()
         {
             return correo;
+            
         }
         public void SetCorreo(string correo)
         {
