@@ -7,8 +7,8 @@ The program has been developed in C# and WinForms. The persistence section has u
 
 
 # Collaborators
-Back-end: [cbossaers](https://github.com/cbossaers)
-Front-end: [CesarAC-Dev](https://github.com/CesarAC-Dev)
-Others: Santiago Cunillera and Paul López
+Back-end: [cbossaers](https://github.com/cbossaers)  
+Front-end: [CesarAC-Dev](https://github.com/CesarAC-Dev)  
+Others: Santiago Cunillera and Paul López  
 
 ![image](https://user-images.githubusercontent.com/104782329/176183872-bca85b5a-370e-4c4e-9f85-e669501aea3d.png)
